@@ -1,7 +1,7 @@
-:HL["/test/764179-preview/_next/static/chunks/1pbotk8sejg90.css","style"]
+:HL["/test/764179-preview/_next/static/chunks/44f0nsepwlvo5.css","style"]
 :HL["/test/764179-preview/_next/static/media/inter_var-s.p.0gsaq8ukbf34m.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/test/764179-preview/_next/static/media/vazirmatn_var-s.p.0tzxgo2fuaf-x.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 3:[["children",{"s":"__PAGE__","h":160}]]
 2:[["children",{"s":{"n":"slug","t":"d","k":"sepehr-tower","s":[]},"h":96,"c":"$Q3"}]]
 1:[["children",{"s":"projects","h":96,"c":"$Q2"}]]
-0:{"b":"7JDfmoQVuacgEwc9mGH43","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"aWlRv7OD6IBNfE07EgFh0","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
