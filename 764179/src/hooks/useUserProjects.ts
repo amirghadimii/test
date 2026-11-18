@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import {
   PROJECTS_EVENT,
   readUserProjects,
@@ -8,33 +8,34 @@ import {
   type UserProject,
 } from "@/lib/storage";
 
+function subscribe(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener(PROJECTS_EVENT, callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener(PROJECTS_EVENT, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
+const emptyProjects: UserProject[] = [];
+
 export function useUserProjects() {
-  const [items, setItems] = useState<UserProject[]>([]);
-  const [ready, setReady] = useState(false);
-
-  const refresh = useCallback(() => {
-    setItems(readUserProjects());
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    refresh();
-    const onChange = () => refresh();
-    window.addEventListener(PROJECTS_EVENT, onChange);
-    window.addEventListener("storage", onChange);
-    return () => {
-      window.removeEventListener(PROJECTS_EVENT, onChange);
-      window.removeEventListener("storage", onChange);
-    };
-  }, [refresh]);
-
-  const persist = useCallback(
-    (next: UserProject[]) => {
-      setItems(next);
-      writeUserProjects(next);
-    },
-    [],
+  const items = useSyncExternalStore(
+    subscribe,
+    readUserProjects,
+    () => emptyProjects,
   );
 
-  return { items, ready, persist, refresh };
+  const refresh = useCallback(() => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent(PROJECTS_EVENT));
+    }
+  }, []);
+
+  const persist = useCallback((next: UserProject[]) => {
+    writeUserProjects(next);
+  }, []);
+
+  return { items, ready: true, persist, refresh };
 }

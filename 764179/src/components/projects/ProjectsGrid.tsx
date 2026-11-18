@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useLang } from "@/i18n/LanguageProvider";
+import { formatProjectYear, formatNumber, formatIndex } from "@/lib/utils";
 import { CATEGORY_ORDER, projects, type CategoryKey } from "@/data/projects";
 import { useUserProjects } from "@/hooks/useUserProjects";
 import ProjectCard from "@/components/projects/ProjectCard";
@@ -30,7 +31,7 @@ export default function ProjectsGrid() {
       href: `/projects/${project.slug}`,
       title: project.title,
       category: project.category,
-      year: lang === "fa" ? String(project.jalali) : String(project.year),
+      year: formatProjectYear(project, lang),
       location: project.location || "—",
       image: project.image,
     }));
@@ -40,7 +41,7 @@ export default function ProjectsGrid() {
       href: `/projects/${project.slug}`,
       title: project.title[lang],
       category: project.category,
-      year: lang === "fa" ? String(project.jalali) : String(project.year),
+      year: formatProjectYear(project, lang),
       location: project.location[lang],
       image: project.cover,
     }));
@@ -89,13 +90,13 @@ export default function ProjectsGrid() {
               >
                 {item.label}
                 <span className={active ? "text-white/60" : "text-smoke"}>
-                  {counts[item.key] ?? 0}
+                  {formatNumber(counts[item.key] ?? 0, lang)}
                 </span>
               </button>
             );
           })}
           <span className="ms-auto hidden shrink-0 text-xs text-smoke md:block">
-            {filtered.length} {t.projects.count}
+            {formatNumber(filtered.length, lang)} {t.projects.count}
           </span>
         </div>
       </div>
@@ -114,7 +115,7 @@ export default function ProjectsGrid() {
               >
                 <ProjectCard
                   href={item.href}
-                  index={String(index + 1).padStart(2, "0")}
+                  index={formatIndex(index + 1, lang)}
                   title={item.title}
                   category={t.projects.filters[item.category]}
                   year={item.year}

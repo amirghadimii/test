@@ -24,25 +24,70 @@ export default function Reveal({
     const node = ref.current;
     if (!node) return;
 
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
+    let frameId: number | null = null;
+    const revealNow = () => {
+      frameId = requestAnimationFrame(() => setVisible(true));
+    };
+
+    // 1. Accessibility: if reduced motion is preferred, reveal immediately
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      revealNow();
+      return () => {
+        if (frameId) cancelAnimationFrame(frameId);
+      };
     }
 
+    // 2. IntersectionObserver unsupported: reveal immediately
+    if (typeof IntersectionObserver === "undefined") {
+      revealNow();
+      return () => {
+        if (frameId) cancelAnimationFrame(frameId);
+      };
+    }
+
+    // 3. Immediate viewport check: if already in or near viewport, reveal without delay
+    try {
+      const rect = node.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top <= viewportHeight + 80 && rect.bottom >= -40) {
+        revealNow();
+        return () => {
+          if (frameId) cancelAnimationFrame(frameId);
+        };
+      }
+    } catch {
+      // In case getBoundingClientRect fails
+    }
+
+    // 4. Safety fallback timer: content MUST NEVER stay invisible if reveal fails
+    const safetyTimer = window.setTimeout(() => {
+      setVisible(true);
+    }, 1200);
+
+    // 5. Permissive observer: low threshold and comfortable margin so it reveals ahead of scroll
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
             observer.unobserve(entry.target);
+            clearTimeout(safetyTimer);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.01, rootMargin: "0px 0px 60px 0px" },
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      clearTimeout(safetyTimer);
+      observer.disconnect();
+    };
   }, []);
 
   const variantClass =

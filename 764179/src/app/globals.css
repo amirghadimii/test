@@ -276,23 +276,34 @@
 }
 
 @layer utilities {
+  /* Default progressive enhancement: content is visible so it never blanks */
   .reveal {
-    opacity: 0;
-    transform: translate3d(0, 26px, 0);
-    transition: opacity 0.95s var(--ease-lux), transform 0.95s var(--ease-lux);
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.85s var(--ease-lux), transform 0.85s var(--ease-lux);
   }
 
-  .reveal.is-in {
+  .reveal-mask {
+    clip-path: none;
+    transition: clip-path 1s var(--ease-lux);
+  }
+
+  /* When JS is active, apply luxury scroll reveal */
+  html.js .reveal:not(.is-in) {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  html.js .reveal.is-in {
     opacity: 1;
     transform: none;
   }
 
-  .reveal-mask {
+  html.js .reveal-mask:not(.is-in) {
     clip-path: inset(0 0 100% 0);
-    transition: clip-path 1.15s var(--ease-lux);
   }
 
-  .reveal-mask.is-in {
+  html.js .reveal-mask.is-in {
     clip-path: inset(0 0 0 0);
   }
 

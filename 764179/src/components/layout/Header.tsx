@@ -28,15 +28,25 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
     setMenuOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    if (menuOpen) window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
   const overlay = pathname === "/" && !scrolled && !menuOpen;
@@ -151,7 +161,7 @@ export default function Header() {
                 style={{ animationDelay: `${index * 55}ms` }}
               >
                 <span>{link.label}</span>
-                <ArrowIcon className="h-5 w-5 opacity-40" />
+                <ArrowIcon className="h-5 w-5 opacity-40 rtl:-scale-x-100" />
               </Link>
             ))}
           </nav>

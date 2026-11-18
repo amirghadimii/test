@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLang } from "@/i18n/LanguageProvider";
+import { formatProjectYear } from "@/lib/utils";
 import { featuredProjects } from "@/data/projects";
 import SmartImage from "@/components/ui/SmartImage";
 import { ArrowIcon } from "@/components/ui/Icons";
@@ -80,7 +81,7 @@ export default function Hero() {
             <span className="text-white">{heroProject.title[lang]}</span>
             <span className="hidden sm:inline text-white/40">
               {heroProject.location[lang]} ·{" "}
-              {lang === "fa" ? heroProject.jalali : heroProject.year}
+              {formatProjectYear(heroProject, lang)}
             </span>
           </div>
           <span className="flex items-center gap-2">

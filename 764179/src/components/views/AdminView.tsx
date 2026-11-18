@@ -6,7 +6,7 @@ import { useLang } from "@/i18n/LanguageProvider";
 import { CATEGORY_ORDER, type CategoryKey, type StatusKey } from "@/data/projects";
 import { useUserProjects } from "@/hooks/useUserProjects";
 import { addUserProject, removeUserProject } from "@/lib/storage";
-import { slugify } from "@/lib/utils";
+import { slugify, toAsciiDigits, formatProjectYear } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
 import SmartImage from "@/components/ui/SmartImage";
 import { ArrowIcon } from "@/components/ui/Icons";
@@ -34,7 +34,8 @@ const isValidImageUrl = (value: string) => {
 
 const parseYear = (raw: number) => {
   if (raw >= 2000 && raw <= 2035) return { gregorian: raw, jalali: raw - 621 };
-  return { gregorian: raw + 621, jalali: raw };
+  if (raw >= 1380 && raw <= 1410) return { gregorian: raw + 621, jalali: raw };
+  return { gregorian: raw, jalali: raw - 621 };
 };
 
 export default function AdminView() {
@@ -43,7 +44,15 @@ export default function AdminView() {
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState<CategoryKey>("arch");
-  const [year, setYear] = useState("1403");
+  const [year, setYear] = useState(isFa ? "1403" : "2024");
+  const [prevLang, setPrevLang] = useState(lang);
+  if (prevLang !== lang) {
+    setPrevLang(lang);
+    if (year === "1403" || year === "2024") {
+      setYear(lang === "fa" ? "1403" : "2024");
+    }
+  }
+
   const [image, setImage] = useState("");
   const [location, setLocation] = useState("");
   const [area, setArea] = useState("");
@@ -53,10 +62,9 @@ export default function AdminView() {
   const [saved, setSaved] = useState(false);
 
   const [messages, setMessages] = useState<Message[]>([]);
-  const [messagesLoading, setMessagesLoading] = useState(false);
+  const [messagesLoading, setMessagesLoading] = useState(true);
 
   const loadMessages = useCallback(async () => {
-    setMessagesLoading(true);
     try {
       const response = await fetch("/api/contact/messages", { cache: "no-store" });
       if (response.ok) {
@@ -79,16 +87,23 @@ export default function AdminView() {
   }, []);
 
   useEffect(() => {
-    loadMessages();
+    const timer = setTimeout(() => {
+      void loadMessages();
+    }, 0);
+    return () => clearTimeout(timer);
   }, [loadMessages]);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const next: AdminErrors = {};
-    const parsedYear = Number(year);
+    const cleanedYear = toAsciiDigits(year.trim());
+    const parsedYear = Number(cleanedYear);
 
     if (title.trim().length < 2) next.title = t.admin.errors.title;
-    if (!Number.isFinite(parsedYear) || parsedYear < 1380 || parsedYear > 1410) {
+    const isYearValid =
+      Number.isFinite(parsedYear) &&
+      ((parsedYear >= 1380 && parsedYear <= 1410) || (parsedYear >= 2000 && parsedYear <= 2035));
+    if (!isYearValid) {
       next.year = t.admin.errors.year;
     }
     if (!isValidImageUrl(image)) next.image = t.admin.errors.image;
@@ -191,10 +206,11 @@ export default function AdminView() {
                   </label>
                   <input
                     id="p-year"
-                    type="number"
+                    type="text"
                     inputMode="numeric"
                     value={year}
                     onChange={(event) => setYear(event.target.value)}
+                    placeholder={isFa ? "۱۴۰۳ یا 2024" : "2024 or 1403"}
                     dir="ltr"
                     className="field mt-3 text-start"
                     aria-invalid={Boolean(errors.year)}
@@ -294,7 +310,7 @@ export default function AdminView() {
                     setLocation("");
                     setArea("");
                     setDescription("");
-                    setYear("1403");
+                    setYear(isFa ? "1403" : "2024");
                     setErrors({});
                     setSaved(false);
                   }}
@@ -334,7 +350,7 @@ export default function AdminView() {
                         <p className="truncate text-sm font-medium">{project.title}</p>
                         <p className="mt-1 text-xs text-smoke">
                           {t.projects.filters[project.category]} ·{" "}
-                          {lang === "fa" ? project.jalali : project.year}
+                          {formatProjectYear(project, lang)}
                         </p>
                         <div className="mt-3 flex items-center gap-4 text-xs">
                           <Link

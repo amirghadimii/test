@@ -37,7 +37,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const stored = window.localStorage.getItem(LANG_STORAGE_KEY);
-      if (stored === "fa" || stored === "en") setLangState(stored);
+      if (stored === "fa" || stored === "en") {
+        requestAnimationFrame(() => setLangState(stored));
+      }
     } catch {
       /* storage unavailable — keep default */
     }
@@ -100,9 +102,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 }
 
 export function useLang(): LanguageContextValue {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) {
-    throw new Error("useLang must be used inside <LanguageProvider>");
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLang must be used within a LanguageProvider");
   }
-  return ctx;
+  return context;
 }

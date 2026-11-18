@@ -367,7 +367,7 @@ const fa = {
     },
     errors: {
       title: "عنوان پروژه را بنویسید.",
-      year: "سال باید بین ۱۳۸۰ تا ۱۴۱۰ باشد.",
+      year: "سال باید بین ۱۳۸۰ تا ۱۴۱۰ یا ۲۰۰۰ تا ۲۰۳۵ باشد.",
       image: "یک نشانی معتبر تصویر وارد کنید (https://…).",
       general: "ثبت پروژه انجام نشد.",
     },
@@ -805,7 +805,7 @@ const en: typeof fa = {
     },
     errors: {
       title: "Please enter a project title.",
-      year: "The year must be between 1380 and 1410.",
+      year: "The year must be between 1380 and 1410 (Jalali) or 2000 and 2035 (Gregorian).",
       image: "Please enter a valid image URL (https://…).",
       general: "The project could not be saved.",
     },

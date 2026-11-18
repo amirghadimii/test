@@ -20,14 +20,28 @@ export type UserProject = {
 
 const isBrowser = () => typeof window !== "undefined";
 
+let cachedRaw: string | null = null;
+let cachedList: UserProject[] = [];
+
 export function readUserProjects(): UserProject[] {
   if (!isBrowser()) return [];
   try {
     const raw = window.localStorage.getItem(PROJECTS_STORAGE_KEY);
-    if (!raw) return [];
+    if (!raw) {
+      cachedRaw = null;
+      cachedList = [];
+      return cachedList;
+    }
+    if (raw === cachedRaw) {
+      return cachedList;
+    }
+    cachedRaw = raw;
     const parsed: unknown = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return [];
-    return parsed.filter((item): item is UserProject => {
+    if (!Array.isArray(parsed)) {
+      cachedList = [];
+      return cachedList;
+    }
+    cachedList = parsed.filter((item): item is UserProject => {
       if (!item || typeof item !== "object") return false;
       const candidate = item as Partial<UserProject>;
       return (
@@ -37,15 +51,19 @@ export function readUserProjects(): UserProject[] {
         typeof candidate.image === "string"
       );
     });
+    return cachedList;
   } catch {
-    return [];
+    return cachedList;
   }
 }
 
 export function writeUserProjects(list: UserProject[]): void {
   if (!isBrowser()) return;
   try {
-    window.localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(list));
+    const str = JSON.stringify(list);
+    cachedRaw = str;
+    cachedList = list;
+    window.localStorage.setItem(PROJECTS_STORAGE_KEY, str);
     window.dispatchEvent(new CustomEvent(PROJECTS_EVENT));
   } catch {
     /* quota or private mode — ignore */

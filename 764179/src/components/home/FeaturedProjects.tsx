@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLang } from "@/i18n/LanguageProvider";
+import { formatProjectYear, formatIndex } from "@/lib/utils";
 import { featuredProjects } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard";
 import Reveal from "@/components/ui/Reveal";
@@ -54,10 +55,10 @@ export default function FeaturedProjects() {
             >
               <ProjectCard
                 href={`/projects/${project.slug}`}
-                index={index}
+                index={formatIndex(index, lang)}
                 title={project.title[lang]}
                 category={t.projects.filters[project.category]}
-                year={lang === "fa" ? String(project.jalali) : String(project.year)}
+                year={formatProjectYear(project, lang)}
                 location={project.location[lang]}
                 image={project.cover}
                 alt={project.title[lang]}

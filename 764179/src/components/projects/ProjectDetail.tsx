@@ -9,7 +9,7 @@ import SmartImage from "@/components/ui/SmartImage";
 import Reveal from "@/components/ui/Reveal";
 import JsonLd from "@/components/seo/JsonLd";
 import { ArrowIcon } from "@/components/ui/Icons";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber, formatProjectYear } from "@/lib/utils";
 import { SITE } from "@/lib/site";
 
 type SpecItem = { label: string; value: string };
@@ -241,7 +241,7 @@ export default function ProjectDetail({ slug }: { slug: string }) {
               </h2>
               <p className="mt-3 text-sm text-smoke">
                 {t.projects.filters[nextProject.category]} ·{" "}
-                {lang === "fa" ? nextProject.jalali : nextProject.year}
+                {formatProjectYear(nextProject, lang)}
               </p>
             </div>
             <span className="flex h-14 w-14 items-center justify-center rounded-full border border-ash transition-colors duration-500 group-hover:bg-ink group-hover:text-paper">

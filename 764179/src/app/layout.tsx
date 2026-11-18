@@ -107,7 +107,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} ${inter.variable}`}>
       <body className="bg-paper text-ink antialiased">
         <Script id="ark-lang-init" strategy="beforeInteractive">
-          {`try{var l=localStorage.getItem('ark.lang');var e=(l==='en');document.documentElement.lang=e?'en':'fa';document.documentElement.dir=e?'ltr':'rtl';document.documentElement.dataset.lang=e?'en':'fa';}catch(err){}`}
+          {`try{document.documentElement.classList.add('js');var l=localStorage.getItem('ark.lang');var e=(l==='en');document.documentElement.lang=e?'en':'fa';document.documentElement.dir=e?'ltr':'rtl';document.documentElement.dataset.lang=e?'en':'fa';}catch(err){}`}
         </Script>
         <LanguageProvider>
           <Header />

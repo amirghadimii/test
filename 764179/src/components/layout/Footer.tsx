@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { useLang } from "@/i18n/LanguageProvider";
 import { ArrowIcon, ArrowUpIcon } from "@/components/ui/Icons";
+import { getCurrentYear } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
 
 export default function Footer() {
@@ -71,7 +72,7 @@ export default function Footer() {
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 transition-colors duration-300 hover:bg-white hover:text-ink"
                     aria-label={t.footer.newsButton}
                   >
-                    <ArrowIcon />
+                    <ArrowIcon className="rtl:-scale-x-100" />
                   </button>
                 </div>
               </form>
@@ -151,7 +152,7 @@ export default function Footer() {
 
       <div className="shell flex flex-col items-start justify-between gap-4 border-t border-white/12 py-7 text-xs text-white/45 sm:flex-row sm:items-center">
         <p>
-          © {new Date().getFullYear()} {t.brand.name} — {t.footer.rights}
+          © {getCurrentYear(lang)} {t.brand.name} — {t.footer.rights}
         </p>
         <div className="flex items-center gap-6">
           <span>{t.footer.madeIn}</span>
