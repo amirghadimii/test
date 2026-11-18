@@ -1,0 +1,5 @@
+# Master prompt — 764093 NOKAM specialty coffee shop
+Build the "NOKAM" specialty coffee e-commerce demo: homepage with brand story and categories (beans, ground, equipment), full product page (roast level, tasting notes, weight and grind selection, periodic subscription), advanced search and filters, user wallet and loyalty club (points and tiers), cart and checkout with gateway and installment option, display multi-currency pricing (Toman/USD/AED), SEO signals (Product schema). Persian RTL, warm coffee identity.
+Reference pattern: a top specialty-coffee store (purchase experience + subscription model).
+## Status / your task
+The repo contains a WORKING static prototype (index.html + app.js + style.css) implementing all of the above. Improve it: better visual polish, UX details, performance and code quality; change anything you judge weak; keep every feature working (search/filters, product modal, cart, checkout incl. wallet + installments, loyalty, currency toggle). Verify by running it, then commit and push to main.

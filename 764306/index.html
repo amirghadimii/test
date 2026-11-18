@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaTrade — Five-Language Corporate & Shop Demo</title>
+<meta name="description" content="Multilingual corporate and shop website demo in Persian, English, Arabic, Turkish and Russian.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-in">
+    <a class="logo" href="#" data-nav="home">Nova<span>Trade</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#" data-nav="home" data-i18n="nav_home">خانه</a>
+      <a href="#" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات</a>
+      <a href="#" data-nav="articles" data-i18n="nav_articles">مقالات</a>
+      <a href="#" data-nav="club" data-i18n="nav_club">باشگاه مشتریان</a>
+      <a href="#" data-nav="warranty" data-i18n="nav_warranty">گارانتی و خدمات</a>
+      <a href="#" data-nav="about" data-i18n="nav_about">درباره ما</a>
+      <a href="#" data-nav="contact" data-i18n="nav_contact">تماس</a>
+    </nav>
+    <div class="header-tools">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langBtn" aria-haspopup="true">🌐 <span id="langCurrent">فارسی</span> ▾</button>
+        <div class="lang-menu" id="langMenu">
+          <button data-lang="fa">🇮🇷 فارسی</button>
+          <button data-lang="en">🇬🇧 English</button>
+          <button data-lang="ar">🇸🇦 العربية</button>
+          <button data-lang="tr">🇹🇷 Türkçe</button>
+          <button data-lang="ru">🇷🇺 Русский</button>
+        </div>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1600&q=80" alt="Industrial">
+      <div class="hero-overlay">
+        <div class="container">
+          <h1 data-i18n="hero_title">تجهیزات صنعتی و تجاری، با پشتیبانی پنج‌زبانه</h1>
+          <p data-i18n="hero_sub">فروش، گارانتی و خدمات پس از فروش در ایران و بازارهای منطقه</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#" data-scroll="products" data-i18n="hero_cta_products">مشاهده محصولات</a>
+            <a class="btn ghost" href="#" data-nav="contact" data-i18n="hero_cta_contact">درخواست مشاوره</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="categories">
+      <h2 class="sec-title" data-i18n="cats_title">دسته‌بندی محصولات</h2>
+      <div class="cats-grid" id="catsGrid"></div>
+    </div>
+
+    <div class="container" id="products">
+      <h2 class="sec-title" data-i18n="products_title">محصولات</h2>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="productGrid"></div>
+    </div>
+
+    <div class="container">
+      <h2 class="sec-title" data-i18n="featured_title">محصولات منتخب</h2>
+      <div class="grid" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <!-- PRODUCT DETAIL -->
+  <section class="view" id="view-product">
+    <div class="container">
+      <button class="btn small" id="backBtn" data-i18n="back">← بازگشت</button>
+      <div class="product-layout">
+        <div class="gallery">
+          <img id="galMain" class="gal-main" src="" alt="Product">
+          <div class="gal-thumbs" id="galThumbs"></div>
+        </div>
+        <div class="p-info">
+          <h1 id="pName"></h1>
+          <p class="p-price" id="pPrice"></p>
+          <p id="pDesc"></p>
+          <h3 data-i18n="specs">مشخصات فنی</h3>
+          <table class="specs" id="pSpecs"></table>
+          <div class="p-actions">
+            <button class="btn primary" id="catalogBtn" data-i18n="download_catalog">دانلود کاتالوگ (PDF)</button>
+            <button class="btn" id="videoBtn" data-i18n="watch_video">🎬 ویدئوی معرفی</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="view" id="view-articles">
+    <div class="container">
+      <h2 class="sec-title" data-i18n="articles_title">مقالات و اخبار</h2>
+      <div class="grid" id="articleGrid"></div>
+      <article class="article-body" id="articleBody" hidden>
+        <button class="btn small" id="articleBack" data-i18n="back">← بازگشت</button>
+        <h2 id="articleTitle"></h2>
+        <p id="articleText"></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CUSTOMER CLUB -->
+  <section class="view" id="view-club">
+    <div class="container narrow">
+      <h2 class="sec-title" data-i18n="club_title">باشگاه مشتریان</h2>
+      <p data-i18n="club_text">با عضویت در باشگاه مشتریان از تخفیف‌های دوره‌ای، اولویت خدمات و امتیاز خرید بهره‌مند شوید.</p>
+      <form id="clubForm" novalidate>
+        <label><span data-i18n="f_name">نام و نام خانوادگی</span><input type="text" id="clubName" required></label>
+        <label><span data-i18n="f_mobile">موبایل</span><input type="tel" id="clubMobile" required></label>
+        <label><span data-i18n="f_email">ایمیل</span><input type="email" id="clubEmail"></label>
+        <p class="err" id="clubErr"></p>
+        <button class="btn primary" type="submit" data-i18n="join">عضویت</button>
+        <p class="ok" id="clubOk" hidden data-i18n="success">ثبت شد! خوش آمدید.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- WARRANTY -->
+  <section class="view" id="view-warranty">
+    <div class="container narrow">
+      <h2 class="sec-title" data-i18n="warranty_title">گارانتی و خدمات پس از فروش</h2>
+      <p data-i18n="warranty_text">همه محصولات دارای ۱۸ ماه گارانتی و ۱۰ سال خدمات پس از فروش هستند. برای ثبت درخواست خدمات فرم زیر را تکمیل کنید.</p>
+      <form id="warrantyForm" novalidate>
+        <label><span data-i18n="f_name">نام و نام خانوادگی</span><input type="text" id="wName" required></label>
+        <label><span data-i18n="f_mobile">موبایل</span><input type="tel" id="wMobile" required></label>
+        <label><span data-i18n="f_serial">شماره سریال دستگاه</span><input type="text" id="wSerial" required></label>
+        <label><span data-i18n="f_issue">شرح مشکل</span><textarea id="wIssue" rows="3" required></textarea></label>
+        <p class="err" id="wErr"></p>
+        <button class="btn primary" type="submit" data-i18n="send_request">ثبت درخواست</button>
+        <p class="ok" id="wOk" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="view" id="view-about">
+    <div class="container narrow">
+      <h2 class="sec-title" data-i18n="about_title">درباره ما</h2>
+      <img class="about-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80" alt="Office">
+      <p data-i18n="about_text">گروه صنعتی و بازرگانی NovaTrade از سال ۱۳۸۵ در زمینه تأمین و فروش تجهیزات صنعتی و تجاری فعالیت می‌کند و امروز با شبکه فروش و خدمات در پنج کشور منطقه، به مشتریان فارسی، انگلیسی، عربی، ترکی و روسی‌زبان خدمت می‌دهد.</p>
+      <div class="stats">
+        <div><b>18+</b><span data-i18n="stat_years">سال تجربه</span></div>
+        <div><b>5</b><span data-i18n="stat_langs">زبان پشتیبانی</span></div>
+        <div><b>12k+</b><span data-i18n="stat_clients">مشتری سازمانی</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" id="view-contact">
+    <div class="container narrow">
+      <h2 class="sec-title" data-i18n="contact_title">تماس با ما</h2>
+      <p>📍 <span data-i18n="address">تهران، خیابان ولیعصر، پلاک ۱۲۴۰</span> · ☎ +98 21 8877 6655 · ✉ sales@novatrade.example</p>
+      <form id="contactForm" novalidate>
+        <label><span data-i18n="f_name">نام و نام خانوادگی</span><input type="text" id="cName" required></label>
+        <label><span data-i18n="f_mobile">موبایل</span><input type="tel" id="cMobile" required></label>
+        <label><span data-i18n="f_subject">موضوع</span><input type="text" id="cSubject"></label>
+        <label><span data-i18n="f_message">پیام</span><textarea id="cMsg" rows="4" required></textarea></label>
+        <p class="err" id="cErr"></p>
+        <button class="btn primary" type="submit" data-i18n="send">ارسال پیام</button>
+        <p class="ok" id="cOk" hidden data-i18n="success_msg">پیام شما ثبت شد؛ به‌زودی پاسخ می‌دهیم.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span class="logo">Nova<span>Trade</span></span>
+    <p data-i18n="footer_text">© ۲۰۲۶ NovaTrade — نسخه نمایشی پنج‌زبانه برای پیشنهاد پروژه</p>
+  </div>
+</footer>
+
+<!-- Floating quick contact -->
+<div class="quick-contact" id="quickContact">
+  <div class="qc-items" id="qcItems">
+    <a class="qc-item phone" href="tel:+982188776655" title="Phone">☎</a>
+    <a class="qc-item whatsapp" href="https://wa.me/989121234567" target="_blank" rel="noopener" title="WhatsApp">🟢</a>
+    <a class="qc-item bale" href="https://ble.ir/novatrade" target="_blank" rel="noopener" title="Bale">بله</a>
+    <a class="qc-item rubika" href="https://rubika.ir/novatrade" target="_blank" rel="noopener" title="Rubika">روبیکا</a>
+    <a class="qc-item eitaa" href="https://eitaa.com/novatrade" target="_blank" rel="noopener" title="Eitaa">ایتا</a>
+  </div>
+  <button class="qc-main" id="qcMain" aria-label="Quick contact">💬</button>
+</div>
+
+<!-- Video modal -->
+<div class="modal" id="videoModal" hidden>
+  <div class="modal-box">
+    <button class="modal-close" id="videoClose">✕</button>
+    <h3 data-i18n="video_title">ویدئوی معرفی محصول</h3>
+    <div class="video-frame">
+      <div class="video-placeholder">
+        <span class="play">▶</span>
+        <p data-i18n="video_soon">ویدئوی معرفی محصول به‌زودی در این بخش قرار می‌گیرد.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
