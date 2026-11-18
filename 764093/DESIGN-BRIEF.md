@@ -1,3 +1,15 @@
+# ⚠ REFERENCE IMAGES — READ THIS FIRST (supersedes everything below)
+
+The `references/` folder in this project contains REAL Dribbble reference screenshots (ref-1.webp, ref-2.webp, …).
+
+1. OPEN every image in references/ BEFORE writing any code. In your plan, describe ref-1's layout section by section (hero composition, grid structure, card anatomy, spacing, type scale).
+2. BUILD THAT LAYOUT with this project's content and features. The composition, section order, grid and UX patterns must visibly come from the references — a recolor of the previous design is a FAILURE and will be rejected.
+3. Do not copy the reference's brand, text or images — only its layout system, structure and UX.
+4. RESPONSIVE IS PART OF THE DELIVERABLE: verify with screenshots at 1440px, 768px and 375px widths — no horizontal overflow, no overlapping elements, working mobile navigation, readable type at every width.
+5. Keep every feature from the brief below working; verify each one and report pass/fail per feature plus the three responsive screenshots' results.
+
+---
+
 # DESIGN BRIEF — NOKAM redesign (binding)
 
 The current design is REJECTED: it looks like generic AI UI. Redesign the visuals completely, modelled on the real references below. Keep EVERY feature working.
