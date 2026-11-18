@@ -1,0 +1,7 @@
+:HL["/_next/static/chunks/0pl5uf66t9h_2.css","style"]
+:HL["/_next/static/media/inter_var-s.p.1j27dg3h95i3k.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/vazirmatn_var-s.p.17kulbwbqyr3x.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"slug","t":"d","k":"sepehr-tower","s":[]},"h":96,"c":"$Q3"}]]
+1:[["children",{"s":"projects","h":96,"c":"$Q2"}]]
+0:{"b":"bS5a1UHUYijA6YsD27ED_","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
