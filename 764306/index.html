@@ -3,32 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n="meta_title">NovaTrade — تجهیزات صنعتی و تجاری | سامانه پنج‌زبانه</title>
-<meta name="description" id="metaDesc" content="تأمین، مشاوره تخصصی، گارانتی معتبر و خدمات پس از فروش تجهیزات صنعتی در ۵ زبان">
+<title data-i18n="meta_title">سبزنگار — مجتمع چاپ صنعتی و بسته‌بندی | سامانه بین‌المللی پنج‌زبانه</title>
+<meta name="description" id="metaDesc" content="مجتمع چاپ و بسته‌بندی سبزنگار؛ چاپ افست ۵ رنگ، جعبه و هاردباکس، کاتالوگ و مجله، ساک دستی و هدایای تبلیغاتی با گارانتی ۱۰۰٪ کیفیت و بازچاپ.">
 <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- SITE HEADER -->
 <header class="site-header" id="siteHeader">
+  <div class="cmyk-top-bar" aria-hidden="true">
+    <span class="cmyk-bar-c"></span>
+    <span class="cmyk-bar-m"></span>
+    <span class="cmyk-bar-y"></span>
+    <span class="cmyk-bar-k"></span>
+  </div>
+
   <div class="container header-in">
-    <a class="logo" href="#" data-nav="home" aria-label="NovaTrade Home">
-      <span class="logo-mark">NT</span>
-      <span class="logo-text">Nova<span>Trade</span></span>
+    <a class="logo" href="#" data-nav="home" aria-label="SabzNegar Print & Packaging Home">
+      <div class="logo-mark">
+        <span class="logo-initials">SN</span>
+        <span class="logo-reg-mark" aria-hidden="true">⌖</span>
+      </div>
+      <div class="logo-titles">
+        <span class="logo-text">سبزنگار<span> · SabzNegar</span></span>
+        <span class="logo-tagline">مجتمع چاپ صنعتی و بسته‌بندی</span>
+      </div>
     </a>
     
     <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
       <a href="#" class="nav-link active" data-nav="home" data-i18n="nav_home">خانه</a>
-      <a href="#" class="nav-link" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات</a>
-      <a href="#" class="nav-link" data-nav="articles" data-i18n="nav_articles">مقالات و دانش فنی</a>
+      <a href="#" class="nav-link" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات و سفارش چاپ</a>
+      <a href="#" class="nav-link" data-nav="articles" data-i18n="nav_articles">راهنمای تخصصی چاپ</a>
       <a href="#" class="nav-link" data-nav="club" data-i18n="nav_club">باشگاه مشتریان</a>
-      <a href="#" class="nav-link" data-nav="warranty" data-i18n="nav_warranty">گارانتی و خدمات</a>
-      <a href="#" class="nav-link" data-nav="about" data-i18n="nav_about">درباره ما</a>
+      <a href="#" class="nav-link" data-nav="warranty" data-i18n="nav_warranty">پیگیری سفارش و گارانتی</a>
+      <a href="#" class="nav-link" data-nav="about" data-i18n="nav_about">درباره مجتمع</a>
       <a href="#" class="nav-link" data-nav="contact" data-i18n="nav_contact">تماس با ما</a>
     </nav>
     
     <div class="header-tools">
-      <button class="btn btn-sm btn-outline header-quote-btn" data-nav="contact" data-i18n="nav_quote">استعلام فوری</button>
+      <button class="btn btn-sm btn-outline header-quote-btn" data-nav="contact" data-i18n="nav_quote">استعلام سریع قیمت</button>
       
       <div class="lang-switcher" id="langSwitcher">
         <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">
@@ -60,172 +76,237 @@
     <!-- HERO SECTION -->
     <div class="hero">
       <div class="hero-bg-wrapper">
-        <img class="hero-bg" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1600&q=80" alt="Industrial Technology" id="heroImg">
+        <img class="hero-bg" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&q=80" alt="SabzNegar Industrial Print House" id="heroImg">
         <div class="hero-gradient"></div>
+        <div class="hero-pattern-overlay" aria-hidden="true"></div>
       </div>
       <div class="container hero-content">
-        <div class="hero-badge" data-i18n="hero_badge">پلتفرم بازرگانی و صنعتی بین‌المللی</div>
-        <h1 class="hero-title" data-i18n="hero_title">تجهیزات صنعتی و تجاری، با پشتیبانی تخصصی پنج‌زبانه</h1>
-        <p class="hero-sub" data-i18n="hero_sub">فروش مستقیم، گارانتی طلایی ۱۸ ماهه و خدمات پس از فروش ده‌ساله در ایران و بازارهای منطقه‌ای</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#" data-scroll="products" data-i18n="hero_cta_products">مشاهده کاتالوگ محصولات</a>
-          <a class="btn btn-ghost" href="#" data-nav="contact" data-i18n="hero_cta_contact">درخواست مشاوره فنی</a>
+        <div class="hero-grid-split">
+          <div class="hero-text-side">
+            <div class="hero-badge-wrap">
+              <span class="cmyk-dot cmyk-dot-c"></span>
+              <span class="cmyk-dot cmyk-dot-m"></span>
+              <span class="cmyk-dot cmyk-dot-y"></span>
+              <span class="cmyk-dot cmyk-dot-k"></span>
+              <span class="hero-badge" data-i18n="hero_badge">مجتمع تخصصی چاپ افست و بسته‌بندی صادراتی</span>
+            </div>
+            <h1 class="hero-title" data-i18n="hero_title">چاپ و بسته‌بندی مدرن برای برترین برندهای تجاری و صنعتی</h1>
+            <p class="hero-sub" data-i18n="hero_sub">از طراحی ساختاری و قالب‌سازی تا چاپ افست ۵ رنگ هایدلبرگ، سلفون مخملی، طلاکوب و دایکات تمام‌اتوماتیک با پشتیبانی پنج‌زبانه در ایران و بازارهای منطقه‌ای.</p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#" data-scroll="products" data-i18n="hero_cta_products">مشاهده کاتالوگ و محصولات</a>
+              <a class="btn btn-ghost" href="#" data-nav="contact" data-i18n="hero_cta_contact">درخواست استعلام و مشاوره</a>
+            </div>
+          </div>
+
+          <div class="hero-editorial-card">
+            <div class="editorial-card-inner">
+              <div class="card-reg-mark top-right" aria-hidden="true">⌖</div>
+              <div class="card-reg-mark bottom-left" aria-hidden="true">⌖</div>
+              <div class="card-header-bar">
+                <span class="tech-spec-label">ISO 12647-2 CERTIFIED PROOF</span>
+                <span class="card-spec-code">SN-SPEC-2026</span>
+              </div>
+              <div class="card-spec-body">
+                <div class="spec-row-highlight">
+                  <span class="s-label">MAIN PRESS FLEET:</span>
+                  <span class="s-val">Heidelberg Speedmaster XL 106 (5-Color + Coater)</span>
+                </div>
+                <div class="spec-row-highlight">
+                  <span class="s-label">OUTPUT SPEED:</span>
+                  <span class="s-val">18,000 Sheets / Hour</span>
+                </div>
+                <div class="spec-row-highlight">
+                  <span class="s-label">COLOR FIDELITY:</span>
+                  <span class="s-val">Online Spectrophotometry ΔE &lt; 1.2</span>
+                </div>
+                <div class="spec-row-highlight">
+                  <span class="s-label">POST-PRESS:</span>
+                  <span class="s-val">Bobst Automatic Die-Cut &amp; 6-Corner Gluing</span>
+                </div>
+              </div>
+              <div class="card-cmyk-proof">
+                <div class="proof-bar">
+                  <div class="c-patch" title="Cyan 100%">C</div>
+                  <div class="m-patch" title="Magenta 100%">M</div>
+                  <div class="y-patch" title="Yellow 100%">Y</div>
+                  <div class="k-patch" title="Key Black 100%">K</div>
+                  <div class="spot-patch" title="Special Pantone Spot">SPOT</div>
+                </div>
+                <span class="proof-verified-badge">✓ ZERO-DEFECT QUALITY</span>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="hero-features">
           <div class="hf-item">
             <span class="hf-icon">🛡️</span>
             <div>
-              <strong data-i18n="stat_warranty">۱۸ ماه گارانتی طلایی</strong>
-              <small data-i18n="hf_warranty_sub">تأمین قطعات ۱۰ سال</small>
+              <strong data-i18n="stat_warranty">۱۰۰٪ گارانتی کیفیت بازچاپ</strong>
+              <small data-i18n="hf_warranty_sub">تطابق کامل رنگ و خط تا</small>
             </div>
           </div>
           <div class="hf-item">
-            <span class="hf-icon">🌍</span>
+            <span class="hf-icon">🌐</span>
             <div>
-              <strong data-i18n="stat_langs">۵ زبان پشتیبانی</strong>
+              <strong data-i18n="stat_langs">۵ زبان میز صادرات</strong>
               <small data-i18n="hf_langs_sub">FA / EN / AR / TR / RU</small>
+            </div>
+          </div>
+          <div class="hf-item">
+            <span class="hf-icon">🏢</span>
+            <div>
+              <strong data-i18n="stat_clients">۳,۵۰۰+ مشتری سازمانی</strong>
+              <small data-i18n="hf_clients_sub">برندهای معتبر و صنایع غذایی</small>
             </div>
           </div>
           <div class="hf-item">
             <span class="hf-icon">⚡</span>
             <div>
-              <strong data-i18n="stat_clients">۱۲,۰۰۰+ مشتری سازمانی</strong>
-              <small data-i18n="hf_clients_sub">پروژه‌های کلان منطقه‌ای</small>
-            </div>
-          </div>
-          <div class="hf-item">
-            <span class="hf-icon">📜</span>
-            <div>
-              <strong data-i18n="stat_years">۱۸+ سال سابقه</strong>
-              <small data-i18n="hf_years_sub">استاندارد ISO 9001:2015</small>
+              <strong data-i18n="stat_models">۱۸,۰۰۰ شیت در ساعت</strong>
+              <small data-i18n="hf_years_sub">تأسیس ۱۳۷۳ · استاندارد ISO 12647-2</small>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- CATEGORIES SECTION -->
-    <section class="section-pad bg-light" id="categories">
+    <!-- CATEGORIES SECTION (5 MAIN PRINT & PACKAGING CATEGORIES) -->
+    <section class="section categories-section" id="categoriesSection">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="section-badge" data-i18n="cats_badge">گروه‌بندی تخصصی</span>
-          <h2 class="section-title" data-i18n="cats_title">دسته‌بندی‌های تخصصی تجهیزات</h2>
-          <p class="section-desc" data-i18n="cats_sub">تأمین برترین تجهیزات صنعتی مطابق با استانداردهای بین‌المللی</p>
+        <div class="section-head text-center">
+          <div class="badge" data-i18n="cats_badge">خطوط تخصصی تولید</div>
+          <h2 class="section-title" data-i18n="cats_title">دسته‌بندی‌های چاپ و بسته‌بندی</h2>
+          <p class="section-sub" data-i18n="cats_sub">تولید انواع اقلام چاپی، بسته‌بندی صنعتی و هدایای تبلیغاتی با پیشرفته‌ترین ماشین‌آلات روز دنیا</p>
         </div>
-        <div class="cats-grid" id="catsGrid"></div>
+
+        <div class="categories-grid" id="categoryGrid">
+          <!-- Dynamically populated by app.js -->
+        </div>
       </div>
     </section>
 
-    <!-- PRODUCTS INVENTORY & FILTERING SECTION -->
-    <section class="section-pad" id="products">
+    <!-- FEATURED PRODUCTS -->
+    <section class="section featured-section">
       <div class="container">
-        <div class="section-header">
-          <span class="section-badge" data-i18n="products_badge">کاتالوگ جامع</span>
-          <h2 class="section-title" data-i18n="products_title">کاتالوگ و لیست محصولات</h2>
-          <p class="section-desc" data-i18n="products_sub">فیلتر بر اساس دسته‌بندی، زیردسته یا جستجوی مستقیم کد محصول</p>
+        <div class="section-head text-center">
+          <div class="badge" data-i18n="featured_badge">پرفروش‌ترین‌های سازمانی</div>
+          <h2 class="section-title" data-i18n="featured_title">محصولات و پروژه‌های چاپی برتر</h2>
+          <p class="section-sub" data-i18n="featured_sub">انتخاب اول مدیران مارکتینگ و برندهای صادراتی برای درخشش بسته‌بندی در قفسه بازار</p>
         </div>
 
-        <!-- SEARCH AND FILTER CONTROLS -->
-        <div class="filter-controls-wrap">
+        <div class="products-grid featured-grid" id="featuredProducts">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL PRODUCTS CATALOG & SHOP -->
+    <section class="section products-section" id="products">
+      <div class="container">
+        <div class="section-head text-center">
+          <div class="badge" data-i18n="products_badge">نمونه‌کارها و خدمات</div>
+          <h2 class="section-title" data-i18n="products_title">کاتالوگ محصولات و خدمات چاپی</h2>
+          <p class="section-sub" data-i18n="products_sub">فیلتر بر اساس دسته‌بندی، متریال یا جستجوی مستقیم کد محصول و مشخصات فنی</p>
+        </div>
+
+        <!-- SEARCH AND FILTERS -->
+        <div class="products-toolbar">
           <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="productSearch" data-i18n-placeholder="search_placeholder" placeholder="جستجوی نام کالا، مدل، توان یا مشخصات..." autocomplete="off">
-            <button class="search-clear" id="searchClear" aria-label="Clear search" hidden>✕</button>
+            <input type="text" id="productSearch" data-i18n-ph="search_placeholder" placeholder="جستجوی محصول، گرماژ، نوع چاپ یا کد کالا..." aria-label="Search Products">
+            <button class="search-clear" id="searchClear" aria-label="Clear Search" hidden>✕</button>
           </div>
-          
-          <div class="filter-tabs" id="filters"></div>
+
+          <div class="filter-tabs" id="categoryFilterTabs" role="tablist">
+            <!-- Dynamically populated by app.js -->
+          </div>
+
+          <!-- Dynamic Subcategory Pills -->
+          <div class="subfilter-container" id="subFilterContainer">
+            <span class="subfilter-label" data-i18n="filter_subcat_label">زیردسته‌ها:</span>
+            <div class="subfilter-pills" id="subFilterPills">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
         </div>
 
-        <!-- SUBCATEGORY PILLS (DYNAMIC) -->
-        <div class="subfilter-wrap" id="subfilterWrap">
-          <span class="subfilter-label" data-i18n="filter_subcat_label">زیردسته‌ها:</span>
-          <div class="subfilter-pills" id="subFilters"></div>
-        </div>
-
-        <!-- RESULTS STATS BAR -->
-        <div class="results-bar">
-          <span class="results-count" id="resultsCount"></span>
-          <button class="btn-link" id="resetFiltersBtn" data-i18n="reset_filter" hidden>↺ حذف فیلترها</button>
+        <!-- RESULTS COUNT BAR -->
+        <div class="results-meta">
+          <span id="resultsCount">نمایش ۱۰ محصول چاپی</span>
+          <button class="btn-text-link" id="resetFilterBtn" data-i18n="reset_filter" hidden>↺ بازنشانی فیلترها</button>
         </div>
 
         <!-- PRODUCTS GRID -->
-        <div class="grid products-grid" id="productGrid"></div>
-        
-        <div class="no-results" id="noProducts" hidden>
-          <div class="no-results-icon">📦</div>
+        <div class="products-grid" id="productGrid">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+        <div class="no-results" id="noProductsNotice" hidden>
+          <div class="nr-icon">📄</div>
           <h3 data-i18n="no_products_found">محصولی با مشخصات انتخابی یافت نشد.</h3>
-          <p data-i18n="no_products_hint">لطفاً عبارت دیگری را جستجو کنید یا فیلترها را بازنشانی نمایید.</p>
-          <button class="btn btn-sm btn-primary" id="resetEmptyBtn" data-i18n="reset_filter">حذف فیلترها</button>
+          <p data-i18n="no_products_hint">لطفاً عبارت دیگری را جستجو فرمایید یا فیلترهای اعمال‌شده را بازنشانی نمایید.</p>
         </div>
       </div>
     </section>
 
-    <!-- FEATURED PRODUCTS SPOTLIGHT -->
-    <section class="section-pad bg-light" id="featuredSection">
+    <!-- HOME QUICK QUOTE FORM SECTION -->
+    <section class="section home-quote-section" id="homeQuoteSection">
       <div class="container">
-        <div class="section-header">
-          <span class="section-badge" data-i18n="featured_badge">محصولات برتر</span>
-          <h2 class="section-title" data-i18n="featured_title">تجهیزات صنعتی منتخب و پرفروش</h2>
-          <p class="section-desc" data-i18n="featured_sub">انتخاب مهندسان و واحدهای صنعتی برای راندمان بالا و کارکرد پیوسته</p>
-        </div>
-        <div class="grid featured-grid" id="featuredGrid"></div>
-      </div>
-    </section>
-
-    <!-- HOME QUICK CONSULTATION FORM -->
-    <section class="section-pad" id="homeConsultation">
-      <div class="container narrow">
-        <div class="card form-card">
-          <div class="form-card-header text-center">
-            <span class="section-badge" data-i18n="home_form_badge">مشاوره اختصاصی</span>
-            <h2 class="form-title" data-i18n="home_form_title">درخواست استعلام قیمت و مشاوره فنی</h2>
-            <p class="form-subtitle" data-i18n="home_form_sub">کارشناسان بازرگانی و فنی ما ظرف حداکثر ۲ ساعت کاری با شما تماس می‌گیرند.</p>
+        <div class="quote-card-box">
+          <div class="quote-card-header">
+            <span class="badge" data-i18n="home_quote_badge">محاسبه سریع هزینه</span>
+            <h2 class="section-title" data-i18n="home_quote_title">استعلام آنی و مشاوره رایگان چاپ</h2>
+            <p class="section-sub" data-i18n="home_quote_sub">مشخصات پروژه چاپی خود را وارد نمایید؛ کارشناسان فنی سبزنگار حداکثر ظرف ۲ ساعت پیش‌فاکتور دقیق را ارسال خواهند نمود.</p>
           </div>
-          <form id="homeQuoteForm" novalidate>
+
+          <form class="universal-form" id="homeQuoteForm" novalidate>
             <div class="form-grid">
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_name">نام و نام خانوادگی <span class="req">*</span></span>
-                <input type="text" id="hqName" class="form-input" required placeholder="مثال: مهندس حسینی">
-                <span class="field-error" id="hqNameErr"></span>
-              </label>
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_mobile">شماره موبایل / تماس <span class="req">*</span></span>
-                <input type="tel" id="hqMobile" class="form-input" required placeholder="0912... یا +98...">
-                <span class="field-error" id="hqMobileErr"></span>
-              </label>
-            </div>
-            <div class="form-grid">
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_email">آدرس ایمیل</span>
-                <input type="email" id="hqEmail" class="form-input" placeholder="name@company.com">
-                <span class="field-error" id="hqEmailErr"></span>
-              </label>
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_category_interest">دسته‌بندی مورد نظر شما</span>
-                <select id="hqCat" class="form-input">
-                  <option value="pumps" data-i18n="cat_pumps">پمپ و سیستم‌های آبرسانی</option>
-                  <option value="cold" data-i18n="cat_cold">سرمایش و تجهیزات برودتی</option>
-                  <option value="hvac" data-i18n="cat_hvac">تهویه مطبوع و تأسیسات هوارسان</option>
-                  <option value="power" data-i18n="cat_power">انرژی، ژنراتور و برق اضطراری</option>
-                  <option value="tools" data-i18n="cat_tools">ابزار و تجهیزات کارگاهی</option>
-                </select>
-              </label>
-            </div>
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_message">شرح نیاز فنی یا مشخصات پروژه <span class="req">*</span></span>
-              <textarea id="hqMsg" class="form-input" rows="3" required placeholder="نوع پروژه، ظرفیت مورد نیاز، محل نصب..."></textarea>
-              <span class="field-error" id="hqMsgErr"></span>
-            </label>
-            <p class="err-box" id="hqErr" hidden></p>
-            <div class="form-action-row">
-              <button class="btn btn-primary btn-block" type="submit" data-i18n="home_form_btn">ثبت درخواست استعلام</button>
-            </div>
-            <div class="ok-box" id="hqOk" hidden>
-              <span class="ok-icon">✓</span>
-              <div>
-                <strong data-i18n="home_form_ok">درخواست شما با موفقیت ثبت شد. کارشناسان ما به‌زودی با شما تماس خواهند گرفت.</strong>
-                <p class="ok-meta" id="hqTracking"></p>
+              <div class="form-group">
+                <label for="hqName" data-i18n="f_name">نام و نام خانوادگی</label>
+                <input type="text" id="hqName" required placeholder="مثال: مهندس راد">
+                <span class="form-error" id="hqNameErr" hidden></span>
               </div>
+
+              <div class="form-group">
+                <label for="hqMobile" data-i18n="f_mobile">شماره همراه / تماس مستقیم</label>
+                <input type="tel" id="hqMobile" required placeholder="0912xxxxxxx" dir="ltr">
+                <span class="form-error" id="hqMobileErr" hidden></span>
+              </div>
+
+              <div class="form-group">
+                <label for="hqCompany" data-i18n="f_company">نام شرکت / برند تجاری</label>
+                <input type="text" id="hqCompany" placeholder="مثال: شرکت صنایع غذایی البرز">
+              </div>
+
+              <div class="form-group">
+                <label for="hqCategory" data-i18n="f_category_interest">دسته‌بندی مورد نظر شما</label>
+                <select id="hqCategory">
+                  <option value="catalogs">چاپ کاتالوگ و مجله</option>
+                  <option value="boxes" selected>بسته‌بندی و جعبه مقوایی</option>
+                  <option value="bags">ساک دستی و بسته‌بندی فروشگاهی</option>
+                  <option value="commercial">چاپ افست و دیجیتال تجاری</option>
+                  <option value="promo">هدایای تبلیغاتی و چاپ نمایشگاهی</option>
+                </select>
+              </div>
+
+              <div class="form-group full">
+                <label for="hqQuantity" data-i18n="f_message">مشخصات پروژه (تیراژ، گرماژ، ابعاد و نوع چاپ)</label>
+                <textarea id="hqQuantity" rows="3" required placeholder="مثال: تیراژ ۵۰۰۰ عدد، جعبه ایندربرد ۳۰۰ گرم با سلفون مات و طلاکوب، ابعاد ۲۰×۱۵×۵ سانتی‌متر"></textarea>
+                <span class="form-error" id="hqQuantityErr" hidden></span>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" data-i18n="send">ارسال فرم و دریافت کد رهگیری</button>
+            </div>
+
+            <div class="form-general-err" id="hqErr" hidden data-i18n="err_required">لطفاً تمامی فیلدهای الزامی ستاره‌دار را به درستی تکمیل فرمایید.</div>
+
+            <div class="form-success-box" id="hqOk" hidden>
+              <div class="fs-icon">✓</div>
+              <h4 data-i18n="success_msg">درخواست شما با موفقیت در سامانه ثبت گردید؛ کارشناسان واحد فنی سبزنگار به زودی با شما تماس خواهند گرفت.</h4>
+              <p class="fs-code" id="hqTracking">Tracking Code: SN-QUOTE-841920</p>
             </div>
           </form>
         </div>
@@ -235,453 +316,457 @@
 
   <!-- ==================== PRODUCT DETAIL VIEW ==================== -->
   <section class="view" id="view-product">
-    <div class="container">
-      <div class="product-top-bar">
-        <button class="btn btn-sm btn-ghost-dark back-btn" id="backBtn">
-          <span class="arrow-icon flip-rtl">←</span>
-          <span data-i18n="back">بازگشت به فهرست محصولات</span>
-        </button>
-        <div class="breadcrumbs" id="pBreadcrumbs"></div>
+    <div class="container section">
+      <div class="detail-nav-bar">
+        <button class="btn btn-sm btn-ghost" id="detailBackBtn">← <span data-i18n="nav_products">بازگشت به کاتالوگ</span></button>
+        <span class="detail-cat-badge" id="detailCatBadge">بسته‌بندی و جعبه مقوایی</span>
       </div>
 
-      <div class="product-layout">
-        <!-- GALLERY COLUMN -->
-        <div class="product-gallery">
-          <div class="gal-main-wrapper">
-            <img id="galMain" class="gal-main" src="" alt="Product Image">
-            <span class="badge in-stock-badge" data-i18n="in_stock">موجود و آماده تحویل</span>
-            <button class="gal-nav-btn prev" id="galPrev" aria-label="Previous image">‹</button>
-            <button class="gal-nav-btn next" id="galNext" aria-label="Next image">›</button>
+      <div class="product-detail-layout">
+        <div class="detail-gallery">
+          <div class="main-gallery-img-wrap">
+            <img id="mainGalleryImg" src="" alt="SabzNegar Product Presentation">
+            <div class="reg-crosshair" aria-hidden="true">⌖</div>
           </div>
-          <div class="gal-thumbs" id="galThumbs"></div>
-          
-          <div class="warranty-card-compact">
-            <span class="w-icon">🛡️</span>
-            <div>
-              <strong data-i18n="warranty_badge">۱۸ ماه گارانتی طلایی شرکتی</strong>
-              <p data-i18n="warranty_highlight">دارای ۱۰ سال تضمین تأمین قطعات یدکی و خدمات پس از فروش رسمی</p>
-            </div>
+          <div class="gallery-thumbs" id="galleryThumbs">
+            <!-- Thumbs dynamically added -->
           </div>
         </div>
 
-        <!-- INFO COLUMN -->
-        <div class="p-info">
-          <div class="p-tags">
-            <span class="cat-pill" id="pCatTag"></span>
-            <span class="subcat-pill" id="pSubcatTag"></span>
-            <span class="sku-tag" id="pSku"></span>
-          </div>
-          <h1 class="p-title" id="pName"></h1>
-          <div class="p-price-row">
-            <div class="p-price-val">
-              <span id="pPrice"></span>
-              <span class="p-curr" data-i18n="currency">تومان</span>
-            </div>
-            <span class="p-avail" data-i18n="in_stock">موجود در انبار مرکزی</span>
-          </div>
-          <p class="p-desc" id="pDesc"></p>
+        <div class="detail-info">
+          <div class="sku-badge" id="detailSku">SKU: SN-BOX-801</div>
+          <h1 class="detail-title" id="detailTitle">نام محصول چاپی</h1>
+          <p class="detail-desc" id="detailDesc">توضیحات و متریال ساختاری محصول چاپی و بسته‌بندی.</p>
 
-          <div class="specs-section">
-            <div class="specs-head">
-              <h3 data-i18n="specs_title">مشخصات فنی و مهندسی</h3>
-              <span class="specs-verified">ISO 9001 Compliant</span>
-            </div>
-            <div class="table-responsive">
-              <table class="specs-table" id="pSpecs"></table>
+          <div class="detail-price-box">
+            <span class="price-label" data-i18n="moq_badge">تیراژ اقتصادی:</span>
+            <span class="price-val" id="detailPrice">استعلام بر اساس تیراژ</span>
+          </div>
+
+          <div class="detail-specs-table">
+            <h3 data-i18n="specs_title">مشخصات فنی و استانداردهای تولید</h3>
+            <div class="specs-grid" id="detailSpecs">
+              <!-- Dynamically populated -->
             </div>
           </div>
 
-          <div class="p-actions">
-            <button class="btn btn-primary" id="catalogBtn">
-              <span class="btn-icon">📄</span>
-              <span data-i18n="download_catalog">دانلود کاتالوگ رسمی (PDF)</span>
+          <div class="detail-actions">
+            <button class="btn btn-primary" id="downloadCatalogBtn">
+              <span>📥</span> <span data-i18n="download_catalog">دانلود شناسنامه فنی (PDF)</span>
             </button>
-            <button class="btn btn-secondary" id="videoBtn">
-              <span class="btn-icon">🎬</span>
-              <span data-i18n="watch_video">ویدئوی معرفی محصول</span>
+            <button class="btn btn-outline" id="videoModalBtn">
+              <span>▶</span> <span data-i18n="video_title">مشاهده فرآیند چاپ و شبیه‌سازی خط تولید</span>
             </button>
-            <a class="btn btn-whatsapp" id="pWhatsAppBtn" href="https://wa.me/989121234567" target="_blank" rel="noopener">
-              <span class="btn-icon">💬</span>
-              <span data-i18n="order_inquiry">استعلام فوری در واتساپ</span>
-            </a>
+            <button class="btn btn-ghost" id="detailQuoteBtn" data-nav="contact">
+              <span>✉</span> <span data-i18n="order_inquiry">استعلام قیمت تیراژ</span>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== ARTICLES VIEW ==================== -->
+  <!-- ==================== ARTICLES / TECH INSIGHTS VIEW ==================== -->
   <section class="view" id="view-articles">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge" data-i18n="articles_badge">مرکز دانش و آموزش</span>
-        <h2 class="section-title" data-i18n="articles_title">دانشنامه و مقالات تخصصی مهندسی</h2>
-        <p class="section-desc" data-i18n="articles_sub">راهنماهای انتخاب تجهیزات، چک‌لیست‌های نگهداری و استانداردهای صنعتی روز دنیا</p>
+    <div class="container section">
+      <div class="section-head text-center">
+        <div class="badge" data-i18n="articles_badge">مرکز آموزش و دانش چاپ</div>
+        <h1 class="section-title" data-i18n="articles_title">مقالات و راهنماهای تخصصی چاپ و بسته‌بندی</h1>
+        <p class="section-sub" data-i18n="articles_sub">نکات کلیدی برای انتخاب متریال، کاهش هزینه تیراژ، استانداردهای مدیریت رنگ و تکنیک‌های بسته‌بندی لوکس</p>
       </div>
 
-      <!-- ARTICLES GRID -->
-      <div class="grid articles-grid" id="articleGrid"></div>
+      <div class="articles-grid" id="articlesGrid">
+        <!-- Dynamically populated by app.js -->
+      </div>
 
-      <!-- SINGLE ARTICLE DETAIL READER -->
-      <article class="article-reader card" id="articleBody" hidden>
-        <div class="article-reader-header">
-          <button class="btn btn-sm btn-ghost-dark" id="articleBack">
-            <span class="arrow-icon flip-rtl">←</span>
-            <span data-i18n="back_to_articles">بازگشت به مقالات</span>
-          </button>
-          <div class="article-meta-tags" id="articleMeta"></div>
+      <!-- Article Subscription Newsletter Form -->
+      <div class="article-sub-box">
+        <h3 data-i18n="articles_sub_title">عضویت در خبرنامه تخصصی صنعت چاپ</h3>
+        <p data-i18n="articles_sub_desc">ماهانه جدیدترین تحلیل‌ها و کاتالوگ ایده‌های خلاقانه بسته‌بندی را دریافت کنید.</p>
+        <form class="sub-form" id="articleSubscribeForm" novalidate>
+          <input type="text" id="asName" required data-i18n-ph="f_name" placeholder="نام و نام خانوادگی">
+          <input type="text" id="asContact" required data-i18n-ph="f_email_or_phone" placeholder="ایمیل یا شماره همراه">
+          <button type="submit" class="btn btn-primary" data-i18n="articles_sub_btn">عضویت در خبرنامه</button>
+        </form>
+        <div class="form-general-err" id="asErr" hidden data-i18n="err_required">لطفاً تمامی فیلدهای الزامی را تکمیل فرمایید.</div>
+        <div class="form-success-box" id="asOk" hidden>
+          <span class="fs-icon">✓</span> <span data-i18n="success_msg">عضویت شما با موفقیت ثبت شد.</span>
         </div>
-        <h1 class="article-full-title" id="articleTitle"></h1>
-        <div class="article-author-bar">
-          <span class="author-avatar">👨‍💼</span>
-          <div>
-            <strong id="articleAuthor"></strong>
-            <small id="articleDate"></small>
-          </div>
-          <span class="read-badge" id="articleReadTime"></span>
-        </div>
-        <div class="article-image-box">
-          <img id="articleMainImg" src="" alt="Article Banner">
-        </div>
-        <div class="article-content-body" id="articleText"></div>
-      </article>
+      </div>
+    </div>
 
-      <!-- ARTICLE NEWSLETTER FORM -->
-      <div class="card newsletter-box mt-4">
-        <div class="newsletter-in">
-          <div class="newsletter-text">
-            <h3 data-i18n="article_newsletter_title">اشتراک در بولتن فنی و مهندسی</h3>
-            <p data-i18n="article_newsletter_sub">جدیدترین مقالات تخصصی و استانداردهای روز صنعتی را در ایمیل یا پیام‌رسان دریافت کنید.</p>
-          </div>
-          <form id="articleSubscribeForm" class="newsletter-form" novalidate>
-            <input type="text" id="asName" class="form-input" required placeholder="نام شما" data-i18n-placeholder="f_name">
-            <input type="text" id="asContact" class="form-input" required placeholder="ایمیل یا موبایل" data-i18n-placeholder="f_email_or_phone">
-            <button class="btn btn-primary" type="submit" data-i18n="article_sub_btn">عضویت در خبرنامه فنی</button>
-          </form>
+    <!-- Article Reading Modal -->
+    <div class="modal" id="articleModal" role="dialog" aria-modal="true" hidden>
+      <div class="modal-backdrop" id="articleBackdrop"></div>
+      <div class="modal-box article-modal-box">
+        <div class="modal-header">
+          <h2 id="modalArticleTitle">عنوان مقاله</h2>
+          <button class="modal-close" id="articleModalClose" aria-label="Close article modal">✕</button>
         </div>
-        <p class="err-box mt-2" id="asErr" hidden></p>
-        <p class="ok-box mt-2" id="asOk" hidden data-i18n="article_sub_ok">با تشکر! اشتراک شما در خبرنامه فنی با موفقیت فعال شد.</p>
+        <div class="modal-article-meta" id="modalArticleMeta"></div>
+        <div class="modal-article-body" id="modalArticleBody"></div>
       </div>
     </div>
   </section>
 
   <!-- ==================== CUSTOMER CLUB VIEW ==================== -->
   <section class="view" id="view-club">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-badge" data-i18n="club_badge">برنامه وفاداری و مشتریان برتر</span>
-        <h2 class="section-title" data-i18n="club_title">باشگاه مشتریان و همکاران تجاری</h2>
-        <p class="section-desc" data-i18n="club_sub">به شبکه شرکای NovaTrade بپیوندید و از مزایای طلایی اختصاصی بهره‌مند شوید</p>
+    <div class="container section">
+      <div class="section-head text-center">
+        <div class="badge" data-i18n="club_badge">باشگاه شرکای سازمانی</div>
+        <h1 class="section-title" data-i18n="club_title">باشگاه مشتریان و اعتبارات B2B سبزنگار</h1>
+        <p class="section-sub" data-i18n="club_sub">به جمع خریداران دائمی و برندهای معتبر بپیوندید و از تخفیف‌های تیراژ بالا، اولویت چاپ و شرایط پرداخت اعتباری بهره‌مند شوید.</p>
       </div>
 
-      <!-- PERKS GRID -->
-      <div class="club-perks-grid">
-        <div class="perk-card">
-          <div class="perk-icon">💎</div>
-          <h3 data-i18n="club_perk1_title">تخفیف‌های پله‌ای خرید</h3>
-          <p data-i18n="club_perk1_desc">۵ تا ۱۵ درصد تخفیف ویژه برای خریدهای پروژه‌ای و تجاری اعضا</p>
+      <!-- Tiers Grid -->
+      <div class="tiers-grid">
+        <div class="tier-card bronze">
+          <div class="tier-header">
+            <span class="tier-icon">🥉</span>
+            <h3 data-i18n="club_tier_1_title">عضویت برنز (سفارش‌های اول)</h3>
+          </div>
+          <p data-i18n="club_tier_1_desc">مشاوره رایگان ساختار بسته‌بندی، نمونه‌گیری اولیه ماکت دیجیتال و ثبت نام کاربری اختصاصی سازمانی.</p>
+          <ul class="tier-perks">
+            <li>✓ مشاوره رایگان قالب و گرماژ</li>
+            <li>✓ ماکت دیجیتال ۳ بعدی</li>
+            <li>✓ ثبت پنل کاربری سازمانی</li>
+          </ul>
         </div>
-        <div class="perk-card">
-          <div class="perk-icon">⚡</div>
-          <h3 data-i18n="club_perk2_title">اولویت فوری تأمین قطعات</h3>
-          <p data-i18n="club_perk2_desc">ارسال فوری قطعات یدکی ضروری از انبارهای اختصاصی در کمتر از ۲۴ ساعت</p>
+
+        <div class="tier-card silver">
+          <div class="tier-header">
+            <span class="tier-icon">🥈</span>
+            <h3 data-i18n="club_tier_2_title">عضویت نقره‌ای (سفارش دوره‌ای)</h3>
+          </div>
+          <p data-i18n="club_tier_2_desc">۵٪ تخفیف تیراژ در کلیه خطوط چاپی، اولویت زمان‌بندی در نوبت چاپخانه و تهیه رایگان زینک‌های تجدید چاپ.</p>
+          <ul class="tier-perks">
+            <li>✓ ۵٪ تخفیف در کلیه تیراژها</li>
+            <li>✓ تقدم رزرو نوبت در ماشین چاپ</li>
+            <li>✓ زینک‌های رایگان CTP در بازچاپ</li>
+          </ul>
         </div>
-        <div class="perk-card">
-          <div class="perk-icon">🛠️</div>
-          <h3 data-i18n="club_perk3_title">کارشناسی فنی در محل رایگان</h3>
-          <p data-i18n="club_perk3_desc">اعزام مهندسان ارشد جهت بررسی خطوط، عیب‌یابی و بهینه‌سازی مصرف انرژی</p>
+
+        <div class="tier-card gold featured">
+          <div class="tier-badge">محبوب‌ترین شرکا</div>
+          <div class="tier-header">
+            <span class="tier-icon">🥇</span>
+            <h3 data-i18n="club_tier_3_title">عضویت طلایی (برندهای همکار)</h3>
+          </div>
+          <p data-i18n="club_tier_3_desc">۱۰٪ تخفیف قرارداد سالیانه، ساخت قالب تیغ اختصاصی رایگان، ناظر چاپ حضوری و شرایط پرداخت اعتباری ۴۵ روزه.</p>
+          <ul class="tier-perks">
+            <li>✓ ۱۰٪ تخفیف قرارداد سالیانه</li>
+            <li>✓ ساخت قالب تیغ دایکات رایگان</li>
+            <li>✓ ناظر چاپ اختصاصی پای دستگاه</li>
+            <li>✓ خط اعتباری پرداخت ۴۵ روزه</li>
+          </ul>
+        </div>
+
+        <div class="tier-card diamond">
+          <div class="tier-header">
+            <span class="tier-icon">💎</span>
+            <h3 data-i18n="club_tier_4_title">عضویت الماس (شرکای کلان و صادراتی)</h3>
+          </div>
+          <p data-i18n="club_tier_4_desc">۱۵٪ تخفیف سازمانی، انبارداری اختصاصی محصولات چاپی و ارسال مرحله‌ای، خط تولید اضطراری ۲۴/۷ و ترخیص صادراتی.</p>
+          <ul class="tier-perks">
+            <li>✓ ۱۵٪ تخفیف سازمانی جامع</li>
+            <li>✓ انبارداری اختصاصی و ارسال پالت مرحله‌ای</li>
+            <li>✓ نوبت چاپ اضطراری ۲۴ ساعته</li>
+            <li>✓ تشریفات گمرکی و لجستیک صادرات</li>
+          </ul>
         </div>
       </div>
 
-      <!-- VIP CARD PREVIEW & REGISTRATION -->
-      <div class="club-interactive-layout mt-4">
-        <!-- SMART CARD PREVIEW -->
-        <div class="club-card-preview-wrap">
-          <div class="smart-vip-card" id="clubCardDisplay">
+      <!-- VIP Card Display Area -->
+      <div class="club-card-section" id="clubCardDisplay">
+        <div class="vip-card">
+          <div class="vip-card-front">
+            <div class="card-reg-mark top-right" aria-hidden="true">⌖</div>
+            <div class="card-reg-mark bottom-left" aria-hidden="true">H</div>
             <div class="card-chip"></div>
-            <div class="card-brand">NovaTrade VIP Club</div>
-            <div class="card-tier" data-i18n="club_tier">سطح طلایی (Gold Partner)</div>
-            <div class="card-number" id="cardMemberNumber">NT-VIP-984210</div>
-            <div class="card-footer-info">
-              <div>
-                <span class="card-lbl" data-i18n="card_holder">نام دارنده:</span>
-                <span class="card-val" id="cardMemberName">شرکت صنعتی نمونه</span>
-              </div>
-              <div>
-                <span class="card-lbl" data-i18n="card_valid">اعتبار:</span>
-                <span class="card-val" data-i18n="club_valid">پایان ۲۰۲۷</span>
-              </div>
+            <div class="card-brand">SABZNEGAR B2B PARTNER CLUB</div>
+            <div class="card-tier-label">GOLD ENTERPRISE MEMBER</div>
+            <div class="card-number" id="cardMemberNumber">SN-VIP-884210</div>
+            <div class="card-holder">
+              <span class="ch-label">MEMBER / COMPANY:</span>
+              <span class="ch-name" id="cardMemberName">شرکت منتخب صنعتی و تجاری</span>
+            </div>
+            <div class="card-expiry">
+              <span class="ch-label">VALID THRU:</span>
+              <span>12/28</span>
+            </div>
+            <div class="card-cmyk-strip">
+              <span></span><span></span><span></span><span></span>
             </div>
           </div>
-          <p class="card-notice text-center" data-i18n="card_notice">کارت عضویت دیجیتال پس از ثبت‌نام بلافاصله فعال می‌شود.</p>
         </div>
+        <div class="club-card-info">
+          <h3 data-i18n="club_card_title">کارت هوشمند VIP مشتریان سبزنگار</h3>
+          <p data-i18n="club_card_sub">کارت هوشمند شناسایی مشتری و فعال‌سازی تخفیفات اعتباری سازمانی</p>
+          <p class="club-info-extra">با پر کردن فرم زیر، شناسه اختصاصی و کارت دیجیتال خود را بلافاصله دریافت نموده و در سفارش بعدی تخفیف اختصاصی سازمانی اعمال نمایید.</p>
+        </div>
+      </div>
 
-        <!-- CLUB FORM -->
-        <div class="card form-card">
-          <h3 class="form-title" data-i18n="club_join_title">فرم ثبت‌نام و فعال‌سازی عضویت</h3>
-          <form id="clubForm" novalidate>
-            <div class="form-grid">
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_name">نام و نام خانوادگی <span class="req">*</span></span>
-                <input type="text" id="clubName" class="form-input" required placeholder="مثال: علیرضا محمدی">
-                <span class="field-error" id="clubNameErr"></span>
-              </label>
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_mobile">شماره موبایل <span class="req">*</span></span>
-                <input type="tel" id="clubMobile" class="form-input" required placeholder="0912...">
-                <span class="field-error" id="clubMobileErr"></span>
-              </label>
+      <!-- Club Registration Form -->
+      <div class="club-form-box">
+        <h3 data-i18n="club_form_title">درخواست عضویت در باشگاه شرکای سبزنگار</h3>
+        <form class="universal-form" id="clubForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="clubName" data-i18n="f_name">نام و نام خانوادگی / نماینده</label>
+              <input type="text" id="clubName" required placeholder="مثال: علیرضا شمس">
+              <span class="form-error" id="clubNameErr" hidden></span>
             </div>
-            <div class="form-grid">
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_company">نام شرکت / سازمان</span>
-                <input type="text" id="clubCompany" class="form-input" placeholder="نام مجموعه یا کارخانه">
-              </label>
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_email">آدرس ایمیل</span>
-                <input type="email" id="clubEmail" class="form-input" placeholder="mail@example.com">
-                <span class="field-error" id="clubEmailErr"></span>
-              </label>
+            <div class="form-group">
+              <label for="clubMobile" data-i18n="f_mobile">شماره همراه</label>
+              <input type="tel" id="clubMobile" required placeholder="0912xxxxxxx" dir="ltr">
+              <span class="form-error" id="clubMobileErr" hidden></span>
             </div>
-            <p class="err-box" id="clubErr" hidden></p>
-            <button class="btn btn-primary btn-block" type="submit" data-i18n="join">فعال‌سازی عضویت طلایی</button>
-            <div class="ok-box mt-3" id="clubOk" hidden>
-              <span class="ok-icon">✓</span>
-              <div>
-                <strong data-i18n="club_registered_msg">عضویت شما در سطح Gold Partner تأیید و کارت شما صادر شد!</strong>
-                <p class="ok-meta" id="clubSuccessMeta"></p>
-              </div>
+            <div class="form-group">
+              <label for="clubEmail" data-i18n="f_email">آدرس ایمیل سازمانی</label>
+              <input type="email" id="clubEmail" placeholder="partner@company.com" dir="ltr">
+              <span class="form-error" id="clubEmailErr" hidden></span>
             </div>
-          </form>
-        </div>
+            <div class="form-group">
+              <label for="clubCompany" data-i18n="f_company">نام شرکت / برند</label>
+              <input type="text" id="clubCompany" placeholder="نام برند یا سازمان">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="send">صدور کارت عضویت هوشمند VIP</button>
+          </div>
+          <div class="form-general-err" id="clubErr" hidden data-i18n="err_required">لطفاً فیلدهای الزامی را تکمیل فرمایید.</div>
+          <div class="form-success-box" id="clubOk" hidden>
+            <div class="fs-icon">✓</div>
+            <h4 data-i18n="success_msg">عضویت شما با موفقیت ثبت و کارت VIP هوشمند صادر گردید.</h4>
+            <p class="fs-code" id="clubSuccessMeta">Member ID: SN-VIP-884210</p>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- ==================== WARRANTY & SERVICES VIEW ==================== -->
+  <!-- ==================== WARRANTY & AFTER-SALES / ORDER TRACKING VIEW ==================== -->
   <section class="view" id="view-warranty">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-badge" data-i18n="warranty_badge_top">پشتیبانی و اصالت کالا</span>
-        <h2 class="section-title" data-i18n="warranty_title">گارانتی طلایی و خدمات پس از فروش</h2>
-        <p class="section-desc" data-i18n="warranty_sub">پشتیبانی فنی بی‌وقفه، تأمین قطعات فابریک و سامانه هوشمند پیگیری درخواست‌ها</p>
+    <div class="container section">
+      <div class="section-head text-center">
+        <div class="badge" data-i18n="warranty_badge">تضمین ۱۰۰٪ کیفیت و بازچاپ</div>
+        <h1 class="section-title" data-i18n="warranty_title">پیگیری سفارش و گارانتی بازچاپ سبزنگار</h1>
+        <p class="section-sub" data-i18n="warranty_sub">سامانه رهگیری لحظه‌ای مراحل چاپ و ثبت درخواست بازچاپ در صورت هرگونه عدم تطابق با تاییدیه نهایی چاپی</p>
       </div>
 
-      <!-- SERIAL NUMBER LOOKUP CARD -->
-      <div class="card lookup-card mb-4">
-        <div class="lookup-header">
-          <span class="lookup-icon">🔎</span>
-          <div>
-            <h3 data-i18n="warranty_lookup_title">استعلام اصالت و وضعیت گارانتی با شماره سریال</h3>
-            <p data-i18n="warranty_lookup_sub">شماره سریال درج‌شده روی پلاک دستگاه خود را وارد کنید (مثال: NT-88214 یا NT-PMP-240)</p>
-          </div>
-        </div>
-        <form id="serialCheckForm" class="lookup-form" novalidate>
-          <input type="text" id="serialInput" class="form-input" required placeholder="شماره سریال دستگاه...">
-          <button class="btn btn-secondary" type="submit" data-i18n="warranty_lookup_btn">استعلام وضعیت دستگاه</button>
+      <!-- Live Tracking & Serial Checker Box -->
+      <div class="warranty-checker-box">
+        <h3 data-i18n="warranty_serial_title">استعلام وضعیت سفارش یا پارت چاپی</h3>
+        <p data-i18n="warranty_serial_sub">کد پیگیری یا شماره پارت سفارش (مانند SN-2024-8841) را وارد فرمایید تا وضعیت فعلی در خط تولید نمایش داده شود.</p>
+        
+        <form class="serial-form" id="serialCheckForm">
+          <input type="text" id="serialInput" placeholder="SN-2024-8841" dir="ltr" required>
+          <button type="submit" class="btn btn-primary" id="serialCheckBtn" data-i18n="warranty_serial_btn">رهگیری مرحله تولید</button>
         </form>
-        <div class="serial-result-box" id="serialResult" hidden></div>
+
+        <div class="serial-result-box" id="serialResult" hidden>
+          <!-- Populated by app.js -->
+        </div>
       </div>
 
-      <div class="warranty-two-col">
-        <!-- WARRANTY SERVICE CLAIM FORM -->
-        <div class="card form-card">
-          <h3 class="form-title" data-i18n="warranty_claim_title">ثبت درخواست خدمات و اعزام کارشناس فنی</h3>
-          <p class="form-subtitle" data-i18n="warranty_form_sub">پس از ثبت درخواست، کارشناس پشتیبانی ظرف ۳۰ دقیقه برای هماهنگی با شما تماس خواهد گرفت.</p>
-          <form id="warrantyForm" novalidate>
-            <div class="form-grid">
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_name">نام و نام خانوادگی <span class="req">*</span></span>
-                <input type="text" id="wName" class="form-input" required placeholder="نام خریدار یا رابط فنی">
-                <span class="field-error" id="wNameErr"></span>
-              </label>
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_mobile">شماره همراه <span class="req">*</span></span>
-                <input type="tel" id="wMobile" class="form-input" required placeholder="0912...">
-                <span class="field-error" id="wMobileErr"></span>
-              </label>
-            </div>
-            <div class="form-grid">
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_serial">شماره سریال دستگاه <span class="req">*</span></span>
-                <input type="text" id="wSerial" class="form-input" required placeholder="مندرج روی برچسب گارانتی">
-                <span class="field-error" id="wSerialErr"></span>
-              </label>
-              <label class="form-group">
-                <span class="form-label" data-i18n="f_service_type">نوع خدمت درخواستی</span>
-                <select id="wType" class="form-input">
-                  <option value="repair" data-i18n="srv_repair">تعمیرات تخصصی و تعویض قطعه</option>
-                  <option value="maintenance" data-i18n="srv_pm">سرویس دوره‌ای پیشگیرانه (PM)</option>
-                  <option value="parts" data-i18n="srv_parts">سفارش قطعات یدکی اصلی</option>
-                  <option value="install" data-i18n="srv_install">راه‌اندازی و کالیبراسیون دستگاه</option>
-                </select>
-              </label>
-            </div>
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_issue">شرح مشکل یا عیب مشاهده‌شده <span class="req">*</span></span>
-              <textarea id="wIssue" class="form-input" rows="3" required placeholder="نحوه بروز مشکل، علائم یا کدهای خطای احتمالی..."></textarea>
-              <span class="field-error" id="wIssueErr"></span>
-            </label>
-            <p class="err-box" id="wErr" hidden></p>
-            <button class="btn btn-primary btn-block" type="submit" data-i18n="send_request">ثبت رسمی درخواست گارانتی</button>
-            <div class="ok-box mt-3" id="wOk" hidden>
-              <span class="ok-icon">✓</span>
-              <div>
-                <strong id="wOkMsg"></strong>
-                <div class="ticket-row">
-                  <span class="ticket-code" id="wTicketCode"></span>
-                  <button type="button" class="btn btn-sm btn-outline" id="copyTicketBtn" data-i18n="warranty_copy_code">کپی کد رهگیری</button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!-- WARRANTY POLICY & FAQ -->
-        <div class="warranty-policy-card card">
-          <h3 data-i18n="warranty_terms_title">شرایط و تعهدات گارانتی طلایی NovaTrade</h3>
+      <!-- Quality Guarantee Policy -->
+      <div class="warranty-policy-section">
+        <div class="policy-card">
+          <h3 data-i18n="warranty_flow_title">تعهدنامه کنترل کیفیت و گارانتی بازچاپ سبزنگار</h3>
           <ul class="policy-list">
             <li>
-              <strong>۱۸ ماه ضمانت بی‌قیدوشرط قطعات اصلی:</strong>
-              <p>شامل کمپرسور، پمپ، الکتروموتور، اینورتر و بردهای کنترلی دیجیتال در برابر هرگونه نقص ناشی از تولید.</p>
+              <span class="p-num">۱</span>
+              <p data-i18n="warranty_flow_p1">کلیه سفارش‌های چاپی تحت استانداردهای بین‌المللی کالیبراسیون رنگ ISO 12647-2 و با تفکیک دانسیته اسپکتروفتومتری تولید می‌شوند.</p>
             </li>
             <li>
-              <strong>۱۰ سال تأمین تضمینی قطعات یدکی:</strong>
-              <p>تضمین انبارداری و تحویل تمامی لوازم مصرفی و قطعات فنی در کوتاه‌ترین زمان در ایران و سراسر منطقه.</p>
+              <span class="p-num">۲</span>
+              <p data-i18n="warranty_flow_p2">در صورت هرگونه انحراف رنگی بیش از حد مجاز استاندارد، خطای ابعاد قالب تیغ، ایراد صحافی یا نقص سلفون، هزینه سفارش عودت داده شده یا بدون هزینه مجدداً بازچاپ خواهد شد.</p>
             </li>
             <li>
-              <strong>خدمات در محل (On-Site):</strong>
-              <p>تیم امداد و تکنسین‌های سیار مجهز به تجهیزات تست و دیاگ، آماده اعزام به تمامی استان‌ها و پروژه‌ها.</p>
-            </li>
-            <li>
-              <strong>پشتیبانی تلفنی و آنلاین شبانه‌روزی:</strong>
-              <p>مشاوره فنی اضطراری در روزهای تعطیل برای خطوط تولید و مراکز حساس درمانی و دیتاسنترها.</p>
+              <span class="p-num">۳</span>
+              <p data-i18n="warranty_flow_p3">پشتیبانی پس از تحویل شامل تامین و نگهداری قالب‌های اختصاصی تا ۳ سال در انبار قالب و نگهداری فایل‌های لیتوگرافی CTP در آرشیو امن ابری می‌باشد.</p>
             </li>
           </ul>
         </div>
+      </div>
+
+      <!-- Reprint Claim Form -->
+      <div class="warranty-form-box">
+        <h3 data-i18n="warranty_form_title">ثبت درخواست بازچاپ یا ارزیابی کنترل کیفیت</h3>
+        <form class="universal-form" id="warrantyForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="wName" data-i18n="f_name">نام و نام خانوادگی متقاضی</label>
+              <input type="text" id="wName" required placeholder="نام کامل">
+              <span class="form-error" id="wNameErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="wMobile" data-i18n="f_mobile">شماره همراه تماس</label>
+              <input type="tel" id="wMobile" required placeholder="0912xxxxxxx" dir="ltr">
+              <span class="form-error" id="wMobileErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="wSerial" data-i18n="f_serial">شماره پارت / کد رهگیری سفارش</label>
+              <input type="text" id="wSerial" required placeholder="مثال: SN-2024-8841" dir="ltr">
+              <span class="form-error" id="wSerialErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="wType" data-i18n="f_service_type">نوع درخواست یا موضوع بررسی</label>
+              <select id="wType">
+                <option value="reprint" data-i18n="srv_repair">درخواست بازچاپ یا اصلاح رنگ</option>
+                <option value="repeat" data-i18n="srv_pm">استعلام پارت دوم و تجدید سفارش</option>
+                <option value="die" data-i18n="srv_parts">سفارش ساخت قالب تیغ جدید</option>
+                <option value="mockup" data-i18n="srv_install">درخواست نمونه‌گیری و ماکت فیزیکی</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="wIssue" data-i18n="f_issue">شرح درخواست یا جزئیات پروژه چاپی</label>
+              <textarea id="wIssue" rows="3" required placeholder="شرح انحراف مشاهده‌شده از پروف نهایی یا مشخصات تجدید سفارش..."></textarea>
+              <span class="form-error" id="wIssueErr" hidden></span>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="send">ثبت درخواست و صدور تیکت پیگیری</button>
+          </div>
+          <div class="form-general-err" id="wErr" hidden data-i18n="err_required">لطفاً فیلدهای الزامی را تکمیل نمایید.</div>
+          <div class="form-success-box" id="wOk" hidden>
+            <div class="fs-icon">✓</div>
+            <h4 id="wOkMsg" data-i18n="success_msg">درخواست شما با موفقیت ثبت شد.</h4>
+            <div class="ticket-copy-wrap">
+              <span class="ticket-code" id="wTicketCode">SN-REP-892144</span>
+              <button type="button" class="btn btn-sm btn-outline" id="copyTicketBtn" data-i18n="warranty_copy_code">کپی کد رهگیری</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
   <!-- ==================== ABOUT US VIEW ==================== -->
   <section class="view" id="view-about">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-badge" data-i18n="about_badge">پیشینه و دستاوردها</span>
-        <h2 class="section-title" data-i18n="about_title">درباره گروه صنعتی و بازرگانی NovaTrade</h2>
-        <p class="section-desc" data-i18n="about_lead">بیش از ۱۸ سال پیشتازی در مهندسی، تأمین ماشین‌آلات صنعتی و توسعه همکاری‌های بازرگانی در منطقه</p>
+    <div class="container section">
+      <div class="section-head text-center">
+        <div class="badge" data-i18n="about_badge">اصالت، دقت و هنر چاپ</div>
+        <h1 class="section-title" data-i18n="about_title">درباره مجتمع چاپ و بسته‌بندی سبزنگار</h1>
       </div>
 
-      <div class="about-hero-card card mb-4">
-        <img class="about-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80" alt="Corporate Headquarters" id="aboutImg">
-        <div class="about-lead-text">
-          <p data-i18n="about_desc">گروه صنعتی NovaTrade فعالیت خود را از سال ۱۳۸۵ با هدف تأمین تخصصی تجهیزات انتقال سیالات، برودتی، تهویه مطبوع، ژنراتور و تجهیزات کارگاهی آغاز نمود. امروز این مجموعه با شعب فعال در تهران، استانبول، دبی و مسکو و شبکه نمایندگی‌های منطقه‌ای، تأمین‌کننده قابل اعتماد هزاران کارخانه، بیمارستان، برج تجاری و پروژه عمرانی در پنج زبان زنده دنیاست.</p>
-        </div>
-      </div>
+      <div class="about-hero-grid">
+        <div class="about-text-content">
+          <p class="lead-p" data-i18n="about_p1">مجتمع چاپ و بسته‌بندی سبزنگار از سال ۱۳۷۳ با تکیه بر دانش فنی روز و سرمایه‌گذاری پیوسته در ناوگان مدرن چاپ افست، لترپرس، جعبه‌چسبانی و صحافی سخت، به عنوان یکی از پیشگامان صنعت چاپ و بسته‌بندی کشور شناخته می‌شود.</p>
+          <p data-i18n="about_p2">ما با وسعت کارگاهی بالغ بر ۱۵,۰۰۰ مترمربع و خطوط تمام‌اتوماتیک هایدلبرگ و بوبست، زنجیره کامل تولید از طراحی گرافیک و ساختار بسته‌بندی، لیتوگرافی CTP، چاپ چندرنگ، سلفون‌کشی، طلاکوب و برجسته‌سازی تا دایکات و بسته‌بندی صادراتی را در یک مجموعه متمرکز ساخته‌ایم.</p>
 
-      <!-- KEY STATS -->
-      <div class="stats-grid mb-4">
-        <div class="stat-card">
-          <span class="stat-num">18+</span>
-          <span class="stat-lbl" data-i18n="stat_years">سال تجربه درخشان صنعتی</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">5</span>
-          <span class="stat-lbl" data-i18n="stat_langs">زبان پشتیبانی و دفتر منطقه‌ای</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">12k+</span>
-          <span class="stat-lbl" data-i18n="stat_clients">مشتری و پروژه سازمانی موفق</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-num">350+</span>
-          <span class="stat-lbl" data-i18n="stat_models">کد محصول استاندارد و فعال</span>
-        </div>
-      </div>
-
-      <!-- REGIONAL HUBS GRID -->
-      <div class="section-header">
-        <h3 class="section-title" data-i18n="regional_hubs_title">شبکه بین‌المللی و مراکز منطقه‌ای NovaTrade</h3>
-      </div>
-      <div class="grid hubs-grid mb-4">
-        <div class="hub-card card">
-          <div class="hub-flag">🇮🇷</div>
-          <h4 data-i18n="contact_tehran_title">دفتر مرکزی تهران</h4>
-          <p>خیابان ولیعصر، برج بازرگانی Nova، طبقه ۸</p>
-          <small>تلفن: 55 66 8877 21 98+</small>
-        </div>
-        <div class="hub-card card">
-          <div class="hub-flag">🇹🇷</div>
-          <h4 data-i18n="contact_istanbul_title">دفتر منطقه‌ای استانبول</h4>
-          <p>Levent, Büyükdere Cad. No: 185, Beşiktaş / Istanbul</p>
-          <small>Tel: +90 212 945 8820</small>
-        </div>
-        <div class="hub-card card">
-          <div class="hub-flag">🇦🇪</div>
-          <h4 data-i18n="contact_dubai_title">مرکز تجارت خاورمیانه (دبی)</h4>
-          <p>Business Bay, Bay Square Tower 4, Dubai, UAE</p>
-          <small>Tel: +971 4 456 9910</small>
-        </div>
-        <div class="hub-card card">
-          <div class="hub-flag">🇷🇺</div>
-          <h4 data-i18n="contact_moscow_title">دفتر منطقه اوراسیا (مسکو)</h4>
-          <p>Пресненская наб., д. 12, Москва-Сити, Россия</p>
-          <small>Тел: +7 495 789 4432</small>
-        </div>
-      </div>
-
-      <!-- B2B PARTNERSHIP FORM -->
-      <div class="card form-card">
-        <div class="text-center">
-          <span class="section-badge" data-i18n="about_partner_badge">همکاری‌های کلان</span>
-          <h3 class="form-title" data-i18n="about_partner_title">درخواست اخذ نمایندگی و همکاری تجاری (B2B)</h3>
-          <p class="form-subtitle" data-i18n="about_partner_sub">اگر تمایل دارید به شبکه توزیع و نمایندگی‌های استانی یا بین‌المللی ما بپیوندید، فرم زیر را ارسال فرمایید.</p>
-        </div>
-        <form id="aboutPartnerForm" novalidate>
-          <div class="form-grid">
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_company">نام شرکت / فروشگاه <span class="req">*</span></span>
-              <input type="text" id="apCompany" class="form-input" required placeholder="نام مجموعه بازرگانی شما">
-              <span class="field-error" id="apCompanyErr"></span>
-            </label>
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_name">نام مدیر یا رابط مسئول <span class="req">*</span></span>
-              <input type="text" id="apName" class="form-input" required placeholder="نام و نام خانوادگی">
-              <span class="field-error" id="apNameErr"></span>
-            </label>
-          </div>
-          <div class="form-grid">
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_mobile">شماره تماس / موبایل <span class="req">*</span></span>
-              <input type="tel" id="apMobile" class="form-input" required placeholder="0912... یا شماره بین‌المللی">
-              <span class="field-error" id="apMobileErr"></span>
-            </label>
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_country">کشور و شهر فعالیت <span class="req">*</span></span>
-              <input type="text" id="apLocation" class="form-input" required placeholder="مثال: ایران، مشهد / ترکیه، آنکارا">
-              <span class="field-error" id="apLocationErr"></span>
-            </label>
-          </div>
-          <label class="form-group">
-            <span class="form-label" data-i18n="f_partnership_type">نوع همکاری مورد نظر</span>
-            <select id="apType" class="form-input">
-              <option value="dealer" data-i18n="part_dealer">نمایندگی انحصاری فروش استانی / منطقه‌ای</option>
-              <option value="distributor" data-i18n="part_distributor">عامل توزیع و پخش پروژه‌ای</option>
-              <option value="service" data-i18n="part_service">مرکز مجاز خدمات پس از فروش و تعمیرات</option>
-            </select>
-          </label>
-          <label class="form-group">
-            <span class="form-label" data-i18n="f_message">معرفی سوابق و توانمندی‌ها <span class="req">*</span></span>
-            <textarea id="apMsg" class="form-input" rows="3" required placeholder="سابقه فعالیت، انبار، توان فروش سالیانه..."></textarea>
-            <span class="field-error" id="apMsgErr"></span>
-          </label>
-          <p class="err-box" id="apErr" hidden></p>
-          <button class="btn btn-primary btn-block" type="submit" data-i18n="submit_partner_btn">ارسال درخواست نمایندگی</button>
-          <div class="ok-box mt-3" id="apOk" hidden>
-            <span class="ok-icon">✓</span>
-            <div>
-              <strong data-i18n="partner_registered_ok">درخواست همکاری شما ثبت شد. مدیریت توسعه بازار NovaTrade ظرف ۴۸ ساعت با شما ارتباط خواهد گرفت.</strong>
+          <div class="about-stats-row">
+            <div class="as-col">
+              <span class="as-num" data-i18n="stat_ab_exp">۳۰ سال</span>
+              <span class="as-desc">سابقه فعالیت صنعتی</span>
             </div>
+            <div class="as-col">
+              <span class="as-num" data-i18n="stat_ab_clients">۳,۵۰۰+</span>
+              <span class="as-desc">برند همکار فعال</span>
+            </div>
+            <div class="as-col">
+              <span class="as-num" data-i18n="stat_ab_products">۵۰+</span>
+              <span class="as-desc">مدل قالب و دایکات آماده</span>
+            </div>
+            <div class="as-col">
+              <span class="as-num" data-i18n="stat_ab_countries">۶ کشور</span>
+              <span class="as-desc">مقصد صادرات کالا</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=1200&q=80" alt="SabzNegar Factory Floor">
+          <div class="reg-crosshair" aria-hidden="true">⌖</div>
+          <div class="about-img-badge">
+            <span>HEIDELBERG SPEEDMASTER XL 106</span>
+            <small>Integrated Spectrophotometric Control</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Machinery Fleet Section -->
+      <div class="machinery-section">
+        <h2 class="sub-heading text-center" data-i18n="tech_fleet_title">ناوگان ماشین‌آلات و خطوط تولید پیشرفته</h2>
+        <div class="fleet-grid">
+          <div class="fleet-card">
+            <div class="f-icon">🖨️</div>
+            <h3 data-i18n="fleet_1_title">ماشین‌آلات چاپ افست هایدلبرگ Speedmaster</h3>
+            <p data-i18n="fleet_1_desc">مجهز به سیستم کنترل رنگ اسپکتروفتومتری آنلاین با ظرفیت چاپ ۱۸,۰۰۰ شیت در ساعت و پشتیبانی از مرکب‌های یووی و پایه‌گیاهی.</p>
+          </div>
+          <div class="fleet-card">
+            <div class="f-icon">✂️</div>
+            <h3 data-i18n="fleet_2_title">خطوط دایکات و جعبه‌چسبانی اتوماتیک بوبست (Bobst)</h3>
+            <p data-i18n="fleet_2_desc">دایکات دقیق با سرعت ۹,۰۰۰ برگ در ساعت، تفکیک پوشال اتوماتیک و خطوط چسب ۶ گوشه برای جعبه‌های پیچیده دارویی و بهداشتی.</p>
+          </div>
+          <div class="fleet-card">
+            <div class="f-icon">✨</div>
+            <h3 data-i18n="fleet_3_title">واحد جلوه‌های ویژه: طلاکوب، یووی موضعی و سلفون مخملی</h3>
+            <p data-i18n="fleet_3_desc">تجهیزات مدرن لترپرس طلاکوب حرارتی، برجسته‌سازی سه‌بعدی و دستگاه‌های سلفون‌کشی حرارتی پرسرعت با قابلیت اجرای روکش Soft-Touch.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Export Network Section -->
+      <div class="export-network-box">
+        <h2 class="sub-heading text-center" data-i18n="export_network_title">شبکه صادراتی و دفاتر منطقه‌ای سبزنگار</h2>
+        <p class="text-center" data-i18n="export_network_desc">صادرات گسترده انواع جعبه‌های لمینتی، هاردباکس و کاتالوگ‌های تجاری به کشورهای امارات، عراق، روسیه، ترکیه و عمان همراه با ترخیص و لجستیک اختصاصی.</p>
+        <div class="export-countries-pills">
+          <span class="country-pill">🇦🇪 امارات متحده عربی (دبی)</span>
+          <span class="country-pill">🇮🇶 عراق (بغداد و اربیل)</span>
+          <span class="country-pill">🇷🇺 فدراسیون روسیه (مسکو)</span>
+          <span class="country-pill">🇹🇷 ترکیه (استانبول)</span>
+          <span class="country-pill">🇴🇲 سلطنت عمان (مسقط)</span>
+          <span class="country-pill">🇮🇷 جمهوری اسلامی ایران</span>
+        </div>
+      </div>
+
+      <!-- Dealership & Partnership Form -->
+      <div class="partner-form-section">
+        <h3 class="text-center" data-i18n="f_partnership_type">درخواست همکاری تجاری و عاملیت نمایندگی</h3>
+        <form class="universal-form" id="aboutPartnerForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="apCompany" data-i18n="f_company">نام شرکت / آژانس تبلیغاتی</label>
+              <input type="text" id="apCompany" required placeholder="نام مجموعه">
+              <span class="form-error" id="apCompanyErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="apName" data-i18n="f_name">نام نماینده / مدیر بازرگانی</label>
+              <input type="text" id="apName" required placeholder="نام کامل">
+              <span class="form-error" id="apNameErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="apMobile" data-i18n="f_mobile">شماره همراه تماس</label>
+              <input type="tel" id="apMobile" required placeholder="0912xxxxxxx" dir="ltr">
+              <span class="form-error" id="apMobileErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="apLocation" data-i18n="f_country">کشور و شهر فعالیت</label>
+              <input type="text" id="apLocation" required placeholder="مثال: ایران، مشهد / یا دبی، امارات">
+              <span class="form-error" id="apLocationErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="apType" data-i18n="f_partnership_type">نوع همکاری مورد نظر</label>
+              <select id="apType">
+                <option value="dealer" data-i18n="part_dealer">نمایندگی رسمی و عاملیت سفارشات استانی</option>
+                <option value="agency" data-i18n="part_distributor">همکاری آژانس‌های تبلیغاتی و طراحان بسته‌بندی</option>
+                <option value="contract" data-i18n="part_service">قرارداد تامین سالیانه شرکت‌های تولیدی و دارویی</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="apMsg" data-i18n="f_message">شرح سوابق و توانایی جذب سفارش</label>
+              <textarea id="apMsg" rows="3" required placeholder="توضیح دهید بازار هدف و حجم تخمینی سفارشات ماهانه شما چقدر است..."></textarea>
+              <span class="form-error" id="apMsgErr" hidden></span>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="send">ارسال درخواست همکاری B2B</button>
+          </div>
+          <div class="form-general-err" id="apErr" hidden data-i18n="err_required">لطفاً فیلدهای الزامی را تکمیل فرمایید.</div>
+          <div class="form-success-box" id="apOk" hidden>
+            <div class="fs-icon">✓</div>
+            <h4 data-i18n="success_msg">درخواست همکاری شما دریافت شد؛ مدیریت توسعه بازار سبزنگار ظرف ۴۸ ساعت با شما ارتباط خواهد گرفت.</h4>
           </div>
         </form>
       </div>
@@ -690,95 +775,99 @@
 
   <!-- ==================== CONTACT US VIEW ==================== -->
   <section class="view" id="view-contact">
-    <div class="container narrow">
-      <div class="section-header text-center">
-        <span class="section-badge" data-i18n="contact_badge">راه‌های ارتباطی</span>
-        <h2 class="section-title" data-i18n="contact_title">ارتباط با دفاتر مرکزی و منطقه‌ای NovaTrade</h2>
-        <p class="section-desc" data-i18n="contact_sub">کارشناسان ما در ۵ زبان رسمی آماده پاسخگویی و هماهنگی جلسات حضوری یا آنلاین هستند.</p>
+    <div class="container section">
+      <div class="section-head text-center">
+        <div class="badge" data-i18n="contact_badge">دفتر مرکزی و کارخانه</div>
+        <h1 class="section-title" data-i18n="contact_title">تماس با مجتمع چاپ سبزنگار</h1>
+        <p class="section-sub" data-i18n="contact_sub">جهت بازدید از سالن تولید، هماهنگی نظارت بر چاپ و ثبت سفارشات سازمانی با ما در ارتباط باشید.</p>
       </div>
 
-      <!-- CONTACT INFO CARD -->
-      <div class="card contact-info-card mb-4">
-        <div class="contact-info-grid">
-          <div class="ci-col">
-            <span class="ci-icon">📍</span>
-            <div>
-              <strong data-i18n="ci_address_title">آدرس دفتر مرکزی:</strong>
-              <p data-i18n="address">تهران، خیابان ولیعصر، بالاتر از میدان ونک، پلاک ۱۲۴۰، برج NovaTrade</p>
-            </div>
+      <!-- Regional Office Cards -->
+      <div class="contact-offices-grid">
+        <div class="office-card primary">
+          <div class="office-badge">مجتمع مرکزی و سالن چاپ</div>
+          <h3 data-i18n="contact_tehran_title">کارخانه و مجتمع مرکزی تهران</h3>
+          <p class="office-addr" data-i18n="contact_tehran_addr">تهران، کیلومتر ۱۴ جاده مخصوص کرج، شهرک صنعتی چیتگر، بلوار پژوهش، مجتمع چاپ سبزنگار</p>
+          <div class="office-contacts">
+            <p>☎ <strong>تلفن مرکزی:</strong> <span dir="ltr">+98 21 4455 6677</span></p>
+            <p>💬 <strong>واتساپ سفارشات:</strong> <span dir="ltr">+98 912 345 6789</span></p>
+            <p>✉ <strong>ایمیل:</strong> <span dir="ltr">info@sabznegar.example</span></p>
           </div>
-          <div class="ci-col">
-            <span class="ci-icon">☎</span>
-            <div>
-              <strong data-i18n="ci_phone_title">تلفن و خطوط مستقیم:</strong>
-              <p dir="ltr">+98 21 8877 6655 · +98 21 8877 6656</p>
-            </div>
+        </div>
+
+        <div class="office-card">
+          <div class="office-badge">میز صادرات ترکیه</div>
+          <h3 data-i18n="contact_istanbul_title">میز صادرات ترکیه (استانبول)</h3>
+          <p class="office-addr" data-i18n="contact_istanbul_addr">İkitelli OSB, Triko Center S-Block No: 42, Başakşehir, Istanbul, Turkey</p>
+          <div class="office-contacts">
+            <p>☎ <strong>Tel:</strong> <span dir="ltr">+90 212 549 8812</span></p>
+            <p>✉ <strong>Email:</strong> <span dir="ltr">turkey@sabznegar.example</span></p>
           </div>
-          <div class="ci-col">
-            <span class="ci-icon">✉</span>
-            <div>
-              <strong data-i18n="ci_email_title">ایمیل‌های رسمی:</strong>
-              <p dir="ltr">sales@novatrade.example · support@novatrade.example</p>
-            </div>
+        </div>
+
+        <div class="office-card">
+          <div class="office-badge">دفتر امارات متحده عربی</div>
+          <h3 data-i18n="contact_dubai_title">دفتر امارات متحده عربی (دبی)</h3>
+          <p class="office-addr" data-i18n="contact_dubai_addr">Office 804, Business Bay Tower, Marasi Drive, Dubai, UAE</p>
+          <div class="office-contacts">
+            <p>☎ <strong>Tel:</strong> <span dir="ltr">+971 4 392 4110</span></p>
+            <p>✉ <strong>Email:</strong> <span dir="ltr">dubai@sabznegar.example</span></p>
           </div>
-          <div class="ci-col">
-            <span class="ci-icon">⏰</span>
-            <div>
-              <strong data-i18n="ci_hours_title">ساعات پاسخگویی:</strong>
-              <p data-i18n="ci_hours_val">شنبه تا چهارشنبه ۸:۳۰ الی ۱۷:۰۰ | پنجشنبه‌ها ۸:۳۰ الی ۱۳:۰۰</p>
-            </div>
+        </div>
+
+        <div class="office-card">
+          <div class="office-badge">دفتر فدراسیون روسیه</div>
+          <h3 data-i18n="contact_moscow_title">میز صادرات فدراسیون روسیه (مسکو)</h3>
+          <p class="office-addr" data-i18n="contact_moscow_addr">Presnenskaya Naberezhnaya 12, Federation Tower, Moscow, Russia</p>
+          <div class="office-contacts">
+            <p>☎ <strong>Тел:</strong> <span dir="ltr">+7 495 721 8490</span></p>
+            <p>✉ <strong>Email:</strong> <span dir="ltr">russia@sabznegar.example</span></p>
           </div>
         </div>
       </div>
 
-      <!-- MAIN CONTACT FORM -->
-      <div class="card form-card">
-        <h3 class="form-title" data-i18n="contact_form_title">ارسال پیام یا درخواست مشاوره</h3>
-        <form id="contactForm" novalidate>
+      <!-- Contact Message Form -->
+      <div class="contact-form-section">
+        <h3 class="text-center" data-i18n="nav_quote">ارسال پیام یا درخواست مشاوره چاپی</h3>
+        <form class="universal-form" id="contactForm" novalidate>
           <div class="form-grid">
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_name">نام و نام خانوادگی <span class="req">*</span></span>
-              <input type="text" id="cName" class="form-input" required placeholder="نام شما">
-              <span class="field-error" id="cNameErr"></span>
-            </label>
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_mobile">شماره همراه <span class="req">*</span></span>
-              <input type="tel" id="cMobile" class="form-input" required placeholder="0912...">
-              <span class="field-error" id="cMobileErr"></span>
-            </label>
-          </div>
-          <div class="form-grid">
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_email">آدرس ایمیل</span>
-              <input type="email" id="cEmail" class="form-input" placeholder="mail@example.com">
-              <span class="field-error" id="cEmailErr"></span>
-            </label>
-            <label class="form-group">
-              <span class="form-label" data-i18n="f_department">واحد سازمانی مخاطب</span>
-              <select id="cDept" class="form-input">
-                <option value="sales" data-i18n="f_dept_sales">واحد فروش و مهندسی فروش</option>
-                <option value="service" data-i18n="f_dept_service">خدمات پس از فروش و گارانتی</option>
-                <option value="export" data-i18n="f_dept_export">واحد بازرگانی خارجی و صادرات</option>
-              </select>
-            </label>
-          </div>
-          <label class="form-group">
-            <span class="form-label" data-i18n="f_subject">موضوع پیام</span>
-            <input type="text" id="cSubject" class="form-input" placeholder="عنوان استعلام، سفارش یا مشاوره">
-          </label>
-          <label class="form-group">
-            <span class="form-label" data-i18n="f_message">متن پیام <span class="req">*</span></span>
-            <textarea id="cMsg" class="form-input" rows="4" required placeholder="متن پیام خود را اینجا بنویسید..."></textarea>
-            <span class="field-error" id="cMsgErr"></span>
-          </label>
-          <p class="err-box" id="cErr" hidden></p>
-          <button class="btn btn-primary btn-block" type="submit" data-i18n="send">ارسال پیام مستقیم</button>
-          <div class="ok-box mt-3" id="cOk" hidden>
-            <span class="ok-icon">✓</span>
-            <div>
-              <strong data-i18n="success_msg">پیام شما با موفقیت دریافت گردید؛ کارشناسان NovaTrade در اسرع وقت پاسخ خواهند داد.</strong>
-              <p class="ok-meta" id="cTracking"></p>
+            <div class="form-group">
+              <label for="cName" data-i18n="f_name">نام و نام خانوادگی</label>
+              <input type="text" id="cName" required placeholder="نام شما">
+              <span class="form-error" id="cNameErr" hidden></span>
             </div>
+            <div class="form-group">
+              <label for="cMobile" data-i18n="f_mobile">شماره همراه تماس</label>
+              <input type="tel" id="cMobile" required placeholder="0912xxxxxxx" dir="ltr">
+              <span class="form-error" id="cMobileErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="cEmail" data-i18n="f_email">آدرس ایمیل سازمانی</label>
+              <input type="email" id="cEmail" placeholder="your@email.com" dir="ltr">
+              <span class="form-error" id="cEmailErr" hidden></span>
+            </div>
+            <div class="form-group">
+              <label for="cDept" data-i18n="f_department">واحد سازمانی مخاطب</label>
+              <select id="cDept">
+                <option value="sales" data-i18n="f_dept_sales">واحد فروش و سفارشات چاپ</option>
+                <option value="qa" data-i18n="f_dept_service">واحد کنترل کیفیت و بازچاپ</option>
+                <option value="export" data-i18n="f_dept_export">میز بازرگانی خارجی و صادرات</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label for="cMsg" data-i18n="f_message">متن پیام یا مشخصات سفارش</label>
+              <textarea id="cMsg" rows="4" required placeholder="پیام یا شرح پروژه چاپی خود را وارد نمایید..."></textarea>
+              <span class="form-error" id="cMsgErr" hidden></span>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" data-i18n="send">ارسال پیام مستقیم به کارشناسان</button>
+          </div>
+          <div class="form-general-err" id="cErr" hidden data-i18n="err_required">لطفاً تمامی فیلدهای الزامی را پر فرمایید.</div>
+          <div class="form-success-box" id="cOk" hidden>
+            <div class="fs-icon">✓</div>
+            <h4 data-i18n="success_msg">پیام شما دریافت گردید؛ کارشناسان واحد فنی سبزنگار در اسرع وقت پاسخ خواهند داد.</h4>
+            <p class="fs-code" id="cTracking">Inquiry Reference: SN-MSG-492104</p>
           </div>
         </form>
       </div>
@@ -788,15 +877,19 @@
 
 <!-- SITE FOOTER -->
 <footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-col brand-col">
-      <a class="logo" href="#" data-nav="home">
-        <span class="logo-mark">NT</span>
-        <span class="logo-text">Nova<span>Trade</span></span>
-      </a>
-      <p class="footer-about" data-i18n="footer_tagline">تأمین تجهیزات پیشرفته صنعتی و تجاری در خاورمیانه و اوراسیا با پشتیبانی رسمی در پنج کشور</p>
-      <div class="footer-langs-badge">
-        <span>🌐 FA</span> · <span>EN</span> · <span>AR</span> · <span>TR</span> · <span>RU</span>
+  <div class="container footer-in">
+    <div class="footer-col footer-brand-col">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">SN ⌖</span>
+        <span class="footer-logo-text">سبزنگار · SabzNegar</span>
+      </div>
+      <p class="footer-about" data-i18n="footer_desc">مجتمع چاپ و بسته‌بندی سبزنگار؛ ارائه راهکارهای نوین چاپ افست، بسته‌بندی دارویی و صنعتی، کاتالوگ‌های نفیس و ساک‌های دستی با استانداردهای بین‌المللی صادرات.</p>
+      <div class="footer-cmyk-strip">
+        <span class="c-dot" title="Cyan"></span>
+        <span class="m-dot" title="Magenta"></span>
+        <span class="y-dot" title="Yellow"></span>
+        <span class="k-dot" title="Key Black"></span>
+        <small>FOGRA 39 / 51 CERTIFIED</small>
       </div>
     </div>
     
@@ -804,40 +897,41 @@
       <h4 class="footer-heading" data-i18n="footer_links_title">دسترسی سریع</h4>
       <ul class="footer-links">
         <li><a href="#" data-nav="home" data-i18n="nav_home">خانه</a></li>
-        <li><a href="#" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات</a></li>
-        <li><a href="#" data-nav="articles" data-i18n="nav_articles">مقالات و دانش فنی</a></li>
+        <li><a href="#" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات و سفارش چاپ</a></li>
+        <li><a href="#" data-nav="articles" data-i18n="nav_articles">راهنمای تخصصی چاپ</a></li>
         <li><a href="#" data-nav="club" data-i18n="nav_club">باشگاه مشتریان</a></li>
-        <li><a href="#" data-nav="warranty" data-i18n="nav_warranty">گارانتی و خدمات</a></li>
+        <li><a href="#" data-nav="warranty" data-i18n="nav_warranty">پیگیری سفارش و گارانتی</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4 class="footer-heading" data-i18n="footer_cats_title">دسته‌بندی‌ها</h4>
+      <h4 class="footer-heading" data-i18n="footer_cats_title">خطوط تولید</h4>
       <ul class="footer-links">
-        <li><a href="#" data-nav="home" data-scroll="products" data-f="pumps" data-i18n="cat_pumps">پمپ و آبرسانی</a></li>
-        <li><a href="#" data-nav="home" data-scroll="products" data-f="cold" data-i18n="cat_cold">سرمایش و برودتی</a></li>
-        <li><a href="#" data-nav="home" data-scroll="products" data-f="hvac" data-i18n="cat_hvac">تهویه مطبوع</a></li>
-        <li><a href="#" data-nav="home" data-scroll="products" data-f="power" data-i18n="cat_power">برق و ژنراتور</a></li>
-        <li><a href="#" data-nav="home" data-scroll="products" data-f="tools" data-i18n="cat_tools">ابزار و کارگاهی</a></li>
+        <li><a href="#" data-nav="home" data-scroll="products" data-f="catalogs" data-i18n="cat_catalogs">چاپ کاتالوگ و مجله</a></li>
+        <li><a href="#" data-nav="home" data-scroll="products" data-f="boxes" data-i18n="cat_boxes">بسته‌بندی و جعبه مقوایی</a></li>
+        <li><a href="#" data-nav="home" data-scroll="products" data-f="bags" data-i18n="cat_bags">ساک دستی و بسته‌بندی فروشگاهی</a></li>
+        <li><a href="#" data-nav="home" data-scroll="products" data-f="commercial" data-i18n="cat_commercial">چاپ افست و دیجیتال</a></li>
+        <li><a href="#" data-nav="home" data-scroll="products" data-f="promo" data-i18n="cat_promo">هدایای تبلیغاتی و چاپ نمایشگاهی</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4 class="footer-heading" data-i18n="footer_contact_title">ارتباط مستقیم</h4>
-      <p>☎ +98 21 8877 6655</p>
-      <p>💬 WhatsApp: +98 912 123 4567</p>
-      <p>✉ sales@novatrade.example</p>
+      <h4 class="footer-heading" data-i18n="footer_contact_title">دفتر مرکزی و کارخانه</h4>
+      <p>☎ +98 21 4455 6677</p>
+      <p>💬 WhatsApp: +98 912 345 6789</p>
+      <p>✉ info@sabznegar.example</p>
       <p>📍 Tehran · Istanbul · Dubai · Moscow</p>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-in">
-      <p data-i18n="footer_rights">تمامی حقوق برای گروه صنعتی NovaTrade محفوظ است — نسخه نمایشی پنج‌زبانه پیشنهادی پروژه</p>
+      <p data-i18n="footer_rights">تمامی حقوق برای مجتمع چاپ و بسته‌بندی سبزنگار محفوظ است — سامانه پنج‌زبانه پیشنهادی پروژه</p>
       <div class="standards-bar">
+        <span>ISO 12647-2 (Color Proof)</span>
         <span>ISO 9001:2015</span>
-        <span>CE Marked</span>
-        <span>18M Golden Warranty</span>
+        <span>FSC Certified Paper</span>
+        <span>100% Reprint Guarantee</span>
       </div>
     </div>
   </div>
@@ -846,27 +940,27 @@
 <!-- FLOATING QUICK CONTACT (5 CHANNELS) -->
 <div class="quick-contact" id="quickContact">
   <div class="qc-items" id="qcItems" role="toolbar" aria-label="Quick Contact Channels">
-    <a class="qc-item phone" href="tel:+982188776655" data-i18n-title="qc_phone" title="تماس تلفنی با دفتر مرکزی" aria-label="Phone Call">
+    <a class="qc-item phone" href="tel:+982144556677" data-i18n-title="qc_phone" title="تماس با دفتر مرکزی و کارخانه" aria-label="Phone Call">
       <svg viewBox="0 0 24 24" class="qc-svg" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
       <span class="qc-tip" data-i18n="qc_phone_tip">تماس مستقیم</span>
     </a>
     
-    <a class="qc-item whatsapp" href="https://wa.me/989121234567" target="_blank" rel="noopener" data-i18n-title="qc_whatsapp" title="واتساپ پشتیبانی فنی" aria-label="WhatsApp">
+    <a class="qc-item whatsapp" href="https://wa.me/989123456789" target="_blank" rel="noopener" data-i18n-title="qc_whatsapp" title="واتساپ واحد فنی و استعلام" aria-label="WhatsApp">
       <svg viewBox="0 0 24 24" class="qc-svg" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.21 8.21 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.44 0-2.85-.38-4.09-1.11l-.29-.17-3.05.8 1.03-2.97-.19-.3a8.21 8.21 0 0 1-1.25-4.49c0-4.54 3.7-8.24 8.24-8.24zm4.5 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.18-.47-.3z"/></svg>
       <span class="qc-tip">واتساپ</span>
     </a>
 
-    <a class="qc-item bale" href="https://ble.ir/novatrade" target="_blank" rel="noopener" data-i18n-title="qc_bale" title="پیام‌رسان بله" aria-label="Bale Messenger">
+    <a class="qc-item bale" href="https://ble.ir/sabznegar" target="_blank" rel="noopener" data-i18n-title="qc_bale" title="پیام‌رسان بله سبزنگار" aria-label="Bale Messenger">
       <span class="qc-abbr">بله</span>
       <span class="qc-tip">پیام‌رسان بله</span>
     </a>
 
-    <a class="qc-item rubika" href="https://rubika.ir/novatrade" target="_blank" rel="noopener" data-i18n-title="qc_rubika" title="پیام‌رسان روبیکا" aria-label="Rubika">
+    <a class="qc-item rubika" href="https://rubika.ir/sabznegar" target="_blank" rel="noopener" data-i18n-title="qc_rubika" title="پیام‌رسان روبیکا سبزنگار" aria-label="Rubika">
       <span class="qc-abbr">روبیکا</span>
       <span class="qc-tip">روبیکا</span>
     </a>
 
-    <a class="qc-item eitaa" href="https://eitaa.com/novatrade" target="_blank" rel="noopener" data-i18n-title="qc_eitaa" title="پیام‌رسان ایتا" aria-label="Eitaa">
+    <a class="qc-item eitaa" href="https://eitaa.com/sabznegar" target="_blank" rel="noopener" data-i18n-title="qc_eitaa" title="کانال رسمی ایتا سبزنگار" aria-label="Eitaa">
       <span class="qc-abbr">ایتا</span>
       <span class="qc-tip">پیام‌رسان ایتا</span>
     </a>
@@ -883,14 +977,14 @@
   <div class="modal-backdrop" id="videoBackdrop"></div>
   <div class="modal-box">
     <div class="modal-header">
-      <h3 id="videoModalTitle" data-i18n="video_title">ویدئوی معرفی تجهیزات و خط تولید NovaTrade</h3>
+      <h3 id="videoModalTitle" data-i18n="video_title">ویدئوی معرفی خطوط چاپ افست و جعبه‌سازی سبزنگار</h3>
       <button class="modal-close" id="videoClose" aria-label="Close video modal">✕</button>
     </div>
     <div class="video-container">
       <canvas id="videoCanvas" width="640" height="360" class="video-canvas"></canvas>
       <div class="video-overlay-hud">
-        <span class="hud-pill" data-i18n="video_hud">QC TEST & CAD SIMULATION</span>
-        <span class="hud-model" id="videoHudModel">P-240 INDUSTRIAL PUMP</span>
+        <span class="hud-pill" data-i18n="video_hud">QC SPECTRO & PRINT PRESS SIMULATION</span>
+        <span class="hud-model" id="videoHudModel">HEIDELBERG SPEEDMASTER XL 106</span>
       </div>
       <div class="video-controls">
         <button class="v-btn" id="videoPlayBtn" aria-label="Play/Pause">▶</button>
@@ -902,10 +996,10 @@
       </div>
     </div>
     <div class="modal-footer-info">
-      <p data-i18n="video_desc">شبیه‌سازی سه‌بعدی رفتار هیدرولیکی، تست فشار و تلورانس ارتعاشی استانداردهای ISO 9001 در آزمایشگاه مرکزی NovaTrade.</p>
+      <p data-i18n="video_desc">شبیه‌سازی فرآیند چاپ افست ۵ رنگ هایدلبرگ Speedmaster XL، کالیبراسیون اسپکتروفتومتری زنده CMYK و دایکات تمام‌اتوماتیک بوبست در سالن تولید سبزنگار.</p>
       <div class="modal-actions">
-        <button class="btn btn-sm btn-primary" id="modalDownloadPdf" data-i18n="download_catalog">دانلود کاتالوگ (PDF)</button>
-        <button class="btn btn-sm btn-outline" id="modalConsultBtn" data-i18n="order_inquiry">درخواست مشاوره</button>
+        <button class="btn btn-sm btn-primary" id="modalDownloadPdf" data-i18n="download_catalog">دانلود شناسنامه فنی (PDF)</button>
+        <button class="btn btn-sm btn-outline" id="modalConsultBtn" data-i18n="order_inquiry">استعلام قیمت تیراژ</button>
       </div>
     </div>
   </div>
