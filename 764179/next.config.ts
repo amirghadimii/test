@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: "/test/764179-preview",
   reactStrictMode: true,
   images: {
     // The showroom serves self-hosted CDN urls with explicit sizing params.

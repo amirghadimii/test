@@ -18,47 +18,73 @@ export default function ApproachView() {
 
   return (
     <>
-      <section className="shell pb-16 pt-32 md:pb-24 md:pt-44">
-        <Reveal>
-          <p className="eyebrow">{t.approach.label}</p>
-          <h1 className="display mt-6 max-w-4xl">{t.approach.title}</h1>
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="lead mt-8 max-w-2xl">{t.approach.intro}</p>
-        </Reveal>
+      <section className="shell pb-14 pt-32 md:pb-20 md:pt-44">
+        {/* Drafting Header */}
+        <div className="flex items-center gap-3 border-b border-ash pb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-smoke md:text-[11px]">
+          <span className="inline-block h-1.5 w-1.5 bg-clay" />
+          <span>ARK METHODOLOGY // 4-STEP PROCESS</span>
+          <span className="opacity-40">/</span>
+          <span>INTEGRATED PRACTICE</span>
+        </div>
+
+        <div className="mt-8">
+          <Reveal>
+            <p className="eyebrow">{t.approach.label}</p>
+            <h1 className="display mt-5 max-w-4xl text-ink">{t.approach.title}</h1>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="lead mt-6 max-w-2xl text-graphite">{t.approach.intro}</p>
+          </Reveal>
+        </div>
       </section>
 
+      {/* 4 Phases Editorial Sections */}
       <div className="border-t border-ash">
         {t.approach.steps.map((step, index) => (
-          <section key={step.n} className="border-b border-ash">
-            <div className="shell grid gap-10 py-16 md:grid-cols-12 md:gap-8 md:py-24">
+          <section key={step.n} className="border-b border-ash bg-paper py-20 md:py-28 odd:bg-paper-warm">
+            <div className="shell grid gap-12 md:grid-cols-12 md:gap-10">
               <div className="md:col-span-5">
                 <Reveal>
-                  <div className="flex items-baseline gap-5">
-                    <span className="text-sm tabular-nums text-smoke">{step.n}</span>
-                    <h2 className="display-sm max-w-md">{step.title}</h2>
+                  <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-clay">
+                    <span>[PHASE // {step.n}]</span>
+                    <span className="text-smoke">/</span>
+                    <span className="text-smoke">STEP 0{index + 1} OF 04</span>
                   </div>
-                  <p className="lead mt-7 max-w-lg text-base">{step.text}</p>
-                  <ul className="mt-8 space-y-3 border-t border-ash pt-6">
-                    {step.points.map((point, pointIndex) => (
-                      <li key={point} className="flex items-start gap-3 text-sm leading-7">
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink" />
-                        <span className="text-graphite">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  <h2 className="display-sm mt-4 text-ink">{step.title}</h2>
+                  <p className="lead mt-6 max-w-lg text-graphite">{step.text}</p>
+
+                  <div className="mt-8 border-t border-ash pt-6">
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-smoke">
+                      KEY DELIVERABLES:
+                    </p>
+                    <ul className="mt-4 space-y-3">
+                      {step.points.map((point) => (
+                        <li key={point} className="flex items-start gap-3 text-xs leading-6 text-graphite sm:text-sm sm:leading-7">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-clay" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </Reveal>
               </div>
 
-              <Reveal delay={120} className="md:col-span-6 md:col-start-7">
-                <div className="zoom-host relative aspect-[4/3] overflow-hidden bg-mist md:aspect-[3/2]">
-                  <SmartImage
-                    src={STEP_IMAGES[index % STEP_IMAGES.length]}
-                    alt={step.title}
-                    width={1600}
-                    sizes="(min-width: 768px) 46vw, 100vw"
-                    className="zoom-img"
-                  />
+              <Reveal delay={120} className="md:col-span-7">
+                <div className="border border-ash bg-concrete/20 p-2">
+                  <div className="flex items-center justify-between border-b border-ash px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-smoke">
+                    <span>STAGE RECORD // 0{index + 1}</span>
+                    <span className="text-clay">+</span>
+                  </div>
+                  <div className="zoom-host relative aspect-[16/10] overflow-hidden bg-concrete">
+                    <SmartImage
+                      src={STEP_IMAGES[index % STEP_IMAGES.length]}
+                      alt={step.title}
+                      width={1600}
+                      sizes="(min-width: 768px) 55vw, 100vw"
+                      className="zoom-img contrast-[1.03]"
+                    />
+                  </div>
                 </div>
               </Reveal>
             </div>
@@ -66,17 +92,21 @@ export default function ApproachView() {
         ))}
       </div>
 
-      <section className="bg-ink py-20 text-paper md:py-28">
+      {/* Action Banner */}
+      <section className="border-b border-ash-dark bg-concrete-dark py-20 text-paper md:py-28">
         <div className="shell flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="display-sm max-w-xl">{t.approach.ctaTitle}</h2>
-            <p className="mt-4 max-w-lg text-sm leading-8 text-white/65">
+            <span className="font-mono text-xs uppercase tracking-widest text-clay">
+              [START A DIALOGUE]
+            </span>
+            <h2 className="display-sm mt-3 max-w-xl text-paper">{t.approach.ctaTitle}</h2>
+            <p className="mt-4 max-w-lg text-sm leading-8 text-white/70">
               {t.approach.ctaText}
             </p>
           </div>
-          <Link href="/contact" className="btn-light shrink-0">
-            {t.approach.ctaButton}
-            <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
+          <Link href="/contact" className="btn-arch-light shrink-0">
+            <span>{t.approach.ctaButton}</span>
+            <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
           </Link>
         </div>
       </section>

@@ -63,8 +63,7 @@ export default function ContactForm() {
       if (!response.ok) throw new Error("request failed");
       setStatus("sent");
     } catch {
-      // Static preview fallback: no backend — store the message locally so
-      // the demo flow (and the admin inbox) still works end to end.
+      // Static preview fallback: store message locally so admin inbox works end to end
       try {
         const key = "ark.messages.v1";
         const existing = JSON.parse(window.localStorage.getItem(key) || "[]");
@@ -88,13 +87,16 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="flex min-h-[420px] flex-col items-start justify-center border border-ash bg-mist p-8 md:p-12">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper">
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <div className="flex min-h-[420px] flex-col items-start justify-center border border-ash bg-paper p-8 sm:p-12">
+        <div className="flex h-12 w-12 items-center justify-center border border-clay bg-clay text-paper">
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="m5 13 4.5 4.5L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
+        </div>
+        <span className="mt-6 font-mono text-xs uppercase tracking-widest text-clay">
+          [TRANSMISSION COMPLETE]
         </span>
-        <h2 className="display-sm mt-7">{t.contact.form.successTitle}</h2>
+        <h2 className="display-sm mt-3 text-ink">{t.contact.form.successTitle}</h2>
         <p className="mt-4 max-w-md text-sm leading-8 text-graphite">
           {t.contact.form.successText}
         </p>
@@ -110,10 +112,10 @@ export default function ContactForm() {
             });
             setStatus("idle");
           }}
-          className="btn-ghost mt-8"
+          className="btn-arch-ghost mt-8"
         >
-          {t.contact.form.another}
-          <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
+          <span>{t.contact.form.another}</span>
+          <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
         </button>
       </div>
     );
@@ -123,8 +125,9 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} noValidate className="space-y-8">
       <div className="grid gap-8 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-xs text-smoke">
-            {t.contact.form.name}
+          <label htmlFor="name" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+            <span>{t.contact.form.name}</span>
+            <span className="text-clay">*</span>
           </label>
           <input
             id="name"
@@ -132,18 +135,19 @@ export default function ContactForm() {
             type="text"
             value={form.name}
             onChange={(event) => update("name", event.target.value)}
-            placeholder={isFa ? "نام و نام خانوادگی" : "John Doe"}
-            className="field mt-3"
+            placeholder={isFa ? "نام و نام خانوادگی" : "Full name"}
+            className={`field mt-3 ${errors.name ? "!border-clay" : ""}`}
             aria-invalid={Boolean(errors.name)}
           />
           {errors.name ? (
-            <p className="mt-2 text-xs text-ink">{errors.name}</p>
+            <p className="mt-2 font-mono text-[11px] text-clay">{errors.name}</p>
           ) : null}
         </div>
 
         <div>
-          <label htmlFor="email" className="text-xs text-smoke">
-            {t.contact.form.email}
+          <label htmlFor="email" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+            <span>{t.contact.form.email}</span>
+            <span className="text-clay">*</span>
           </label>
           <input
             id="email"
@@ -151,19 +155,20 @@ export default function ContactForm() {
             type="email"
             value={form.email}
             onChange={(event) => update("email", event.target.value)}
-            placeholder="name@example.com"
+            placeholder="name@domain.com"
             dir="ltr"
-            className="field mt-3 text-start"
+            className={`field mt-3 text-start ${errors.email ? "!border-clay" : ""}`}
             aria-invalid={Boolean(errors.email)}
           />
           {errors.email ? (
-            <p className="mt-2 text-xs text-ink">{errors.email}</p>
+            <p className="mt-2 font-mono text-[11px] text-clay">{errors.email}</p>
           ) : null}
         </div>
 
         <div>
-          <label htmlFor="phone" className="text-xs text-smoke">
-            {t.contact.form.phone}
+          <label htmlFor="phone" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+            <span>{t.contact.form.phone}</span>
+            <span className="text-clay">*</span>
           </label>
           <input
             id="phone"
@@ -172,29 +177,30 @@ export default function ContactForm() {
             inputMode="numeric"
             value={form.phone}
             onChange={(event) => update("phone", event.target.value)}
-            placeholder="09123456789"
+            placeholder="09120000000"
             dir="ltr"
-            className="field mt-3 text-start"
+            className={`field mt-3 text-start ${errors.phone ? "!border-clay" : ""}`}
             aria-invalid={Boolean(errors.phone)}
           />
           {errors.phone ? (
-            <p className="mt-2 text-xs text-ink">{errors.phone}</p>
+            <p className="mt-2 font-mono text-[11px] text-clay">{errors.phone}</p>
           ) : null}
         </div>
 
         <div>
-          <label htmlFor="subject" className="text-xs text-smoke">
-            {t.contact.form.subject}
+          <label htmlFor="subject" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+            <span>{t.contact.form.subject}</span>
+            <span className="text-clay">[SEL]</span>
           </label>
           <select
             id="subject"
             name="subject"
             value={form.subject}
             onChange={(event) => update("subject", event.target.value)}
-            className="field mt-3"
+            className="field mt-3 bg-transparent"
           >
             {t.contact.form.subjects.map((subject) => (
-              <option key={subject} value={subject}>
+              <option key={subject} value={subject} className="bg-paper text-ink">
                 {subject}
               </option>
             ))}
@@ -203,36 +209,45 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="text-xs text-smoke">
-          {t.contact.form.message}
+        <label htmlFor="message" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+          <span>{t.contact.form.message}</span>
+          <span className="text-clay">*</span>
         </label>
         <textarea
           id="message"
           name="message"
-          rows={6}
+          rows={5}
           value={form.message}
           onChange={(event) => update("message", event.target.value)}
           placeholder={
             isFa
-              ? "کمی درباره‌ی پروژه، زمان‌بندی و محدوده‌ی کارتان بنویسید…"
-              : "Tell us about the project, timeline and scope…"
+              ? "کمی درباره‌ی پروژه، متراژ، مکان و زمان‌بندی مورد نظرتان بنویسید…"
+              : "Tell us about the project, site, schedule and scope…"
           }
-          className="field mt-3 resize-none"
+          className={`field mt-3 resize-none ${errors.message ? "!border-clay" : ""}`}
           aria-invalid={Boolean(errors.message)}
         />
         {errors.message ? (
-          <p className="mt-2 text-xs text-ink">{errors.message}</p>
+          <p className="mt-2 font-mono text-[11px] text-clay">{errors.message}</p>
         ) : null}
       </div>
 
       {errors.general ? (
-        <p className="border border-ash bg-mist px-4 py-3 text-xs">{errors.general}</p>
+        <p className="border border-clay/30 bg-clay/10 p-3 font-mono text-xs text-clay">
+          {errors.general}
+        </p>
       ) : null}
 
-      <button type="submit" disabled={status === "sending"} className="btn-solid disabled:opacity-60">
-        {status === "sending" ? t.contact.form.sending : t.contact.form.submit}
-        <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-      </button>
+      <div className="pt-2">
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="btn-arch disabled:opacity-50"
+        >
+          <span>{status === "sending" ? t.contact.form.sending : t.contact.form.submit}</span>
+          <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
+        </button>
+      </div>
     </form>
   );
 }

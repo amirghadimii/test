@@ -19,6 +19,7 @@ export default function Footer() {
     { href: "/services", label: t.nav.services },
     { href: "/about", label: t.nav.about },
     { href: "/contact", label: t.nav.contact },
+    { href: "/admin", label: t.nav.admin },
   ];
 
   const services = [
@@ -38,25 +39,26 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-ink text-paper">
+    <footer className="relative overflow-hidden border-t border-ash-dark bg-concrete-dark text-paper">
       <div className="shell pt-20 md:pt-28">
+        {/* Top Newsletter / Inquiry Strip */}
         <Reveal className="grid gap-10 border-b border-white/12 pb-16 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-5">
-            <p className="eyebrow text-white/45">{t.footer.newsTitle}</p>
-            <h2 className="display-sm mt-5 max-w-md">{t.footer.tagline}</h2>
+          <div className="md:col-span-6">
+            <p className="eyebrow text-white/50">{t.footer.newsTitle}</p>
+            <h2 className="display-sm mt-5 max-w-lg text-paper">{t.footer.tagline}</h2>
           </div>
 
-          <div className="md:col-span-4 md:col-start-7">
+          <div className="md:col-span-5 md:col-start-8">
             {subscribed ? (
-              <p className="mt-8 border-b border-white/25 pb-4 text-sm text-white/70">
-                {t.footer.newsDone}
-              </p>
+              <div className="border border-white/20 bg-white/5 p-4 text-xs font-mono text-paper/80">
+                <span className="text-clay">✓</span> {t.footer.newsDone}
+              </div>
             ) : (
-              <form onSubmit={onSubmit} className="mt-8">
+              <form onSubmit={onSubmit} className="mt-4">
                 <label className="sr-only" htmlFor="footer-email">
                   {t.footer.newsPlaceholder}
                 </label>
-                <div className="flex items-center gap-4 border-b border-white/25 pb-4 focus-within:border-white">
+                <div className="flex items-center gap-3 border-b border-white/20 pb-3 transition-colors focus-within:border-clay">
                   <input
                     id="footer-email"
                     type="email"
@@ -64,15 +66,15 @@ export default function Footer() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder={t.footer.newsPlaceholder}
-                    className="w-full bg-transparent text-sm outline-none placeholder:text-white/40"
+                    className="w-full bg-transparent text-xs outline-none placeholder:text-white/40 md:text-sm"
                     dir="ltr"
                   />
                   <button
                     type="submit"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/30 transition-colors duration-300 hover:bg-white hover:text-ink"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center border border-white/20 text-white transition-all hover:border-clay hover:bg-clay"
                     aria-label={t.footer.newsButton}
                   >
-                    <ArrowIcon className="rtl:-scale-x-100" />
+                    <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
                   </button>
                 </div>
               </form>
@@ -80,30 +82,36 @@ export default function Footer() {
           </div>
         </Reveal>
 
-        <div className="grid gap-10 py-14 md:grid-cols-12 md:gap-6">
+        {/* Main Architectural Information Grid */}
+        <div className="grid gap-12 py-16 md:grid-cols-12 md:gap-8">
+          {/* Colophon & Monograph Note */}
           <div className="md:col-span-4">
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center bg-white text-[15px] font-bold text-ink">
-                {lang === "fa" ? "ا" : "A"}
+              <span className="flex h-8 w-8 items-center justify-center border border-white/30 text-xs font-semibold text-paper">
+                {lang === "fa" ? "آ" : "A"}
               </span>
-              <span className="flex flex-col leading-none">
-                <span className="text-lg font-semibold">{t.brand.name}</span>
-                <span className="mt-1 text-[10px] uppercase tracking-[0.28em] text-white/45">
-                  {t.brand.latin}
+              <div className="flex flex-col">
+                <span className="text-base font-semibold">{t.brand.name}</span>
+                <span className="text-[9px] uppercase tracking-[0.24em] text-white/40">
+                  {t.brand.latin} · SHOWROOM
                 </span>
-              </span>
+              </div>
             </div>
-            <p className="mt-6 max-w-xs text-sm leading-7 text-white/55">
+            <p className="mt-6 max-w-xs text-xs leading-6 text-white/55 md:text-sm md:leading-7">
               {t.brand.tagline}
             </p>
+            <div className="mt-6 font-mono text-[10px] tracking-widest uppercase text-white/40">
+              <span>LAT 35°41′N · LONG 51°25′E</span>
+            </div>
           </div>
 
+          {/* Directory Navigation */}
           <div className="md:col-span-2 md:col-start-6">
-            <p className="eyebrow text-white/45">{t.footer.navTitle}</p>
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
+            <p className="eyebrow text-white/50">{t.footer.navTitle}</p>
+            <ul className="mt-6 space-y-3 font-mono text-xs text-white/70">
               {nav.map((item) => (
                 <li key={item.href + item.label}>
-                  <Link href={item.href} className="link-line">
+                  <Link href={item.href} className="link-line link-clay">
                     {item.label}
                   </Link>
                 </li>
@@ -111,12 +119,13 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Services Scope */}
           <div className="md:col-span-2">
-            <p className="eyebrow text-white/45">{t.footer.servicesTitle}</p>
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
+            <p className="eyebrow text-white/50">{t.footer.servicesTitle}</p>
+            <ul className="mt-6 space-y-3 text-xs text-white/70">
               {services.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="link-line">
+                  <Link href={item.href} className="link-line link-clay">
                     {item.label}
                   </Link>
                 </li>
@@ -124,15 +133,16 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Direct Studio Contact */}
           <div className="md:col-span-3 md:col-start-10">
-            <p className="eyebrow text-white/45">{t.footer.contactTitle}</p>
-            <ul className="mt-6 space-y-3 text-sm text-white/70">
-              <li className="leading-7">{t.contact.address}</li>
-              <li dir="ltr" className="text-start">
+            <p className="eyebrow text-white/50">{t.footer.contactTitle}</p>
+            <ul className="mt-6 space-y-3 text-xs text-white/70">
+              <li className="leading-6">{t.contact.address}</li>
+              <li dir="ltr" className="font-mono text-start">
                 {isFa ? "۰۲۱ ۸۸۴۵ ۲۲۱۰" : "+98 21 8845 2210"}
               </li>
               <li>
-                <a href="mailto:studio@ark-group.ir" className="link-line" dir="ltr">
+                <a href="mailto:studio@ark-group.ir" className="link-line link-clay" dir="ltr">
                   studio@ark-group.ir
                 </a>
               </li>
@@ -141,16 +151,18 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden border-t border-white/12">
+      {/* Monumental Architectural Watermark (Zuxen & LAIN style) */}
+      <div className="relative overflow-hidden border-t border-white/10 select-none">
         <div
           aria-hidden="true"
-          className="pointer-events-none select-none whitespace-nowrap text-center text-[24vw] font-bold leading-[0.78] tracking-[-0.04em] text-white/[0.07]"
+          className="pointer-events-none text-center font-mono text-[22vw] font-bold leading-[0.72] tracking-tighter text-white/[0.04]"
         >
           {t.brand.latin}
         </div>
       </div>
 
-      <div className="shell flex flex-col items-start justify-between gap-4 border-t border-white/12 py-7 text-xs text-white/45 sm:flex-row sm:items-center">
+      {/* Bottom Technical Credits */}
+      <div className="shell flex flex-col items-start justify-between gap-4 border-t border-white/10 py-6 font-mono text-[11px] text-white/45 sm:flex-row sm:items-center">
         <p>
           © {getCurrentYear(lang)} {t.brand.name} — {t.footer.rights}
         </p>
@@ -159,10 +171,10 @@ export default function Footer() {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex items-center gap-2 transition-colors hover:text-white"
+            className="flex items-center gap-2 transition-colors hover:text-clay"
           >
-            {t.footer.backToTop}
-            <ArrowUpIcon className="h-3.5 w-3.5" />
+            <span>{t.footer.backToTop}</span>
+            <ArrowUpIcon className="h-3 w-3" />
           </button>
         </div>
       </div>

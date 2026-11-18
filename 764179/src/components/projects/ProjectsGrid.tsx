@@ -17,6 +17,7 @@ type CardItem = {
   category: CategoryKey;
   year: string;
   location: string;
+  area?: string;
   image: string;
 };
 
@@ -33,6 +34,7 @@ export default function ProjectsGrid() {
       category: project.category,
       year: formatProjectYear(project, lang),
       location: project.location || "—",
+      area: project.area ? `${formatNumber(project.area, lang)} m²` : undefined,
       image: project.image,
     }));
 
@@ -43,6 +45,7 @@ export default function ProjectsGrid() {
       category: project.category,
       year: formatProjectYear(project, lang),
       location: project.location[lang],
+      area: project.area ? `${formatNumber(project.area, lang)} m²` : undefined,
       image: project.cover,
     }));
 
@@ -72,46 +75,63 @@ export default function ProjectsGrid() {
 
   return (
     <div className="shell pb-24 md:pb-36">
-      <div className="sticky top-[68px] z-30 -mx-5 border-y border-ash bg-paper/92 px-5 py-4 backdrop-blur-md md:top-[76px] md:-mx-10 md:px-10">
-        <div className="no-scrollbar flex items-center gap-2 overflow-x-auto">
-          {filters.map((item) => {
-            const active = filter === item.key;
-            return (
-              <button
-                key={item.key}
-                type="button"
-                onClick={() => setFilter(item.key)}
-                aria-pressed={active}
-                className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-[13px] transition-colors duration-300 ${
-                  active
-                    ? "border-ink bg-ink text-paper"
-                    : "border-ash text-graphite hover:border-ink"
-                }`}
-              >
-                {item.label}
-                <span className={active ? "text-white/60" : "text-smoke"}>
-                  {formatNumber(counts[item.key] ?? 0, lang)}
-                </span>
-              </button>
-            );
-          })}
-          <span className="ms-auto hidden shrink-0 text-xs text-smoke md:block">
+      {/* Architectural Filter Bar (Foster + Partners index pattern) */}
+      <div className="sticky top-18 z-30 -mx-5 border-y border-ash bg-paper/95 px-5 py-3 backdrop-blur-md md:top-20 md:-mx-10 md:px-10">
+        <div className="no-scrollbar flex items-center justify-between gap-4 overflow-x-auto">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {filters.map((item, index) => {
+              const active = filter === item.key;
+              return (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => setFilter(item.key)}
+                  aria-pressed={active}
+                  className={`flex shrink-0 items-center gap-2 border px-3.5 py-1.5 font-mono text-xs tracking-wider transition-all duration-200 ${
+                    active
+                      ? "border-clay bg-clay text-paper font-semibold"
+                      : "border-transparent text-smoke hover:border-ash hover:bg-concrete/40 hover:text-ink"
+                  }`}
+                >
+                  <span className="font-sans">{item.label}</span>
+                  <span className={`text-[10px] ${active ? "text-paper/85" : "text-smoke"}`}>
+                    [{formatNumber(counts[item.key] ?? 0, lang)}]
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <span className="hidden shrink-0 font-mono text-[11px] uppercase tracking-wider text-smoke md:block">
             {formatNumber(filtered.length, lang)} {t.projects.count}
           </span>
         </div>
       </div>
 
+      {/* Projects List / Mixed-Size Grid */}
       {filtered.length === 0 ? (
-        <p className="py-24 text-center text-sm text-smoke">{t.projects.noResult}</p>
+        <div className="border border-dashed border-ash py-24 text-center">
+          <p className="font-mono text-xs uppercase tracking-wider text-smoke">{t.projects.noResult}</p>
+        </div>
       ) : (
-        <div className="mt-14 grid gap-x-8 gap-y-16 md:grid-cols-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-12 md:gap-10">
           {filtered.map((item, index) => {
-            const wide = index % 5 === 0;
+            // Mixed-size editorial rhythm:
+            // 0: full width (12)
+            // 1: 7-col, 2: 5-col
+            // 3: 5-col, 4: 7-col
+            // 5: full width (12)
+            const patternIndex = index % 6;
+            const isFull = patternIndex === 0 || patternIndex === 5;
+            const isSeven = patternIndex === 1 || patternIndex === 4;
+            const colSpan = isFull ? "md:col-span-12" : isSeven ? "md:col-span-7" : "md:col-span-5";
+            const aspect = isFull ? "panoramic" : isSeven ? "wide" : "square";
+
             return (
               <Reveal
                 key={item.key}
-                delay={(index % 2) * 100}
-                className={wide ? "md:col-span-2" : ""}
+                delay={(index % 2) * 80}
+                className={colSpan}
               >
                 <ProjectCard
                   href={item.href}
@@ -120,13 +140,16 @@ export default function ProjectsGrid() {
                   category={t.projects.filters[item.category]}
                   year={item.year}
                   location={item.location}
+                  area={item.area}
                   image={item.image}
                   alt={item.title}
-                  aspect={wide ? "wide" : "tall"}
+                  aspect={aspect}
                   sizes={
-                    wide
-                      ? "(min-width: 768px) 92vw, 100vw"
-                      : "(min-width: 768px) 46vw, 100vw"
+                    isFull
+                      ? "100vw"
+                      : isSeven
+                        ? "(min-width: 768px) 60vw, 100vw"
+                        : "(min-width: 768px) 40vw, 100vw"
                   }
                 />
               </Reveal>

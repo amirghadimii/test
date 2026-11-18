@@ -12,13 +12,13 @@ import SmartImage from "@/components/ui/SmartImage";
 import { ArrowIcon } from "@/components/ui/Icons";
 
 type Message = {
-  id: number;
+  id: number | string;
   name: string;
   email: string;
   phone: string;
   subject: string;
   message: string;
-  createdAt: string;
+  createdAt: string | number;
 };
 
 type AdminErrors = Partial<Record<"title" | "year" | "image", string>>;
@@ -151,221 +151,258 @@ export default function AdminView() {
   return (
     <>
       <section className="shell pb-14 pt-32 md:pb-20 md:pt-44">
-        <Reveal>
-          <p className="eyebrow">{t.admin.label}</p>
-          <h1 className="display mt-6 max-w-3xl">{t.admin.title}</h1>
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="lead mt-8 max-w-2xl">{t.admin.intro}</p>
-        </Reveal>
+        {/* Drafting Header */}
+        <div className="flex items-center gap-3 border-b border-ash pb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-smoke md:text-[11px]">
+          <span className="inline-block h-1.5 w-1.5 bg-clay" />
+          <span>PROJECT REGISTRY // ARCHITECTURAL SHOWROOM CMS</span>
+          <span className="opacity-40">/</span>
+          <span>LOCALSTORAGE PERSISTENCE</span>
+        </div>
+
+        <div className="mt-8">
+          <Reveal>
+            <p className="eyebrow">{t.admin.label}</p>
+            <h1 className="display mt-5 max-w-4xl text-ink">{t.admin.title}</h1>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="lead mt-6 max-w-2xl text-graphite">{t.admin.intro}</p>
+          </Reveal>
+        </div>
       </section>
 
-      <section className="shell pb-24 md:pb-32">
-        <div className="grid gap-14 md:grid-cols-12 md:gap-8">
+      {/* Main Admin Section: Form & Existing Registry */}
+      <section className="shell pb-24 md:pb-36">
+        <div className="grid gap-14 md:grid-cols-12 md:gap-10">
+          {/* Add Project Form */}
           <Reveal className="md:col-span-7">
-            <form onSubmit={onSubmit} noValidate className="space-y-8">
-              <div className="grid gap-8 sm:grid-cols-2">
+            <div className="border border-ash bg-concrete/20 p-6 sm:p-10">
+              <div className="mb-8 flex items-center justify-between border-b border-ash pb-4 font-mono text-[10px] uppercase tracking-widest text-smoke">
+                <span>NEW MONOGRAPH ENTRY // FORM</span>
+                <span className="text-clay">SEC-01</span>
+              </div>
+
+              <form onSubmit={onSubmit} noValidate className="space-y-8">
+                <div className="grid gap-8 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="p-title" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                      <span>{t.admin.form.title}</span>
+                      <span className="text-clay">*</span>
+                    </label>
+                    <input
+                      id="p-title"
+                      type="text"
+                      value={title}
+                      onChange={(event) => setTitle(event.target.value)}
+                      className={`field mt-3 ${errors.title ? "!border-clay" : ""}`}
+                      aria-invalid={Boolean(errors.title)}
+                    />
+                    {errors.title ? (
+                      <p className="mt-2 font-mono text-[11px] text-clay">{errors.title}</p>
+                    ) : null}
+                  </div>
+
+                  <div>
+                    <label htmlFor="p-category" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                      <span>{t.admin.form.category}</span>
+                      <span className="text-clay">[CAT]</span>
+                    </label>
+                    <select
+                      id="p-category"
+                      value={category}
+                      onChange={(event) => setCategory(event.target.value as CategoryKey)}
+                      className="field mt-3 bg-transparent"
+                    >
+                      {CATEGORY_ORDER.map((key) => (
+                        <option key={key} value={key} className="bg-paper text-ink">
+                          {t.projects.filters[key]}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="p-year" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                      <span>{t.admin.form.year}</span>
+                      <span className="text-clay">*</span>
+                    </label>
+                    <input
+                      id="p-year"
+                      type="text"
+                      inputMode="numeric"
+                      value={year}
+                      onChange={(event) => setYear(event.target.value)}
+                      placeholder={isFa ? "۱۴۰۳ یا 2024" : "2024 or 1403"}
+                      dir="ltr"
+                      className={`field mt-3 text-start ${errors.year ? "!border-clay" : ""}`}
+                      aria-invalid={Boolean(errors.year)}
+                    />
+                    {errors.year ? (
+                      <p className="mt-2 font-mono text-[11px] text-clay">{errors.year}</p>
+                    ) : null}
+                  </div>
+
+                  <div>
+                    <label htmlFor="p-status" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                      <span>{t.admin.form.status}</span>
+                      <span className="text-clay">[STAT]</span>
+                    </label>
+                    <select
+                      id="p-status"
+                      value={status}
+                      onChange={(event) => setStatus(event.target.value as StatusKey)}
+                      className="field mt-3 bg-transparent"
+                    >
+                      {(
+                        ["completed", "inProgress", "concept"] as StatusKey[]
+                      ).map((key) => (
+                        <option key={key} value={key} className="bg-paper text-ink">
+                          {t.project.statusLabels[key]}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="p-location" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                      <span>{t.admin.form.location}</span>
+                    </label>
+                    <input
+                      id="p-location"
+                      type="text"
+                      value={location}
+                      onChange={(event) => setLocation(event.target.value)}
+                      className="field mt-3"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="p-area" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                      <span>{t.admin.form.area} (m²)</span>
+                    </label>
+                    <input
+                      id="p-area"
+                      type="number"
+                      inputMode="numeric"
+                      value={area}
+                      onChange={(event) => setArea(event.target.value)}
+                      dir="ltr"
+                      className="field mt-3 text-start"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="p-title" className="text-xs text-smoke">
-                    {t.admin.form.title}
+                  <label htmlFor="p-image" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                    <span>{t.admin.form.image} (URL)</span>
+                    <span className="text-clay">*</span>
                   </label>
                   <input
-                    id="p-title"
-                    type="text"
-                    value={title}
-                    onChange={(event) => setTitle(event.target.value)}
-                    className="field mt-3"
-                    aria-invalid={Boolean(errors.title)}
+                    id="p-image"
+                    type="url"
+                    value={image}
+                    onChange={(event) => setImage(event.target.value)}
+                    placeholder="https://images.unsplash.com/photo-…"
+                    dir="ltr"
+                    className={`field mt-3 text-start ${errors.image ? "!border-clay" : ""}`}
+                    aria-invalid={Boolean(errors.image)}
                   />
-                  {errors.title ? (
-                    <p className="mt-2 text-xs">{errors.title}</p>
+                  {errors.image ? (
+                    <p className="mt-2 font-mono text-[11px] text-clay">{errors.image}</p>
                   ) : null}
                 </div>
 
                 <div>
-                  <label htmlFor="p-category" className="text-xs text-smoke">
-                    {t.admin.form.category}
+                  <label htmlFor="p-description" className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-smoke">
+                    <span>{t.admin.form.description}</span>
                   </label>
-                  <select
-                    id="p-category"
-                    value={category}
-                    onChange={(event) => setCategory(event.target.value as CategoryKey)}
-                    className="field mt-3"
+                  <textarea
+                    id="p-description"
+                    rows={4}
+                    value={description}
+                    onChange={(event) => setDescription(event.target.value)}
+                    className="field mt-3 resize-none"
+                  />
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <button type="submit" className="btn-arch">
+                    <span>{t.admin.form.submit}</span>
+                    <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTitle("");
+                      setImage("");
+                      setLocation("");
+                      setArea("");
+                      setDescription("");
+                      setYear(isFa ? "1403" : "2024");
+                      setErrors({});
+                      setSaved(false);
+                    }}
+                    className="btn-arch-ghost"
                   >
-                    {CATEGORY_ORDER.map((key) => (
-                      <option key={key} value={key}>
-                        {t.projects.filters[key]}
-                      </option>
-                    ))}
-                  </select>
+                    <span>{t.admin.form.reset}</span>
+                  </button>
                 </div>
 
-                <div>
-                  <label htmlFor="p-year" className="text-xs text-smoke">
-                    {t.admin.form.year}
-                  </label>
-                  <input
-                    id="p-year"
-                    type="text"
-                    inputMode="numeric"
-                    value={year}
-                    onChange={(event) => setYear(event.target.value)}
-                    placeholder={isFa ? "۱۴۰۳ یا 2024" : "2024 or 1403"}
-                    dir="ltr"
-                    className="field mt-3 text-start"
-                    aria-invalid={Boolean(errors.year)}
-                  />
-                  {errors.year ? <p className="mt-2 text-xs">{errors.year}</p> : null}
-                </div>
-
-                <div>
-                  <label htmlFor="p-status" className="text-xs text-smoke">
-                    {t.admin.form.status}
-                  </label>
-                  <select
-                    id="p-status"
-                    value={status}
-                    onChange={(event) => setStatus(event.target.value as StatusKey)}
-                    className="field mt-3"
-                  >
-                    {(
-                      ["completed", "inProgress", "concept"] as StatusKey[]
-                    ).map((key) => (
-                      <option key={key} value={key}>
-                        {t.project.statusLabels[key]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="p-location" className="text-xs text-smoke">
-                    {t.admin.form.location}
-                  </label>
-                  <input
-                    id="p-location"
-                    type="text"
-                    value={location}
-                    onChange={(event) => setLocation(event.target.value)}
-                    className="field mt-3"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="p-area" className="text-xs text-smoke">
-                    {t.admin.form.area}
-                  </label>
-                  <input
-                    id="p-area"
-                    type="number"
-                    inputMode="numeric"
-                    value={area}
-                    onChange={(event) => setArea(event.target.value)}
-                    dir="ltr"
-                    className="field mt-3 text-start"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="p-image" className="text-xs text-smoke">
-                  {t.admin.form.image}
-                </label>
-                <input
-                  id="p-image"
-                  type="url"
-                  value={image}
-                  onChange={(event) => setImage(event.target.value)}
-                  placeholder="https://images.unsplash.com/photo-…"
-                  dir="ltr"
-                  className="field mt-3 text-start"
-                  aria-invalid={Boolean(errors.image)}
-                />
-                {errors.image ? <p className="mt-2 text-xs">{errors.image}</p> : null}
-              </div>
-
-              <div>
-                <label htmlFor="p-description" className="text-xs text-smoke">
-                  {t.admin.form.description}
-                </label>
-                <textarea
-                  id="p-description"
-                  rows={4}
-                  value={description}
-                  onChange={(event) => setDescription(event.target.value)}
-                  className="field mt-3 resize-none"
-                />
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <button type="submit" className="btn-solid">
-                  {t.admin.form.submit}
-                  <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setTitle("");
-                    setImage("");
-                    setLocation("");
-                    setArea("");
-                    setDescription("");
-                    setYear(isFa ? "1403" : "2024");
-                    setErrors({});
-                    setSaved(false);
-                  }}
-                  className="btn-ghost"
-                >
-                  {t.admin.form.reset}
-                </button>
-              </div>
-
-              {saved ? (
-                <p className="border border-ash bg-mist px-4 py-3 text-xs">
-                  {t.admin.form.success}
-                </p>
-              ) : null}
-            </form>
+                {saved ? (
+                  <div className="border border-clay/30 bg-clay/10 p-4 font-mono text-xs text-clay">
+                    <span>✓ </span>
+                    {t.admin.form.success}
+                  </div>
+                ) : null}
+              </form>
+            </div>
           </Reveal>
 
-          <Reveal delay={120} className="md:col-span-4 md:col-start-9">
-            <div className="border-t border-ash pt-8">
-              <p className="eyebrow">{t.admin.listLabel}</p>
+          {/* User Projects Registry List */}
+          <Reveal delay={120} className="md:col-span-5">
+            <div className="border border-ash bg-concrete/30 p-6 sm:p-8">
+              <div className="flex items-center justify-between border-b border-ash pb-4 font-mono text-[10px] uppercase tracking-widest text-smoke">
+                <span>LOCAL REGISTRY // USER ADDITIONS</span>
+                <span className="text-clay">[{items.length}]</span>
+              </div>
 
               {items.length === 0 ? (
-                <p className="mt-6 text-sm text-smoke">{t.admin.empty}</p>
+                <div className="py-12 text-center">
+                  <p className="font-mono text-xs uppercase tracking-wider text-smoke">
+                    {t.admin.empty}
+                  </p>
+                </div>
               ) : (
-                <ul className="mt-6 space-y-6">
+                <ul className="mt-6 divide-y divide-ash">
                   {items.map((project) => (
-                    <li key={project.id} className="flex gap-4 border-b border-ash pb-6">
-                      <div className="relative h-20 w-24 shrink-0 overflow-hidden bg-mist">
+                    <li key={project.id} className="flex gap-4 py-4 first:pt-0 last:pb-0">
+                      <div className="relative h-18 w-20 shrink-0 overflow-hidden border border-ash bg-concrete">
                         <SmartImage
                           src={project.image}
                           alt={project.title}
                           width={400}
-                          sizes="96px"
+                          sizes="80px"
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium">{project.title}</p>
-                        <p className="mt-1 text-xs text-smoke">
-                          {t.projects.filters[project.category]} ·{" "}
-                          {formatProjectYear(project, lang)}
+                        <p className="truncate text-sm font-medium text-ink">{project.title}</p>
+                        <p className="mt-1 font-mono text-xs text-smoke">
+                          {t.projects.filters[project.category]} · {formatProjectYear(project, lang)}
                         </p>
-                        <div className="mt-3 flex items-center gap-4 text-xs">
+                        <div className="mt-2 flex items-center gap-4 font-mono text-xs">
                           <Link
                             href={`/projects/${project.slug}`}
-                            className="link-line"
+                            className="link-line link-clay text-ink"
                             target="_blank"
                           >
-                            {t.admin.preview}
+                            <span>{t.admin.preview}</span>
+                            <ArrowIcon className="h-3 w-3 rtl:-scale-x-100" />
                           </Link>
                           <button
                             type="button"
                             onClick={() => remove(project.id)}
-                            className="text-smoke transition-colors hover:text-ink"
+                            className="text-clay transition-opacity hover:opacity-75"
                           >
-                            {t.admin.remove}
+                            [{t.admin.remove}]
                           </button>
                         </div>
                       </div>
@@ -374,48 +411,62 @@ export default function AdminView() {
                 </ul>
               )}
 
-              <Link
-                href="/projects"
-                className="link-line mt-8 inline-flex items-center gap-2 text-sm"
-              >
-                {t.admin.backToProjects}
-                <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-              </Link>
+              <div className="mt-8 border-t border-ash pt-6">
+                <Link
+                  href="/projects"
+                  className="link-line link-clay font-mono text-xs uppercase tracking-wider text-ink"
+                >
+                  <span>{t.admin.backToProjects}</span>
+                  <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
+                </Link>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-mist py-16 md:py-24">
+      {/* Messages Inbox Section */}
+      <section className="border-t border-ash bg-paper-warm py-16 md:py-24">
         <div className="shell">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="eyebrow">{t.admin.messagesLabel}</p>
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-ash pb-6">
+            <div>
+              <p className="eyebrow">{t.admin.messagesLabel}</p>
+              <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-smoke">
+                <span>INBOX TRANSMISSIONS</span>
+              </div>
+            </div>
             <button
               type="button"
               onClick={loadMessages}
-              className="btn-ghost !px-5 !py-2 text-xs"
+              className="btn-arch-ghost !px-4 !py-1.5 font-mono text-xs"
             >
-              {messagesLoading ? t.common.loading : t.admin.refresh}
+              <span>{messagesLoading ? t.common.loading : t.admin.refresh}</span>
             </button>
           </div>
 
           {messages.length === 0 ? (
-            <p className="mt-8 text-sm text-smoke">{t.admin.messagesEmpty}</p>
+            <div className="mt-10 border border-dashed border-ash py-16 text-center">
+              <p className="font-mono text-xs uppercase tracking-wider text-smoke">
+                {t.admin.messagesEmpty}
+              </p>
+            </div>
           ) : (
             <ul className="mt-8 grid gap-6 md:grid-cols-2">
               {messages.map((item) => (
                 <li key={item.id} className="border border-ash bg-paper p-6">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <p className="text-sm font-medium">{item.name}</p>
+                  <div className="flex items-baseline justify-between gap-4 border-b border-ash pb-3 font-mono text-xs">
+                    <span className="font-sans font-semibold text-ink">{item.name}</span>
                     <span className="text-[11px] text-smoke">
                       {new Date(item.createdAt).toLocaleDateString(isFa ? "fa-IR" : "en-GB")}
                     </span>
                   </div>
-                  <p className="mt-2 text-xs text-smoke" dir="ltr">
+                  <p className="mt-3 font-mono text-xs text-clay" dir="ltr">
                     {item.phone} · {item.email}
                   </p>
-                  <p className="mt-4 text-xs text-graphite">{item.subject}</p>
-                  <p className="mt-2 text-sm leading-7">{item.message}</p>
+                  <p className="mt-3 font-mono text-xs uppercase text-smoke">
+                    SUBJ: {item.subject}
+                  </p>
+                  <p className="mt-3 text-xs leading-6 text-graphite sm:text-sm">{item.message}</p>
                 </li>
               ))}
             </ul>

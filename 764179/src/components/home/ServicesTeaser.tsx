@@ -11,42 +11,50 @@ export default function ServicesTeaser() {
   const marquee = [...items, ...items];
 
   return (
-    <section className="overflow-hidden border-y border-ash bg-paper py-24 md:py-36">
+    <section className="overflow-hidden border-b border-ash bg-paper-warm py-24 md:py-36">
       <div className="shell">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-8">
-          <div className="md:col-span-4">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-10">
+          {/* Left Column: Scope & Overview */}
+          <div className="md:col-span-5">
             <Reveal>
               <p className="eyebrow">{t.home.services.label}</p>
-              <h2 className="display-md mt-5 max-w-sm">{t.home.services.title}</h2>
-              <p className="lead mt-6 max-w-sm text-base">{t.home.services.text}</p>
-              <Link
-                href="/services"
-                className="link-line mt-8 inline-flex items-center gap-2 text-sm"
-              >
-                {t.common.viewAll}
-                <ArrowIcon className="h-4 w-4 rtl:-scale-x-100" />
-              </Link>
+              <div className="mt-4 flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-smoke">
+                <span>PRACTICE SPECTRUM</span>
+                <span className="text-clay">/</span>
+                <span>DISCIPLINES</span>
+              </div>
+              <h2 className="display-md mt-5 text-ink">{t.home.services.title}</h2>
+              <p className="lead mt-6 max-w-sm text-graphite">{t.home.services.text}</p>
+              <div className="mt-8">
+                <Link href="/services" className="btn-arch-ghost">
+                  <span>{t.common.viewAll}</span>
+                  <ArrowIcon className="h-3.5 w-3.5 rtl:-scale-x-100" />
+                </Link>
+              </div>
             </Reveal>
           </div>
 
-          <div className="md:col-span-7 md:col-start-6">
-            <ul className="border-t border-ash">
+          {/* Right Column: Architectural Discipline Schedule */}
+          <div className="md:col-span-7">
+            <ul className="divide-y divide-ash border-y border-ash">
               {items.map((item, index) => (
-                <Reveal key={item} delay={index * 70}>
+                <Reveal key={item} delay={index * 60}>
                   <li>
                     <Link
                       href="/services"
-                      className="group flex items-center justify-between gap-6 border-b border-ash py-6 transition-[padding] duration-500 hover:ps-4"
+                      className="group flex items-center justify-between gap-6 py-6 transition-all duration-300 hover:bg-concrete/40 hover:ps-4"
                     >
-                      <span className="flex items-center gap-6">
-                        <span className="text-xs tabular-nums text-smoke">
-                          {String(index + 1).padStart(2, "0")}
+                      <div className="flex items-center gap-5 sm:gap-7">
+                        <span className="font-mono text-xs text-smoke transition-colors group-hover:text-clay sm:text-sm">
+                          0{index + 1}
                         </span>
-                        <span className="text-xl font-medium transition-transform duration-500 group-hover:translate-x-1 md:text-3xl">
+                        <span className="text-lg font-medium text-ink transition-colors group-hover:text-clay sm:text-2xl">
                           {item}
                         </span>
-                      </span>
-                      <ArrowIcon className="h-5 w-5 shrink-0 text-smoke transition-colors duration-500 group-hover:text-ink rtl:-scale-x-100" />
+                      </div>
+                      <div className="flex h-8 w-8 items-center justify-center border border-ash text-smoke transition-all duration-300 group-hover:border-clay group-hover:bg-clay group-hover:text-paper">
+                        <ArrowIcon className="h-3 w-3 rtl:-scale-x-100" />
+                      </div>
                     </Link>
                   </li>
                 </Reveal>
@@ -56,15 +64,16 @@ export default function ServicesTeaser() {
         </div>
       </div>
 
-      <div className="mt-20 border-t border-ash pt-8">
+      {/* Architectural Typography Marquee Ribbon */}
+      <div className="mt-20 border-y border-ash bg-concrete/50 py-4">
         <div className="marquee-track">
           {marquee.map((item, index) => (
             <span
               key={`${item}-${index}`}
-              className="flex items-center gap-8 whitespace-nowrap px-8 text-[7vw] font-medium leading-none text-ink/12 md:text-[5vw]"
+              className="flex items-center gap-8 whitespace-nowrap px-8 font-mono text-xs uppercase tracking-[0.25em] text-smoke md:text-sm"
             >
-              {item}
-              <span className="text-[0.4em] text-ink/30">✳</span>
+              <span>{item}</span>
+              <span className="text-clay">✦</span>
             </span>
           ))}
         </div>
