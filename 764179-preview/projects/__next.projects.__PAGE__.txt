@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:"/_next/static/chunks/3kwvnwysmxiyf.js"
-3:"/_next/static/chunks/0t0-0yf57szjq.js"
+2:"/test/764179-preview/_next/static/chunks/3kwvnwysmxiyf.js"
+3:"/test/764179-preview/_next/static/chunks/0t0-0yf57szjq.js"
 4:I[79520,["$2","$3"],""]
 5:"LanguageProvider"
 6:I[66605,["$2","$3"],"$5"]
@@ -9,8 +9,8 @@
 9:I[37457,["$2","$3"],"default"]
 a:I[22016,["$2","$3"],""]
 b:I[58234,["$2","$3"],"default"]
-12:"/_next/static/chunks/40-kpmnj041tz.js"
-13:"/_next/static/chunks/01cn70xtigi80.js"
+12:"/test/764179-preview/_next/static/chunks/40-kpmnj041tz.js"
+13:"/test/764179-preview/_next/static/chunks/24icxoieqv90f.js"
 14:I[78411,["$2","$3","$12","$13"],"default"]
 15:I[97367,["$2","$3"],"OutletBoundary"]
 16:"$Sreact.suspense"
@@ -18,38 +18,39 @@ b:I[58234,["$2","$3"],"default"]
 1a:I[97367,["$2","$3"],"$19"]
 1b:"MetadataBoundary"
 1c:I[97367,["$2","$3"],"$1b"]
-:HL["/_next/static/chunks/1pbotk8sejg90.css","style"]
+:HL["/test/764179-preview/_next/static/chunks/1pbotk8sejg90.css","style"]
 d:X
 10:X
 10:C
-11:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L14",null,{}],[["$","script","script-0",{"src":"/_next/static/chunks/40-kpmnj041tz.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/01cn70xtigi80.js","async":true}]],["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]]}],"p":"$@18","v":null,"s":"$d"}}]]
+11:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L14",null,{}],[["$","script","script-0",{"src":"/test/764179-preview/_next/static/chunks/40-kpmnj041tz.js","async":true}],["$","script","script-1",{"src":"/test/764179-preview/_next/static/chunks/24icxoieqv90f.js","async":true}]],["$","$L15",null,{"children":["$","$16",null,{"name":"Next.MetadataOutlet","children":"$@17"}]}]]}],"p":"$@18","v":null,"s":"$d"}}]]
 e:[["children",{"s":"projects","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L8",null,{"parallelRouterKey":"children","template":["$","$L9",null,{}]}]]}],"p":"$@f","v":"$10","s":"$d"},"c":"$Q11"}]]
-0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1pbotk8sejg90.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3kwvnwysmxiyf.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/0t0-0yf57szjq.js","async":true}]],["$","html",null,{"lang":"fa","dir":"rtl","className":"f6XsKq_variable vtsTtq_variable","children":["$","body",null,{"className":"bg-paper text-ink antialiased","children":[["$","$L4",null,{"id":"ark-lang-init","strategy":"beforeInteractive","children":"try{document.documentElement.classList.add('js');var l=localStorage.getItem('ark.lang');var e=(l==='en');document.documentElement.lang=e?'en':'fa';document.documentElement.dir=e?'ltr':'rtl';document.documentElement.dataset.lang=e?'en':'fa';}catch(err){}"}],["$","$L6",null,{"children":[["$","$L7",null,{}],["$","main",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","template":["$","div",null,{"className":"page-enter","children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":null,"notFound":[["$","section",null,{"className":"shell flex min-h-[80svh] flex-col items-start justify-center gap-8 pt-32","children":[["$","p",null,{"className":"eyebrow","children":"404"}],["$","h1",null,{"className":"display max-w-2xl","children":"این صفحه در شوی‌روم ما وجود ندارد"}],["$","p",null,{"className":"lead max-w-xl","children":"ممکن است نشانی تغییر کرده باشد یا پروژه هنوز منتشر نشده باشد. از اینجا به صفحه پروژه‌ها برگردید."}],["$","$La",null,{"href":"/projects","className":"btn-solid","children":"مشاهده پروژه‌ها"}]]}],[]]}]}],["$","$Lb",null,{}]]}],[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"@id\":\"https://ark-group.ir/#organization\",\"name\":\"آرک\",\"alternateName\":\"ARK\",\"legalName\":\"ARK Architecture, Experience & Business Development Group\",\"url\":\"https://ark-group.ir\",\"email\":\"studio@ark-group.ir\",\"telephone\":\"+982188452210\",\"foundingDate\":\"2012\",\"description\":\"گروه آرک؛ طراحی معماری، فضای داخلی، نمایشگاه و تجربه‌محور و توسعه کسب‌وکار.\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"پلاک ۱۲۴، خیابان کریم‌خان زند، طبقه سوم\",\"addressLocality\":\"تهران\",\"addressCountry\":\"IR\",\"postalCode\":\"1584743315\"},\"areaServed\":\"IR\",\"sameAs\":[\"https://instagram.com\",\"https://linkedin.com\",\"https://telegram.org\"]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"@id\":\"https://ark-group.ir/#website\",\"url\":\"https://ark-group.ir\",\"name\":\"ARK — Digital Showroom\",\"inLanguage\":[\"fa-IR\",\"en-US\"],\"publisher\":{\"@id\":\"https://ark-group.ir/#organization\"}}"}}]]]}]}]]}],"p":"$@c","v":null,"s":"$d"},"c":"$Qe"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0a0a0a"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"پروژه‌ها | آرک"}],["$","meta","1",{"name":"description","content":"نمونه‌کارهای گروه آرک در معماری، تجربه و نمایشگاهی، توسعه کسب‌وکار و طراحی داخلی؛ همراه با مشخصات و نقش گروه در هر پروژه."}],["$","meta","2",{"name":"application-name","content":"ARK Digital Showroom"}],["$","meta","3",{"name":"author","content":"ARK Group"}],["$","meta","4",{"name":"keywords","content":"معماری,طراحی داخلی,نمایشگاه,تجربه‌محور,توسعه کسب‌وکار,architecture studio,interior design,exhibition design"}],["$","meta","5",{"name":"creator","content":"ARK Group"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://ark-group.ir/projects"}],["$","meta","8",{"property":"og:title","content":"آرک | گروه معماری، تجربه و توسعه کسب‌وکار"}],["$","meta","9",{"property":"og:description","content":"شوی‌روم دیجیتال گروه آرک: معماری، تجربه‌محور و توسعه کسب‌وکار."}],["$","meta","10",{"property":"og:url","content":"https://ark-group.ir"}],"$L1d","$L1e","$L1f","$L20","$L21","$L22","$L23","$L24","$L25","$L26","$L27","$L28","$L29","$L2a","$L2b","$L2c","$L2d"]}]}],null]}],"$L2e"]}],"p":"$@2f","v":null,"s":"$d"}},"a":"$@30","u":"$@31","b":"9eTf0RiSCc31zjJnezIRs"}
-32:I[27201,["$2","$3"],"IconMark"]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/test/764179-preview/_next/static/chunks/1pbotk8sejg90.css","precedence":"next"}],["$","script","script-0",{"src":"/test/764179-preview/_next/static/chunks/3kwvnwysmxiyf.js","async":true}],["$","script","script-1",{"src":"/test/764179-preview/_next/static/chunks/0t0-0yf57szjq.js","async":true}]],["$","html",null,{"lang":"fa","dir":"rtl","className":"f6XsKq_variable vtsTtq_variable","children":["$","body",null,{"className":"bg-paper text-ink antialiased","children":[["$","$L4",null,{"id":"ark-lang-init","strategy":"beforeInteractive","children":"try{document.documentElement.classList.add('js');var l=localStorage.getItem('ark.lang');var e=(l==='en');document.documentElement.lang=e?'en':'fa';document.documentElement.dir=e?'ltr':'rtl';document.documentElement.dataset.lang=e?'en':'fa';}catch(err){}"}],["$","$L6",null,{"children":[["$","$L7",null,{}],["$","main",null,{"children":["$","$L8",null,{"parallelRouterKey":"children","template":["$","div",null,{"className":"page-enter","children":["$","$L9",null,{}]}],"templateStyles":[],"templateScripts":null,"notFound":[["$","section",null,{"className":"shell flex min-h-[80svh] flex-col items-start justify-center gap-8 pt-32","children":[["$","p",null,{"className":"eyebrow","children":"404"}],["$","h1",null,{"className":"display max-w-2xl","children":"این صفحه در شوی‌روم ما وجود ندارد"}],["$","p",null,{"className":"lead max-w-xl","children":"ممکن است نشانی تغییر کرده باشد یا پروژه هنوز منتشر نشده باشد. از اینجا به صفحه پروژه‌ها برگردید."}],["$","$La",null,{"href":"/projects","className":"btn-solid","children":"مشاهده پروژه‌ها"}]]}],[]]}]}],["$","$Lb",null,{}]]}],[["$","script","0",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"@id\":\"https://ark-group.ir/#organization\",\"name\":\"آرک\",\"alternateName\":\"ARK\",\"legalName\":\"ARK Architecture, Experience & Business Development Group\",\"url\":\"https://ark-group.ir\",\"email\":\"studio@ark-group.ir\",\"telephone\":\"+982188452210\",\"foundingDate\":\"2012\",\"description\":\"گروه آرک؛ طراحی معماری، فضای داخلی، نمایشگاه و تجربه‌محور و توسعه کسب‌وکار.\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"پلاک ۱۲۴، خیابان کریم‌خان زند، طبقه سوم\",\"addressLocality\":\"تهران\",\"addressCountry\":\"IR\",\"postalCode\":\"1584743315\"},\"areaServed\":\"IR\",\"sameAs\":[\"https://instagram.com\",\"https://linkedin.com\",\"https://telegram.org\"]}"}}],["$","script","1",{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"@id\":\"https://ark-group.ir/#website\",\"url\":\"https://ark-group.ir\",\"name\":\"ARK — Digital Showroom\",\"inLanguage\":[\"fa-IR\",\"en-US\"],\"publisher\":{\"@id\":\"https://ark-group.ir/#organization\"}}"}}]]]}]}]]}],"p":"$@c","v":null,"s":"$d"},"c":"$Qe"},"h":{"r":["$","$1","h",{"children":[null,["$","$L1a",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0a0a0a"}]]}],["$","$L1c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$16",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"پروژه‌ها | آرک"}],["$","meta","1",{"name":"description","content":"نمونه‌کارهای گروه آرک در معماری، تجربه و نمایشگاهی، توسعه کسب‌وکار و طراحی داخلی؛ همراه با مشخصات و نقش گروه در هر پروژه."}],["$","meta","2",{"name":"application-name","content":"ARK Digital Showroom"}],["$","meta","3",{"name":"author","content":"ARK Group"}],["$","meta","4",{"name":"keywords","content":"معماری,طراحی داخلی,نمایشگاه,تجربه‌محور,توسعه کسب‌وکار,architecture studio,interior design,exhibition design"}],["$","meta","5",{"name":"creator","content":"ARK Group"}],["$","meta","6",{"name":"robots","content":"index, follow"}],["$","link","7",{"rel":"canonical","href":"https://ark-group.ir/projects"}],["$","meta","8",{"property":"og:title","content":"آرک | گروه معماری، تجربه و توسعه کسب‌وکار"}],["$","meta","9",{"property":"og:description","content":"شوی‌روم دیجیتال گروه آرک: معماری، تجربه‌محور و توسعه کسب‌وکار."}],"$L1d","$L1e","$L1f","$L20","$L21","$L22","$L23","$L24","$L25","$L26","$L27","$L28","$L29","$L2a","$L2b","$L2c","$L2d","$L2e"]}]}],null]}],"$L2f"]}],"p":"$@30","v":null,"s":"$d"}},"a":"$@31","u":"$@32","b":"7JDfmoQVuacgEwc9mGH43"}
+33:I[27201,["$2","$3"],"IconMark"]
 17:null
-1d:["$","meta","11",{"property":"og:site_name","content":"ARK — Digital Showroom"}]
-1e:["$","meta","12",{"property":"og:locale","content":"fa_IR"}]
-1f:["$","meta","13",{"property":"og:image","content":"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=75"}]
-20:["$","meta","14",{"property":"og:image:width","content":"1600"}]
-21:["$","meta","15",{"property":"og:image:height","content":"900"}]
-22:["$","meta","16",{"property":"og:image:alt","content":"ARK Group — Digital Showroom"}]
-23:["$","meta","17",{"property":"og:locale:alternate","content":"en_US"}]
-24:["$","meta","18",{"property":"og:type","content":"website"}]
-25:["$","meta","19",{"name":"twitter:card","content":"summary_large_image"}]
-26:["$","meta","20",{"name":"twitter:title","content":"آرک | گروه معماری، تجربه و توسعه کسب‌وکار"}]
-27:["$","meta","21",{"name":"twitter:description","content":"شوی‌روم دیجیتال گروه آرک: معماری، تجربه‌محور و توسعه کسب‌وکار."}]
-28:["$","meta","22",{"name":"twitter:image","content":"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=75"}]
-29:["$","meta","23",{"name":"twitter:image:alt","content":"ARK Group — Digital Showroom"}]
-2a:["$","meta","24",{"name":"twitter:image:width","content":"1600"}]
-2b:["$","meta","25",{"name":"twitter:image:height","content":"900"}]
-2c:["$","link","26",{"rel":"icon","href":"/icon.svg?icon.283kdds2oauoj.svg","sizes":"any","type":"image/svg+xml"}]
-2d:["$","$L32","27",{}]
-2e:["$","meta",null,{"name":"next-size-adjust","content":""}]
+1d:["$","meta","10",{"property":"og:url","content":"https://ark-group.ir"}]
+1e:["$","meta","11",{"property":"og:site_name","content":"ARK — Digital Showroom"}]
+1f:["$","meta","12",{"property":"og:locale","content":"fa_IR"}]
+20:["$","meta","13",{"property":"og:image","content":"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=75"}]
+21:["$","meta","14",{"property":"og:image:width","content":"1600"}]
+22:["$","meta","15",{"property":"og:image:height","content":"900"}]
+23:["$","meta","16",{"property":"og:image:alt","content":"ARK Group — Digital Showroom"}]
+24:["$","meta","17",{"property":"og:locale:alternate","content":"en_US"}]
+25:["$","meta","18",{"property":"og:type","content":"website"}]
+26:["$","meta","19",{"name":"twitter:card","content":"summary_large_image"}]
+27:["$","meta","20",{"name":"twitter:title","content":"آرک | گروه معماری، تجربه و توسعه کسب‌وکار"}]
+28:["$","meta","21",{"name":"twitter:description","content":"شوی‌روم دیجیتال گروه آرک: معماری، تجربه‌محور و توسعه کسب‌وکار."}]
+29:["$","meta","22",{"name":"twitter:image","content":"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=75"}]
+2a:["$","meta","23",{"name":"twitter:image:alt","content":"ARK Group — Digital Showroom"}]
+2b:["$","meta","24",{"name":"twitter:image:width","content":"1600"}]
+2c:["$","meta","25",{"name":"twitter:image:height","content":"900"}]
+2d:["$","link","26",{"rel":"icon","href":"/test/764179-preview/icon.svg?icon.283kdds2oauoj.svg","sizes":"any","type":"image/svg+xml"}]
+2e:["$","$L33","27",{}]
+2f:["$","meta",null,{"name":"next-size-adjust","content":""}]
 d:300
-31:true
+32:true
 d:C
-30:0
+31:0
 f:"$undefined"
 c:"$undefined"
-2f:"$undefined"
+30:"$undefined"
 18:"$undefined"
