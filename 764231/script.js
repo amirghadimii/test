@@ -5,16 +5,16 @@
   var header = document.getElementById("siteHeader");
   var menuBtn = document.getElementById("menuBtn");
   var mobileNav = document.getElementById("mobileNav");
-  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
-  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".filter-btn"));
+  var rows = Array.prototype.slice.call(document.querySelectorAll(".service-row"));
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll(".filter-pill"));
   var noResult = document.getElementById("noResult");
   var toggleAllBtn = document.getElementById("toggleAllBtn");
   var toggleAllText = document.getElementById("toggleAllText");
   var floatingTopBtn = document.getElementById("floatingTopBtn");
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".main-nav a"));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".main-nav .nav-link"));
 
   // Sections for Scrollspy
-  var sectionIds = ["services", "rhythm", "proof", "contact"];
+  var sectionIds = ["services", "rhythm", "ticket", "proof", "contact"];
   var sections = sectionIds.map(function (id) {
     return document.getElementById(id);
   }).filter(Boolean);
@@ -40,7 +40,6 @@
       toggleMobileMenu();
     });
 
-    // Close mobile menu when clicking any link inside it
     var mobileLinks = mobileNav.querySelectorAll("a");
     mobileLinks.forEach(function (link) {
       link.addEventListener("click", function () {
@@ -48,14 +47,12 @@
       });
     });
 
-    // Close on outside click
     document.addEventListener("click", function (e) {
       if (header && !header.contains(e.target) && !mobileNav.hasAttribute("hidden")) {
         toggleMobileMenu(false);
       }
     });
 
-    // Close on Escape key
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && !mobileNav.hasAttribute("hidden")) {
         toggleMobileMenu(false);
@@ -64,16 +61,16 @@
     });
   }
 
-  // 2. Accordion Cards & Toggle All
+  // 2. Accordion Rows & Toggle All
   function updateToggleAllState() {
     if (!toggleAllBtn || !toggleAllText) return;
-    var visibleCards = cards.filter(function (c) {
-      return !c.classList.contains("is-hidden");
+    var visibleRows = rows.filter(function (r) {
+      return !r.classList.contains("is-hidden");
     });
-    if (visibleCards.length === 0) return;
+    if (visibleRows.length === 0) return;
 
-    var allOpen = visibleCards.every(function (c) {
-      return c.classList.contains("open");
+    var allOpen = visibleRows.every(function (r) {
+      return r.classList.contains("open");
     });
 
     if (allOpen) {
@@ -85,12 +82,12 @@
     }
   }
 
-  cards.forEach(function (card) {
-    var head = card.querySelector(".card-head");
+  rows.forEach(function (row) {
+    var head = row.querySelector(".service-row-head");
     if (!head) return;
 
     head.addEventListener("click", function () {
-      var isOpen = card.classList.toggle("open");
+      var isOpen = row.classList.toggle("open");
       head.setAttribute("aria-expanded", isOpen ? "true" : "false");
       updateToggleAllState();
     });
@@ -98,17 +95,17 @@
 
   if (toggleAllBtn) {
     toggleAllBtn.addEventListener("click", function () {
-      var visibleCards = cards.filter(function (c) {
-        return !c.classList.contains("is-hidden");
+      var visibleRows = rows.filter(function (r) {
+        return !r.classList.contains("is-hidden");
       });
-      var allOpen = visibleCards.every(function (c) {
-        return c.classList.contains("open");
+      var allOpen = visibleRows.every(function (r) {
+        return r.classList.contains("open");
       });
 
       var targetState = !allOpen;
-      visibleCards.forEach(function (card) {
-        card.classList.toggle("open", targetState);
-        var head = card.querySelector(".card-head");
+      visibleRows.forEach(function (row) {
+        row.classList.toggle("open", targetState);
+        var head = row.querySelector(".service-row-head");
         if (head) {
           head.setAttribute("aria-expanded", targetState ? "true" : "false");
         }
@@ -132,16 +129,16 @@
       var f = btn.getAttribute("data-filter");
       var visibleCount = 0;
 
-      cards.forEach(function (card) {
-        var matches = f === "all" || card.getAttribute("data-cat") === f;
-        card.classList.toggle("is-hidden", !matches);
+      rows.forEach(function (row) {
+        var matches = f === "all" || row.getAttribute("data-cat") === f;
+        row.classList.toggle("is-hidden", !matches);
 
         if (matches) {
           visibleCount++;
-          // Open the first visible card so its tasks are immediately readable
+          // Open the first visible row so its programme is immediately readable
           var shouldOpen = visibleCount === 1;
-          card.classList.toggle("open", shouldOpen);
-          var head = card.querySelector(".card-head");
+          row.classList.toggle("open", shouldOpen);
+          var head = row.querySelector(".service-row-head");
           if (head) {
             head.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
           }
@@ -167,7 +164,7 @@
     } else {
       for (var i = sections.length - 1; i >= 0; i--) {
         var section = sections[i];
-        if (section.offsetTop <= scrollPos) {
+        if (section && section.offsetTop <= scrollPos) {
           currentSectionId = section.getAttribute("id");
           break;
         }
@@ -191,7 +188,7 @@
     }
 
     if (floatingTopBtn) {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 350) {
         floatingTopBtn.classList.add("is-visible");
       } else {
         floatingTopBtn.classList.remove("is-visible");
@@ -210,7 +207,7 @@
     });
   }
 
-  // Initialize toggle-all text
+  // Initialize toggle-all text on page load
   updateToggleAllState();
 
 })();
