@@ -1,342 +1,1219 @@
 "use strict";
 
-/* ---------- Data ---------- */
+/* ==========================================================================
+   NOKAM Specialty Coffee — Application Logic
+   Persian RTL Interactive Prototype
+   ========================================================================== */
+
+/* ---------- Product Catalog Data ---------- */
 const PRODUCTS = [
-  { id: 1, name: "دانه قهوه اتیوپی یرگاچف", cat: "beans", roast: "light", price: 685000,
-    notes: "نت‌های یاس، هلو و چای سیاه — اسیدیته روشن و پایان تمیز",
-    img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80", featured: true },
-  { id: 2, name: "دانه قهوه کلمبیا سوپریمو", cat: "beans", roast: "medium", price: 590000,
-    notes: "کارامل، فندق و پرتقال — متعادل و همه‌پسند",
-    img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80", featured: true },
-  { id: 3, name: "دانه قهوه برزیل سرادو", cat: "beans", roast: "medium", price: 520000,
-    notes: "شکلات تلخ، بادام برشته و شکر قهوه‌ای — بدنه بالا",
-    img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=700&q=80", featured: false },
-  { id: 4, name: "دانه قهوه کنیا AA", cat: "beans", roast: "light", price: 720000,
-    notes: "انگور سیاه، گریپ‌فروت و شکر سوخته — پرجنب‌وجوش",
-    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80", featured: true },
-  { id: 5, name: "اسپرسو بلِند نو‌کام (آسیاب‌شده)", cat: "ground", roast: "dark", price: 540000,
-    notes: "ترکیب ۷۰٪ عربیکا / ۳۰٪ روبوستا — کرمای غلیظ، شکلات و دود ملایم",
-    img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=700&q=80", featured: true },
-  { id: 6, name: "قهوه ترک سنتی نو‌کام (آسیاب‌شده)", cat: "ground", roast: "medium", price: 380000,
-    notes: "آسیاب بسیار ریز مخصوص جزوه — هل سبز و کاکائو",
-    img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&q=80", featured: false },
-  { id: 7, name: "دکاف کلمبیا بدون کافئین (آسیاب‌شده)", cat: "ground", roast: "medium", price: 610000,
-    notes: "کافئین‌زدایی با روش آب سوئیسی — طعم کامل، بدون کافئین",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80", featured: false },
-  { id: 8, name: "موکاپات استیل ۶ کاپ", cat: "equipment", roast: null, price: 1850000,
-    notes: "استیل ضدزنگ ۱۸/۱۰، مناسب اجاق گازی و برقی، دسته نسوز",
-    img: "https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80", featured: true },
-  { id: 9, name: "فرنچ‌پرس شیشه‌ای ۸۰۰ میلی‌لیتر", cat: "equipment", roast: null, price: 940000,
-    notes: "شیشه بوروسیلیکات، فیلتر استیل ریزبافت، بدنه چوب گردو",
-    img: "https://images.unsplash.com/photo-1572119865084-43c285814d63?w=700&q=80", featured: false },
-  { id: 10, name: "آسیاب دستی استیل با تیغه سرامیکی", cat: "equipment", roast: null, price: 1290000,
-    notes: "قابلیت تنظیم درجه آسیاب از ترک تا فرنچ‌پرس، کم‌صدا و قابل حمل",
-    img: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=700&q=80", featured: false }
+  {
+    id: 1,
+    name: "دانه قهوه اتیوپی یرگاچف",
+    cat: "beans",
+    roast: "light",
+    price: 685000,
+    origin: "اتیوپی، یرگاچف",
+    process: "شسته‌شده (Washed)",
+    cupping: "۸۸.۵",
+    tasting: ["یاس", "هلو", "چای سیاه", "مرکبات"],
+    notes: "نت‌های یاس، هلو و چای سیاه — اسیدیته روشن و پایان تمیز با برشت روشن تخصصی",
+    img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80",
+    featured: true
+  },
+  {
+    id: 2,
+    name: "دانه قهوه کلمبیا سوپریمو",
+    cat: "beans",
+    roast: "medium",
+    price: 590000,
+    origin: "کلمبیا، اویلا",
+    process: "نچرال (Natural)",
+    cupping: "۸۷.۰",
+    tasting: ["کارامل", "فندق", "پرتقال"],
+    notes: "کارامل، فندق و پرتقال — متعادل، همه‌پسند با بادی مخملی و شیرینی طبیعی",
+    img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80",
+    featured: true
+  },
+  {
+    id: 3,
+    name: "دانه قهوه برزیل سرادو",
+    cat: "beans",
+    roast: "medium",
+    price: 520000,
+    origin: "برزیل، سرادو میناس",
+    process: "پالپد نچرال (Pulped)",
+    cupping: "۸۵.۵",
+    tasting: ["شکلات تلخ", "بادام برشته", "شکر قهوه‌ای"],
+    notes: "شکلات تلخ، بادام برشته و شکر قهوه‌ای — بدنه سنگین، کرمای غنی و اسیدیته کم",
+    img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=700&q=80",
+    featured: false
+  },
+  {
+    id: 4,
+    name: "دانه قهوه کنیا AA",
+    cat: "beans",
+    roast: "light",
+    price: 720000,
+    origin: "کنیا، نیری",
+    process: "دابل واش (Double Washed)",
+    cupping: "۸۹.۲",
+    tasting: ["انگور سیاه", "گریپ‌فروت", "توت‌فرنگی"],
+    notes: "انگور سیاه، گریپ‌فروت و شکر سوخته — پرجنب‌وجوش، پیچیده با اسیدیته میوه‌ای درخشان",
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80",
+    featured: true
+  },
+  {
+    id: 5,
+    name: "اسپرسو بلِند نو‌کام (آسیاب‌شده)",
+    cat: "ground",
+    roast: "dark",
+    price: 540000,
+    origin: "ترکیب اختصاصی آمریکای لاتین و آفریقا",
+    process: "بلِند تخصصی ۷۰/۳۰",
+    cupping: "۸۶.۰",
+    tasting: ["شکلات تلخ", "کارامل سوخته", "ادویه‌ای"],
+    notes: "ترکیب ۷۰٪ عربیکا / ۳۰٪ روبوستا — کرمای بسیار غلیظ، شکلات و دود ملایم برای موکاپات و اسپرسو",
+    img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=700&q=80",
+    featured: true
+  },
+  {
+    id: 6,
+    name: "قهوه ترک سنتی نو‌کام (آسیاب‌شده)",
+    cat: "ground",
+    roast: "medium",
+    price: 380000,
+    origin: "یمن و برزیل",
+    process: "آسیاب فوق‌العاده ریز سنگی",
+    cupping: "۸۴.۵",
+    tasting: ["هل سبز", "کاکائو", "وانیل"],
+    notes: "آسیاب بسیار ریز و یکدست مخصوص جذوه و ایبریک سنتی — رایحه هل سبز طبیعی و کاکائوی اصیل",
+    img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&q=80",
+    featured: false
+  },
+  {
+    id: 7,
+    name: "دکاف کلمبیا بدون کافئین (آسیاب‌شده)",
+    cat: "ground",
+    roast: "medium",
+    price: 610000,
+    origin: "کلمبیا، کالداس",
+    process: "آب سوئیسی (Swiss Water)",
+    cupping: "۸۵.۰",
+    tasting: ["سیب سرخ", "عسل", "فندق"],
+    notes: "کافئین‌زدایی ۱۰۰٪ طبیعی بدون مواد شیمیایی — طعم کامل قهوه تخصصی، مناسب عصرگاه و خواب آرام",
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
+    featured: false
+  },
+  {
+    id: 8,
+    name: "موکاپات استیل ۶ کاپ",
+    cat: "equipment",
+    roast: null,
+    price: 1850000,
+    origin: "طراحی ایتالیا",
+    process: "فولاد ضدزنگ ۱۸/۱۰",
+    cupping: "گرید A",
+    tasting: ["اسپرسوساز روگازی", "دسته ارگونومیک نسوز"],
+    notes: "استیل ضدزنگ ۱۸/۱۰ ضخیم، سازگار با اجاق‌های القایی، گازی و المنتی، سوپاپ اطمینان برنجی",
+    img: "https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80",
+    featured: true
+  },
+  {
+    id: 9,
+    name: "فرنچ‌پرس شیشه‌ای ۸۰۰ میلی‌لیتر",
+    cat: "equipment",
+    roast: null,
+    price: 940000,
+    origin: "بوروسیلیکات مقاوم حرارتی",
+    process: "فیلتر ۴ لایه استیل ریزبافت",
+    cupping: "گرید A",
+    tasting: ["دم‌آوری دمی و فوم‌شیر", "دسته چوب گردو"],
+    notes: "شیشه بوروسیلیکات نشکن ضدشوک حرارتی، فیلتر استیل ضدزنگ با واشر سیلیکونی، بدنه چوب گردو",
+    img: "https://images.unsplash.com/photo-1572119865084-43c285814d63?w=700&q=80",
+    featured: false
+  },
+  {
+    id: 10,
+    name: "آسیاب دستی استیل با تیغه سرامیکی",
+    cat: "equipment",
+    roast: null,
+    price: 1290000,
+    origin: "مکانیزم فولاد و سرامیک سخت",
+    process: "تنظیم پله‌ای درجات آسیاب",
+    cupping: "گرید A",
+    tasting: ["تنظیم درجه آسیاب", "کم‌صدا و سفری"],
+    notes: "قابلیت تنظیم میکرومتری از اسپرسو ریز تا فرنچ‌پرس درشت، تیغه مخروطی سرامیکی بدون حرارت‌دهی به دانه",
+    img: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=700&q=80",
+    featured: false
+  }
 ];
 
-const CAT_NAMES = { beans: "دانه قهوه", ground: "قهوه آسیاب‌شده", equipment: "تجهیزات" };
-const ROAST_NAMES = { light: "روشن", medium: "متوسط", dark: "تیره" };
-const ROAST_LEVEL = { light: 33, medium: 66, dark: 100 };
-const WEIGHT_MULT = { 250: 1, 500: 1.9, 1000: 3.6 };
-const RATES = { IRR: 1, USD: 62000, AED: 17000 };
-const FREE_SHIP = 500000, SHIP_COST = 45000;
-
-/* ---------- State ---------- */
-const state = {
-  currency: "IRR",
-  cart: [],            // {key, pid, name, variant, unitPrice, qty}
-  wallet: 350000,      // Toman
-  points: 2450,
-  modalPid: null
+/* ---------- Lookup Dictionaries & Factors ---------- */
+const CAT_NAMES = {
+  beans: "دانه قهوه",
+  ground: "قهوه آسیاب‌شده",
+  equipment: "تجهیزات"
 };
 
-/* ---------- Helpers ---------- */
+const ROAST_NAMES = {
+  light: "روشن (Light)",
+  medium: "متوسط (Medium)",
+  dark: "تیره (Dark)"
+};
+
+const ROAST_LEVEL = {
+  light: 33,
+  medium: 66,
+  dark: 100
+};
+
+const WEIGHT_MULT = {
+  250: 1,
+  500: 1.9,
+  1000: 3.6
+};
+
+// Rates relative to Toman (IRR = 1 Toman)
+const RATES = {
+  IRR: 1,
+  USD: 62000,
+  AED: 17000
+};
+
+const FREE_SHIP = 500000;
+const SHIP_COST = 45000;
+
+/* ---------- Persistent Application State ---------- */
+const STORAGE_KEY = "nokam_coffee_state_v2";
+
+function loadSavedState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      return {
+        currency: parsed.currency || "IRR",
+        cart: Array.isArray(parsed.cart) ? parsed.cart : [],
+        wallet: typeof parsed.wallet === "number" ? parsed.wallet : 350000,
+        points: typeof parsed.points === "number" ? parsed.points : 2450,
+        modalPid: null,
+        modalQty: 1,
+        history: Array.isArray(parsed.history) ? parsed.history : null
+      };
+    }
+  } catch (e) {
+    console.warn("Storage load error:", e);
+  }
+  return {
+    currency: "IRR",
+    cart: [],
+    wallet: 350000,
+    points: 2450,
+    modalPid: null,
+    modalQty: 1,
+    history: null
+  };
+}
+
+const state = loadSavedState();
+
+function persistState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      currency: state.currency,
+      cart: state.cart,
+      wallet: state.wallet,
+      points: state.points,
+      history: state.history
+    }));
+  } catch (e) {
+    console.warn("Storage save error:", e);
+  }
+}
+
+/* ---------- Utility Helpers ---------- */
 const $ = (id) => document.getElementById(id);
-const faDigits = (s) => String(s).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
-const group = (n) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
+
+function faDigits(s) {
+  return String(s).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
+}
+
+function group(n) {
+  return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
+}
 
 function fmt(toman) {
-  if (state.currency === "IRR") return faDigits(group(toman)) + " تومان";
-  const v = toman / RATES[state.currency];
-  const s = v >= 100 ? v.toFixed(0) : v.toFixed(2);
-  return (state.currency === "USD" ? "$" : "د.إ ") + s;
+  if (state.currency === "IRR") {
+    return faDigits(group(toman)) + " تومان";
+  }
+  const val = toman / RATES[state.currency];
+  const s = val >= 100 ? val.toFixed(0) : val.toFixed(2);
+  const formattedNum = val >= 1000 ? group(Math.round(val)) : s;
+  return (state.currency === "USD" ? "$" : "د.إ ") + formattedNum;
 }
+
+let toastTimer = null;
 function toast(msg) {
   const t = $("toast");
+  if (!t) return;
   t.textContent = msg;
   t.hidden = false;
-  setTimeout(() => { t.hidden = true; }, 2600);
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    t.hidden = true;
+  }, 2800);
 }
 
-/* ---------- Product grid + filters ---------- */
+/* ---------- Product Grid & Filter System ---------- */
 function renderProducts() {
-  const q = $("searchInput").value.trim();
-  const cat = $("catFilter").value;
-  const roast = $("roastFilter").value;
-  const maxPrice = Number($("priceRange").value);
-  $("priceLabel").textContent = fmt(maxPrice);
+  const q = ($("searchInput")?.value || "").trim().toLowerCase();
+  const cat = $("catFilter")?.value || "all";
+  const roast = $("roastFilter")?.value || "all";
+  const sort = $("sortFilter")?.value || "featured";
+  const maxPrice = Number($("priceRange")?.value || 2500000);
 
-  const list = PRODUCTS.filter((p) =>
-    (cat === "all" || p.cat === cat) &&
-    (roast === "all" || p.roast === roast) &&
-    p.price <= maxPrice &&
-    (q === "" || p.name.includes(q) || p.notes.includes(q))
-  );
+  if ($("priceLabel")) {
+    $("priceLabel").textContent = fmt(maxPrice);
+  }
 
-  $("productGrid").innerHTML = list.map((p) => `
-    <article class="card">
-      <img src="${p.img}" alt="${p.name}" loading="lazy">
-      <div class="card-body">
-        <span class="card-cat">${CAT_NAMES[p.cat]}${p.roast ? " · برشت " + ROAST_NAMES[p.roast] : ""}</span>
-        <h3>${p.name}</h3>
-        <p class="muted">${p.notes}</p>
-        <div class="card-foot">
-          <strong>${p.cat === "equipment" ? fmt(p.price) : "از " + fmt(p.price)}</strong>
-          <button class="btn btn-small" data-view="${p.id}">مشاهده و خرید</button>
+  // Update clear button visibility
+  const clearBtn = $("clearSearch");
+  if (clearBtn) {
+    clearBtn.hidden = q.length === 0;
+  }
+
+  // Sync category tabs active state
+  document.querySelectorAll(".cat-tab-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.tab === cat);
+  });
+
+  // Filter products
+  let list = PRODUCTS.filter((p) => {
+    const matchCat = cat === "all" || p.cat === cat;
+    const matchRoast = roast === "all" || p.roast === roast;
+    const matchPrice = p.price <= maxPrice;
+    const matchQuery =
+      q === "" ||
+      p.name.toLowerCase().includes(q) ||
+      p.notes.toLowerCase().includes(q) ||
+      p.origin.toLowerCase().includes(q) ||
+      (p.tasting && p.tasting.some((t) => t.toLowerCase().includes(q)));
+    return matchCat && matchRoast && matchPrice && matchQuery;
+  });
+
+  // Sort products
+  if (sort === "price-asc") {
+    list.sort((a, b) => a.price - b.price);
+  } else if (sort === "price-desc") {
+    list.sort((a, b) => b.price - a.price);
+  } else if (sort === "name-asc") {
+    list.sort((a, b) => a.name.localeCompare(b.name, "fa"));
+  } else {
+    // featured: featured first, then original order
+    list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  }
+
+  const grid = $("productGrid");
+  if (!grid) return;
+
+  grid.innerHTML = list.map((p) => {
+    const isEq = p.cat === "equipment";
+    const roastLabel = p.roast ? ROAST_NAMES[p.roast] : null;
+    const installmentPrice = Math.ceil(p.price / 4);
+
+    const tastingChips = p.tasting
+      ? p.tasting.slice(0, 3).map((t) => `<span class="tasting-chip">${t}</span>`).join("")
+      : "";
+
+    return `
+      <article class="card">
+        <div class="card-img-wrap">
+          <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80';">
+          <div class="card-badges-row">
+            ${p.featured ? `<span class="card-featured-pill">⭐ برگزیده</span>` : ""}
+            ${roastLabel ? `<span class="card-roast-pill">${roastLabel}</span>` : ""}
+          </div>
         </div>
-      </div>
-    </article>`).join("");
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span class="card-cat">${CAT_NAMES[p.cat]}</span>
+            <span class="card-score">کاپینگ: ${faDigits(p.cupping)}</span>
+          </div>
+          <h3>${p.name}</h3>
+          <p class="card-notes">${p.notes}</p>
+          <div class="card-tasting-chips">${tastingChips}</div>
+          <div class="card-foot">
+            <div class="card-price-col">
+              <span class="card-price-prefix">${isEq ? "قیمت واحد:" : "شروع قیمت از:"}</span>
+              <strong>${fmt(p.price)}</strong>
+              <span class="card-installment-sub">یا ۴ قسط ${fmt(installmentPrice)}</span>
+            </div>
+            <button class="btn btn-small" data-view="${p.id}" type="button">مشاهده و خرید</button>
+          </div>
+        </div>
+      </article>`;
+  }).join("");
 
-  $("resultCount").textContent = faDigits(list.length) + " محصول نمایش داده شد";
-  $("emptyMsg").hidden = list.length > 0;
+  if ($("resultCount")) {
+    $("resultCount").textContent = faDigits(list.length) + " محصول در حال نمایش است";
+  }
 
+  const emptyMsg = $("emptyMsg");
+  if (emptyMsg) {
+    emptyMsg.hidden = list.length > 0;
+  }
+
+  // Attach modal view listeners
   document.querySelectorAll("[data-view]").forEach((b) =>
-    b.addEventListener("click", () => openModal(Number(b.dataset.view))));
+    b.addEventListener("click", () => openModal(Number(b.dataset.view)))
+  );
 }
 
-/* ---------- Product modal ---------- */
+/* ---------- Product Detail Modal System ---------- */
 function openModal(pid) {
   state.modalPid = pid;
+  state.modalQty = 1;
   const p = PRODUCTS.find((x) => x.id === pid);
-  $("mImg").src = p.img;
-  $("mImg").alt = p.name;
-  $("mName").textContent = p.name;
-  $("mNotes").textContent = p.notes;
+  if (!p) return;
+
+  const mImg = $("mImg");
+  if (mImg) {
+    mImg.src = p.img;
+    mImg.alt = p.name;
+  }
+
+  if ($("mName")) $("mName").textContent = p.name;
+  if ($("mNotes")) $("mNotes").textContent = p.notes;
+  if ($("mCategoryTag")) $("mCategoryTag").textContent = CAT_NAMES[p.cat];
+
+  // Specifications
+  if ($("mOrigin")) $("mOrigin").textContent = p.origin || "تک‌خاستگاه ویژه";
+  if ($("mProcess")) $("mProcess").textContent = p.process || "استاندارد";
+  if ($("mCupping")) $("mCupping").textContent = faDigits(p.cupping || "۸۷.۰");
+
   const isEq = p.cat === "equipment";
-  $("mRoast").textContent = isEq ? "—" : ROAST_NAMES[p.roast];
-  $("mRoastFill").style.width = isEq ? "0%" : ROAST_LEVEL[p.roast] + "%";
-  $("mWeight").disabled = isEq;
-  $("grindWrap").style.display = isEq ? "none" : "";
-  $("mSub").checked = false;
+
+  // Roast display
+  if ($("mRoast")) $("mRoast").textContent = isEq ? "تجهیزات (فاقد برشت)" : ROAST_NAMES[p.roast];
+  if ($("mRoastFill")) $("mRoastFill").style.width = isEq ? "0%" : ROAST_LEVEL[p.roast] + "%";
+
+  // Weight block & select sync
+  const weightSelect = $("mWeight");
+  if (weightSelect) {
+    weightSelect.disabled = isEq;
+    weightSelect.value = "250";
+  }
+  const weightBlock = $("weightBlock");
+  if (weightBlock) weightBlock.style.display = isEq ? "none" : "";
+
+  // Reset weight pills to 250g active
+  document.querySelectorAll(".pill-btn").forEach((pill) => {
+    pill.classList.toggle("active", pill.dataset.weight === "250");
+  });
+
+  // Grind option
+  const grindWrap = $("grindWrap");
+  if (grindWrap) grindWrap.style.display = isEq ? "none" : "";
+  if ($("mGrind")) $("mGrind").value = "دانه کامل";
+
+  // Subscription checkbox
+  const subCard = $("subscriptionCard");
+  if (subCard) subCard.style.display = isEq ? "none" : "";
+  if ($("mSub")) $("mSub").checked = false;
+
+  // Quantity stepper reset
+  if ($("mQtyVal")) $("mQtyVal").textContent = faDigits(state.modalQty);
+
   updateModalPrice();
-  $("productModal").hidden = false;
+
+  const modal = $("productModal");
+  if (modal) {
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
 }
+
+function closeModal() {
+  const modal = $("productModal");
+  if (modal) {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  }
+}
+
 function modalUnitPrice() {
   const p = PRODUCTS.find((x) => x.id === state.modalPid);
-  let price = p.cat === "equipment" ? p.price : p.price * WEIGHT_MULT[$("mWeight").value];
-  if ($("mSub").checked) price *= 0.9;
+  if (!p) return 0;
+  const isEq = p.cat === "equipment";
+  const wVal = $("mWeight") ? $("mWeight").value : "250";
+  let price = isEq ? p.price : p.price * (WEIGHT_MULT[wVal] || 1);
+  if ($("mSub") && $("mSub").checked) {
+    price *= 0.9; // 10% subscription discount
+  }
   return Math.round(price);
 }
-function updateModalPrice() { $("mPrice").textContent = fmt(modalUnitPrice()); }
+
+function updateModalPrice() {
+  const unitPrice = modalUnitPrice();
+  const totalPrice = unitPrice * state.modalQty;
+  if ($("mPrice")) {
+    $("mPrice").textContent = fmt(totalPrice);
+  }
+}
 
 function addFromModal() {
   const p = PRODUCTS.find((x) => x.id === state.modalPid);
+  if (!p) return;
   const isEq = p.cat === "equipment";
+  const weight = $("mWeight") ? $("mWeight").value : "250";
+  const grind = $("mGrind") ? $("mGrind").value : "دانه کامل";
+  const isSub = $("mSub") ? $("mSub").checked : false;
+
   const variant = isEq
-    ? "تجهیزات"
-    : $("mWeight").value + " گرم · " + $("mGrind").value + ($("mSub").checked ? " · اشتراک ماهانه" : "");
+    ? "تجهیزات تخصصی"
+    : faDigits(weight) + " گرم · " + grind + (isSub ? " · اشتراک ماهانه (۱۰٪ تخفیف)" : "");
+
   const key = p.id + "|" + variant;
   const existing = state.cart.find((i) => i.key === key);
-  if (existing) existing.qty += 1;
-  else state.cart.push({ key, pid: p.id, name: p.name, variant, unitPrice: modalUnitPrice(), qty: 1 });
-  $("productModal").hidden = true;
+
+  if (existing) {
+    existing.qty += state.modalQty;
+  } else {
+    state.cart.push({
+      key,
+      pid: p.id,
+      name: p.name,
+      variant,
+      unitPrice: modalUnitPrice(),
+      qty: state.modalQty,
+      isSub
+    });
+  }
+
+  closeModal();
+  persistState();
   renderCart();
-  toast("«" + p.name + "» به سبد اضافه شد");
+  toast("«" + p.name + "» به سبد خرید اضافه شد");
+
+  // Animate cart badge
+  const cartCountEl = $("cartCount");
+  if (cartCountEl) {
+    cartCountEl.classList.add("bounce");
+    setTimeout(() => cartCountEl.classList.remove("bounce"), 300);
+  }
 }
 
-/* ---------- Cart ---------- */
+/* ---------- Cart Drawer System ---------- */
 function cartTotals() {
   const sub = state.cart.reduce((s, i) => s + i.unitPrice * i.qty, 0);
   const ship = state.cart.length === 0 || sub >= FREE_SHIP ? 0 : SHIP_COST;
   return { sub, ship, total: sub + ship };
 }
+
 function renderCart() {
   const count = state.cart.reduce((s, i) => s + i.qty, 0);
-  $("cartCount").textContent = faDigits(count);
+  if ($("cartCount")) {
+    $("cartCount").textContent = faDigits(count);
+  }
+
+  const itemsContainer = $("cartItems");
+  if (!itemsContainer) return;
+
   if (state.cart.length === 0) {
-    $("cartItems").innerHTML = '<p class="muted">سبد خرید خالی است.</p>';
+    itemsContainer.innerHTML = `
+      <div style="text-align: center; padding: 40px 10px; color: var(--muted);">
+        <div style="font-size: 2.5rem; margin-bottom: 8px;">🛒</div>
+        <p style="font-size: 1rem; font-weight: 700; margin: 0 0 6px; color: var(--espresso);">سبد خرید شما در حال حاضر خالی است.</p>
+        <p style="font-size: 0.85rem; margin: 0;">قهوه دلخواه خود را از بخش فروشگاه انتخاب کنید.</p>
+      </div>`;
   } else {
-    $("cartItems").innerHTML = state.cart.map((i) => `
+    itemsContainer.innerHTML = state.cart.map((i) => `
       <div class="cart-item">
-        <div><strong>${i.name}</strong><small>${i.variant}</small>
-        <span class="muted">${fmt(i.unitPrice)}</span></div>
+        <div class="cart-item-info">
+          <strong>${i.name}</strong>
+          <small>${i.variant}</small>
+          <span class="cart-item-price">${fmt(i.unitPrice * i.qty)}</span>
+        </div>
         <div class="qty">
-          <button data-dec="${i.key}">−</button><span>${faDigits(i.qty)}</span><button data-inc="${i.key}">+</button>
-          <button class="rm" data-rm="${i.key}">حذف</button>
+          <div class="qty-controls">
+            <button data-dec="${i.key}" type="button" aria-label="کاهش">−</button>
+            <span>${faDigits(i.qty)}</span>
+            <button data-inc="${i.key}" type="button" aria-label="افزایش">+</button>
+          </div>
+          <button class="rm" data-rm="${i.key}" type="button">حذف مورد</button>
         </div>
       </div>`).join("");
-    document.querySelectorAll("[data-inc]").forEach((b) => b.addEventListener("click", () => changeQty(b.dataset.inc, 1)));
-    document.querySelectorAll("[data-dec]").forEach((b) => b.addEventListener("click", () => changeQty(b.dataset.dec, -1)));
-    document.querySelectorAll("[data-rm]").forEach((b) => b.addEventListener("click", () => removeItem(b.dataset.rm)));
+
+    document.querySelectorAll("[data-inc]").forEach((b) =>
+      b.addEventListener("click", () => changeQty(b.dataset.inc, 1))
+    );
+    document.querySelectorAll("[data-dec]").forEach((b) =>
+      b.addEventListener("click", () => changeQty(b.dataset.dec, -1))
+    );
+    document.querySelectorAll("[data-rm]").forEach((b) =>
+      b.addEventListener("click", () => removeItem(b.dataset.rm))
+    );
   }
+
   const t = cartTotals();
-  $("cartSubtotal").textContent = fmt(t.sub);
-  $("cartShipping").textContent = t.ship === 0 ? "رایگان" : fmt(t.ship);
-  $("cartTotal").textContent = fmt(t.total);
+  if ($("cartSubtotal")) $("cartSubtotal").textContent = fmt(t.sub);
+  if ($("cartShipping")) $("cartShipping").textContent = t.ship === 0 ? "رایگان 🎉" : fmt(t.ship);
+  if ($("cartTotal")) $("cartTotal").textContent = fmt(t.total);
+
+  // Free shipping progress bar update
+  const freeShipFill = $("freeShippingFill");
+  const freeShipText = $("freeShippingText");
+  if (freeShipFill && freeShipText) {
+    const percent = Math.min(100, Math.round((t.sub / FREE_SHIP) * 100));
+    freeShipFill.style.width = percent + "%";
+    if (t.sub >= FREE_SHIP && state.cart.length > 0) {
+      freeShipText.innerHTML = "<span>🎉 تبریک! سفارش شما شامل <strong>ارسال رایگان</strong> شد.</span>";
+    } else {
+      const remaining = Math.max(0, FREE_SHIP - t.sub);
+      freeShipText.innerHTML = `<span>تنها <strong>${fmt(remaining)}</strong> دیگر تا ارسال رایگان!</span>`;
+    }
+  }
+
+  // Update checkout amounts if checkout view is open
+  if ($("chkPayAmount")) {
+    $("chkPayAmount").textContent = fmt(t.total);
+  }
 }
+
 function changeQty(key, d) {
   const i = state.cart.find((x) => x.key === key);
   if (!i) return;
   i.qty += d;
-  if (i.qty <= 0) state.cart = state.cart.filter((x) => x.key !== key);
+  if (i.qty <= 0) {
+    state.cart = state.cart.filter((x) => x.key !== key);
+  }
+  persistState();
   renderCart();
-}
-function removeItem(key) {
-  state.cart = state.cart.filter((x) => x.key !== key);
-  renderCart();
-}
-function openDrawer() {
-  $("cartDrawer").classList.add("open");
-  $("cartDrawer").setAttribute("aria-hidden", "false");
-  $("drawerBackdrop").hidden = false;
-  $("checkoutView").hidden = true;
-  $("cartItems").style.display = "";
-  $("cartFoot").style.display = "";
-}
-function closeDrawer() {
-  $("cartDrawer").classList.remove("open");
-  $("cartDrawer").setAttribute("aria-hidden", "true");
-  $("drawerBackdrop").hidden = true;
+  if (!$("checkoutView")?.hidden) {
+    updatePayUI();
+  }
 }
 
-/* ---------- Checkout ---------- */
+function removeItem(key) {
+  state.cart = state.cart.filter((x) => x.key !== key);
+  persistState();
+  renderCart();
+  if (!$("checkoutView")?.hidden) {
+    updatePayUI();
+  }
+}
+
+function openDrawer() {
+  const drawer = $("cartDrawer");
+  const backdrop = $("drawerBackdrop");
+  if (!drawer) return;
+
+  drawer.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+  if (backdrop) backdrop.hidden = false;
+
+  // Ensure cart view is shown first
+  if ($("checkoutView")) $("checkoutView").hidden = true;
+  if ($("cartItems")) $("cartItems").style.display = "";
+  if ($("cartFoot")) $("cartFoot").style.display = "";
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  const drawer = $("cartDrawer");
+  const backdrop = $("drawerBackdrop");
+  if (!drawer) return;
+
+  drawer.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+  if (backdrop) backdrop.hidden = true;
+  document.body.style.overflow = "";
+}
+
+/* ---------- Checkout & Payment Process ---------- */
 function openCheckout() {
-  if (state.cart.length === 0) { toast("سبد خرید خالی است"); return; }
-  $("cartItems").style.display = "none";
-  $("cartFoot").style.display = "none";
-  $("checkoutView").hidden = false;
-  $("paySuccess").hidden = true;
-  $("checkoutError").textContent = "";
+  if (state.cart.length === 0) {
+    toast("سبد خرید شما خالی است.");
+    return;
+  }
+  if ($("cartItems")) $("cartItems").style.display = "none";
+  if ($("cartFoot")) $("cartFoot").style.display = "none";
+  if ($("freeShippingBox")) $("freeShippingBox").style.display = "none";
+
+  const checkoutView = $("checkoutView");
+  if (checkoutView) checkoutView.hidden = false;
+  if ($("paySuccess")) $("paySuccess").hidden = true;
+  if ($("checkoutError")) $("checkoutError").textContent = "";
+
   updatePayUI();
 }
+
 function updatePayUI() {
-  const m = $("payMethod").value;
+  const m = $("payMethod")?.value || "gateway";
   const t = cartTotals();
-  $("gatewayFields").style.display = m === "gateway" ? "" : "none";
+
+  const gatewayFields = $("gatewayFields");
+  const walletPayInfo = $("walletPayInfo");
+  const installmentBlock = $("installmentScheduleBlock");
+
+  if (gatewayFields) gatewayFields.style.display = m === "gateway" ? "flex" : "none";
+  if (walletPayInfo) walletPayInfo.hidden = m !== "wallet";
+  if (installmentBlock) installmentBlock.hidden = m !== "installment";
+
+  // Wallet details
+  if (m === "wallet") {
+    if ($("chkWalletBalance")) $("chkWalletBalance").textContent = fmt(state.wallet);
+    if ($("chkPayAmount")) $("chkPayAmount").textContent = fmt(t.total);
+    const shortEl = $("chkWalletShort");
+    if (shortEl) {
+      shortEl.hidden = state.wallet >= t.total;
+    }
+  }
+
+  // Installment schedule
   if (m === "installment") {
     const each = Math.ceil(t.total / 4);
-    $("installmentInfo").hidden = false;
-    $("installmentInfo").textContent = "۴ قسط ماهانه، هر قسط " + fmt(each) + " — قسط اول هنگام ثبت سفارش.";
-  } else {
-    $("installmentInfo").hidden = true;
+    if ($("installmentInfo")) {
+      $("installmentInfo").textContent =
+        "۴ قسط ماهانه، هر قسط " + fmt(each) + " — قسط اول هم‌اکنون هنگام ثبت سفارش.";
+    }
+
+    const timeline = $("installmentTimeline");
+    if (timeline) {
+      timeline.innerHTML = `
+        <div class="schedule-step now">
+          <span class="step-num">قسط اول</span>
+          <span class="step-amount">${fmt(each)}</span>
+          <span class="step-date">هم‌اکنون</span>
+        </div>
+        <div class="schedule-step">
+          <span class="step-num">قسط دوم</span>
+          <span class="step-amount">${fmt(each)}</span>
+          <span class="step-date">۳۰ روز بعد</span>
+        </div>
+        <div class="schedule-step">
+          <span class="step-num">قسط سوم</span>
+          <span class="step-amount">${fmt(each)}</span>
+          <span class="step-date">۶۰ روز بعد</span>
+        </div>
+        <div class="schedule-step">
+          <span class="step-num">قسط چهارم</span>
+          <span class="step-amount">${fmt(each)}</span>
+          <span class="step-date">۹۰ روز بعد</span>
+        </div>
+      `;
+    }
   }
-  $("payBtn").textContent = m === "wallet"
-    ? "پرداخت از کیف پول (" + fmt(t.total) + ")"
-    : "پرداخت " + fmt(t.total);
+
+  // Pay button label
+  const payBtn = $("payBtn");
+  if (payBtn) {
+    if (m === "wallet") {
+      payBtn.textContent = "پرداخت از کیف پول (" + fmt(t.total) + ")";
+    } else if (m === "installment") {
+      const firstPart = Math.ceil(t.total / 4);
+      payBtn.textContent = "پرداخت قسط اول (" + fmt(firstPart) + ")";
+    } else {
+      payBtn.textContent = "پرداخت آنلاین شاپرک (" + fmt(t.total) + ")";
+    }
+  }
 }
+
 function doPay() {
-  const m = $("payMethod").value;
+  const m = $("payMethod")?.value || "gateway";
   const t = cartTotals();
-  $("checkoutError").textContent = "";
+  const errorEl = $("checkoutError");
+  if (errorEl) errorEl.textContent = "";
+
   if (m === "gateway") {
-    const num = $("cardNum").value.replace(/\D/g, "");
-    if (num.length < 16) { $("checkoutError").textContent = "شماره کارت باید ۱۶ رقم باشد."; return; }
-    if ($("cardName").value.trim().length < 3) { $("checkoutError").textContent = "نام صاحب کارت را وارد کنید."; return; }
+    const rawNum = ($("cardNum")?.value || "").replace(/\D/g, "");
+    if (rawNum.length < 16) {
+      if (errorEl) errorEl.textContent = "شماره کارت بانکی باید ۱۶ رقم کامل باشد.";
+      return;
+    }
+    const cardName = ($("cardName")?.value || "").trim();
+    if (cardName.length < 3) {
+      if (errorEl) errorEl.textContent = "لطفاً نام و نام خانوادگی صاحب کارت را وارد کنید.";
+      return;
+    }
   }
+
   if (m === "wallet") {
-    if (state.wallet < t.total) { $("checkoutError").textContent = "موجودی کیف پول کافی نیست؛ کیف پول را شارژ کنید یا روش پرداخت را تغییر دهید."; return; }
+    if (state.wallet < t.total) {
+      if (errorEl) {
+        errorEl.textContent =
+          "موجودی کیف پول شما کافی نیست. لطفاً کیف پول را شارژ نموده یا درگاه شتاب را انتخاب نمایید.";
+      }
+      return;
+    }
     state.wallet -= t.total;
-    state.wallet += Math.round(t.total * 0.02); // 2% cashback
+    const cashback = Math.round(t.total * 0.02);
+    state.wallet += cashback; // 2% instant cashback reward
   }
+
+  // Calculate earned loyalty points (10 points per 10,000 Toman)
   const earned = Math.floor(t.total / 10000) * 10;
   state.points += earned;
-  $("orderCode").textContent = "NK-" + Math.floor(1000 + Math.random() * 9000);
-  $("successPoints").textContent = "با این خرید " + faDigits(earned) + " امتیاز به باشگاه شما اضافه شد.";
-  $("paySuccess").hidden = false;
+
+  // Order Code
+  const code = "NK-" + Math.floor(1000 + Math.random() * 9000);
+  if ($("orderCode")) $("orderCode").textContent = code;
+  if ($("successPoints")) {
+    $("successPoints").textContent =
+      "🎉 با این خرید " + faDigits(group(earned)) + " امتیاز وفاداری به حساب شما افزوده شد.";
+  }
+
+  // Add order to wallet history
+  addHistoryEntry({
+    title: "خرید موفق سفارش " + code,
+    date: "هم‌اکنون",
+    amount: "−" + fmt(t.total),
+    type: "minus"
+  });
+
+  if (m === "wallet") {
+    const cashback = Math.round(t.total * 0.02);
+    addHistoryEntry({
+      title: "۲٪ بازگشت وجه (Cashback) خرید " + code,
+      date: "هم‌اکنون",
+      amount: "+" + fmt(cashback),
+      type: "plus"
+    });
+  }
+
+  // Empty cart and show receipt
   state.cart = [];
+  persistState();
   renderCart();
   renderClub();
   renderWallet();
+
+  if ($("paySuccess")) $("paySuccess").hidden = false;
+  if ($("payBtn")) $("payBtn").style.display = "none";
+  if ($("backToCartBtn")) $("backToCartBtn").style.display = "none";
+  if ($("gatewayFields")) $("gatewayFields").style.display = "none";
+  if ($("walletPayInfo")) $("walletPayInfo").hidden = true;
+  if ($("installmentScheduleBlock")) $("installmentScheduleBlock").hidden = true;
+  if ($("payMethod")) $("payMethod").disabled = true;
 }
 
-/* ---------- Club & wallet ---------- */
+function resetCheckout() {
+  if ($("checkoutView")) $("checkoutView").hidden = true;
+  if ($("cartItems")) $("cartItems").style.display = "";
+  if ($("cartFoot")) $("cartFoot").style.display = "";
+  if ($("freeShippingBox")) $("freeShippingBox").style.display = "";
+  if ($("paySuccess")) $("paySuccess").hidden = true;
+  if ($("payBtn")) $("payBtn").style.display = "";
+  if ($("backToCartBtn")) $("backToCartBtn").style.display = "";
+  if ($("payMethod")) $("payMethod").disabled = false;
+}
+
+/* ---------- Loyalty Club & Gamification System ---------- */
 function tierOf(points) {
   if (points >= 5000) return "طلایی";
   if (points >= 1000) return "نقره‌ای";
   return "برنزی";
 }
+
 function renderClub() {
-  $("clubPoints").textContent = faDigits(group(state.points));
-  $("clubTier").textContent = tierOf(state.points);
+  const currentTier = tierOf(state.points);
+  if ($("clubPoints")) $("clubPoints").textContent = faDigits(group(state.points));
+  if ($("clubTier")) $("clubTier").textContent = currentTier;
+  if ($("clubTierBadge")) $("clubTierBadge").textContent = "سطح " + currentTier;
+
+  // Header quick info
+  if ($("topTierName")) $("topTierName").textContent = currentTier;
+  if ($("topPoints")) $("topPoints").textContent = faDigits(group(state.points)) + " پ";
+
+  // Points to gold
   const toGold = Math.max(0, 5000 - state.points);
-  $("pointsToGold").textContent = faDigits(group(toGold));
-  $("tierProgress").style.width = Math.min(100, (state.points / 5000) * 100) + "%";
+  if ($("pointsToGold")) $("pointsToGold").textContent = faDigits(group(toGold));
+
+  // Cash equivalent
+  if ($("pointsCashVal")) {
+    const cashEquivalent = Math.floor(state.points / 10) * 1000;
+    $("pointsCashVal").textContent = fmt(cashEquivalent);
+  }
+
+  // Progress bar
+  if ($("tierProgress")) {
+    const percent = Math.min(100, Math.round((state.points / 5000) * 100));
+    $("tierProgress").style.width = percent + "%";
+  }
+
+  // Highlight active tier perks card
+  const bronzeCard = $("tierCardBronze");
+  const silverCard = $("tierCardSilver");
+  const goldCard = $("tierCardGold");
+
+  if (bronzeCard && silverCard && goldCard) {
+    bronzeCard.classList.toggle("current-tier", currentTier === "برنزی");
+    silverCard.classList.toggle("current-tier", currentTier === "نقره‌ای");
+    goldCard.classList.toggle("current-tier", currentTier === "طلایی");
+  }
 }
+
 function redeem() {
-  if (state.points < 500) { $("redeemMsg").textContent = "برای تبدیل، حداقل ۵۰۰ امتیاز لازم است."; return; }
+  const msgEl = $("redeemMsg");
+  if (state.points < 500) {
+    if (msgEl) {
+      msgEl.textContent = "برای تبدیل، حداقل ۵۰۰ امتیاز باشگاه وفاداری لازم است.";
+      msgEl.style.color = "var(--err)";
+    }
+    return;
+  }
+
   state.points -= 500;
   state.wallet += 50000;
-  $("redeemMsg").textContent = "انجام شد: ۵۰۰ امتیاز به ۵۰٬۰۰۰ تومان اعتبار کیف پول تبدیل شد.";
+
+  addHistoryEntry({
+    title: "تبدیل ۵۰۰ امتیاز وفاداری باشگاه به اعتبار",
+    date: "هم‌اکنون",
+    amount: "+۵۰٬۰۰۰ تومان",
+    type: "plus"
+  });
+
+  persistState();
   renderClub();
   renderWallet();
-}
-function renderWallet() { $("walletBalance").textContent = fmt(state.wallet); }
 
-/* ---------- Events ---------- */
+  if (msgEl) {
+    msgEl.textContent = "✅ انجام شد: ۵۰۰ امتیاز به ۵۰٬۰۰۰ تومان اعتبار کیف پول تبدیل گردید.";
+    msgEl.style.color = "var(--ok)";
+  }
+  toast("۵۰٬۰۰۰ تومان اعتبار به کیف پول اضافه شد");
+}
+
+/* ---------- User Wallet System ---------- */
+function renderWallet() {
+  if ($("walletBalance")) $("walletBalance").textContent = fmt(state.wallet);
+}
+
+function addHistoryEntry(entry) {
+  const historyList = $("walletHistory");
+  if (!historyList) return;
+  const li = document.createElement("li");
+  li.className = "history-item " + entry.type;
+  li.innerHTML = `
+    <div class="history-details">
+      <strong>${entry.title}</strong>
+      <small>${entry.date}</small>
+    </div>
+    <span class="amount-${entry.type}">${entry.amount}</span>
+  `;
+  historyList.insertBefore(li, historyList.firstChild);
+}
+
+/* ---------- Card Number Auto-formatting Helper ---------- */
+function setupCardFormatter() {
+  const input = $("cardNum");
+  if (!input) return;
+  input.addEventListener("input", (e) => {
+    let val = e.target.value.replace(/\D/g, "");
+    if (val.length > 16) val = val.substring(0, 16);
+    const parts = [];
+    for (let i = 0; i < val.length; i += 4) {
+      parts.push(val.substring(i, i + 4));
+    }
+    e.target.value = parts.join(" ");
+
+    // Bank icon preview
+    const icon = $("cardTypeIcon");
+    if (icon) {
+      if (val.startsWith("6037")) icon.textContent = "🏛️ صادرات";
+      else if (val.startsWith("6104")) icon.textContent = "🏛️ ملت";
+      else if (val.startsWith("6219")) icon.textContent = "🏛️ سامان";
+      else if (val.startsWith("5892")) icon.textContent = "🏛️ سپه";
+      else if (val.startsWith("603799")) icon.textContent = "🏛️ ملی";
+      else if (val.startsWith("5022")) icon.textContent = "🏛️ پاسارگاد";
+      else icon.textContent = "💳";
+    }
+  });
+}
+
+/* ---------- Update Product JSON-LD Offers on Currency Change ---------- */
+function updateProductSchema() {
+  const schemaEl = $("productSchema");
+  if (!schemaEl) return;
+  try {
+    const schema = JSON.parse(schemaEl.textContent);
+    const itemList = schema["@graph"] ? schema["@graph"].find((x) => x["@type"] === "ItemList") : null;
+    if (itemList && itemList.itemListElement) {
+      itemList.itemListElement.forEach((item, index) => {
+        const prod = PRODUCTS[index];
+        if (prod && item.offers) {
+          if (state.currency === "IRR") {
+            item.offers.priceCurrency = "IRR";
+            item.offers.price = String(prod.price * 10); // IRR Rial = Toman * 10
+          } else if (state.currency === "USD") {
+            item.offers.priceCurrency = "USD";
+            item.offers.price = (prod.price / RATES.USD).toFixed(2);
+          } else if (state.currency === "AED") {
+            item.offers.priceCurrency = "AED";
+            item.offers.price = (prod.price / RATES.AED).toFixed(2);
+          }
+        }
+      });
+      schemaEl.textContent = JSON.stringify(schema, null, 2);
+    }
+  } catch (e) {
+    console.warn("JSON-LD update error:", e);
+  }
+}
+
+/* ---------- Setup Event Listeners ---------- */
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize UI
   renderProducts();
   renderCart();
   renderClub();
   renderWallet();
+  setupCardFormatter();
 
-  ["searchInput", "catFilter", "roastFilter", "priceRange"].forEach((id) =>
-    $(id).addEventListener("input", renderProducts));
-  $("resetFilters").addEventListener("click", () => {
-    $("searchInput").value = "";
-    $("catFilter").value = "all";
-    $("roastFilter").value = "all";
-    $("priceRange").value = 2500000;
-    renderProducts();
+  // Search & Filter Listeners
+  ["searchInput", "catFilter", "roastFilter", "sortFilter", "priceRange"].forEach((id) => {
+    const el = $(id);
+    if (el) el.addEventListener("input", renderProducts);
   });
 
-  document.querySelectorAll("[data-cat-jump]").forEach((b) =>
-    b.addEventListener("click", () => {
-      $("catFilter").value = b.dataset.catJump;
+  // Clear search button
+  const clearBtn = $("clearSearch");
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      const search = $("searchInput");
+      if (search) {
+        search.value = "";
+        search.focus();
+      }
       renderProducts();
-      document.getElementById("shop").scrollIntoView({ behavior: "smooth" });
-    }));
+    });
+  }
 
-  document.querySelectorAll(".cur-btn").forEach((b) =>
+  // Category Quick Tabs
+  document.querySelectorAll(".cat-tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const catVal = btn.dataset.tab;
+      const catSelect = $("catFilter");
+      if (catSelect) {
+        catSelect.value = catVal;
+      }
+      renderProducts();
+    });
+  });
+
+  // Reset Filters
+  const resetBtn = $("resetFilters");
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      if ($("searchInput")) $("searchInput").value = "";
+      if ($("catFilter")) $("catFilter").value = "all";
+      if ($("roastFilter")) $("roastFilter").value = "all";
+      if ($("sortFilter")) $("sortFilter").value = "featured";
+      if ($("priceRange")) $("priceRange").value = 2500000;
+      renderProducts();
+      toast("تمامی فیلترها بازنشانی شدند");
+    });
+  }
+
+  // Empty state reset button
+  const emptyResetBtn = $("emptyResetBtn");
+  if (emptyResetBtn) {
+    emptyResetBtn.addEventListener("click", () => {
+      if ($("searchInput")) $("searchInput").value = "";
+      if ($("catFilter")) $("catFilter").value = "all";
+      if ($("roastFilter")) $("roastFilter").value = "all";
+      if ($("priceRange")) $("priceRange").value = 2500000;
+      renderProducts();
+    });
+  }
+
+  // Category Jump Cards
+  document.querySelectorAll("[data-cat-jump]").forEach((b) => {
+    b.addEventListener("click", () => {
+      const jumpCat = b.dataset.catJump;
+      const catSelect = $("catFilter");
+      if (catSelect) {
+        catSelect.value = jumpCat;
+      }
+      renderProducts();
+      const shopSec = document.getElementById("shop");
+      if (shopSec) shopSec.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+
+  // Currency Switcher
+  document.querySelectorAll(".cur-btn").forEach((b) => {
+    // Set initial active state based on persisted currency
+    b.classList.toggle("active", b.dataset.cur === state.currency);
+
     b.addEventListener("click", () => {
       document.querySelectorAll(".cur-btn").forEach((x) => x.classList.remove("active"));
       b.classList.add("active");
       state.currency = b.dataset.cur;
+      persistState();
       renderProducts();
       renderCart();
       renderWallet();
-      if (!$("productModal").hidden) updateModalPrice();
-    }));
-
-  $("burgerBtn").addEventListener("click", () => $("mainNav").classList.toggle("open"));
-  document.querySelectorAll("#mainNav a").forEach((a) =>
-    a.addEventListener("click", () => $("mainNav").classList.remove("open")));
-
-  $("modalClose").addEventListener("click", () => { $("productModal").hidden = true; });
-  $("productModal").addEventListener("click", (e) => { if (e.target === e.currentTarget) e.currentTarget.hidden = true; });
-  ["mWeight", "mGrind", "mSub"].forEach((id) => $(id).addEventListener("change", updateModalPrice));
-  $("mAdd").addEventListener("click", addFromModal);
-
-  $("cartBtn").addEventListener("click", openDrawer);
-  $("drawerClose").addEventListener("click", closeDrawer);
-  $("drawerBackdrop").addEventListener("click", closeDrawer);
-
-  $("checkoutBtn").addEventListener("click", openCheckout);
-  $("backToCartBtn").addEventListener("click", () => {
-    $("checkoutView").hidden = true;
-    $("cartItems").style.display = "";
-    $("cartFoot").style.display = "";
+      renderClub();
+      updateProductSchema();
+      if (!$("productModal")?.hidden) updateModalPrice();
+      toast("واحد پول به " + b.textContent + " تغییر یافت");
+    });
   });
-  $("payMethod").addEventListener("change", updatePayUI);
-  $("payBtn").addEventListener("click", doPay);
 
-  $("redeemBtn").addEventListener("click", redeem);
-  $("chargeBtn").addEventListener("click", () => {
-    state.wallet += 200000;
-    renderWallet();
-    toast("کیف پول ۲۰۰٬۰۰۰ تومان شارژ شد");
+  // Mobile Navigation Drawer Toggle
+  const burgerBtn = $("burgerBtn");
+  const mainNav = $("mainNav");
+  if (burgerBtn && mainNav) {
+    burgerBtn.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("open");
+      burgerBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll("#mainNav a").forEach((a) => {
+      a.addEventListener("click", () => {
+        mainNav.classList.remove("open");
+        burgerBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // Product Modal Controls
+  const modalClose = $("modalClose");
+  const productModal = $("productModal");
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+  if (productModal) {
+    productModal.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+  }
+
+  // Weight Pill selection
+  document.querySelectorAll(".pill-btn").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      document.querySelectorAll(".pill-btn").forEach((p) => p.classList.remove("active"));
+      pill.classList.add("active");
+      const weightSelect = $("mWeight");
+      if (weightSelect) {
+        weightSelect.value = pill.dataset.weight;
+      }
+      updateModalPrice();
+    });
   });
-  $("walletHistoryBtn").addEventListener("click", () => {
-    const h = $("walletHistory");
-    h.hidden = !h.hidden;
+
+  // Weight / Grind / Sub change listeners
+  ["mWeight", "mGrind", "mSub"].forEach((id) => {
+    const el = $(id);
+    if (el) el.addEventListener("change", updateModalPrice);
+  });
+
+  // Modal Quantity Stepper
+  const mQtyDec = $("mQtyDec");
+  const mQtyInc = $("mQtyInc");
+  if (mQtyDec) {
+    mQtyDec.addEventListener("click", () => {
+      if (state.modalQty > 1) {
+        state.modalQty -= 1;
+        if ($("mQtyVal")) $("mQtyVal").textContent = faDigits(state.modalQty);
+        updateModalPrice();
+      }
+    });
+  }
+  if (mQtyInc) {
+    mQtyInc.addEventListener("click", () => {
+      state.modalQty += 1;
+      if ($("mQtyVal")) $("mQtyVal").textContent = faDigits(state.modalQty);
+      updateModalPrice();
+    });
+  }
+
+  // Add to Cart from Modal
+  const mAdd = $("mAdd");
+  if (mAdd) mAdd.addEventListener("click", addFromModal);
+
+  // Cart Drawer Open / Close
+  const cartBtn = $("cartBtn");
+  const drawerClose = $("drawerClose");
+  const drawerBackdrop = $("drawerBackdrop");
+  if (cartBtn) cartBtn.addEventListener("click", openDrawer);
+  if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
+  if (drawerBackdrop) drawerBackdrop.addEventListener("click", closeDrawer);
+
+  // Checkout Actions
+  const checkoutBtn = $("checkoutBtn");
+  const backToCartBtn = $("backToCartBtn");
+  const payMethodSelect = $("payMethod");
+  const payBtn = $("payBtn");
+  const newOrderBtn = $("newOrderBtn");
+
+  if (checkoutBtn) checkoutBtn.addEventListener("click", openCheckout);
+  if (backToCartBtn) backToCartBtn.addEventListener("click", resetCheckout);
+  if (payMethodSelect) payMethodSelect.addEventListener("change", updatePayUI);
+  if (payBtn) payBtn.addEventListener("click", doPay);
+  if (newOrderBtn) {
+    newOrderBtn.addEventListener("click", () => {
+      resetCheckout();
+      closeDrawer();
+      const shopEl = $("shop");
+      if (shopEl) shopEl.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  // Club & Loyalty Actions
+  const redeemBtn = $("redeemBtn");
+  if (redeemBtn) redeemBtn.addEventListener("click", redeem);
+
+  // Wallet Actions
+  const chargeBtn = $("chargeBtn");
+  if (chargeBtn) {
+    chargeBtn.addEventListener("click", () => {
+      state.wallet += 200000;
+      addHistoryEntry({
+        title: "شارژ آنلاین کیف پول",
+        date: "هم‌اکنون",
+        amount: "+۲۰۰٬۰۰۰ تومان",
+        type: "plus"
+      });
+      persistState();
+      renderWallet();
+      toast("کیف پول شما ۲۰۰٬۰۰۰ تومان شارژ شد");
+    });
+  }
+
+  // Quick Charge Preset Buttons
+  document.querySelectorAll(".btn-charge-preset").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const amt = Number(btn.dataset.amount || 100000);
+      state.wallet += amt;
+      addHistoryEntry({
+        title: "شارژ سریع اعتباری کیف پول",
+        date: "هم‌اکنون",
+        amount: "+" + fmt(amt),
+        type: "plus"
+      });
+      persistState();
+      renderWallet();
+      toast("کیف پول شما " + fmt(amt) + " شارژ شد");
+    });
+  });
+
+  const walletHistoryBtn = $("walletHistoryBtn");
+  if (walletHistoryBtn) {
+    walletHistoryBtn.addEventListener("click", () => {
+      const h = $("walletHistory");
+      if (h) h.hidden = !h.hidden;
+    });
+  }
+
+  // Global Keyboard Navigation (Escape key to dismiss dialogs)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (!$("productModal")?.hidden) {
+        closeModal();
+      } else if ($("cartDrawer")?.classList.contains("open")) {
+        closeDrawer();
+      }
+    }
   });
 });

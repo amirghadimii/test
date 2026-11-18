@@ -3,264 +3,1040 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نو‌کام | فروشگاه تخصصی قهوه — NOKAM</title>
-<meta name="description" content="نو‌کام — فروشگاه تخصصی قهوه: دانه و آسیاب‌شده تازه‌برشت، تجهیزات دم‌آوری، اشتراک دوره‌ای، کیف پول و باشگاه مشتریان.">
+<title>نو‌کام | فروشگاه تخصصی قهوه تازه‌برشت — NOKAM Specialty Coffee</title>
+<meta name="description" content="نو‌کام — فروشگاه تخصصی قهوه: دانه و آسیاب‌شده تازه‌برشت، تجهیزات تخصصی دم‌آوری، اشتراک هوشمند دوره‌ای، کیف پول نقدی با ۲٪ بازگشت وجه و باشگاه مشتریان وفادار.">
+<meta name="keywords" content="قهوه تخصصی, خرید دانه قهوه, قهوه اتیوپی, قهوه کلمبیا, برشت تازه, اشتراک قهوه, موکاپات, نوکام, NOKAM">
+<meta name="theme-color" content="#251710">
+
+<!-- OpenGraph & Social Cards -->
+<meta property="og:title" content="نو‌کام | فروشگاه تخصصی قهوه تازه‌برشت">
+<meta property="og:description" content="دانه‌های دست‌چین خاستگاه‌های برتر جهان با برشت روزانه و ارسال حداکثر ۴۸ ساعته.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json" id="productSchema">
 {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "محصولات قهوه نو‌کام",
-  "itemListElement": [
-    {"@type": "Product", "position": 1, "name": "دانه قهوه اتیوپی یرگاچف", "category": "دانه قهوه", "offers": {"@type": "Offer", "priceCurrency": "IRR", "price": "6850000", "availability": "https://schema.org/InStock"}},
-    {"@type": "Product", "position": 2, "name": "دانه قهوه کلمبیا سوپریمو", "category": "دانه قهوه", "offers": {"@type": "Offer", "priceCurrency": "IRR", "price": "5900000", "availability": "https://schema.org/InStock"}},
-    {"@type": "Product", "position": 3, "name": "قهوه آسیاب‌شده اسپرسو بلِند نو‌کام", "category": "قهوه آسیاب‌شده", "offers": {"@type": "Offer", "priceCurrency": "IRR", "price": "5400000", "availability": "https://schema.org/InStock"}},
-    {"@type": "Product", "position": 4, "name": "موکاپات استیل ۶ کاپ", "category": "تجهیزات", "offers": {"@type": "Offer", "priceCurrency": "IRR", "price": "18500000", "availability": "https://schema.org/InStock"}}
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nokam.coffee/#organization",
+      "name": "نو‌کام — NOKAM Specialty Coffee",
+      "url": "https://nokam.coffee",
+      "logo": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=200&q=80",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+98-21-88774500",
+        "contactType": "customer service",
+        "areaServed": "IR",
+        "availableLanguage": "Persian"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "محصولات قهوه تخصصی و تجهیزات نو‌کام",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "position": 1,
+          "name": "دانه قهوه اتیوپی یرگاچف",
+          "category": "دانه قهوه",
+          "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80",
+          "description": "نت‌های یاس، هلو و چای سیاه — اسیدیته روشن و پایان تمیز با برشت روشن",
+          "brand": {"@type": "Brand", "name": "NOKAM"},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IRR",
+            "price": "6850000",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://nokam.coffee/#shop"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "128"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 2,
+          "name": "دانه قهوه کلمبیا سوپریمو",
+          "category": "دانه قهوه",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80",
+          "description": "کارامل، فندق و پرتقال — متعادل و همه‌پسند با برشت متوسط",
+          "brand": {"@type": "Brand", "name": "NOKAM"},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IRR",
+            "price": "5900000",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://nokam.coffee/#shop"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "94"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 3,
+          "name": "قهوه آسیاب‌شده اسپرسو بلِند نو‌کام",
+          "category": "قهوه آسیاب‌شده",
+          "image": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=700&q=80",
+          "description": "ترکیب ۷۰٪ عربیکا / ۳۰٪ روبوستا — کرمای غلیظ، شکلات و دود ملایم",
+          "brand": {"@type": "Brand", "name": "NOKAM"},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IRR",
+            "price": "5400000",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://nokam.coffee/#shop"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "reviewCount": "82"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 4,
+          "name": "موکاپات استیل ۶ کاپ",
+          "category": "تجهیزات",
+          "image": "https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80",
+          "description": "استیل ضدزنگ ۱۸/۱۰، مناسب اجاق گازی و برقی، دسته نسوز ارگونومیک",
+          "brand": {"@type": "Brand", "name": "NOKAM Gear"},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "IRR",
+            "price": "18500000",
+            "priceValidUntil": "2027-12-31",
+            "availability": "https://schema.org/InStock",
+            "url": "https://nokam.coffee/#shop"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "67"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
 </head>
 <body>
 
+<!-- Notification / Announcement Banner -->
+<div class="announcement-bar">
+  <div class="container announcement-in">
+    <span>☕ <strong>برشت تازه هفتگی:</strong> سفارش شما حداکثر ۴۸ ساعت پس از برشت در تهران ارسال می‌شود.</span>
+    <span class="announcement-pill">🚚 ارسال رایگان سفارش‌های بالای ۵۰۰ هزار تومان</span>
+  </div>
+</div>
+
+<!-- Header -->
 <header class="topbar">
   <div class="container topbar-in">
-    <button class="burger" id="burgerBtn" aria-label="منو">☰</button>
-    <a class="logo" href="#" onclick="return false">نو‌کام <span>NOKAM</span></a>
-    <nav class="mainnav" id="mainNav">
-      <a href="#shop">فروشگاه</a>
-      <a href="#story">داستان ما</a>
-      <a href="#club">باشگاه مشتریان</a>
-      <a href="#wallet">کیف پول</a>
-    </nav>
-    <div class="top-actions">
-      <div class="currency-switch" role="group" aria-label="واحد پول">
-        <button data-cur="IRR" class="cur-btn active">تومان</button>
-        <button data-cur="USD" class="cur-btn">USD</button>
-        <button data-cur="AED" class="cur-btn">AED</button>
+    <button class="burger" id="burgerBtn" aria-label="باز کردن منو" aria-expanded="false">
+      <span class="burger-bar"></span>
+      <span class="burger-bar"></span>
+      <span class="burger-bar"></span>
+    </button>
+
+    <a class="logo" href="#shop" aria-label="فروشگاه قهوه نوکام">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 4.02.11 7.22-3.1 7.22-7.1v-.9h.5c2.48 0 4.5-2.02 4.5-4.5S20.98 3 18.5 3zm0 5.5h-.5V5h.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5zM4 20h16v2H4z"/>
+        </svg>
       </div>
-      <button class="cart-btn" id="cartBtn">🛒 سبد <span class="cart-count" id="cartCount">۰</span></button>
+      <div class="logo-text">
+        <span class="logo-brand">نو‌کام</span>
+        <span class="logo-sub">NOKAM COFFEE</span>
+      </div>
+    </a>
+
+    <nav class="mainnav" id="mainNav" aria-label="منوی اصلی">
+      <a href="#shop" class="nav-link active">فروشگاه</a>
+      <a href="#cats" class="nav-link">دسته‌بندی‌ها</a>
+      <a href="#story" class="nav-link">داستان ما</a>
+      <a href="#club" class="nav-link">باشگاه مشتریان</a>
+      <a href="#wallet" class="nav-link">کیف پول</a>
+    </nav>
+
+    <div class="top-actions">
+      <!-- Member Tier Quick Badge -->
+      <a href="#club" class="member-chip" id="topMemberChip" title="مشاهده حساب باشگاه مشتریان">
+        <span class="member-chip-dot"></span>
+        <span id="topTierName">نقره‌ای</span>
+        <small id="topPoints">۲٬۴۵۰ پ</small>
+      </a>
+
+      <!-- Currency Switcher -->
+      <div class="currency-switch" role="group" aria-label="واحد پول">
+        <button data-cur="IRR" class="cur-btn active" title="تومان ایران">تومان</button>
+        <button data-cur="USD" class="cur-btn" title="دلار آمریکا">USD</button>
+        <button data-cur="AED" class="cur-btn" title="درهم امارات">AED</button>
+      </div>
+
+      <!-- Cart Button -->
+      <button class="cart-btn" id="cartBtn" aria-label="سبد خرید">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-btn-label">سبد</span>
+        <span class="cart-count" id="cartCount">۰</span>
+      </button>
     </div>
   </div>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
   <div class="container hero-in">
     <div class="hero-text">
-      <p class="eyebrow">برشت‌کاری تخصصی — تهران</p>
-      <h1>قهوه‌ای که هر صبح،<br>تازه از برشت‌کاری می‌رسد</h1>
-      <p class="hero-sub">نو‌کام از سال ۱۳۹۶ دانه‌های منتخب اتیوپی، کلمبیا و برزیل را در مقیاس کوچک و سفارشی برشت می‌کند؛ هر سفارش حداکثر ۴۸ ساعت بعد از برشت ارسال می‌شود تا عطر واقعی قهوه را بچشید.</p>
+      <div class="badge-tag">
+        <span class="badge-icon">☕</span>
+        <span>کارگاه برشت‌کاری تخصصی و میکرولات — تهران</span>
+      </div>
+      <h1>قهوه‌ای که هر صبح،<br><span class="accent-text">تازه از برشت‌کاری</span> می‌رسد</h1>
+      <p class="hero-sub">نو‌کام از سال ۱۳۹۶ دانه‌های برگزیده اتیوپی، کلمبیا و برزیل را در مقیاس کوچک و سفارشی برشت می‌کند. هر سفارش حداکثر ۴۸ ساعت پس از برشت ارسال می‌شود تا لایه‌های معطر و طعم یادداشت‌های اصیل قهوه را در فنجان خود بچشید.</p>
+      
+      <div class="hero-badges">
+        <span class="hero-badge">🌿 ۱۰۰٪ تک‌خاستگاه ویژه</span>
+        <span class="hero-badge">🔥 کاپینگ تخصصی SCA</span>
+        <span class="hero-badge">📦 اشتراک هوشمند با ۱۰٪ تخفیف</span>
+      </div>
+
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#shop">مشاهده محصولات</a>
-        <a class="btn btn-ghost" href="#club">اشتراک دوره‌ای قهوه</a>
+        <a class="btn btn-primary" href="#shop">
+          <span>مشاهده و انتخاب قهوه</span>
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a class="btn btn-ghost" href="#club">
+          <span>اشتراک دوره‌ای قهوه</span>
+        </a>
       </div>
+
       <div class="hero-stats">
-        <div><strong>+۱۲٬۰۰۰</strong><span>مشتری ثابت</span></div>
-        <div><strong>۹</strong><span>خاستگاه دانه</span></div>
-        <div><strong>۴۸ ساعت</strong><span>از برشت تا ارسال</span></div>
+        <div class="stat-item">
+          <strong>+۱۲٬۰۰۰</strong>
+          <span>همراه وفادار نو‌کام</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <strong>۹</strong>
+          <span>خاستگاه تک‌منشأ</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <strong>۴۸ ساعت</strong>
+          <span>فاصله برشت تا ارسال</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <strong>۸۸.۵</strong>
+          <span>میانگین امتیاز کاپینگ</span>
+        </div>
       </div>
     </div>
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80" alt="دانه‌های قهوه تازه‌برشت نو‌کام">
+
+    <div class="hero-visual">
+      <div class="hero-card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900&q=80" alt="دانه‌های قهوه تازه‌برشت نو‌کام" class="hero-main-img" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=900&q=80';">
+        <div class="hero-float-card card-top">
+          <div class="float-icon">🔥</div>
+          <div>
+            <strong>برشت اختصاصی روزانه</strong>
+            <small>بچ‌های کوچک زیر ۵ کیلوگرم</small>
+          </div>
+        </div>
+        <div class="hero-float-card card-bottom">
+          <div class="float-icon">✨</div>
+          <div>
+            <strong>اشتراک خودکار نو‌کام</strong>
+            <small>۱۰٪ تخفیف دائم و ارسال رایگان</small>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Categories Section -->
 <section class="container cats" id="cats">
-  <h2 class="sec-title">دسته‌بندی‌ها</h2>
+  <div class="sec-header">
+    <div>
+      <span class="sec-eyebrow">مجموعه محصولات</span>
+      <h2 class="sec-title">دسته‌بندی‌های نو‌کام</h2>
+    </div>
+    <p class="sec-desc">انتخاب بر اساس روش دم‌آوری و اولویت مصرف شما؛ از دانه‌های ناب تک‌خاستگاه تا تجهیزات حرفه‌ای باریستا.</p>
+  </div>
+
   <div class="cat-grid">
-    <button class="cat-card" data-cat-jump="beans">
-      <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80" alt="دانه قهوه">
-      <span>دانه قهوه</span><small>برشت تازه، کامل یا آسیاب</small>
+    <button class="cat-card" data-cat-jump="beans" type="button">
+      <div class="cat-img-box">
+        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80" alt="دانه قهوه تخصصی">
+        <span class="cat-count-badge">۴ محصول</span>
+      </div>
+      <div class="cat-content">
+        <div class="cat-title-row">
+          <span>دانه قهوه تخصصی</span>
+          <span class="cat-arrow">←</span>
+        </div>
+        <small>برشت تازه هفتگی، دانه کامل یا آسیاب سفارشی با یادداشت‌های طعمی غنی</small>
+      </div>
     </button>
-    <button class="cat-card" data-cat-jump="ground">
-      <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=700&q=80" alt="قهوه آسیاب‌شده">
-      <span>قهوه آسیاب‌شده</span><small>آماده دم‌آوری فوری</small>
+
+    <button class="cat-card" data-cat-jump="ground" type="button">
+      <div class="cat-img-box">
+        <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=700&q=80" alt="قهوه آسیاب‌شده">
+        <span class="cat-count-badge">۳ محصول</span>
+      </div>
+      <div class="cat-content">
+        <div class="cat-title-row">
+          <span>قهوه آسیاب‌شده</span>
+          <span class="cat-arrow">←</span>
+        </div>
+        <small>بلِندهای اختصاصی اسپرسو، قهوه ترک و دکاف سویس‌واتر آماده دم‌آوری</small>
+      </div>
     </button>
-    <button class="cat-card" data-cat-jump="equipment">
-      <img src="https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80" alt="تجهیزات دم‌آوری">
-      <span>تجهیزات دم‌آوری</span><small>موکاپات، فرنچ‌پرس، آسیاب</small>
+
+    <button class="cat-card" data-cat-jump="equipment" type="button">
+      <div class="cat-img-box">
+        <img src="https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80" alt="تجهیزات دم‌آوری">
+        <span class="cat-count-badge">۳ ابزار</span>
+      </div>
+      <div class="cat-content">
+        <div class="cat-title-row">
+          <span>تجهیزات دم‌آوری</span>
+          <span class="cat-arrow">←</span>
+        </div>
+        <small>موکاپات ایتالیایی استیل، فرنچ‌پرس چوب گردو و آسیاب دستی مخروطی سرامیک</small>
+      </div>
     </button>
   </div>
 </section>
 
+<!-- Shop Section -->
 <section class="container shop" id="shop">
-  <h2 class="sec-title">فروشگاه نو‌کام</h2>
-
-  <div class="toolbar">
-    <input type="search" id="searchInput" placeholder="جستجو: اتیوپی، اسپرسو، موکاپات…">
-    <select id="catFilter" aria-label="دسته‌بندی">
-      <option value="all">همه دسته‌ها</option>
-      <option value="beans">دانه قهوه</option>
-      <option value="ground">قهوه آسیاب‌شده</option>
-      <option value="equipment">تجهیزات</option>
-    </select>
-    <select id="roastFilter" aria-label="درجه برشت">
-      <option value="all">همه برشت‌ها</option>
-      <option value="light">روشن</option>
-      <option value="medium">متوسط</option>
-      <option value="dark">تیره</option>
-    </select>
-    <label class="price-range">حداکثر قیمت: <span id="priceLabel"></span>
-      <input type="range" id="priceRange" min="200000" max="2500000" step="50000" value="2500000">
-    </label>
-    <button class="btn btn-small" id="resetFilters">حذف فیلترها</button>
+  <div class="sec-header">
+    <div>
+      <span class="sec-eyebrow">فروشگاه آنلاین</span>
+      <h2 class="sec-title">ویترین محصولات نو‌کام</h2>
+    </div>
+    <p class="sec-desc">تمامی قهوه‌ها پس از ثبت سفارش بسته‌بندی شده و تاریخ برشت روی پاکت درج می‌گردد.</p>
   </div>
 
-  <p class="result-count" id="resultCount"></p>
+  <!-- Filter & Search Toolbar -->
+  <div class="toolbar-wrapper">
+    <!-- Category Quick Tabs -->
+    <div class="category-tabs" id="categoryTabs">
+      <button class="cat-tab-btn active" data-tab="all">همه محصولات (۱۰)</button>
+      <button class="cat-tab-btn" data-tab="beans">دانه قهوه (۴)</button>
+      <button class="cat-tab-btn" data-tab="ground">قهوه آسیاب‌شده (۳)</button>
+      <button class="cat-tab-btn" data-tab="equipment">تجهیزات دم‌آوری (۳)</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="searchInput" placeholder="جستجو: اتیوپی، اسپرسو، موکاپات، یاس، شکلات…" aria-label="جستجوی محصول">
+        <button type="button" id="clearSearch" class="clear-search-btn" title="پاک کردن جستجو" hidden>✕</button>
+      </div>
+
+      <div class="filter-controls">
+        <div class="select-wrap">
+          <label for="catFilter" class="control-label">دسته:</label>
+          <select id="catFilter" aria-label="دسته‌بندی">
+            <option value="all">همه دسته‌ها</option>
+            <option value="beans">دانه قهوه</option>
+            <option value="ground">قهوه آسیاب‌شده</option>
+            <option value="equipment">تجهیزات</option>
+          </select>
+        </div>
+
+        <div class="select-wrap">
+          <label for="roastFilter" class="control-label">برشت:</label>
+          <select id="roastFilter" aria-label="درجه برشت">
+            <option value="all">همه برشت‌ها</option>
+            <option value="light">روشن (Light)</option>
+            <option value="medium">متوسط (Medium)</option>
+            <option value="dark">تیره (Dark)</option>
+          </select>
+        </div>
+
+        <div class="select-wrap">
+          <label for="sortFilter" class="control-label">مرتب‌سازی:</label>
+          <select id="sortFilter" aria-label="مرتب سازی محصولات">
+            <option value="featured">پیشنهاد نو‌کام</option>
+            <option value="price-asc">ارزان‌ترین</option>
+            <option value="price-desc">گران‌ترین</option>
+            <option value="name-asc">نام (الف-ی)</option>
+          </select>
+        </div>
+
+        <div class="price-range">
+          <div class="price-range-head">
+            <span>حداکثر قیمت:</span>
+            <strong id="priceLabel">۲٬۵۰۰٬۰۰۰ تومان</strong>
+          </div>
+          <input type="range" id="priceRange" min="200000" max="2500000" step="50000" value="2500000" aria-label="فیلتر حداکثر قیمت">
+        </div>
+
+        <button class="btn btn-outline" id="resetFilters" type="button" title="بازنشانی فیلترها">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          <span>حذف فیلترها</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="shop-status-bar">
+    <p class="result-count" id="resultCount"></p>
+    <div class="snapppay-info-pill">
+      <span>💳 خرید در ۴ قسط بدون کارمزد برای تمامی محصولات فعال است</span>
+    </div>
+  </div>
+
+  <!-- Product Grid -->
   <div class="grid" id="productGrid"></div>
-  <p class="empty" id="emptyMsg" hidden>محصولی با این فیلترها پیدا نشد. فیلترها را تغییر دهید.</p>
+
+  <!-- Empty Results State -->
+  <div class="empty-state" id="emptyMsg" hidden>
+    <div class="empty-icon">☕</div>
+    <h3>محصولی مطابق فیلترهای انتخابی شما یافت نشد!</h3>
+    <p>می‌توانید فیلتر دسته‌بندی یا درجه برشت را تغییر داده یا جستجوی کلی‌تری انجام دهید.</p>
+    <button class="btn btn-primary" id="emptyResetBtn" type="button">نمایش همه محصولات نو‌کام</button>
+  </div>
 </section>
 
+<!-- Brand Story & Roasting Ethos -->
 <section class="story" id="story">
   <div class="container story-in">
-    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800&q=80" alt="دم‌آوری قهوه در نو‌کام">
-    <div>
-      <h2 class="sec-title">داستان نو‌کام</h2>
-      <p>نو‌کام با یک برشت‌کار کوچک در بازار تهران شروع شد. امروز با کشاورزان سه قاره مستقیم کار می‌کنیم، هر محموله را قبل از خرید کاپینگ می‌کنیم و پروفایل برشت هر خاستگاه را جداگانه تنظیم می‌کنیم. هدف ما ساده است: قهوه‌ای صادقانه، تازه و قابل تکرار — چه برای اسپرسوی صبحگاهی خانه، چه برای منوی کافه‌تان.</p>
-      <ul class="story-points">
-        <li>خرید مستقیم و منصفانه از مبدأ</li>
-        <li>برشت سفارشی در بچ‌های کوچک</li>
-        <li>امکان اشتراک دوره‌ای با توقف و تغییر آزاد</li>
-      </ul>
+    <div class="story-visual">
+      <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800&q=80" alt="دم‌آوری قهوه در نو‌کام" class="story-img">
+      <div class="story-experience-badge">
+        <strong>۷ سال</strong>
+        <span>برشت تخصصی در قلب تهران</span>
+      </div>
+    </div>
+
+    <div class="story-content">
+      <span class="sec-eyebrow">فلسفه و تعهد ما</span>
+      <h2 class="sec-title">داستان نو‌کام؛ احترام به هر دانه</h2>
+      <p class="story-lead">نو‌کام با یک ماشین برشت ۲ کیلویی در بازار تهران آغاز شد. اشتیاق بی‌پایان ما کشف عطر و پتانسیل نهفته در هر خاستگاه قهوه بود.</p>
+      <p class="story-text">امروز مفتخریم که بدون واسطه‌های غیرضروری، دانه‌های سبز را مستقیماً از مزارع برتر اتیوپی، کلمبیا و کنیا تامین می‌کنیم. هر محموله ورودی بر اساس پروتکل استاندارد SCA ارزیابی حسی و کاپینگ شده و منحنی برشت (Roast Curve) هر دانه به گونه‌ای تنظیم می‌شود که ویژگی‌های ژنتیکی و اقلیمی مزرعه حفظ گردد.</p>
+      
+      <div class="story-features">
+        <div class="story-feat-item">
+          <div class="feat-icon">🌱</div>
+          <div>
+            <strong>تجارت مستقیم و منصفانه (Direct Trade)</strong>
+            <p>پرداخت بهای بالاتر از بازار جهانی به کشاورزان برای حمایت از کیفیت پایدار.</p>
+          </div>
+        </div>
+        <div class="story-feat-item">
+          <div class="feat-icon">🔥</div>
+          <div>
+            <strong>برشت در بچ‌های کوچک (Micro-Batch)</strong>
+            <p>برشت سفارشی و مداوم برای حفظ حداکثر طراوت، روغن‌های معطر و کرمای بی‌نقص.</p>
+          </div>
+        </div>
+        <div class="story-feat-item">
+          <div class="feat-icon">📦</div>
+          <div>
+            <strong>سیستم اشتراک انعطاف‌پذیر</strong>
+            <p>ارسال ماهیانه با تخفیف دائمی، با امکان تعلیق، تغییر وزن و لغو در هر زمان.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Loyalty Club Section -->
 <section class="container club" id="club">
-  <h2 class="sec-title">باشگاه مشتریان نو‌کام</h2>
-  <div class="club-grid">
-    <div class="club-card">
-      <h3>امتیاز شما</h3>
-      <p class="points"><strong id="clubPoints">۲٬۴۵۰</strong> امتیاز</p>
-      <p class="muted">سطح فعلی: <strong id="clubTier">نقره‌ای</strong> — تا سطح طلایی <span id="pointsToGold">۲٬۵۵۰</span> امتیاز مانده</p>
-      <div class="progress"><div class="progress-bar" id="tierProgress"></div></div>
-      <button class="btn btn-small" id="redeemBtn">تبدیل ۵۰۰ امتیاز به ۵۰٬۰۰۰ تومان اعتبار</button>
-      <p class="muted" id="redeemMsg"></p>
-    </div>
-    <div class="club-card tiers">
-      <h3>سطوح باشگاه</h3>
-      <ul>
-        <li><span class="tier bronze">برنزی</span> ۰ تا ۱٬۰۰۰ امتیاز — بازگشت ۲٪</li>
-        <li><span class="tier silver">نقره‌ای</span> ۱٬۰۰۰ تا ۵٬۰۰۰ امتیاز — بازگشت ۴٪ + ارسال رایگان بالای ۵۰۰ هزار تومان</li>
-        <li><span class="tier gold">طلایی</span> بالای ۵٬۰۰۰ امتیاز — بازگشت ۷٪ + برشت اختصاصی ماهانه</li>
-      </ul>
-      <p class="muted">با هر خرید، به ازای هر ۱۰٬۰۰۰ تومان، ۱۰ امتیاز می‌گیرید.</p>
-    </div>
-  </div>
-</section>
-
-<section class="container wallet" id="wallet">
-  <h2 class="sec-title">کیف پول نو‌کام</h2>
-  <div class="wallet-card">
+  <div class="sec-header">
     <div>
-      <p class="muted">موجودی فعلی کیف پول</p>
-      <p class="wallet-balance" id="walletBalance"></p>
-      <p class="muted">پرداخت با کیف پول = ۲٪ بازگشت نقدی فوری به کیف پول</p>
+      <span class="sec-eyebrow">باشگاه مشتریان وفادار</span>
+      <h2 class="sec-title">باشگاه قهوه‌دوستان نو‌کام</h2>
     </div>
-    <div class="wallet-actions">
-      <button class="btn btn-primary" id="chargeBtn">شارژ کیف پول (+۲۰۰٬۰۰۰ تومان)</button>
-      <button class="btn btn-ghost dark" id="walletHistoryBtn">تاریخچه تراکنش‌ها</button>
-      <ul class="wallet-history" id="walletHistory" hidden>
-        <li>۱۴۰۵/۰۸/۲۵ — بازگشت نقدی خرید #NK-8812 — +۱۸٬۴۰۰ تومان</li>
-        <li>۱۴۰۵/۰۸/۱۸ — شارژ کیف پول — +۲۰۰٬۰۰۰ تومان</li>
-        <li>۱۴۰۵/۰۸/۱۰ — پرداخت سفارش #NK-8740 — −۴۳۵٬۰۰۰ تومان</li>
-      </ul>
+    <p class="sec-desc">با هر خرید امتیاز کسب کنید، از تخفیف‌های رتبه‌ای بهره‌مند شوید و امتیازهای خود را به موجودی نقدی تبدیل نمایید.</p>
+  </div>
+
+  <div class="club-grid">
+    <!-- User Club Card -->
+    <div class="club-card user-club-card">
+      <div class="club-card-badge-header">
+        <div class="user-avatar-tag">
+          <span class="avatar-circle">👤</span>
+          <div>
+            <strong class="user-greeting">کاربر محترم نو‌کام</strong>
+            <small class="member-id">عضویت شماره: NK-764093</small>
+          </div>
+        </div>
+        <span class="tier-pill-badge" id="clubTierBadge">سطح نقره‌ای</span>
+      </div>
+
+      <div class="points-showcase">
+        <div class="points-info">
+          <span class="points-label">امتیاز وفاداری فعال شما</span>
+          <p class="points"><strong id="clubPoints">۲٬۴۵۰</strong> <span class="points-unit">امتیاز</span></p>
+        </div>
+        <div class="points-cash-equiv">
+          <span>معادل اعتباری:</span>
+          <strong id="pointsCashVal">۲۴۵٬۰۰۰ تومان</strong>
+        </div>
+      </div>
+
+      <div class="tier-progress-section">
+        <div class="tier-progress-label">
+          <span>سطح فعلی: <strong id="clubTier">نقره‌ای</strong></span>
+          <span class="muted">تا ارتقا به سطح طلایی: <strong id="pointsToGold">۲٬۵۵۰</strong> امتیاز مانده</span>
+        </div>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="49">
+          <div class="progress-bar" id="tierProgress" style="width: 49%"></div>
+        </div>
+        <div class="tier-steps">
+          <span class="step-label">برنزی (۰)</span>
+          <span class="step-label">نقره‌ای (۱٬۰۰۰)</span>
+          <span class="step-label gold-target">طلایی (۵٬۰۰۰)</span>
+        </div>
+      </div>
+
+      <div class="redeem-box">
+        <div class="redeem-info-text">
+          <strong>تبدیل مستقیم امتیاز به موجودی کیف پول</strong>
+          <p class="muted">هر ۵۰۰ امتیاز باشگاه قابل تبدیل به ۵۰٬۰۰۰ تومان اعتبار خرید نقد است.</p>
+        </div>
+        <button class="btn btn-accent" id="redeemBtn" type="button">
+          <span>تبدیل ۵۰۰ امتیاز به ۵۰٬۰۰۰ تومان اعتبار</span>
+        </button>
+        <p class="redeem-msg" id="redeemMsg" role="status"></p>
+      </div>
+    </div>
+
+    <!-- Tier Benefits Explanation -->
+    <div class="club-card tiers">
+      <h3 class="tiers-title">مزایای سطوح سه‌گانه نو‌کام</h3>
+      <div class="tier-cards-list">
+        <div class="tier-benefit-item bronze-tier" id="tierCardBronze">
+          <div class="tier-header-line">
+            <span class="tier bronze">سطح برنزی</span>
+            <span class="tier-range">۰ تا ۱٬۰۰۰ امتیاز</span>
+          </div>
+          <ul class="tier-perks">
+            <li>۲٪ بازگشت نقدی (Cashback) به کیف پول در تمامی خریدها</li>
+            <li>ارسال کدهای تخفیف فصلی و هدیه تولد</li>
+          </ul>
+        </div>
+
+        <div class="tier-benefit-item silver-tier current-tier" id="tierCardSilver">
+          <div class="tier-header-line">
+            <div class="tier-title-with-badge">
+              <span class="tier silver">سطح نقره‌ای</span>
+              <span class="active-tier-tag">سطح فعلی شما</span>
+            </div>
+            <span class="tier-range">۱٬۰۰۰ تا ۵٬۰۰۰ امتیاز</span>
+          </div>
+          <ul class="tier-perks">
+            <li>۴٪ بازگشت نقدی مستقیم به کیف پول برای هر خرید</li>
+            <li>ارسال رایگان در تمامی سفارش‌های بالای ۵۰۰ هزار تومان</li>
+            <li>اولویت در دسترسی به بچ‌های ویژه و میکرولات‌های محدود</li>
+          </ul>
+        </div>
+
+        <div class="tier-benefit-item gold-tier" id="tierCardGold">
+          <div class="tier-header-line">
+            <span class="tier gold">سطح طلایی (VIP)</span>
+            <span class="tier-range">بالای ۵٬۰۰۰ امتیاز</span>
+          </div>
+          <ul class="tier-perks">
+            <li>۷٪ بازگشت نقدی بی‌قید و شرط به کیف پول</li>
+            <li>ارسال کاملاً رایگان برای تمام سفارش‌ها بدون سقف حداقل خرید</li>
+            <li>بسته برشت اختصاصی ماهانه رایگان به عنوان هدیه</li>
+            <li>مشاوره خصوصی تنظیم آسیاب و عصاره‌گیری با سر‌باریستا</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted club-footnote">💡 به ازای هر ۱۰٬۰۰۰ تومان خرید، ۱۰ امتیاز وفاداری در حساب شما ذخیره می‌شود.</p>
     </div>
   </div>
 </section>
 
+<!-- Wallet Section -->
+<section class="container wallet" id="wallet">
+  <div class="sec-header">
+    <div>
+      <span class="sec-eyebrow">حساب اعتباری</span>
+      <h2 class="sec-title">کیف پول هوشمند نو‌کام</h2>
+    </div>
+    <p class="sec-desc">پرداخت آسان و سریع بدون نیاز به درگاه بانکی؛ با ۲٪ بازگشت نقدی فوری در هر پرداخت.</p>
+  </div>
+
+  <div class="wallet-card">
+    <div class="wallet-virtual-card">
+      <div class="card-chip-row">
+        <div class="smart-chip">
+          <div class="chip-line"></div>
+          <div class="chip-line"></div>
+        </div>
+        <div class="contactless-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8.5 16.5a5 5 0 0 1 0-7"></path>
+            <path d="M12 19a8.5 8.5 0 0 0 0-14"></path>
+            <path d="M15.5 21.5a12 12 0 0 0 0-19"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="card-number-display">NK-6037 •••• •••• 9821</div>
+      <div class="card-balance-block">
+        <span class="card-label">موجودی در دسترس:</span>
+        <p class="wallet-balance" id="walletBalance">۳۵۰٬۰۰۰ تومان</p>
+      </div>
+      <div class="card-footer-row">
+        <span class="card-holder">کاربر ویژه نو‌کام</span>
+        <span class="card-cashback-badge">۲٪ کش‌بک فعال</span>
+      </div>
+    </div>
+
+    <div class="wallet-controls">
+      <div class="wallet-quick-charge">
+        <span class="quick-charge-label">شارژ سریع اعتبار:</span>
+        <div class="quick-charge-btns">
+          <button class="btn btn-outline-dark btn-charge-preset" data-amount="100000" type="button">+۱۰۰٬۰۰۰ ت</button>
+          <button class="btn btn-primary" id="chargeBtn" type="button">شارژ کیف پول (+۲۰۰٬۰۰۰ تومان)</button>
+          <button class="btn btn-outline-dark btn-charge-preset" data-amount="500000" type="button">+۵۰۰٬۰۰۰ ت</button>
+        </div>
+      </div>
+
+      <div class="wallet-actions">
+        <button class="btn btn-ghost dark" id="walletHistoryBtn" type="button">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>مشاهده تاریخچه تراکنش‌ها</span>
+        </button>
+
+        <ul class="wallet-history" id="walletHistory" hidden>
+          <li class="history-item plus">
+            <div class="history-details">
+              <strong>بازگشت نقدی خرید #NK-8812</strong>
+              <small>۱۴۰۵/۰۸/۲۵ — خرید دانه‌های کنیا AA</small>
+            </div>
+            <span class="amount-plus">+۱۸٬۴۰۰ تومان</span>
+          </li>
+          <li class="history-item plus">
+            <div class="history-details">
+              <strong>شارژ اینترنتی کیف پول</strong>
+              <small>۱۴۰۵/۰۸/۱۸ — درگاه شاپرک</small>
+            </div>
+            <span class="amount-plus">+۲۰۰٬۰۰۰ تومان</span>
+          </li>
+          <li class="history-item minus">
+            <div class="history-details">
+              <strong>پرداخت سفارش #NK-8740</strong>
+              <small>۱۴۰۵/۰۸/۱۰ — دانه اتیوپی یرگاچف</small>
+            </div>
+            <span class="amount-minus">−۴۳۵٬۰۰۰ تومان</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer class="footer">
   <div class="container footer-in">
-    <div>
-      <strong>نو‌کام — NOKAM</strong>
-      <p>تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک ۲۴۱۰<br>پشتیبانی: ۰۲۱-۸۸۷۷۴۵۰۰ | hello@nokam.coffee</p>
+    <div class="footer-col brand-col">
+      <div class="footer-logo">
+        <div class="logo-mark light">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M18.5 3H6c-1.1 0-2 .9-2 2v5.71c0 3.83 2.95 7.18 6.78 7.29 4.02.11 7.22-3.1 7.22-7.1v-.9h.5c2.48 0 4.5-2.02 4.5-4.5S20.98 3 18.5 3zm0 5.5h-.5V5h.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5zM4 20h16v2H4z"/>
+          </svg>
+        </div>
+        <strong>نو‌کام — NOKAM Specialty Coffee</strong>
+      </div>
+      <p class="footer-desc">برشت‌کاری قهوه تخصصی، تامین مستقیم دانه‌های منتخب از اتیوپی، کلمبیا و برزیل و تجهیز کافه‌ها و منازل با ادوات استاندارد دم‌آوری قهوه.</p>
+      <div class="footer-contact">
+        <p>📍 تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک ۲۴۱۰</p>
+        <p>📞 پشتیبانی تلفنی: ۰۲۱-۸۸۷۷۴۵۰۰ | ✉️ hello@nokam.coffee</p>
+      </div>
     </div>
-    <div>
-      <p>ساعات کاری: شنبه تا پنجشنبه ۹ تا ۲۱</p>
-      <p>ارسال به سراسر کشور — تهران همان روز</p>
+
+    <div class="footer-col links-col">
+      <h4>دسترسی سریع</h4>
+      <ul class="footer-links">
+        <li><a href="#shop">فروشگاه قهوه و ادوات</a></li>
+        <li><a href="#cats">راهنمای خاستگاه‌ها</a></li>
+        <li><a href="#club">عضویت در باشگاه وفاداری</a></li>
+        <li><a href="#wallet">کیف پول و شارژ اعتبار</a></li>
+        <li><a href="#story">رویکرد برشت و تضمین کیفیت</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col service-col">
+      <h4>ساعات کاری و ارسال</h4>
+      <p>شنبه تا پنجشنبه: ۹:۰۰ صبح الی ۲۱:۰۰ شب</p>
+      <p>جمعه‌ها: ۱۵:۰۰ الی ۲۱:۰۰ (برشت‌کاری تعطیل)</p>
+      <div class="shipping-info-badge">
+        <span>🚀 ارسال همان‌روز با پیک اختصاصی در تهران</span>
+        <span>📦 ارسال پست پیشتاز و تیپاکس به سراسر کشور</span>
+      </div>
     </div>
   </div>
-  <p class="copy">© ۱۴۰۵ نو‌کام — نسخه نمایشی (دمو) برای پیشنهاد پروژه</p>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-in">
+      <p class="copy">© ۱۴۰۵ تمامی حقوق برای فروشگاه تخصصی قهوه نو‌کام (NOKAM) محفوظ است — نسخه نمایشی (دمو) ارتقایافته</p>
+      <div class="security-badges">
+        <span>🔒 پرداخت امن شاپرک</span>
+        <span>✨ تضمین تازگی ۷ روزه</span>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<!-- Product modal -->
+<!-- Product Detail Modal -->
 <div class="modal-backdrop" id="productModal" hidden>
-  <div class="modal" role="dialog" aria-modal="true">
-    <button class="modal-close" id="modalClose">✕</button>
-    <img class="modal-img" id="mImg" src="" alt="">
-    <div class="modal-body">
-      <h3 id="mName"></h3>
-      <p class="muted" id="mNotes"></p>
-      <div class="roast-row">درجه برشت: <span class="roast-badge" id="mRoast"></span>
-        <div class="roast-meter"><div class="roast-fill" id="mRoastFill"></div></div>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mName">
+    <button class="modal-close" id="modalClose" aria-label="بستن پنجره">✕</button>
+    
+    <div class="modal-layout">
+      <!-- Modal Gallery / Image Side -->
+      <div class="modal-media-col">
+        <img class="modal-img" id="mImg" src="" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80';">
+        <div class="modal-media-badge" id="mFreshBadge">🔥 برشت تازه هفتگی</div>
       </div>
-      <label>وزن
-        <select id="mWeight">
-          <option value="250">۲۵۰ گرم</option>
-          <option value="500">۵۰۰ گرم</option>
-          <option value="1000">۱ کیلوگرم</option>
-        </select>
-      </label>
-      <label id="grindWrap">نوع آسیاب
-        <select id="mGrind">
-          <option value="دانه کامل">دانه کامل</option>
-          <option value="اسپرسو">اسپرسو</option>
-          <option value="موکاپات">موکاپات</option>
-          <option value="فیلتری (V60)">فیلتری (V60)</option>
-          <option value="فرنچ‌پرس">فرنچ‌پرس</option>
-        </select>
-      </label>
-      <label class="sub-check"><input type="checkbox" id="mSub"> اشتراک دوره‌ای — ارسال ماهانه با <strong>۱۰٪ تخفیف</strong> (توقف یا لغو در هر زمان)</label>
-      <div class="modal-price">قیمت: <strong id="mPrice"></strong></div>
-      <button class="btn btn-primary btn-block" id="mAdd">افزودن به سبد خرید</button>
+
+      <!-- Modal Info / Form Side -->
+      <div class="modal-body">
+        <div class="modal-header-info">
+          <div class="modal-category-tag" id="mCategoryTag">دانه قهوه تخصصی</div>
+          <h3 id="mName">نام محصول</h3>
+          <p class="muted modal-notes" id="mNotes"></p>
+        </div>
+
+        <!-- Specifications Strip -->
+        <div class="modal-spec-strip" id="mSpecStrip">
+          <div class="spec-cell">
+            <span class="spec-label">خاستگاه:</span>
+            <strong id="mOrigin">اتیوپی</strong>
+          </div>
+          <div class="spec-cell">
+            <span class="spec-label">فرآوری:</span>
+            <strong id="mProcess">شسته‌شده (Washed)</strong>
+          </div>
+          <div class="spec-cell">
+            <span class="spec-label">امتیاز کاپینگ:</span>
+            <strong id="mCupping" class="cupping-score-val">۸۸.۵</strong>
+          </div>
+        </div>
+
+        <!-- Roast Level Indicator -->
+        <div class="roast-row">
+          <div class="roast-title-area">
+            <span>درجه برشت:</span>
+            <span class="roast-badge" id="mRoast">متوسط</span>
+          </div>
+          <div class="roast-meter" aria-hidden="true">
+            <div class="roast-fill" id="mRoastFill"></div>
+          </div>
+        </div>
+
+        <!-- Weight Selection with Interactive Pills and Hidden Sync Select -->
+        <div class="option-block" id="weightBlock">
+          <label class="option-label" for="mWeight">
+            <span>انتخاب وزن بسته:</span>
+            <span class="option-hint">بسته‌بندی زیپ‌کیپ سوپاپ‌دار</span>
+          </label>
+          <div class="weight-pills" id="weightPills">
+            <button type="button" class="pill-btn active" data-weight="250">۲۵۰ گرم</button>
+            <button type="button" class="pill-btn" data-weight="500">۵۰۰ گرم</button>
+            <button type="button" class="pill-btn" data-weight="1000">۱ کیلوگرم</button>
+          </div>
+          <select id="mWeight" aria-label="وزن بسته" class="sr-only">
+            <option value="250" selected>۲۵۰ گرم</option>
+            <option value="500">۵۰۰ گرم</option>
+            <option value="1000">۱ کیلوگرم</option>
+          </select>
+        </div>
+
+        <!-- Grind Selection -->
+        <div class="option-block" id="grindWrap">
+          <label class="option-label" for="mGrind">
+            <span>درجه آسیاب دانه‌ها:</span>
+            <span class="option-hint">آسیاب دقیق با تیغه صنعتی Mahlkönig</span>
+          </label>
+          <select id="mGrind" aria-label="نوع آسیاب">
+            <option value="دانه کامل" selected>دانه کامل (پیشنهادی برای ماندگاری عطر)</option>
+            <option value="اسپرسو">اسپرسو خانگی و صنعتی (ریز)</option>
+            <option value="موکاپات">موکاپات و اسپرسوساز روگازی (متوسط رو به ریز)</option>
+            <option value="فیلتری (V60)">فیلتری، V60 و کمکس (متوسط)</option>
+            <option value="فرنچ‌پرس">فرنچ‌پرس و کلدبرو (درشت)</option>
+          </select>
+        </div>
+
+        <!-- Periodic Subscription Offer Card -->
+        <div class="subscription-card" id="subscriptionCard">
+          <label class="sub-check" for="mSub">
+            <input type="checkbox" id="mSub">
+            <div class="sub-content">
+              <div class="sub-header-line">
+                <strong>اشتراک هوشمند دوره‌ای نو‌کام</strong>
+                <span class="sub-discount-badge">۱۰٪ تخفیف دائمی</span>
+              </div>
+              <p class="sub-desc">ارسال خودکار ماهانه بدون نیاز به سفارش مجدد. هر زمان بخواهید با یک کلیک متوقف یا لغو کنید.</p>
+            </div>
+          </label>
+        </div>
+
+        <!-- Price & Quantity & Add to Cart Action -->
+        <div class="modal-foot">
+          <div class="modal-pricing-box">
+            <span class="price-title">قیمت نهایی:</span>
+            <strong class="modal-price" id="mPrice">۶۸۵٬۰۰۰ تومان</strong>
+          </div>
+          <div class="modal-action-row">
+            <div class="modal-qty-stepper">
+              <button type="button" id="mQtyDec" class="qty-btn" aria-label="کاهش تعداد">−</button>
+              <span id="mQtyVal" class="qty-display">۱</span>
+              <button type="button" id="mQtyInc" class="qty-btn" aria-label="افزایش تعداد">+</button>
+            </div>
+            <button class="btn btn-primary btn-block" id="mAdd" type="button">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span>افزودن به سبد خرید</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Cart drawer -->
+<!-- Cart Drawer -->
 <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
 <aside class="drawer" id="cartDrawer" aria-hidden="true">
   <div class="drawer-head">
-    <h3>سبد خرید</h3>
-    <button class="modal-close" id="drawerClose">✕</button>
-  </div>
-  <div class="drawer-body" id="cartItems"></div>
-  <div class="drawer-foot" id="cartFoot">
-    <div class="row"><span>جمع اقلام</span><strong id="cartSubtotal"></strong></div>
-    <div class="row"><span>هزینه ارسال</span><strong id="cartShipping"></strong></div>
-    <div class="row total"><span>قابل پرداخت</span><strong id="cartTotal"></strong></div>
-    <button class="btn btn-primary btn-block" id="checkoutBtn">ادامه و پرداخت</button>
+    <div class="drawer-title-group">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      <h3>سبد خرید شما</h3>
+    </div>
+    <button class="modal-close" id="drawerClose" aria-label="بستن سبد خرید">✕</button>
   </div>
 
-  <div class="checkout" id="checkoutView" hidden>
-    <h4>تسویه حساب</h4>
-    <label>روش پرداخت
-      <select id="payMethod">
-        <option value="gateway">درگاه بانکی (شبیه‌سازی)</option>
-        <option value="wallet">کیف پول نو‌کام</option>
-        <option value="installment">اقساطی — ۴ قسط بدون بهره</option>
-      </select>
-    </label>
-    <div id="gatewayFields">
-      <label>شماره کارت<input id="cardNum" inputmode="numeric" placeholder="۶۰۳۷ ···· ···· ····" maxlength="19"></label>
-      <label>نام صاحب کارت<input id="cardName" placeholder="نام و نام خانوادگی"></label>
+  <!-- Free Shipping Progress -->
+  <div class="free-shipping-box" id="freeShippingBox">
+    <div class="free-shipping-text" id="freeShippingText">
+      <span>تنها ۲۰۰٬۰۰۰ تومان دیگر تا ارسال رایگان!</span>
     </div>
-    <p class="muted" id="installmentInfo" hidden></p>
-    <p class="error" id="checkoutError"></p>
-    <button class="btn btn-primary btn-block" id="payBtn">پرداخت</button>
-    <button class="btn btn-ghost dark btn-block" id="backToCartBtn">بازگشت به سبد</button>
+    <div class="free-shipping-bar">
+      <div class="free-shipping-fill" id="freeShippingFill" style="width: 60%"></div>
+    </div>
+  </div>
+
+  <!-- Cart Items List -->
+  <div class="drawer-body" id="cartItems"></div>
+
+  <!-- Cart Footer Summary -->
+  <div class="drawer-foot" id="cartFoot">
+    <div class="cart-summary-card">
+      <div class="row">
+        <span>جمع اقلام سبد:</span>
+        <strong id="cartSubtotal">۰ تومان</strong>
+      </div>
+      <div class="row" id="cartSubDiscountRow" hidden>
+        <span class="discount-label">تخفیف اشتراک دوره‌ای (۱۰٪):</span>
+        <strong id="cartSubDiscount" class="discount-val">−۰ تومان</strong>
+      </div>
+      <div class="row">
+        <span>هزینه بسته‌بندی و ارسال:</span>
+        <strong id="cartShipping">۴۵٬۰۰۰ تومان</strong>
+      </div>
+      <div class="row total">
+        <span>مبلغ قابل پرداخت:</span>
+        <strong id="cartTotal" class="total-highlight">۰ تومان</strong>
+      </div>
+    </div>
+
+    <!-- 4 Installments Teaser Banner -->
+    <div class="drawer-snapppay-teaser">
+      <div class="snapppay-badge-tag">اسنپ‌پی / اقساطی</div>
+      <span>امکان پرداخت این سفارش در <strong>۴ قسط ماهانه بدون کارمزد</strong></span>
+    </div>
+
+    <button class="btn btn-primary btn-block checkout-action-btn" id="checkoutBtn" type="button">
+      <span>ادامه و تکمیل خرید</span>
+      <svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Checkout View (Inside Drawer) -->
+  <div class="checkout" id="checkoutView" hidden>
+    <div class="checkout-header">
+      <h4>تسویه حساب و پرداخت سفارش</h4>
+      <p class="muted">روش پرداخت مورد نظر خود را انتخاب نمایید:</p>
+    </div>
+
+    <!-- Payment Methods Radio Group -->
+    <div class="pay-method-block">
+      <label for="payMethod" class="control-label">انتخاب شیوه پرداخت:</label>
+      <select id="payMethod" aria-label="روش پرداخت">
+        <option value="gateway">درگاه بانکی شتاب (شبیه‌ساز رسمی شاپرک)</option>
+        <option value="wallet">کیف پول نو‌کام (با ۲٪ بازگشت نقدی فوری)</option>
+        <option value="installment">خرید اقساطی اسنپ‌پی (۴ قسط ماهانه بدون بهره)</option>
+      </select>
+    </div>
+
+    <!-- Customer Information for Delivery -->
+    <div class="checkout-customer-fields">
+      <div class="form-group">
+        <label for="custName">نام و نام خانوادگی خریدار:</label>
+        <input type="text" id="custName" placeholder="مثال: علیرضا محمدی" value="امیرحسین قدیمی">
+      </div>
+      <div class="form-group">
+        <label for="custPhone">شماره موبایل جهت هماهنگی ارسال:</label>
+        <input type="tel" id="custPhone" placeholder="۰۹۱۲۰۰۰۰۰۰۰" value="۰۹۱۲۳۴۵۶۷۸۹">
+      </div>
+    </div>
+
+    <!-- Gateway Fields (Shown if gateway is selected) -->
+    <div id="gatewayFields" class="payment-method-fields">
+      <div class="card-simulator-header">
+        <span>اطلاعات کارت شتاب بانکی:</span>
+        <span class="secure-badge">🔒 رمزنگاری ۲۵۶ بیتی شاپرک</span>
+      </div>
+      <div class="form-group">
+        <label for="cardNum">شماره ۱۶ رقمی کارت بانکی:</label>
+        <div class="card-input-wrapper">
+          <input id="cardNum" inputmode="numeric" placeholder="۶۰۳۷ ···· ···· ····" maxlength="19" value="۶۰۳۷ ۹۹۱۹ ۱۲۳۴ ۵۶۷۸">
+          <span class="card-type-icon" id="cardTypeIcon">💳</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardName">نام صاحب کارت:</label>
+        <input id="cardName" placeholder="نام درج‌شده روی کارت" value="امیرحسین قدیمی">
+      </div>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="cardCvv2">کد CVV2:</label>
+          <input id="cardCvv2" inputmode="numeric" maxlength="4" placeholder="۴۳۲" value="۴۳۲">
+        </div>
+        <div class="form-group">
+          <label for="cardExp">تاریخ انقضا:</label>
+          <input id="cardExp" placeholder="۰۷/۰۸" maxlength="5" value="۰۸/۰۸">
+        </div>
+      </div>
+    </div>
+
+    <!-- Wallet Fields (Shown if wallet is selected) -->
+    <div id="walletPayInfo" class="payment-method-fields" hidden>
+      <div class="wallet-pay-status-box">
+        <div class="status-row">
+          <span>موجودی کیف پول شما:</span>
+          <strong id="chkWalletBalance">۳۵۰٬۰۰۰ تومان</strong>
+        </div>
+        <div class="status-row">
+          <span>مبلغ قابل پرداخت:</span>
+          <strong id="chkPayAmount">۰ تومان</strong>
+        </div>
+        <div class="cashback-notice" id="chkCashbackNotice">
+          🎉 با این پرداخت ۲٪ بازگشت وجه (کش‌بک) بلافاصله به کیف پول شما واریز می‌شود!
+        </div>
+        <div class="wallet-insufficient-notice" id="chkWalletShort" hidden>
+          ⚠️ موجودی کیف پول کافی نیست. برای پرداخت، ابتدا کیف پول را شارژ نمایید یا روش پرداخت را تغییر دهید.
+        </div>
+      </div>
+    </div>
+
+    <!-- Installment Info Box (Shown if installment is selected) -->
+    <div id="installmentScheduleBlock" class="payment-method-fields" hidden>
+      <div class="snapppay-schedule-card">
+        <div class="schedule-head">
+          <strong>جدول پرداخت ۴ قسط اسنپ‌پی</strong>
+          <span class="badge-zero-interest">بدون سود و ضامن</span>
+        </div>
+        <p class="muted schedule-sub" id="installmentInfo"></p>
+        <div class="schedule-timeline" id="installmentTimeline">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Error message display -->
+    <p class="error" id="checkoutError" role="alert"></p>
+
+    <!-- Pay / Action Button -->
+    <button class="btn btn-primary btn-block" id="payBtn" type="button">تکمیل پرداخت</button>
+    <button class="btn btn-ghost dark btn-block" id="backToCartBtn" type="button">بازگشت به سبد خرید</button>
+
+    <!-- Success Receipt Screen -->
     <div class="success" id="paySuccess" hidden>
-      <p>✅ پرداخت با موفقیت انجام شد!</p>
-      <p>کد سفارش: <strong id="orderCode"></strong></p>
-      <p class="muted" id="successPoints"></p>
+      <div class="success-icon-wrap">
+        <div class="success-check-icon">✓</div>
+      </div>
+      <h4>سفارش شما با موفقیت ثبت شد!</h4>
+      <p class="success-subtitle">پیامک تایید سفارش و کد رهگیری پستی به شماره همراه شما ارسال شد.</p>
+
+      <div class="order-receipt-card">
+        <div class="receipt-row">
+          <span>شماره پیگیری سفارش:</span>
+          <strong id="orderCode" class="order-code-highlight">NK-8924</strong>
+        </div>
+        <div class="receipt-row">
+          <span>وضعیت پرداخت:</span>
+          <span class="paid-badge">تایید شده و موفق</span>
+        </div>
+        <div class="receipt-row">
+          <span>زمان تخمینی ارسال:</span>
+          <span>حداکثر ۴۸ ساعت آینده</span>
+        </div>
+      </div>
+
+      <p class="success-points-pill" id="successPoints"></p>
+
+      <button class="btn btn-primary btn-block btn-new-order" id="newOrderBtn" type="button">ثبت سفارش قهوه جدید</button>
     </div>
   </div>
 </aside>
 
-<div class="toast" id="toast" hidden></div>
+<!-- Toast Message Container -->
+<div class="toast" id="toast" hidden role="status" aria-live="polite"></div>
 
 <script src="app.js"></script>
 </body>
