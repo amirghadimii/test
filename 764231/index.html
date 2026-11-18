@@ -5,213 +5,478 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>پیشنهاد همکاری پشتیبانی فنی و سئو | اپ‌وبینو</title>
 <meta name="description" content="پیش‌نمایش پیشنهاد همکاری اپ‌وبینو برای پشتیبانی فنی وب‌سایت‌های وردپرسی و سئو: پشتیبانی، سرعت، سئوی داخلی و خارجی، طراحی سایت جدید، نصب سیستم‌ها و گزارش دوره‌ای.">
+<meta name="theme-color" content="#0e1e3a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Header -->
 <header class="site-header" id="siteHeader">
   <div class="container header-inner">
-    <a class="brand" href="#top" aria-label="اپ‌وبینو">
+    <a class="brand" href="#top" aria-label="اپ‌وبینو — صفحه نخست">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 18L9.5 6.5L12 12L14.5 6.5L20 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
       <span class="brand-text">اپ‌وبینو<small>AppWebino</small></span>
     </a>
-    <nav class="main-nav" aria-label="ناوبری اصلی">
-      <a href="#services">خدمات و اقدامات</a>
-      <a href="#rhythm">ریتم همکاری</a>
-      <a href="#proof">سابقه اجرایی</a>
+    <nav class="main-nav" id="mainNav" aria-label="ناوبری اصلی">
+      <a href="#services" class="nav-link">خدمات و اقدامات</a>
+      <a href="#rhythm" class="nav-link">ریتم همکاری</a>
+      <a href="#proof" class="nav-link">سابقه اجرایی</a>
       <a href="#contact" class="nav-cta">شروع همکاری</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="باز کردن منو" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <button class="menu-btn" id="menuBtn" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileNav">
+      <span class="menu-icon" aria-hidden="true">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </span>
     </button>
   </div>
-  <nav class="mobile-nav" id="mobileNav" aria-label="منوی موبایل">
-    <a href="#services">خدمات و اقدامات</a>
-    <a href="#rhythm">ریتم همکاری</a>
-    <a href="#proof">سابقه اجرایی</a>
-    <a href="#contact">شروع همکاری</a>
+  <nav class="mobile-nav" id="mobileNav" aria-label="منوی موبایل" hidden>
+    <a href="#services" class="mobile-nav-link">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>خدمات و اقدامات</span>
+    </a>
+    <a href="#rhythm" class="mobile-nav-link">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>ریتم همکاری</span>
+    </a>
+    <a href="#proof" class="mobile-nav-link">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>سابقه اجرایی</span>
+    </a>
+    <a href="#contact" class="mobile-nav-cta">
+      <span>شروع همکاری</span>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M19 12H5m7-7l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </nav>
 </header>
 
 <main id="top">
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="heroTitle">
     <div class="container hero-inner">
-      <p class="hero-eyebrow">پیش‌نمایش پیشنهاد همکاری — ارائه‌شده توسط اپ‌وبینو</p>
-      <h1>همکار پشتیبان فنی و سئو<br>برای وب‌سایت‌های شما</h1>
+      <div class="hero-badge">
+        <span class="badge-pulse" aria-hidden="true"></span>
+        <span class="hero-eyebrow">پیش‌نمایش پیشنهاد همکاری — ارائه‌شده توسط اپ‌وبینو</span>
+      </div>
+      <h1 id="heroTitle">همکار پشتیبان فنی و سئو<br><span class="hero-highlight">برای وب‌سایت‌های شما</span></h1>
       <p class="hero-sub">پشتیبانی فنی وب‌سایت‌های وردپرسی و سئوی آن‌ها، در قالب یک همکاری مداوم و بلندمدت؛ ریموت، با ساعات منعطف و به‌صورت پروژه‌ای. این صفحه دقیقاً همان محدوده کاری است که در پیشنهاد همکاری آمده — نه کمتر، نه بیشتر.</p>
+      
       <div class="hero-chips" role="list" aria-label="مدل همکاری">
-        <span role="listitem">همکاری مداوم و بلندمدت</span>
-        <span role="listitem">ریموت</span>
-        <span role="listitem">ساعات منعطف</span>
-        <span role="listitem">پروژه‌ای</span>
+        <span role="listitem" class="hero-chip">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          همکاری مداوم و بلندمدت
+        </span>
+        <span role="listitem" class="hero-chip">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M3 15a4 4 0 004 4h10a4 4 0 004-4V9a4 4 0 00-4-4H7a4 4 0 00-4 4v6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 21h8m-4-6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          ریموت
+        </span>
+        <span role="listitem" class="hero-chip">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          ساعات منعطف
+        </span>
+        <span role="listitem" class="hero-chip">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          پروژه‌ای
+        </span>
       </div>
+
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#services">مشاهده محدوده کار</a>
-        <a class="btn btn-ghost" href="#rhythm">ریتم همکاری چطور است؟</a>
+        <a class="btn btn-primary" href="#services">
+          <span>مشاهده محدوده کار</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#rhythm">
+          <span>ریتم همکاری چطور است؟</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
+
       <dl class="hero-stats">
-        <div><dt>۷</dt><dd>حوزه خدمت مشخص</dd></div>
-        <div><dt>۲۲</dt><dd>اقدام اجرایی تعریف‌شده</dd></div>
-        <div><dt>۷</dt><dd>وب‌سایت تحت مدیریت فنی و سئوی جاری</dd></div>
+        <div class="stat-card">
+          <dt class="stat-num">۷</dt>
+          <dd class="stat-label">حوزه خدمت مشخص</dd>
+        </div>
+        <div class="stat-card">
+          <dt class="stat-num">۲۲</dt>
+          <dd class="stat-label">اقدام اجرایی تعریف‌شده</dd>
+        </div>
+        <div class="stat-card">
+          <dt class="stat-num">۷</dt>
+          <dd class="stat-label">وب‌سایت تحت مدیریت فنی و سئوی جاری</dd>
+        </div>
       </dl>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="section" id="services">
+  <section class="section" id="services" aria-labelledby="servicesTitle">
     <div class="container">
       <header class="section-head">
-        <h2>محدوده کار: خدمات و اقدامات</h2>
+        <div class="section-badge">محدوده تعهدات و تخصص‌ها</div>
+        <h2 id="servicesTitle">محدوده کار: خدمات و اقدامات</h2>
         <p>هر حوزه را باز کنید تا اقدامات دقیقش را ببینید؛ یا با فیلترها فقط بخش موردنظرتان را نمایش دهید.</p>
       </header>
 
-      <div class="filters" role="group" aria-label="فیلتر خدمات">
-        <button class="filter-btn is-active" data-filter="all">همه خدمات</button>
-        <button class="filter-btn" data-filter="tech">پشتیبانی فنی</button>
-        <button class="filter-btn" data-filter="speed">سرعت</button>
-        <button class="filter-btn" data-filter="seo">سئو و محتوا</button>
-        <button class="filter-btn" data-filter="setup">طراحی و راه‌اندازی</button>
-        <button class="filter-btn" data-filter="report">گزارش‌دهی</button>
+      <div class="filter-wrapper">
+        <div class="filters" role="group" aria-label="فیلتر خدمات">
+          <button class="filter-btn is-active" data-filter="all" aria-pressed="true">
+            <span>همه خدمات</span>
+            <span class="filter-count">۷</span>
+          </button>
+          <button class="filter-btn" data-filter="tech" aria-pressed="false">
+            <span>پشتیبانی فنی</span>
+            <span class="filter-count">۱</span>
+          </button>
+          <button class="filter-btn" data-filter="speed" aria-pressed="false">
+            <span>سرعت</span>
+            <span class="filter-count">۱</span>
+          </button>
+          <button class="filter-btn" data-filter="seo" aria-pressed="false">
+            <span>سئو و محتوا</span>
+            <span class="filter-count">۲</span>
+          </button>
+          <button class="filter-btn" data-filter="setup" aria-pressed="false">
+            <span>طراحی و راه‌اندازی</span>
+            <span class="filter-count">۲</span>
+          </button>
+          <button class="filter-btn" data-filter="report" aria-pressed="false">
+            <span>گزارش‌دهی</span>
+            <span class="filter-count">۱</span>
+          </button>
+        </div>
+        <div class="filter-toggle-all">
+          <button class="toggle-all-btn" id="toggleAllBtn" type="button" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="toggleAllText">باز کردن همه</span>
+          </button>
+        </div>
       </div>
 
       <div class="cards" id="cards">
 
-        <article class="card" data-cat="tech">
-          <button class="card-head" aria-expanded="true">
-            <span class="card-num">۰۱</span>
-            <span class="card-title">پشتیبانی فنی وب‌سایت‌های وردپرسی</span>
+        <!-- Card 1 -->
+        <article class="card open" data-cat="tech" id="card-tech">
+          <button class="card-head" aria-expanded="true" aria-controls="tasklist-1" id="head-1">
+            <span class="card-num" aria-hidden="true">۰۱</span>
+            <div class="card-title-group">
+              <span class="card-badge">پشتیبانی و امنیت</span>
+              <h3 class="card-title">پشتیبانی فنی وب‌سایت‌های وردپرسی</h3>
+            </div>
             <span class="card-count">۵ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>به‌روزرسانی منظم هسته وردپرس، قالب و پلاگین‌ها (با بک‌آپ قبل از هر آپدیت)</li>
-            <li>بررسی و سخت‌گیری امنیتی: اسکن بدافزار، فایروال، محدودسازی ورود، رفع آسیب‌پذیری</li>
-            <li>رفع خطاهای احتمالی سایت (خطاهای PHP، صفحات سفید، تداخل پلاگین‌ها و…)</li>
-            <li>پایش آپتایم و سلامت سایت‌ها و واکنش سریع به اختلال</li>
-            <li>مدیریت بک‌آپ دوره‌ای و بازیابی در صورت نیاز</li>
-          </ul>
+          <div class="card-body" id="tasklist-1" role="region" aria-labelledby="head-1">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">به‌روزرسانی منظم هسته وردپرس، قالب و پلاگین‌ها (با بک‌آپ قبل از هر آپدیت)</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">بررسی و سخت‌گیری امنیتی: اسکن بدافزار، فایروال، محدودسازی ورود، رفع آسیب‌پذیری</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">رفع خطاهای احتمالی سایت (خطاهای PHP، صفحات سفید، تداخل پلاگین‌ها و…)</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">پایش آپتایم و سلامت سایت‌ها و واکنش سریع به اختلال</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">مدیریت بک‌آپ دوره‌ای و بازیابی در صورت نیاز</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card" data-cat="speed">
-          <button class="card-head" aria-expanded="false">
-            <span class="card-num">۰۲</span>
-            <span class="card-title">افزایش سرعت و عملکرد</span>
+        <!-- Card 2 -->
+        <article class="card" data-cat="speed" id="card-speed">
+          <button class="card-head" aria-expanded="false" aria-controls="tasklist-2" id="head-2">
+            <span class="card-num" aria-hidden="true">۰۲</span>
+            <div class="card-title-group">
+              <span class="card-badge">بهینه‌سازی لود</span>
+              <h3 class="card-title">افزایش سرعت و عملکرد</h3>
+            </div>
             <span class="card-count">۳ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>تحلیل سرعت هر سایت (PageSpeed / Core Web Vitals)</li>
-            <li>بهینه‌سازی تصاویر، کش، دیتابیس و منابع سنگین</li>
-            <li>رفع گلوگاه‌های قالب و پلاگین و بهبود زمان لود صفحات کلیدی</li>
-          </ul>
+          <div class="card-body" id="tasklist-2" role="region" aria-labelledby="head-2">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">تحلیل سرعت هر سایت (PageSpeed / Core Web Vitals)</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">بهینه‌سازی تصاویر، کش، دیتابیس و منابع سنگین</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">رفع گلوگاه‌های قالب و پلاگین و بهبود زمان لود صفحات کلیدی</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card" data-cat="seo">
-          <button class="card-head" aria-expanded="false">
-            <span class="card-num">۰۳</span>
-            <span class="card-title">سئوی داخلی (On-Page)</span>
+        <!-- Card 3 -->
+        <article class="card" data-cat="seo" id="card-seo-on">
+          <button class="card-head" aria-expanded="false" aria-controls="tasklist-3" id="head-3">
+            <span class="card-num" aria-hidden="true">۰۳</span>
+            <div class="card-title-group">
+              <span class="card-badge">سئو سایت</span>
+              <h3 class="card-title">سئوی داخلی (On-Page)</h3>
+            </div>
             <span class="card-count">۴ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>تحقیق کلمات کلیدی برای هر سایت و هر خدمت</li>
-            <li>بهینه‌سازی عنوان‌ها، متاها، هدینگ‌ها و ساختار URL</li>
-            <li>لینک‌سازی داخلی و بهبود معماری صفحات</li>
-            <li>بهینه‌سازی محتوای صفحات خدمات و مقالات موجود</li>
-          </ul>
+          <div class="card-body" id="tasklist-3" role="region" aria-labelledby="head-3">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">تحقیق کلمات کلیدی برای هر سایت و هر خدمت</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">بهینه‌سازی عنوان‌ها، متاها، هدینگ‌ها و ساختار URL</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">لینک‌سازی داخلی و بهبود معماری صفحات</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">بهینه‌سازی محتوای صفحات خدمات و مقالات موجود</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card" data-cat="seo">
-          <button class="card-head" aria-expanded="false">
-            <span class="card-num">۰۴</span>
-            <span class="card-title">سئوی خارجی و محتوا (Off-Page)</span>
+        <!-- Card 4 -->
+        <article class="card" data-cat="seo" id="card-seo-off">
+          <button class="card-head" aria-expanded="false" aria-controls="tasklist-4" id="head-4">
+            <span class="card-num" aria-hidden="true">۰۴</span>
+            <div class="card-title-group">
+              <span class="card-badge">لینک و محتوا</span>
+              <h3 class="card-title">سئوی خارجی و محتوا (Off-Page)</h3>
+            </div>
             <span class="card-count">۳ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>تولید محتوای سئومحور برای سایت‌ها طبق تقویم محتوایی</li>
-            <li>بک‌لینک‌سازی اصولی و مرتبط (رپورتاژ و لینک طبیعی، بدون اسپم)</li>
-            <li>پایش پروفایل لینک و رتبه کلمات در سرچ کنسول</li>
-          </ul>
+          <div class="card-body" id="tasklist-4" role="region" aria-labelledby="head-4">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">تولید محتوای سئومحور برای سایت‌ها طبق تقویم محتوایی</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">بک‌لینک‌سازی اصولی و مرتبط (رپورتاژ و لینک طبیعی، بدون اسپم)</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">پایش پروفایل لینک و رتبه کلمات در سرچ کنسول</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card" data-cat="setup">
-          <button class="card-head" aria-expanded="false">
-            <span class="card-num">۰۵</span>
-            <span class="card-title">طراحی و راه‌اندازی وب‌سایت‌های وردپرسی جدید</span>
+        <!-- Card 5 -->
+        <article class="card" data-cat="setup" id="card-design">
+          <button class="card-head" aria-expanded="false" aria-controls="tasklist-5" id="head-5">
+            <span class="card-num" aria-hidden="true">۰۵</span>
+            <div class="card-title-group">
+              <span class="card-badge">توسعه وردپرس</span>
+              <h3 class="card-title">طراحی و راه‌اندازی وب‌سایت‌های وردپرسی جدید</h3>
+            </div>
             <span class="card-count">۲ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>طراحی و پیاده‌سازی سایت‌های وردپرسی جدید مجموعه از صفر تا تحویل</li>
-            <li>اعمال استانداردهای سرعت و سئو از همان مرحله طراحی</li>
-          </ul>
+          <div class="card-body" id="tasklist-5" role="region" aria-labelledby="head-5">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">طراحی و پیاده‌سازی سایت‌های وردپرسی جدید مجموعه از صفر تا تحویل</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">اعمال استانداردهای سرعت و سئو از همان مرحله طراحی</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card" data-cat="setup">
-          <button class="card-head" aria-expanded="false">
-            <span class="card-num">۰۶</span>
-            <span class="card-title">نصب و راه‌اندازی سیستم‌ها و اتصال‌ها</span>
+        <!-- Card 6 -->
+        <article class="card" data-cat="setup" id="card-integrations">
+          <button class="card-head" aria-expanded="false" aria-controls="tasklist-6" id="head-6">
+            <span class="card-num" aria-hidden="true">۰۶</span>
+            <div class="card-title-group">
+              <span class="card-badge">یکپارچه‌سازی</span>
+              <h3 class="card-title">نصب و راه‌اندازی سیستم‌ها و اتصال‌ها</h3>
+            </div>
             <span class="card-count">۴ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>نصب و راه‌اندازی سیستم‌های چت آنلاین</li>
-            <li>ساخت و اتصال فرم‌سازها (فرم تماس، درخواست خدمت، سفارش)</li>
-            <li>اتصال و تست درگاه‌های پرداخت</li>
-            <li>اتصال ابزارهای تحلیلی (سرچ کنسول، GA4) برای هر سایت جدید</li>
-          </ul>
+          <div class="card-body" id="tasklist-6" role="region" aria-labelledby="head-6">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">نصب و راه‌اندازی سیستم‌های چت آنلاین</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">ساخت و اتصال فرم‌سازها (فرم تماس، درخواست خدمت، سفارش)</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">اتصال و تست درگاه‌های پرداخت</span>
+              </li>
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">اتصال ابزارهای تحلیلی (سرچ کنسول، GA4) برای هر سایت جدید</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
-        <article class="card" data-cat="report">
-          <button class="card-head" aria-expanded="false">
-            <span class="card-num">۰۷</span>
-            <span class="card-title">گزارش دوره‌ای همکاری</span>
+        <!-- Card 7 -->
+        <article class="card" data-cat="report" id="card-report">
+          <button class="card-head" aria-expanded="false" aria-controls="tasklist-7" id="head-7">
+            <span class="card-num" aria-hidden="true">۰۷</span>
+            <div class="card-title-group">
+              <span class="card-badge">شفافیت همکاری</span>
+              <h3 class="card-title">گزارش دوره‌ای همکاری</h3>
+            </div>
             <span class="card-count">۱ اقدام</span>
-            <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="chev-wrap" aria-hidden="true">
+              <svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
           </button>
-          <ul class="task-list">
-            <li>گزارش منظم اقدامات انجام‌شده روی هر سایت (پشتیبانی، سرعت، سئو) تا پیشرفت کار شفاف باشد</li>
-          </ul>
+          <div class="card-body" id="tasklist-7" role="region" aria-labelledby="head-7">
+            <ul class="task-list">
+              <li>
+                <span class="task-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                </span>
+                <span class="task-text">گزارش منظم اقدامات انجام‌شده روی هر سایت (پشتیبانی، سرعت، سئو) تا پیشرفت کار شفاف باشد</span>
+              </li>
+            </ul>
+          </div>
         </article>
 
       </div>
-      <p class="no-result" id="noResult" hidden>در این دسته خدمتی نیست.</p>
+      <p class="no-result" id="noResult" hidden>در این دسته خدمتی یافت نشد.</p>
     </div>
   </section>
 
   <!-- Rhythm -->
-  <section class="section section-alt" id="rhythm">
+  <section class="section section-alt" id="rhythm" aria-labelledby="rhythmTitle">
     <div class="container">
       <header class="section-head">
-        <h2>ریتم همکاری و گزارش‌دهی</h2>
+        <div class="section-badge">فرایند مداوم و پایدار</div>
+        <h2 id="rhythmTitle">ریتم همکاری و گزارش‌دهی</h2>
         <p>کار روی هر سایت یک چرخه تکرارشونده است؛ از پایش و نگهداری تا اقدام و گزارش شفاف.</p>
       </header>
       <ol class="steps">
         <li class="step">
-          <span class="step-num">۱</span>
+          <div class="step-header">
+            <span class="step-num" aria-hidden="true">۱</span>
+            <span class="step-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <h3>پایش و نگهداری</h3>
           <p>پایش آپتایم و سلامت سایت، بک‌آپ دوره‌ای و به‌روزرسانی امن هسته، قالب و پلاگین‌ها — همیشه با بک‌آپ قبل از آپدیت.</p>
         </li>
         <li class="step">
-          <span class="step-num">۲</span>
+          <div class="step-header">
+            <span class="step-num" aria-hidden="true">۲</span>
+            <span class="step-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <h3>اقدام فنی و سرعتی</h3>
           <p>رفع خطاها و اختلال‌ها، سخت‌گیری امنیتی و بهبود سرعت صفحات کلیدی بر اساس تحلیل PageSpeed و Core Web Vitals.</p>
         </li>
         <li class="step">
-          <span class="step-num">۳</span>
+          <div class="step-header">
+            <span class="step-num" aria-hidden="true">۳</span>
+            <span class="step-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <h3>اقدام سئویی</h3>
           <p>بهینه‌سازی داخلی صفحات، تولید محتوا طبق تقویم محتوایی و پایش رتبه کلمات و پروفایل لینک در سرچ کنسول.</p>
         </li>
         <li class="step">
-          <span class="step-num">۴</span>
+          <div class="step-header">
+            <span class="step-num" aria-hidden="true">۴</span>
+            <span class="step-icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <h3>گزارش دوره‌ای</h3>
           <p>گزارش منظم اقدامات انجام‌شده روی هر سایت (پشتیبانی، سرعت، سئو) تا پیشرفت کار در هر دوره شفاف و قابل پیگیری باشد.</p>
         </li>
@@ -220,46 +485,83 @@
   </section>
 
   <!-- Proof -->
-  <section class="section" id="proof">
+  <section class="section" id="proof" aria-labelledby="proofTitle">
     <div class="container">
       <header class="section-head">
-        <h2>مبنای اثبات توانایی</h2>
+        <div class="section-badge">شواهد و سوابق عملیاتی</div>
+        <h2 id="proofTitle">مبنای اثبات توانایی</h2>
         <p>این پیشنهاد روی تجربه جاری مدیریت هم‌زمان چند وب‌سایت بنا شده است.</p>
       </header>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-top">
+            <span class="proof-tag">مدیریت عملیاتی جاری</span>
+            <span class="proof-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <p class="proof-big">۷ وب‌سایت</p>
-          <p>مدیریت فنی و سئوی جاری وب‌سایت‌های وردپرسی و اختصاصی، با دیپلوی خودکار و پایش روزانه سرچ کنسول.</p>
+          <p class="proof-desc">مدیریت فنی و سئوی جاری وب‌سایت‌های وردپرسی و اختصاصی، با دیپلوی خودکار و پایش روزانه سرچ کنسول.</p>
         </div>
-        <div class="proof-card">
+
+        <div class="proof-card proof-card-highlight">
+          <div class="proof-top">
+            <span class="proof-tag proof-tag-accent">رشد رتبه سرچ کنسول</span>
+            <span class="proof-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <p class="proof-big">۱۹٫۲ ← ۸٫۵</p>
-          <p>رشد میانگین جایگاه (داده ۷روزه سرچ کنسول) برای یک فروشگاه تجهیزات صنعتی.</p>
+          <p class="proof-desc">رشد میانگین جایگاه (داده ۷روزه سرچ کنسول) برای یک فروشگاه تجهیزات صنعتی.</p>
         </div>
+
         <div class="proof-card">
+          <div class="proof-top">
+            <span class="proof-tag">کیفیت زیرساخت فنی</span>
+            <span class="proof-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
           <p class="proof-big">ایندکس و اسکیما</p>
-          <p>رفع کامل خطاهای ایندکس و اسکیما در چند وب‌سایت تحت مدیریت.</p>
+          <p class="proof-desc">رفع کامل خطاهای ایندکس و اسکیما در چند وب‌سایت تحت مدیریت.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta" id="contact">
+  <section class="cta" id="contact" aria-labelledby="contactTitle">
     <div class="container cta-inner">
-      <h2>برای شروع همکاری آماده‌ایم</h2>
+      <div class="cta-badge">گفتگو درباره جزئیات پروژه</div>
+      <h2 id="contactTitle">برای شروع همکاری آماده‌ایم</h2>
       <p>اگر این محدوده کار با نیاز مجموعه شما هم‌خوان است، از طریق وب‌سایت اپ‌وبینو پیام بگذارید تا درباره جزئیات همکاری صحبت کنیم.</p>
-      <a class="btn btn-primary btn-lg" href="https://appwebino.ir" target="_blank" rel="noopener">تماس با اپ‌وبینو — appwebino.ir</a>
+      <a class="btn btn-primary btn-lg" href="https://appwebino.ir" target="_blank" rel="noopener noreferrer">
+        <span>تماس با اپ‌وبینو — appwebino.ir</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </section>
 
 </main>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p>اپ‌وبینو (AppWebino) — طراحی سایت و سئو، تهران</p>
+    <div class="footer-brand">
+      <strong>اپ‌وبینو (AppWebino)</strong> — طراحی سایت و سئو، تهران
+    </div>
     <p class="footer-note">این صفحه پیش‌نمایش پیشنهاد همکاری پشتیبانی فنی و سئو است و محدوده کار آن دقیقاً مطابق متن پیشنهاد ارسالی است.</p>
+    <a href="#top" class="back-to-top-link">
+      <span>بازگشت به بالا</span>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </div>
 </footer>
+
+<!-- Floating Back to Top Button -->
+<button class="floating-top-btn" id="floatingTopBtn" aria-label="بازگشت به بالای صفحه" title="بازگشت به بالا">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M5 15l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <script src="script.js"></script>
 </body>
