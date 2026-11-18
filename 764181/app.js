@@ -8,15 +8,31 @@
     });
   }
 
+  /* Helper: Normalize text for Persian/English bilingual search */
+  function normalizeSearchText(txt) {
+    if (!txt) return "";
+    return String(txt)
+      .toLowerCase()
+      .replace(/[\u200c\u200b\u200e\u200f]/g, " ")
+      .replace(/[\u064A\u0649]/g, "ی")
+      .replace(/[\u0643]/g, "ک")
+      .replace(/google\s*search\s*console/g, "google search console سرچ کنسول")
+      .replace(/سرچ\s*کنسول/g, "سرچ کنسول search console")
+      .replace(/gsc/g, "gsc سرچ کنسول search console")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   /* Safe LocalStorage wrapper */
-  var STORAGE_KEY = "appwebino_seo_764181_checks";
-  function saveState(checkedIds) {
+  var STORAGE_KEY = "emsys_seo_audit_764181_checks";
+  function saveState(checkedNames) {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedIds));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(checkedNames));
     } catch (e) {
       /* ignore storage quota or sandbox errors */
     }
   }
+
   function loadState() {
     try {
       var data = localStorage.getItem(STORAGE_KEY);
@@ -53,7 +69,7 @@
   }
 
   /* -------------------------------------------------------------
-     2. Print Button
+     2. Print Buttons
      ------------------------------------------------------------- */
   var printBtn = document.getElementById("printBtn");
   if (printBtn) {
@@ -62,29 +78,40 @@
     });
   }
 
+  var bottomPrintBtn = document.getElementById("bottomPrintBtn");
+  if (bottomPrintBtn) {
+    bottomPrintBtn.addEventListener("click", function () {
+      window.print();
+    });
+  }
+
   /* -------------------------------------------------------------
-     3. Accordion Cards
+     3. Section Accordions
      ------------------------------------------------------------- */
-  var cards = document.querySelectorAll(".card.phase");
-  cards.forEach(function (card) {
-    var head = card.querySelector(".card-head");
-    var body = card.querySelector(".card-body");
-    if (!head || !body) return;
+  var panels = Array.from(document.querySelectorAll(".audit-section-panel"));
+  panels.forEach(function (panel) {
+    var head = panel.querySelector(".panel-header");
+    var content = panel.querySelector(".panel-content");
+    if (!head || !content) return;
 
-    // Initial state check
-    if (!body.hidden) {
-      card.classList.add("open");
-      head.setAttribute("aria-expanded", "true");
-    } else {
-      card.classList.remove("open");
-      head.setAttribute("aria-expanded", "false");
-    }
+    head.addEventListener("click", function (e) {
+      // Don't toggle accordion if clicked on quick action button
+      if (e.target.closest(".btn-panel-quick")) return;
 
-    head.addEventListener("click", function () {
-      var isExpanded = head.getAttribute("aria-expanded") === "true";
-      head.setAttribute("aria-expanded", isExpanded ? "false" : "true");
-      body.hidden = isExpanded;
-      card.classList.toggle("open", !isExpanded);
+      var isCurrentlyOpen = panel.classList.contains("open");
+      panel.classList.toggle("open", !isCurrentlyOpen);
+      head.setAttribute("aria-expanded", !isCurrentlyOpen ? "true" : "false");
+    });
+
+    // Keyboard accessibility for header button
+    head.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.target.closest(".btn-panel-quick")) return;
+        e.preventDefault();
+        var isCurrentlyOpen = panel.classList.contains("open");
+        panel.classList.toggle("open", !isCurrentlyOpen);
+        head.setAttribute("aria-expanded", !isCurrentlyOpen ? "true" : "false");
+      }
     });
   });
 
@@ -94,48 +121,45 @@
 
   if (expandAllBtn) {
     expandAllBtn.addEventListener("click", function () {
-      cards.forEach(function (card) {
-        var head = card.querySelector(".card-head");
-        var body = card.querySelector(".card-body");
-        if (head && body) {
-          head.setAttribute("aria-expanded", "true");
-          body.hidden = false;
-          card.classList.add("open");
-        }
+      panels.forEach(function (panel) {
+        panel.classList.add("open");
+        var head = panel.querySelector(".panel-header");
+        if (head) head.setAttribute("aria-expanded", "true");
       });
     });
   }
 
   if (collapseAllBtn) {
     collapseAllBtn.addEventListener("click", function () {
-      cards.forEach(function (card) {
-        var head = card.querySelector(".card-head");
-        var body = card.querySelector(".card-body");
-        if (head && body) {
-          head.setAttribute("aria-expanded", "false");
-          body.hidden = true;
-          card.classList.remove("open");
-        }
+      panels.forEach(function (panel) {
+        panel.classList.remove("open");
+        var head = panel.querySelector(".panel-header");
+        if (head) head.setAttribute("aria-expanded", "false");
       });
     });
   }
 
   /* -------------------------------------------------------------
-     4. Checklist Progress & LocalStorage
+     4. Checklist Progress, Progress Ring & LocalStorage
      ------------------------------------------------------------- */
-  var checkboxes = Array.from(document.querySelectorAll('.checklist input[type="checkbox"]'));
-  var fill = document.getElementById("progressFill");
-  var progressText = document.getElementById("progressText");
-  var progressPctBadge = document.getElementById("progressPctBadge");
-  var progressToast = document.getElementById("progressToast");
-  var total = checkboxes.length;
+  var checkboxes = Array.from(document.querySelectorAll('.action-items-list input[type="checkbox"]'));
+  var ringIndicator = document.getElementById("ringIndicator");
+  var ringPctVal = document.getElementById("ringPctVal");
+  var progressCounterText = document.getElementById("progressCounterText");
+  var progressSubText = document.getElementById("progressSubText");
+  var linearFill = document.getElementById("linearFill");
+  var completeToast = document.getElementById("completeToast");
+  var totalActions = checkboxes.length;
+
+  // Circumference of SVG circle with radius 36
+  var RING_CIRCUMFERENCE = 2 * Math.PI * 36; // ~226.195
 
   // Restore saved state
-  var saved = loadState();
-  if (Array.isArray(saved) && saved.length > 0) {
+  var savedChecked = loadState();
+  if (Array.isArray(savedChecked) && savedChecked.length > 0) {
     checkboxes.forEach(function (box, idx) {
       var id = box.name || String(idx);
-      if (saved.indexOf(id) !== -1) {
+      if (savedChecked.indexOf(id) !== -1) {
         box.checked = true;
       }
     });
@@ -143,50 +167,81 @@
 
   function updateProgress() {
     var checkedCount = 0;
-    var checkedIds = [];
+    var checkedNames = [];
 
-    // Update individual cards completion badge
-    cards.forEach(function (card) {
-      var cat = card.getAttribute("data-cat");
-      var cardBoxes = card.querySelectorAll('.checklist input[type="checkbox"]');
-      var cardTotal = cardBoxes.length;
-      var cardChecked = 0;
+    // Per-panel counters
+    panels.forEach(function (panel) {
+      var cat = panel.getAttribute("data-cat");
+      var panelBoxes = panel.querySelectorAll('.action-items-list input[type="checkbox"]');
+      var panelTotal = panelBoxes.length;
+      var panelChecked = 0;
 
-      cardBoxes.forEach(function (box, idx) {
+      panelBoxes.forEach(function (box, idx) {
         if (box.checked) {
-          cardChecked++;
+          panelChecked++;
           checkedCount++;
-          checkedIds.push(box.name || (cat + "-" + idx));
+          checkedNames.push(box.name || (cat + "-" + idx));
         }
       });
 
-      var badge = card.querySelector(".section-check-badge");
+      var badge = panel.querySelector(".section-counter-badge");
       if (badge) {
-        badge.textContent = toFaDigits(cardChecked) + " از " + toFaDigits(cardTotal);
-        badge.classList.toggle("all-checked", cardChecked === cardTotal && cardTotal > 0);
+        badge.textContent = toFaDigits(panelChecked) + " از " + toFaDigits(panelTotal);
+        badge.classList.toggle("all-checked", panelChecked === panelTotal && panelTotal > 0);
+      }
+
+      var quickBtn = panel.querySelector(".btn-panel-quick");
+      if (quickBtn) {
+        if (panelChecked === panelTotal && panelTotal > 0) {
+          quickBtn.textContent = "لغو این بخش";
+        } else {
+          quickBtn.textContent = "انتخاب بخش";
+        }
       }
     });
 
-    var pct = total ? Math.round((checkedCount / total) * 100) : 0;
-    if (fill) fill.style.width = pct + "%";
-    if (progressPctBadge) progressPctBadge.textContent = toFaDigits(pct) + "٪";
-    if (progressText) {
-      progressText.textContent = toFaDigits(checkedCount) + " از " + toFaDigits(total) +
-        " مورد بررسی شد — " + toFaDigits(pct) + "٪";
+    var pct = totalActions ? Math.round((checkedCount / totalActions) * 100) : 0;
+    var remaining = totalActions - checkedCount;
+
+    // Update Progress Ring SVG
+    if (ringIndicator) {
+      var offset = RING_CIRCUMFERENCE - (pct / 100) * RING_CIRCUMFERENCE;
+      ringIndicator.style.strokeDashoffset = offset;
     }
 
-    if (progressToast) {
-      progressToast.hidden = !(checkedCount === total && total > 0);
+    if (ringPctVal) {
+      ringPctVal.textContent = toFaDigits(pct) + "٪";
     }
 
-    saveState(checkedIds);
+    if (linearFill) {
+      linearFill.style.width = pct + "%";
+    }
+
+    if (progressCounterText) {
+      progressCounterText.textContent = toFaDigits(checkedCount) + " از " + toFaDigits(totalActions) +
+        " اقدام علامت‌زده شد (" + toFaDigits(pct) + "٪)";
+    }
+
+    if (progressSubText) {
+      if (remaining === 0) {
+        progressSubText.textContent = "تمام اقدامات برنامه بررسی شدند. پوشش ۱۰۰٪ اهداف بریف کارفرما.";
+      } else {
+        progressSubText.textContent = toFaDigits(remaining) + " اقدام باقیمانده جهت بررسی و ارزیابی در فاز صفر و نقشه راه ۹۰ روزه.";
+      }
+    }
+
+    if (completeToast) {
+      completeToast.hidden = !(checkedCount === totalActions && totalActions > 0);
+    }
+
+    saveState(checkedNames);
   }
 
   checkboxes.forEach(function (box) {
     box.addEventListener("change", updateProgress);
   });
 
-  // Select all checkboxes
+  // Select all actions
   var selectAllBtn = document.getElementById("selectAllBtn");
   if (selectAllBtn) {
     selectAllBtn.addEventListener("click", function () {
@@ -204,66 +259,62 @@
     });
   }
 
-  // Per-card "Select all this section" button
-  var cardToggleBtns = document.querySelectorAll(".toggle-phase-checks");
-  cardToggleBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var card = btn.closest(".card");
-      if (!card) return;
-      var cardBoxes = Array.from(card.querySelectorAll('.checklist input[type="checkbox"]'));
-      var allChecked = cardBoxes.every(function (b) { return b.checked; });
-      cardBoxes.forEach(function (b) { b.checked = !allChecked; });
-      btn.textContent = allChecked ? "علامت‌زدن همه این بخش" : "لغو تیک‌های این بخش";
+  // Per-panel "Select all this section" button
+  var panelToggleBtns = document.querySelectorAll(".toggle-phase-checks");
+  panelToggleBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var panel = btn.closest(".audit-section-panel");
+      if (!panel) return;
+      var panelBoxes = Array.from(panel.querySelectorAll('.action-items-list input[type="checkbox"]'));
+      var allChecked = panelBoxes.every(function (b) { return b.checked; });
+      panelBoxes.forEach(function (b) { b.checked = !allChecked; });
+      btn.textContent = allChecked ? "انتخاب بخش" : "لغو این بخش";
       updateProgress();
     });
   });
 
   /* -------------------------------------------------------------
-     5. Category Filters
+     5. Category Filter Pills
      ------------------------------------------------------------- */
-  var chips = document.querySelectorAll(".chip");
+  var pills = document.querySelectorAll(".pill");
   var emptyMsg = document.getElementById("emptyMsg");
   var searchInput = document.getElementById("actionSearch");
 
   function applyFilter(filter) {
-    chips.forEach(function (c) {
-      c.classList.toggle("is-active", c.getAttribute("data-filter") === filter);
+    pills.forEach(function (p) {
+      p.classList.toggle("is-active", p.getAttribute("data-filter") === filter);
     });
 
-    var visibleCards = 0;
-    cards.forEach(function (card) {
-      var cat = card.getAttribute("data-cat");
+    var visiblePanels = 0;
+    panels.forEach(function (panel) {
+      var cat = panel.getAttribute("data-cat");
       var match = filter === "all" || cat === filter;
-      card.style.display = match ? "" : "none";
+      panel.style.display = match ? "" : "none";
 
       if (match) {
-        visibleCards++;
-        // If single category selected, automatically open it for convenience
+        visiblePanels++;
+        // If single category selected, automatically expand it
         if (filter !== "all") {
-          var head = card.querySelector(".card-head");
-          var body = card.querySelector(".card-body");
-          if (head && body) {
-            head.setAttribute("aria-expanded", "true");
-            body.hidden = false;
-            card.classList.add("open");
-          }
+          panel.classList.add("open");
+          var head = panel.querySelector(".panel-header");
+          if (head) head.setAttribute("aria-expanded", "true");
         }
       }
     });
 
-    if (emptyMsg) emptyMsg.hidden = visibleCards !== 0;
+    if (emptyMsg) emptyMsg.hidden = visiblePanels !== 0;
   }
 
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      var filter = chip.getAttribute("data-filter");
+  pills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      var filter = pill.getAttribute("data-filter");
       if (searchInput && searchInput.value.trim() !== "") {
         searchInput.value = "";
-        clearSearchBtn.hidden = true;
-        searchCount.textContent = "";
-        // Reset item visibility inside cards
-        document.querySelectorAll(".checklist li").forEach(function (li) {
-          li.classList.remove("is-hidden");
+        if (clearSearchBtn) clearSearchBtn.hidden = true;
+        if (searchCount) searchCount.textContent = "";
+        document.querySelectorAll(".action-item").forEach(function (item) {
+          item.classList.remove("is-hidden");
         });
       }
       applyFilter(filter);
@@ -278,67 +329,61 @@
 
   if (searchInput) {
     searchInput.addEventListener("input", function () {
-      var query = searchInput.value.trim().toLowerCase();
-      if (clearSearchBtn) clearSearchBtn.hidden = query === "";
+      var rawQuery = searchInput.value.trim();
+      var query = normalizeSearchText(rawQuery);
+      if (clearSearchBtn) clearSearchBtn.hidden = rawQuery === "";
 
-      if (query === "") {
+      if (rawQuery === "") {
         if (searchCount) searchCount.textContent = "";
-        // Reset checklist items visibility
-        document.querySelectorAll(".checklist li").forEach(function (li) {
-          li.classList.remove("is-hidden");
+        document.querySelectorAll(".action-item").forEach(function (item) {
+          item.classList.remove("is-hidden");
         });
-        // Reapply active category filter
-        var activeChip = document.querySelector(".chip.is-active");
-        var activeFilter = activeChip ? activeChip.getAttribute("data-filter") : "all";
+        var activePill = document.querySelector(".pill.is-active");
+        var activeFilter = activePill ? activePill.getAttribute("data-filter") : "all";
         applyFilter(activeFilter);
         return;
       }
 
-      // Deactivate specific category chip to reflect global search
-      chips.forEach(function (c) {
-        c.classList.toggle("is-active", c.getAttribute("data-filter") === "all");
+      // Reset filter pills to 'all'
+      pills.forEach(function (p) {
+        p.classList.toggle("is-active", p.getAttribute("data-filter") === "all");
       });
 
       var matchedTotal = 0;
-      var visibleCards = 0;
+      var visiblePanels = 0;
 
-      cards.forEach(function (card) {
-        var cardHead = card.querySelector(".card-head");
-        var cardBody = card.querySelector(".card-body");
-        var items = card.querySelectorAll(".checklist li");
-        var cardMatched = 0;
+      panels.forEach(function (panel) {
+        var items = panel.querySelectorAll(".action-item");
+        var panelMatched = 0;
 
-        items.forEach(function (li) {
-          var text = li.textContent.toLowerCase();
-          var isMatch = text.indexOf(query) !== -1;
-          li.classList.toggle("is-hidden", !isMatch);
+        items.forEach(function (item) {
+          var itemText = normalizeSearchText(item.textContent);
+          var isMatch = itemText.indexOf(query) !== -1;
+          item.classList.toggle("is-hidden", !isMatch);
           if (isMatch) {
-            cardMatched++;
+            panelMatched++;
             matchedTotal++;
           }
         });
 
-        if (cardMatched > 0) {
-          card.style.display = "";
-          visibleCards++;
-          // Open card to show matching items
-          if (cardHead && cardBody) {
-            cardHead.setAttribute("aria-expanded", "true");
-            cardBody.hidden = false;
-            card.classList.add("open");
-          }
+        if (panelMatched > 0) {
+          panel.style.display = "";
+          visiblePanels++;
+          panel.classList.add("open");
+          var head = panel.querySelector(".panel-header");
+          if (head) head.setAttribute("aria-expanded", "true");
         } else {
-          card.style.display = "none";
+          panel.style.display = "none";
         }
       });
 
       if (searchCount) {
         searchCount.textContent = matchedTotal > 0
-          ? toFaDigits(matchedTotal) + " مورد در برنامه یافت شد"
-          : "موردی با این عبارت یافت نشد";
+          ? toFaDigits(matchedTotal) + " مورد یافت شد"
+          : "موردی یافت نشد";
       }
 
-      if (emptyMsg) emptyMsg.hidden = visibleCards !== 0;
+      if (emptyMsg) emptyMsg.hidden = visiblePanels !== 0;
     });
 
     if (clearSearchBtn) {
@@ -346,8 +391,8 @@
         searchInput.value = "";
         clearSearchBtn.hidden = true;
         if (searchCount) searchCount.textContent = "";
-        document.querySelectorAll(".checklist li").forEach(function (li) {
-          li.classList.remove("is-hidden");
+        document.querySelectorAll(".action-item").forEach(function (item) {
+          item.classList.remove("is-hidden");
         });
         applyFilter("all");
         searchInput.focus();
@@ -356,10 +401,10 @@
   }
 
   /* -------------------------------------------------------------
-     7. Scrollspy & Header styling
+     7. Scrollspy & Back to Top
      ------------------------------------------------------------- */
   var sections = document.querySelectorAll("main section[id]");
-  var navLinks = document.querySelectorAll(".main-nav .nav-link");
+  var navLinks = document.querySelectorAll(".sys-nav .nav-item");
   var backToTop = document.getElementById("backToTop");
 
   window.addEventListener("scroll", function () {
@@ -367,13 +412,13 @@
 
     // Back to top button
     if (backToTop) {
-      backToTop.classList.toggle("show", scrollY > 350);
+      backToTop.classList.toggle("show", scrollY > 300);
     }
 
     // Scrollspy
     var currentSectionId = "";
     sections.forEach(function (sec) {
-      var top = sec.offsetTop - 120;
+      var top = sec.offsetTop - 100;
       var height = sec.offsetHeight;
       if (scrollY >= top && scrollY < top + height) {
         currentSectionId = sec.getAttribute("id");
