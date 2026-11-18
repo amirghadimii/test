@@ -2,7 +2,7 @@
 
 /* ==========================================================================
    NOKAM Specialty Coffee — Application Logic
-   Persian RTL Interactive Prototype
+   Persian RTL Interactive Prototype (Redesigned Editorial Experience)
    ========================================================================== */
 
 /* ---------- Product Catalog Data ---------- */
@@ -12,12 +12,15 @@ const PRODUCTS = [
     name: "دانه قهوه اتیوپی یرگاچف",
     cat: "beans",
     roast: "light",
+    roastDots: 2,
     price: 685000,
-    origin: "اتیوپی، یرگاچف",
+    origin: "اتیوپی، یرگاچف (۱۹۵۰متر)",
     process: "شسته‌شده (Washed)",
     cupping: "۸۸.۵",
     tasting: ["یاس", "هلو", "چای سیاه", "مرکبات"],
-    notes: "نت‌های یاس، هلو و چای سیاه — اسیدیته روشن و پایان تمیز با برشت روشن تخصصی",
+    notes: "نت‌های یاس، هلو و چای سیاه — اسیدیته روشن میوه‌ای و پایان تمیز با برشت روشن تخصصی",
+    brewRatio: "۱:۱۶ (۱۵g به ۲۴۰ml)",
+    brewTemp: "۹۳ درجه سانتی‌گراد",
     img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80",
     featured: true
   },
@@ -26,12 +29,15 @@ const PRODUCTS = [
     name: "دانه قهوه کلمبیا سوپریمو",
     cat: "beans",
     roast: "medium",
+    roastDots: 3,
     price: 590000,
-    origin: "کلمبیا، اویلا",
+    origin: "کلمبیا، اویلا (۱۷۵۰متر)",
     process: "نچرال (Natural)",
     cupping: "۸۷.۰",
     tasting: ["کارامل", "فندق", "پرتقال"],
-    notes: "کارامل، فندق و پرتقال — متعادل، همه‌پسند با بادی مخملی و شیرینی طبیعی",
+    notes: "کارامل، فندق و پرتقال — متعادل، همه‌پسند با بادی مخملی و شیرینی طبیعی عسل",
+    brewRatio: "۱:۱۵ (۱۶g به ۲۴۰ml)",
+    brewTemp: "۹۲ درجه سانتی‌گراد",
     img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80",
     featured: true
   },
@@ -40,12 +46,15 @@ const PRODUCTS = [
     name: "دانه قهوه برزیل سرادو",
     cat: "beans",
     roast: "medium",
+    roastDots: 3,
     price: 520000,
-    origin: "برزیل، سرادو میناس",
+    origin: "برزیل، سرادو میناس (۱۲۰۰متر)",
     process: "پالپد نچرال (Pulped)",
     cupping: "۸۵.۵",
     tasting: ["شکلات تلخ", "بادام برشته", "شکر قهوه‌ای"],
     notes: "شکلات تلخ، بادام برشته و شکر قهوه‌ای — بدنه سنگین، کرمای غنی و اسیدیته کم",
+    brewRatio: "۱:۱۴ (۱۷g به ۲۴۰ml)",
+    brewTemp: "۹۱ درجه سانتی‌گراد",
     img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=700&q=80",
     featured: false
   },
@@ -54,12 +63,15 @@ const PRODUCTS = [
     name: "دانه قهوه کنیا AA",
     cat: "beans",
     roast: "light",
+    roastDots: 2,
     price: 720000,
-    origin: "کنیا، نیری",
+    origin: "کنیا، نیری (۲۰۰۰متر)",
     process: "دابل واش (Double Washed)",
     cupping: "۸۹.۲",
     tasting: ["انگور سیاه", "گریپ‌فروت", "توت‌فرنگی"],
-    notes: "انگور سیاه، گریپ‌فروت و شکر سوخته — پرجنب‌وجوش، پیچیده با اسیدیته میوه‌ای درخشان",
+    notes: "انگور سیاه، گریپ‌فروت و شکر سوخته — پرجنب‌وجوش با اسیدیته میوه‌ای درخشان و پایان غنی",
+    brewRatio: "۱:۱۶ (۱۵g به ۲۴۰ml)",
+    brewTemp: "۹۴ درجه سانتی‌گراد",
     img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80",
     featured: true
   },
@@ -68,12 +80,15 @@ const PRODUCTS = [
     name: "اسپرسو بلِند نو‌کام (آسیاب‌شده)",
     cat: "ground",
     roast: "dark",
+    roastDots: 5,
     price: 540000,
-    origin: "ترکیب اختصاصی آمریکای لاتین و آفریقا",
+    origin: "بلند اختصاصی آمریکای لاتین و آفریقا",
     process: "بلِند تخصصی ۷۰/۳۰",
     cupping: "۸۶.۰",
     tasting: ["شکلات تلخ", "کارامل سوخته", "ادویه‌ای"],
     notes: "ترکیب ۷۰٪ عربیکا / ۳۰٪ روبوستا — کرمای بسیار غلیظ، شکلات و دود ملایم برای موکاپات و اسپرسو",
+    brewRatio: "۱:۲ (۱۸g پودر به ۳۶g عصاره)",
+    brewTemp: "۹۰ درجه سانتی‌گراد",
     img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=700&q=80",
     featured: true
   },
@@ -82,12 +97,15 @@ const PRODUCTS = [
     name: "قهوه ترک سنتی نو‌کام (آسیاب‌شده)",
     cat: "ground",
     roast: "medium",
+    roastDots: 3,
     price: 380000,
-    origin: "یمن و برزیل",
+    origin: "یمن و برزیل سنتی",
     process: "آسیاب فوق‌العاده ریز سنگی",
     cupping: "۸۴.۵",
     tasting: ["هل سبز", "کاکائو", "وانیل"],
     notes: "آسیاب بسیار ریز و یکدست مخصوص جذوه و ایبریک سنتی — رایحه هل سبز طبیعی و کاکائوی اصیل",
+    brewRatio: "۱:۱۰ (۷g پودر به ۷۰ml آب سرد)",
+    brewTemp: "دم‌آوری آرام روی شعله ملایم",
     img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&q=80",
     featured: false
   },
@@ -96,12 +114,15 @@ const PRODUCTS = [
     name: "دکاف کلمبیا بدون کافئین (آسیاب‌شده)",
     cat: "ground",
     roast: "medium",
+    roastDots: 3,
     price: 610000,
-    origin: "کلمبیا، کالداس",
-    process: "آب سوئیسی (Swiss Water)",
+    origin: "کلمبیا، کالداس (۱۶۰۰متر)",
+    process: "آب سوئیسی (Swiss Water 100%)",
     cupping: "۸۵.۰",
     tasting: ["سیب سرخ", "عسل", "فندق"],
     notes: "کافئین‌زدایی ۱۰۰٪ طبیعی بدون مواد شیمیایی — طعم کامل قهوه تخصصی، مناسب عصرگاه و خواب آرام",
+    brewRatio: "۱:۱۵ (۱۶g به ۲۴۰ml)",
+    brewTemp: "۹۲ درجه سانتی‌گراد",
     img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
     featured: false
   },
@@ -110,12 +131,15 @@ const PRODUCTS = [
     name: "موکاپات استیل ۶ کاپ",
     cat: "equipment",
     roast: null,
+    roastDots: 0,
     price: 1850000,
-    origin: "طراحی ایتالیا",
-    process: "فولاد ضدزنگ ۱۸/۱۰",
+    origin: "طراحی ایتالیا — استیل ۱۸/۱۰",
+    process: "فولاد ضدزنگ مقاوم حرارتی",
     cupping: "گرید A",
-    tasting: ["اسپرسوساز روگازی", "دسته ارگونومیک نسوز"],
+    tasting: ["اسپرسوساز روگازی", "دسته نسوز ارگونومیک"],
     notes: "استیل ضدزنگ ۱۸/۱۰ ضخیم، سازگار با اجاق‌های القایی، گازی و المنتی، سوپاپ اطمینان برنجی",
+    brewRatio: "ظرفیت ۳۰۰ میلی‌لیتر (۶ فنجان)",
+    brewTemp: "شعله ملایم تا متوسط",
     img: "https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80",
     featured: true
   },
@@ -124,12 +148,15 @@ const PRODUCTS = [
     name: "فرنچ‌پرس شیشه‌ای ۸۰۰ میلی‌لیتر",
     cat: "equipment",
     roast: null,
+    roastDots: 0,
     price: 940000,
-    origin: "بوروسیلیکات مقاوم حرارتی",
+    origin: "شیشه بوروسیلیکات و چوب گردو",
     process: "فیلتر ۴ لایه استیل ریزبافت",
     cupping: "گرید A",
-    tasting: ["دم‌آوری دمی و فوم‌شیر", "دسته چوب گردو"],
+    tasting: ["دم‌آوری دمی و فوم‌شیر", "دسته چوب طبیعی"],
     notes: "شیشه بوروسیلیکات نشکن ضدشوک حرارتی، فیلتر استیل ضدزنگ با واشر سیلیکونی، بدنه چوب گردو",
+    brewRatio: "مناسب دم‌آوری ۳ تا ۴ فنجان قهوه",
+    brewTemp: "۹۴ درجه سانتی‌گراد (۴ دقیقه دم)",
     img: "https://images.unsplash.com/photo-1572119865084-43c285814d63?w=700&q=80",
     featured: false
   },
@@ -138,12 +165,15 @@ const PRODUCTS = [
     name: "آسیاب دستی استیل با تیغه سرامیکی",
     cat: "equipment",
     roast: null,
+    roastDots: 0,
     price: 1290000,
     origin: "مکانیزم فولاد و سرامیک سخت",
     process: "تنظیم پله‌ای درجات آسیاب",
     cupping: "گرید A",
     tasting: ["تنظیم درجه آسیاب", "کم‌صدا و سفری"],
     notes: "قابلیت تنظیم میکرومتری از اسپرسو ریز تا فرنچ‌پرس درشت، تیغه مخروطی سرامیکی بدون حرارت‌دهی به دانه",
+    brewRatio: "ظرفیت مخزن: ۳۵ گرم دانه قهوه",
+    brewTemp: "تیغه مخروطی ضدسایش",
     img: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=700&q=80",
     featured: false
   }
@@ -151,9 +181,9 @@ const PRODUCTS = [
 
 /* ---------- Lookup Dictionaries & Factors ---------- */
 const CAT_NAMES = {
-  beans: "دانه قهوه",
+  beans: "دانه قهوه تخصصی",
   ground: "قهوه آسیاب‌شده",
-  equipment: "تجهیزات"
+  equipment: "تجهیزات دم‌آوری"
 };
 
 const ROAST_NAMES = {
@@ -265,6 +295,18 @@ function toast(msg) {
   }, 2800);
 }
 
+// Helper to render 5-segment roast dots (like authentic specialty coffee bag labels)
+function renderRoastDots(dots) {
+  let html = `<div class="card-roast-meter" title="درجه برشتگی ${dots} از ۵">`;
+  html += `<span class="roast-meter-label">برشت:</span>`;
+  html += `<div class="roast-dots-track">`;
+  for (let i = 1; i <= 5; i++) {
+    html += `<span class="roast-dot ${i <= dots ? 'active' : ''}"></span>`;
+  }
+  html += `</div></div>`;
+  return html;
+}
+
 /* ---------- Product Grid & Filter System ---------- */
 function renderProducts() {
   const q = ($("searchInput")?.value || "").trim().toLowerCase();
@@ -326,28 +368,44 @@ function renderProducts() {
       ? p.tasting.slice(0, 3).map((t) => `<span class="tasting-chip">${t}</span>`).join("")
       : "";
 
+    const roastDisplay = isEq
+      ? `<span class="card-equip-spec">استاندارد باریستا</span>`
+      : renderRoastDots(p.roastDots || (p.roast === "light" ? 2 : p.roast === "medium" ? 3 : 5));
+
+    const weightOptionText = isEq
+      ? "تجهیزات تخصصی با گارانتی سلامت فیزیکی"
+      : "بسته ۲۵۰ گرمی زیپ‌کیپ · سوپاپ‌دار (امکان انتخاب ۵۰۰g و ۱kg)";
+
     return `
       <article class="card">
         <div class="card-img-wrap">
           <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80';">
           <div class="card-badges-row">
-            ${p.featured ? `<span class="card-featured-pill">⭐ برگزیده</span>` : ""}
+            ${p.featured ? `<span class="card-featured-pill">پیشنهاد برشت‌کار</span>` : ""}
             ${roastLabel ? `<span class="card-roast-pill">${roastLabel}</span>` : ""}
           </div>
+          <span class="card-origin-stamp">${p.origin}</span>
         </div>
         <div class="card-body">
           <div class="card-meta-top">
             <span class="card-cat">${CAT_NAMES[p.cat]}</span>
-            <span class="card-score">کاپینگ: ${faDigits(p.cupping)}</span>
+            <span class="card-score">کاپینگ SCA: ${faDigits(p.cupping)}</span>
           </div>
-          <h3>${p.name}</h3>
+          <h3 class="card-title">${p.name}</h3>
           <p class="card-notes">${p.notes}</p>
+          
+          <div class="card-specs-row">
+            ${roastDisplay}
+          </div>
+
           <div class="card-tasting-chips">${tastingChips}</div>
+          <div class="card-weight-hint">${weightOptionText}</div>
+
           <div class="card-foot">
             <div class="card-price-col">
               <span class="card-price-prefix">${isEq ? "قیمت واحد:" : "شروع قیمت از:"}</span>
-              <strong>${fmt(p.price)}</strong>
-              <span class="card-installment-sub">یا ۴ قسط ${fmt(installmentPrice)}</span>
+              <strong class="card-price-main">${fmt(p.price)}</strong>
+              <span class="card-installment-sub">یا ۴ قسط ماهانه ${fmt(installmentPrice)}</span>
             </div>
             <button class="btn btn-small" data-view="${p.id}" type="button">مشاهده و خرید</button>
           </div>
@@ -391,6 +449,10 @@ function openModal(pid) {
   if ($("mOrigin")) $("mOrigin").textContent = p.origin || "تک‌خاستگاه ویژه";
   if ($("mProcess")) $("mProcess").textContent = p.process || "استاندارد";
   if ($("mCupping")) $("mCupping").textContent = faDigits(p.cupping || "۸۷.۰");
+
+  // Brew Guide Parameters (Bonmano Reference)
+  if ($("mBrewRatio")) $("mBrewRatio").textContent = p.brewRatio || "۱:۱۶ (۱۵g به ۲۴۰ml)";
+  if ($("mBrewTemp")) $("mBrewTemp").textContent = p.brewTemp || "۹۳ درجه سانتی‌گراد";
 
   const isEq = p.cat === "equipment";
 
@@ -471,7 +533,7 @@ function addFromModal() {
   const isSub = $("mSub") ? $("mSub").checked : false;
 
   const variant = isEq
-    ? "تجهیزات تخصصی"
+    ? "تجهیزات تخصصی دم‌آوری"
     : faDigits(weight) + " گرم · " + grind + (isSub ? " · اشتراک ماهانه (۱۰٪ تخفیف)" : "");
 
   const key = p.id + "|" + variant;
@@ -522,10 +584,14 @@ function renderCart() {
 
   if (state.cart.length === 0) {
     itemsContainer.innerHTML = `
-      <div style="text-align: center; padding: 40px 10px; color: var(--muted);">
-        <div style="font-size: 2.5rem; margin-bottom: 8px;">🛒</div>
-        <p style="font-size: 1rem; font-weight: 700; margin: 0 0 6px; color: var(--espresso);">سبد خرید شما در حال حاضر خالی است.</p>
-        <p style="font-size: 0.85rem; margin: 0;">قهوه دلخواه خود را از بخش فروشگاه انتخاب کنید.</p>
+      <div class="empty-cart-view">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <p class="empty-cart-title">سبد خرید شما در حال حاضر خالی است.</p>
+        <p class="empty-cart-sub">قهوه دلخواه خود را از بخش ویترین فروشگاه انتخاب کنید.</p>
       </div>`;
   } else {
     itemsContainer.innerHTML = state.cart.map((i) => `
@@ -541,7 +607,7 @@ function renderCart() {
             <span>${faDigits(i.qty)}</span>
             <button data-inc="${i.key}" type="button" aria-label="افزایش">+</button>
           </div>
-          <button class="rm" data-rm="${i.key}" type="button">حذف مورد</button>
+          <button class="rm" data-rm="${i.key}" type="button">حذف</button>
         </div>
       </div>`).join("");
 
@@ -558,7 +624,7 @@ function renderCart() {
 
   const t = cartTotals();
   if ($("cartSubtotal")) $("cartSubtotal").textContent = fmt(t.sub);
-  if ($("cartShipping")) $("cartShipping").textContent = t.ship === 0 ? "رایگان 🎉" : fmt(t.ship);
+  if ($("cartShipping")) $("cartShipping").textContent = t.ship === 0 ? "رایگان (شامل ارسال ویژه)" : fmt(t.ship);
   if ($("cartTotal")) $("cartTotal").textContent = fmt(t.total);
 
   // Free shipping progress bar update
@@ -568,7 +634,7 @@ function renderCart() {
     const percent = Math.min(100, Math.round((t.sub / FREE_SHIP) * 100));
     freeShipFill.style.width = percent + "%";
     if (t.sub >= FREE_SHIP && state.cart.length > 0) {
-      freeShipText.innerHTML = "<span>🎉 تبریک! سفارش شما شامل <strong>ارسال رایگان</strong> شد.</span>";
+      freeShipText.innerHTML = "<span>تبریک! سفارش شما شامل <strong>ارسال کاملاً رایگان</strong> شد.</span>";
     } else {
       const remaining = Math.max(0, FREE_SHIP - t.sub);
       freeShipText.innerHTML = `<span>تنها <strong>${fmt(remaining)}</strong> دیگر تا ارسال رایگان!</span>`;
@@ -710,10 +776,10 @@ function updatePayUI() {
   const payBtn = $("payBtn");
   if (payBtn) {
     if (m === "wallet") {
-      payBtn.textContent = "پرداخت از کیف پول (" + fmt(t.total) + ")";
+      payBtn.textContent = "پرداخت از موجودی کیف پول (" + fmt(t.total) + ")";
     } else if (m === "installment") {
       const firstPart = Math.ceil(t.total / 4);
-      payBtn.textContent = "پرداخت قسط اول (" + fmt(firstPart) + ")";
+      payBtn.textContent = "پرداخت قسط اول اسنپ‌پی (" + fmt(firstPart) + ")";
     } else {
       payBtn.textContent = "پرداخت آنلاین شاپرک (" + fmt(t.total) + ")";
     }
@@ -761,7 +827,7 @@ function doPay() {
   if ($("orderCode")) $("orderCode").textContent = code;
   if ($("successPoints")) {
     $("successPoints").textContent =
-      "🎉 با این خرید " + faDigits(group(earned)) + " امتیاز وفاداری به حساب شما افزوده شد.";
+      "با این خرید " + faDigits(group(earned)) + " امتیاز وفاداری به حساب شما افزوده شد.";
   }
 
   // Add order to wallet history
@@ -879,7 +945,7 @@ function redeem() {
   renderWallet();
 
   if (msgEl) {
-    msgEl.textContent = "✅ انجام شد: ۵۰۰ امتیاز به ۵۰٬۰۰۰ تومان اعتبار کیف پول تبدیل گردید.";
+    msgEl.textContent = "انجام شد: ۵۰۰ امتیاز به ۵۰٬۰۰۰ تومان اعتبار کیف پول تبدیل گردید.";
     msgEl.style.color = "var(--ok)";
   }
   toast("۵۰٬۰۰۰ تومان اعتبار به کیف پول اضافه شد");
@@ -905,7 +971,7 @@ function addHistoryEntry(entry) {
   historyList.insertBefore(li, historyList.firstChild);
 }
 
-/* ---------- Card Number Auto-formatting Helper ---------- */
+/* ---------- Card Number Auto-formatting Helper (Zero Emojis) ---------- */
 function setupCardFormatter() {
   const input = $("cardNum");
   if (!input) return;
@@ -918,16 +984,22 @@ function setupCardFormatter() {
     }
     e.target.value = parts.join(" ");
 
-    // Bank icon preview
+    // Bank preview text badge without emojis
     const icon = $("cardTypeIcon");
     if (icon) {
-      if (val.startsWith("6037")) icon.textContent = "🏛️ صادرات";
-      else if (val.startsWith("6104")) icon.textContent = "🏛️ ملت";
-      else if (val.startsWith("6219")) icon.textContent = "🏛️ سامان";
-      else if (val.startsWith("5892")) icon.textContent = "🏛️ سپه";
-      else if (val.startsWith("603799")) icon.textContent = "🏛️ ملی";
-      else if (val.startsWith("5022")) icon.textContent = "🏛️ پاسارگاد";
-      else icon.textContent = "💳";
+      if (val.startsWith("6037")) icon.innerHTML = '<span class="bank-pill">صادرات</span>';
+      else if (val.startsWith("6104")) icon.innerHTML = '<span class="bank-pill">ملت</span>';
+      else if (val.startsWith("6219")) icon.innerHTML = '<span class="bank-pill">سامان</span>';
+      else if (val.startsWith("5892")) icon.innerHTML = '<span class="bank-pill">سپه</span>';
+      else if (val.startsWith("603799")) icon.innerHTML = '<span class="bank-pill">ملی</span>';
+      else if (val.startsWith("5022")) icon.innerHTML = '<span class="bank-pill">پاسارگاد</span>';
+      else {
+        icon.innerHTML = `
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+            <line x1="2" y1="10" x2="22" y2="10"></line>
+          </svg>`;
+      }
     }
   });
 }
@@ -999,6 +1071,20 @@ document.addEventListener("DOMContentLoaded", () => {
         catSelect.value = catVal;
       }
       renderProducts();
+    });
+  });
+
+  // Roast Guide Cards interactive jump to filter
+  document.querySelectorAll("[data-roast-target]").forEach((card) => {
+    card.addEventListener("click", () => {
+      const roastVal = card.dataset.roastTarget;
+      const roastSelect = $("roastFilter");
+      if (roastSelect) {
+        roastSelect.value = roastVal;
+      }
+      renderProducts();
+      const shopSec = $("shop");
+      if (shopSec) shopSec.scrollIntoView({ behavior: "smooth" });
     });
   });
 
