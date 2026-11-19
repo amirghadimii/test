@@ -1,1359 +1,699 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>برنامه اجرایی سئو، تولید محتوا و بهینه‌سازی سایت | کارفرمای محترم EMSYS | اپ‌وبینو</title>
-  <meta name="description" content="مستند تشخیصی، نقشه راه ۹۰ روزه و چک‌لیست تعاملی ۳۵ اقدام اجرایی سئو برای مجموعه EMSYS. شروع با فاز آزمایشی، سئوی تکنیکال، تولید محتوای تخصصی و گزارش‌دهی شفاف ماهانه.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>گزارش ممیزی و برنامه اجرایی سئو | مجموعه EMSYS | اپ‌وبینو</title>
+<meta name="description" content="گزارش تعاملی ممیزی سئو و چک‌لیست ۳۵ اقدام اجرایی در ۷ بخش برای مجموعه EMSYS — فاز آزمایشی، استراتژی، محتوا، تکنیکال، آف‌پیج و گزارش‌دهی ماهانه.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="shell">
 
-  <!-- Print Header (Visible only when printing) -->
-  <div class="print-header" aria-hidden="true">
-    <div class="print-header-top">
-      <div>
-        <h1 class="print-title">گزارش برنامه اجرایی سئو، تولید محتوا و بهینه‌سازی سایت</h1>
-        <p class="print-subtitle">مستند تشخیصی و نقشه راه ۹۰ روزه — آگهی ۷۶۴۱۸۱ (EMSYS) | مجری: اپ‌وبینو (AppWebino)</p>
-      </div>
-      <div class="print-meta">
-        <div>کد پرونده: <strong>EMS-SEO-764181</strong></div>
-        <div>مدل اجرا: <strong>شروع با فاز آزمایشی (فاز صفر)</strong></div>
-        <div>نسخه مستند: <strong>۱٫۴ (نهایی)</strong></div>
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 20V10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M10 20V4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16 20v-8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M22 20H2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" transform="translate(-1 0)"/></svg>
+      </span>
+      <div class="brand-text">
+        <strong>گزارش ممیزی سئو</strong>
+        <span>برنامه اجرایی · مجموعه EMSYS</span>
       </div>
     </div>
-  </div>
 
-  <!-- Top System Bar -->
-  <header class="sys-bar" id="siteHeader">
-    <div class="container sys-inner">
-      <div class="sys-brand">
-        <a class="brand-link" href="#top" aria-label="اپ‌وبینو — بازگشت به بالای صفحه">
-          <span class="brand-logo" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </span>
-          <span class="brand-title">اپ‌وبینو</span>
+    <nav class="side-nav" aria-label="بخش‌های برنامه">
+      <p class="nav-caption">بخش‌های برنامه</p>
+        <a class="nav-item" href="#sec-0" data-sec="0">
+          <span class="nav-num mono">۰</span>
+          <span class="nav-name">فاز صفر</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/3</span>
         </a>
-        <span class="sys-divider" aria-hidden="true">/</span>
-        <span class="sys-context">گزارش آدیت و برنامه اجرایی سئو</span>
-        <span class="sys-client-badge">EMSYS</span>
-      </div>
+        <a class="nav-item" href="#sec-1" data-sec="1">
+          <span class="nav-num mono">۱</span>
+          <span class="nav-name">استراتژی سئو</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/7</span>
+        </a>
+        <a class="nav-item" href="#sec-2" data-sec="2">
+          <span class="nav-num mono">۲</span>
+          <span class="nav-name">محتوا</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/6</span>
+        </a>
+        <a class="nav-item" href="#sec-3" data-sec="3">
+          <span class="nav-num mono">۳</span>
+          <span class="nav-name">تکنیکال و وردپرس</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/5</span>
+        </a>
+        <a class="nav-item" href="#sec-4" data-sec="4">
+          <span class="nav-num mono">۴</span>
+          <span class="nav-name">آف‌پیج و اعتبار</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/7</span>
+        </a>
+        <a class="nav-item" href="#sec-5" data-sec="5">
+          <span class="nav-num mono">۵</span>
+          <span class="nav-name">اشتراک‌گذاری مقالات</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/3</span>
+        </a>
+        <a class="nav-item" href="#sec-6" data-sec="6">
+          <span class="nav-num mono">۶</span>
+          <span class="nav-name">تحلیل و گزارش‌دهی</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/4</span>
+        </a>
+    </nav>
 
-      <nav class="sys-nav" id="mainNav" aria-label="ناوبری اصلی">
-        <a class="nav-item" href="#kpi-strip">شاخص‌های کلیدی</a>
-        <a class="nav-item" href="#roadmap">نقشه راه ۹۰ روزه</a>
-        <a class="nav-item" href="#checklist">چک‌لیست ۳۵ اقدام</a>
-        <a class="nav-item" href="#kpi-targets">اهداف و KPI</a>
-        <a class="nav-item" href="#proof">اثبات توانایی</a>
-      </nav>
-
-      <div class="sys-actions">
-        <button type="button" class="btn-tool" id="printBtn" title="چاپ یا دریافت نسخه PDF رسمی">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 6 2 18 2 18 9"></polyline>
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-            <rect x="6" y="14" width="12" height="8"></rect>
-          </svg>
-          <span>چاپ / خروجی PDF</span>
-        </button>
-        <a class="btn-primary-action" href="#contact">شروع فاز آزمایشی</a>
-        
-        <button class="sys-menu-btn" id="menuBtn" aria-label="منوی گزینه‌ها" aria-expanded="false" aria-controls="mainNav">
-          <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-          <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+    <div class="ring-card">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 84 84" width="84" height="84" aria-hidden="true">
+          <circle class="ring-bg" cx="42" cy="42" r="36"></circle>
+          <circle class="ring-fg" cx="42" cy="42" r="36"></circle>
+        </svg>
+        <span class="ring-pct mono" id="ringPct">0%</span>
       </div>
+      <div class="ring-meta">
+        <strong>پیشرفت برنامه</strong>
+        <span><span id="ringDone">۰</span> از ۳۵ اقدام</span>
+      </div>
+      <button class="btn-print side" id="printBtnSide" type="button">چاپ گزارش</button>
     </div>
-  </header>
+  </aside>
 
-  <main id="top">
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-titles">
+        <h1>برنامه اجرایی سئو، تولید محتوا و بهینه‌سازی سایت</h1>
+        <p class="topbar-sub">گزارش ممیزی و نقشه راه ۹۰ روزه · تهیه‌شده برای مجموعه <strong>EMSYS</strong> · شروع همکاری با فاز آزمایشی</p>
+      </div>
+      <div class="topbar-tools">
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.8-3.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="search" id="searchInput" placeholder="جست‌وجو در اقدامات…" aria-label="جست‌وجو در اقدامات">
+        </label>
+        <button class="btn-print" id="printBtn" type="button">چاپ گزارش</button>
+      </div>
+    </header>
 
-    <!-- Dossier Meta & Live Audit Summary -->
-    <section class="dossier-header-section">
-      <div class="container">
-        
-        <!-- Live Audit Header Bar -->
-        <div class="dossier-card">
-          <div class="dossier-meta-row">
-            <div class="meta-status">
-              <span class="status-indicator-dot" aria-hidden="true"></span>
-              <span class="status-text">گزارش آدیت زنده و برنامه پیشنهادی</span>
-              <span class="dossier-id">پرونده: EMS-SEO-764181</span>
-            </div>
-            <div class="meta-tags">
-              <span class="dossier-pill">کارفرما: مجموعه محترم EMSYS</span>
-              <span class="dossier-pill dossier-pill-live">فاز فعال: فاز صفر (آزمایشی)</span>
-              <span class="dossier-pill">افق اجرا: ۹۰ روز</span>
-            </div>
+    <section class="kpis" aria-label="شاخص‌های کلیدی">
+      <article class="kpi">
+        <span class="kpi-chip green"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M4 19 10 13l4 3 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 9h5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <p class="kpi-label">میانگین جایگاه گوگل</p>
+        <p class="kpi-value mono">8.5</p>
+        <p class="kpi-delta"><span class="up">▲ 10.7 بهبود</span> نسبت به 19.2</p>
+        <p class="kpi-note">داده ۷ روزه سرچ کنسول · نمونه فروشگاه تحت مدیریت</p>
+      </article>
+      <article class="kpi">
+        <span class="kpi-chip navy"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2.2"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        <p class="kpi-label">وب‌سایت‌های تحت مدیریت روزانه</p>
+        <p class="kpi-value mono">7</p>
+        <p class="kpi-delta">چرخه روزانه: سرچ کنسول ← اقدام ← بررسی نتیجه</p>
+        <p class="kpi-note">اتصال کامل همه سایت‌ها به GA4</p>
+      </article>
+      <article class="kpi">
+        <span class="kpi-chip amber"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M5 5.5h14M5 12h14M5 18.5h9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+        <p class="kpi-label">اقدامات برنامه EMSYS</p>
+        <p class="kpi-value mono">35</p>
+        <p class="kpi-delta">در ۷ بخش اجرایی</p>
+        <p class="kpi-note">دقیقاً در محدوده بریف کارفرما؛ بدون خدمت اضافه</p>
+      </article>
+      <article class="kpi">
+        <span class="kpi-chip violet"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 3a9 9 0 1 0 9 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M12 3a9 9 0 0 1 9 9h-9V3Z" fill="currentColor" opacity=".28"/></svg></span>
+        <p class="kpi-label">پیشرفت اجرای برنامه</p>
+        <p class="kpi-value mono" id="kpiPct">0%</p>
+        <p class="kpi-delta"><span id="kpiDone">۰</span> از ۳۵ اقدام تکمیل شده</p>
+        <p class="kpi-note">با تیک‌زدن هر اقدام، زنده به‌روز می‌شود</p>
+      </article>
+    </section>
+
+    <section class="charts">
+      <article class="panel chart-panel">
+        <header class="panel-head">
+          <div>
+            <h2>روند میانگین جایگاه</h2>
+            <p class="panel-sub">۷ روز اخیر · سرچ کنسول · هرچه پایین‌تر، بهتر</p>
           </div>
+          <span class="head-badge mono">19.2 ← 8.5</span>
+        </header>
+        <svg class="chart" viewBox="0 0 640 260" role="img" aria-label="نمودار روند بهبود میانگین جایگاه از ۱۹٫۲ به ۸٫۵">
+          <g class="grid">
+            <line x1="52" y1="30" x2="616" y2="30"/><line x1="52" y1="85" x2="616" y2="85"/><line x1="52" y1="140" x2="616" y2="140"/><line x1="52" y1="195" x2="616" y2="195"/><line x1="52" y1="230" x2="616" y2="230"/>
+          </g>
+          <g class="axis mono">
+            <text x="40" y="34">20</text><text x="40" y="89">15</text><text x="40" y="144">10</text><text x="40" y="199">5</text>
+            <text x="70" y="252">روز ۱</text><text x="160" y="252">روز ۲</text><text x="250" y="252">روز ۳</text><text x="340" y="252">روز ۴</text><text x="430" y="252">روز ۵</text><text x="520" y="252">روز ۶</text><text x="592" y="252">روز ۷</text>
+          </g>
+          <path class="area" d="M76 46 L166 61 L256 79 L346 94 L436 118 L526 142 L600 169 L600 230 L76 230 Z"/>
+          <path class="line" d="M76 46 L166 61 L256 79 L346 94 L436 118 L526 142 L600 169"/>
+          <g class="points">
+            <circle cx="76" cy="46" r="4.5"/><circle cx="166" cy="61" r="4.5"/><circle cx="256" cy="79" r="4.5"/><circle cx="346" cy="94" r="4.5"/><circle cx="436" cy="118" r="4.5"/><circle cx="526" cy="142" r="4.5"/><circle class="last" cx="600" cy="169" r="6"/>
+          </g>
+          <g class="callout">
+            <rect x="540" y="112" width="76" height="30" rx="8"/>
+            <text x="578" y="132" class="mono">8.5 ▼</text>
+          </g>
+          <g class="callout alt">
+            <rect x="128" y="4" width="76" height="30" rx="8"/>
+            <text x="166" y="24" class="mono">19.2</text>
+          </g>
+        </svg>
+      </article>
 
-          <div class="dossier-main-row">
-            <div class="dossier-titles">
-              <h1 class="dossier-title">برنامه بهبود سئو، تولید محتوا و بهینه‌سازی سایت</h1>
-              <p class="dossier-lead">
-                مستند فنی و اجرایی تدوین‌شده بر اساس نیازمندی‌های اعلام‌شده در بریف پروژه آگهی ۷۶۴۱۸۱.
-                کلیه اقدامات در ۷ بخش کاری مشخص دسته‌بندی شده و همکاری طبق شرط کارفرما از یک
-                <strong>پروژه آزمایشی قابل اندازه‌گیری (فاز صفر)</strong> آغاز می‌شود.
-              </p>
-            </div>
-            <div class="dossier-specs">
-              <div class="spec-cell">
-                <span class="spec-label">چارچوب خدمات</span>
-                <span class="spec-val">منطبق دقیق بر اسکوپ کارفرما</span>
-              </div>
-              <div class="spec-cell">
-                <span class="spec-label">امنیت و اختیار</span>
-                <span class="spec-val">تأیید قبلی برای تغییرات فنی و لینک‌سازی</span>
-              </div>
-              <div class="spec-cell">
-                <span class="spec-label">فرمت گزارش‌دهی</span>
-                <span class="spec-val">ماهانه با Google Search Console و GA4</span>
-              </div>
-              <div class="spec-cell">
-                <span class="spec-label">رویکرد اجرایی</span>
-                <span class="spec-val">داده‌محور، بدون ادعای غیرواقعی و بدون خدمات جانبی</span>
-              </div>
-            </div>
+      <article class="panel donut-panel">
+        <header class="panel-head">
+          <div>
+            <h2>ترکیب برنامه</h2>
+            <p class="panel-sub">سهم هر بخش از ۳۵ اقدام</p>
           </div>
+        </header>
+        <div class="donut-wrap">
+          <svg class="donut" viewBox="0 0 120 120" width="148" height="148" role="img" aria-label="نمودار حلقه‌ای ترکیب برنامه">
+            <circle class="seg" style="--c:var(--dc-0)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="8.57 91.43" stroke-dashoffset="25"/>
+            <circle class="seg" style="--c:var(--dc-1)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="20 80" stroke-dashoffset="16.43"/>
+            <circle class="seg" style="--c:var(--dc-2)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="17.14 82.86" stroke-dashoffset="-3.57"/>
+            <circle class="seg" style="--c:var(--dc-3)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="14.29 85.71" stroke-dashoffset="-20.71"/>
+            <circle class="seg" style="--c:var(--dc-4)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="20 80" stroke-dashoffset="-35"/>
+            <circle class="seg" style="--c:var(--dc-5)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="8.57 91.43" stroke-dashoffset="-55"/>
+            <circle class="seg" style="--c:var(--dc-6)" cx="60" cy="60" r="48" pathLength="100" stroke-dasharray="11.43 88.57" stroke-dashoffset="-63.57"/>
+            <text x="60" y="58" class="donut-num mono">35</text>
+            <text x="60" y="76" class="donut-cap">اقدام</text>
+          </svg>
+          <ul class="legend">
+            <li><span class="dot" style="background:var(--dc-0)"></span><span class="lg-name">فاز صفر</span><span class="lg-val mono">۳</span></li>
+            <li><span class="dot" style="background:var(--dc-1)"></span><span class="lg-name">استراتژی سئو</span><span class="lg-val mono">۷</span></li>
+            <li><span class="dot" style="background:var(--dc-2)"></span><span class="lg-name">محتوا</span><span class="lg-val mono">۶</span></li>
+            <li><span class="dot" style="background:var(--dc-3)"></span><span class="lg-name">تکنیکال و وردپرس</span><span class="lg-val mono">۵</span></li>
+            <li><span class="dot" style="background:var(--dc-4)"></span><span class="lg-name">آف‌پیج و اعتبار</span><span class="lg-val mono">۷</span></li>
+            <li><span class="dot" style="background:var(--dc-5)"></span><span class="lg-name">اشتراک‌گذاری مقالات</span><span class="lg-val mono">۳</span></li>
+            <li><span class="dot" style="background:var(--dc-6)"></span><span class="lg-name">تحلیل و گزارش‌دهی</span><span class="lg-val mono">۴</span></li>
+          </ul>
         </div>
+      </article>
+    </section>
 
+    <section class="panel roadmap">
+      <header class="panel-head">
+        <div>
+          <h2>نقشه راه ۹۰ روزه</h2>
+          <p class="panel-sub">از آدیت و فاز آزمایشی تا گزارش و تثبیت</p>
+        </div>
+      </header>
+      <ol class="timeline">
+        <li class="tl-step">
+          <span class="tl-dot mono">۰</span>
+          <p class="tl-when mono">روز ۱ – ۱۴</p>
+          <h3>فاز صفر · آدیت و پروژه آزمایشی</h3>
+          <p>آدیت کامل وضعیت فعلی و تحویل خروجی قابل اندازه‌گیری پروژه آزمایشی</p>
+        </li>
+        <li class="tl-step">
+          <span class="tl-dot mono">۱</span>
+          <p class="tl-when mono">روز ۱۵ – ۳۰</p>
+          <h3>استراتژی و رفع موانع تکنیکال</h3>
+          <p>تدوین استراتژی یکپارچه و رفع مشکلات فنی مؤثر بر رتبه و ایندکس</p>
+        </li>
+        <li class="tl-step">
+          <span class="tl-dot mono">۲</span>
+          <p class="tl-when mono">روز ۳۱ – ۶۰</p>
+          <h3>محتوا و آغاز آف‌پیج</h3>
+          <p>تقویم و تولید محتوای تخصصی، رپورتاژ و لینک‌سازی اصولی</p>
+        </li>
+        <li class="tl-step">
+          <span class="tl-dot mono">۳</span>
+          <p class="tl-when mono">روز ۶۱ – ۹۰</p>
+          <h3>اشتراک‌گذاری، پایش و گزارش</h3>
+          <p>بازنشر هدفمند، پایش شاخص‌ها و گزارش ماهانه اقدامات و نتایج</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="sections" id="sections">
+      <section class="panel sec" id="sec-0" data-sec="0">
+        <header class="sec-head">
+          <span class="sec-num mono">۰</span>
+          <div class="sec-titles">
+            <h2>فاز صفر — پروژه آزمایشی</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۳ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="آدیت کامل وضعیت فعلی: ایندکس، خزش، رتبه کلمات، پروفایل بک‌لینک، سرعت">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">آدیت کامل وضعیت فعلی: ایندکس، خزش، رتبه کلمات، پروفایل بک‌لینک، سرعت</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="تحویل یک خروجی مشخص و قابل اندازه‌گیری برای پروژه آزمایشی + توافق مالی همان فاز">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">تحویل یک خروجی مشخص و قابل اندازه‌گیری برای پروژه آزمایشی + توافق مالی همان فاز</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="نقشه راه ۹۰ روزه بر اساس یافته‌های آدیت">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">نقشه راه ۹۰ روزه بر اساس یافته‌های آدیت</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <section class="panel sec" id="sec-1" data-sec="1">
+        <header class="sec-head">
+          <span class="sec-num mono">۱</span>
+          <div class="sec-titles">
+            <h2>استراتژی سئو و افزایش رتبه</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۷ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="تحلیل وضعیت فعلی سایت، رقبا و کلمات کلیدی هدفمند (تجاری و خدماتی)">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">تحلیل وضعیت فعلی سایت، رقبا و کلمات کلیدی هدفمند (تجاری و خدماتی)</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="تدوین و اجرای استراتژی یکپارچه سئوی داخلی، خارجی و تکنیکال">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">تدوین و اجرای استراتژی یکپارچه سئوی داخلی، خارجی و تکنیکال</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: زیاد</span>
+            </span>
+          </li>
+          <li class="row" data-text="بهینه‌سازی صفحات خدمات و مقالات برای رتبه‌های برتر گوگل">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">بهینه‌سازی صفحات خدمات و مقالات برای رتبه‌های برتر گوگل</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="بهبود ساختار سایت و معماری محتوا + بازطراحی لینک‌سازی داخلی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">بهبود ساختار سایت و معماری محتوا + بازطراحی لینک‌سازی داخلی</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: زیاد</span>
+            </span>
+          </li>
+          <li class="row" data-text="شناسایی و رفع هم‌پوشانی و رقابت کلمات کلیدی (Cannibalization)">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">شناسایی و رفع هم‌پوشانی و رقابت کلمات کلیدی (Cannibalization)</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="اجرای اصول SEO + AEO + GEO + AIO برای حضور در نتایج جست‌وجو و پاسخ‌های هوش مصنوعی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">06</span>
+            <span class="row-text">اجرای اصول SEO + AEO + GEO + AIO برای حضور در نتایج جست‌وجو و پاسخ‌های هوش مصنوعی</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="تقویت اعتبار موضوعی (Topical Authority) با خوشه‌بندی محتوایی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">07</span>
+            <span class="row-text">تقویت اعتبار موضوعی (Topical Authority) با خوشه‌بندی محتوایی</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: زیاد</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <section class="panel sec" id="sec-2" data-sec="2">
+        <header class="sec-head">
+          <span class="sec-num mono">۲</span>
+          <div class="sec-titles">
+            <h2>تولید و بهینه‌سازی محتوای سایت</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۶ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="تدوین تقویم محتوایی بر اساس اهداف سئو و شکاف‌های محتوایی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">تدوین تقویم محتوایی بر اساس اهداف سئو و شکاف‌های محتوایی</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="تولید، بازنویسی و به‌روزرسانی مقالات و صفحات خدمات">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">تولید، بازنویسی و به‌روزرسانی مقالات و صفحات خدمات</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: زیاد</span>
+            </span>
+          </li>
+          <li class="row" data-text="تحقیق کلمات کلیدی و شناسایی Content Gap نسبت به رقبا">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">تحقیق کلمات کلیدی و شناسایی Content Gap نسبت به رقبا</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="بهینه‌سازی عنوان، متادیسکریپشن، هدینگ‌ها، تصاویر و Alt، لینک‌های داخلی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">بهینه‌سازی عنوان، متادیسکریپشن، هدینگ‌ها، تصاویر و Alt، لینک‌های داخلی</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="رعایت E-E-A-T در همه محتواها (نویسنده متخصص، منابع، سیگنال‌های اعتماد)">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">رعایت E-E-A-T در همه محتواها (نویسنده متخصص، منابع، سیگنال‌های اعتماد)</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="بهبود تجربه کاربری و نرخ تبدیل صفحات خدمات (SXO)">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">06</span>
+            <span class="row-text">بهبود تجربه کاربری و نرخ تبدیل صفحات خدمات (SXO)</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <section class="panel sec" id="sec-3" data-sec="3">
+        <header class="sec-head">
+          <span class="sec-num mono">۳</span>
+          <div class="sec-titles">
+            <h2>سئوی تکنیکال و وردپرس</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="شناسایی و رفع مشکلات فنی مؤثر بر رتبه و ایندکس">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">شناسایی و رفع مشکلات فنی مؤثر بر رتبه و ایندکس</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="بهینه‌سازی سرعت و Core Web Vitals همه قالب‌های صفحه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بهینه‌سازی سرعت و Core Web Vitals همه قالب‌های صفحه</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: زیاد</span>
+            </span>
+          </li>
+          <li class="row" data-text="بررسی و اصلاح Sitemap، Robots.txt، Canonical، Schema و ریدایرکت‌ها">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">بررسی و اصلاح Sitemap، Robots.txt، Canonical، Schema و ریدایرکت‌ها</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="رفع خطاهای خزش و Coverage در Google Search Console">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">رفع خطاهای خزش و Coverage در Google Search Console</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="بررسی و بهینه‌سازی تنظیمات وردپرس و Rank Math">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">بررسی و بهینه‌سازی تنظیمات وردپرس و Rank Math</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+        </ul>
+          <p class="sec-note">هر تغییر فنی فقط با تأیید قبلی مجموعه و با رعایت کامل امنیت</p>
+      </section>
+      <section class="panel sec" id="sec-4" data-sec="4">
+        <header class="sec-head">
+          <span class="sec-num mono">۴</span>
+          <div class="sec-titles">
+            <h2>رپورتاژ، بک‌لینک و افزایش اعتبار (Off-Page)</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۷ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="تدوین و اجرای استراتژی اصولی آف‌پیج">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">تدوین و اجرای استراتژی اصولی آف‌پیج</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="شناسایی رسانه‌ها و سایت‌های معتبر و مرتبط حوزه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">شناسایی رسانه‌ها و سایت‌های معتبر و مرتبط حوزه</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="نگارش، انتشار و مدیریت رپورتاژهای تخصصی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">نگارش، انتشار و مدیریت رپورتاژهای تخصصی</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="ساخت بک‌لینک‌های باکیفیت، مرتبط و پایدار (بدون روش اسپم و پرریسک)">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">ساخت بک‌لینک‌های باکیفیت، مرتبط و پایدار (بدون روش اسپم و پرریسک)</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: زیاد</span>
+            </span>
+          </li>
+          <li class="row" data-text="تحلیل پروفایل بک‌لینک رقبا و استخراج فرصت‌های لینک‌سازی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">تحلیل پروفایل بک‌لینک رقبا و استخراج فرصت‌های لینک‌سازی</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="تقویت اعتبار برند با معرفی و ارجاع در منابع معتبر">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">06</span>
+            <span class="row-text">تقویت اعتبار برند با معرفی و ارجاع در منابع معتبر</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="پایش مستمر کیفیت لینک‌ها">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">07</span>
+            <span class="row-text">پایش مستمر کیفیت لینک‌ها</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+        </ul>
+          <p class="sec-note">(هزینه رپورتاژ و لینک‌سازی جدا از دستمزد و با تأیید قبلی مجموعه — طبق بریف)</p>
+      </section>
+      <section class="panel sec" id="sec-5" data-sec="5">
+        <header class="sec-head">
+          <span class="sec-num mono">۵</span>
+          <div class="sec-titles">
+            <h2>اشتراک‌گذاری مقالات در شبکه‌های اجتماعی و منابع تخصصی</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۳ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="انتشار و بازنشر لینک مقالات و صفحات منتشرشده در شبکه‌های اجتماعی مرتبط">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">انتشار و بازنشر لینک مقالات و صفحات منتشرشده در شبکه‌های اجتماعی مرتبط</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="اشتراک‌گذاری در انجمن‌ها، گروه‌ها و منابع تخصصی معتبر برای بازدید ارجاعی هدفمند">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">اشتراک‌گذاری در انجمن‌ها، گروه‌ها و منابع تخصصی معتبر برای بازدید ارجاعی هدفمند</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="پرهیز کامل از انتشار انبوه، تکراری و اسپم">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">پرهیز کامل از انتشار انبوه، تکراری و اسپم</span>
+            <span class="row-tags">
+              <span class="tag p-base">اولویت: پایه</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+      <section class="panel sec" id="sec-6" data-sec="6">
+        <header class="sec-head">
+          <span class="sec-num mono">۶</span>
+          <div class="sec-titles">
+            <h2>تحلیل عملکرد و گزارش‌دهی</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۴ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="پایش رتبه کلمات کلیدی، ترافیک ارگانیک، CTR و نرخ تبدیل">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">پایش رتبه کلمات کلیدی، ترافیک ارگانیک، CTR و نرخ تبدیل</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="بررسی عملکرد صفحات، رپورتاژها و بک‌لینک‌ها">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بررسی عملکرد صفحات، رپورتاژها و بک‌لینک‌ها</span>
+            <span class="row-tags">
+              <span class="tag p-mid">اولویت: متوسط</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+          <li class="row" data-text="تحلیل با Google Search Console، GA4، Ahrefs، Semrush و Screaming Frog">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">تحلیل با Google Search Console، GA4، Ahrefs، Semrush و Screaming Frog</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: متوسط</span>
+              <span class="tag">تلاش: متوسط</span>
+            </span>
+          </li>
+          <li class="row" data-text="گزارش ماهانه: اقدامات انجام‌شده، نتایج، و برنامه اجرایی ماه آینده">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">گزارش ماهانه: اقدامات انجام‌شده، نتایج، و برنامه اجرایی ماه آینده</span>
+            <span class="row-tags">
+              <span class="tag p-high">اولویت: بالا</span>
+              <span class="tag">اثر: زیاد</span>
+              <span class="tag">تلاش: کم</span>
+            </span>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="empty" id="emptyState" hidden>اقدامی با این عبارت پیدا نشد.</p>
+
+    <section class="panel success">
+      <header class="panel-head">
+        <div>
+          <h2>شاخص‌های موفقیت</h2>
+          <p class="panel-sub">همان KPIهای بریف کارفرما</p>
+        </div>
+      </header>
+      <ul class="kpi-list">
+          <li>رشد بازدید ارگانیک هدفمند مرتبط با خدمات</li>
+          <li>بهبود رتبه کلمات اصلی و تجاری</li>
+          <li>افزایش تماس و درخواست خدمت از ارگانیک</li>
+          <li>تقویت کیفیت دامنه‌های لینک‌دهنده</li>
+          <li>بهبود ایندکس، سرعت و عملکرد فنی</li>
+          <li>افزایش نمایش، کلیک و تبدیل صفحات خدمات</li>
+          <li>افزایش دیده‌شدن در منابع معتبر و پاسخ‌های هوش مصنوعی</li>
+      </ul>
+      <p class="sec-note">صرفاً تعداد بک‌لینک یا DA/DR معیار نیست — طبق بریف.</p>
+      <div class="proof">
+        <h3>مبنای اثبات توانایی</h3>
+        <p>مدیریت جاری سئوی ۷ وب‌سایت فعال با چرخه روزانه سرچ کنسول ← اقدام ← بررسی نتیجه؛ از جمله رشد میانگین جایگاه یک فروشگاه تجهیزات صنعتی از ۱۹٫۲ به ۸٫۵ در داده ۷روزه سرچ کنسول و اتصال کامل همه سایت‌ها به GA4.</p>
       </div>
     </section>
 
-    <!-- KPI Header Strip (Search Console & Analytics Data Strip) -->
-    <section class="kpi-strip-section" id="kpi-strip" aria-label="شاخص‌های عملکرد و داده‌های مبنا">
-      <div class="container">
-        <div class="kpi-grid">
-          
-          <!-- KPI 1 -->
-          <div class="kpi-card">
-            <div class="kpi-card-header">
-              <span class="kpi-title">رشد ورودی ارگانیک هدفمند</span>
-              <span class="kpi-delta kpi-delta-up">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                <span class="mono-num">+۳۸٫۴٪</span>
-              </span>
-            </div>
-            <div class="kpi-card-body">
-              <div class="kpi-metric-row">
-                <span class="kpi-value mono-num">+۱۴۲٪</span>
-                <span class="kpi-period">افق ۳ ماهه</span>
-              </div>
-              <p class="kpi-desc">تمرکز روی کلمات کلیدی تجاری و صفحات خدمات</p>
-            </div>
-            <div class="kpi-sparkline" aria-hidden="true">
-              <svg viewBox="0 0 160 36" preserveAspectRatio="none">
-                <path d="M0,32 L20,30 L40,25 L60,26 L80,18 L100,16 L120,10 L140,8 L160,2" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 2 -->
-          <div class="kpi-card">
-            <div class="kpi-card-header">
-              <span class="kpi-title">نمایش در جستجو (Impressions)</span>
-              <span class="kpi-delta kpi-delta-up">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                <span class="mono-num">+۶۲٫۱٪</span>
-              </span>
-            </div>
-            <div class="kpi-card-body">
-              <div class="kpi-metric-row">
-                <span class="kpi-value mono-num">۴۸٫۵k</span>
-                <span class="kpi-period">کوئری‌های تخصصی</span>
-              </div>
-              <p class="kpi-desc">افزایش دیده شدن در پاسخ‌های موتور جستجو و AI</p>
-            </div>
-            <div class="kpi-sparkline" aria-hidden="true">
-              <svg viewBox="0 0 160 36" preserveAspectRatio="none">
-                <path d="M0,28 L25,27 L50,22 L75,19 L100,15 L125,9 L150,5 L160,3" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 3 -->
-          <div class="kpi-card">
-            <div class="kpi-card-header">
-              <span class="kpi-title">بهبود میانگین جایگاه (Avg Position)</span>
-              <span class="kpi-delta kpi-delta-up">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                <span class="mono-num">+۱۰٫۷</span>
-              </span>
-            </div>
-            <div class="kpi-card-body">
-              <div class="kpi-metric-row">
-                <span class="kpi-value mono-num">۱۹٫۲ ← ۸٫۵</span>
-                <span class="kpi-period">GSC ۷روزه</span>
-              </div>
-              <p class="kpi-desc">مبتنی بر نمونه واقعی پروژه‌های فعال صنعتی</p>
-            </div>
-            <div class="kpi-sparkline" aria-hidden="true">
-              <svg viewBox="0 0 160 36" preserveAspectRatio="none">
-                <path d="M0,32 L20,31 L45,28 L70,20 L95,14 L120,11 L145,6 L160,2" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 4 -->
-          <div class="kpi-card">
-            <div class="kpi-card-header">
-              <span class="kpi-title">شاخص سلامت فنی و CWV</span>
-              <span class="kpi-delta kpi-delta-up">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                <span class="mono-num">سبز (Pass)</span>
-              </span>
-            </div>
-            <div class="kpi-card-body">
-              <div class="kpi-metric-row">
-                <span class="kpi-value mono-num">۹۸ / ۱۰۰</span>
-                <span class="kpi-period">بهینه‌سازی قالب</span>
-              </div>
-              <p class="kpi-desc">رفع کامل خطاهای خزش، ایندکس و متاتگ‌ها</p>
-            </div>
-            <div class="kpi-sparkline" aria-hidden="true">
-              <svg viewBox="0 0 160 36" preserveAspectRatio="none">
-                <path d="M0,18 L30,16 L60,14 L90,8 L120,6 L150,4 L160,4" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 90-Day Roadmap (Horizontal Timeline) -->
-    <section class="section-roadmap" id="roadmap">
-      <div class="container">
-        
-        <div class="section-head-audit">
-          <div class="head-left">
-            <span class="audit-section-num">بخش ۱</span>
-            <h2 class="audit-section-title">نقشه راه ۹۰ روزه همکاری</h2>
-          </div>
-          <p class="audit-section-sub">
-            چهار مرحله شفاف از شروع آزمایشی تا پایش و ارتقای مداوم رتبه؛ هر مرحله دارای موعد تحویل و شاخص ارزیابی مشخص است.
-          </p>
-        </div>
-
-        <div class="horizontal-timeline-wrap">
-          <div class="timeline-track" aria-hidden="true"></div>
-
-          <div class="roadmap-grid">
-
-            <!-- Phase 0 -->
-            <div class="roadmap-col">
-              <div class="stage-card stage-active">
-                <div class="stage-top">
-                  <span class="stage-step-num mono-num">۰</span>
-                  <div class="stage-meta">
-                    <span class="stage-day-badge mono-num">روز ۱ تا ۱۴</span>
-                    <span class="stage-state-tag">فاز آزمایشی</span>
-                  </div>
-                </div>
-                <h3 class="stage-title">فاز صفر — پروژه آزمایشی</h3>
-                <p class="stage-desc">
-                  آدیت کامل وضعیت فعلی سایت: بررسی ایندکس، سلامت خزش، رتبه کلمات، پروفایل بک‌لینک و عملکرد سرعت.
-                </p>
-                <div class="stage-deliverable">
-                  <span class="deliv-label">خروجی قابل ارزیابی:</span>
-                  <span class="deliv-text">گزارش آدیت تشخیصی ۳۶۰ درجه + لیست اولویت‌ها + توافق مالی فاز آزمایشی</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Phase 1 -->
-            <div class="roadmap-col">
-              <div class="stage-card">
-                <div class="stage-top">
-                  <span class="stage-step-num mono-num">۱</span>
-                  <div class="stage-meta">
-                    <span class="stage-day-badge mono-num">روز ۱۵ تا ۴۵</span>
-                    <span class="stage-state-tag">زیرساخت و استراتژی</span>
-                  </div>
-                </div>
-                <h3 class="stage-title">تکنیکال و کلمات کلیدی</h3>
-                <p class="stage-desc">
-                  رفع موانع فنی در سرچ کنسول و وردپرس، اصلاح سایت‌مپ و اسکیما، کیورد ریسرچ و تدوین تقویم محتوایی.
-                </p>
-                <div class="stage-deliverable">
-                  <span class="deliv-label">خروجی قابل ارزیابی:</span>
-                  <span class="deliv-text">تقویم محتوایی مدون، رفع خطاهای سرچ‌کنسول و تثبیت ساختار صفحات خدمات</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Phase 2 -->
-            <div class="roadmap-col">
-              <div class="stage-card">
-                <div class="stage-top">
-                  <span class="stage-step-num mono-num">۲</span>
-                  <div class="stage-meta">
-                    <span class="stage-day-badge mono-num">روز ۴۶ تا ۷۵</span>
-                    <span class="stage-state-tag">محتوا و تبدیل</span>
-                  </div>
-                </div>
-                <h3 class="stage-title">تولید محتوا و بهینه‌سازی SXO</h3>
-                <p class="stage-desc">
-                  تولید و به‌روزرسانی مقالات با اصول E-E-A-T، خوشه‌بندی محتوا (Topical Authority) و بهبود نرخ تبدیل صفحات خدمات.
-                </p>
-                <div class="stage-deliverable">
-                  <span class="deliv-label">خروجی قابل ارزیابی:</span>
-                  <span class="deliv-text">انتشار منظم مقالات بهینه‌شده، ارتقای لینک‌سازی داخلی و رشد تعامل کاربران</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Phase 3 -->
-            <div class="roadmap-col">
-              <div class="stage-card">
-                <div class="stage-top">
-                  <span class="stage-step-num mono-num">۳</span>
-                  <div class="stage-meta">
-                    <span class="stage-day-badge mono-num">روز ۷۶ تا ۹۰</span>
-                    <span class="stage-state-tag">اعتبار و پایش</span>
-                  </div>
-                </div>
-                <h3 class="stage-title">آف‌پیج اصولی و تحلیل ماهانه</h3>
-                <p class="stage-desc">
-                  اجرای رپورتاژهای کیفی و هدفمند، بازنشر در کانال‌های تخصصی و تحلیل داده‌های GA4 و سرچ کنسول.
-                </p>
-                <div class="stage-deliverable">
-                  <span class="deliv-label">خروجی قابل ارزیابی:</span>
-                  <span class="deliv-text">گزارش ماهانه اقدامات و نتایج + پلن اجرایی دوره بعدی + سنجش رشد KPIها</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Checklist & Action Program -->
-    <section class="section-checklist" id="checklist">
-      <div class="container">
-
-        <div class="section-head-audit">
-          <div class="head-left">
-            <span class="audit-section-num">بخش ۲</span>
-            <h2 class="audit-section-title">برنامه اجرایی — چک‌لیست تعاملی ۳۵ اقدام</h2>
-          </div>
-          <p class="audit-section-sub">
-            دقیقاً منطبق بر موارد سند WORKLIST.md در ۷ بخش کاری. می‌توانید با کلیک روی چک‌باکس‌ها، میزان پوشش و پیشرفت برنامه را ارزیابی فرمایید.
-          </p>
-        </div>
-
-        <!-- Audit Control Center: Progress Ring & Batch Actions -->
-        <div class="audit-control-card" role="region" aria-label="مرکز پایش و کنترل وضعیت اقدامات">
-          <div class="control-grid">
-            
-            <!-- Progress Ring Widget -->
-            <div class="progress-ring-block">
-              <div class="ring-wrapper">
-                <svg class="progress-ring-svg" width="86" height="86" viewBox="0 0 86 86" aria-hidden="true">
-                  <circle class="ring-track" cx="43" cy="43" r="36" fill="none" stroke="#e2e8f0" stroke-width="6"/>
-                  <circle class="ring-fill" id="ringIndicator" cx="43" cy="43" r="36" fill="none" stroke="#16a34a" stroke-width="6" stroke-linecap="round" stroke-dasharray="226.195" stroke-dashoffset="226.195" transform="rotate(-90 43 43)"/>
-                </svg>
-                <div class="ring-label-wrap">
-                  <span class="ring-pct-text mono-num" id="ringPctVal">۰٪</span>
-                  <span class="ring-caption">بررسی</span>
-                </div>
-              </div>
-
-              <div class="progress-details">
-                <div class="progress-status-line">
-                  <span class="prog-title">وضعیت پوشش اقدامات اجرایی:</span>
-                  <strong class="prog-counter mono-num" id="progressCounterText">۰ از ۳۵ اقدام علامت‌زده شد</strong>
-                </div>
-                <div class="prog-sub-line" id="progressSubText">
-                  ۳۵ اقدام در ۷ سرفصل آماده اجرا و ارزیابی در فاز صفر و نقشه راه ۹۰ روزه است.
-                </div>
-                <!-- Linear bar indicator for secondary glance -->
-                <div class="prog-linear-track" aria-hidden="true">
-                  <div class="prog-linear-fill" id="linearFill" style="width: 0%;"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Actions Toolbar -->
-            <div class="control-actions-block">
-              <div class="btn-group-audit">
-                <button type="button" class="btn-audit-act" id="selectAllBtn" title="علامت‌زدن تمام ۳۵ اقدام">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>انتخاب همه</span>
-                </button>
-                <button type="button" class="btn-audit-act" id="resetChecks" title="پاک‌کردن انتخاب‌ها">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-                  <span>بازنشانی</span>
-                </button>
-                <button type="button" class="btn-audit-act" id="expandAllBtn" title="باز کردن آکاردئون تمام بخش‌ها">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                  <span>باز کردن همه</span>
-                </button>
-                <button type="button" class="btn-audit-act" id="collapseAllBtn" title="بستن تمام بخش‌ها">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
-                  <span>بستن همه</span>
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Notification banner when 100% completed -->
-          <div class="audit-toast" id="completeToast" hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            <span>تمام ۳۵ اقدام برنامه اجرایی بررسی شدند؛ تمام سرفصل‌های بریف کارفرما پوشش داده شده است.</span>
-          </div>
-        </div>
-
-        <!-- Search & Filter Controls -->
-        <div class="filter-search-row">
-          <!-- Search box -->
-          <div class="audit-search-field">
-            <svg class="search-svg-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="text" id="actionSearch" class="audit-input" placeholder="جستجو در بین ۳۵ اقدام (مثال: سرچ کنسول، محتوا، اسکیما، رپورتاژ، وردپرس...)" aria-label="جستجو در اقدامات">
-            <button type="button" id="clearSearch" class="clear-btn" title="پاک‌کردن جستجو" hidden aria-label="پاک‌کردن متن جستجو">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <span class="search-match-badge mono-num" id="searchCount" aria-live="polite"></span>
-          </div>
-
-          <!-- Category filter buttons -->
-          <div class="filter-pills" role="group" aria-label="فیلتر بخش‌ها">
-            <button class="pill is-active" data-filter="all" type="button">
-              <span>همه بخش‌ها</span>
-              <span class="pill-count mono-num">۳۵</span>
-            </button>
-            <button class="pill" data-filter="phase0" type="button">
-              <span>فاز صفر</span>
-              <span class="pill-count mono-num">۳</span>
-            </button>
-            <button class="pill" data-filter="strategy" type="button">
-              <span>۱. استراتژی</span>
-              <span class="pill-count mono-num">۷</span>
-            </button>
-            <button class="pill" data-filter="content" type="button">
-              <span>۲. محتوا</span>
-              <span class="pill-count mono-num">۶</span>
-            </button>
-            <button class="pill" data-filter="technical" type="button">
-              <span>۳. تکنیکال</span>
-              <span class="pill-count mono-num">۵</span>
-            </button>
-            <button class="pill" data-filter="offpage" type="button">
-              <span>۴. آف‌پیج</span>
-              <span class="pill-count mono-num">۷</span>
-            </button>
-            <button class="pill" data-filter="distribution" type="button">
-              <span>۵. انتشار</span>
-              <span class="pill-count mono-num">۳</span>
-            </button>
-            <button class="pill" data-filter="reporting" type="button">
-              <span>۶. گزارش‌دهی</span>
-              <span class="pill-count mono-num">۴</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 7 Sections Accordions List -->
-        <div class="sections-accordion-list" id="sections">
-
-          <!-- Section 0: فاز صفر — پروژه آزمایشی -->
-          <article class="audit-section-panel open" data-cat="phase0" id="panel-phase0">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-phase0">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۰</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">فاز صفر — پروژه آزمایشی</h3>
-                  <span class="panel-sub-title">شروع همکاری طبق شرط کارفرما — ارزیابی تشخیصی اولیه و تدوین نقشه راه</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="phase0">۰ از ۳</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="phase0" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-phase0">
-              <ul class="action-items-list">
-                
-                <!-- Action 0.1 -->
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p0-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">آدیت کامل وضعیت فعلی: ایندکس، خزش، رتبه کلمات، پروفایل بک‌لینک، سرعت</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <!-- Action 0.2 -->
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p0-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تحویل یک خروجی مشخص و قابل اندازه‌گیری برای پروژه آزمایشی + توافق مالی همان فاز</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: کلیدی</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <!-- Action 0.3 -->
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p0-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">نقشه راه ۹۰ روزه بر اساس یافته‌های آدیت</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </article>
-
-          <!-- Section 1: استراتژی سئو و افزایش رتبه -->
-          <article class="audit-section-panel open" data-cat="strategy" id="panel-strategy">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-strategy">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۱</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">۱) استراتژی سئو و افزایش رتبه</h3>
-                  <span class="panel-sub-title">تحلیل رقبا، معماری کلمات کلیدی، خوشه‌بندی محتوا و آمادگی AEO/GEO</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="strategy">۰ از ۷</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="strategy" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-strategy">
-              <ul class="action-items-list">
-                
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تحلیل وضعیت فعلی سایت، رقبا و کلمات کلیدی هدفمند (تجاری و خدماتی)</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تدوین و اجرای استراتژی یکپارچه سئوی داخلی، خارجی و تکنیکال</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: کلیدی</span>
-                    <span class="tag-effort">زحمت: بالا</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بهینه‌سازی صفحات خدمات و مقالات برای رتبه‌های برتر گوگل</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: بالا</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-4" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بهبود ساختار سایت و معماری محتوا + بازطراحی لینک‌سازی داخلی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-5" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">شناسایی و رفع هم‌پوشانی و رقابت کلمات کلیدی (Cannibalization)</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-6" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">اجرای اصول SEO + AEO + GEO + AIO برای حضور در نتایج جست‌وجو و پاسخ‌های هوش مصنوعی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p1-7" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تقویت اعتبار موضوعی (Topical Authority) با خوشه‌بندی محتوایی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: بالا</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </article>
-
-          <!-- Section 2: تولید و بهینه‌سازی محتوای سایت -->
-          <article class="audit-section-panel open" data-cat="content" id="panel-content">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-content">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۲</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">۲) تولید و بهینه‌سازی محتوای سایت</h3>
-                  <span class="panel-sub-title">تقویم محتوایی، رفع شکاف محتوا (Content Gap)، اصول E-E-A-T و بهینه‌سازی نرخ تبدیل (SXO)</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="content">۰ از ۶</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="content" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-content">
-              <ul class="action-items-list">
-                
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p2-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تدوین تقویم محتوایی بر اساس اهداف سئو و شکاف‌های محتوایی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p2-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تولید، بازنویسی و به‌روزرسانی مقالات و صفحات خدمات</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: بالا</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p2-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تحقیق کلمات کلیدی و شناسایی Content Gap نسبت به رقبا</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p2-4" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بهینه‌سازی عنوان، متادیسکریپشن، هدینگ‌ها، تصاویر و Alt، لینک‌های داخلی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p2-5" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">رعایت E-E-A-T در همه محتواها (نویسنده متخصص، منابع، سیگنال‌های اعتماد)</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p2-6" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بهبود تجربه کاربری و نرخ تبدیل صفحات خدمات (SXO)</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </article>
-
-          <!-- Section 3: سئوی تکنیکال و وردپرس -->
-          <article class="audit-section-panel open" data-cat="technical" id="panel-technical">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-technical">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۳</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">۳) سئوی تکنیکال و وردپرس</h3>
-                  <span class="panel-sub-title">سلامت فنی، رفع خطاهای خزش در سرچ‌کنسول، سرعت و Core Web Vitals و تنظیمات Rank Math</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="technical">۰ از ۵</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="technical" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-technical">
-              <ul class="action-items-list">
-                
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p3-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">شناسایی و رفع مشکلات فنی مؤثر بر رتبه و ایندکس</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بحرانی</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p3-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بهینه‌سازی سرعت و Core Web Vitals همه قالب‌های صفحه</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: بالا</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p3-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بررسی و اصلاح Sitemap، Robots.txt، Canonical، Schema و ریدایرکت‌ها</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p3-4" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">رفع خطاهای خزش و Coverage در Google Search Console</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p3-5" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بررسی و بهینه‌سازی تنظیمات وردپرس و Rank Math</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-              </ul>
-
-              <!-- Security Protocol Notice -->
-              <div class="callout-audit-note note-security">
-                <span class="callout-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </span>
-                <span class="callout-text">
-                  <strong>پروتکل امنیتی:</strong> هر تغییر فنی فقط با تأیید قبلی مجموعه و با رعایت کامل امنیت انجام می‌شود.
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Section 4: رپورتاژ، بک‌لینک و افزایش اعتبار (Off-Page) -->
-          <article class="audit-section-panel open" data-cat="offpage" id="panel-offpage">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-offpage">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۴</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">۴) رپورتاژ، بک‌لینک و افزایش اعتبار (Off-Page)</h3>
-                  <span class="panel-sub-title">استراتژی اصولی آف‌پیج، رسانه‌های مرتبط، رپورتاژهای تخصصی و لینک‌سازی پایدار بدون اسپم</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="offpage">۰ از ۷</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="offpage" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-offpage">
-              <ul class="action-items-list">
-                
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تدوین و اجرای استراتژی اصولی آف‌پیج</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">شناسایی رسانه‌ها و سایت‌های معتبر و مرتبط حوزه</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">نگارش، انتشار و مدیریت رپورتاژهای تخصصی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-4" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">ساخت بک‌لینک‌های باکیفیت، مرتبط و پایدار (بدون روش اسپم و پرریسک)</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: بالا</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-5" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تحلیل پروفایل بک‌لینک رقبا و استخراج فرصت‌های لینک‌سازی</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-6" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تقویت اعتبار برند با معرفی و ارجاع در منابع معتبر</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p3 mono-num">P3 استاندارد</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p4-7" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">پایش مستمر کیفیت لینک‌ها</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-              </ul>
-
-              <!-- Budget & Approval Notice -->
-              <div class="callout-audit-note note-budget">
-                <span class="callout-icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                </span>
-                <span class="callout-text">
-                  <strong>هماهنگی مالی:</strong> هزینه رپورتاژ و لینک‌سازی جدا از دستمزد و با تأیید قبلی مجموعه — طبق بریف.
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Section 5: اشتراک‌گذاری مقالات در شبکه‌های اجتماعی و منابع تخصصی -->
-          <article class="audit-section-panel open" data-cat="distribution" id="panel-distribution">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-distribution">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۵</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">۵) اشتراک‌گذاری مقالات در شبکه‌های اجتماعی و منابع تخصصی</h3>
-                  <span class="panel-sub-title">بازنشر هدفمند لینک مقالات در انجمن‌ها و شبکه‌های تخصصی بدون انتشار انبوه و اسپم</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="distribution">۰ از ۳</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="distribution" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-distribution">
-              <ul class="action-items-list">
-                
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p5-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">انتشار و بازنشر لینک مقالات و صفحات منتشرشده در شبکه‌های اجتماعی مرتبط</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p3 mono-num">P3 استاندارد</span>
-                    <span class="tag-impact">تأثیر: متوسط</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p5-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">اشتراک‌گذاری در انجمن‌ها، گروه‌ها و منابع تخصصی معتبر برای بازدید ارجاعی هدفمند</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p5-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">پرهیز کامل از انتشار انبوه، تکراری و اسپم</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </article>
-
-          <!-- Section 6: تحلیل عملکرد و گزارش‌دهی -->
-          <article class="audit-section-panel open" data-cat="reporting" id="panel-reporting">
-            <div class="panel-header" role="button" tabindex="0" aria-expanded="true" aria-controls="content-reporting">
-              <div class="panel-title-area">
-                <span class="panel-idx mono-num">۰۶</span>
-                <div class="panel-headings">
-                  <h3 class="panel-main-title">۶) تحلیل عملکرد و گزارش‌دهی</h3>
-                  <span class="panel-sub-title">پایش کلمات، بررسی CTR و تبدیل با Search Console، GA4، Ahrefs و گزارش ماهانه اقدامات</span>
-                </div>
-              </div>
-              <div class="panel-meta-area">
-                <span class="section-counter-badge mono-num" data-badge-for="reporting">۰ از ۴</span>
-                <button type="button" class="btn-panel-quick toggle-phase-checks" data-target="reporting" title="علامت‌زدن این بخش">انتخاب بخش</button>
-                <span class="panel-chevron" aria-hidden="true">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </span>
-              </div>
-            </div>
-
-            <div class="panel-content" id="content-reporting">
-              <ul class="action-items-list">
-                
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p6-1" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">پایش رتبه کلمات کلیدی، ترافیک ارگانیک، CTR و نرخ تبدیل</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: کلیدی</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p6-2" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">بررسی عملکرد صفحات، رپورتاژها و بک‌لینک‌ها</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p2 mono-num">P2 بالا</span>
-                    <span class="tag-impact">تأثیر: بالا</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p6-3" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">تحلیل با Google Search Console، GA4، Ahrefs، Semrush و Screaming Frog</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: بسیار بالا</span>
-                    <span class="tag-effort">زحمت: متوسط</span>
-                  </div>
-                </li>
-
-                <li class="action-item">
-                  <label class="action-label">
-                    <input type="checkbox" name="chk-p6-4" class="action-checkbox">
-                    <span class="custom-chk-box" aria-hidden="true"></span>
-                    <span class="action-text">گزارش ماهانه: اقدامات انجام‌شده، نتایج، و برنامه اجرایی ماه آینده</span>
-                  </label>
-                  <div class="tag-strip">
-                    <span class="tag-priority p1 mono-num">P1 فوری</span>
-                    <span class="tag-impact">تأثیر: کلیدی</span>
-                    <span class="tag-effort">زحمت: کم</span>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Search empty message -->
-        <div class="audit-empty-msg" id="emptyMsg" hidden>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <p>موردی منطبق با عبارت جستجو یا فیلتر فعلی یافت نشد.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Success Indicators / KPI Section (Exactly from WORKLIST.md) -->
-    <section class="section-kpi-targets" id="kpi-targets">
-      <div class="container">
-        
-        <div class="section-head-audit">
-          <div class="head-left">
-            <span class="audit-section-num">بخش ۳</span>
-            <h2 class="audit-section-title">شاخص‌های موفقیت (همان KPIهای بریف)</h2>
-          </div>
-          <p class="audit-section-sub">
-            سنجش نتایج دقیقاً با معیارهای اعلام‌شده توسط کارفرما صورت می‌گیرد؛ نه با معیارهای صوری و غیرمرتبط.
-          </p>
-        </div>
-
-        <div class="kpi-targets-grid">
-          
-          <div class="kpi-target-cell">
-            <span class="cell-idx mono-num">۰۱</span>
-            <div class="cell-body">
-              <h4 class="cell-title">ترافیک هدفمند</h4>
-              <p class="cell-desc">رشد بازدید ارگانیک هدفمند مرتبط با خدمات</p>
-            </div>
-          </div>
-
-          <div class="kpi-target-cell">
-            <span class="cell-idx mono-num">۰۲</span>
-            <div class="cell-body">
-              <h4 class="cell-title">رتبه کلمات اصلی</h4>
-              <p class="cell-desc">بهبود رتبه کلمات اصلی و تجاری</p>
-            </div>
-          </div>
-
-          <div class="kpi-target-cell">
-            <span class="cell-idx mono-num">۰۳</span>
-            <div class="cell-body">
-              <h4 class="cell-title">تبدیل و فروش</h4>
-              <p class="cell-desc">افزایش تماس و درخواست خدمت از ارگانیک</p>
-            </div>
-          </div>
-
-          <div class="kpi-target-cell">
-            <span class="cell-idx mono-num">۰۴</span>
-            <div class="cell-body">
-              <h4 class="cell-title">اعتبار ارجاعی</h4>
-              <p class="cell-desc">تقویت کیفیت دامنه‌های لینک‌دهنده</p>
-            </div>
-          </div>
-
-          <div class="kpi-target-cell">
-            <span class="cell-idx mono-num">۰۵</span>
-            <div class="cell-body">
-              <h4 class="cell-title">زیرساخت فنی</h4>
-              <p class="cell-desc">بهبود ایندکس، سرعت و عملکرد فنی</p>
-            </div>
-          </div>
-
-          <div class="kpi-target-cell">
-            <span class="cell-idx mono-num">۰۶</span>
-            <div class="cell-body">
-              <h4 class="cell-title">صفحات خدمات</h4>
-              <p class="cell-desc">افزایش نمایش/کلیک/تبدیل صفحات خدمات</p>
-            </div>
-          </div>
-
-          <div class="kpi-target-cell kpi-target-wide">
-            <span class="cell-idx mono-num">۰۷</span>
-            <div class="cell-body">
-              <h4 class="cell-title">هوش مصنوعی و مراجع تخصصی</h4>
-              <p class="cell-desc">افزایش دیده‌شدن در منابع معتبر و پاسخ‌های هوش مصنوعی</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="callout-audit-note note-kpi-brief">
-          <span class="callout-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-          </span>
-          <span class="callout-text">
-            <strong>قاعده سنجش بریف:</strong> صرفاً تعداد بک‌لینک یا DA/DR معیار نیست — طبق بریف.
-          </span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Proof of Capability (مبنای اثبات توانایی) -->
-    <section class="section-proof" id="proof">
-      <div class="container">
-
-        <div class="section-head-audit">
-          <div class="head-left">
-            <span class="audit-section-num">بخش ۴</span>
-            <h2 class="audit-section-title">مبنای اثبات توانایی (ضمیمه پیشنهاد)</h2>
-          </div>
-          <p class="audit-section-sub">
-            مستند بر داده‌های زنده و فرآیند پایش روزانه پروژه‌های واقعی تحت مدیریت، نه نمونه‌های فرضی.
-          </p>
-        </div>
-
-        <div class="proof-data-grid">
-          
-          <div class="proof-data-card">
-            <div class="proof-head">
-              <span class="proof-metric-title">پروژه‌های در حال مدیریت</span>
-              <span class="proof-tag">پایش مستمر</span>
-            </div>
-            <div class="proof-metric mono-num">۷ سایت</div>
-            <p class="proof-body-text">
-              مدیریت جاری سئوی ۷ وب‌سایت فعال با چرخه روزانه سرچ کنسول → اقدام → بررسی نتیجه.
-            </p>
-          </div>
-
-          <div class="proof-data-card proof-card-highlighted">
-            <div class="proof-head">
-              <span class="proof-metric-title">رشد واقعی در داده ۷روزه GSC</span>
-              <span class="proof-tag tag-signal">فروشگاه صنعتی</span>
-            </div>
-            <div class="proof-metric mono-num">۱۹٫۲ ← ۸٫۵</div>
-            <p class="proof-body-text">
-              رشد میانگین جایگاه یک فروشگاه تجهیزات صنعتی از ۱۹٫۲ به ۸٫۵ در داده ۷روزه سرچ کنسول.
-            </p>
-          </div>
-
-          <div class="proof-data-card">
-            <div class="proof-head">
-              <span class="proof-metric-title">زیرساخت تحلیلی پیشرفته</span>
-              <span class="proof-tag">اتصال کامل</span>
-            </div>
-            <div class="proof-metric mono-num">۱۰۰٪ GA4</div>
-            <p class="proof-body-text">
-              اتصال کامل همه سایت‌ها به GA4 و پایش رویدادها (Events) و نرخ تبدیل واقعی.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Project Next Step & Client Agreement -->
-    <section class="section-contact-audit" id="contact">
-      <div class="container">
-        
-        <div class="contact-dossier-box">
-          <div class="contact-head-row">
-            <div>
-              <span class="contact-step-tag">گام آغازین</span>
-              <h2 class="contact-title">شروع همکاری با پروژه آزمایشی (فاز صفر)</h2>
-            </div>
-            <div class="contact-status-badge">
-              <span class="dot-online"></span>
-              <span>آماده بررسی و اجرا</span>
-            </div>
-          </div>
-
-          <p class="contact-text">
-            مطابق با شرط صریح کارفرما در بریف، نقطه آغاز همکاری اجرای یک پروژه آزمایشی مشخص (آدیت کامل ۳۶۰ درجه + تدوین اکشن‌پلن ۹۰ روزه) است. پس از ارزیابی نتایج این فاز، همکاری بلندمدت بر پایه نتایج حاصله ادامه می‌یابد.
-          </p>
-
-          <div class="contact-actions-row">
-            <a class="btn-contact-primary" href="https://appwebino.ir" target="_blank" rel="noopener">
-              <span>مشاهده نمونه‌کارها در وب‌سایت اپ‌وبینو</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-            <button type="button" class="btn-contact-print" id="bottomPrintBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-              <span>چاپ مستند رسمی / PDF</span>
-            </button>
-            <a class="btn-contact-secondary" href="#checklist">بازبینی مجدد چک‌لیست</a>
-          </div>
-
-          <div class="contact-footer-note">
-            <span>اپ‌وبینو (AppWebino) — توسعه و بهینه‌سازی وب | appwebino.ir</span>
-            <span class="mono-num">شناسه سند: EMS-PROP-764181-V1</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
+    <footer class="foot">
+      <p>این گزارش تعاملی، پیش‌نمایش برنامه اجرایی پیشنهادشده برای مجموعه EMSYS است · تهیه‌شده توسط <strong>اپ‌وبینو (AppWebino)</strong></p>
+    </footer>
   </main>
-
-  <!-- Site Footer -->
-  <footer class="sys-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand-side">
-        <div class="footer-logo">
-          <strong>اپ‌وبینو — AppWebino</strong>
-        </div>
-        <p class="footer-desc">
-          پیش‌نمایش تعاملی برنامه بهبود سئو، تولید محتوا و بهینه‌سازی سایت | آگهی ۷۶۴۱۸۱
-        </p>
-      </div>
-      <div class="footer-meta-side">
-        <div>کارفرما: <strong>مجموعه EMSYS</strong></div>
-        <div>روش‌شناسی: <strong>SEO + Technical + E-E-A-T + GEO/AEO</strong></div>
-        <div>رویکرد: <strong>کاملاً منطبق بر بریف، بدون خدمات خارج از اسکوپ</strong></div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating Scroll To Top -->
-  <button type="button" class="back-to-top" id="backToTop" title="بازگشت به ابتدای گزارش" aria-label="بازگشت به بالا">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </button>
-
-  <script src="app.js"></script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
