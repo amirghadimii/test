@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کتابخانه مدرسه</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+:root{
+  --pri:#4F46E5; --pri-d:#4338CA; --pri-l:#EEF2FF; --pri-m:#C7D2FE;
+  --bg:#F5F6FA; --card:#fff; --bd:#EBEDF5; --tx:#1E1B4B; --mu:#6B7280;
+  --red:#DC2626; --red-l:#FEE2E2; --grn:#059669; --grn-l:#D1FAE5; --amb:#D97706; --amb-l:#FEF3C7;
+}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:'Vazirmatn',sans-serif!important;background:var(--bg);color:var(--tx)}
+button,input,select,textarea{font-family:'Vazirmatn',sans-serif}
+.app{display:flex;min-height:100vh}
+/* sidebar (right in RTL) */
+aside{width:250px;background:#fff;border-left:1px solid var(--bd);padding:22px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:22px;flex-shrink:0;z-index:30}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px}
+.logo{width:42px;height:42px;border-radius:14px;background:var(--pri);color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px rgba(79,70,229,.3)}
+.brand b{font-size:17px;font-weight:800;display:block}
+.brand small{color:var(--mu);font-size:12px}
+nav{display:flex;flex-direction:column;gap:6px}
+.nav-btn{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;border:0;background:transparent;color:var(--mu);font-size:14.5px;font-weight:500;cursor:pointer;text-align:right;transition:.15s;white-space:nowrap}
+.nav-btn:hover{background:var(--pri-l);color:var(--pri)}
+.nav-btn.active{background:var(--pri);color:#fff;box-shadow:0 8px 18px rgba(79,70,229,.28);font-weight:600}
+.side-note{margin-top:auto;background:var(--pri-l);border-radius:16px;padding:14px;font-size:12.5px;color:var(--pri-d);line-height:1.9}
+.side-note b{display:block;margin-bottom:2px}
+/* main */
+main{flex:1;min-width:0;padding:26px 30px 50px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.top h1{margin:0;font-size:24px;font-weight:800}
+.top p{margin:4px 0 0;color:var(--mu);font-size:13.5px}
+.chip{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:8px 14px;font-size:13px;color:var(--mu);display:flex;gap:8px;align-items:center}
+.page{display:none}.page.active{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* banner */
+.banner{display:none;background:var(--red);color:#fff;border-radius:18px;padding:16px 20px;margin-bottom:20px;gap:14px;align-items:flex-start;box-shadow:0 10px 24px rgba(220,38,38,.28)}
+.banner.show{display:flex}
+.banner .ic{background:rgba(255,255,255,.2);width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}
+.banner b{font-size:15.5px;display:block;margin-bottom:4px}
+.banner ul{margin:0;padding:0 18px 0 0;font-size:13.5px;line-height:2}
+/* cards */
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;box-shadow:0 2px 10px rgba(30,27,75,.03)}
+.card h3{margin:0 0 4px;font-size:16px;font-weight:700}
+.card .sub{color:var(--mu);font-size:12.5px;margin-bottom:14px}
+.grid{display:grid;gap:18px}
+.stats{grid-template-columns:repeat(4,1fr);margin-bottom:18px}
+.stat{display:flex;flex-direction:column;gap:10px}
+.stat .row{display:flex;justify-content:space-between;align-items:center}
+.stat .ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center}
+.stat .num{font-size:30px;font-weight:800;line-height:1}
+.stat .lbl{color:var(--mu);font-size:13.5px}
+.stat.warn .num{color:var(--red)}
+.g2{grid-template-columns:2fr 1fr;margin-bottom:18px}
+.g2e{grid-template-columns:1fr 1fr;margin-bottom:18px}
+/* chart */
+.bars{display:flex;align-items:flex-end;gap:12px;height:200px;padding-top:10px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.bar{width:100%;max-width:46px;border-radius:12px 12px 6px 6px;background:var(--pri-m);transition:height .5s;min-height:6px}
+.bar.today{background:var(--pri)}
+.bar-v{font-size:12px;font-weight:700;color:var(--tx)}
+.bar-l{font-size:11.5px;color:var(--mu)}
+/* donut */
+.donut-wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center}
+.donut{position:relative;width:150px;height:150px}
+.donut .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.donut .c b{font-size:24px;display:block;line-height:1.1}
+.donut .c span{font-size:11.5px;color:var(--mu)}
+.legend{display:flex;flex-direction:column;gap:10px;font-size:13px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-left:8px}
+/* tables */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+th{text-align:right;color:var(--mu);font-weight:500;font-size:12.5px;padding:10px 12px;border-bottom:1px solid var(--bd);white-space:nowrap;background:#FAFAFD}
+th:first-child{border-radius:0 10px 10px 0}th:last-child{border-radius:10px 0 0 10px}
+td{padding:12px;border-bottom:1px solid #F3F4F9;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#FBFBFE}
+.empty{text-align:center;color:var(--mu);padding:26px 10px!important;white-space:normal}
+.badge{display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600}
+.b-g{background:var(--grn-l);color:var(--grn)}
+.b-r{background:var(--red-l);color:var(--red)}
+.b-a{background:var(--amb-l);color:var(--amb)}
+.b-p{background:var(--pri-l);color:var(--pri)}
+.b-n{background:#F3F4F6;color:#4B5563}
+.rank{width:26px;height:26px;border-radius:9px;background:var(--pri-l);color:var(--pri);display:inline-grid;place-items:center;font-weight:700;font-size:12px;margin-left:8px}
+/* overdue card */
+.od{border-color:#FECACA;background:linear-gradient(180deg,#FFF5F5,#fff 60%)}
+.od h3{color:var(--red);display:flex;gap:8px;align-items:center}
+.od-item{display:flex;gap:10px;align-items:center;padding:10px;border-radius:14px;background:#fff;border:1px solid #FEE2E2;margin-bottom:8px}
+.av{width:36px;height:36px;border-radius:50%;background:var(--red-l);color:var(--red);display:grid;place-items:center;font-weight:700;flex-shrink:0}
+.od-item b{font-size:13.5px;display:block}.od-item small{color:var(--mu);font-size:12px}
+.ok-box{text-align:center;padding:20px 8px;color:var(--grn);font-size:13.5px}
+/* forms */
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;align-items:end}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+input,select{width:100%;border:1.5px solid var(--bd);background:#fff;border-radius:12px;padding:11px 14px;font-size:14px;color:var(--tx);outline:none;transition:.15s}
+input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
+input.err,select.err{border-color:var(--red)}
+.errmsg{color:var(--red);font-size:12px;margin-top:5px;min-height:0}
+.btn{border:0;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;transition:.15s;display:inline-flex;gap:8px;align-items:center;justify-content:center;white-space:nowrap}
+.btn-p{background:var(--pri);color:#fff;box-shadow:0 6px 14px rgba(79,70,229,.25)}
+.btn-p:hover{background:var(--pri-d)}
+.btn-s{background:var(--pri-l);color:var(--pri)}.btn-s:hover{background:var(--pri-m)}
+.btn-d{background:var(--red-l);color:var(--red);padding:7px 13px;font-size:13px}.btn-d:hover{background:#FECACA}
+.btn-g{background:var(--grn-l);color:var(--grn);padding:7px 13px;font-size:13px}.btn-g:hover{background:#A7F3D0}
+.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.toolbar .search{position:relative;flex:1;min-width:200px;max-width:380px}
+.toolbar .search input{padding-right:42px}
+.toolbar .search svg{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--mu)}
+.toolbar select{width:auto;min-width:140px}
+.stack{display:flex;flex-direction:column;gap:18px}
+/* student view */
+.hero{background:linear-gradient(135deg,#4F46E5,#6366F1 60%,#818CF8);color:#fff;border-radius:22px;padding:26px;margin-bottom:18px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.hero h2{margin:0 0 6px;font-size:21px;font-weight:800}.hero p{margin:0;opacity:.9;font-size:13.5px;line-height:1.9}
+.hero .who{background:rgba(255,255,255,.16);padding:14px;border-radius:16px;min-width:230px}
+.hero .who label{color:#fff}
+.hero select{border-color:transparent}
+.books{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.bk{display:flex;flex-direction:column;gap:10px;padding:16px}
+.bk .cover{height:96px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:26px}
+.bk h4{margin:0;font-size:15px;font-weight:700}
+.bk .au{font-size:12.5px;color:var(--mu)}
+.bk .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+/* toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,30px);background:#065F46;color:#fff;padding:13px 22px;border-radius:14px;font-size:14px;font-weight:500;opacity:0;pointer-events:none;transition:.3s;z-index:100;box-shadow:0 12px 30px rgba(0,0,0,.2);max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#toast.bad{background:#B91C1C}
+/* responsive */
+@media(max-width:1100px){.g2,.g2e{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .app{flex-direction:column}
+  aside{width:100%;height:auto;position:sticky;top:0;flex-direction:column;gap:10px;padding:10px 12px;border-left:0;border-bottom:1px solid var(--bd)}
+  .logo{width:36px;height:36px;border-radius:12px}
+  .side-note{display:none}
+  nav{flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:2px;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  .nav-btn{padding:9px 14px;font-size:13px;gap:8px;border-radius:12px;flex-shrink:0}
+  main{padding:18px 14px 50px}
+  .stats{grid-template-columns:repeat(2,1fr);gap:12px}
+  .stat .num{font-size:24px}
+  .top h1{font-size:20px}
+  .card{padding:16px;border-radius:18px}
+}
+@media(max-width:480px){
+  .stat .ico{width:38px;height:38px}
+  .bars{gap:6px}
+  .hero{padding:18px}
+  .hero .who{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand">
+      <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div><b>کتابخانه مدرسه</b><small>پنل مدیریت</small></div>
+    </div>
+    <nav id="nav">
+      <button class="nav-btn" data-page="dashboard"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>داشبورد</button>
+      <button class="nav-btn" data-page="students"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>دانش‌آموزان</button>
+      <button class="nav-btn" data-page="books"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>کتاب‌ها</button>
+      <button class="nav-btn" data-page="loans"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>امانت و بازگشت</button>
+      <button class="nav-btn" data-page="student"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>نمای دانش‌آموز</button>
+    </nav>
+    <div class="side-note"><b>راهنمای سریع</b>برای امانت دادن کتاب به بخش «امانت و بازگشت» بروید. دانش‌آموزان از بخش «نمای دانش‌آموز» کتاب رزرو می‌کنند.</div>
+  </aside>
+
+  <main>
+    <div class="banner" id="banner" role="alert">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+      <div><b id="bannerTitle"></b><ul id="bannerList"></ul></div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <section class="page" id="p-dashboard">
+      <div class="top">
+        <div><h1>داشبورد کتابخانه</h1><p>نمای کلی از وضعیت کتاب‌ها، دانش‌آموزان و امانت‌ها</p></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <div class="chip" id="todayChip"></div>
+          <button class="btn btn-p" onclick="go('loans')">+ ثبت امانت جدید</button>
+        </div>
+      </div>
+      <div class="grid stats">
+        <div class="card stat"><div class="row"><div class="ico" style="background:#EEF2FF;color:#4F46E5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div></div><div class="num" id="stBooks">0</div><div class="lbl">کل کتاب‌ها</div></div>
+        <div class="card stat"><div class="row"><div class="ico" style="background:#ECFDF5;color:#059669"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div></div><div class="num" id="stStudents">0</div><div class="lbl">دانش‌آموزان</div></div>
+        <div class="card stat"><div class="row"><div class="ico" style="background:#FEF3C7;color:#D97706"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div></div><div class="num" id="stLoans">0</div><div class="lbl">امانت‌های فعال</div></div>
+        <div class="card stat warn"><div class="row"><div class="ico" style="background:#FEE2E2;color:#DC2626"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div><div class="num" id="stOver">0</div><div class="lbl">امانت‌های معوق</div></div>
+      </div>
+
+      <div class="grid g2">
+        <div class="card"><h3>امانت‌های هفتگی</h3><div class="sub">تعداد امانت‌های ثبت‌شده در ۷ روز گذشته</div><div class="bars" id="bars"></div></div>
+        <div class="card"><h3>وضعیت کتاب‌ها</h3><div class="sub">توزیع موجودی کتابخانه</div>
+          <div class="donut-wrap"><div class="donut" id="donut"></div><div class="legend" id="legend"></div></div>
+        </div>
+      </div>
+
+      <div class="grid g2">
+        <div class="card"><h3>پرامانت‌ترین کتاب‌ها</h3><div class="sub">بر اساس تعداد دفعات امانت</div>
+          <div class="tw"><table><thead><tr><th>کتاب</th><th>نویسنده</th><th>دفعات امانت</th><th>وضعیت</th></tr></thead><tbody id="topBooks"></tbody></table></div>
+        </div>
+        <div class="card od"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>هشدار تأخیر</h3><div class="sub">کتاب‌هایی که باید برگردانده شوند</div><div id="odCard"></div></div>
+      </div>
+
+      <div class="card"><h3>آخرین امانت‌ها</h3><div class="sub">۶ امانت اخیر</div>
+        <div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ امانت</th><th>سررسید</th><th>وضعیت</th></tr></thead><tbody id="recent"></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- STUDENTS -->
+    <section class="page" id="p-students">
+      <div class="top"><div><h1>دانش‌آموزان</h1><p>افزودن، جستجو و حذف دانش‌آموزان</p></div></div>
+      <div class="stack">
+        <div class="card"><h3>افزودن دانش‌آموز جدید</h3><div class="sub">نام و کلاس را وارد کنید</div>
+          <form id="fStudent" class="form" novalidate>
+            <div><label for="sName">نام و نام خانوادگی</label><input id="sName" placeholder="مثلاً: سینا محمدی" autocomplete="off"><div class="errmsg" id="eSName"></div></div>
+            <div><label for="sClass">کلاس</label><select id="sClass"><option value="">انتخاب کلاس…</option><option>هفتم الف</option><option>هفتم ب</option><option>هشتم الف</option><option>هشتم ب</option><option>نهم الف</option><option>نهم ب</option></select><div class="errmsg" id="eSClass"></div></div>
+            <div><button class="btn btn-p" type="submit" style="width:100%">افزودن دانش‌آموز</button><div class="errmsg"></div></div>
+          </form>
+        </div>
+        <div class="card">
+          <div class="toolbar"><div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input id="qStudents" placeholder="جستجوی نام یا کلاس…"></div><span class="badge b-p" id="cntStudents"></span></div>
+          <div class="tw"><table><thead><tr><th>#</th><th>نام و نام خانوادگی</th><th>کلاس</th><th>امانت فعال</th><th>عملیات</th></tr></thead><tbody id="tStudents"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKS -->
+    <section class="page" id="p-books">
+      <div class="top"><div><h1>کتاب‌ها</h1><p>مدیریت موجودی کتابخانه</p></div></div>
+      <div class="stack">
+        <div class="card"><h3>افزودن کتاب جدید</h3><div class="sub">شماره کتاب باید یکتا باشد</div>
+          <form id="fBook" class="form" novalidate>
+            <div><label for="bTitle">عنوان کتاب</label><input id="bTitle" placeholder="مثلاً: بوستان" autocomplete="off"><div class="errmsg" id="eBTitle"></div></div>
+            <div><label for="bAuthor">نویسنده</label><input id="bAuthor" placeholder="مثلاً: سعدی" autocomplete="off"><div class="errmsg" id="eBAuthor"></div></div>
+            <div><label for="bNum">شماره کتاب</label><input id="bNum" inputmode="numeric" placeholder="مثلاً: ۱۰۱۱" autocomplete="off"><div class="errmsg" id="eBNum"></div></div>
+            <div><button class="btn btn-p" type="submit" style="width:100%">افزودن کتاب</button><div class="errmsg"></div></div>
+          </form>
+        </div>
+        <div class="card">
+          <div class="toolbar"><div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input id="qBooks" placeholder="جستجوی عنوان، نویسنده یا شماره…"></div>
+            <select id="fltBooks"><option value="">همه وضعیت‌ها</option><option value="available">موجود</option><option value="loaned">در امانت</option><option value="reserved">رزرو شده</option></select></div>
+          <div class="tw"><table><thead><tr><th>شماره</th><th>عنوان</th><th>نویسنده</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="tBooks"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOANS -->
+    <section class="page" id="p-loans">
+      <div class="top"><div><h1>امانت و بازگشت</h1><p>ثبت امانت جدید و دریافت کتاب‌های بازگشتی</p></div></div>
+      <div class="stack">
+        <div class="card"><h3>ثبت امانت جدید</h3><div class="sub">فقط کتاب‌های موجود نمایش داده می‌شوند</div>
+          <form id="fLoan" class="form" novalidate>
+            <div><label for="lStudent">دانش‌آموز</label><select id="lStudent"></select><div class="errmsg" id="eLStudent"></div></div>
+            <div><label for="lBook">کتاب موجود</label><select id="lBook"></select><div class="errmsg" id="eLBook"></div></div>
+            <div><label for="lDue">تاریخ سررسید</label><input type="date" id="lDue"><div class="errmsg" id="eLDue"></div></div>
+            <div><button class="btn btn-p" type="submit" style="width:100%">ثبت امانت</button><div class="errmsg"></div></div>
+          </form>
+        </div>
+        <div class="card"><h3>امانت‌های فعال</h3><div class="sub">با زدن «بازگشت کتاب» کتاب دوباره موجود می‌شود</div>
+          <div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ امانت</th><th>سررسید</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="tLoans"></tbody></table></div>
+        </div>
+        <div class="card"><h3>کتاب‌های رزرو شده</h3><div class="sub">رزروهای دانش‌آموزان؛ در صورت مراجعه می‌توانید کتاب را تحویل دهید</div>
+          <div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ رزرو</th><th>عملیات</th></tr></thead><tbody id="tResAdmin"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDENT VIEW -->
+    <section class="page" id="p-student">
+      <div class="hero">
+        <div><h2>کتاب بعدی‌ات را پیدا کن 📚</h2><p>کتاب مورد نظرت را جستجو کن و از خانه رزرو کن.<br>بعد برای تحویل گرفتن به کتابخانه مدرسه مراجعه کن.</p></div>
+        <div class="who"><label for="whoAmI">من کدام دانش‌آموز هستم؟</label><select id="whoAmI"></select></div>
+      </div>
+      <div class="stack">
+        <div class="card">
+          <div class="toolbar"><div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input id="qStu" placeholder="جستجو بر اساس عنوان، نویسنده یا شماره کتاب…"></div><span class="badge b-p" id="cntStu"></span></div>
+          <div class="grid books" id="bookGrid"></div>
+        </div>
+        <div class="card"><h3>کتاب‌های رزرو شده</h3><div class="sub" id="resSub"></div>
+          <div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>نویسنده</th><th>تاریخ رزرو</th><th>عملیات</th></tr></thead><tbody id="tRes"></tbody></table></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+
+<script>
+/* ---------- helpers ---------- */
+const $ = id => document.getElementById(id);
+const fa = n => Number(n).toLocaleString('fa-IR');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fdate = iso => new Date(iso + 'T00:00:00').toLocaleDateString('fa-IR', {year:'numeric', month:'long', day:'numeric'});
+const toLatin = s => String(s).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).trim();
+const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
+const addDays = (iso, n) => { const d = new Date(iso + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0,10); };
+/* امروز: تاریخ واقعی؛ اگر قبل از تاریخ داده‌های نمونه باشد، تاریخ نمایشی ۲۰۲۶-۱۱-۱۲ استفاده می‌شود تا هشدار تأخیر در اولین اجرا دیده شود */
+const DEMO_DAY = '2026-11-12';
+function today(){
+  const r = new Date();
+  const iso = r.getFullYear() + '-' + String(r.getMonth()+1).padStart(2,'0') + '-' + String(r.getDate()).padStart(2,'0');
+  return iso < '2026-11-11' ? DEMO_DAY : iso;
+}
+let toastT;
+function toast(msg, bad){
+  const t = $('toast'); t.textContent = msg; t.className = 'show' + (bad ? ' bad' : '');
+  clearTimeout(toastT); toastT = setTimeout(() => t.className = '', 3000);
+}
+
+/* ---------- data ---------- */
+const KEY = 'schoolLibrary_v2';
+function seed(){
+  const T = today();
+  const students = [
+    {id:1, name:'علی رضایی', cls:'هفتم الف'},
+    {id:2, name:'مریم احمدی', cls:'هفتم ب'},
+    {id:3, name:'محمدرضا کریمی', cls:'هشتم الف'},
+    {id:4, name:'زهرا حسینی', cls:'هشتم ب'},
+    {id:5, name:'سارا موسوی', cls:'نهم الف'},
+    {id:6, name:'امیرحسین نوری', cls:'نهم ب'},
+    {id:7, name:'نرگس صادقی', cls:'هشتم الف'},
+    {id:8, name:'پارسا جعفری', cls:'هفتم الف'}
+  ];
+  const bk = [
+    ['شازده کوچولو','آنتوان دو سنت‌اگزوپری'],['قصه‌های مجید','هوشنگ مرادی کرمانی'],['دایی‌جان ناپلئون','ایرج پزشکزاد'],
+    ['گلستان سعدی','سعدی شیرازی'],['کلیله و دمنه','نصرالله منشی'],['شاهنامه (بازنویسی برای نوجوانان)','ابوالقاسم فردوسی'],
+    ['سه تفنگدار','الکساندر دوما'],['پیرمرد و دریا','ارنست همینگوی'],['بینوایان','ویکتور هوگو'],['مزرعه حیوانات','جورج اورول']
+  ];
+  const books = bk.map((b,i) => ({id:i+1, title:b[0], author:b[1], num:String(1001+i)}));
+  let loans = [
+    {id:1, studentId:1, bookId:3, start:'2026-10-27', due:'2026-11-10', returned:null},
+    {id:2, studentId:2, bookId:1, start:'2026-11-11', due:'2026-11-25', returned:null},
+    {id:3, studentId:8, bookId:7, start:'2026-11-05', due:'2026-12-03', returned:null}
+  ];
+  // سابقه امانت‌های بازگردانده‌شده (برای نمودار هفتگی و پرامانت‌ها)
+  const hist = [[0,4,5],[0,5,2],[1,6,4],[2,3,6],[2,4,8],[2,2,9],[3,5,10],[4,6,2],[5,3,4],[6,7,5],[6,8,6],[1,4,1]];
+  hist.forEach((h,i) => {
+    const s = addDays(T, -h[0]);
+    loans.push({id:10+i, studentId:h[1], bookId:h[2], start:s, due:addDays(s,14), returned:s});
+  });
+  loans.sort((a,b) => a.id - b.id);
+  return {students, books, loans, reservations:[{id:1, studentId:4, bookId:2, date:T}], nid:{s:9, b:11, l:30, r:2}};
+}
+let DB;
+function load(){ try{ DB = JSON.parse(localStorage.getItem(KEY)); }catch(e){} if(!DB || !DB.students) { DB = seed(); save(); } }
+function save(){ localStorage.setItem(KEY, JSON.stringify(DB)); }
+
+const activeLoans = () => DB.loans.filter(l => !l.returned);
+const student = id => DB.students.find(s => s.id === id);
+const book = id => DB.books.find(b => b.id === id);
+function bookStatus(b){
+  if (activeLoans().some(l => l.bookId === b.id)) return 'loaned';
+  if (DB.reservations.some(r => r.bookId === b.id)) return 'reserved';
+  return 'available';
+}
+const stBadge = s => s === 'available' ? '<span class="badge b-g">موجود</span>' : s === 'loaned' ? '<span class="badge b-a">در امانت</span>' : '<span class="badge b-p">رزرو شده</span>';
+function loanState(l){
+  if (l.returned) return {k:'ret', html:'<span class="badge b-n">بازگردانده شد</span>'};
+  const d = dayDiff(today(), l.due);
+  if (d < 0) return {k:'over', days:-d, html:`<span class="badge b-r">${fa(-d)} روز تأخیر</span>`};
+  if (d === 0) return {k:'over', days:0, html:'<span class="badge b-r">امروز سررسید است</span>'};
+  if (d <= 14) return {k:'soon', html:`<span class="badge b-a">${fa(d)} روز تا سررسید</span>`};
+  return {k:'ok', html:'<span class="badge b-g">در حال امانت</span>'};
+}
+const overdueLoans = () => activeLoans().filter(l => dayDiff(today(), l.due) <= 0).sort((a,b) => a.due.localeCompare(b.due));
+const empty = (cols, msg) => `<tr><td class="empty" colspan="${cols}">${msg}</td></tr>`;
+
+/* ---------- navigation ---------- */
+function go(p){
+  document.querySelectorAll('.page').forEach(x => x.classList.toggle('active', x.id === 'p-' + p));
+  document.querySelectorAll('.nav-btn').forEach(x => x.classList.toggle('active', x.dataset.page === p));
+  history.replaceState(null, '', '#' + p);
+  window.scrollTo({top:0});
+  renderAll();
+}
+$('nav').addEventListener('click', e => { const b = e.target.closest('.nav-btn'); if (b) go(b.dataset.page); });
+
+/* ---------- renderers ---------- */
+function renderBanner(){
+  const ov = overdueLoans(), el = $('banner');
+  if (!ov.length){ el.classList.remove('show'); return; }
+  el.classList.add('show');
+  $('bannerTitle').textContent = `هشدار: ${fa(ov.length)} دانش‌آموز کتاب را در موعد مقرر برنگردانده‌اند!`;
+  $('bannerList').innerHTML = ov.map(l => {
+    const s = student(l.studentId), b = book(l.bookId), st = loanState(l);
+    return `<li><b style="display:inline;font-size:14px">${esc(s.name)}</b> (${esc(s.cls)}) — کتاب «${esc(b.title)}» — سررسید ${fdate(l.due)} ${st.days ? '(' + fa(st.days) + ' روز تأخیر)' : '(امروز)'}</li>`;
+  }).join('');
+}
+
+function renderDashboard(){
+  $('todayChip').innerHTML = '📅 امروز: ' + fdate(today());
+  $('stBooks').textContent = fa(DB.books.length);
+  $('stStudents').textContent = fa(DB.students.length);
+  $('stLoans').textContent = fa(activeLoans().length);
+  $('stOver').textContent = fa(overdueLoans().length);
+
+  // weekly bars
+  const T = today(), days = [];
+  for (let i = 6; i >= 0; i--) days.push(addDays(T, -i));
+  const counts = days.map(d => DB.loans.filter(l => l.start === d).length);
+  const mx = Math.max(...counts, 1);
+  $('bars').innerHTML = days.map((d,i) => {
+    const wd = new Date(d + 'T00:00:00').toLocaleDateString('fa-IR', {weekday:'short'});
+    return `<div class="bar-col"><span class="bar-v">${fa(counts[i])}</span><div class="bar ${i===6?'today':''}" style="height:${counts[i]/mx*78}%" title="${fdate(d)}"></div><span class="bar-l">${wd}</span></div>`;
+  }).join('');
+
+  // donut
+  const st = {available:0, loaned:0, reserved:0};
+  DB.books.forEach(b => st[bookStatus(b)]++);
+  const tot = DB.books.length || 1, C = 2 * Math.PI * 40;
+  const segs = [[st.available,'#4F46E5','موجود'],[st.loaned,'#A5B4FC','در امانت'],[st.reserved,'#F59E0B','رزرو شده']];
+  let off = 0, circles = '';
+  segs.forEach(s => { const len = s[0]/tot*C; if (len > 0) circles += `<circle cx="50" cy="50" r="40" fill="none" stroke="${s[1]}" stroke-width="14" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}"/>`; off += len; });
+  $('donut').innerHTML = `<svg viewBox="0 0 100 100" width="150" height="150" style="transform:rotate(-90deg)"><circle cx="50" cy="50" r="40" fill="none" stroke="#F1F2F8" stroke-width="14"/>${circles}</svg><div class="c"><div><b>${fa(DB.books.length)}</b><span>کتاب</span></div></div>`;
+  $('legend').innerHTML = segs.map(s => `<div><i style="background:${s[1]}"></i>${s[2]}: <b>${fa(s[0])}</b></div>`).join('');
+
+  // top borrowed
+  const cnt = {};
+  DB.loans.forEach(l => cnt[l.bookId] = (cnt[l.bookId] || 0) + 1);
+  const top = DB.books.map(b => ({b, c:cnt[b.id] || 0})).filter(x => x.c).sort((a,b) => b.c - a.c).slice(0,5);
+  $('topBooks').innerHTML = top.length ? top.map((x,i) => `<tr><td><span class="rank">${fa(i+1)}</span>${esc(x.b.title)}</td><td>${esc(x.b.author)}</td><td><b>${fa(x.c)}</b> بار</td><td>${stBadge(bookStatus(x.b))}</td></tr>`).join('') : empty(4,'هنوز امانتی ثبت نشده است.');
+
+  // overdue card
+  const ov = overdueLoans();
+  $('odCard').innerHTML = ov.length ? ov.map(l => {
+    const s = student(l.studentId), b = book(l.bookId), d = loanState(l).days;
+    return `<div class="od-item"><div class="av">${esc(s.name[0])}</div><div style="min-width:0"><b>${esc(s.name)}</b><small>«${esc(b.title)}» — ${d ? fa(d) + ' روز تأخیر' : 'امروز سررسید است'}</small></div></div>`;
+  }).join('') + '<button class="btn btn-s" style="width:100%;margin-top:6px" onclick="go(\'loans\')">رفتن به بازگشت کتاب</button>'
+  : '<div class="ok-box">✅ همه کتاب‌ها سر وقت هستند.</div>';
+
+  // recent
+  const rec = [...DB.loans].sort((a,b) => b.start.localeCompare(a.start) || b.id - a.id).slice(0,6);
+  $('recent').innerHTML = rec.length ? rec.map(l => `<tr><td>${esc(student(l.studentId)?.name || '—')}</td><td>${esc(book(l.bookId)?.title || '—')}</td><td>${fdate(l.start)}</td><td>${fdate(l.due)}</td><td>${loanState(l).html}</td></tr>`).join('') : empty(5,'امانتی وجود ندارد.');
+}
+
+function renderStudents(){
+  const q = $('qStudents').value.trim();
+  const list = DB.students.filter(s => !q || (s.name + ' ' + s.cls).includes(q));
+  $('cntStudents').textContent = fa(list.length) + ' دانش‌آموز';
+  $('tStudents').innerHTML = list.length ? list.map((s,i) => {
+    const n = activeLoans().filter(l => l.studentId === s.id).length;
+    return `<tr><td>${fa(i+1)}</td><td><b>${esc(s.name)}</b></td><td><span class="badge b-p">${esc(s.cls)}</span></td><td>${n ? fa(n) : '—'}</td><td><button class="btn btn-d" onclick="delStudent(${s.id})">حذف</button></td></tr>`;
+  }).join('') : empty(5,'دانش‌آموزی پیدا نشد.');
+}
+function renderBooks(){
+  const q = toLatin($('qBooks').value), f = $('fltBooks').value;
+  const list = DB.books.filter(b => (!q || (b.title + ' ' + b.author + ' ' + b.num + ' ' + fa(b.num).replace(/٬/g,'')).includes(q)) && (!f || bookStatus(b) === f));
+  $('tBooks').innerHTML = list.length ? list.map(b => `<tr><td><b>${fa(b.num).replace(/٬/g,'')}</b></td><td>${esc(b.title)}</td><td>${esc(b.author)}</td><td>${stBadge(bookStatus(b))}</td><td><button class="btn btn-d" onclick="delBook(${b.id})">حذف</button></td></tr>`).join('') : empty(5,'کتابی پیدا نشد.');
+}
+function fillSelect(sel, items, placeholder){
+  const v = sel.value;
+  sel.innerHTML = `<option value="">${placeholder}</option>` + items.map(i => `<option value="${i[0]}">${esc(i[1])}</option>`).join('');
+  if (items.some(i => String(i[0]) === v)) sel.value = v;
+}
+function renderLoans(){
+  fillSelect($('lStudent'), DB.students.map(s => [s.id, s.name + ' — ' + s.cls]), 'انتخاب دانش‌آموز…');
+  fillSelect($('lBook'), DB.books.filter(b => bookStatus(b) === 'available').map(b => [b.id, fa(b.num).replace(/٬/g,'') + ' — ' + b.title]), 'انتخاب کتاب…');
+  if (!$('lDue').value) $('lDue').value = addDays(today(), 14);
+  $('lDue').min = today();
+  const al = [...activeLoans()].sort((a,b) => a.due.localeCompare(b.due));
+  $('tLoans').innerHTML = al.length ? al.map(l => `<tr><td><b>${esc(student(l.studentId).name)}</b></td><td>${esc(book(l.bookId).title)}</td><td>${fdate(l.start)}</td><td>${fdate(l.due)}</td><td>${loanState(l).html}</td><td><button class="btn btn-g" onclick="returnLoan(${l.id})">بازگشت کتاب</button></td></tr>`).join('') : empty(6,'در حال حاضر امانت فعالی وجود ندارد.');
+  $('tResAdmin').innerHTML = DB.reservations.length ? DB.reservations.map(r => `<tr><td><b>${esc(student(r.studentId).name)}</b></td><td>${esc(book(r.bookId).title)}</td><td>${fdate(r.date)}</td><td style="display:flex;gap:6px"><button class="btn btn-g" onclick="lendReserved(${r.id})">تحویل کتاب</button><button class="btn btn-d" onclick="cancelRes(${r.id})">لغو</button></td></tr>`).join('') : empty(4,'رزروی ثبت نشده است.');
+}
+function renderStudentView(){
+  fillSelect($('whoAmI'), DB.students.map(s => [s.id, s.name + ' — ' + s.cls]), 'انتخاب کنید…');
+  const q = toLatin($('qStu').value);
+  const list = DB.books.filter(b => !q || (b.title + ' ' + b.author + ' ' + b.num + ' ' + fa(b.num).replace(/٬/g,'')).includes(q));
+  $('cntStu').textContent = fa(list.length) + ' کتاب';
+  const cols = ['#4F46E5','#0EA5E9','#10B981','#F59E0B','#EC4899','#8B5CF6','#EF4444','#14B8A6'];
+  $('bookGrid').innerHTML = list.length ? list.map(b => {
+    const s = bookStatus(b), c = cols[b.id % cols.length];
+    return `<div class="card bk"><div class="cover" style="background:linear-gradient(135deg,${c},${c}bb)">${esc(b.title[0])}</div><h4>${esc(b.title)}</h4><div class="au">${esc(b.author)} • شماره ${fa(b.num).replace(/٬/g,'')}</div><div class="meta">${stBadge(s)}<button class="btn btn-p" style="padding:8px 16px;font-size:13px" ${s !== 'available' ? 'disabled' : ''} onclick="reserve(${b.id})">${s === 'available' ? 'رزرو کتاب' : s === 'reserved' ? 'رزرو شده' : 'در امانت'}</button></div></div>`;
+  }).join('') : '<div class="empty" style="grid-column:1/-1;color:var(--mu);padding:30px;text-align:center">کتابی با این مشخصات پیدا نشد.</div>';
+
+  const me = +$('whoAmI').value;
+  const rs = me ? DB.reservations.filter(r => r.studentId === me) : DB.reservations;
+  $('resSub').textContent = me ? 'رزروهای شما' : 'برای دیدن رزروهای خودتان، نام‌تان را بالای صفحه انتخاب کنید';
+  $('tRes').innerHTML = rs.length ? rs.map(r => `<tr><td>${esc(student(r.studentId).name)}</td><td><b>${esc(book(r.bookId).title)}</b></td><td>${esc(book(r.bookId).author)}</td><td>${fdate(r.date)}</td><td><button class="btn btn-d" onclick="cancelRes(${r.id})">لغو رزرو</button></td></tr>`).join('') : empty(5,'هنوز کتابی رزرو نشده است.');
+}
+function renderAll(){ renderBanner(); renderDashboard(); renderStudents(); renderBooks(); renderLoans(); renderStudentView(); }
+
+/* ---------- validation helpers ---------- */
+function setErr(inputId, errId, msg){
+  const i = $(inputId), e = $(errId);
+  e.textContent = msg || ''; i.classList.toggle('err', !!msg);
+  return !msg;
+}
+['sName','sClass','bTitle','bAuthor','bNum','lStudent','lBook','lDue'].forEach(id => {
+  const er = {sName:'eSName',sClass:'eSClass',bTitle:'eBTitle',bAuthor:'eBAuthor',bNum:'eBNum',lStudent:'eLStudent',lBook:'eLBook',lDue:'eLDue'}[id];
+  $(id).addEventListener('input', () => setErr(id, er, ''));
+  $(id).addEventListener('change', () => setErr(id, er, ''));
+});
+
+/* ---------- actions ---------- */
+$('fStudent').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('sName').value.trim().replace(/\s+/g,' '), cls = $('sClass').value;
+  let ok = true;
+  if (name.length < 3) ok = setErr('sName','eSName','نام و نام خانوادگی را کامل وارد کنید (حداقل ۳ حرف).') && ok; else setErr('sName','eSName','');
+  if (ok && DB.students.some(s => s.name === name && s.cls === cls)) ok = setErr('sName','eSName','این دانش‌آموز قبلاً در همین کلاس ثبت شده است.');
+  if (!cls) ok = setErr('sClass','eSClass','لطفاً کلاس را انتخاب کنید.') && ok; else setErr('sClass','eSClass','');
+  if (!ok) return toast('لطفاً خطاهای فرم را برطرف کنید.', true);
+  DB.students.push({id:DB.nid.s++, name, cls}); save();
+  e.target.reset(); renderAll(); toast(`دانش‌آموز «${name}» با موفقیت افزوده شد.`);
+});
+function delStudent(id){
+  const s = student(id);
+  if (activeLoans().some(l => l.studentId === id)) return toast(`«${s.name}» کتاب امانتی دارد؛ ابتدا کتاب را بازگردانید.`, true);
+  if (!confirm(`آیا از حذف «${s.name}» مطمئن هستید؟`)) return;
+  DB.students = DB.students.filter(x => x.id !== id);
+  DB.reservations = DB.reservations.filter(r => r.studentId !== id);
+  save(); renderAll(); toast('دانش‌آموز با موفقیت حذف شد.');
+}
+$('fBook').addEventListener('submit', e => {
+  e.preventDefault();
+  const title = $('bTitle').value.trim(), author = $('bAuthor').value.trim(), num = toLatin($('bNum').value);
+  let ok = true;
+  ok = (title.length < 2 ? setErr('bTitle','eBTitle','عنوان کتاب را وارد کنید.') : setErr('bTitle','eBTitle','')) && ok;
+  ok = (author.length < 2 ? setErr('bAuthor','eBAuthor','نام نویسنده را وارد کنید.') : setErr('bAuthor','eBAuthor','')) && ok;
+  if (!/^\d+$/.test(num)) ok = setErr('bNum','eBNum','شماره کتاب باید فقط عدد باشد.') && ok;
+  else if (DB.books.some(b => b.num === num)) ok = setErr('bNum','eBNum','این شماره کتاب قبلاً ثبت شده است.') && ok;
+  else setErr('bNum','eBNum','');
+  if (!ok) return toast('لطفاً خطاهای فرم را برطرف کنید.', true);
+  DB.books.push({id:DB.nid.b++, title, author, num}); save();
+  e.target.reset(); renderAll(); toast(`کتاب «${title}» با موفقیت افزوده شد.`);
+});
+function delBook(id){
+  const b = book(id);
+  if (activeLoans().some(l => l.bookId === id)) return toast(`کتاب «${b.title}» در امانت است؛ ابتدا باید بازگردانده شود.`, true);
+  if (!confirm(`آیا از حذف کتاب «${b.title}» مطمئن هستید؟`)) return;
+  DB.books = DB.books.filter(x => x.id !== id);
+  DB.reservations = DB.reservations.filter(r => r.bookId !== id);
+  save(); renderAll(); toast('کتاب با موفقیت حذف شد.');
+}
+function createLoan(sid, bid, due){
+  DB.loans.push({id:DB.nid.l++, studentId:sid, bookId:bid, start:today(), due, returned:null}); save();
+}
+$('fLoan').addEventListener('submit', e => {
+  e.preventDefault();
+  const sid = +$('lStudent').value, bid = +$('lBook').value, due = $('lDue').value;
+  let ok = true;
+  ok = (!sid ? setErr('lStudent','eLStudent','دانش‌آموز را انتخاب کنید.') : setErr('lStudent','eLStudent','')) && ok;
+  ok = (!bid ? setErr('lBook','eLBook','کتاب را انتخاب کنید.') : setErr('lBook','eLBook','')) && ok;
+  if (!due) ok = setErr('lDue','eLDue','تاریخ سررسید را مشخص کنید.') && ok;
+  else if (due < today()) ok = setErr('lDue','eLDue','تاریخ سررسید نمی‌تواند در گذشته باشد.') && ok;
+  else setErr('lDue','eLDue','');
+  if (!ok) return toast('لطفاً خطاهای فرم را برطرف کنید.', true);
+  if (bookStatus(book(bid)) !== 'available') return toast('این کتاب دیگر موجود نیست.', true);
+  createLoan(sid, bid, due);
+  $('lStudent').value = ''; $('lBook').value = ''; $('lDue').value = addDays(today(), 14);
+  renderAll(); toast(`کتاب «${book(bid).title}» به «${student(sid).name}» امانت داده شد.`);
+});
+function returnLoan(id){
+  const l = DB.loans.find(x => x.id === id); l.returned = today(); save();
+  renderAll(); toast(`کتاب «${book(l.bookId).title}» بازگردانده شد و دوباره موجود است.`);
+}
+function reserve(bid){
+  const me = +$('whoAmI').value;
+  if (!me){ $('whoAmI').focus(); $('whoAmI').scrollIntoView({behavior:'smooth', block:'center'}); return toast('ابتدا نام خود را بالای صفحه انتخاب کنید.', true); }
+  const b = book(bid);
+  if (bookStatus(b) !== 'available') return toast('این کتاب در حال حاضر قابل رزرو نیست.', true);
+  if (DB.reservations.filter(r => r.studentId === me).length >= 3) return toast('حداکثر ۳ کتاب را می‌توانید همزمان رزرو کنید.', true);
+  DB.reservations.push({id:DB.nid.r++, studentId:me, bookId:bid, date:today()}); save();
+  renderAll(); toast(`کتاب «${b.title}» با موفقیت برای شما رزرو شد.`);
+}
+function cancelRes(id){
+  DB.reservations = DB.reservations.filter(r => r.id !== id); save();
+  renderAll(); toast('رزرو لغو شد و کتاب دوباره موجود است.');
+}
+function lendReserved(id){
+  const r = DB.reservations.find(x => x.id === id);
+  DB.reservations = DB.reservations.filter(x => x.id !== id);
+  createLoan(r.studentId, r.bookId, addDays(today(), 14));
+  renderAll(); toast(`کتاب «${book(r.bookId).title}» به «${student(r.studentId).name}» تحویل داده شد (سررسید: ${fdate(addDays(today(),14))}).`);
+}
+
+/* ---------- init ---------- */
+['qStudents','qBooks','fltBooks','qStu','whoAmI'].forEach(id => $(id).addEventListener('input', () => { renderStudents(); renderBooks(); renderStudentView(); }));
+load();
+const start = location.hash.slice(1);
+go(['dashboard','students','books','loans','student'].includes(start) ? start : 'dashboard');
+</script>
+</body>
+</html>

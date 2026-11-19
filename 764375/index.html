@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گالری طلای زرین | خرید آنلاین طلا و جواهر</title>
+<meta name="description" content="گالری طلای زرین؛ خرید آنلاین طلا، جواهر و سکه با ضمانت اصالت، ارسال بیمه‌شده و قیمت لحظه‌ای.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style>
+:root{--ivory:#E5E5D4;--ink:#0B0604;--brown:#4E200E;--tan:#DCC7A6;--gold:#CBAB92;--gold2:#B18E72;--bronze:#956C52;--black:#070606}
+*{font-family:'Vazirmatn',sans-serif!important}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);overflow-x:hidden;line-height:1.9}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+.wrap{max-width:1360px;margin-inline:auto;padding-inline:clamp(16px,4vw,56px)}
+.sec{padding-block:clamp(64px,9vw,140px)}
+.dark{background:var(--black);color:var(--ivory)}
+.brownbg{background:var(--brown);color:var(--ivory)}
+.soft{background:#DCDCC8}
+.eyebrow{font-size:13px;color:var(--bronze);display:inline-flex;align-items:center;gap:12px;font-weight:500}
+.eyebrow::before{content:'';width:36px;height:1px;background:currentColor}
+.dark .eyebrow,.brownbg .eyebrow,.eyebrow.g{color:var(--gold)}
+.h2d{font-weight:500;font-size:clamp(32px,5vw,72px);line-height:1.3}
+.h1d{font-weight:500;font-size:clamp(64px,14vw,240px);line-height:1.08}
+.gold-text{font-weight:500;background:linear-gradient(120deg,#E8D3BC 0%,#CBAB92 40%,#B18E72 70%,#DCC7A6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#D9BDA4,#B18E72);color:var(--black);padding:15px 34px;font-weight:600;font-size:15px;border:1px solid #CBAB92;transition:.3s}
+.btn-gold:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.btn-out{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid currentColor;padding:15px 34px;font-size:15px;transition:.3s}
+.btn-out:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.btn-line{width:100%;border:1px solid rgba(11,6,4,.35);padding:10px 8px;font-size:13px;font-weight:500;transition:.3s;background:transparent}
+.btn-line:hover{background:var(--ink);color:var(--ivory)}
+.btn-ink{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:var(--ivory);padding:15px 34px;font-weight:500;transition:.3s;border:1px solid var(--ink)}
+.btn-ink:hover{background:var(--brown)}
+.lnk{font-size:14px;border-bottom:1px solid currentColor;padding-bottom:3px;white-space:nowrap}
+.lnk:hover{color:var(--bronze)}
+.hair{border-color:rgba(11,6,4,.18)}
+.dark .hair,.brownbg .hair{border-color:rgba(203,171,146,.28)}
+/* price bar */
+.pricebar{background:#120b08;color:var(--gold);font-size:13px;border-bottom:1px solid rgba(203,171,146,.2)}
+.pricebar .row{display:flex;align-items:center;gap:28px;overflow-x:auto;white-space:nowrap;padding-block:9px;scrollbar-width:none}
+.pricebar .row::-webkit-scrollbar{display:none}
+.pb{display:flex;align-items:center;gap:8px}
+.pb span.t{color:#b9a898}
+.pb b{color:#F3E9DC;font-weight:600}
+.up{color:#4ade80}.down{color:#f87171}
+.flash{animation:fl .9s}
+@keyframes fl{0%{background:rgba(203,171,146,.35)}100%{background:transparent}}
+.dot{width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;animation:pl 1.6s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
+/* header */
+#hdr{background:rgba(7,6,6,.96);backdrop-filter:blur(10px);color:var(--ivory);border-bottom:1px solid rgba(203,171,146,.2)}
+.nav a{font-size:14px;padding:14px 4px;position:relative;color:#d9d3c3;transition:.3s}
+.nav a::after{content:'';position:absolute;bottom:8px;right:0;width:0;height:1px;background:var(--gold);transition:.3s}
+.nav a:hover,.nav a.act{color:var(--gold)}
+.nav a:hover::after,.nav a.act::after{width:100%}
+.ibtn{position:relative;align-items:center;gap:8px;border:1px solid rgba(203,171,146,.4);padding:9px 16px;font-size:13px;color:var(--gold);background:transparent;transition:.3s}
+.ibtn:hover{background:var(--gold);color:var(--black)}
+.badge{position:absolute;top:-8px;left:-8px;min-width:20px;height:20px;border-radius:10px;background:var(--gold);color:var(--black);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 5px;line-height:1}
+.sbox{align-items:center;border:1px solid rgba(203,171,146,.35);padding:0 12px;background:rgba(255,255,255,.03)}
+.sbox input{background:transparent;border:0;outline:0;color:var(--ivory);padding:10px 8px;width:100%;font-size:14px}
+.sbox input::placeholder{color:#9b8f80}
+#mmenu{display:none;border-top:1px solid rgba(203,171,146,.2)}
+#mmenu.open{display:block}
+#mmenu a.mi{display:block;padding:13px 0;border-bottom:1px solid rgba(203,171,146,.12);color:#e6dfcf}
+/* hero */
+.hero{position:relative;min-height:min(92vh,880px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;isolation:isolate}
+.hero .bg{position:absolute;inset:0;z-index:-2}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(1.05) contrast(1.05)}
+.hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(to left,rgba(7,6,6,.94) 0%,rgba(7,6,6,.72) 42%,rgba(7,6,6,.2) 100%),linear-gradient(to top,rgba(7,6,6,.95),transparent 40%)}
+@media(max-width:768px){.hero::before{background:linear-gradient(to top,rgba(7,6,6,.96) 10%,rgba(7,6,6,.7) 100%)}}
+.stat{padding:22px 0}
+.stat b{display:block;font-weight:300;font-size:clamp(26px,3vw,42px);color:var(--gold);line-height:1.3}
+/* tiles & cards */
+.ctile{position:relative;display:block;aspect-ratio:3/4.3;overflow:hidden;background:#000;color:var(--ivory)}
+.ctile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1),opacity .4s;opacity:.85}
+.ctile:hover img{transform:scale(1.08);opacity:1}
+.ctile::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,6,6,.88),transparent 55%)}
+.ctile .cnum{position:absolute;top:14px;right:16px;z-index:2;font-size:13px;color:var(--gold)}
+.ctile .cnm{position:absolute;bottom:16px;right:16px;left:16px;z-index:2}
+.ctile .cnm b{display:block;font-weight:300;font-size:clamp(20px,2vw,28px);line-height:1.4}
+.ctile .cnm small{color:var(--gold);font-size:12px}
+.pcard{position:relative;display:flex;flex-direction:column}
+.pimg{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:#17100c}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.pcard:hover .pimg img{transform:scale(1.07)}
+.ptag{position:absolute;top:10px;right:10px;background:var(--black);color:var(--gold);font-size:11px;padding:2px 10px;border:1px solid rgba(203,171,146,.4)}
+.rank{position:absolute;top:6px;left:12px;z-index:2;font-weight:200;font-size:56px;line-height:1;color:rgba(229,229,212,.9);text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.pbody{padding-top:14px;display:flex;flex-direction:column;gap:2px;flex:1}
+.plabel{font-size:11px;color:var(--bronze);font-weight:500}
+.pname{font-size:clamp(14px,1.3vw,17px);font-weight:500;line-height:1.7}
+.pname:hover{color:var(--bronze)}
+.pmeta{font-size:12px;opacity:.65}
+.pprice{font-size:clamp(15px,1.4vw,18px);font-weight:600;margin:6px 0 10px}
+.pprice small{font-size:12px;font-weight:400;opacity:.7}
+.pbody .btn-line{margin-top:auto}
+.dark .plabel{color:var(--gold)}
+/* inputs */
+.fld{width:100%;border:1px solid rgba(11,6,4,.25);background:rgba(255,255,255,.35);padding:12px 14px;font-size:14px;outline:0;transition:.3s;color:var(--ink)}
+.fld:focus{border-color:var(--brown);background:#fff6}
+.dark .fld,.mdl .fld{background:rgba(255,255,255,.04);border-color:rgba(203,171,146,.35);color:var(--ivory)}
+.dark .fld:focus,.mdl .fld:focus{border-color:var(--gold)}
+label.lb{display:block;font-size:13px;margin-bottom:6px;opacity:.8}
+.chip{border:1px solid rgba(11,6,4,.3);padding:6px 16px;font-size:13px;background:transparent;transition:.3s;white-space:nowrap}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+/* faq */
+.fq{border-bottom:1px solid rgba(11,6,4,.18)}
+.dark .fq{border-color:rgba(203,171,146,.25)}
+.fq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:right;padding:22px 0;font-size:clamp(15px,1.5vw,19px);font-weight:500;background:none;border:0;color:inherit}
+.fq .pl{font-size:26px;font-weight:200;transition:.3s;color:var(--bronze);line-height:1}
+.dark .fq .pl{color:var(--gold)}
+.fq.open .pl{transform:rotate(45deg)}
+.fq .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.fq.open .ans{grid-template-rows:1fr}
+.fq .ans>div{overflow:hidden}
+.fq .ans p{padding-bottom:22px;opacity:.8;max-width:760px}
+/* trust */
+.trust{padding:34px 24px;border:1px solid rgba(203,171,146,.28);transition:.4s}
+.trust:hover{background:rgba(203,171,146,.08);border-color:var(--gold)}
+.trust svg{width:40px;height:40px;stroke:var(--gold);fill:none;stroke-width:1.2;margin-bottom:18px}
+/* blog */
+.bcard img{aspect-ratio:3/2;object-fit:cover;width:100%;transition:transform 1s}
+.bcard .im{overflow:hidden;background:#000}
+.bcard:hover img{transform:scale(1.06)}
+/* drawer / modal */
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;opacity:0;pointer-events:none;transition:.3s}
+.ov.open{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:0;bottom:0;left:0;width:min(440px,100%);background:var(--ivory);z-index:70;transform:translateX(-102%);transition:transform .4s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;box-shadow:10px 0 50px rgba(0,0,0,.4)}
+#drawer.open{transform:none}
+.mdl{position:fixed;top:50%;left:50%;width:min(440px,92vw);max-height:92vh;overflow:auto;transform:translate(-50%,-46%);opacity:0;pointer-events:none;transition:.35s;z-index:80;background:#0e0a08;color:var(--ivory);border:1px solid rgba(203,171,146,.4);padding:36px 30px}
+.mdl.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.tabb{flex:1;padding:12px;border:0;border-bottom:1px solid rgba(203,171,146,.3);background:none;color:#9b8f80;font-size:15px}
+.tabb.on{color:var(--gold);border-bottom:2px solid var(--gold)}
+/* chat */
+#chatbtn{position:fixed;bottom:20px;left:20px;z-index:50;background:linear-gradient(135deg,#D9BDA4,#B18E72);color:var(--black);padding:13px 20px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;border-radius:40px;box-shadow:0 8px 30px rgba(0,0,0,.4);border:0}
+#chat{position:fixed;bottom:84px;left:20px;width:min(350px,calc(100vw - 32px));height:460px;max-height:calc(100vh - 110px);background:#0e0a08;color:var(--ivory);border:1px solid rgba(203,171,146,.4);z-index:55;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#chat.open{display:flex}
+#cmsgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:85%;padding:9px 13px;font-size:13px;line-height:1.9}
+.m.b{background:rgba(203,171,146,.14);align-self:flex-start;border-radius:0 12px 12px 12px}
+.m.u{background:var(--gold);color:var(--black);align-self:flex-end;border-radius:12px 0 12px 12px}
+#toasts{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+.toast{background:var(--black);color:var(--gold);border:1px solid var(--gold);padding:11px 22px;font-size:14px;animation:ti .4s;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+@keyframes ti{from{opacity:0;transform:translateY(-12px)}}
+#app>*{animation:fd .6s}
+@keyframes fd{from{opacity:0}}
+/* stepper */
+.stp{display:flex;align-items:center;gap:10px;flex:1;font-size:13px;opacity:.5}
+.stp i{width:34px;height:34px;border:1px solid currentColor;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;flex-shrink:0}
+.stp.on{opacity:1;font-weight:600}.stp.on i{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.stp.done{opacity:1;color:var(--bronze)}.stp.done i{background:var(--bronze);color:#fff;border-color:var(--bronze)}
+.stp .ln{flex:1;height:1px;background:currentColor;opacity:.4;min-width:10px}
+@media(max-width:640px){.stp span{display:none}.stp.on span{display:inline}}
+.qty{display:inline-flex;align-items:center;border:1px solid rgba(11,6,4,.3)}
+.qty button{width:34px;height:34px;background:none;border:0;font-size:18px}
+.qty button:hover{background:rgba(11,6,4,.08)}
+.qty span{min-width:34px;text-align:center;font-weight:500}
+.spec{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(11,6,4,.15);font-size:14px}
+.spec span:first-child{opacity:.65}
+input[type=range]{accent-color:var(--brown)}
+h1,h2,h3,.h1d,.h2d{font-family:'Vazirmatn',sans-serif!important;letter-spacing:0!important;word-spacing:0!important;font-kerning:normal;text-rendering:optimizeLegibility}</style>
+</head>
+<body>
+
+<!-- LIVE PRICE BAR -->
+<div class="pricebar"><div class="wrap row">
+  <span class="pb"><i class="dot"></i><span>زنده</span></span>
+  <div class="pb"><span class="t">قیمت لحظه‌ای طلای ۱۸ عیار</span><b id="v-g18"></b><small>تومان / گرم</small><em id="a-g18" style="font-style:normal"></em></div>
+  <div class="pb"><span class="t">سکه بهار آزادی</span><b id="v-coin"></b><small>تومان</small><em id="a-coin" style="font-style:normal"></em></div>
+  <div class="pb"><span class="t">انس جهانی</span><b id="v-ons"></b><small>دلار</small><em id="a-ons" style="font-style:normal"></em></div>
+  <span class="pb t" style="color:#8f8272;margin-inline-start:auto">آخرین به‌روزرسانی: <span id="v-time"></span></span>
+</div></div>
+
+<!-- HEADER -->
+<header id="hdr" class="sticky top-0 z-40">
+  <div class="wrap">
+    <div class="flex items-center justify-between gap-4 py-3 md:py-4">
+      <button class="inline-flex md:hidden ibtn" style="padding:8px 10px" aria-label="منو" onclick="toggleMenu()"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h16M2 10h16M2 15h16"/></svg></button>
+      <a href="#/" class="flex items-center gap-3" aria-label="گالری طلای زرین">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#CBAB92" stroke-width="1.3"><path d="M20 3 36 15 20 37 4 15z"/><path d="M4 15h32M12 15l8-12 8 12M12 15l8 22 8-22"/></svg>
+        <div class="leading-tight"><div style="font-size:26px;font-weight:700;color:var(--gold)">زرین</div><div style="font-size:11px;opacity:.75">گالری طلا · ZARIN</div></div>
+      </a>
+      <form class="sbox hidden md:flex items-center flex-1" style="max-width:460px" onsubmit="return doSearch(event,'q1')">
+        <svg width="18" height="18" fill="none" stroke="#CBAB92" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="m13 13 4 4"/></svg>
+        <input id="q1" placeholder="جستجوی انگشتر، گردنبند، سکه..." aria-label="جستجو">
+      </form>
+      <div class="flex items-center gap-2 md:gap-3">
+        <button class="ibtn hidden md:inline-flex" id="loginBtn" onclick="openLogin()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="5" r="3.2"/><path d="M1.5 15c.8-3.5 3.3-5 6.5-5s5.7 1.5 6.5 5"/></svg><span id="loginTxt">ورود / ثبت‌نام</span></button>
+        <button class="inline-flex ibtn" aria-label="سبد خرید" onclick="openDrawer()"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h14l-1.3 9.5H3.3zM6 5V4a3 3 0 0 1 6 0v1"/></svg><span class="hidden sm:inline">سبد خرید</span><span class="badge" id="badge">۰</span></button>
+      </div>
+    </div>
+    <nav class="nav hidden md:flex justify-center gap-10 border-t" style="border-color:rgba(203,171,146,.15)" id="nav"></nav>
+  </div>
+  <div id="mmenu"><div class="wrap py-4">
+    <form class="sbox flex mb-3" onsubmit="return doSearch(event,'q2')"><input id="q2" placeholder="جستجو در فروشگاه..." aria-label="جستجو"></form>
+    <div id="mnav"></div>
+    <button class="ibtn flex w-full justify-center mt-4" onclick="toggleMenu();openLogin()">ورود / ثبت‌نام</button>
+  </div></div>
+</header>
+
+<main id="app"></main>
+
+<footer class="dark" style="border-top:1px solid rgba(203,171,146,.2)">
+  <div class="wrap" style="padding-block:clamp(56px,7vw,96px) 28px">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <div style="font-size:36px;font-weight:700;color:var(--gold);line-height:1.3">زرین</div>
+        <p class="mt-3" style="opacity:.7;font-size:14px;max-width:320px">گالری طلای زرین؛ بیش از دو دهه تجربه در ساخت و عرضه طلا و جواهر با عیار تضمین‌شده و طراحی ماندگار.</p>
+        <form class="mt-6 flex" onsubmit="event.preventDefault();toast('عضویت شما در خبرنامه ثبت شد');this.reset()">
+          <input class="fld" required type="email" dir="ltr" placeholder="ایمیل شما" style="border-radius:0">
+          <button class="btn-gold" style="padding:10px 18px;white-space:nowrap">عضویت</button>
+        </form>
+      </div>
+      <div><h4 class="eyebrow mb-5">دسترسی سریع</h4><ul class="grid gap-2" style="font-size:14px;opacity:.85">
+        <li><a href="#/shop">فروشگاه</a></li><li><a href="#/categories">دسته‌بندی‌ها</a></li><li><a href="#/about">درباره ما</a></li><li><a href="#/blog">وبلاگ</a></li><li><a href="#/faq">سوالات متداول</a></li></ul></div>
+      <div><h4 class="eyebrow mb-5">خدمات مشتریان</h4><ul class="grid gap-2" style="font-size:14px;opacity:.85">
+        <li><a href="#/faq">شرایط بازگشت کالا</a></li><li><a href="#/faq">ارسال بیمه‌شده</a></li><li><a href="#/faq">گواهی اصالت</a></li><li><a href="#/cart">پیگیری سفارش</a></li><li><a href="#/contact">تماس با ما</a></li></ul></div>
+      <div><h4 class="eyebrow mb-5">ارتباط با ما</h4><ul class="grid gap-2" style="font-size:14px;opacity:.85">
+        <li>تهران، خیابان سی‌تیر، پاساژ زرین، پلاک ۱۸</li><li>تلفن: ۰۲۱-۹۱۰۰۱۸۱۸</li><li>همه‌روزه ۱۰ تا ۲۰</li>
+        <li class="flex gap-4 mt-2" style="color:var(--gold)"><a href="#/contact">اینستاگرام</a><a href="#/contact">تلگرام</a><a href="#/contact">واتس‌اپ</a></li></ul></div>
+    </div>
+    <div class="mt-14 pt-6 flex flex-wrap justify-between gap-3 border-t hair" style="font-size:12px;opacity:.6">
+      <span>© ۱۴۰۵ گالری طلای زرین. همه حقوق محفوظ است.</span><span>این وب‌سایت نسخه نمایشی است و پرداخت واقعی انجام نمی‌شود.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="ov" id="ovD" onclick="closeAll()"></div>
+<aside id="drawer" aria-label="سبد خرید">
+  <div class="flex items-center justify-between p-5 border-b hair"><h3 style="font-size:20px;font-weight:500">سبد خرید شما</h3><button onclick="closeAll()" aria-label="بستن" style="font-size:28px;background:none;border:0;line-height:1">×</button></div>
+  <div id="dBody" class="flex-1 overflow-auto p-5"></div>
+  <div id="dFoot" class="p-5 border-t hair" style="background:#DCDCC8"></div>
+</aside>
+
+<!-- LOGIN MODAL -->
+<div class="ov" id="ovL" onclick="closeAll()"></div>
+<div class="mdl" id="login" role="dialog" aria-label="ورود و ثبت‌نام">
+  <button onclick="closeAll()" aria-label="بستن" style="position:absolute;top:10px;left:16px;font-size:28px;background:none;border:0;color:var(--gold);line-height:1">×</button>
+  <div class="text-center mb-5"><div style="font-size:30px;font-weight:700;color:var(--gold)">زرین</div><div style="font-size:13px;opacity:.7">به دنیای طلا و جواهر خوش آمدید</div></div>
+  <div id="authForms">
+    <div class="flex mb-6"><button class="tabb on" id="t1" onclick="tab(1)">ورود</button><button class="tabb" id="t2" onclick="tab(2)">ثبت‌نام</button></div>
+    <form id="fLogin" onsubmit="return doAuth(event,0)" class="grid gap-4">
+      <div><label class="lb">شماره موبایل</label><input class="fld" id="lm" dir="ltr" inputmode="numeric" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required></div>
+      <div><label class="lb">رمز عبور</label><input class="fld" id="lp" type="password" dir="ltr" placeholder="حداقل ۶ کاراکتر" required></div>
+      <p id="lerr" class="text-red-400" style="font-size:13px;min-height:20px"></p>
+      <button class="btn-gold w-full">ورود به حساب</button>
+    </form>
+    <form id="fReg" onsubmit="return doAuth(event,1)" class="grid gap-4" style="display:none">
+      <div><label class="lb">نام و نام‌خانوادگی</label><input class="fld" id="rn" placeholder="مثلاً سارا احمدی" required></div>
+      <div><label class="lb">شماره موبایل</label><input class="fld" id="rm" dir="ltr" inputmode="numeric" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required></div>
+      <div><label class="lb">رمز عبور</label><input class="fld" id="rp" type="password" dir="ltr" placeholder="حداقل ۶ کاراکتر" required></div>
+      <p id="rerr" class="text-red-400" style="font-size:13px;min-height:20px"></p>
+      <button class="btn-gold w-full">ساخت حساب کاربری</button>
+    </form>
+  </div>
+  <div id="acct" style="display:none" class="text-center grid gap-4">
+    <div style="font-size:20px" id="acctName"></div><p style="opacity:.7;font-size:14px">شما با موفقیت وارد حساب کاربری خود شده‌اید.</p>
+    <button class="btn-gold" onclick="closeAll();go('/shop')">ادامه خرید</button>
+    <button class="btn-out" onclick="logout()">خروج از حساب</button>
+  </div>
+</div>
+
+<!-- CHAT -->
+<button id="chatbtn" onclick="toggleChat()"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h14v10H9l-4 3v-3H3z"/></svg>پشتیبانی آنلاین</button>
+<div id="chat">
+  <div class="flex items-center justify-between p-4 border-b" style="border-color:rgba(203,171,146,.3)"><div><div style="font-weight:600;color:var(--gold)">پشتیبانی آنلاین زرین</div><div style="font-size:12px;opacity:.7"><i class="dot" style="margin-inline-end:6px"></i>آماده پاسخگویی</div></div><button onclick="toggleChat()" style="background:none;border:0;color:var(--gold);font-size:24px;line-height:1">×</button></div>
+  <div id="cmsgs"></div>
+  <div class="flex flex-wrap gap-2 px-3 pb-2" id="cquick"></div>
+  <form class="flex border-t" style="border-color:rgba(203,171,146,.3)" onsubmit="return chatSend(event)">
+    <input id="cin" class="flex-1" placeholder="پیام خود را بنویسید..." autocomplete="off" style="background:transparent;border:0;outline:0;padding:14px;color:var(--ivory);font-size:14px">
+    <button style="background:none;border:0;color:var(--gold);padding:0 18px;font-weight:600">ارسال</button>
+  </form>
+</div>
+<div id="toasts"></div>
+
+<script>
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const toEn=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const IMG=(id,w=800,h=1000)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${h}`;
+const FB=IMG(24815712,800,1000);
+const imgErr=el=>{el.onerror=null;el.src=FB};
+const go=p=>{location.hash='#'+p};
+const ld=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+const sv=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;$('#toasts').appendChild(t);setTimeout(()=>t.remove(),2800)}
+const arrow='<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8H3M7 4 3 8l4 4"/></svg>';
+
+/* ---------- data ---------- */
+const G18=24120000;
+const CATS={
+ ring:{n:'انگشتر',img:15967464},necklace:{n:'گردنبند',img:28976815},bracelet:{n:'دستبند',img:37401770},
+ earring:{n:'گوشواره',img:36823005},coin:{n:'سکه طلا',img:19673920},set:{n:'نیم‌ست',img:29503017}};
+// id,cat,name,img,weight,ayar,wage%,stock,sold,fixedPrice,tag
+const P=[
+ [1,'ring','انگشتر طلای ۱۸ عیار نگین‌دار',6438667,4.2,18,18,7,86,0,'پیشنهاد ویژه'],
+ [2,'ring','انگشتر طلای طرح مار',15728016,3.6,18,20,5,41,0,''],
+ [3,'ring','حلقه ازدواج طلای کلاسیک',9080072,5.1,18,15,14,152,0,'پرفروش'],
+ [4,'necklace','گردنبند طلای ظریف',4735888,2.8,18,20,9,97,0,''],
+ [5,'necklace','گردنبند طلای آویز گل',29736434,3.4,18,22,6,64,0,'جدید'],
+ [6,'necklace','گردنبند طلای پلاک سکه‌ای',4295007,6.2,18,16,4,58,0,''],
+ [7,'necklace','گردنبند طلا با آویز برگ',13292955,3.1,18,21,8,73,0,''],
+ [8,'bracelet','دستبند طلای بافت',34399145,4.6,18,17,10,112,0,'پرفروش'],
+ [9,'bracelet','النگوی طلای طرح سنتی',37485307,12.4,18,12,3,129,0,''],
+ [10,'bracelet','دستبند طلای زنجیری ظریف',14509641,3.3,18,19,12,48,0,'جدید'],
+ [11,'earring','گوشواره طلای مروارید',11790271,2.9,18,20,11,121,0,'پرفروش'],
+ [12,'earring','گوشواره طلای قلب نگین‌دار',31605846,3.7,18,22,6,67,0,''],
+ [13,'coin','سکه تمام بهار آزادی',8442324,8.133,21.6,0,25,240,236500000,'پرفروش'],
+ [14,'coin','نیم‌سکه بهار آزادی',8442429,4.066,21.6,0,18,95,119000000,''],
+ [15,'set','نیم‌ست طلای عروس',29503018,18.5,18,14,2,76,0,'محدود']
+].map(a=>({id:a[0],cat:a[1],name:a[2],img:a[3],w:a[4],ayar:a[5],wage:a[6],stock:a[7],sold:a[8],tag:a[10],
+ price:a[9]||Math.round(a[4]*G18*(1+a[6]/100)/10000)*10000}));
+const BLOG=[
+ [1,'راهنمای خرید','۱۲ دی ۱۴۰۴','۶ دقیقه',32610505,'راهنمای خرید طلا؛ ۷ نکته مهم پیش از پرداخت','اگر برای اولین‌بار قصد خرید طلا دارید، این نکته‌ها شما را از اشتباهات رایج دور نگه می‌دارد.',
+  ['پیش از خرید، قیمت روز هر گرم طلای ۱۸ عیار را از منابع معتبر بررسی کنید و آن را با فاکتور فروشگاه مقایسه کنید. اختلاف قیمت اصلی معمولاً از اجرت ساخت و سود فروشنده می‌آید.','حتماً فاکتور رسمی با ذکر وزن، عیار و اجرت دریافت کنید و گواهی اصالت را همراه جنس نگه دارید. این دو سند هنگام فروش مجدد یا تعویض بسیار کارآمد هستند.']],
+ [2,'آموزش','۲۸ آذر ۱۴۰۴','۵ دقیقه',5737286,'عیار طلا چیست و چگونه آن را تشخیص دهیم؟','عیار ۱۸ یعنی چه و تفاوت آن با ۲۴ عیار در چیست؟ پاسخ این پرسش‌ها را ساده بخوانید.',
+  ['عیار نشان‌دهنده خلوص طلاست. طلای ۲۴ عیار خالص است و طلای ۱۸ عیار شامل ۷۵ درصد طلا و ۲۵ درصد فلزات دیگر مانند مس و نقره است که استحکام آن را برای ساخت جواهر بالا می‌برد.','مهر عیار و نشان سازنده روی قطعه، مهم‌ترین نشانه اصالت است. برای اطمینان بیشتر می‌توانید قطعه را به آزمایشگاه معتبر ببرید.']],
+ [3,'اقتصاد طلا','۱۵ آذر ۱۴۰۴','۷ دقیقه',17261921,'قیمت طلا از چه اجزایی تشکیل می‌شود؟','ارزش طلا، اجرت ساخت، سود فروشنده و مالیات؛ هر کدام چه سهمی در قیمت نهایی دارند؟',
+  ['قیمت نهایی یک قطعه جواهر از چهار بخش ساخته می‌شود: ارزش وزن طلا بر اساس نرخ روز، اجرت ساخت، سود فروشنده و مالیات بر ارزش افزوده که روی اجرت و سود محاسبه می‌شود.','اجرت قطعات دست‌ساز و نگین‌دار بیشتر از قطعات ساده است. در گالری زرین، همه این اجزا به‌صورت شفاف در فاکتور درج می‌شود.']],
+ [4,'نگهداری','۲ آذر ۱۴۰۴','۴ دقیقه',28933799,'نگهداری از جواهرات؛ چگونه برق طلا را حفظ کنیم؟','با چند عادت ساده، جواهرات شما سال‌ها مثل روز اول خواهند درخشید.',
+  ['جواهرات را پیش از استخر، حمام یا استفاده از مواد شوینده در بیاورید. مواد شیمیایی و کلر می‌توانند به سطح طلا و نگین‌ها آسیب بزنند.','برای تمیز کردن از آب ولرم، صابون ملایم و مسواک نرم استفاده کنید و هر قطعه را جداگانه در جعبه یا کیسه مخمل نگه دارید.']],
+ [5,'سرمایه‌گذاری','۱۸ آبان ۱۴۰۴','۶ دقیقه',19590480,'سکه یا شمش؛ کدام انتخاب مناسب‌تر است؟','مزیت‌ها و محدودیت‌های هر کدام را بررسی کرده‌ایم تا انتخاب آگاهانه‌تری داشته باشید.',
+  ['سکه بهار آزادی نقدشوندگی بالایی دارد و در هر زمان به‌سادگی خرید و فروش می‌شود، اما شامل حباب قیمتی هم هست. شمش طلا حباب کمتری دارد و برای سرمایه‌گذاری بلندمدت مناسب است.','اگر هدف شما هدیه یا پس‌انداز کوتاه‌مدت است، سکه گزینه راحت‌تری است؛ برای ذخیره ارزش در بلندمدت، ترکیبی از هر دو توصیه می‌شود.']],
+ [6,'طلای عروس','۱ آبان ۱۴۰۴','۵ دقیقه',9080072,'ترندهای طلای عروس؛ انتخاب نیم‌ست مناسب','از طرح‌های کلاسیک تا مینیمال؛ نیم‌ست عروس خود را با چه معیاری انتخاب کنیم؟',
+  ['نیم‌ست عروس باید هم با سبک لباس و هم با سلیقه شخصی هماهنگ باشد. طرح‌های ظریف و برگ‌دار امسال بیشترین محبوبیت را دارند و برای استفاده روزمره هم مناسب‌اند.','وزن مناسب، اجرت منطقی و امکان تعویض یا بازخرید را پیش از خرید بررسی کنید تا انتخاب شما هم زیبا و هم هوشمندانه باشد.']]
+].map(a=>({id:a[0],cat:a[1],date:a[2],read:a[3],img:a[4],title:a[5],ex:a[6],body:a[7]}));
+const FAQ=[
+ ['چگونه از اصالت طلای خریداری‌شده مطمئن شوم؟','تمام قطعات زرین دارای مهر عیار، نشان سازنده و گواهی اصالت کتبی هستند. همچنین هر سفارش با فاکتور رسمی شامل وزن، عیار و اجرت ارسال می‌شود.'],
+ ['عیار ۱۸ یعنی چه؟','عیار ۱۸ یعنی ۷۵۰ هزارم طلای خالص در آلیاژ وجود دارد؛ به عبارتی ۷۵ درصد طلا و ۲۵ درصد فلزات مکمل برای استحکام بیشتر. این عیار رایج‌ترین انتخاب برای ساخت جواهر است.'],
+ ['قیمت نهایی هر قطعه چگونه محاسبه می‌شود؟','قیمت نهایی از ضرب وزن در قیمت روز هر گرم طلا، به‌علاوه اجرت ساخت، سود فروشنده و مالیات به‌دست می‌آید. نرخ طلا در نوار بالای سایت به‌صورت لحظه‌ای نمایش داده می‌شود.'],
+ ['ارسال سفارش چقدر طول می‌کشد؟','سفارش‌های تهران ظرف ۱ تا ۲ روز کاری و سایر شهرها ظرف ۲ تا ۴ روز کاری با پست پیشتاز بیمه‌شده تحویل داده می‌شود.'],
+ ['آیا مرسوله‌ها بیمه هستند؟','بله، همه مرسوله‌ها تا سقف کامل ارزش کالا بیمه می‌شوند و در بسته‌بندی ضدضربه و مهر و موم‌شده ارسال می‌گردند. کد رهگیری از طریق پیامک برای شما ارسال می‌شود.'],
+ ['شرایط بازگشت کالا چیست؟','تا ۷ روز پس از تحویل، در صورت سالم بودن قطعه و همراه داشتن فاکتور و گواهی اصالت، می‌توانید کالا را بازگردانید یا تعویض کنید.'],
+ ['چه روش‌های پرداختی وجود دارد؟','پرداخت آنلاین از طریق درگاه بانکی، کارت به کارت و برای تهران پرداخت در محل امکان‌پذیر است. تمام تراکنش‌ها با پروتکل امن انجام می‌شود.'],
+ ['آیا امکان بازخرید طلا وجود دارد؟','بله، قطعات خریداری‌شده از زرین با فاکتور معتبر به نرخ روز طلا و با کسر مبلغ ناچیز خدمات، قابل بازخرید هستند.']
+];
+
+/* ---------- live gold price ---------- */
+const L={g18:{v:G18,d:0},coin:{v:238500000,d:0},ons:{v:3342.15,d:0}};
+function renderLive(){
+ for(const k in L){const o=L[k],el=$('#v-'+k),ar=$('#a-'+k);if(!el)continue;
+  el.textContent=k=='ons'?Number(o.v).toLocaleString('fa-IR',{minimumFractionDigits:2,maximumFractionDigits:2}):fa(Math.round(o.v));
+  if(o.d){ar.className=o.d>0?'up':'down';ar.textContent=(o.d>0?'▲ ':'▼ ')+(k=='ons'?Math.abs(o.d).toFixed(2).replace(/\d/g,x=>'۰۱۲۳۴۵۶۷۸۹'[x]):fa(Math.abs(Math.round(o.d))));
+   el.parentElement.classList.remove('flash');void el.offsetWidth;el.parentElement.classList.add('flash')}}
+ $('#v-time').textContent=new Date().toLocaleTimeString('fa-IR');
+ document.querySelectorAll('[data-live]').forEach(e=>e.textContent=fa(Math.round(L[e.dataset.live].v)));
+}
+function tick(){for(const k in L){const o=L[k],c=(Math.random()-.47)*0.0016*o.v;o.d=c;o.v+=c}renderLive()}
+renderLive();setInterval(tick,3000);
+
+/* ---------- cart ---------- */
+let cart=ld('zarin_cart',[]);
+let CK={step:1,coupon:false,ship:{},pay:'online',order:null};
+const calc=()=>{const sub=cart.reduce((s,i)=>s+P.find(p=>p.id==i.id).price*i.q,0);
+ const ship=sub>0&&sub<300000000?250000:0,disc=CK.coupon?Math.round(sub*.05):0;return{sub,ship,disc,total:sub+ship-disc}};
+const count=()=>cart.reduce((s,i)=>s+i.q,0);
+function saveCart(){sv('zarin_cart',cart);$('#badge').textContent=fa(count());renderDrawer();if((location.hash||'').startsWith('#/cart'))route(true)}
+function addCart(id,q=1,open=true){const p=P.find(x=>x.id==id),it=cart.find(i=>i.id==id);
+ const cur=it?it.q:0;if(cur+q>p.stock){toast('موجودی این محصول کافی نیست');return}
+ it?it.q+=q:cart.push({id,q});CK.step==4&&(CK.step=1);saveCart();toast('«'+p.name+'» به سبد خرید افزوده شد');if(open)openDrawer()}
+function setQty(id,d){const it=cart.find(i=>i.id==id),p=P.find(x=>x.id==id);if(!it)return;
+ if(it.q+d>p.stock){toast('حداکثر موجودی: '+fa(p.stock)+' عدد');return}
+ it.q+=d;if(it.q<1)cart=cart.filter(i=>i.id!=id);saveCart()}
+function rmCart(id){cart=cart.filter(i=>i.id!=id);saveCart()}
+function totalsHtml(){const t=calc();return `<div class="grid gap-2" style="font-size:14px">
+ <div class="flex justify-between"><span>جمع اقلام</span><span>${fa(t.sub)} تومان</span></div>
+ <div class="flex justify-between"><span>هزینه ارسال</span><span>${t.ship?fa(t.ship)+' تومان':'رایگان'}</span></div>
+ <div class="flex justify-between"><span>تخفیف${CK.coupon?' (کد زرین۱۰)':''}</span><span class="${t.disc?'up':''}" style="${t.disc?'color:#15803d':''}">${t.disc?'− '+fa(t.disc)+' تومان':'۰ تومان'}</span></div>
+ <div class="flex justify-between pt-3 mt-1 border-t hair" style="font-size:18px;font-weight:700"><span>مبلغ نهایی</span><span>${fa(t.total)} تومان</span></div></div>`}
+function lineItem(i,big){const p=P.find(x=>x.id==i.id);
+ return `<div class="flex gap-4 py-4 border-b hair"><a href="#/product/${p.id}" onclick="closeAll()"><img src="${IMG(p.img,200,240)}" onerror="imgErr(this)" alt="${p.name}" style="width:${big?96:68}px;height:${big?116:82}px;object-fit:cover"></a>
+ <div class="flex-1 min-w-0"><a href="#/product/${p.id}" onclick="closeAll()" style="font-weight:500;font-size:14px">${p.name}</a><div style="font-size:12px;opacity:.65">${fa(p.w)} گرم · عیار ${fa(p.ayar)}</div>
+ <div class="flex items-center justify-between mt-2 flex-wrap gap-2"><div class="qty"><button onclick="setQty(${p.id},-1)" aria-label="کم">−</button><span>${fa(i.q)}</span><button onclick="setQty(${p.id},1)" aria-label="زیاد">+</button></div>
+ <b style="font-size:14px">${fa(p.price*i.q)} <small style="font-weight:400">تومان</small></b></div>
+ <button onclick="rmCart(${p.id})" style="font-size:12px;color:#b91c1c;background:none;border:0;margin-top:4px">حذف</button></div></div>`}
+function renderDrawer(){
+ $('#dBody').innerHTML=cart.length?cart.map(i=>lineItem(i)).join(''):`<div class="text-center py-16"><div style="font-size:48px;opacity:.4">◇</div><p class="mt-3" style="opacity:.7">سبد خرید شما خالی است.</p><a href="#/shop" onclick="closeAll()" class="btn-ink mt-6">مشاهده فروشگاه</a></div>`;
+ $('#dFoot').innerHTML=cart.length?totalsHtml()+`<a href="#/cart" onclick="closeAll()" class="btn-gold w-full mt-4" style="background:var(--ink);color:var(--gold);border-color:var(--ink)">تکمیل سفارش</a><button class="lnk mt-3" onclick="closeAll()">ادامه خرید</button>`:'<p style="font-size:13px;opacity:.6" class="text-center">ارسال رایگان برای سفارش‌های بالای ۳۰۰ میلیون تومان</p>'}
+function openDrawer(){renderDrawer();$('#drawer').classList.add('open');$('#ovD').classList.add('open')}
+function closeAll(){$('#drawer').classList.remove('open');$('#ovD').classList.remove('open');$('#login').classList.remove('open');$('#ovL').classList.remove('open')}
+document.addEventListener('keydown',e=>e.key=='Escape'&&closeAll());
+
+/* ---------- auth ---------- */
+let user=ld('zarin_user',null);
+function syncUser(){$('#loginTxt').textContent=user?user.name:'ورود / ثبت‌نام'}
+function openLogin(){$('#login').classList.add('open');$('#ovL').classList.add('open');
+ $('#authForms').style.display=user?'none':'block';$('#acct').style.display=user?'grid':'none';user&&($('#acctName').textContent='سلام، '+user.name)}
+function tab(n){$('#t1').classList.toggle('on',n==1);$('#t2').classList.toggle('on',n==2);$('#fLogin').style.display=n==1?'grid':'none';$('#fReg').style.display=n==2?'grid':'none'}
+function doAuth(e,reg){e.preventDefault();const m=toEn(reg?$('#rm').value:$('#lm').value).trim(),p=reg?$('#rp').value:$('#lp').value,er=$(reg?'#rerr':'#lerr');
+ if(!/^09\d{9}$/.test(m)){er.textContent='شماره موبایل معتبر نیست (مثال: ۰۹۱۲۱۲۳۴۵۶۷)';return false}
+ if(p.length<6){er.textContent='رمز عبور باید حداقل ۶ کاراکتر باشد';return false}
+ er.textContent='';user={name:reg?$('#rn').value.trim():'کاربر زرین',mobile:m};sv('zarin_user',user);syncUser();closeAll();
+ toast(reg?'ثبت‌نام شما با موفقیت انجام شد':'ورود با موفقیت انجام شد');return false}
+function logout(){user=null;sv('zarin_user',null);syncUser();closeAll();toast('از حساب کاربری خارج شدید')}
+
+/* ---------- nav ---------- */
+const NAV=[['/','خانه'],['/shop','فروشگاه'],['/categories','دسته‌بندی‌ها'],['/about','درباره ما'],['/contact','تماس با ما'],['/blog','وبلاگ'],['/faq','سوالات متداول']];
+$('#nav').innerHTML=NAV.map(n=>`<a href="#${n[0]}" data-p="${n[0].split('/')[1]||''}">${n[1]}</a>`).join('');
+$('#mnav').innerHTML=NAV.map(n=>`<a class="mi" href="#${n[0]}" onclick="toggleMenu()">${n[1]}</a>`).join('');
+function toggleMenu(){$('#mmenu').classList.toggle('open')}
+function doSearch(e,id){e.preventDefault();const v=$('#'+id).value.trim();$('#mmenu').classList.remove('open');go('/shop'+(v?'?q='+encodeURIComponent(v):''));return false}
+
+/* ---------- components ---------- */
+const secHead=(lab,title,href,lt,dark)=>`<div class="flex flex-wrap items-end justify-between gap-6 mb-10 md:mb-16"><div><span class="eyebrow">${lab}</span><h2 class="h2d mt-4">${title}</h2></div>${href?`<a href="#${href}" class="lnk">${lt}</a>`:''}</div>`;
+const pageHead=(lab,title,sub)=>`<section class="dark" style="padding-block:clamp(56px,8vw,120px)"><div class="wrap"><div class="text-xs mb-6" style="opacity:.6"><a href="#/">خانه</a> / ${title}</div><span class="eyebrow">${lab}</span><h1 class="h2d mt-4" style="font-size:clamp(40px,7vw,104px);font-weight:500;line-height:1.2">${title}</h1>${sub?`<p class="mt-5" style="max-width:620px;opacity:.7">${sub}</p>`:''}</div></section>`;
+const card=(p,rank)=>`<article class="pcard"><a href="#/product/${p.id}" class="pimg">${rank?`<span class="rank">${'۰'+fa(rank)}</span>`:''}<img loading="lazy" src="${IMG(p.img,700,875)}" alt="${p.name}" onerror="imgErr(this)">${p.tag?`<span class="ptag">${p.tag}</span>`:''}</a>
+ <div class="pbody"><div class="plabel">${CATS[p.cat].n}</div><a href="#/product/${p.id}" class="pname">${p.name}</a><div class="pmeta">${fa(p.w)} گرم · عیار ${fa(p.ayar)}</div><div class="pprice">${fa(p.price)} <small>تومان</small></div>
+ <button class="btn-line" onclick="addCart(${p.id})">افزودن به سبد خرید</button></div></article>`;
+const grid=(arr,r)=>`<div class="grid grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-6 gap-y-10">${arr.map((p,i)=>card(p,r?i+1:0)).join('')}</div>`;
+const catTile=(k,i)=>`<a href="#/shop?cat=${k}" class="ctile"><img loading="lazy" src="${IMG(CATS[k].img,500,720)}" alt="${CATS[k].n}" onerror="imgErr(this)"><span class="cnum">${'۰'+fa(i+1)}</span><span class="cnm"><b>${CATS[k].n}</b><small>${fa(P.filter(p=>p.cat==k).length)} محصول</small></span></a>`;
+const faqList=(arr,dark)=>arr.map((f,i)=>`<div class="fq"><button onclick="this.parentElement.classList.toggle('open')" aria-expanded="false"><span>${f[0]}</span><span class="pl">+</span></button><div class="ans"><div><p>${f[1]}</p></div></div></div>`).join('');
+const blogCard=b=>`<a href="#/blog/${b.id}" class="bcard block"><div class="im"><img loading="lazy" src="${IMG(b.img,720,480)}" alt="${b.title}" onerror="imgErr(this)"></div><div class="mt-4 flex gap-3" style="font-size:12px;color:var(--bronze)"><span>${b.cat}</span><span>·</span><span>${b.date}</span></div><h3 class="mt-2" style="font-size:clamp(17px,1.6vw,21px);font-weight:500;line-height:1.7">${b.title}</h3><p class="mt-2" style="font-size:14px;opacity:.7">${b.ex}</p><span class="lnk inline-block mt-3">ادامه مطلب</span></a>`;
+const ICO={shield:'<path d="M20 4 6 9v10c0 9 6 14 14 17 8-3 14-8 14-17V9z"/><path d="m13 20 5 5 9-10"/>',truck:'<path d="M3 10h20v16H3zM23 16h8l5 6v4H23z"/><circle cx="11" cy="29" r="3"/><circle cx="29" cy="29" r="3"/>',ret:'<path d="M8 14h20a6 6 0 0 1 0 12H10"/><path d="m13 8-6 6 6 6"/>',lock:'<rect x="7" y="17" width="26" height="18"/><path d="M13 17v-5a7 7 0 0 1 14 0v5M20 24v4"/>'};
+
+/* ---------- views ---------- */
+function vHome(){
+ const feat=[1,4,8,15,5,11,2,13].map(i=>P.find(p=>p.id==i)),best=[...P].sort((a,b)=>b.sold-a.sold).slice(0,4);
+ return `
+<section class="hero dark">
+ <div class="bg"><img src="${IMG(24815712,1800,1100)}" alt="جواهرات طلا روی مخمل مشکی" onerror="imgErr(this)"></div>
+ <div class="wrap w-full" style="padding-top:clamp(56px,9vw,130px)">
+  <span class="eyebrow">کلکسیون امضای زرین · طلای ۱۸ عیار</span>
+  <h1 class="h1d mt-5">درخشش<br><span class="gold-text">جاودان</span></h1>
+  <p class="mt-7" style="max-width:520px;font-size:clamp(15px,1.4vw,18px);opacity:.8">جواهراتی که برای لحظه‌های ماندگار ساخته شده‌اند؛ طراحی ظریف، طلای خالص و گواهی اصالت برای هر قطعه.</p>
+  <div class="mt-9 flex flex-wrap gap-4"><a href="#/shop" class="btn-gold">مشاهده کلکسیون</a><a href="#/categories" class="btn-out">دسته‌بندی‌ها</a></div>
+ </div>
+ <div class="wrap w-full mt-14"><div class="grid grid-cols-2 md:grid-cols-4 border-t hair">
+  <div class="stat"><b>+۲۵ سال</b><span style="font-size:13px;opacity:.7">تجربه در صنعت طلا</span></div>
+  <div class="stat"><b>+۱۲٬۰۰۰</b><span style="font-size:13px;opacity:.7">مشتری راضی</span></div>
+  <div class="stat"><b>۷۵۰‰</b><span style="font-size:13px;opacity:.7">خلوص طلای ۱۸ عیار</span></div>
+  <div class="stat"><b data-live="g18" style="font-size:clamp(20px,2.2vw,32px);padding-top:8px"></b><span style="font-size:13px;opacity:.7">تومان؛ هر گرم طلای ۱۸ (لحظه‌ای)</span></div>
+ </div></div>
+</section>
+
+<section class="sec"><div class="wrap">
+ ${secHead('۰۱ — مجموعه‌ها','دسته‌بندی‌های زرین','/categories','همه دسته‌بندی‌ها')}
+ <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-5">${Object.keys(CATS).map(catTile).join('')}</div>
+</div></section>
+
+<section class="sec soft" style="padding-top:clamp(56px,7vw,110px)"><div class="wrap">
+ ${secHead('۰۲ — منتخب','محصولات ویژه','/shop','مشاهده فروشگاه')}${grid(feat)}
+</div></section>
+
+<section class="sec dark"><div class="wrap grid gap-12 lg:gap-24 lg:grid-cols-2 items-center">
+ <div style="position:relative"><img loading="lazy" src="${IMG(10944923,1000,1250)}" alt="بانویی با جواهرات طلا" onerror="imgErr(this)" style="width:100%;aspect-ratio:4/5;object-fit:cover"><div style="position:absolute;inset:18px;border:1px solid rgba(203,171,146,.45);pointer-events:none"></div></div>
+ <div><span class="eyebrow">۰۳ — صنعت‌گری</span><h2 class="h2d mt-5">هنر زرگری ایرانی،<br><span class="gold-text">با نگاه امروز</span></h2>
+  <p class="mt-7" style="opacity:.75;max-width:520px">هر قطعه در کارگاه زرین با دست استادکاران ماهر ساخته می‌شود؛ از انتخاب طلای خالص تا صیقل نهایی. ما به سادگی، ظرافت و ماندگاری باور داریم.</p>
+  <div class="grid grid-cols-3 gap-4 mt-10 border-t hair pt-8"><div><b class="gold-text" style="font-size:36px">۱۸</b><div style="font-size:13px;opacity:.7">عیار تضمین‌شده</div></div><div><b class="gold-text" style="font-size:36px">۱۰۰٪</b><div style="font-size:13px;opacity:.7">گواهی اصالت</div></div><div><b class="gold-text" style="font-size:36px">۲۴/۷</b><div style="font-size:13px;opacity:.7">پشتیبانی آنلاین</div></div></div>
+  <a href="#/about" class="btn-gold mt-10">درباره گالری زرین</a></div>
+</div></section>
+
+<section class="sec"><div class="wrap">${secHead('۰۴ — محبوب‌ترین‌ها','پرفروش‌ترین‌ها','/shop?sort=best','مشاهده بیشتر')}${grid(best,1)}</div></section>
+
+<section class="sec brownbg"><div class="wrap">
+ <div class="text-center mb-14"><span class="eyebrow">۰۵ — اطمینان</span><h2 class="h2d mt-4">چرا زرین؟</h2></div>
+ <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">${[['shield','ضمانت اصالت','مهر عیار و گواهی اصالت کتبی برای تمام قطعات.'],['truck','ارسال بیمه‌شده','ارسال سریع به سراسر کشور با بیمه کامل مرسوله.'],['ret','۷ روز بازگشت','تا ۷ روز فرصت بازگشت یا تعویض بدون دغدغه.'],['lock','پرداخت امن','تراکنش‌های رمزنگاری‌شده و درگاه معتبر بانکی.']].map(t=>`<div class="trust text-center"><svg viewBox="0 0 40 40" class="mx-auto">${ICO[t[0]]}</svg><h3 style="font-size:clamp(16px,1.6vw,20px);font-weight:500">${t[1]}</h3><p class="mt-2" style="font-size:13px;opacity:.7">${t[2]}</p></div>`).join('')}</div>
+</div></section>
+
+<section class="sec"><div class="wrap">${secHead('۰۶ — مجله زرین','از وبلاگ زرین','/blog','همه مقالات')}<div class="grid gap-10 md:grid-cols-3">${BLOG.slice(0,3).map(blogCard).join('')}</div></div></section>
+
+<section class="sec dark"><div class="wrap grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+ <div><span class="eyebrow">۰۷ — پرسش‌ها</span><h2 class="h2d mt-4">سوالات<br><span class="gold-text">متداول</span></h2><p class="mt-6" style="opacity:.7;max-width:360px">پاسخ رایج‌ترین پرسش‌ها درباره خرید طلا، عیار، ارسال و بازگشت کالا.</p><a href="#/faq" class="btn-out mt-8">مشاهده همه سوالات</a></div>
+ <div>${faqList(FAQ.slice(0,4))}</div>
+</div></section>`}
+
+/* shop */
+let S={cat:'all',q:'',range:'all',sort:'def'};
+const RANGES={all:['همه قیمت‌ها',0,1e12],r1:['تا ۱۰۰ میلیون تومان',0,1e8],r2:['۱۰۰ تا ۲۵۰ میلیون',1e8,2.5e8],r3:['۲۵۰ تا ۵۰۰ میلیون',2.5e8,5e8],r4:['بیش از ۵۰۰ میلیون',5e8,1e12]};
+const SORTS={def:'پیش‌فرض',best:'پرفروش‌ترین',pa:'ارزان‌ترین',pd:'گران‌ترین',wd:'سنگین‌ترین وزن'};
+function filtered(){const r=RANGES[S.range],q=S.q.trim();
+ let a=P.filter(p=>(S.cat=='all'||p.cat==S.cat)&&p.price>=r[1]&&p.price<r[2]&&(!q||(p.name+CATS[p.cat].n).includes(q)));
+ const f={best:(x,y)=>y.sold-x.sold,pa:(x,y)=>x.price-y.price,pd:(x,y)=>y.price-x.price,wd:(x,y)=>y.w-x.w}[S.sort];f&&a.sort(f);return a}
+function shopUpdate(){const a=filtered();$('#sgrid').innerHTML=a.length?grid(a):`<div class="text-center py-20"><div style="font-size:48px;opacity:.4">◇</div><p class="mt-3" style="opacity:.7">محصولی با این فیلتر پیدا نشد.</p><button class="btn-ink mt-6" onclick="S={cat:'all',q:'',range:'all',sort:'def'};route(true)">حذف فیلترها</button></div>`;
+ $('#scount').textContent=fa(a.length)+' محصول';document.querySelectorAll('.chip[data-c]').forEach(c=>c.classList.toggle('on',c.dataset.c==S.cat))}
+function vShop(){return pageHead('فروشگاه','فروشگاه طلا و جواهر','طلای ۱۸ عیار با اجرت شفاف، گواهی اصالت و ارسال بیمه‌شده.')+`
+<section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap">
+ <div class="flex flex-wrap gap-2 mb-6"><button class="chip" data-c="all" onclick="S.cat='all';shopUpdate()">همه</button>${Object.keys(CATS).map(k=>`<button class="chip" data-c="${k}" onclick="S.cat='${k}';shopUpdate()">${CATS[k].n}</button>`).join('')}</div>
+ <div class="grid gap-3 md:grid-cols-[1.4fr_1fr_1fr_auto] items-end pb-6 mb-10 border-b hair">
+  <div><label class="lb">جستجو</label><input class="fld" value="${S.q}" placeholder="نام محصول..." oninput="S.q=this.value;shopUpdate()"></div>
+  <div><label class="lb">محدوده قیمت</label><select class="fld" onchange="S.range=this.value;shopUpdate()">${Object.keys(RANGES).map(k=>`<option value="${k}" ${S.range==k?'selected':''}>${RANGES[k][0]}</option>`).join('')}</select></div>
+  <div><label class="lb">مرتب‌سازی</label><select class="fld" onchange="S.sort=this.value;shopUpdate()">${Object.keys(SORTS).map(k=>`<option value="${k}" ${S.sort==k?'selected':''}>${SORTS[k]}</option>`).join('')}</select></div>
+  <div style="opacity:.7;font-size:14px;padding-bottom:12px" id="scount"></div>
+ </div>
+ <div id="sgrid"></div></div></section>`}
+
+function vProduct(id){const p=P.find(x=>x.id==id);if(!p)return v404();
+ const rel=[...P.filter(x=>x.cat==p.cat&&x.id!=p.id),...P.filter(x=>x.cat!=p.cat&&x.id!=p.id)].slice(0,4);
+ const gv=Math.round(p.w*G18/10000)*10000;
+ return `<section class="sec" style="padding-top:clamp(28px,4vw,56px)"><div class="wrap">
+ <div class="text-xs mb-8" style="opacity:.65"><a href="#/">خانه</a> / <a href="#/shop">فروشگاه</a> / <a href="#/shop?cat=${p.cat}">${CATS[p.cat].n}</a> / ${p.name}</div>
+ <div class="grid gap-10 lg:gap-20 lg:grid-cols-2">
+  <div style="background:var(--black);position:relative;overflow:hidden"><img src="${IMG(p.img,1000,1250)}" alt="${p.name}" onerror="imgErr(this)" style="width:100%;aspect-ratio:4/5;object-fit:cover">${p.tag?`<span class="ptag" style="font-size:12px">${p.tag}</span>`:''}</div>
+  <div class="lg:sticky lg:top-40 self-start">
+   <span class="eyebrow">${CATS[p.cat].n} · کد ${'ZR-'+fa(1000+p.id)}</span>
+   <h1 class="mt-4" style="font-size:clamp(28px,3.6vw,52px);font-weight:500;line-height:1.4">${p.name}</h1>
+   <div class="mt-5" style="font-size:clamp(24px,2.6vw,36px);font-weight:600">${fa(p.price)} <small style="font-size:15px;font-weight:400">تومان</small></div>
+   <div class="mt-6 border-t hair">
+    <div class="spec"><span>وزن</span><span>${fa(p.w)} گرم</span></div>
+    <div class="spec"><span>عیار</span><span>${fa(p.ayar)}${p.ayar==21.6?' (۹۰۰ هزارم)':' (۷۵۰ هزارم)'}</span></div>
+    <div class="spec"><span>اجرت ساخت</span><span>${p.wage?fa(p.wage)+'٪ — '+fa(Math.round(p.w*G18*p.wage/100/10000)*10000)+' تومان':'بدون اجرت (سکه رایج)'}</span></div>
+    ${p.wage?`<div class="spec"><span>ارزش طلای قطعه (بر اساس نرخ روز)</span><span>${fa(gv)} تومان</span></div>`:''}
+    <div class="spec"><span>موجودی</span><span style="color:${p.stock<5?'#b91c1c':'#15803d'};font-weight:500">${p.stock<5?'تنها '+fa(p.stock)+' عدد باقی مانده':'موجود در انبار ('+fa(p.stock)+' عدد)'}</span></div>
+   </div>
+   <div class="flex flex-wrap items-center gap-4 mt-8"><div class="qty"><button onclick="pq(-1)" aria-label="کم">−</button><span id="pqv">۱</span><button onclick="pq(1,${p.stock})" aria-label="زیاد">+</button></div>
+    <button class="btn-ink flex-1" style="min-width:200px" onclick="addCart(${p.id},PQ)">افزودن به سبد خرید</button></div>
+   <button class="btn-out w-full mt-3" onclick="addCart(${p.id},PQ,false);go('/cart')">خرید سریع و تسویه حساب</button>
+   <div class="grid grid-cols-3 gap-3 mt-8 text-center" style="font-size:12px"><div class="p-3 border hair">گواهی اصالت</div><div class="p-3 border hair">ارسال بیمه‌شده</div><div class="p-3 border hair">۷ روز بازگشت</div></div>
+   <p class="mt-6" style="font-size:14px;opacity:.75">${p.name} با طلای ${fa(p.ayar)} عیار و دقت بالا در کارگاه زرین ساخته شده است. این قطعه همراه با جعبه اختصاصی، فاکتور رسمی و گواهی اصالت ارسال می‌شود.</p>
+  </div></div>
+ <div class="mt-24">${secHead('محصولات مرتبط','شاید بپسندید','/shop','مشاهده همه')}${grid(rel)}</div>
+</div></section>`}
+let PQ=1;const pq=(d,m=99)=>{PQ=Math.min(m,Math.max(1,PQ+d));$('#pqv').textContent=fa(PQ)};
+
+function vCategories(){return pageHead('مجموعه‌ها','دسته‌بندی‌ها','از انگشتر تا سکه؛ همه آنچه از یک گالری طلا انتظار دارید.')+`<section class="sec"><div class="wrap grid gap-5 sm:grid-cols-2 lg:grid-cols-3">${Object.keys(CATS).map((k,i)=>`<a href="#/shop?cat=${k}" class="ctile" style="aspect-ratio:4/5"><img loading="lazy" src="${IMG(CATS[k].img,800,1000)}" alt="${CATS[k].n}" onerror="imgErr(this)"><span class="cnum">${'۰'+fa(i+1)}</span><span class="cnm"><b style="font-size:clamp(28px,3vw,44px)">${CATS[k].n}</b><small>${fa(P.filter(p=>p.cat==k).length)} محصول · مشاهده مجموعه ←</small></span></a>`).join('')}</div></section>`}
+
+function vAbout(){return pageHead('داستان ما','درباره ما','بیش از دو دهه، یک تعهد: طلای خالص، طراحی ماندگار و اعتماد.')+`
+<section class="sec"><div class="wrap grid gap-12 lg:gap-24 lg:grid-cols-2 items-center">
+ <img src="${IMG(15967466,1000,1250)}" loading="lazy" alt="کارگاه زرین" onerror="imgErr(this)" style="width:100%;aspect-ratio:4/5;object-fit:cover">
+ <div><span class="eyebrow">از سال ۱۳۷۸</span><h2 class="h2d mt-4">از یک کارگاه کوچک<br>تا گالری زرین</h2>
+ <p class="mt-6" style="opacity:.8">گالری طلای زرین کار خود را با یک کارگاه کوچک در بازار طلای تهران آغاز کرد. امروز با تیمی از زرگران ماهر و طراحان جوان، مجموعه‌ای از جواهرات ظریف و ماندگار را به دست علاقه‌مندان می‌رساند.</p>
+ <p class="mt-4" style="opacity:.8">باور ما این است که خرید طلا باید با آرامش و اعتماد کامل انجام شود؛ به همین دلیل قیمت‌ها شفاف، عیارها تضمین‌شده و پشتیبانی همیشه کنارتان است.</p>
+ <a href="#/shop" class="btn-ink mt-8">مشاهده محصولات</a></div></div></section>
+<section class="sec dark"><div class="wrap grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">${[['+۲۵','سال تجربه'],['+۱۲٬۰۰۰','مشتری راضی'],['+۳۰۰','طرح اختصاصی'],['۹۸٪','رضایت از خرید']].map(s=>`<div><b class="gold-text" style="font-size:clamp(40px,5vw,72px)">${s[0]}</b><div style="opacity:.7">${s[1]}</div></div>`).join('')}</div></section>
+<section class="sec"><div class="wrap">${secHead('ارزش‌های ما','آنچه به آن باور داریم')}<div class="grid gap-8 md:grid-cols-3">${[['۰۱','شفافیت','وزن، عیار و اجرت هر قطعه به‌صورت کامل در فاکتور درج می‌شود.'],['۰۲','کیفیت','فقط طلای ۱۸ عیار استاندارد با مهر معتبر و کنترل کیفی چندمرحله‌ای.'],['۰۳','اعتماد','بازگشت ۷ روزه، بازخرید به نرخ روز و پشتیبانی پس از فروش.']].map(v=>`<div class="p-8 border hair"><span style="color:var(--bronze)">${v[0]}</span><h3 class="mt-3" style="font-size:26px;font-weight:300">${v[1]}</h3><p class="mt-3" style="opacity:.75">${v[2]}</p></div>`).join('')}</div></div></section>`}
+
+function vContact(){return pageHead('در تماس باشید','تماس با ما','مشاور زرین آماده پاسخ‌گویی به پرسش‌های شماست.')+`
+<section class="sec"><div class="wrap grid gap-12 lg:gap-20 lg:grid-cols-[1fr_1.2fr]">
+ <div class="grid gap-8 content-start">
+  ${[['نشانی','تهران، خیابان سی‌تیر، پاساژ زرین، طبقه همکف، پلاک ۱۸'],['تلفن','۰۲۱-۹۱۰۰۱۸۱۸ — ۰۲۱-۹۱۰۰۱۸۱۹'],['موبایل / واتس‌اپ','۰۹۱۲-۱۰۰-۱۸۱۸'],['ایمیل','info@zarin-gallery.ir'],['ساعت کاری','همه‌روزه از ۱۰ صبح تا ۸ شب']].map(c=>`<div class="pb-6 border-b hair"><span class="eyebrow">${c[0]}</span><p class="mt-3" style="font-size:18px">${c[1]}</p></div>`).join('')}
+  <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#17100c,#4E200E);color:var(--gold);display:flex;align-items:center;justify-content:center;border:1px solid var(--gold2)"><div class="text-center"><div style="font-size:30px">◈</div><div style="font-size:14px">گالری زرین، سی‌تیر، تهران</div></div></div>
+ </div>
+ <form class="grid gap-5 content-start p-6 md:p-10 border hair" onsubmit="event.preventDefault();toast('پیام شما ارسال شد؛ به‌زودی تماس می‌گیریم');this.reset()">
+  <h2 class="h2d" style="font-size:clamp(26px,3vw,40px)">پیام خود را بنویسید</h2>
+  <div class="grid gap-5 sm:grid-cols-2"><div><label class="lb">نام و نام‌خانوادگی</label><input class="fld" required></div><div><label class="lb">شماره تماس</label><input class="fld" required dir="ltr" inputmode="tel"></div></div>
+  <div><label class="lb">موضوع</label><select class="fld"><option>مشاوره خرید</option><option>پیگیری سفارش</option><option>بازگشت یا تعویض</option><option>همکاری و پیشنهاد</option></select></div>
+  <div><label class="lb">پیام شما</label><textarea class="fld" rows="6" required></textarea></div>
+  <button class="btn-ink">ارسال پیام</button></form>
+</div></section>`}
+
+function vBlog(){return pageHead('مجله زرین','وبلاگ','راهنمای خرید، آموزش و اخبار دنیای طلا و جواهر.')+`<section class="sec"><div class="wrap grid gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">${BLOG.map(blogCard).join('')}</div></section>`}
+function vPost(id){const b=BLOG.find(x=>x.id==id);if(!b)return v404();
+ return `<section class="sec" style="padding-top:clamp(36px,5vw,72px)"><div class="wrap" style="max-width:880px"><div class="text-xs mb-6" style="opacity:.65"><a href="#/">خانه</a> / <a href="#/blog">وبلاگ</a></div>
+ <div style="font-size:13px;color:var(--bronze)">${b.cat} · ${b.date} · ${b.read} مطالعه</div><h1 class="mt-3" style="font-size:clamp(28px,4.4vw,56px);font-weight:500;line-height:1.5">${b.title}</h1>
+ <img src="${IMG(b.img,1200,700)}" alt="${b.title}" onerror="imgErr(this)" class="my-10" style="width:100%;aspect-ratio:16/9;object-fit:cover">
+ <p style="font-size:19px;font-weight:500;margin-bottom:20px">${b.ex}</p>${b.body.map(t=>`<p class="mb-5" style="font-size:17px;opacity:.85">${t}</p>`).join('')}
+ <div class="mt-12 pt-6 border-t hair flex flex-wrap justify-between gap-4"><a href="#/blog" class="lnk">بازگشت به وبلاگ</a><a href="#/shop" class="lnk">مشاهده فروشگاه</a></div></div></section>`}
+
+const vFaq=()=>pageHead('پاسخ پرسش‌ها','سوالات متداول','پاسخ رایج‌ترین پرسش‌ها درباره خرید طلا، عیار، ارسال و بازگشت کالا.')+`<section class="sec"><div class="wrap" style="max-width:920px">${faqList(FAQ)}<div class="mt-14 p-8 border hair text-center"><p style="font-size:18px">پاسخ خود را پیدا نکردید؟</p><div class="mt-5 flex flex-wrap gap-3 justify-center"><a href="#/contact" class="btn-ink">تماس با ما</a><button class="btn-out" onclick="toggleChat(true)">گفتگو با پشتیبانی</button></div></div></div></section>`;
+const v404=()=>`<section class="sec text-center"><div class="wrap"><div class="h1d gold-text" style="color:var(--bronze)">۴۰۴</div><p class="mt-4">صفحه مورد نظر پیدا نشد.</p><a href="#/" class="btn-ink mt-8">بازگشت به خانه</a></div></section>`;
+
+/* cart / checkout */
+const STEPS=['سبد خرید','اطلاعات ارسال','پرداخت','تایید سفارش'];
+const stepper=()=>`<div class="flex items-center gap-2 mb-10">${STEPS.map((s,i)=>`<div class="stp ${CK.step==i+1?'on':CK.step>i+1?'done':''}"><i>${fa(i+1)}</i><span>${s}</span>${i<3?'<div class="ln"></div>':''}</div>`).join('')}</div>`;
+const goStep=n=>{CK.step=n;route(true);window.scrollTo(0,0)};
+function applyCoupon(){const v=toEn($('#cpn').value).replace(/\s/g,'').toLowerCase();if(v=='زرین10'||v=='zarin10'){CK.coupon=true;toast('کد تخفیف ۵٪ اعمال شد');route(true)}else toast('کد تخفیف نامعتبر است')}
+function saveShip(e){e.preventDefault();const f=e.target,g=n=>f[n].value.trim();
+ if(!/^09\d{9}$/.test(toEn(g('mob')))){toast('شماره موبایل معتبر نیست');return false}
+ if(!/^\d{10}$/.test(toEn(g('zip')))){toast('کد پستی باید ۱۰ رقم باشد');return false}
+ CK.ship={name:g('nm'),mob:toEn(g('mob')),city:g('city'),zip:toEn(g('zip')),addr:g('addr')};goStep(3);return false}
+function pay(){const t=calc();CK.order={code:'زرین-'+fa(Math.floor(100000+Math.random()*899999)),t,items:cart.map(i=>({...P.find(p=>p.id==i.id),q:i.q})),ship:CK.ship,pay:CK.pay};
+ cart=[];CK.coupon=false;sv('zarin_cart',cart);$('#badge').textContent=fa(0);renderDrawer();goStep(4)}
+function vCart(){
+ if(CK.step==4&&CK.order)return vDone();
+ if(!cart.length)return pageHead('تسویه حساب','سبد خرید')+`<section class="sec text-center"><div class="wrap"><div style="font-size:56px;opacity:.35">◇</div><p class="mt-3 mb-8" style="font-size:20px">سبد خرید شما خالی است.</p><a href="#/shop" class="btn-ink">شروع خرید</a></div></section>`;
+ const sh=CK.ship||{};let body='';
+ if(CK.step==1)body=`<h2 style="font-size:24px;font-weight:500" class="mb-2">اقلام سبد خرید</h2>${cart.map(i=>lineItem(i,true)).join('')}
+  <div class="flex gap-2 mt-8" style="max-width:420px"><input id="cpn" class="fld" placeholder="کد تخفیف (زرین۱۰)"><button class="btn-ink" style="padding:10px 22px" onclick="applyCoupon()">اعمال</button></div>
+  <div class="mt-8 flex flex-wrap gap-3"><a href="#/shop" class="btn-out" style="color:var(--ink)">ادامه خرید</a><button class="btn-ink" onclick="goStep(2)">ثبت اطلاعات ارسال</button></div>`;
+ if(CK.step==2)body=`<h2 style="font-size:24px;font-weight:500" class="mb-6">اطلاعات ارسال</h2><form onsubmit="return saveShip(event)" class="grid gap-5 sm:grid-cols-2">
+  <div><label class="lb">نام و نام‌خانوادگی گیرنده</label><input class="fld" name="nm" required value="${sh.name||user?.name||''}"></div>
+  <div><label class="lb">شماره موبایل</label><input class="fld" name="mob" required dir="ltr" inputmode="numeric" value="${sh.mob||user?.mobile||''}" placeholder="۰۹۱۲۱۲۳۴۵۶۷"></div>
+  <div><label class="lb">شهر</label><input class="fld" name="city" required value="${sh.city||'تهران'}"></div>
+  <div><label class="lb">کد پستی (۱۰ رقم)</label><input class="fld" name="zip" required dir="ltr" inputmode="numeric" value="${sh.zip||''}"></div>
+  <div class="sm:col-span-2"><label class="lb">نشانی کامل</label><textarea class="fld" name="addr" rows="3" required>${sh.addr||''}</textarea></div>
+  <div class="sm:col-span-2 p-4 border hair" style="font-size:14px">روش ارسال: <b>پست پیشتاز بیمه‌شده</b> — تحویل ۱ تا ۴ روز کاری</div>
+  <div class="sm:col-span-2 flex gap-3"><button type="button" class="btn-out" style="color:var(--ink)" onclick="goStep(1)">بازگشت</button><button class="btn-ink">ادامه و پرداخت</button></div></form>`;
+ if(CK.step==3)body=`<h2 style="font-size:24px;font-weight:500" class="mb-6">روش پرداخت</h2><div class="grid gap-3">${[['online','پرداخت آنلاین (درگاه بانکی)','پرداخت امن با کارت‌های عضو شتاب'],['card','کارت به کارت','شماره کارت پس از ثبت سفارش نمایش داده می‌شود'],['cod','پرداخت در محل','فقط برای شهر تهران']].map(m=>`<label class="flex gap-4 p-5 border hair cursor-pointer" style="${CK.pay==m[0]?'border-color:var(--brown);background:rgba(78,32,14,.06)':''}"><input type="radio" name="pm" ${CK.pay==m[0]?'checked':''} onchange="CK.pay='${m[0]}';route(true)"><div><b>${m[1]}</b><div style="font-size:13px;opacity:.7">${m[2]}</div></div></label>`).join('')}</div>
+  <p class="mt-5 p-4" style="background:rgba(149,108,82,.15);font-size:13px">این یک نسخه نمایشی است؛ هیچ پرداخت واقعی انجام نمی‌شود و اطلاعات کارت دریافت نخواهد شد.</p>
+  <div class="mt-6 flex gap-3"><button class="btn-out" style="color:var(--ink)" onclick="goStep(2)">بازگشت</button><button class="btn-gold" style="background:var(--ink);color:var(--gold);border-color:var(--ink)" onclick="pay()">پرداخت و ثبت سفارش</button></div>`;
+ return pageHead('تسویه حساب','سبد خرید و پرداخت')+`<section class="sec" style="padding-top:clamp(36px,5vw,64px)"><div class="wrap">${stepper()}<div class="grid gap-10 lg:grid-cols-[1.7fr_1fr]"><div>${body}</div>
+ <aside class="p-6 border hair self-start" style="background:#DCDCC8"><h3 style="font-size:20px;font-weight:500" class="mb-5">خلاصه سفارش</h3>${totalsHtml()}${CK.step>1?`<div class="mt-5 pt-4 border-t hair" style="font-size:13px;opacity:.75">${cart.map(i=>P.find(p=>p.id==i.id).name+' × '+fa(i.q)).join('<br>')}</div>`:''}</aside></div></div></section>`}
+function vDone(){const o=CK.order;return pageHead('سفارش شما ثبت شد','تایید سفارش')+`<section class="sec"><div class="wrap" style="max-width:820px"><div class="mb-10">${stepper().replace(/stp (on|done|)/g,'stp done')}</div>
+ <div class="text-center"><div style="width:84px;height:84px;border:1px solid var(--bronze);border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;color:var(--bronze)"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8 21 8 8 16-18"/></svg></div>
+ <h2 class="h2d mt-6" style="font-size:clamp(28px,4vw,48px)">از خرید شما سپاسگزاریم</h2><p class="mt-3" style="opacity:.75">کد پیگیری سفارش: <b style="font-size:20px">${o.code}</b></p></div>
+ <div class="mt-10 p-6 border hair grid gap-3" style="font-size:14px"><div><b>گیرنده:</b> ${o.ship.name} — ${fa(o.ship.mob)}</div><div><b>نشانی:</b> ${o.ship.city}، ${o.ship.addr}</div><div><b>روش پرداخت:</b> ${{online:'پرداخت آنلاین',card:'کارت به کارت',cod:'پرداخت در محل'}[o.pay]}</div>
+ <div class="pt-3 border-t hair">${o.items.map(i=>`<div class="flex justify-between py-1"><span>${i.name} × ${fa(i.q)}</span><span>${fa(i.price*i.q)} تومان</span></div>`).join('')}</div>
+ <div class="flex justify-between pt-3 border-t hair" style="font-size:18px;font-weight:700"><span>مبلغ نهایی</span><span>${fa(o.t.total)} تومان</span></div></div>
+ <div class="mt-8 flex flex-wrap gap-3 justify-center"><a href="#/shop" class="btn-ink">ادامه خرید</a><a href="#/" class="btn-out" style="color:var(--ink)">بازگشت به خانه</a></div></div></section>`}
+
+/* ---------- router ---------- */
+function route(keep){
+ const h=(location.hash||'#/').slice(1),[path,qs]=h.split('?'),seg=path.split('/').filter(Boolean),pr=new URLSearchParams(qs||'');
+ let html,s0=seg[0]||'';
+ if(!keep){closeAll();$('#mmenu').classList.remove('open')}
+ if(s0=='shop'&&!keep)S={cat:pr.get('cat')||'all',q:pr.get('q')||'',range:'all',sort:pr.get('sort')||'def'};
+ if(s0=='product'&&!keep)PQ=1;
+ if(s0=='cart'&&!keep&&CK.step==4&&cart.length)CK.step=1;
+ const R={'':vHome,shop:vShop,categories:vCategories,about:vAbout,contact:vContact,faq:vFaq,cart:vCart};
+ html=s0=='product'?vProduct(seg[1]):s0=='blog'?(seg[1]?vPost(seg[1]):vBlog()):R[s0]?R[s0]():v404();
+ const y=window.scrollY;$('#app').innerHTML=html;
+ if(s0=='shop')shopUpdate();
+ keep?window.scrollTo(0,y):window.scrollTo(0,0);
+ const act=s0=='product'?'shop':s0;document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('act',a.dataset.p==act));
+ document.title=({'':'خانه',shop:'فروشگاه',categories:'دسته‌بندی‌ها',about:'درباره ما',contact:'تماس با ما',blog:'وبلاگ',faq:'سوالات متداول',cart:'سبد خرید',product:(P.find(p=>p.id==seg[1])||{}).name}[s0]||'صفحه یافت نشد')+' | گالری طلای زرین';
+ renderLive();
+}
+window.addEventListener('hashchange',()=>route());
+
+/* ---------- chat ---------- */
+const RP=[[/سلام|درود|وقت بخیر/,'سلام و وقت بخیر! به گالری زرین خوش آمدید. چطور می‌توانم کمکتان کنم؟'],
+ [/قیمت|نرخ|گرم/,'نرخ لحظه‌ای طلای ۱۸ عیار در نوار بالای سایت نمایش داده می‌شود و قیمت هر محصول بر اساس وزن، اجرت و سود محاسبه شده است.'],
+ [/ارسال|پست|تحویل|زمان/,'ارسال در تهران ۱ تا ۲ روز و سایر شهرها ۲ تا ۴ روز کاری است. مرسوله‌ها کاملاً بیمه هستند و برای سفارش‌های بالای ۳۰۰ میلیون تومان ارسال رایگان است.'],
+ [/عیار|اصالت|اصل|گواهی/,'تمام قطعات زرین طلای ۱۸ عیار (۷۵۰) با مهر عیار و گواهی اصالت کتبی ارائه می‌شوند.'],
+ [/بازگشت|مرجوع|برگشت|تعویض/,'تا ۷ روز پس از دریافت، با حفظ فاکتور و گواهی اصالت امکان بازگشت یا تعویض کالا وجود دارد.'],
+ [/پرداخت|کارت|درگاه/,'پرداخت از طریق درگاه بانکی، کارت به کارت و پرداخت در محل (تهران) امکان‌پذیر است.'],
+ [/تخفیف|کد/,'با وارد کردن کد «زرین۱۰» در صفحه سبد خرید، ۵ درصد تخفیف دریافت می‌کنید.'],
+ [/آدرس|نشانی|تلفن|شماره/,'نشانی: تهران، خیابان سی‌تیر، پاساژ زرین، پلاک ۱۸ — تلفن: ۰۲۱-۹۱۰۰۱۸۱۸'],
+ [/ممنون|مرسی|تشکر/,'خواهش می‌کنم! هر زمان سوالی داشتید در خدمتم.']];
+function chatAdd(t,c){const d=document.createElement('div');d.className='m '+c;d.textContent=t;$('#cmsgs').appendChild(d);$('#cmsgs').scrollTop=1e5}
+function chatReply(t){const r=RP.find(x=>x[0].test(t));setTimeout(()=>chatAdd(r?r[1]:'سپاس از پیام شما. برای مشاوره دقیق‌تر با شماره ۰۲۱-۹۱۰۰۱۸۱۸ تماس بگیرید یا از بخش «تماس با ما» پیام بگذارید.','b'),750)}
+function chatSend(e,txt){e&&e.preventDefault();const v=txt||$('#cin').value.trim();if(!v)return false;chatAdd(v,'u');$('#cin').value='';chatReply(v);return false}
+function toggleChat(open){const c=$('#chat');open===true?c.classList.add('open'):c.classList.toggle('open');if(c.classList.contains('open')&&!$('#cmsgs').children.length){chatAdd('سلام! من پشتیبان آنلاین زرین هستم. چه کمکی از من برمی‌آید؟','b')}}
+$('#cquick').innerHTML=['قیمت طلا','زمان ارسال','شرایط بازگشت','گواهی اصالت'].map(q=>`<button class="chip" style="border-color:rgba(203,171,146,.5);color:var(--gold);font-size:12px" onclick="chatSend(null,'${q}')">${q}</button>`).join('');
+
+/* init */
+$('#badge').textContent=fa(count());syncUser();renderDrawer();route();
+</script>
+</body>
+</html>
