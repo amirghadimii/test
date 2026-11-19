@@ -28,7 +28,7 @@ body{
   line-height:1.7;
   -webkit-font-smoothing:antialiased;
 }
-.mono{font-family:"JetBrains Mono","Vazirmatn",monospace;font-feature-settings:"tnum"}
+.mono{font-family:"Vazirmatn",monospace;font-feature-settings:"tnum"}
 button{font-family:inherit;cursor:pointer}
 h1{font-size:clamp(19px,2.4vw,26px);font-weight:800;line-height:1.45}
 h2{font-size:17px;font-weight:800}
