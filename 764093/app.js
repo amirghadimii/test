@@ -269,6 +269,13 @@ function faDigits(s) {
   return String(s).replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d]);
 }
 
+// Normalize Persian/Arabic digits to Latin (card inputs use Persian digits)
+function toEnDigits(s) {
+  return String(s)
+    .replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+    .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+}
+
 function group(n) {
   return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "٬");
 }
@@ -369,45 +376,39 @@ function renderProducts() {
       : "";
 
     const roastDisplay = isEq
-      ? `<span class="card-equip-spec">استاندارد باریستا</span>`
+      ? `<span class="card-equip-spec">استاندارد باریستا · گارانتی سلامت فیزیکی</span>`
       : renderRoastDots(p.roastDots || (p.roast === "light" ? 2 : p.roast === "medium" ? 3 : 5));
 
-    const weightOptionText = isEq
-      ? "تجهیزات تخصصی با گارانتی سلامت فیزیکی"
-      : "بسته ۲۵۰ گرمی زیپ‌کیپ · سوپاپ‌دار (امکان انتخاب ۵۰۰g و ۱kg)";
+    // ref-1 card anatomy: option-selector row on the card itself (weight chips open the modal preset)
+    const weightChips = isEq
+      ? `<span class="card-equip-note">تجهیزات تخصصی دم‌آوری</span>`
+      : [250, 500, 1000].map((w) =>
+          `<button type="button" class="weight-chip" data-view="${p.id}" data-weight="${w}">${w === 1000 ? "۱ کیلوگرم" : faDigits(w) + " گرم"}</button>`
+        ).join("");
 
     return `
       <article class="card">
-        <div class="card-img-wrap">
+        <div class="card-media tint-${p.cat}">
           <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80';">
-          <div class="card-badges-row">
-            ${p.featured ? `<span class="card-featured-pill">پیشنهاد برشت‌کار</span>` : ""}
-            ${roastLabel ? `<span class="card-roast-pill">${roastLabel}</span>` : ""}
-          </div>
+          ${p.featured ? `<span class="card-featured-pill">پیشنهاد برشت‌کار</span>` : ""}
           <span class="card-origin-stamp">${p.origin}</span>
         </div>
-        <div class="card-body">
-          <div class="card-meta-top">
+        <div class="card-main">
+          <div class="card-name-row">
+            <h3 class="card-title">${p.name}</h3>
+            <span class="card-price-wrap">${isEq ? "" : "<small>از</small>"}<strong class="card-price-main">${fmt(p.price)}</strong></span>
+          </div>
+          <div class="card-meta-row">
             <span class="card-cat">${CAT_NAMES[p.cat]}</span>
             <span class="card-score">کاپینگ SCA: ${faDigits(p.cupping)}</span>
+            ${roastLabel ? `<span class="card-roast-name">${roastLabel}</span>` : ""}
           </div>
-          <h3 class="card-title">${p.name}</h3>
-          <p class="card-notes">${p.notes}</p>
-          
-          <div class="card-specs-row">
-            ${roastDisplay}
-          </div>
-
+          <div class="card-specs-row">${roastDisplay}</div>
           <div class="card-tasting-chips">${tastingChips}</div>
-          <div class="card-weight-hint">${weightOptionText}</div>
-
+          <div class="card-weights">${weightChips}</div>
           <div class="card-foot">
-            <div class="card-price-col">
-              <span class="card-price-prefix">${isEq ? "قیمت واحد:" : "شروع قیمت از:"}</span>
-              <strong class="card-price-main">${fmt(p.price)}</strong>
-              <span class="card-installment-sub">یا ۴ قسط ماهانه ${fmt(installmentPrice)}</span>
-            </div>
-            <button class="btn btn-small" data-view="${p.id}" type="button">مشاهده و خرید</button>
+            <span class="card-installment-sub">یا ۴ قسط ماهانه ${fmt(installmentPrice)}</span>
+            <button class="btn btn-small btn-pill" data-view="${p.id}" type="button">مشاهده و خرید</button>
           </div>
         </div>
       </article>`;
@@ -422,14 +423,18 @@ function renderProducts() {
     emptyMsg.hidden = list.length > 0;
   }
 
-  // Attach modal view listeners
-  document.querySelectorAll("[data-view]").forEach((b) =>
-    b.addEventListener("click", () => openModal(Number(b.dataset.view)))
-  );
+  // Attach modal view listeners (weight chips pass a preset weight)
+  document.querySelectorAll("[data-view]").forEach((b) => {
+    if (b.dataset.bound) return;
+    b.dataset.bound = "1";
+    b.addEventListener("click", () =>
+      openModal(Number(b.dataset.view), b.dataset.weight ? Number(b.dataset.weight) : undefined)
+    );
+  });
 }
 
 /* ---------- Product Detail Modal System ---------- */
-function openModal(pid) {
+function openModal(pid, presetWeight) {
   state.modalPid = pid;
   state.modalQty = 1;
   const p = PRODUCTS.find((x) => x.id === pid);
@@ -460,18 +465,19 @@ function openModal(pid) {
   if ($("mRoast")) $("mRoast").textContent = isEq ? "تجهیزات (فاقد برشت)" : ROAST_NAMES[p.roast];
   if ($("mRoastFill")) $("mRoastFill").style.width = isEq ? "0%" : ROAST_LEVEL[p.roast] + "%";
 
-  // Weight block & select sync
+  // Weight block & select sync (preset comes from the card's weight chips)
   const weightSelect = $("mWeight");
   if (weightSelect) {
     weightSelect.disabled = isEq;
-    weightSelect.value = "250";
+    weightSelect.value = (!isEq && presetWeight && WEIGHT_MULT[presetWeight]) ? String(presetWeight) : "250";
   }
   const weightBlock = $("weightBlock");
   if (weightBlock) weightBlock.style.display = isEq ? "none" : "";
 
-  // Reset weight pills to 250g active
+  // Reset weight pills to the effective weight
+  const effectiveWeight = weightSelect ? weightSelect.value : "250";
   document.querySelectorAll(".pill-btn").forEach((pill) => {
-    pill.classList.toggle("active", pill.dataset.weight === "250");
+    pill.classList.toggle("active", pill.dataset.weight === effectiveWeight);
   });
 
   // Grind option
@@ -793,7 +799,7 @@ function doPay() {
   if (errorEl) errorEl.textContent = "";
 
   if (m === "gateway") {
-    const rawNum = ($("cardNum")?.value || "").replace(/\D/g, "");
+    const rawNum = toEnDigits($("cardNum")?.value || "").replace(/\D/g, "");
     if (rawNum.length < 16) {
       if (errorEl) errorEl.textContent = "شماره کارت بانکی باید ۱۶ رقم کامل باشد.";
       return;
@@ -976,7 +982,7 @@ function setupCardFormatter() {
   const input = $("cardNum");
   if (!input) return;
   input.addEventListener("input", (e) => {
-    let val = e.target.value.replace(/\D/g, "");
+    let val = toEnDigits(e.target.value).replace(/\D/g, "");
     if (val.length > 16) val = val.substring(0, 16);
     const parts = [];
     for (let i = 0; i < val.length; i += 4) {
@@ -1042,6 +1048,15 @@ document.addEventListener("DOMContentLoaded", () => {
   renderClub();
   renderWallet();
   setupCardFormatter();
+
+  // Static [data-view] triggers outside the grid (hero mini-card, featured product CTA)
+  document.querySelectorAll("[data-view]").forEach((b) => {
+    if (b.dataset.bound) return;
+    b.dataset.bound = "1";
+    b.addEventListener("click", () =>
+      openModal(Number(b.dataset.view), b.dataset.weight ? Number(b.dataset.weight) : undefined)
+    );
+  });
 
   // Search & Filter Listeners
   ["searchInput", "catFilter", "roastFilter", "sortFilter", "priceRange"].forEach((id) => {
