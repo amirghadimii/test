@@ -8,19 +8,22 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<!-- ANNOUNCEMENT BAR (Packbox-style top strip) -->
+<div class="announce-bar">
+  <span class="announce-check">✓</span>
+  <span data-i18n="stat_warranty">۱۰۰٪ گارانتی کیفیت بازچاپ</span>
+  <span class="announce-sep">·</span>
+  <span data-i18n="stat_langs">۵ زبان میز صادرات</span>
+  <span class="announce-sep">·</span>
+  <span>ISO 12647-2</span>
+</div>
+
 <!-- SITE HEADER -->
 <header class="site-header" id="siteHeader">
-  <div class="cmyk-top-bar" aria-hidden="true">
-    <span class="cmyk-bar-c"></span>
-    <span class="cmyk-bar-m"></span>
-    <span class="cmyk-bar-y"></span>
-    <span class="cmyk-bar-k"></span>
-  </div>
-
   <div class="container header-in">
     <a class="logo" href="#" data-nav="home" aria-label="SabzNegar Print & Packaging Home">
       <div class="logo-mark">
@@ -32,16 +35,6 @@
         <span class="logo-tagline">مجتمع چاپ صنعتی و بسته‌بندی</span>
       </div>
     </a>
-    
-    <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
-      <a href="#" class="nav-link active" data-nav="home" data-i18n="nav_home">خانه</a>
-      <a href="#" class="nav-link" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات و سفارش چاپ</a>
-      <a href="#" class="nav-link" data-nav="articles" data-i18n="nav_articles">راهنمای تخصصی چاپ</a>
-      <a href="#" class="nav-link" data-nav="club" data-i18n="nav_club">باشگاه مشتریان</a>
-      <a href="#" class="nav-link" data-nav="warranty" data-i18n="nav_warranty">پیگیری سفارش و گارانتی</a>
-      <a href="#" class="nav-link" data-nav="about" data-i18n="nav_about">درباره مجتمع</a>
-      <a href="#" class="nav-link" data-nav="contact" data-i18n="nav_contact">تماس با ما</a>
-    </nav>
     
     <div class="header-tools">
       <button class="btn btn-sm btn-outline header-quote-btn" data-nav="contact" data-i18n="nav_quote">استعلام سریع قیمت</button>
@@ -68,37 +61,44 @@
       </button>
     </div>
   </div>
+
+  <div class="container header-nav-row">
+    <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
+          <a href="#" class="nav-link active" data-nav="home" data-i18n="nav_home">خانه</a>
+          <a href="#" class="nav-link" data-nav="home" data-scroll="products" data-i18n="nav_products">محصولات و سفارش چاپ</a>
+          <a href="#" class="nav-link" data-nav="articles" data-i18n="nav_articles">راهنمای تخصصی چاپ</a>
+          <a href="#" class="nav-link" data-nav="club" data-i18n="nav_club">باشگاه مشتریان</a>
+          <a href="#" class="nav-link" data-nav="warranty" data-i18n="nav_warranty">پیگیری سفارش و گارانتی</a>
+          <a href="#" class="nav-link" data-nav="about" data-i18n="nav_about">درباره مجتمع</a>
+          <a href="#" class="nav-link" data-nav="contact" data-i18n="nav_contact">تماس با ما</a>
+        </nav>
+  </div>
 </header>
 
 <main id="mainContent">
   <!-- ==================== HOME VIEW ==================== -->
   <section class="view active" id="view-home">
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION — Packbox-style giant rounded ivory panel -->
     <div class="hero">
-      <div class="hero-bg-wrapper">
-        <img class="hero-bg" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1600&q=80" alt="SabzNegar Industrial Print House" id="heroImg">
-        <div class="hero-gradient"></div>
-        <div class="hero-pattern-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="container hero-content">
-        <div class="hero-grid-split">
-          <div class="hero-text-side">
-            <div class="hero-badge-wrap">
-              <span class="cmyk-dot cmyk-dot-c"></span>
-              <span class="cmyk-dot cmyk-dot-m"></span>
-              <span class="cmyk-dot cmyk-dot-y"></span>
-              <span class="cmyk-dot cmyk-dot-k"></span>
-              <span class="hero-badge" data-i18n="hero_badge">مجتمع تخصصی چاپ افست و بسته‌بندی صادراتی</span>
-            </div>
-            <h1 class="hero-title" data-i18n="hero_title">چاپ و بسته‌بندی مدرن برای برترین برندهای تجاری و صنعتی</h1>
-            <p class="hero-sub" data-i18n="hero_sub">از طراحی ساختاری و قالب‌سازی تا چاپ افست ۵ رنگ هایدلبرگ، سلفون مخملی، طلاکوب و دایکات تمام‌اتوماتیک با پشتیبانی پنج‌زبانه در ایران و بازارهای منطقه‌ای.</p>
-            <div class="hero-cta">
+      <div class="container">
+        <div class="hero-panel">
+          <div class="hero-grid-split">
+            <div class="hero-text-side">
+              <div class="hero-badge-wrap">
+                <span class="hero-badge-mark" aria-hidden="true">⌖</span>
+                <span class="hero-badge" data-i18n="hero_badge">مجتمع تخصصی چاپ افست و بسته‌بندی صادراتی</span>
+              </div>
+              <h1 class="hero-title" data-i18n="hero_title">چاپ و بسته‌بندی مدرن برای برترین برندهای تجاری و صنعتی</h1>
+              <p class="hero-sub" data-i18n="hero_sub">از طراحی ساختاری و قالب‌سازی تا چاپ افست ۵ رنگ هایدلبرگ، سلفون مخملی، طلاکوب و دایکات تمام‌اتوماتیک با پشتیبانی پنج‌زبانه در ایران و بازارهای منطقه‌ای.</p>
+              <div class="hero-cta">
               <a class="btn btn-primary" href="#" data-scroll="products" data-i18n="hero_cta_products">مشاهده کاتالوگ و محصولات</a>
               <a class="btn btn-ghost" href="#" data-nav="contact" data-i18n="hero_cta_contact">درخواست استعلام و مشاوره</a>
             </div>
-          </div>
+            </div>
 
-          <div class="hero-editorial-card">
+            <div class="hero-visual">
+              <img class="hero-visual-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&q=80" alt="SabzNegar Industrial Print House" id="heroImg">
+              <div class="hero-editorial-card">
             <div class="editorial-card-inner">
               <div class="card-reg-mark top-right" aria-hidden="true">⌖</div>
               <div class="card-reg-mark bottom-left" aria-hidden="true">⌖</div>
@@ -135,10 +135,11 @@
                 <span class="proof-verified-badge">✓ ZERO-DEFECT QUALITY</span>
               </div>
             </div>
+            </div>
           </div>
-        </div>
+          </div>
 
-        <div class="hero-features">
+          <div class="hero-features">
           <div class="hf-item">
             <span class="hf-icon">🛡️</span>
             <div>
@@ -170,6 +171,7 @@
         </div>
       </div>
     </div>
+    </div>
 
     <!-- CATEGORIES SECTION (5 MAIN PRINT & PACKAGING CATEGORIES) -->
     <section class="section categories-section" id="categoriesSection">
@@ -197,6 +199,36 @@
 
         <div class="products-grid featured-grid" id="featuredProducts">
           <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO STATS — asymmetric tile grid (reference pattern) -->
+    <section class="section bento-section">
+      <div class="container">
+        <div class="bento-grid">
+          <figure class="bento-tile bento-photo bento-tall">
+            <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=1000&q=80" alt="SabzNegar production floor" loading="lazy">
+          </figure>
+          <div class="bento-tile bento-dark">
+            <span class="bento-big" data-i18n="stat_warranty">۱۰۰٪ گارانتی کیفیت بازچاپ</span>
+            <span class="bento-cap" data-i18n="hf_warranty_sub">تطابق کامل رنگ و خط تا</span>
+          </div>
+          <div class="bento-tile bento-yellow">
+            <span class="bento-big" data-i18n="stat_models">۱۸,۰۰۰ شیت در ساعت</span>
+            <span class="bento-cap" data-i18n="hf_years_sub">تأسیس ۱۳۷۳ · استاندارد ISO 12647-2</span>
+          </div>
+          <div class="bento-tile bento-light">
+            <span class="bento-big" data-i18n="stat_clients">۳,۵۰۰+ مشتری سازمانی</span>
+            <span class="bento-cap" data-i18n="hf_clients_sub">برندهای معتبر و صنایع غذایی</span>
+          </div>
+          <figure class="bento-tile bento-photo">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1000&q=80" alt="SabzNegar print production" loading="lazy">
+          </figure>
+          <div class="bento-tile bento-light">
+            <span class="bento-big" data-i18n="stat_langs">۵ زبان میز صادرات</span>
+            <span class="bento-cap" data-i18n="hf_langs_sub">FA / EN / AR / TR / RU</span>
+          </div>
         </div>
       </div>
     </section>
@@ -254,6 +286,7 @@
     <section class="section home-quote-section" id="homeQuoteSection">
       <div class="container">
         <div class="quote-card-box">
+          <div class="quote-main">
           <div class="quote-card-header">
             <span class="badge" data-i18n="home_quote_badge">محاسبه سریع هزینه</span>
             <h2 class="section-title" data-i18n="home_quote_title">استعلام آنی و مشاوره رایگان چاپ</h2>
@@ -309,6 +342,18 @@
               <p class="fs-code" id="hqTracking">Tracking Code: SN-QUOTE-841920</p>
             </div>
           </form>
+          </div>
+          <aside class="quote-side">
+            <span class="quote-side-mark" aria-hidden="true">⌖</span>
+            <h3 data-i18n="contact_tehran_title">کارخانه و مجتمع مرکزی تهران</h3>
+            <p data-i18n="contact_tehran_addr">تهران، کیلومتر ۱۴ جاده مخصوص کرج، شهرک صنعتی چیتگر، بلوار پژوهش، مجتمع چاپ سبزنگار</p>
+            <div class="quote-side-lines">
+              <p><span>☎</span> <span dir="ltr">+98 21 4455 6677</span></p>
+              <p><span>✉</span> <span dir="ltr">info@sabznegar.example</span></p>
+              <p><span>◷</span> <span data-i18n="hf_years_sub">تأسیس ۱۳۷۳ · استاندارد ISO 12647-2</span></p>
+            </div>
+            <div class="quote-side-strip" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          </aside>
         </div>
       </div>
     </section>
