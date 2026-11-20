@@ -65,6 +65,23 @@ header.site::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3
 .catchip svg{width:18px;height:18px;opacity:.85}
 .catchip:hover{color:#fff;background:rgba(255,255,255,.07)}
 .catchip.on{color:#fff;background:rgba(108,76,241,.28);border-color:rgba(157,123,255,.55)}
+/* mega-menu bar (H4) */
+.catrail{position:relative}
+.catrail .wrap{overflow:visible;flex-wrap:wrap;align-items:center}
+.mega-wrap{position:relative;flex:0 0 auto}
+.mega-trigger{display:flex;align-items:center;gap:9px;white-space:nowrap;background:#fff;color:var(--navy);font-size:.9rem;font-weight:900;padding:9px 17px;border-radius:999px;transition:.22s}
+.mega-trigger svg{width:18px;height:18px}
+.mega-trigger .chev{transition:.25s}
+.mega-wrap:hover .mega-trigger,.mega-wrap:focus-within .mega-trigger{background:#EDE9FF}
+.mega-wrap:hover .mega-trigger .chev,.mega-wrap:focus-within .mega-trigger .chev{transform:rotate(180deg)}
+.mega-panel{position:absolute;top:calc(100% + 10px);right:0;width:min(680px,calc(100vw - 40px));background:#fff;color:var(--ink);border-radius:18px;box-shadow:0 30px 60px rgba(6,10,36,.35);border:1px solid var(--line);padding:20px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;opacity:0;visibility:hidden;transform:translateY(8px);transition:.22s;z-index:80}
+.mega-wrap:hover .mega-panel,.mega-wrap:focus-within .mega-panel{opacity:1;visibility:visible;transform:none}
+.mega-panel h5{font-size:.8rem;font-weight:900;color:var(--vio);margin-bottom:8px;padding-bottom:7px;border-bottom:1.5px dashed var(--line)}
+.mega-panel .mega-link{display:flex;width:100%;text-align:right;align-items:center;gap:8px;color:var(--ink);font-size:.88rem;font-weight:700;padding:7px 9px;border-radius:9px;border:1px solid transparent;background:none}
+.mega-panel .mega-link:hover{background:#F1EDFE;color:#3B1E9E}
+.mega-panel .mega-link.on{background:#F1EDFE;border-color:rgba(108,76,241,.45);color:#3B1E9E}
+.mega-note{grid-column:1/-1;font-size:.78rem;color:var(--mut);border-top:1px solid var(--line);padding-top:10px}
+@media(max-width:640px){.mega-panel{grid-template-columns:1fr 1fr}}
 
 /* ================= HERO ================= */
 .hero{background:radial-gradient(900px 420px at 88% -10%,rgba(25,194,216,.20),transparent 60%),radial-gradient(760px 420px at 6% 110%,rgba(108,76,241,.22),transparent 60%),linear-gradient(180deg,#0A1030,#0D1540);color:#fff;position:relative;overflow:hidden}
@@ -162,7 +179,7 @@ header.site::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3
 
 /* ================= FOOTER ================= */
 footer{background:var(--navy);color:#A9B4DE;margin-top:52px}
-footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-top:40px;padding-bottom:28px}
+footer .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-top:40px;padding-bottom:28px}
 footer h4{color:#fff;font-size:1rem;margin-bottom:10px}
 footer p,footer li{font-size:.87rem;line-height:1.9}
 footer ul{list-style:none}
@@ -337,6 +354,27 @@ footer .fbrand .mark svg{width:20px;height:20px}
     </div>
   </div>
   <nav class="catrail"><div class="wrap" id="catRail">
+    <div class="mega-wrap">
+      <button class="mega-trigger" type="button" aria-haspopup="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>دسته‌بندی‌ها<svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="mega-panel" role="menu">
+        <div>
+          <h5>اشتراک و سرگرمی</h5>
+          <button class="mega-link catchip" data-cat="subs" type="button">اشتراک و اکانت</button>
+          <button class="mega-link catchip" data-cat="all" type="button">همه محصولات</button>
+        </div>
+        <div>
+          <h5>کارت و شارژ</h5>
+          <button class="mega-link catchip" data-cat="gift" type="button">گیفت‌کارت</button>
+          <button class="mega-link catchip" data-cat="charge" type="button">شارژ و بسته اینترنت</button>
+        </div>
+        <div>
+          <h5>نرم‌افزار و خدمات</h5>
+          <button class="mega-link catchip" data-cat="license" type="button">لایسنس نرم‌افزار</button>
+          <button class="mega-link catchip" data-cat="service" type="button">خدمات دیجیتال</button>
+        </div>
+        <p class="mega-note">همه محصولات این فروشگاه «تحویل آنی» دارند — کد فعال‌سازی بلافاصله پس از پرداخت صادر می‌شود.</p>
+      </div>
+    </div>
     <button class="catchip on" data-cat="all" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>همه محصولات</button>
     <button class="catchip" data-cat="subs" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m10 9.5 5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>اشتراک و اکانت</button>
     <button class="catchip" data-cat="gift" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="13" rx="2.5"/><path d="M2.5 12.5h19M12 8v13M12 8s-4.5.2-4.5-2.3C7.5 3.6 11 3.5 12 8zM12 8s4.5.2 4.5-2.3C16.5 3.6 13 3.5 12 8z"/></svg>گیفت‌کارت</button>
@@ -453,6 +491,10 @@ footer .fbrand .mark svg{width:20px;height:20px}
   <div>
     <h4>دسترسی سریع</h4>
     <ul><li><a href="#shop">فروشگاه</a></li><li><a href="#faq">پرسش‌های پرتکرار</a></li><li><a href="#seo">زیرساخت سئو و GEO</a></li><li><a href="#" id="footPanel">پنل کاربری و سفارش‌ها</a></li></ul>
+  </div>
+  <div>
+    <h4>دسته‌بندی‌ها</h4>
+    <ul><li><a href="#shop">اشتراک و اکانت</a></li><li><a href="#shop">گیفت‌کارت</a></li><li><a href="#shop">لایسنس نرم‌افزار</a></li><li><a href="#shop">شارژ و بسته اینترنت</a></li><li><a href="#shop">خدمات دیجیتال</a></li></ul>
   </div>
   <div>
     <h4>چرا دیجی‌لند؟</h4>
