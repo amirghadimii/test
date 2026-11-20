@@ -269,8 +269,18 @@ tr.fresh td{background:var(--accent-soft)}
 .feat .fico svg{width:25px;height:25px}
 .feat h3{font-size:.98rem;font-weight:900;color:var(--brand-deep);margin-bottom:6px}
 .feat p{font-size:.83rem;color:var(--muted)}
-footer{border-top:1px solid var(--line);background:#fff;padding:24px 0;text-align:center;color:var(--muted);font-size:.82rem;font-weight:600}
+footer{border-top:1px solid var(--line);background:#fff;padding:52px 0 44px;color:var(--muted);font-size:.85rem;font-weight:600}
 footer b{color:var(--brand-deep)}
+.foot-in{display:flex;align-items:flex-start;justify-content:space-between;gap:36px 56px;flex-wrap:wrap}
+.foot-brand{max-width:340px}
+.foot-brand .fb-name{font-size:1.3rem;font-weight:900;color:var(--brand-deep);margin-bottom:8px}
+.foot-brand p{line-height:2;font-size:.84rem}
+.foot-links{display:flex;gap:56px;flex-wrap:wrap}
+.foot-links h5{font-size:.8rem;font-weight:900;color:var(--brand-deep);margin-bottom:12px;letter-spacing:.2px}
+.foot-links a{display:block;padding:5px 0;font-size:.86rem}
+.foot-links a:hover{color:var(--brand-dark)}
+.foot-note{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);font-size:.78rem;line-height:2}
+@media(max-width:640px){.foot-in{flex-direction:column;gap:28px}.foot-links{gap:36px}}
 
 @media (max-width:1020px){
   .hero-grid{grid-template-columns:1fr;gap:34px}
@@ -520,7 +530,23 @@ footer b{color:var(--brand-deep)}
 </section>
 
 <footer>
-  <div class="wrap"><b>سبدینو</b> — دموی تعاملی اپلیکیشن فروشگاه مواد غذایی؛ همه بخش‌ها (سبد خرید، ثبت سفارش، رهگیری و پنل مدیریت) به‌صورت واقعی و به‌هم‌متصل کار می‌کنند.</div>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <div class="fb-name">سبدینو</div>
+        <p>اپلیکیشن فروشگاه مواد غذایی — خرید روزانه، ساده و سریع.</p>
+      </div>
+      <nav class="foot-links" aria-label="پیوندهای فوتر">
+        <div>
+          <h5>بخش‌های دمو</h5>
+          <a href="#app">اپلیکیشن مشتری</a>
+          <a href="#admin">پنل مدیریت</a>
+          <a href="#features">امکانات</a>
+        </div>
+      </nav>
+    </div>
+    <p class="foot-note"><b>سبدینو</b> — دموی تعاملی اپلیکیشن فروشگاه مواد غذایی؛ همه بخش‌ها (سبد خرید، ثبت سفارش، رهگیری و پنل مدیریت) به‌صورت واقعی و به‌هم‌متصل کار می‌کنند.</p>
+  </div>
 </footer>
 
 <script>
