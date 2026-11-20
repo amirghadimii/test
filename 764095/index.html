@@ -201,6 +201,13 @@ nav.main-nav a:hover,nav.main-nav a.active{background:var(--emerald);color:#fff}
 }
 .card .thumb svg{width:46%;height:auto;transition:transform .35s}
 .card:hover .thumb svg{transform:scale(1.07) rotate(-1deg)}
+.card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.card:hover .thumb img{transform:scale(1.06)}
+.cart-item .ci-thumb{overflow:hidden}
+.cart-item .ci-thumb img{width:100%;height:100%;object-fit:cover}
+.modal .m-thumb img{width:100%;max-height:360px;object-fit:cover;border-radius:14px}
+.sum-item .s-thumb{overflow:hidden}
+.sum-item .s-thumb img{width:100%;height:100%;object-fit:cover}
 .off-tag{
   position:absolute;top:12px;inset-inline-start:12px;z-index:2;
   background:var(--coral);color:#fff;font-size:.76rem;font-weight:800;
@@ -812,6 +819,17 @@ const ART = {
   kettle:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M44 34h34l6 66H38l6-66Z" fill="#dcebe4"/><path d="M44 34c-8 2-14 8-16 16l12-2" /><path d="M78 40c10 0 14 8 14 16s-5 14-13 15" /><path d="M40 34h36" /><path d="M34 104h52" stroke="#ff6b4a"/><path d="M52 56h18M52 68h18" stroke="#ff6b4a" stroke-width="3.4"/></svg>',
   powerbank:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="16" width="46" height="88" rx="10" fill="#04464a" stroke="none"/><path d="M64 44 50 68h9l-4 16 16-26h-9l2-14Z" fill="#ff6b4a"/><path d="M40 28h26" stroke="#fff" stroke-width="3"/><path d="M84 34c10 8 14 18 12 30M90 26c14 12 20 26 18 44" stroke="#ff6b4a" stroke-width="3.4"/></svg>'
 };
+const PHOTOS = {
+  coffee:'https://images.pexels.com/photos/4993062/pexels-photo-4993062.jpeg?auto=compress&cs=tinysrgb&w=800',
+  headphones:'https://images.pexels.com/photos/3945667/pexels-photo-3945667.jpeg?auto=compress&cs=tinysrgb&w=800',
+  blender:'https://images.pexels.com/photos/5514987/pexels-photo-5514987.jpeg?auto=compress&cs=tinysrgb&w=800',
+  watch:'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
+  mug:'https://images.pexels.com/photos/8474145/pexels-photo-8474145.jpeg?auto=compress&cs=tinysrgb&w=800',
+  speaker:'https://images.pexels.com/photos/4917455/pexels-photo-4917455.jpeg?auto=compress&cs=tinysrgb&w=800',
+  kettle:'https://images.pexels.com/photos/885452/pexels-photo-885452.jpeg?auto=compress&cs=tinysrgb&w=800',
+  powerbank:'https://images.pexels.com/photos/10104284/pexels-photo-10104284.jpeg?auto=compress&cs=tinysrgb&w=800'
+};
+const pimg = p => `<img src="${PHOTOS[p.art]}" alt="${p.name}" loading="lazy">`;
 const PRODUCTS = [
   {id:1, name:'قهوه‌ساز برقی استیل نفیس مدل X200', cat:'home', catName:'لوازم خانگی', price:2450000, old:2900000, rate:4.9, reviews:187, sold:96, art:'coffee',
    desc:'قهوه‌ساز قطره‌ای نفیس با بدنه استیل ضدزنگ، پارچ شیشه‌ای ۱٫۲۵ لیتری و سیستم ضدچکه؛ برای عاشقان قهوه دمی تازه در خانه و محل کار.',
@@ -881,7 +899,7 @@ function renderProducts(){
       <div class="thumb" data-quick="${p.id}" title="مشاهده سریع">
         ${offPct(p) ? `<span class="off-tag">${faDigits(offPct(p))}٪ تخفیف</span>` : ''}
         <span class="cat-tag">${p.catName}</span>
-        ${ART[p.art]}
+        ${pimg(p)}
         <button type="button" class="quick-btn" data-quick="${p.id}">مشاهده سریع محصول</button>
       </div>
       <div class="body">
@@ -920,7 +938,7 @@ function renderCart(){
     box.innerHTML = [...cart.entries()].map(([id, q]) => {
       const p = PRODUCTS.find(x => x.id === id);
       return `<div class="cart-item">
-        <span class="ci-thumb">${ART[p.art]}</span>
+        <span class="ci-thumb">${pimg(p)}</span>
         <div class="ci-info">
           <strong>${p.name}</strong>
           <span class="ci-price">${money(p.price * q)}</span>
@@ -974,7 +992,7 @@ function openQuick(id){
   const p = PRODUCTS.find(x => x.id === id);
   modalId = id; modalQty = 1;
   $('#mQty').textContent = '۱';
-  $('#mThumb').innerHTML = (offPct(p) ? `<span class="off-tag">${faDigits(offPct(p))}٪ تخفیف</span>` : '') + ART[p.art];
+  $('#mThumb').innerHTML = (offPct(p) ? `<span class="off-tag">${faDigits(offPct(p))}٪ تخفیف</span>` : '') + pimg(p);
   $('#mCat').textContent = p.catName;
   $('#mName').textContent = p.name;
   $('#mStars').textContent = stars(p.rate);
@@ -1052,7 +1070,7 @@ function renderSummary(){
   $('#sumItems').innerHTML = [...cart.entries()].map(([id, q]) => {
     const p = PRODUCTS.find(x => x.id === id);
     return `<div class="sum-item">
-      <span class="s-thumb">${ART[p.art]}</span>
+      <span class="s-thumb">${pimg(p)}</span>
       <span class="s-name">${p.name}<br><small>تعداد: ${faNum(q)}</small></span>
       <b>${money(p.price * q)}</b>
     </div>`;
