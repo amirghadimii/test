@@ -655,6 +655,10 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
 .schedule-step .step-amount{font-weight:900;color:var(--copper-deep)}
 .schedule-step .step-date{color:var(--muted);font-size:.78rem}
 .schedule-step.now .step-date{color:var(--ok);font-weight:800}
+.checkout-summary{border:1px solid var(--hair);border-radius:14px;padding:1rem;background:var(--cream);margin-bottom:1rem;display:flex;flex-direction:column;gap:.45rem}
+.checkout-summary .row{display:flex;justify-content:space-between;font-size:.9rem;color:var(--ink-soft)}
+.checkout-summary .row.total{border-top:1px dashed var(--hair);padding-top:.6rem;font-weight:900;color:var(--ink);font-size:1rem}
+.chk-ship-note{font-size:.78rem;color:var(--copper-deep);font-weight:700}
 .error{color:var(--err);font-size:.86rem;font-weight:700;min-height:1.2em;margin-bottom:.6rem}
 .checkout .btn{margin-bottom:.6rem}
 .success{text-align:center;padding:1.4rem 0 .4rem}
@@ -691,8 +695,8 @@ html[dir="ltr"] .toast{transform:translateX(-50%)}
     display:flex;flex-direction:column;position:absolute;top:100%;inset-inline:0;
     background:var(--paper);border-bottom:1px solid var(--hair);padding:1rem 1.5rem 1.3rem;gap:.4rem;
   }
-  .mainnav.open .nav-link{padding:.55rem 0;border-bottom:1px solid var(--hair)}
-  .burger{display:flex}
+  .mainnav.open .nav-link{padding:11px 0;border-bottom:1px solid var(--hair);min-height:44px;display:flex;align-items:center}
+  .burger{display:flex;min-width:44px;min-height:44px;padding:11px 10px;align-items:center;justify-content:center}
   .member-chip{display:none}
   .grid{grid-template-columns:repeat(2,1fr)}
   .wallet-card{grid-template-columns:1fr;gap:1.6rem}
@@ -721,7 +725,13 @@ html[dir="ltr"] .toast{transform:translateX(-50%)}
   .topbar-in{gap:.5rem}
   .logo-text{display:none}
   .cart-btn-label{display:none}
-  .currency-switch .cur-btn{padding:.32rem .5rem;font-size:.74rem}
+  .currency-switch .cur-btn{padding:12px 10px;font-size:.74rem;min-height:44px}
+  .cart-btn{min-height:44px;padding:11px 16px}
+  .hero-mini-btn{min-height:44px;padding:11px 16px}
+  .btn-small{min-height:44px;padding:11px 18px}
+  #resetFilters{min-height:44px;padding:12px 12px;display:inline-flex;align-items:center}
+  .select-wrap select{min-height:44px;padding:11px 12.8px}
+  .option-block select,.pay-method-block select{min-height:44px;padding:11px 12.8px}
   .hero{padding:2.6rem 0 2.4rem}
   .hero-visual{min-height:340px}
   .hero-photo img{height:300px}

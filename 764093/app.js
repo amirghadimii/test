@@ -21,7 +21,7 @@ const PRODUCTS = [
     notes: "نت‌های یاس، هلو و چای سیاه — اسیدیته روشن میوه‌ای و پایان تمیز با برشت روشن تخصصی",
     brewRatio: "۱:۱۶ (۱۵g به ۲۴۰ml)",
     brewTemp: "۹۳ درجه سانتی‌گراد",
-    img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80",
+    img: "assets/u-1514432324607-a09d9b4aefdd.jpg",
     featured: true
   },
   {
@@ -38,7 +38,7 @@ const PRODUCTS = [
     notes: "کارامل، فندق و پرتقال — متعادل، همه‌پسند با بادی مخملی و شیرینی طبیعی عسل",
     brewRatio: "۱:۱۵ (۱۶g به ۲۴۰ml)",
     brewTemp: "۹۲ درجه سانتی‌گراد",
-    img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=700&q=80",
+    img: "assets/u-1447933601403-0c6688de566e.jpg",
     featured: true
   },
   {
@@ -55,7 +55,7 @@ const PRODUCTS = [
     notes: "شکلات تلخ، بادام برشته و شکر قهوه‌ای — بدنه سنگین، کرمای غنی و اسیدیته کم",
     brewRatio: "۱:۱۴ (۱۷g به ۲۴۰ml)",
     brewTemp: "۹۱ درجه سانتی‌گراد",
-    img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=700&q=80",
+    img: "assets/u-1512568400610-62da28bc8a13.jpg",
     featured: false
   },
   {
@@ -72,7 +72,7 @@ const PRODUCTS = [
     notes: "انگور سیاه، گریپ‌فروت و شکر سوخته — پرجنب‌وجوش با اسیدیته میوه‌ای درخشان و پایان غنی",
     brewRatio: "۱:۱۶ (۱۵g به ۲۴۰ml)",
     brewTemp: "۹۴ درجه سانتی‌گراد",
-    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80",
+    img: "assets/u-1509042239860-f550ce710b93.jpg",
     featured: true
   },
   {
@@ -89,7 +89,7 @@ const PRODUCTS = [
     notes: "ترکیب ۷۰٪ عربیکا / ۳۰٪ روبوستا — کرمای بسیار غلیظ، شکلات و دود ملایم برای موکاپات و اسپرسو",
     brewRatio: "۱:۲ (۱۸g پودر به ۳۶g عصاره)",
     brewTemp: "۹۰ درجه سانتی‌گراد",
-    img: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=700&q=80",
+    img: "assets/u-1510707577719-ae7c14805e3a.jpg",
     featured: true
   },
   {
@@ -106,7 +106,7 @@ const PRODUCTS = [
     notes: "آسیاب بسیار ریز و یکدست مخصوص جذوه و ایبریک سنتی — رایحه هل سبز طبیعی و کاکائوی اصیل",
     brewRatio: "۱:۱۰ (۷g پودر به ۷۰ml آب سرد)",
     brewTemp: "دم‌آوری آرام روی شعله ملایم",
-    img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=700&q=80",
+    img: "assets/u-1541167760496-1628856ab772.jpg",
     featured: false
   },
   {
@@ -123,7 +123,7 @@ const PRODUCTS = [
     notes: "کافئین‌زدایی ۱۰۰٪ طبیعی بدون مواد شیمیایی — طعم کامل قهوه تخصصی، مناسب عصرگاه و خواب آرام",
     brewRatio: "۱:۱۵ (۱۶g به ۲۴۰ml)",
     brewTemp: "۹۲ درجه سانتی‌گراد",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=80",
+    img: "assets/u-1495474472287-4d71bcdd2085.jpg",
     featured: false
   },
   {
@@ -140,7 +140,7 @@ const PRODUCTS = [
     notes: "استیل ضدزنگ ۱۸/۱۰ ضخیم، سازگار با اجاق‌های القایی، گازی و المنتی، سوپاپ اطمینان برنجی",
     brewRatio: "ظرفیت ۳۰۰ میلی‌لیتر (۶ فنجان)",
     brewTemp: "شعله ملایم تا متوسط",
-    img: "https://images.unsplash.com/photo-1520970014086-2208d157c9e2?w=700&q=80",
+    img: "assets/u-1520970014086-2208d157c9e2.jpg",
     featured: true
   },
   {
@@ -157,7 +157,7 @@ const PRODUCTS = [
     notes: "شیشه بوروسیلیکات نشکن ضدشوک حرارتی، فیلتر استیل ضدزنگ با واشر سیلیکونی، بدنه چوب گردو",
     brewRatio: "مناسب دم‌آوری ۳ تا ۴ فنجان قهوه",
     brewTemp: "۹۴ درجه سانتی‌گراد (۴ دقیقه دم)",
-    img: "https://images.unsplash.com/photo-1572119865084-43c285814d63?w=700&q=80",
+    img: "assets/u-1572119865084-43c285814d63.jpg",
     featured: false
   },
   {
@@ -174,7 +174,7 @@ const PRODUCTS = [
     notes: "قابلیت تنظیم میکرومتری از اسپرسو ریز تا فرنچ‌پرس درشت، تیغه مخروطی سرامیکی بدون حرارت‌دهی به دانه",
     brewRatio: "ظرفیت مخزن: ۳۵ گرم دانه قهوه",
     brewTemp: "تیغه مخروطی ضدسایش",
-    img: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=700&q=80",
+    img: "assets/u-1611854779393-1b2da9d400fe.jpg",
     featured: false
   }
 ];
@@ -290,6 +290,20 @@ function fmt(toman) {
   return (state.currency === "USD" ? "$" : "د.إ ") + formattedNum;
 }
 
+// Jalali (Persian calendar) date for a Date, e.g. ۱۴۰۵/۰۹/۱۹ — used for instalment due dates & wallet history
+function jalaliDate(date) {
+  try {
+    return new Intl.DateTimeFormat("fa-IR", { year: "numeric", month: "2-digit", day: "2-digit" }).format(date);
+  } catch (e) {
+    return faDigits(date.toLocaleDateString("fa-IR"));
+  }
+}
+function jalaliAfter(days) {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return jalaliDate(d);
+}
+
 let toastTimer = null;
 function toast(msg) {
   const t = $("toast");
@@ -379,17 +393,17 @@ function renderProducts() {
       ? `<span class="card-equip-spec">استاندارد باریستا · گارانتی سلامت فیزیکی</span>`
       : renderRoastDots(p.roastDots || (p.roast === "light" ? 2 : p.roast === "medium" ? 3 : 5));
 
-    // ref-1 card anatomy: option-selector row on the card itself (weight chips open the modal preset)
+    // ref-1 card anatomy: option-selector row on the card itself (weight chips open the modal preset, with per-weight price per SECTION-MAP §5)
     const weightChips = isEq
       ? `<span class="card-equip-note">تجهیزات تخصصی دم‌آوری</span>`
       : [250, 500, 1000].map((w) =>
-          `<button type="button" class="weight-chip" data-view="${p.id}" data-weight="${w}">${w === 1000 ? "۱ کیلوگرم" : faDigits(w) + " گرم"}</button>`
+          `<button type="button" class="weight-chip" data-view="${p.id}" data-weight="${w}"><span>${w === 1000 ? "۱ کیلوگرم" : faDigits(w) + " گرم"}</span><small>${fmt(Math.round(p.price * (WEIGHT_MULT[w] || 1)))}</small></button>`
         ).join("");
 
     return `
       <article class="card">
         <div class="card-media tint-${p.cat}">
-          <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=700&q=80';">
+          <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='assets/u-1514432324607-a09d9b4aefdd.jpg';">
           ${p.featured ? `<span class="card-featured-pill">پیشنهاد برشت‌کار</span>` : ""}
           <span class="card-origin-stamp">${p.origin}</span>
         </div>
@@ -685,10 +699,8 @@ function openDrawer() {
   drawer.setAttribute("aria-hidden", "false");
   if (backdrop) backdrop.hidden = false;
 
-  // Ensure cart view is shown first
-  if ($("checkoutView")) $("checkoutView").hidden = true;
-  if ($("cartItems")) $("cartItems").style.display = "";
-  if ($("cartFoot")) $("cartFoot").style.display = "";
+  // Ensure cart view is shown first (also restore checkout state left over from a previous visit)
+  resetCheckout();
   document.body.style.overflow = "hidden";
 }
 
@@ -725,6 +737,16 @@ function updatePayUI() {
   const m = $("payMethod")?.value || "gateway";
   const t = cartTotals();
 
+  // Checkout order summary incl. shipping-cost calculation (free ≥ FREE_SHIP, else SHIP_COST)
+  if ($("chkSubtotal")) $("chkSubtotal").textContent = fmt(t.sub);
+  if ($("chkShipping")) $("chkShipping").textContent = t.ship === 0 ? "رایگان" : fmt(t.ship);
+  if ($("chkTotal")) $("chkTotal").textContent = fmt(t.total);
+  if ($("chkShipNote")) {
+    $("chkShipNote").textContent = t.ship === 0
+      ? "ارسال رایگان — خرید شما از سقف ۵۰۰٬۰۰۰ تومان گذشته است."
+      : "ارسال: " + fmt(SHIP_COST) + " — با " + fmt(Math.max(0, FREE_SHIP - t.sub)) + " خرید بیشتر، ارسال رایگان می‌شود (سقف ۵۰۰٬۰۰۰ تومان).";
+  }
+
   const gatewayFields = $("gatewayFields");
   const walletPayInfo = $("walletPayInfo");
   const installmentBlock = $("installmentScheduleBlock");
@@ -757,22 +779,22 @@ function updatePayUI() {
         <div class="schedule-step now">
           <span class="step-num">قسط اول</span>
           <span class="step-amount">${fmt(each)}</span>
-          <span class="step-date">هم‌اکنون</span>
+          <span class="step-date">هم‌اکنون — ${jalaliAfter(0)}</span>
         </div>
         <div class="schedule-step">
           <span class="step-num">قسط دوم</span>
           <span class="step-amount">${fmt(each)}</span>
-          <span class="step-date">۳۰ روز بعد</span>
+          <span class="step-date">${jalaliAfter(30)}</span>
         </div>
         <div class="schedule-step">
           <span class="step-num">قسط سوم</span>
           <span class="step-amount">${fmt(each)}</span>
-          <span class="step-date">۶۰ روز بعد</span>
+          <span class="step-date">${jalaliAfter(60)}</span>
         </div>
         <div class="schedule-step">
           <span class="step-num">قسط چهارم</span>
           <span class="step-amount">${fmt(each)}</span>
-          <span class="step-date">۹۰ روز بعد</span>
+          <span class="step-date">${jalaliAfter(90)}</span>
         </div>
       `;
     }
@@ -797,6 +819,20 @@ function doPay() {
   const t = cartTotals();
   const errorEl = $("checkoutError");
   if (errorEl) errorEl.textContent = "";
+
+  // Customer validation — required for every payment method (brief §10)
+  const custName = ($("custName")?.value || "").trim();
+  if (custName.length < 3) {
+    if (errorEl) errorEl.textContent = "لطفاً نام و نام خانوادگی گیرنده را کامل وارد کنید.";
+    $("custName")?.focus();
+    return;
+  }
+  const phone = toEnDigits($("custPhone")?.value || "").replace(/\D/g, "");
+  if (!/^09\d{9}$/.test(phone)) {
+    if (errorEl) errorEl.textContent = "شماره موبایل معتبر نیست؛ باید ۱۱ رقم و با ۰۹ شروع شود (مثال: ۰۹۱۲۳۴۵۶۷۸۹).";
+    $("custPhone")?.focus();
+    return;
+  }
 
   if (m === "gateway") {
     const rawNum = toEnDigits($("cardNum")?.value || "").replace(/\D/g, "");
