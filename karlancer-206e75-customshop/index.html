@@ -25,14 +25,14 @@ a{color:inherit;text-decoration:none}
 .topbar b{color:#EFD9A7}
 /* header */
 header{position:sticky;top:0;z-index:60;background:rgba(250,246,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.hwrap{max-width:1280px;margin:auto;display:flex;align-items:center;gap:22px;padding:13px 22px}
-.logo{font-size:29px;font-weight:800;letter-spacing:-.5px}
+.hwrap{max-width:1280px;margin:auto;display:flex;flex-direction:column;align-items:center;gap:0;padding:16px 22px 0;position:relative}
+.logo{font-size:34px;font-weight:800;letter-spacing:-.5px;text-align:center;line-height:1.5}
 .logo em{font-style:normal;color:var(--acc)}
-.logo small{display:block;font-size:11px;font-weight:500;color:var(--mut);letter-spacing:.4px}
-nav.main{display:flex;gap:22px;margin-inline-start:8px;font-size:14.5px;font-weight:500}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--mut);letter-spacing:2.5px}
+nav.main{display:flex;gap:26px;justify-content:center;width:100%;margin-top:11px;padding:11px 0 13px;border-top:1px solid var(--line);font-size:14.5px;font-weight:500}
 nav.main a{opacity:.85;padding:4px 2px;border-bottom:2px solid transparent}
 nav.main a:hover{opacity:1;color:var(--acc);border-color:var(--acc)}
-.hicons{margin-inline-start:auto;display:flex;gap:8px;align-items:center}
+.hicons{position:absolute;top:20px;inset-inline-end:22px;display:flex;gap:8px;align-items:center}
 .icobtn{position:relative;width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.2s}
 .icobtn:hover{border-color:var(--acc)}
 .icobtn .bdg{position:absolute;top:-5px;inset-inline-start:-5px;background:var(--acc);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:grid;place-items:center;padding:0 4px}
@@ -68,7 +68,7 @@ nav.main a:hover{opacity:1;color:var(--acc);border-color:var(--acc)}
 .stripIn div span{display:block;font-size:20px;margin-bottom:5px}
 .stripIn div+div{border-inline-start:1px solid var(--line)}
 /* sections */
-section{padding:56px 0 8px}
+section{padding:56px 0 8px;scroll-margin-top:150px}
 .secHead{max-width:1280px;margin:auto;padding:0 22px;display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
 .secHead h2{font-size:clamp(23px,3vw,32px);font-weight:800}
 .secHead h2 span{color:var(--acc)}
@@ -292,8 +292,8 @@ footer a:hover{color:#fff}
   <div class="hwrap">
     <a class="logo" href="#">رویان<em>.</em><small>ROYAN SKINCARE</small></a>
     <nav class="main">
-      <a href="#shop">فروشگاه</a>
       <a href="#quiz">کوییز روتین پوستی</a>
+      <a href="#shop">فروشگاه</a>
       <a href="#compare">مقایسه ترکیبات</a>
       <a href="#features">امکانات سفارشی</a>
     </nav>
@@ -335,27 +335,6 @@ footer a:hover{color:#fff}
   </div>
 </div>
 
-<!-- SHOP -->
-<section id="shop">
-  <div class="secHead">
-    <div>
-      <h2>فروشگاه <span>رویان</span></h2>
-      <p>هر محصول را می‌توانی با ابزار مقایسه ترکیبات کنار دیگری بگذاری و برای محصولات منتخب، خرید اشتراکی فعال کنی.</p>
-    </div>
-  </div>
-  <div class="toolbar">
-    <div class="chips" id="catChips">
-      <button class="chip on" data-cat="all">همه محصولات</button>
-      <button class="chip" data-cat="cleanser">شوینده</button>
-      <button class="chip" data-cat="treatment">سرم و درمان</button>
-      <button class="chip" data-cat="moisturizer">مرطوب‌کننده</button>
-      <button class="chip" data-cat="extra">ابزار و ست</button>
-    </div>
-    <div class="searchBox">🔎<input id="searchInp" type="text" placeholder="جست‌وجوی محصول یا ترکیب…"></div>
-  </div>
-  <div class="grid" id="grid"></div>
-</section>
-
 <!-- QUIZ -->
 <section id="quiz">
   <div class="secHead">
@@ -396,6 +375,27 @@ footer a:hover{color:#fff}
       </div>
     </div>
   </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="secHead">
+    <div>
+      <h2>فروشگاه <span>رویان</span></h2>
+      <p>هر محصول را می‌توانی با ابزار مقایسه ترکیبات کنار دیگری بگذاری و برای محصولات منتخب، خرید اشتراکی فعال کنی.</p>
+    </div>
+  </div>
+  <div class="toolbar">
+    <div class="chips" id="catChips">
+      <button class="chip on" data-cat="all">همه محصولات</button>
+      <button class="chip" data-cat="cleanser">شوینده</button>
+      <button class="chip" data-cat="treatment">سرم و درمان</button>
+      <button class="chip" data-cat="moisturizer">مرطوب‌کننده</button>
+      <button class="chip" data-cat="extra">ابزار و ست</button>
+    </div>
+    <div class="searchBox">🔎<input id="searchInp" type="text" placeholder="جست‌وجوی محصول یا ترکیب…"></div>
+  </div>
+  <div class="grid" id="grid"></div>
 </section>
 
 <!-- COMPARE -->
@@ -448,7 +448,7 @@ footer a:hover{color:#fff}
     </div>
     <div>
       <h4>دسترسی سریع</h4>
-      <a href="#shop">فروشگاه</a><a href="#quiz">کوییز روتین پوستی</a><a href="#compare">مقایسه ترکیبات</a><a href="#features">امکانات سفارشی</a>
+      <a href="#quiz">کوییز روتین پوستی</a><a href="#shop">فروشگاه</a><a href="#compare">مقایسه ترکیبات</a><a href="#features">امکانات سفارشی</a>
     </div>
     <div>
       <h4>راهنمای خرید</h4>
