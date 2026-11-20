@@ -224,6 +224,22 @@ footer b{color:var(--ink)}
   .btn-print{display:none}
   .phase,.panel,.cluster-box,.kpi,.report-card{box-shadow:none}
 }
+
+/* === MOBILEFIX 2026-11-20: tap targets + fluid type + overflow guard === */
+img{max-width:100%}
+@media(max-width:768px){
+ html,body{overflow-x:hidden}
+ body{padding:0}
+ button,a,input,select,textarea{touch-action:manipulation}
+ button{min-height:40px}
+ input:not([type=checkbox]):not([type=radio]),select,textarea{min-height:44px;font-size:16px}
+}
+
+@media(max-width:768px){
+ .btn-print{min-height:40px;padding:10px 16px}
+ label{min-height:40px}
+ table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
 </style>
 </head>
 <body>
