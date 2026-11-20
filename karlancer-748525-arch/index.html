@@ -42,8 +42,8 @@ section{padding:104px 0}
 /* ===== header ===== */
 header.site{position:fixed;inset-inline:0;top:0;z-index:80;transition:background .35s,box-shadow .35s,border-color .35s;border-bottom:1px solid transparent}
 header.site .wrap{display:flex;align-items:center;gap:26px;padding-top:16px;padding-bottom:16px}
-header.site.over{color:#fff}
-header.site.solid{background:rgba(243,240,234,.94);backdrop-filter:blur(12px);color:var(--ink);border-bottom-color:var(--line)}
+header.site.over{color:#fff;background:transparent}
+header.site.solid{background:rgba(243,240,234,.96);backdrop-filter:blur(12px);color:var(--ink);border-bottom-color:var(--line);box-shadow:0 12px 32px rgba(20,17,13,.10)}
 .logo{display:flex;align-items:baseline;gap:11px;font-weight:900;font-size:21px;line-height:1.2}
 .logo .sq{width:13px;height:13px;background:var(--acc);flex:none;align-self:center}
 .logo small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.28em;color:inherit;opacity:.65}
@@ -61,26 +61,39 @@ header.site .sp{flex:1}
 .mnav.open{display:block}
 .mnav a{display:block;padding:11px 0;font-weight:700;font-size:17px;border-bottom:1px solid var(--line)}
 .mnav a:last-child{border-bottom:0}
-/* ===== hero ===== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:150px 0 0;overflow:hidden}
+/* ===== hero — gallery minimal / exhibition caption ===== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:120px 0 0;overflow:hidden}
 .hero .bg{position:absolute;inset:0}
 .hero .bg img{width:100%;height:100%;object-fit:cover}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,5,.42) 0%,rgba(10,8,5,.05) 34%,rgba(10,8,5,.28) 62%,rgba(10,8,5,.78) 100%)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,5,.46) 0%,rgba(10,8,5,.04) 30%,rgba(10,8,5,.10) 55%,rgba(10,8,5,.74) 100%)}
 .hero .wrap{position:relative;z-index:2;width:100%}
-.hero .kicker{font-size:13px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#E9D9BE;display:flex;align-items:center;gap:14px}
-.hero .kicker::before{content:"";width:44px;height:1px;background:#E9D9BE}
-.hero h1{font-size:clamp(44px,7.6vw,104px);font-weight:900;line-height:1.14;margin:20px 0 8px;max-width:12em}
-.hero .poem{font-size:clamp(17px,2.2vw,23px);font-weight:400;color:rgba(255,255,255,.88);max-width:560px;line-height:1.9}
-.hero .meta{display:flex;gap:0;flex-wrap:wrap;margin-top:52px;border-top:1px solid rgba(255,255,255,.28)}
-.hero .meta div{padding:18px 30px 24px 0;margin-inline-end:30px}
-[dir="ltr"] .hero .meta div{padding:18px 0 24px 30px;margin-inline-end:0;margin-inline-start:30px}
-[dir="ltr"] .hero .meta div:first-child{margin-inline-start:0;padding-inline-start:0}
-.hero .meta b{display:block;font-size:22px;font-weight:800;line-height:1.4}
-.hero .meta span{font-size:12.5px;color:rgba(255,255,255,.72);letter-spacing:.06em}
-.hero .cta{display:inline-flex;align-items:center;gap:10px;margin-top:34px;background:#fff;color:var(--ink);font-weight:800;font-size:15px;padding:14px 28px;border-radius:99px;border:0;cursor:pointer;transition:.25s}
-.hero .cta:hover{background:var(--acc);color:#fff}
-.hero .cta.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);margin-inline-start:10px}
-.hero .cta.ghost:hover{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px #fff}
+.hero .side-label{position:absolute;z-index:3;left:16px;top:48%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.88);text-shadow:0 1px 10px rgba(0,0,0,.5);white-space:nowrap}
+.hero .cap{max-width:480px;padding-bottom:36px}
+.hero .kicker{font-size:11px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#E9D9BE;display:flex;align-items:center;gap:12px}
+.hero .kicker::before{content:"";width:30px;height:1px;background:#E9D9BE;flex:none}
+.hero h1{font-size:clamp(23px,2.7vw,36px);font-weight:800;line-height:1.35;margin:12px 0 8px;max-width:16em}
+.hero .poem{font-size:14.5px;font-weight:400;color:rgba(255,255,255,.84);max-width:440px;line-height:1.95}
+.hero .links{display:flex;gap:26px;flex-wrap:wrap;margin-top:18px}
+.hero .links a{font-size:13.5px;font-weight:800;color:#fff;border-bottom:1px solid rgba(255,255,255,.65);padding-bottom:3px;transition:.22s}
+.hero .links a:hover{color:#E9D9BE;border-bottom-color:#E9D9BE}
+.hero .meta{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.34)}
+.hero .meta div{padding:16px 0 22px;padding-inline-end:22px}
+.hero .meta div+div{border-inline-start:1px solid rgba(255,255,255,.18);padding-inline-start:22px}
+.hero .meta span{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.66);margin-bottom:2px}
+.hero .meta b{display:block;font-size:17px;font-weight:800;line-height:1.5}
+/* hero stats, re-homed as a quiet strip below the hero */
+.herostats{padding:0;border-bottom:1px solid var(--line)}
+.herostats .row{display:flex;flex-wrap:wrap}
+.herostats .cell{flex:1 1 200px;padding:22px 0 24px;padding-inline-end:26px}
+.herostats .cell+.cell{border-inline-start:1px solid var(--line);padding-inline-start:26px}
+.herostats b{display:block;font-size:21px;font-weight:800;line-height:1.4}
+.herostats span{font-size:12.5px;color:var(--mu);letter-spacing:.04em}
+@media(max-width:760px){
+  .hero .side-label{left:9px;top:36%;font-size:10px;letter-spacing:.24em}
+  .hero .cap{padding-inline-end:36px;padding-bottom:26px}
+  .hero .meta b{font-size:14.5px}
+  .herostats .cell{flex-basis:150px;padding-top:18px;padding-bottom:18px}
+}
 /* ===== manifesto / stats ===== */
 .manifesto{padding:96px 0 84px}
 .manifesto p.big{font-size:clamp(24px,3.4vw,40px);font-weight:700;line-height:1.8;max-width:1000px}
@@ -301,24 +314,38 @@ footer.site .base b{color:#D9B98A;font-weight:700}
   <a href="#visit" data-fa="تماس" data-en="Contact">تماس</a>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO — exhibition caption ===== -->
 <section class="hero" id="top">
   <div class="bg"><img src="assets/img/hero.jpg" alt="Modern villa at dusk — Arman Studio"></div>
+  <div class="side-label" data-fa="نمایشگاه پروژه‌ها" data-en="PROJECT INDEX">نمایشگاه پروژه‌ها</div>
   <div class="wrap">
-    <div class="kicker" data-fa="دفتر معماری — تهران" data-en="Architecture Practice — Tehran">دفتر معماری — تهران</div>
-    <h1 data-fa="معماری، در گفت‌وگو با نور و زمین" data-en="Architecture in dialogue with light and land">معماری، در گفت‌وگو با نور و زمین</h1>
-    <p class="poem" data-fa="ما فضاهایی می‌سازیم که از مصالح ساده و نور صادقانه به وجود می‌آیند؛ خانه‌هایی برای زندگی، ساختمان‌هایی برای شهر و مکان‌هایی برای مکث." data-en="We shape spaces born of honest materials and natural light — homes for living, buildings for the city, and places made for pause.">ما فضاهایی می‌سازیم که از مصالح ساده و نور صادقانه به وجود می‌آیند؛ خانه‌هایی برای زندگی، ساختمان‌هایی برای شهر و مکان‌هایی برای مکث.</p>
-    <div>
-      <a class="cta" href="#works" data-fa="مشاهده پروژه‌ها" data-en="View projects">مشاهده پروژه‌ها</a>
-      <a class="cta ghost" href="#visit" data-fa="درخواست جلسه مشاوره" data-en="Book a consultation">درخواست جلسه مشاوره</a>
+    <div class="cap">
+      <div class="kicker" data-fa="دفتر معماری — تهران" data-en="Architecture Practice — Tehran">دفتر معماری — تهران</div>
+      <h1 data-fa="معماری، در گفت‌وگو با نور و زمین" data-en="Architecture in dialogue with light and land">معماری، در گفت‌وگو با نور و زمین</h1>
+      <p class="poem" data-fa="ما فضاهایی می‌سازیم که از مصالح ساده و نور صادقانه به وجود می‌آیند؛ خانه‌هایی برای زندگی، ساختمان‌هایی برای شهر و مکان‌هایی برای مکث." data-en="We shape spaces born of honest materials and natural light — homes for living, buildings for the city, and places made for pause.">ما فضاهایی می‌سازیم که از مصالح ساده و نور صادقانه به وجود می‌آیند؛ خانه‌هایی برای زندگی، ساختمان‌هایی برای شهر و مکان‌هایی برای مکث.</p>
+      <div class="links">
+        <a href="#works" data-fa="مشاهده پروژه‌ها" data-en="View projects">مشاهده پروژه‌ها</a>
+        <a href="#visit" data-fa="درخواست جلسه مشاوره" data-en="Book a consultation">درخواست جلسه مشاوره</a>
+      </div>
     </div>
     <div class="meta">
-      <div><b data-fa="۱۸+ سال" data-en="18+ Years">۱۸+ سال</b><span data-fa="تجربه طراحی و اجرا" data-en="Design &amp; build experience">تجربه طراحی و اجرا</span></div>
-      <div><b data-fa="۱۲۰+ پروژه" data-en="120+ Projects">۱۲۰+ پروژه</b><span data-fa="مسکونی، تجاری و فرهنگی" data-en="Residential, commercial, cultural">مسکونی، تجاری و فرهنگی</span></div>
-      <div><b data-fa="۲۶ عنوان" data-en="26 Honours">۲۶ عنوان</b><span data-fa="جوایز و نامزدی‌های معماری" data-en="Architecture awards &amp; shortlists">جوایز و نامزدی‌های معماری</span></div>
+      <div><span data-fa="نام پروژه" data-en="Project">نام پروژه</span><b data-fa="۰۱ — ویلای لواسان" data-en="01 — Lavasan Villa">۰۱ — ویلای لواسان</b></div>
+      <div><span data-fa="مکان" data-en="Location">مکان</span><b data-fa="لواسان، تهران" data-en="Lavasan, Tehran">لواسان، تهران</b></div>
+      <div><span data-fa="سال" data-en="Year">سال</span><b data-fa="۱۴۰۲" data-en="2023">۱۴۰۲</b></div>
     </div>
   </div>
 </section>
+
+<!-- hero stats, re-homed below the hero -->
+<div class="herostats">
+  <div class="wrap">
+    <div class="row">
+      <div class="cell"><b data-fa="۱۸+ سال" data-en="18+ Years">۱۸+ سال</b><span data-fa="تجربه طراحی و اجرا" data-en="Design &amp; build experience">تجربه طراحی و اجرا</span></div>
+      <div class="cell"><b data-fa="۱۲۰+ پروژه" data-en="120+ Projects">۱۲۰+ پروژه</b><span data-fa="مسکونی، تجاری و فرهنگی" data-en="Residential, commercial, cultural">مسکونی، تجاری و فرهنگی</span></div>
+      <div class="cell"><b data-fa="۲۶ عنوان" data-en="26 Honours">۲۶ عنوان</b><span data-fa="جوایز و نامزدی‌های معماری" data-en="Architecture awards &amp; shortlists">جوایز و نامزدی‌های معماری</span></div>
+    </div>
+  </div>
+</div>
 
 <!-- ===== MANIFESTO ===== -->
 <section class="manifesto">
@@ -719,7 +746,7 @@ document.getElementById("btnEn").addEventListener("click",function(){setLang("en
 var header=document.getElementById("siteHeader");
 function onScroll(){
   var y=window.scrollY||0;
-  if(y>window.innerHeight-90){header.classList.add("solid");header.classList.remove("over");}
+  if(y>48){header.classList.add("solid");header.classList.remove("over");}
   else{header.classList.remove("solid");header.classList.add("over");}
 }
 window.addEventListener("scroll",onScroll,{passive:true});onScroll();
