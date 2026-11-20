@@ -159,6 +159,8 @@ nav.main-nav a:hover,nav.main-nav a.active{background:rgba(255,255,255,.09);colo
 .variant-card .v-ico{
   height:64px;display:flex;align-items:center;justify-content:center;color:#7d6a52;margin-bottom:6px;
 }
+.variant-card .v-ico img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.viewer-fallback .fb-photo{width:min(230px,72%);aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:0 14px 30px -14px rgba(84,58,28,.45)}
 .variant-card.active .v-ico{color:var(--rust-dark)}
 .variant-card .v-name{display:block;font-size:14px;font-weight:800}
 .variant-card .v-price{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
@@ -474,7 +476,7 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px;text-align:center}
             بکشید برای چرخش
           </div>
           <div class="viewer-fallback" id="viewerFallback">
-            <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#b45f27" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v9"/><path d="M6 8h11a2 2 0 0 1 2 2v3"/><path d="M4 13h16"/><path d="M5 13v7M20 13v7M9 20v-7"/></svg>
+            <img class="fb-photo" src="assets/img/chair-hero.jpg" alt="صندلی کافه مدرن با پشتی حصیری">
             <h3 id="fbTitle">نمایشگر سه‌بعدی بارگذاری نشد</h3>
             <p id="fbText">برای مشاهده مدل تعاملی محصول، اتصال اینترنت خود را بررسی کنید و دوباره تلاش کنید. مشخصات و قیمت محصول در همین صفحه در دسترس است.</p>
             <button class="retry" onclick="location.reload()">تلاش مجدد</button>
@@ -487,19 +489,19 @@ footer{padding:30px 0 40px;color:var(--muted);font-size:13px;text-align:center}
           <div class="variant-row" id="variantRow">
             <button class="variant-card active" data-variant="chair">
               <span class="v-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></span>
-              <span class="v-ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5V13"/><path d="M6 7.5h10.5a2.5 2.5 0 0 1 2.5 2.5v3"/><path d="M3.5 13h17"/><path d="M5 13v7.5M19.5 13v7.5M9.5 20.5V13"/></svg></span>
+              <span class="v-ico"><img src="assets/img/chair.jpg" alt="صندلی کافه چوبی با پشتی حصیری در فضای کافه" loading="lazy"></span>
               <span class="v-name">صندلی کافه آوا</span>
               <span class="v-price">۳٬۴۵۰٬۰۰۰ تومان</span>
             </button>
             <button class="variant-card" data-variant="table">
               <span class="v-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></span>
-              <span class="v-ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18"/><path d="M4.5 8v11M19.5 8v11M4.5 15h15"/><path d="M6 8v3h12V8"/></svg></span>
+              <span class="v-ico"><img src="assets/img/table.jpg" alt="میز کافه چوبی در کنار صندلی‌های حصیری" loading="lazy"></span>
               <span class="v-name">میز کافه رستا</span>
               <span class="v-price">۵٬۲۰۰٬۰۰۰ تومان</span>
             </button>
             <button class="variant-card" data-variant="stool">
               <span class="v-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></span>
-              <span class="v-ico"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="6.5" ry="1.8"/><path d="M6.5 7 5 20M17.5 7 19 20M7.6 13.5h8.8"/></svg></span>
+              <span class="v-ico"><img src="assets/img/stool.jpg" alt="چهارپایه‌های بار چوبی کنار کانتر" loading="lazy"></span>
               <span class="v-name">چهارپایه بار نیلا</span>
               <span class="v-price">۱٬۸۹۰٬۰۰۰ تومان</span>
             </button>
