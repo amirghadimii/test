@@ -136,7 +136,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.85);padding:64px 28px 32px}
 <main class="view active" id="view-home">
   <section class="hero">
     <div class="hero-media" id="heroMedia">
-      <img class="bg" id="heroImg" src="assets/hero1.svg" alt="">
+      <img class="bg" id="heroImg" src="assets/img/hero1.jpg" alt="">
       <div class="hero-title"><h1 id="heroTitle">کالکشن آوا</h1><p id="heroCredit">طراحی و تولید تیکاردو — برای کافه‌های پررفت‌وآمد</p><button class="hero-cta" onclick="showView('catalogue')"><i></i> مشاهده</button></div>
       <form class="search-cap" onsubmit="heroSearch(event)"><input id="heroQ" placeholder="جست‌وجوی میز، صندلی، نیمکت…"><button type="submit" aria-label="جستجو"><svg class="ic-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></button></form>
       <div class="hotspot-dot"><i></i></div>
@@ -149,7 +149,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.85);padding:64px 28px 32px}
 
   <section class="best"><div class="wrap"><h2>پرفروش‌ترین‌ها</h2><p class="sub">مدل‌هایی که کافه‌ها و رستوران‌ها بیشتر از همه سفارش می‌دهند؛ مستقیم از کارخانه تیکاردو.</p><div class="prod-grid" id="bestGrid"></div></div></section>
 
-  <section class="sec" id="custom"><div class="wrap"><div class="split"><img src="assets/workshop.svg" alt="کارگاه تیکاردو"><div><h2 style="font-size:30px">ساخت سفارشی تیکاردو</h2><p style="color:var(--muted);line-height:1.9;margin-top:12px">ابعاد میز را با فضای کافه‌تان تنظیم کنید، رنگ چوب و فلز را انتخاب کنید و پارچه را با هویت برندتان هماهنگ کنید. هر سفارش در کارگاه تهران ساخته و کنترل کیفی می‌شود.</p><p style="color:var(--muted);line-height:1.9;margin-top:8px">برای سفارش‌های پروژه‌ای، نقشه چیدمان و پیش‌فاکتور شفاف قبل از تولید ارائه می‌شود.</p><div class="spec-strip"><div><b>متریال‌ها</b><span>راش، ترموود، فلز رنگ کوره‌ای</span></div><div><b>ابعاد قابل سفارش</b><span>از ۵۰×۵۰ تا ۱۲۰×۲۴۰ سانتی‌متر</span></div><div><b>زمان ساخت</b><span>۷ تا ۱۴ روز کاری</span></div></div><button class="pill" onclick="openB2B()">شروع سفارش سفارشی</button></div></div></div></section>
+  <section class="sec" id="custom"><div class="wrap"><div class="split"><img src="assets/img/workshop.jpg" alt="کارگاه تیکاردو"><div><h2 style="font-size:30px">ساخت سفارشی تیکاردو</h2><p style="color:var(--muted);line-height:1.9;margin-top:12px">ابعاد میز را با فضای کافه‌تان تنظیم کنید، رنگ چوب و فلز را انتخاب کنید و پارچه را با هویت برندتان هماهنگ کنید. هر سفارش در کارگاه تهران ساخته و کنترل کیفی می‌شود.</p><p style="color:var(--muted);line-height:1.9;margin-top:8px">برای سفارش‌های پروژه‌ای، نقشه چیدمان و پیش‌فاکتور شفاف قبل از تولید ارائه می‌شود.</p><div class="spec-strip"><div><b>متریال‌ها</b><span>راش، ترموود، فلز رنگ کوره‌ای</span></div><div><b>ابعاد قابل سفارش</b><span>از ۵۰×۵۰ تا ۱۲۰×۲۴۰ سانتی‌متر</span></div><div><b>زمان ساخت</b><span>۷ تا ۱۴ روز کاری</span></div></div><button class="pill" onclick="openB2B()">شروع سفارش سفارشی</button></div></div></div></section>
 
   <section style="padding:0 0 72px"><div class="wrap"><div class="tiles" id="tiles"></div></div></section>
 
@@ -183,7 +183,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.85);padding:64px 28px 32px}
   <div class="promo" style="margin-top:64px">ارسال رایگان سفارش‌های پروژه‌ای بالای ۲۰ قلم — ضمانت ۲ ساله تیکاردو</div>
   <div class="crumb">خانه / کاتالوگ / <span id="crumbCat">صندلی کافه</span> / <b id="crumbName" style="color:var(--ink)"></b></div>
   <div class="prod-split">
-    <div class="viewer-wrap"><div class="thumbs" id="thumbs"></div><div class="stage" id="stage"><span class="b360">۳۶۰°</span><span id="frameLbl" style="position:absolute;top:12px;left:12px;background:#fff;padding:4px 10px;font-size:12px;font-weight:700;border-radius:4px">۰°</span><img id="stageImg" src="assets/frame0.svg" alt="محصول"><span class="hint" id="dragHint">برای چرخش بکشید ↔</span><div class="arrows"><button onclick="rotateStep(-1)">‹</button><button onclick="rotateStep(1)">›</button></div></div></div>
+    <div class="viewer-wrap"><div class="thumbs" id="thumbs"></div><div class="stage" id="stage"><span class="b360">۳۶۰°</span><span id="frameLbl" style="position:absolute;top:12px;left:12px;background:#fff;padding:4px 10px;font-size:12px;font-weight:700;border-radius:4px">۰°</span><img id="stageImg" src="assets/img/frame0.jpg" alt="محصول"><span class="hint" id="dragHint">برای چرخش بکشید ↔</span><div class="arrows"><button onclick="rotateStep(-1)">‹</button><button onclick="rotateStep(1)">›</button></div></div></div>
     <div>
       <div style="font-size:13px"><span class="stars">★★★★★</span> ۴٫۹ <a style="color:var(--muted)">(۶۷ نظر)</a></div>
       <h1 id="pName" style="font-size:28px;margin-top:8px"></h1><p id="pDesc" style="font-size:14px;line-height:1.8;color:var(--muted);margin-top:8px"></p>
@@ -198,10 +198,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.85);padding:64px 28px 32px}
       <div class="acc" id="accBox"></div>
     </div>
   </div>
-  <section style="max-width:1280px;margin:0 auto;padding:0 24px 64px"><div class="split"><div><h2 style="font-size:28px">چرا این مدل؟</h2><ul style="list-style:none;margin-top:20px;display:grid;gap:12px;font-size:14px"><li>✓ اسکلت تقویت‌شده برای استفاده پرتکرار کافه</li><li>✓ نشیمن راحت برای نشستن طولانی مشتری</li><li>✓ رنگ کوره‌ای مقاوم در برابر خط‌وخش</li><li>✓ قابل ساخت در ابعاد و رنگ سفارشی</li></ul></div><img src="assets/cafe.svg" style="aspect-ratio:4/3;object-fit:cover;width:100%"></div></section>
+  <section style="max-width:1280px;margin:0 auto;padding:0 24px 64px"><div class="split"><div><h2 style="font-size:28px">چرا این مدل؟</h2><ul style="list-style:none;margin-top:20px;display:grid;gap:12px;font-size:14px"><li>✓ اسکلت تقویت‌شده برای استفاده پرتکرار کافه</li><li>✓ نشیمن راحت برای نشستن طولانی مشتری</li><li>✓ رنگ کوره‌ای مقاوم در برابر خط‌وخش</li><li>✓ قابل ساخت در ابعاد و رنگ سفارشی</li></ul></div><img src="assets/img/cafe.jpg" style="aspect-ratio:4/3;object-fit:cover;width:100%"></div></section>
   <section style="max-width:1280px;margin:0 auto;padding:0 24px 64px;display:grid;gap:48px">
-    <div class="split"><img src="assets/workshop.svg" style="aspect-ratio:1;object-fit:cover"><div><h3 style="font-size:22px">اتصالات پنهان، پرداخت تمیز</h3><p style="color:var(--muted);line-height:1.9;margin-top:8px;max-width:420px">هیچ پیچ و برجستگی‌ای روی بدنه دیده نمی‌شود؛ اتصالات از داخل تقویت شده‌اند تا ظاهر مینیمال مدل در فضای کافه حفظ شود.</p></div></div>
-    <div class="split"><div><h3 style="font-size:22px">اسکلت محکم، ساخته‌شده برای ترافیک بالا</h3><p style="color:var(--muted);line-height:1.9;margin-top:8px;max-width:420px">فریم با جوش و رنگ کوره‌ای دقیق ساخته می‌شود و هر قلم قبل از ارسال، تست تحمل وزن و پایداری را می‌گذراند.</p></div><img src="assets/bench.svg" style="aspect-ratio:1;object-fit:cover"></div>
+    <div class="split"><img src="assets/img/workshop.jpg" style="aspect-ratio:1;object-fit:cover"><div><h3 style="font-size:22px">اتصالات پنهان، پرداخت تمیز</h3><p style="color:var(--muted);line-height:1.9;margin-top:8px;max-width:420px">هیچ پیچ و برجستگی‌ای روی بدنه دیده نمی‌شود؛ اتصالات از داخل تقویت شده‌اند تا ظاهر مینیمال مدل در فضای کافه حفظ شود.</p></div></div>
+    <div class="split"><div><h3 style="font-size:22px">اسکلت محکم، ساخته‌شده برای ترافیک بالا</h3><p style="color:var(--muted);line-height:1.9;margin-top:8px;max-width:420px">فریم با جوش و رنگ کوره‌ای دقیق ساخته می‌شود و هر قلم قبل از ارسال، تست تحمل وزن و پایداری را می‌گذراند.</p></div><img src="assets/img/bench.jpg" style="aspect-ratio:1;object-fit:cover"></div>
   </section>
   <section style="border-top:1px solid var(--border);max-width:1280px;margin:0 auto;padding:48px 24px 64px"><h2 style="font-size:26px">نظرات خریداران</h2><p style="margin-top:12px"><b style="font-size:32px">۶۷</b> نظر — میانگین <b>۴٫۹ ★★★★★</b></p><div id="reviews" style="display:grid;gap:20px;margin-top:24px"></div></section>
   <section style="max-width:1280px;margin:0 auto;padding:0 24px 80px"><h2 style="font-size:26px;margin-bottom:8px">محصولات مرتبط</h2><div class="prod-grid" id="relatedGrid" style="margin-top:24px"></div></section>
@@ -247,7 +247,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.85);padding:64px 28px 32px}
 
 <script>
 const FA='۰۱۲۳۴۵۶۷۸۹'; const fa=n=>String(n).replace(/\d/g,d=>FA[d]); const faNum=n=>fa(Number(n).toLocaleString('en-US')).replace(/,/g,'٬'); const norm=s=>String(s||'').replace(/[۰-۹]/g,c=>FA.indexOf(c)).replace(/[٠-٩]/g,c=>'٠١٢٣٤٥٦٧٨٩'.indexOf(c));
-const IMG={chair:'assets/chair.svg',chair2:'assets/chair2.svg',table:'assets/table.svg',bench:'assets/bench.svg',set:'assets/set.svg',out:'assets/out.svg',cafe:'assets/hero1.svg',cafe2:'assets/hero2.svg',cafe3:'assets/hero3.svg'};
+const IMG={chair:'assets/img/chair.jpg',chair2:'assets/img/chair2.jpg',table:'assets/img/table.jpg',bench:'assets/img/bench.jpg',set:'assets/img/set.jpg',out:'assets/img/out.jpg',cafe:'assets/img/hero1.jpg',cafe2:'assets/img/hero2.jpg',cafe3:'assets/img/hero3.jpg'};
 const PRODUCTS=[
 {id:0,name:'صندلی کافه آوا',code:'TK-CH-101',cat:'صندلی کافه',mat:'ترکیبی',color:'قهوه‌ای',price:4850000,old:5600000,rating:5,badge:'پرفروش',img:IMG.chair,isNew:5,desc:'صندلی آوا با اسکلت فلزی رنگ کوره‌ای و نشیمن چوب راش؛ انتخاب اول کافه‌های شلوغ برای دوام و راحتی همزمان.'},
 {id:1,name:'میز کافه گرد مارس',code:'TK-TB-201',cat:'میز کافه',mat:'فلز',color:'مشکی',price:7200000,old:0,rating:5,badge:'جدید',img:IMG.table,isNew:9,desc:'میز گرد مارس با صفحه ترموود و پایه فلزی پایدار؛ مناسب چیدمان دونفره و چهارنفره کافه.'},
@@ -308,7 +308,7 @@ document.getElementById('accBox').innerHTML=[['مشخصات فنی',`متریا�
 calcPrice();applyFinish()}
 function setThumb(el){document.querySelectorAll('#thumbs .th,#thumbs img').forEach(t=>t.classList.remove('act'));el.classList.add('act')}
 function setFinish(k,c,el){finishes[k]=c;el.parentElement.querySelectorAll('.sw').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');applyFinish();calcPrice()}
-const FRAMES=[0,1,2,3,4,5,6,7].map(i=>'assets/frame'+i+'.svg');
+const FRAMES=[0,1,2,3,4,5,6,7].map(i=>'assets/img/frame'+i+'.jpg');
 let frameIdx=0;
 const WOODF={'#B7793F':'sepia(.25) saturate(1.1)','#6B4226':'sepia(.65) saturate(1.2) brightness(.85)','#D9C7A7':'sepia(.35) brightness(1.18)'};
 const METALF={'#222222':'contrast(1.05)','#8B2E2E':'hue-rotate(-28deg) saturate(1.35)','#2E4A3A':'hue-rotate(55deg) saturate(1.15)'};
