@@ -44,7 +44,7 @@ input,textarea,select{font-family:inherit}
 @media(max-width:760px){.nav-links{display:none}}
 
 /* ---------- Hero ---------- */
-.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:38px 0 74px}
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:40px;align-items:center;padding:30px 0 56px}
 .kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--blue);background:var(--blue-soft);border:1px solid rgba(42,171,238,.3);padding:7px 14px;border-radius:99px;margin-bottom:20px}
 .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(47,180,87,.18);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
@@ -64,7 +64,19 @@ input,textarea,select{font-family:inherit}
 @media(max-width:940px){.hero{grid-template-columns:1fr;padding-top:16px}.hero h1{font-size:33px}.phone-side{order:-1}}
 
 /* ---------- Phone ---------- */
-.phone-side{display:flex;justify-content:center}
+.phone-side{display:flex;justify-content:center;position:relative;padding:6px 0 10px}
+.note{position:absolute;z-index:5;background:rgba(23,33,43,.92);border:1.5px dashed rgba(42,171,238,.55);color:#D7E6F2;font-size:12px;font-weight:700;line-height:1.6;padding:7px 12px;border-radius:12px 3px 12px 12px;max-width:168px;box-shadow:0 10px 24px rgba(0,0,0,.35);pointer-events:none}
+.note b{color:var(--blue);display:block;font-size:12.5px}
+.note::after{content:'';position:absolute;width:26px;height:1.5px;background:repeating-linear-gradient(90deg,rgba(42,171,238,.7) 0 5px,transparent 5px 9px)}
+.note.n1{top:34px;inset-inline-start:-6px;transform:rotate(3.5deg)}
+.note.n1::after{bottom:-9px;inset-inline-start:22px;transform:rotate(52deg);transform-origin:top right}
+.note.n2{top:238px;inset-inline-end:-10px;transform:rotate(-4deg)}
+.note.n2::after{bottom:-9px;inset-inline-end:20px;transform:rotate(-52deg);transform-origin:top left}
+.note.n3{bottom:118px;inset-inline-start:-2px;transform:rotate(-2.5deg)}
+.note.n3::after{top:-9px;inset-inline-start:24px;transform:rotate(-48deg);transform-origin:bottom right}
+.note.n4{bottom:8px;inset-inline-end:6px;transform:rotate(2.5deg)}
+.note.n4::after{top:-10px;inset-inline-end:26px;transform:rotate(46deg);transform-origin:bottom left}
+@media(max-width:1180px){.note{display:none}}
 .phone{width:min(388px,94vw);background:#000;border-radius:50px;padding:11px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px #263242,0 0 90px rgba(42,171,238,.13);position:relative}
 .phone::after{content:'';position:absolute;top:24px;left:50%;transform:translateX(-50%);width:110px;height:22px;background:#000;border-radius:12px;z-index:30}
 .screen-wrap{background:var(--bg2);border-radius:40px;overflow:hidden;display:flex;flex-direction:column;height:742px;position:relative}
@@ -279,6 +291,10 @@ footer{margin-top:64px;border-top:1px solid var(--line);padding:26px 0 34px;colo
 
     <!-- ======= Phone / Mini App ======= -->
     <div class="phone-side" id="demo">
+      <span class="note n1"><b>بازار کانال‌ها</b>از همین‌جا کانال مناسب را پیدا کن</span>
+      <span class="note n2"><b>ثبت سفارش تبلیغ</b>نوع تبلیغ و متن را همین‌جا بنویس</span>
+      <span class="note n3"><b>کیف پول</b>شارژ و پرداخت، بدون خروج از تلگرام</span>
+      <span class="note n4"><b>پنل فروشنده</b>صاحب کانال؟ درآمدت را از تب پایین ببین</span>
       <div class="phone">
         <div class="screen-wrap">
           <div class="statusbar">
