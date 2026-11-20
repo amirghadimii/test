@@ -42,6 +42,15 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdro
 .logo .mark .ic{width:24px;height:24px}
 .logo small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);line-height:1.2;white-space:nowrap}
 .orders-btn{white-space:nowrap}
+/* ---------- announcement ticker (H12) ---------- */
+.ticker{background:var(--brand-dark);color:#dff2ec;overflow:hidden;font-size:.82rem;font-weight:700}
+.ticker-track{display:inline-flex;width:max-content;animation:tickmove 26s linear infinite;padding:7px 0}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-group{display:inline-flex;align-items:center;flex:none}
+.ticker-group span{padding:0 18px;white-space:nowrap}
+.ticker-group i{font-style:normal;color:var(--accent);flex:none}
+@keyframes tickmove{from{transform:translateX(0)}to{transform:translateX(50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;width:auto;display:flex;flex-wrap:wrap;justify-content:center}}
 .city-chip{display:flex;align-items:center;gap:6px;background:var(--brand-soft);color:var(--brand-dark);font-weight:700;font-size:.85rem;padding:7px 13px;border-radius:999px}
 .city-chip .ic{width:16px;height:16px}
 nav.main-nav{display:flex;gap:26px;margin-inline-start:18px}
@@ -189,6 +198,16 @@ footer{margin-top:56px;background:#10201b;color:#cfe0da}
 .foot li{margin-bottom:7px;font-size:.88rem;opacity:.8}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:16px 0 22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.83rem;opacity:.75}
 .demo-tag{background:var(--accent);color:#fff;font-weight:800;padding:4px 12px;border-radius:999px;font-size:.78rem;opacity:1}
+/* ---------- footer support cards (F7) ---------- */
+.support-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:34px 0 4px}
+.scard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start;transition:.2s}
+.scard:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.28);transform:translateY(-2px)}
+.scard .fic{width:44px;height:44px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.scard .fic .ic{width:23px;height:23px}
+.scard b{color:#fff;font-size:1rem;display:block}
+.scard p{font-size:.83rem;opacity:.75;margin-top:3px;line-height:1.7}
+.scard .go{color:#ffb27a;font-weight:800;font-size:.83rem;display:inline-block;margin-top:7px}
+@media(max-width:768px){.support-cards{grid-template-columns:1fr}}
 
 /* ---------- order modal ---------- */
 .overlay{position:fixed;inset:0;background:rgba(10,25,21,.55);backdrop-filter:blur(3px);z-index:100;display:none;align-items:flex-end;justify-content:center}
@@ -277,6 +296,13 @@ textarea.f-input{resize:vertical;min-height:88px}
 </style>
 </head>
 <body>
+
+<div class="ticker" aria-label="اطلاعیه‌های منزل‌یار">
+  <div class="ticker-track">
+    <span class="ticker-group"><span>پوشش سراسر تهران</span><i>✦</i><span>متخصصان احراز هویت‌شده</span><i>✦</i><span>ضمانت کیفیت خدمت</span><i>✦</i></span>
+    <span class="ticker-group" aria-hidden="true"><span>پوشش سراسر تهران</span><i>✦</i><span>متخصصان احراز هویت‌شده</span><i>✦</i><span>ضمانت کیفیت خدمت</span><i>✦</i></span>
+  </div>
+</div>
 
 <header>
   <div class="wrap hbar">
@@ -397,6 +423,20 @@ textarea.f-input{resize:vertical;min-height:88px}
 
 <footer>
   <div class="wrap">
+    <div class="support-cards">
+      <a class="scard" href="#how">
+        <span class="fic"><span class="ic" data-icon="headset"></span></span>
+        <span><b>پشتیبانی</b><p>از لحظه ثبت سفارش تا پایان کار، وضعیت سفارش با پیامک اطلاع‌رسانی می‌شود.</p><span class="go">چطور کار می‌کند؟ ←</span></span>
+      </a>
+      <a class="scard" href="#orders">
+        <span class="fic"><span class="ic" data-icon="clipboard"></span></span>
+        <span><b>پیگیری سفارش</b><p>سفارش‌های ثبت‌شده شما در این دستگاه؛ وضعیت هر سفارش را همین‌جا دنبال کنید.</p><span class="go">سفارش‌های من ←</span></span>
+      </a>
+      <a class="scard" href="#services">
+        <span class="fic"><span class="ic" data-icon="sms"></span></span>
+        <span><b>تماس و مشاوره</b><p>برای انتخاب خدمت مناسب، قیمت‌های شفاف را ببینید؛ ثبت سفارش کمتر از دو دقیقه طول می‌کشد.</p><span class="go">مشاهده خدمات ←</span></span>
+      </a>
+    </div>
     <div class="foot">
       <div>
         <a class="logo" href="#"><span class="mark"><span class="ic" data-icon="home-wrench"></span></span><span>منزل‌یار</span></a>
