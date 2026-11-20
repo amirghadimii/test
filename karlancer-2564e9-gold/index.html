@@ -311,6 +311,18 @@ footer .bar{border-top:1px solid #2c2820;padding:18px 0;font-size:.8rem;display:
   footer .cols{grid-template-columns:1fr}
 }
 </style>
+<style>/* MOBILEFIX 2026-11-20 batch3: tap targets + wordmark scale on mobile */
+html,body{overflow-x:hidden}
+img{max-width:100%}
+@media(max-width:820px){
+.add-btn{min-height:40px;padding:10px 18px}
+.qv{min-height:40px;display:inline-flex;align-items:center;padding:9px 14px}
+.icon-btn{width:40px;height:40px}
+}
+@media(max-width:520px){
+.mag-wordmark{font-size:clamp(3.1rem,15.5vw,4.4rem)}
+}
+</style>
 </head>
 <body>
 
