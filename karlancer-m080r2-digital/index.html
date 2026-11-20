@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دیجی‌لند — فروشگاه تخصصی محصولات و خدمات دیجیتال | تحویل آنی</title>
+<meta name="description" content="دیجی‌لند؛ فروشگاه اینترنتی تخصصی محصولات دیجیتال با تحویل خودکار و آنی: اشتراک و اکانت، گیفت‌کارت، لایسنس نرم‌افزار، شارژ و بسته اینترنت، هاست و دامنه. پرداخت امن، پشتیبانی تیکتینگ و گارانتی بازگشت.">
+<meta property="og:title" content="دیجی‌لند — فروشگاه محصولات دیجیتال با تحویل آنی">
+<meta property="og:description" content="خرید اشتراک، گیفت‌کارت و لایسنس با تحویل خودکار بلافاصله پس از پرداخت.">
+<meta property="og:type" content="website">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1030; --navy2:#0E1747; --ink:#131A2E;
+  --mut:#5C6480; --line:#E3E8F4; --bg:#EEF2FA; --card:#FFFFFF;
+  --vio:#6C4CF1; --vio2:#9D7BFF; --cyan:#19C2D8; --grad:linear-gradient(90deg,#6C4CF1,#19C2D8);
+  --ok:#0E9F6E; --warn:#E8930C; --bad:#E02424; --rad:18px;
+  --shadow:0 10px 34px rgba(16,24,64,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select{font-family:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--vio);color:#fff}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ================= HEADER — dark tech ================= */
+.topbar{background:#060A24;color:#B9C2E4;font-size:.78rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:7px;padding-bottom:7px;gap:12px;flex-wrap:wrap}
+.topbar b{color:#fff}
+.topbar .pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#2EE6A8;margin-left:6px;box-shadow:0 0 0 0 rgba(46,230,168,.5);animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 7px rgba(46,230,168,0)}100%{box-shadow:0 0 0 0 rgba(46,230,168,0)}}
+header.site{position:sticky;top:0;z-index:60;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 62%,#1B1160 100%);color:#fff;box-shadow:0 12px 34px rgba(6,10,36,.35)}
+header.site::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--grad)}
+.head-main{display:flex;align-items:center;gap:22px;padding-top:16px;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand .mark{width:46px;height:46px;border-radius:14px;background:var(--grad);display:grid;place-items:center;box-shadow:0 10px 24px rgba(108,76,241,.5)}
+.brand .mark svg{width:24px;height:24px}
+.brand .bt{font-size:1.35rem;font-weight:900;line-height:1.15}
+.brand .bt small{display:block;font-size:.66rem;font-weight:500;color:#A9B4DE;letter-spacing:.22em}
+.searchbox{flex:1;display:flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;overflow:hidden;backdrop-filter:blur(4px)}
+.searchbox input{flex:1;background:transparent;border:none;outline:none;color:#fff;padding:12px 16px;font-size:.95rem;min-width:0}
+.searchbox input::placeholder{color:#8E9AC4}
+.searchbox button{background:var(--grad);color:#fff;padding:0 22px;font-weight:800;font-size:.92rem}
+.head-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.hbtn{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;border-radius:12px;padding:10px 15px;font-size:.88rem;font-weight:700;transition:.25s}
+.hbtn:hover{background:rgba(255,255,255,.14)}
+.hbtn svg{width:19px;height:19px}
+.hbtn.cart{position:relative;background:#fff;color:var(--navy);border-color:#fff}
+.cart-count{position:absolute;top:-8px;left:-8px;background:var(--bad);color:#fff;font-size:.7rem;font-weight:800;min-width:21px;height:21px;border-radius:999px;display:grid;place-items:center;padding:0 5px;border:2px solid var(--navy2)}
+/* category icon rail */
+.catrail{border-top:1px solid rgba(255,255,255,.09)}
+.catrail .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:10px;padding-bottom:12px;scrollbar-width:none}
+.catrail .wrap::-webkit-scrollbar{display:none}
+.catchip{display:flex;align-items:center;gap:9px;white-space:nowrap;color:#C6CEEA;font-size:.88rem;font-weight:600;padding:8px 15px;border-radius:999px;border:1px solid transparent;transition:.22s}
+.catchip svg{width:18px;height:18px;opacity:.85}
+.catchip:hover{color:#fff;background:rgba(255,255,255,.07)}
+.catchip.on{color:#fff;background:rgba(108,76,241,.28);border-color:rgba(157,123,255,.55)}
+
+/* ================= HERO ================= */
+.hero{background:radial-gradient(900px 420px at 88% -10%,rgba(25,194,216,.20),transparent 60%),radial-gradient(760px 420px at 6% 110%,rgba(108,76,241,.22),transparent 60%),linear-gradient(180deg,#0A1030,#0D1540);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center;padding-top:52px;padding-bottom:58px;position:relative;z-index:2}
+.hero .kick{display:inline-flex;align-items:center;gap:8px;background:rgba(46,230,168,.12);border:1px solid rgba(46,230,168,.4);color:#7CF0C6;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:999px}
+.hero h1{font-size:clamp(2rem,4.4vw,3.3rem);font-weight:900;line-height:1.3;margin:18px 0 10px}
+.hero h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#B9C2E4;font-size:1.02rem;max-width:33rem}
+.hero p b{color:#fff}
+.hero-stats{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hstat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 18px;min-width:118px}
+.hstat b{display:block;font-size:1.25rem;font-weight:900}
+.hstat span{font-size:.78rem;color:#9AA6CF}
+.hero-visual{position:relative}
+.hero-visual .frame{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.hero-visual .frame img{width:100%;height:300px;object-fit:cover}
+.float-card{position:absolute;background:rgba(13,20,54,.92);border:1px solid rgba(157,123,255,.45);border-radius:14px;padding:11px 15px;font-size:.8rem;backdrop-filter:blur(6px);box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.float-card b{display:block;font-size:.86rem}
+.float-card .key{font-family:'Vazirmatn';letter-spacing:.08em;color:#7CF0C6;font-weight:700;direction:ltr;text-align:left}
+.fc1{top:16px;right:-8px}
+.fc2{bottom:16px;left:-8px}
+
+/* ================= FESTIVAL ================= */
+.festival{margin:26px auto 0}
+.festival .band{background:linear-gradient(90deg,#2B1055,#6C4CF1 55%,#19C2D8);border-radius:var(--rad);color:#fff;padding:20px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow)}
+.festival h2{font-size:1.3rem;font-weight:900}
+.festival p{color:#E3DCFF;font-size:.92rem}
+.codebox{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.28);border:1.5px dashed rgba(255,255,255,.65);border-radius:12px;padding:9px 16px}
+.codebox .code{font-weight:900;font-size:1.15rem;letter-spacing:.14em;direction:ltr}
+.codebox button{background:#fff;color:#3B1E9E;font-weight:800;font-size:.82rem;border-radius:8px;padding:6px 13px}
+
+/* ================= SHOP ================= */
+.shop{padding:38px 0 8px}
+.shop-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.shop-head h2{font-size:1.55rem;font-weight:900}
+.shop-head .sub{color:var(--mut);font-size:.92rem}
+.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.toolbar select{border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:9px 13px;font-size:.88rem;font-weight:600;color:var(--ink);outline:none}
+.toolbar .count{color:var(--mut);font-size:.87rem}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);overflow:hidden;display:flex;flex-direction:column;transition:.25s;box-shadow:0 2px 10px rgba(16,24,64,.04)}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#C9D4F2}
+.tile{height:138px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tile .glyph{font-size:2.6rem;font-weight:900;color:rgba(255,255,255,.95);text-shadow:0 4px 18px rgba(0,0,0,.35);letter-spacing:.01em;line-height:1}
+.tile .tlabel{position:absolute;bottom:10px;right:14px;color:rgba(255,255,255,.85);font-size:.74rem;font-weight:600}
+.tile svg.bgic{position:absolute;width:120px;height:120px;opacity:.14;left:-18px;top:-18px}
+.instant{position:absolute;top:10px;right:10px;background:rgba(6,20,14,.55);color:#5CF2B8;border:1px solid rgba(92,242,184,.5);font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:999px;backdrop-filter:blur(3px)}
+.off{position:absolute;top:10px;left:10px;background:var(--bad);color:#fff;font-size:.72rem;font-weight:800;padding:3px 9px;border-radius:999px}
+.pbody{padding:15px 16px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.pcat{font-size:.74rem;color:var(--vio);font-weight:800}
+.pname{font-weight:800;font-size:1rem;line-height:1.6;min-height:3.1em}
+.pmeta{display:flex;align-items:center;gap:12px;font-size:.78rem;color:var(--mut)}
+.pmeta .star{color:#F5A623;font-weight:800}
+.price-row{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.price .old{font-size:.78rem;color:#9AA3BC;text-decoration:line-through;display:block;line-height:1.2}
+.price .now{font-weight:900;font-size:1.06rem}
+.price .now small{font-size:.72rem;font-weight:600;color:var(--mut)}
+.addbtn{background:var(--navy);color:#fff;border-radius:11px;padding:9px 15px;font-weight:800;font-size:.85rem;display:flex;align-items:center;gap:7px;transition:.22s}
+.addbtn:hover{background:var(--vio)}
+.addbtn svg{width:16px;height:16px}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:52px 10px;background:#fff;border:1.5px dashed var(--line);border-radius:var(--rad);font-size:.95rem}
+
+/* trust strip */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 4px}
+.trust .t{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 17px;display:flex;gap:12px;align-items:flex-start}
+.trust .t svg{width:26px;height:26px;flex-shrink:0;color:var(--vio)}
+.trust .t b{display:block;font-size:.94rem}
+.trust .t span{font-size:.8rem;color:var(--mut);line-height:1.6;display:block}
+
+/* ================= SEO / GEO ================= */
+.seo{margin:44px 0 0;background:linear-gradient(160deg,#0A1030,#141048);border-radius:24px;color:#fff;padding:38px 34px;position:relative;overflow:hidden}
+.seo::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 300px at 90% 0%,rgba(25,194,216,.16),transparent 60%)}
+.seo>*{position:relative}
+.seo .kick2{color:#7CF0C6;font-size:.8rem;font-weight:800;letter-spacing:.06em}
+.seo h2{font-size:1.6rem;font-weight:900;margin:8px 0 6px}
+.seo .lead{color:#B9C2E4;max-width:46rem;font-size:.96rem}
+.seo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.seo-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:15px;padding:17px 18px}
+.seo-card svg{width:24px;height:24px;color:#9D7BFF}
+.seo-card b{display:block;margin:8px 0 3px;font-size:.98rem}
+.seo-card p{font-size:.83rem;color:#A9B4DE;line-height:1.7}
+.seo .stackline{margin-top:22px;display:flex;gap:9px;flex-wrap:wrap}
+.stackchip{border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:5px 14px;font-size:.8rem;font-weight:700;color:#E6E9FA;background:rgba(255,255,255,.05)}
+
+/* ================= FAQ ================= */
+.faq{padding:46px 0 10px;max-width:860px}
+.faq h2{font-size:1.5rem;font-weight:900;text-align:center}
+.faq .sub{text-align:center;color:var(--mut);margin-bottom:22px;font-size:.93rem}
+.fitem{background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden}
+.fq{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:right;padding:16px 19px;font-weight:800;font-size:.98rem}
+.fq .chev{transition:.3s;color:var(--vio);flex-shrink:0;display:grid;place-items:center}
+.fitem.open .fq .chev{transform:rotate(180deg)}
+.fa{display:none;padding:0 19px 17px;color:var(--mut);font-size:.92rem}
+.fitem.open .fa{display:block}
+
+/* ================= FOOTER ================= */
+footer{background:var(--navy);color:#A9B4DE;margin-top:52px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-top:40px;padding-bottom:28px}
+footer h4{color:#fff;font-size:1rem;margin-bottom:10px}
+footer p,footer li{font-size:.87rem;line-height:1.9}
+footer ul{list-style:none}
+footer .fbrand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:900;font-size:1.2rem;margin-bottom:10px}
+footer .fbrand .mark{width:38px;height:38px;border-radius:11px;background:var(--grad);display:grid;place-items:center}
+footer .fbrand .mark svg{width:20px;height:20px}
+.fbottom{border-top:1px solid rgba(255,255,255,.1);padding:14px 0;text-align:center;font-size:.8rem;color:#7C88B5}
+
+/* ================= DRAWER / MODALS ================= */
+.overlay{position:fixed;inset:0;background:rgba(5,8,26,.62);backdrop-filter:blur(3px);z-index:90;opacity:0;pointer-events:none;transition:.3s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;height:100dvh;width:min(430px,94vw);background:#fff;z-index:95;transform:translateX(-105%);transition:.38s cubic-bezier(.32,.72,.24,1);display:flex;flex-direction:column;box-shadow:30px 0 60px rgba(0,0,0,.25)}
+.drawer.show{transform:none}
+.drawer header{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer header b{font-size:1.08rem}
+.xbtn{width:34px;height:34px;border-radius:10px;background:#F0F3FA;display:grid;place-items:center;font-size:1rem}
+.ditems{flex:1;overflow-y:auto;padding:14px 18px}
+.ditem{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.ditem .thumb{width:56px;height:56px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.15rem}
+.ditem .inf{flex:1;min-width:0}
+.ditem .inf b{font-size:.9rem;display:block;line-height:1.5}
+.ditem .inf span{font-size:.78rem;color:var(--mut);display:block}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:25px;height:25px;border-radius:8px;background:#EEF2FA;font-weight:900;display:grid;place-items:center}
+.qty .qn{min-width:18px;text-align:center;font-weight:800}
+.ditem .lp{font-weight:800;font-size:.9rem;white-space:nowrap}
+.ditem .rm{color:var(--bad);font-size:.76rem;font-weight:700;margin-top:4px}
+.dfoot{border-top:1px solid var(--line);padding:16px 18px;background:#FAFBFE}
+.disc-row{display:flex;gap:8px;margin-bottom:13px}
+.disc-row input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;font-size:.88rem;outline:none;min-width:0}
+.disc-row input:focus{border-color:var(--vio)}
+.disc-row button{background:#EEF2FA;border-radius:10px;padding:0 16px;font-weight:800;font-size:.85rem}
+.disc-msg{font-size:.8rem;margin:-6px 0 10px;display:none}
+.disc-msg.ok{color:var(--ok);display:block}
+.disc-msg.err{color:var(--bad);display:block}
+.trow{display:flex;justify-content:space-between;font-size:.92rem;padding:3px 0}
+.trow.grand{font-size:1.08rem;font-weight:900;border-top:1px dashed var(--line);margin-top:8px;padding-top:10px}
+.trow .neg{color:var(--ok);font-weight:800}
+.cta{width:100%;background:var(--grad);color:#fff;font-weight:900;font-size:1rem;border-radius:13px;padding:14px;margin-top:12px;box-shadow:0 12px 26px rgba(108,76,241,.35);transition:.25s}
+.cta:hover{filter:brightness(1.07)}
+.cta:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
+.dempty{text-align:center;color:var(--mut);padding:48px 12px;font-size:.93rem}
+
+.modal{position:fixed;inset:0;z-index:96;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:26px 14px}
+.modal.show{display:flex}
+.modal .box{background:#fff;border-radius:20px;width:100%;max-width:560px;box-shadow:0 40px 90px rgba(0,0,0,.4);animation:pop .3s cubic-bezier(.3,1.3,.5,1)}
+@keyframes pop{from{transform:scale(.94) translateY(12px);opacity:0}}
+.modal .mhead{padding:19px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.modal .mhead b{font-size:1.1rem}
+.modal .mbody{padding:20px 22px}
+/* quick view */
+.qv-tile{height:170px;border-radius:15px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:16px}
+.qv-tile .glyph{font-size:3.6rem;font-weight:900;color:rgba(255,255,255,.95);text-shadow:0 6px 22px rgba(0,0,0,.35)}
+.qv-tile .tlabel{position:absolute;bottom:12px;right:16px;color:rgba(255,255,255,.88);font-size:.8rem;font-weight:600}
+.qv-name{font-size:1.25rem;font-weight:900}
+.qv-desc{color:var(--mut);font-size:.92rem;margin:6px 0 14px}
+.vlabel{font-weight:800;font-size:.9rem;margin-bottom:8px}
+.variants{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:16px}
+.vopt{border:1.5px solid var(--line);border-radius:12px;padding:9px 14px;font-weight:700;font-size:.87rem;transition:.2s;background:#fff}
+.vopt small{display:block;font-weight:800;color:var(--navy);font-size:.9rem}
+.vopt.on{border-color:var(--vio);background:#F1EDFE;color:#3B1E9E}
+.qv-feats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.qv-feats span{background:#F4F7FD;border-radius:10px;padding:8px 12px;font-size:.82rem;font-weight:600;color:#39415E}
+/* checkout */
+.steps{display:flex;gap:6px;margin-bottom:20px}
+.steps .st{flex:1;text-align:center;font-size:.78rem;font-weight:700;color:#98A0B8;padding:8px 4px;border-radius:9px;background:#F0F3FA}
+.steps .st.on{background:var(--navy);color:#fff}
+.fld{margin-bottom:13px}
+.fld label{display:block;font-size:.85rem;font-weight:700;margin-bottom:5px}
+.fld input{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:.93rem;outline:none}
+.fld input:focus{border-color:var(--vio)}
+.fld .hint{font-size:.76rem;color:var(--mut);margin-top:3px}
+.ferr{color:var(--bad);font-size:.82rem;display:none;margin-bottom:10px}
+.gw{border:1.5px solid var(--line);border-radius:15px;padding:18px;background:linear-gradient(160deg,#FBFCFF,#F1F4FD)}
+.gw .gwhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.gw .gwhead b{font-size:1rem}
+.gw .amount{font-weight:900;font-size:1.15rem;color:var(--navy)}
+.cardgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.spin{width:52px;height:52px;border-radius:50%;border:5px solid #E4E9F7;border-top-color:var(--vio);margin:26px auto;animation:sp 0.8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.center{text-align:center}
+.success-ic{width:76px;height:76px;border-radius:50%;background:#E5F8F0;color:var(--ok);display:grid;place-items:center;margin:4px auto 14px}
+.success-ic svg{width:38px;height:38px}
+.ordno{display:inline-block;background:#F0F3FA;border-radius:10px;padding:5px 16px;font-weight:900;letter-spacing:.03em;margin:6px 0 4px}
+.keybox{display:flex;align-items:center;gap:9px;background:#0D1540;border-radius:12px;padding:11px 13px;margin-top:8px}
+.keybox code{flex:1;color:#7CF0C6;font-weight:700;letter-spacing:.06em;direction:ltr;text-align:left;font-family:Tahoma,sans-serif;font-size:.9rem;word-break:break-all}
+.keybox button{background:rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:6px 12px;font-size:.78rem;font-weight:800;white-space:nowrap}
+.keybox button:hover{background:rgba(255,255,255,.24)}
+.deliv-item{border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:11px}
+.deliv-item b{font-size:.94rem}
+.deliv-item span{font-size:.8rem;color:var(--mut);display:block}
+.smsnote{background:#FFF7E8;border:1px solid #F3DFAE;color:#7A5410;border-radius:12px;padding:11px 14px;font-size:.85rem;margin-top:6px}
+/* user panel */
+.uorder{border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:13px}
+.uorder .oh{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.uorder .oh b{font-size:.97rem}
+.pill{font-size:.74rem;font-weight:800;padding:3px 11px;border-radius:999px;background:#E5F8F0;color:var(--ok)}
+.uorder .om{font-size:.8rem;color:var(--mut)}
+/* toast */
+.toast{position:fixed;bottom:22px;right:50%;transform:translate(50%,90px);background:var(--navy);color:#fff;padding:13px 22px;border-radius:13px;font-weight:700;font-size:.92rem;z-index:120;transition:.4s cubic-bezier(.3,1.2,.4,1);box-shadow:0 18px 40px rgba(0,0,0,.35);max-width:92vw;text-align:center}
+.toast.show{transform:translate(50%,0)}
+
+@media(max-width:1020px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .trust{grid-template-columns:repeat(2,1fr)}
+  .seo-grid{grid-template-columns:repeat(2,1fr)}
+  .hero .wrap{grid-template-columns:1fr;padding-top:40px}
+  .hero-visual{max-width:520px}
+}
+@media(max-width:760px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .head-main{flex-wrap:wrap;gap:13px}
+  .searchbox{order:3;flex-basis:100%}
+  .brand .bt{font-size:1.15rem}
+  .hbtn .htxt{display:none}
+  .hbtn{padding:10px 12px}
+  footer .wrap{grid-template-columns:1fr}
+  .seo{padding:28px 20px}
+  .qv-feats{grid-template-columns:1fr}
+  .fc1{right:4px}.fc2{left:4px}
+}
+@media(max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .seo-grid{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr}
+  .hero-stats{gap:9px}
+  .hstat{min-width:calc(50% - 6px)}
+  .cardgrid{grid-template-columns:1fr}
+  .festival .band{padding:17px}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"OnlineStore","name":"دیجی‌لند","description":"فروشگاه تخصصی محصولات و خدمات دیجیتال با تحویل خودکار و آنی","currenciesAccepted":"IRR","paymentAccepted":"Credit Card"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"تحویل آنی یعنی چه و سفارش من کی به دستم می‌رسد؟","acceptedAnswer":{"@type":"Answer","text":"به‌محض تکمیل پرداخت، سیستم به‌صورت خودکار کد فعال‌سازی یا اطلاعات اکانت را صادر می‌کند؛ معمولاً در کمتر از یک دقیقه، هم در صفحه تأیید سفارش و هم در پنل کاربری شما نمایش داده می‌شود و نسخه‌ای نیز با ایمیل و پیامک ارسال می‌گردد."}},
+{"@type":"Question","name":"آیا محصولات دیجی‌لند گارانتی دارند؟","acceptedAnswer":{"@type":"Answer","text":"بله؛ همه اشتراک‌ها و لایسنس‌ها در تمام مدت اعتبار، گارانتی فعال‌سازی و پشتیبانی دارند و در صورت بروز مشکل فنی از سمت ما، تعویض یا بازگشت وجه انجام می‌شود."}},
+{"@type":"Question","name":"روش فعال‌سازی لایسنس یا اشتراک بعد از خرید چگونه است؟","acceptedAnswer":{"@type":"Answer","text":"همراه هر سفارش، راهنمای فعال‌سازی گام‌به‌گام فارسی ارسال می‌شود. کافی است کد دریافتی را در بخش Redeem یا فعال‌سازی سرویس وارد کنید؛ اگر جایی گیر کردید، تیم پشتیبانی با تیکت یا گفت‌وگوی آنلاین قدم‌به‌قدم همراهتان است."}},
+{"@type":"Question","name":"آیا خرید از دیجی‌لند امن است؟","acceptedAnswer":{"@type":"Answer","text":"پرداخت فقط از درگاه‌های رسمی بانکی انجام می‌شود، اطلاعات کارت نزد ما ذخیره نمی‌شود و همه محصولات از مسیرهای قانونی و مطابق شرایط استفاده سرویس‌دهندگان عرضه می‌شوند."}},
+{"@type":"Question","name":"اگر کد تخفیف داشته باشم کجا وارد کنم؟","acceptedAnswer":{"@type":"Answer","text":"در سبد خرید، کادر «کد تخفیف» قرار دارد. کد را وارد و روی اعمال بزنید تا مبلغ تخفیف همان لحظه از فاکتور کم شود؛ در جشنواره‌ها کدهای عمومی در بنر بالای فروشگاه اعلام می‌شود."}}
+]}
+</script>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><span class="pulse"></span>سیستم تحویل خودکار فعال است — میانگین تحویل امروز: <b>۴۳ ثانیه</b></span>
+  <span>پشتیبانی تیکتینگ ۲۴ ساعته · پرداخت امن بانکی</span>
+</div></div>
+
+<header class="site">
+  <div class="wrap head-main">
+    <a class="brand" href="#">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span>
+      <span class="bt">دیجی‌لند<small>DIGILAND · DIGITAL STORE</small></span>
+    </a>
+    <form class="searchbox" id="searchForm">
+      <input type="text" id="searchInput" placeholder="جستجو در محصولات دیجیتال… مثلاً اسپاتیفای، گیفت‌کارت، لایسنس" autocomplete="off">
+      <button type="submit">جستجو</button>
+    </form>
+    <div class="head-actions">
+      <button class="hbtn" id="panelBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+        <span class="htxt">پنل کاربری</span>
+      </button>
+      <button class="hbtn cart" id="cartBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+        <span class="htxt">سبد خرید</span>
+        <span class="cart-count num" id="cartCount">۰</span>
+      </button>
+    </div>
+  </div>
+  <nav class="catrail"><div class="wrap" id="catRail">
+    <button class="catchip on" data-cat="all" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>همه محصولات</button>
+    <button class="catchip" data-cat="subs" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="m10 9.5 5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>اشتراک و اکانت</button>
+    <button class="catchip" data-cat="gift" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="13" rx="2.5"/><path d="M2.5 12.5h19M12 8v13M12 8s-4.5.2-4.5-2.3C7.5 3.6 11 3.5 12 8zM12 8s4.5.2 4.5-2.3C16.5 3.6 13 3.5 12 8z"/></svg>گیفت‌کارت</button>
+    <button class="catchip" data-cat="license" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.8-3 8-7 10-4-2-7-5.2-7-10V6l7-3z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>لایسنس نرم‌افزار</button>
+    <button class="catchip" data-cat="charge" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>شارژ و بسته اینترنت</button>
+    <button class="catchip" data-cat="service" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M6.5 7.5h.01M6.5 16.5h.01" stroke-width="3"/></svg>خدمات دیجیتال</button>
+  </div></nav>
+</header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="kick">⚡ تحویل خودکار و آنی، بدون انتظار</span>
+    <h1>محصول دیجیتال بخر،<br><em>همان لحظه تحویل بگیر</em></h1>
+    <p>اشتراک، گیفت‌کارت، لایسنس و خدمات دیجیتال با <b>تحویل خودکار بلافاصله پس از پرداخت</b>؛ کد فعال‌سازی هم‌زمان در صفحه سفارش، پنل کاربری، ایمیل و پیامک شما. بدون واسطه، بدون انتظار برای پشتیبانی.</p>
+    <div class="hero-stats">
+      <div class="hstat"><b class="num">+۱۸٬۴۰۰</b><span>سفارش تحویل‌شده</span></div>
+      <div class="hstat"><b class="num">۴۳ ثانیه</b><span>میانگین زمان تحویل</span></div>
+      <div class="hstat"><b class="num">۴.۹ از ۵</b><span>رضایت خریداران</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="frame"><img src="assets/img/hero-digital.jpg" alt="فروشگاه محصولات دیجیتال دیجی‌لند"></div>
+    <div class="float-card fc1"><b>سفارش شما تحویل شد ✅</b><span class="key">SPOT-XXXX-2026-IR</span></div>
+    <div class="float-card fc2"><b>پرداخت امن بانکی</b><span style="color:#9AA6CF">درگاه رسمی · بدون ذخیره اطلاعات کارت</span></div>
+  </div>
+</div></section>
+
+<div class="wrap festival"><div class="band">
+  <div>
+    <h2>🎉 جشنواره فروش دیجی‌لند</h2>
+    <p>۱۰٪ تخفیف روی همه محصولات با کد جشنواره — تا پایان هفته</p>
+  </div>
+  <div class="codebox"><span class="code">DIGI10</span><button type="button" id="copyFestCode">کپی کد</button></div>
+</div></div>
+
+<main class="wrap shop" id="shop">
+  <div class="shop-head">
+    <div>
+      <h2 id="gridTitle">همه محصولات</h2>
+      <div class="sub">قیمت‌ها به تومان · همه محصولات این فروشگاه «تحویل آنی» دارند</div>
+    </div>
+    <div class="toolbar">
+      <span class="count num" id="resCount"></span>
+      <select id="sortSel" aria-label="مرتب‌سازی">
+        <option value="pop">پرفروش‌ترین</option>
+        <option value="cheap">ارزان‌ترین</option>
+        <option value="exp">گران‌ترین</option>
+        <option value="rate">بالاترین امتیاز</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <div class="trust">
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg><div><b>تحویل خودکار آنی</b><span>اتصال به API سرویس‌ها؛ صدور کد بلافاصله پس از پرداخت، ۲۴ ساعته</span></div></div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.8-3 8-7 10-4-2-7-5.2-7-10V6l7-3z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg><div><b>گارانتی فعال‌سازی</b><span>در صورت مشکل فنی، تعویض فوری یا بازگشت کامل وجه</span></div></div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg><div><b>پرداخت امن بانکی</b><span>درگاه رسمی پرداخت؛ اطلاعات کارت شما نزد ما ذخیره نمی‌شود</span></div></div>
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 1 1-3.2-6.4L21 5v4h-4"/></svg><div><b>پشتیبانی تیکتینگ</b><span>ثبت تیکت از پنل کاربری و پاسخ‌گویی سریع، حتی روزهای تعطیل</span></div></div>
+  </div>
+
+  <section class="seo" id="seo">
+    <span class="kick2">زیرساخت فنی فروشگاه</span>
+    <h2>ساخته‌شده برای گوگل و موتورهای جست‌وجوی هوش مصنوعی (SEO + GEO)</h2>
+    <p class="lead">این فروشگاه از روز اول با زیرساخت کامل سئوی تکنیکال و ساختار محتوای پاسخ‌محور ساخته شده تا هم در نتایج گوگل رقابت کند و هم در پاسخ‌های ChatGPT، Gemini و Perplexity دیده شود — بدون هیچ قول رتبه‌ای؛ فقط اجرای استاندارد و قابل‌اندازه‌گیری.</p>
+    <div class="seo-grid">
+      <div class="seo-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h13"/></svg><b>داده ساخت‌یافته (Schema.org)</b><p>اسکیمای Product، Offer، FAQ و Breadcrumb روی همه صفحات تا قیمت و موجودی مستقیم در نتایج گوگل و پاسخ AI نمایش داده شود.</p></div>
+      <div class="seo-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.6 4 5.6 4 9s-1.3 6.4-4 9c-2.7-2.6-4-5.6-4-9s1.3-6.4 4-9z"/></svg><b>نقشه سایت و خزش تمیز</b><p>Sitemap.xml داینامیک، Robots.txt استاندارد، URL کوتاه فارسی‌پسند، Canonical دقیق و دسترسی کنترل‌شده خزنده‌های AI.</p></div>
+      <div class="seo-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg><b>سرعت و Core Web Vitals</b><p>تصاویر WebP، کش چندلایه و کدنویسی سبک؛ هدف LCP زیر ۲٫۵ ثانیه و نمره سبز PageSpeed در موبایل و دسکتاپ.</p></div>
+      <div class="seo-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3A2.6 2.6 0 1 1 12 12.2V14"/><path d="M12 17h.01" stroke-width="3"/></svg><b>محتوای پاسخ‌محور (GEO)</b><p>صفحات پرسش‌وپاسخ و راهنمای فعال‌سازی با ساختار قابل‌استخراج برای موتورهای پاسخ‌گو؛ هر محصول، پاسخ یک نیاز مشخص است.</p></div>
+      <div class="seo-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20h16M6 16v-5m6 5V8m6 8v-3" /></svg><b>مدیریت متا از پنل ادمین</b><p>عنوان، توضیحات و تگ‌های OG هر محصول و دسته از پنل مدیریت قابل ویرایش است؛ اتصال آماده به Search Console و GA4.</p></div>
+      <div class="seo-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="10" cy="18" r="2.5"/><path d="M8.2 7 15.6 7.7M7.2 8.3l1.8 7M16.5 10.2l-4.4 5.6"/></svg><b>لینک‌سازی داخلی و خوشه موضوعی</b><p>معماری خوشه‌ای دسته‌ها و مقالات وبلاگ، با لینک‌سازی داخلی برنامه‌ریزی‌شده برای ساخت اعتبار موضوعی برند.</p></div>
+    </div>
+    <div class="stackline">
+      <span class="stackchip">WordPress + WooCommerce اختصاصی</span>
+      <span class="stackchip">قالب و پنل کاملاً کدنویسی‌شده</span>
+      <span class="stackchip">PHP / REST API</span>
+      <span class="stackchip">تحویل خودکار با API</span>
+      <span class="stackchip">پیامک + تلگرام</span>
+      <span class="stackchip">Search Console · GA4</span>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>پرسش‌های پرتکرار</h2>
+    <p class="sub">پاسخ شفاف به سؤال‌هایی که قبل از خرید می‌پرسید</p>
+    <div class="fitem">
+      <button class="fq" type="button">تحویل آنی یعنی چه و سفارش من کی به دستم می‌رسد؟<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="fa">به‌محض تکمیل پرداخت، سیستم به‌صورت خودکار کد فعال‌سازی یا اطلاعات اکانت را صادر می‌کند؛ معمولاً در کمتر از یک دقیقه، هم در صفحه تأیید سفارش و هم در پنل کاربری شما نمایش داده می‌شود و نسخه‌ای نیز با ایمیل و پیامک ارسال می‌گردد.</div>
+    </div>
+    <div class="fitem">
+      <button class="fq" type="button">آیا محصولات دیجی‌لند گارانتی دارند؟<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="fa">بله؛ همه اشتراک‌ها و لایسنس‌ها در تمام مدت اعتبار، گارانتی فعال‌سازی و پشتیبانی دارند و در صورت بروز مشکل فنی از سمت ما، تعویض یا بازگشت وجه انجام می‌شود.</div>
+    </div>
+    <div class="fitem">
+      <button class="fq" type="button">روش فعال‌سازی لایسنس یا اشتراک بعد از خرید چگونه است؟<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="fa">همراه هر سفارش، راهنمای فعال‌سازی گام‌به‌گام فارسی ارسال می‌شود. کافی است کد دریافتی را در بخش Redeem یا فعال‌سازی سرویس وارد کنید؛ اگر جایی گیر کردید، تیم پشتیبانی با تیکت یا گفت‌وگوی آنلاین قدم‌به‌قدم همراهتان است.</div>
+    </div>
+    <div class="fitem">
+      <button class="fq" type="button">آیا خرید از دیجی‌لند امن است؟<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="fa">پرداخت فقط از درگاه‌های رسمی بانکی انجام می‌شود، اطلاعات کارت نزد ما ذخیره نمی‌شود و همه محصولات از مسیرهای قانونی و مطابق شرایط استفاده سرویس‌دهندگان عرضه می‌شوند.</div>
+    </div>
+    <div class="fitem">
+      <button class="fq" type="button">اگر کد تخفیف داشته باشم کجا وارد کنم؟<span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      <div class="fa">در سبد خرید، کادر «کد تخفیف» قرار دارد. کد را وارد و روی اعمال بزنید تا مبلغ تخفیف همان لحظه از فاکتور کم شود؛ در جشنواره‌ها کدهای عمومی در بنر بالای فروشگاه اعلام می‌شود.</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div>
+    <div class="fbrand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span>دیجی‌لند</div>
+    <p>فروشگاه تخصصی محصولات و خدمات دیجیتال با تحویل خودکار و آنی؛ طراحی و توسعه کاملاً اختصاصی، بدون قالب آماده — از زیرساخت سئو و GEO تا اتصال API تحویل و اطلاع‌رسانی پیامکی.</p>
+  </div>
+  <div>
+    <h4>دسترسی سریع</h4>
+    <ul><li><a href="#shop">فروشگاه</a></li><li><a href="#faq">پرسش‌های پرتکرار</a></li><li><a href="#seo">زیرساخت سئو و GEO</a></li><li><a href="#" id="footPanel">پنل کاربری و سفارش‌ها</a></li></ul>
+  </div>
+  <div>
+    <h4>چرا دیجی‌لند؟</h4>
+    <ul><li>تحویل آنی ۲۴ ساعته، حتی تعطیلات</li><li>گارانتی فعال‌سازی همه محصولات</li><li>پشتیبانی تیکتینگ فارسی</li><li>قیمت‌گذاری شفاف به تومان</li></ul>
+  </div>
+</div>
+<div class="fbottom">دیجی‌لند — دموی زنده فروشگاه محصولات دیجیتال · همه قیمت‌ها به تومان است</div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="سبد خرید">
+  <header><b>سبد خرید شما</b><button class="xbtn" id="closeDrawer" type="button">✕</button></header>
+  <div class="ditems" id="dItems"></div>
+  <div class="dfoot" id="dFoot">
+    <div class="disc-row">
+      <input type="text" id="discInput" placeholder="کد تخفیف دارید؟ (مثلاً DIGI10)" autocomplete="off">
+      <button type="button" id="discBtn">اعمال</button>
+    </div>
+    <div class="disc-msg" id="discMsg"></div>
+    <div class="trow"><span>جمع اقلام</span><span class="num" id="tSub">۰ تومان</span></div>
+    <div class="trow" id="tDiscRow" style="display:none"><span>تخفیف جشنواره (۱۰٪)</span><span class="neg num" id="tDisc">۰ تومان</span></div>
+    <div class="trow grand"><span>مبلغ قابل پرداخت</span><span class="num" id="tGrand">۰ تومان</span></div>
+    <button class="cta" id="checkoutBtn" type="button">ادامه و پرداخت آنلاین ←</button>
+  </div>
+</aside>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal" id="qvModal"><div class="box">
+  <div class="mhead"><b>مشاهده سریع محصول</b><button class="xbtn" data-close="qvModal" type="button">✕</button></div>
+  <div class="mbody" id="qvBody"></div>
+</div></div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="coModal"><div class="box">
+  <div class="mhead"><b>تکمیل خرید و پرداخت</b><button class="xbtn" data-close="coModal" type="button">✕</button></div>
+  <div class="mbody" id="coBody"></div>
+</div></div>
+
+<!-- USER PANEL MODAL -->
+<div class="modal" id="panelModal"><div class="box" style="max-width:640px">
+  <div class="mhead"><b>پنل کاربری — سفارش‌ها و تحویل‌ها</b><button class="xbtn" data-close="panelModal" type="button">✕</button></div>
+  <div class="mbody" id="panelBody"></div>
+</div></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+const CATS={subs:'اشتراک و اکانت',gift:'گیفت‌کارت',license:'لایسنس نرم‌افزار',charge:'شارژ و بسته اینترنت',service:'خدمات دیجیتال'};
+const PRODUCTS=[
+ {id:'netflix',cat:'subs',name:'اشتراک نتفلیکس پریمیوم 4K',glyph:'N',label:'NETFLIX PREMIUM',bg:'linear-gradient(135deg,#3D0505,#B00610 60%,#E50914)',rating:4.9,sales:3210,desc:'اکانت اختصاصی نتفلیکس با کیفیت 4K و پروفایل شخصی؛ فعال‌سازی روی ایمیل خودتان و قابل استفاده روی همه دستگاه‌ها.',variants:[{label:'۱ ماهه',price:289000,old:340000},{label:'۳ ماهه',price:799000,old:1020000},{label:'۶ ماهه',price:1490000,old:2040000}]},
+ {id:'spotify',cat:'subs',name:'اشتراک اسپاتیفای پریمیوم',glyph:'S',label:'SPOTIFY PREMIUM',bg:'linear-gradient(135deg,#0B3D21,#1DB954)',rating:4.8,sales:2875,desc:'پریمیوم رسمی اسپاتیفای روی اکانت شخصی شما؛ بدون تبلیغ، دانلود آفلاین و کیفیت صدای بالا.',variants:[{label:'۱ ماهه',price:119000,old:150000},{label:'۳ ماهه',price:329000,old:450000},{label:'۱۲ ماهه',price:1190000,old:1800000}]},
+ {id:'youtube',cat:'subs',name:'یوتیوب پریمیوم + یوتیوب موزیک',glyph:'▶',label:'YOUTUBE PREMIUM',bg:'linear-gradient(135deg,#4A0000,#FF0000)',rating:4.8,sales:1940,desc:'تماشای بدون تبلیغ، پخش در پس‌زمینه و دانلود ویدیو + اشتراک یوتیوب موزیک؛ فعال‌سازی قانونی روی جیمیل شما.',variants:[{label:'۱ ماهه',price:139000,old:175000},{label:'۶ ماهه',price:749000,old:1050000}]},
+ {id:'chatgpt',cat:'subs',name:'اشتراک چت‌جی‌پی‌تی پلاس (GPT Plus)',glyph:'✦',label:'CHATGPT PLUS',bg:'linear-gradient(135deg,#07332E,#10A37F)',rating:4.9,sales:2210,desc:'دسترسی کامل به مدل‌های پیشرفته، ساخت تصویر و تحلیل فایل؛ فعال‌سازی روی اکانت شخصی با گارانتی کل دوره.',variants:[{label:'۱ ماهه',price:1890000,old:2150000},{label:'۳ ماهه',price:5490000,old:6450000}]},
+ {id:'psn',cat:'gift',name:'گیفت‌کارت پلی‌استیشن (آمریکا)',glyph:'PS',label:'PLAYSTATION STORE',bg:'linear-gradient(135deg,#001233,#0070D1)',rating:4.9,sales:4020,desc:'کد شارژ رسمی فروشگاه پلی‌استیشن ریجن آمریکا؛ تحویل آنی کد ۱۲ رقمی بلافاصله پس از پرداخت.',variants:[{label:'۱۰ دلاری',price:890000,old:960000},{label:'۲۰ دلاری',price:1750000,old:1920000},{label:'۵۰ دلاری',price:4290000,old:4800000}]},
+ {id:'itunes',cat:'gift',name:'گیفت‌کارت آیتونز اپل (آمریکا)',glyph:'',label:'APP STORE & ITUNES',bg:'linear-gradient(135deg,#1C1C22,#55565E)',rating:4.8,sales:2680,desc:'شارژ اپل آیدی ریجن آمریکا برای خرید اپ، بازی و اشتراک‌های اپل؛ کد به‌صورت آنی صادر می‌شود.',variants:[{label:'۱۵ دلاری',price:1290000,old:1420000},{label:'۲۵ دلاری',price:2090000,old:2350000},{label:'۱۰۰ دلاری',price:7990000,old:8900000}]},
+ {id:'steam',cat:'gift',name:'گیفت‌کارت استیم والت (گلوبال)',glyph:'ST',label:'STEAM WALLET',bg:'linear-gradient(135deg,#0B1622,#2A475E 70%,#66C0F4)',rating:4.8,sales:3115,desc:'شارژ کیف پول استیم نسخه گلوبال؛ مناسب خرید بازی و آیتم‌های درون‌برنامه‌ای، با تحویل فوری کد.',variants:[{label:'۵ دلاری',price:449000,old:495000},{label:'۲۰ دلاری',price:1749000,old:1920000},{label:'۵۰ دلاری',price:4290000,old:4800000}]},
+ {id:'windows',cat:'license',name:'لایسنس اورجینال ویندوز ۱۱ پرو',glyph:'⊞',label:'WINDOWS 11 PRO',bg:'linear-gradient(135deg,#03294F,#00ADEF)',rating:4.9,sales:1745,desc:'کلید فعال‌سازی رسمی و مادام‌العمر ویندوز ۱۱ پرو؛ فعال‌سازی آنلاین مستقیم از سرور مایکروسافت.',variants:[{label:'تک‌کاربره',price:1290000,old:1590000},{label:'سازمانی (۵ کاربره)',price:3900000,old:4700000}]},
+ {id:'office',cat:'license',name:'لایسنس آفیس ۲۰۲۱ پرو پلاس',glyph:'O',label:'OFFICE 2021 PRO',bg:'linear-gradient(135deg,#5C1A00,#EB3C00)',rating:4.7,sales:1320,desc:'نسخه کامل ورد، اکسل و پاورپوینت با لایسنس رسمی و فعال‌سازی دائمی؛ همراه راهنمای نصب فارسی.',variants:[{label:'۱ کاربره',price:990000,old:1250000},{label:'۵ کاربره',price:3490000,old:4300000}]},
+ {id:'nod32',cat:'license',name:'آنتی‌ویروس نود۳۲ (ESET)',glyph:'🛡',label:'ESET NOD32',bg:'linear-gradient(135deg,#0B3B2E,#27AE60)',rating:4.7,sales:980,desc:'محافظت سبک و سریع در برابر بدافزار و فیشینگ؛ لایسنس رسمی با به‌روزرسانی روزانه دیتابیس ویروس.',variants:[{label:'۱ ساله · ۱ کاربره',price:349000,old:430000},{label:'۱ ساله · ۳ کاربره',price:749000,old:920000}]},
+ {id:'irancell',cat:'charge',name:'شارژ مستقیم ایرانسل',glyph:'⚡',label:'IRANCELL TOP-UP',bg:'linear-gradient(135deg,#8A6D00,#F7C948)',rating:4.8,sales:5230,desc:'شارژ مستقیم سیم‌کارت ایرانسل بدون نیاز به وارد کردن کد؛ مبلغ در چند ثانیه روی خط شما می‌نشیند.',variants:[{label:'۲۰ هزار تومان',price:20000},{label:'۵۰ هزار تومان',price:50000},{label:'۱۰۰ هزار تومان',price:100000}]},
+ {id:'mci',cat:'charge',name:'بسته اینترنت همراه اول ۱۰ گیگ',glyph:'4G',label:'MCI INTERNET',bg:'linear-gradient(135deg,#034A5E,#00BCD4)',rating:4.6,sales:2870,desc:'فعال‌سازی مستقیم بسته اینترنت روی شماره همراه اول شما؛ رسید فعال‌سازی با پیامک ارسال می‌شود.',variants:[{label:'۱ ماهه',price:89000,old:99000},{label:'۳ ماهه',price:239000,old:279000}]},
+ {id:'hosting',cat:'service',name:'هاست لینوکس حرفه‌ای (NVMe)',glyph:'☁',label:'CLOUD HOSTING',bg:'linear-gradient(135deg,#241056,#6C4CF1)',rating:4.8,sales:860,desc:'هاست پرسرعت NVMe با کنترل‌پنل فارسی، SSL رایگان و بک‌آپ روزانه؛ اطلاعات ورود بلافاصله پس از خرید ارسال می‌شود.',variants:[{label:'۱ ساله',price:690000,old:840000},{label:'۲ ساله',price:1190000,old:1680000}]},
+ {id:'ssl',cat:'service',name:'گواهی امنیتی SSL استاندارد',glyph:'🔒',label:'SSL CERTIFICATE',bg:'linear-gradient(135deg,#1F2937,#64748B)',rating:4.7,sales:640,desc:'گواهی DV معتبر بین‌المللی برای قفل سبز و HTTPS امن؛ صدور و نصب راهنما‌دار در کمتر از یک ساعت.',variants:[{label:'۱ ساله',price:449000,old:540000},{label:'۲ ساله',price:790000,old:1050000}]}
+];
+const faNum=n=>Number(n).toLocaleString('fa-IR');
+const $=s=>document.querySelector(s);
+
+/* ================= STATE ================= */
+let cart=JSON.parse(localStorage.getItem('dl_cart')||'[]'); // {pid,v,qty}
+let discount=localStorage.getItem('dl_disc')==='1';
+let curCat='all', curQuery='', curSort='pop';
+let orders=JSON.parse(localStorage.getItem('dl_orders')||'null');
+if(!orders){
+  orders=[{no:'DL-841207',date:'۱۴۰۵/۰۸/۲۲',items:[{name:'اشتراک اسپاتیفای پریمیوم',variant:'۳ ماهه',key:'SPOT-7K2D-99QX-2026'}],total:329000}];
+  localStorage.setItem('dl_orders',JSON.stringify(orders));
+}
+const prod=id=>PRODUCTS.find(p=>p.id===id);
+function saveCart(){localStorage.setItem('dl_cart',JSON.stringify(cart));}
+
+/* ================= GRID ================= */
+function renderGrid(){
+  let list=PRODUCTS.filter(p=>(curCat==='all'||p.cat===curCat)&&(!curQuery||p.name.includes(curQuery)||CATS[p.cat].includes(curQuery)));
+  if(curSort==='cheap')list=[...list].sort((a,b)=>a.variants[0].price-b.variants[0].price);
+  if(curSort==='exp')list=[...list].sort((a,b)=>b.variants[0].price-a.variants[0].price);
+  if(curSort==='rate')list=[...list].sort((a,b)=>b.rating-a.rating);
+  if(curSort==='pop')list=[...list].sort((a,b)=>b.sales-a.sales);
+  $('#resCount').textContent=faNum(list.length)+' محصول';
+  $('#gridTitle').textContent=curQuery?('نتایج جستجو: «'+curQuery+'»'):(curCat==='all'?'همه محصولات':CATS[curCat]);
+  if(!list.length){$('#grid').innerHTML='<div class="empty">محصولی با این مشخصات پیدا نشد؛ عبارت دیگری را جستجو کنید یا دسته‌بندی را عوض کنید.</div>';return;}
+  $('#grid').innerHTML=list.map(p=>{
+    const v=p.variants[0], off=v.old?Math.round((1-v.price/v.old)*100):0;
+    return `<article class="pcard">
+      <div class="tile" style="background:${p.bg}">
+        <svg class="bgic" viewBox="0 0 24 24" fill="#fff"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg>
+        <span class="glyph">${p.glyph}</span><span class="tlabel">${p.label}</span>
+        <span class="instant">⚡ تحویل آنی</span>${off?`<span class="off num">${faNum(off)}٪ تخفیف</span>`:''}
+      </div>
+      <div class="pbody">
+        <span class="pcat">${CATS[p.cat]}</span>
+        <h3 class="pname">${p.name}</h3>
+        <div class="pmeta"><span class="star">★ ${faNum(p.rating)}</span><span class="num">${faNum(p.sales)} فروش</span><span>گارانتی فعال‌سازی</span></div>
+        <div class="price-row">
+          <div class="price">${v.old?`<span class="old num">${faNum(v.old)}</span>`:''}<span class="now num">${faNum(v.price)} <small>تومان</small></span></div>
+          <button class="addbtn" type="button" data-qv="${p.id}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>خرید</button>
+        </div>
+      </div></article>`;
+  }).join('');
+  document.querySelectorAll('[data-qv]').forEach(b=>b.addEventListener('click',()=>openQV(b.dataset.qv)));
+}
+
+/* ================= QUICK VIEW ================= */
+let qvPid=null,qvVar=0;
+function openQV(id){
+  qvPid=id;qvVar=0;const p=prod(id);
+  $('#qvBody').innerHTML=`
+    <div class="qv-tile" style="background:${p.bg}"><span class="glyph">${p.glyph}</span><span class="tlabel">${p.label}</span><span class="instant">⚡ تحویل آنی</span></div>
+    <div class="qv-name">${p.name}</div>
+    <p class="qv-desc">${p.desc}</p>
+    <div class="vlabel">انتخاب نوع / مدت اشتراک:</div>
+    <div class="variants" id="qvVars">${p.variants.map((v,i)=>`<button type="button" class="vopt${i===0?' on':''}" data-vi="${i}">${v.label}<small class="num">${faNum(v.price)} تومان</small></button>`).join('')}</div>
+    <div class="qv-feats"><span>⚡ تحویل خودکار بلافاصله پس از پرداخت</span><span>🛡 گارانتی فعال‌سازی کل دوره</span><span>✉️ ارسال کد به ایمیل و پیامک</span><span>🎧 پشتیبانی تیکتینگ فارسی</span></div>
+    <button class="cta" id="qvAdd" type="button" style="margin-top:0">افزودن به سبد — <span class="num" id="qvPrice">${faNum(p.variants[0].price)}</span> تومان</button>`;
+  $('#qvModal').classList.add('show');
+  document.querySelectorAll('#qvVars .vopt').forEach(b=>b.addEventListener('click',()=>{
+    qvVar=+b.dataset.vi;
+    document.querySelectorAll('#qvVars .vopt').forEach(x=>x.classList.toggle('on',+x.dataset.vi===qvVar));
+    $('#qvPrice').textContent=faNum(prod(qvPid).variants[qvVar].price);
+  }));
+  $('#qvAdd').addEventListener('click',()=>{addToCart(qvPid,qvVar,1);$('#qvModal').classList.remove('show');openDrawer();});
+}
+
+/* ================= CART ================= */
+function addToCart(pid,v,qty){
+  const ex=cart.find(i=>i.pid===pid&&i.v===v);
+  if(ex)ex.qty+=qty;else cart.push({pid,v,qty});
+  saveCart();renderCart();toast('به سبد خرید اضافه شد ✅');
+}
+function totals(){
+  const sub=cart.reduce((s,i)=>s+prod(i.pid).variants[i.v].price*i.qty,0);
+  const disc=discount?Math.round(sub*0.10):0;
+  return{sub,disc,grand:sub-disc};
+}
+function renderCart(){
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  $('#cartCount').textContent=faNum(count);
+  const box=$('#dItems');
+  if(!cart.length){box.innerHTML='<div class="dempty">سبد خرید شما خالی است.<br>از فروشگاه دیدن کنید و محصول دیجیتال خود را با تحویل آنی بخرید.</div>';}
+  else box.innerHTML=cart.map((i,idx)=>{const p=prod(i.pid),v=p.variants[i.v];return `
+    <div class="ditem">
+      <div class="thumb" style="background:${p.bg}">${p.glyph||'◆'}</div>
+      <div class="inf"><b>${p.name}</b><span>${v.label} · تحویل آنی</span>
+        <div class="qty"><button type="button" data-dec="${idx}">−</button><span class="qn num">${faNum(i.qty)}</span><button type="button" data-inc="${idx}">+</button>
+        <button type="button" class="rm" data-rm="${idx}">حذف</button></div>
+      </div>
+      <div class="lp num">${faNum(v.price*i.qty)} تومان</div>
+    </div>`;}).join('');
+  box.querySelectorAll('[data-inc]').forEach(b=>b.onclick=()=>{cart[+b.dataset.inc].qty++;saveCart();renderCart();});
+  box.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{const it=cart[+b.dataset.dec];it.qty--;if(it.qty<1)cart.splice(+b.dataset.dec,1);saveCart();renderCart();});
+  box.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{cart.splice(+b.dataset.rm,1);saveCart();renderCart();});
+  const t=totals();
+  $('#tSub').textContent=faNum(t.sub)+' تومان';
+  $('#tDiscRow').style.display=discount&&t.disc?'flex':'none';
+  $('#tDisc').textContent='− '+faNum(t.disc)+' تومان';
+  $('#tGrand').textContent=faNum(t.grand)+' تومان';
+  $('#checkoutBtn').disabled=!cart.length;
+}
+function openDrawer(){renderCart();$('#cartDrawer').classList.add('show');$('#overlay').classList.add('show');}
+function closeDrawer(){$('#cartDrawer').classList.remove('show');$('#overlay').classList.remove('show');}
+
+/* ================= CHECKOUT + AUTO DELIVERY ================= */
+function genKey(pid){
+  const ch='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';
+  const seg=n=>Array.from({length:n},()=>ch[Math.floor(Math.random()*ch.length)]).join('');
+  if(pid==='psn')return seg(4)+'-'+seg(4)+'-'+seg(4);
+  if(pid==='itunes')return 'X'+seg(15);
+  return seg(4)+'-'+seg(4)+'-'+seg(4)+'-'+seg(4);
+}
+function startCheckout(){
+  closeDrawer();
+  const t=totals();
+  $('#coBody').innerHTML=`
+    <div class="steps"><span class="st on">۱ · اطلاعات خریدار</span><span class="st">۲ · پرداخت</span><span class="st">۳ · تحویل آنی</span></div>
+    <div class="ferr" id="coErr"></div>
+    <div class="fld"><label>نام و نام خانوادگی</label><input id="fName" type="text" placeholder="مثلاً: سارا محمدی"></div>
+    <div class="fld"><label>شماره موبایل (برای ارسال پیامکی کد)</label><input id="fMobile" type="tel" placeholder="۰۹۱۲ ··· ····" style="direction:ltr;text-align:left"></div>
+    <div class="fld"><label>ایمیل (تحویل کد به ایمیل)</label><input id="fEmail" type="email" placeholder="you@example.com" style="direction:ltr;text-align:left"><div class="hint">کد فعال‌سازی بلافاصله پس از پرداخت به این ایمیل و موبایل شما ارسال می‌شود.</div></div>
+    <div class="trow grand"><span>مبلغ قابل پرداخت</span><span class="num">${faNum(t.grand)} تومان</span></div>
+    <button class="cta" id="toGateway" type="button">ادامه به درگاه پرداخت ←</button>`;
+  $('#coModal').classList.add('show');
+  $('#toGateway').onclick=()=>{
+    const name=$('#fName').value.trim(),mob=$('#fMobile').value.trim(),em=$('#fEmail').value.trim();
+    const err=$('#coErr');
+    if(name.length<3||mob.replace(/\D/g,'').length<10||!em.includes('@')){err.textContent='لطفاً نام، موبایل معتبر و ایمیل را کامل وارد کنید تا تحویل خودکار انجام شود.';err.style.display='block';return;}
+    gatewayStep(name,mob,em);
+  };
+}
+function gatewayStep(name,mob,em){
+  const t=totals();
+  $('#coBody').innerHTML=`
+    <div class="steps"><span class="st">۱ · اطلاعات خریدار</span><span class="st on">۲ · پرداخت</span><span class="st">۳ · تحویل آنی</span></div>
+    <div class="gw">
+      <div class="gwhead"><b>درگاه پرداخت اینترنتی</b><span class="amount num">${faNum(t.grand)} تومان</span></div>
+      <div class="fld"><label>شماره کارت</label><input type="text" value="6037 ···· ···· 4321" readonly style="direction:ltr;text-align:left"></div>
+      <div class="cardgrid">
+        <div class="fld"><label>رمز پویا</label><input type="text" value="••••••" readonly style="direction:ltr;text-align:left"></div>
+        <div class="fld"><label>CVV2</label><input type="text" value="•••" readonly style="direction:ltr;text-align:left"></div>
+      </div>
+      <p style="font-size:.8rem;color:var(--mut)">این مرحله نمایشی است؛ در نسخه واقعی به درگاه رسمی بانکی (زرین‌پال/زیبال و…) متصل می‌شود و اطلاعات کارت نزد فروشگاه ذخیره نمی‌گردد.</p>
+    </div>
+    <button class="cta" id="payBtn" type="button">پرداخت ${faNum(t.grand)} تومان</button>`;
+  $('#payBtn').onclick=()=>{
+    $('#coBody').innerHTML=`<div class="center"><div class="spin"></div><b>در حال پردازش پرداخت و صدور خودکار سفارش…</b><p style="color:var(--mut);font-size:.9rem">سیستم در حال اتصال به API سرویس و تولید کد فعال‌سازی شماست.</p></div>`;
+    setTimeout(()=>deliverStep(name,mob,em),1500);
+  };
+}
+function deliverStep(name,mob,em){
+  const t=totals();
+  const ordNo='DL-'+Math.floor(100000+Math.random()*899999);
+  const items=cart.map(i=>{const p=prod(i.pid);return{name:p.name,variant:p.variants[i.v].label,key:genKey(i.pid),qty:i.qty};});
+  const flat=[];items.forEach(it=>{for(let k=0;k<it.qty;k++)flat.push({name:it.name,variant:it.variant,key:k===0?it.key:genKey('x')});});
+  orders.unshift({no:ordNo,date:'۱۴۰۵/۰۹/۰۱',items:flat,total:t.grand});
+  localStorage.setItem('dl_orders',JSON.stringify(orders));
+  cart=[];discount=false;localStorage.removeItem('dl_disc');saveCart();renderCart();
+  $('#coBody').innerHTML=`
+    <div class="steps"><span class="st">۱ · اطلاعات خریدار</span><span class="st">۲ · پرداخت</span><span class="st on">۳ · تحویل آنی</span></div>
+    <div class="center">
+      <div class="success-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></div>
+      <h3 style="font-size:1.3rem;font-weight:900">پرداخت موفق — سفارش شما تحویل شد! 🎉</h3>
+      <div class="ordno num">شماره سفارش: ${ordNo}</div>
+      <p style="color:var(--mut);font-size:.9rem">خریدار: ${name} · تحویل خودکار در کمتر از یک دقیقه انجام شد.</p>
+    </div>
+    <div style="margin-top:16px">${flat.map(it=>`
+      <div class="deliv-item"><b>${it.name}</b><span>${it.variant} · کد فعال‌سازی شما:</span>
+        <div class="keybox"><code>${it.key}</code><button type="button" data-copy="${it.key}">کپی کد</button></div>
+      </div>`).join('')}
+    </div>
+    <div class="smsnote">📩 همین کدها به ایمیل <b>${em}</b> و پیامک شماره <b>${mob}</b> هم ارسال شد و در «پنل کاربری ← سفارش‌های من» همیشه در دسترس است. راهنمای فعال‌سازی گام‌به‌گام نیز پیوست شده است.</div>
+    <button class="cta" id="doneBtn" type="button">مشاهده در پنل کاربری</button>`;
+  bindCopy($('#coBody'));
+  $('#doneBtn').onclick=()=>{$('#coModal').classList.remove('show');openPanel();};
+}
+function bindCopy(scope){
+  scope.querySelectorAll('[data-copy]').forEach(b=>b.onclick=async()=>{
+    const txt=b.dataset.copy;
+    try{await navigator.clipboard.writeText(txt);}catch(e){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
+    b.textContent='کپی شد ✓';setTimeout(()=>b.textContent='کپی کد',1600);toast('کد فعال‌سازی کپی شد');
+  });
+}
+
+/* ================= USER PANEL ================= */
+function openPanel(){
+  $('#panelBody').innerHTML=orders.length?orders.map(o=>`
+    <div class="uorder">
+      <div class="oh"><b>سفارش <span class="num">${o.no}</span></b><span class="pill">تحویل داده شد ⚡</span></div>
+      <div class="om">تاریخ: ${o.date} · مبلغ: <span class="num">${faNum(o.total)} تومان</span> · ${faNum(o.items.length)} قلم</div>
+      ${o.items.map(it=>`<div class="deliv-item" style="margin-top:9px"><b>${it.name}</b><span>${it.variant}</span><div class="keybox"><code>${it.key}</code><button type="button" data-copy="${it.key}">کپی کد</button></div></div>`).join('')}
+    </div>`).join(''):'<div class="dempty">هنوز سفارشی ثبت نکرده‌اید.</div>';
+  bindCopy($('#panelBody'));
+  $('#panelModal').classList.add('show');
+}
+
+/* ================= MISC UI ================= */
+let toastTimer;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2400);}
+document.querySelectorAll('#catRail .catchip').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('#catRail .catchip').forEach(x=>x.classList.toggle('on',x===c));
+  curCat=c.dataset.cat;renderGrid();$('#shop').scrollIntoView({behavior:'smooth'});
+}));
+$('#searchForm').addEventListener('submit',e=>{e.preventDefault();curQuery=$('#searchInput').value.trim();renderGrid();$('#shop').scrollIntoView({behavior:'smooth'});});
+$('#searchInput').addEventListener('input',e=>{curQuery=e.target.value.trim();renderGrid();});
+$('#sortSel').addEventListener('change',e=>{curSort=e.target.value;renderGrid();});
+document.querySelectorAll('.fitem .fq').forEach(b=>b.addEventListener('click',()=>{
+  const it=b.parentElement,was=it.classList.contains('open');
+  document.querySelectorAll('.fitem').forEach(x=>x.classList.remove('open'));
+  if(!was)it.classList.add('open');
+}));
+$('#cartBtn').addEventListener('click',openDrawer);
+$('#closeDrawer').addEventListener('click',closeDrawer);
+$('#overlay').addEventListener('click',closeDrawer);
+$('#checkoutBtn').addEventListener('click',()=>{if(cart.length)startCheckout();});
+$('#panelBtn').addEventListener('click',openPanel);
+$('#footPanel').addEventListener('click',e=>{e.preventDefault();openPanel();});
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.close).classList.remove('show')));
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show');}));
+$('#discBtn').addEventListener('click',()=>{
+  const code=$('#discInput').value.trim().toUpperCase(),msg=$('#discMsg');
+  if(code==='DIGI10'){discount=true;localStorage.setItem('dl_disc','1');msg.textContent='کد جشنواره اعمال شد؛ ۱۰٪ از فاکتور کم شد 🎉';msg.className='disc-msg ok';}
+  else{discount=false;localStorage.removeItem('dl_disc');msg.textContent='این کد معتبر نیست. کد جشنواره فعلی: DIGI10';msg.className='disc-msg err';}
+  renderCart();
+});
+if(discount){$('#discInput').value='DIGI10';$('#discMsg').textContent='کد جشنواره DIGI10 روی سبد شما فعال است.';$('#discMsg').className='disc-msg ok';}
+$('#copyFestCode').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText('DIGI10');}catch(e){}
+  toast('کد تخفیف DIGI10 کپی شد — در سبد خرید اعمالش کنید');
+});
+renderGrid();renderCart();
+</script>
+</body>
+</html>
