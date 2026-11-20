@@ -186,8 +186,19 @@ tbody tr:nth-child(even){background:#fbf8f2}
 .report-card ul{list-style:none;font-size:13.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:5px}
 .report-card ul li::before{content:"ـ ";color:var(--muted)}
 
-footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+footer{margin-top:44px;border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--muted)}
 footer b{color:var(--ink)}
+.info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.info-block{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.info-block:nth-child(2){border-top-color:var(--rust)}
+.info-block:nth-child(3){border-top-color:var(--blue)}
+.info-block h5{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.info-block h5 i{width:8px;height:8px;border-radius:3px;background:var(--teal);flex:0 0 8px}
+.info-block:nth-child(2) h5 i{background:var(--rust)}
+.info-block:nth-child(3) h5 i{background:var(--blue)}
+.info-block p{font-size:12.5px;line-height:1.85}
+.foot-base{border-top:1px dashed var(--line);padding-top:16px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:640px){.info-strip{grid-template-columns:1fr}}
 
 @media(max-width:1080px){
   .phases{grid-template-columns:repeat(2,1fr)}
@@ -586,8 +597,24 @@ footer b{color:var(--ink)}
   </section>
 
   <footer>
-    <span>ارائه‌دهنده: <b>اپ‌وبینو (AppWebino)</b> — طراحی سایت و سئوی حرفه‌ای</span>
-    <span>برنامه اجرایی پروژه «سئو و بهینه‌سازی کامل سایت خدمات شستشوی فرش» — ۴ ماه، ۱۲۰ روز</span>
+    <div class="info-strip">
+      <div class="info-block">
+        <h5><i></i>چرخه گزارش‌دهی</h5>
+        <p>گزارش‌دهی ماهانه + داشبورد زنده؛ در پایان هر ماه گزارش کامل کارهای انجام‌شده، نمودار ورودی ارگانیک و جدول رتبه کلمات هدف تحویل می‌شود و در تمام طول برنامه دسترسی دائمی به داشبورد آنلاین عملکرد دارید.</p>
+      </div>
+      <div class="info-block">
+        <h5><i></i>جلسات بررسی</h5>
+        <p>جلسه مرور ماهانه به‌صورت آنلاین برگزار می‌شود: مرور نتایج ماه با زبان ساده، پاسخ به سؤال‌ها و شفاف‌سازی عددها؛ توافق روی اولویت‌های ماه بعد در همان جلسه ثبت و در گزارش ماهانه درج می‌شود.</p>
+      </div>
+      <div class="info-block">
+        <h5><i></i>شاخص‌های پایش</h5>
+        <p>پایش ماهانه بر پایه داده مستقیم سرچ کنسول و آنالیتیکس: صفحات خدمات و لندینگ‌های شهری ایندکس‌شده، ورودی ارگانیک ماهانه، تماس و سفارش از سایت و رتبه کلمات «قالیشویی + شهر».</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>ارائه‌دهنده: <b>اپ‌وبینو (AppWebino)</b> — طراحی سایت و سئوی حرفه‌ای</span>
+      <span>برنامه اجرایی پروژه «سئو و بهینه‌سازی کامل سایت خدمات شستشوی فرش» — ۴ ماه، ۱۲۰ روز</span>
+    </div>
   </footer>
 
 </div>
