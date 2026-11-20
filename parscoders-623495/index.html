@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>قسط‌طلا | خرید اقساطی طلا، سکه و شمش — بدون ضامن</title>
+<meta name="description" content="خرید اقساطی طلا، سکه و شمش با قیمت لحظه‌ای؛ بدون ضامن، فقط با چک صیادی یا سفته الکترونیک. پیش‌پرداخت از ۱۰٪، اقساط تا ۲۴ ماه، فاکتور رسمی و درگاه پرداخت امن.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07120E; --deep:#0A1F1C; --panel:#0D2620; --panel2:#113129; --panel3:#16402F;
+  --line:rgba(201,162,75,.22); --line2:rgba(244,239,227,.09);
+  --gold:#C9A24B; --gold2:#E7C66A; --goldsoft:rgba(201,162,75,.12);
+  --cream:#F4EFE3; --mut:#A9BCB0; --mut2:#7E948A;
+  --up:#3ECF7A; --down:#F87171; --radius:18px;
+  --shadow:0 24px 60px rgba(0,0,0,.45);
+}
+*{font-family:'Vazirmatn',sans-serif!important;box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cream);line-height:1.9;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;background:none;border:none;color:inherit}
+input,select{font-family:inherit;color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1320px;margin-inline:auto;padding-inline:clamp(16px,4vw,48px)}
+.sec{padding-block:clamp(56px,8vw,104px)}
+.sec-head{max-width:720px;margin-bottom:clamp(28px,4vw,48px)}
+.eyebrow{font-size:13px;color:var(--gold2);font-weight:600;display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:'';width:36px;height:1px;background:var(--gold)}
+.sec-head h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;line-height:1.35;margin-top:10px}
+.sec-head p{color:var(--mut);margin-top:10px;font-size:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 28px;border-radius:14px;font-weight:700;font-size:15px;transition:.25s;border:1px solid transparent}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#221A05}
+.btn-gold:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-out{border-color:var(--line);color:var(--cream)}
+.btn-out:hover{border-color:var(--gold);color:var(--gold2)}
+.btn-ghost{min-height:44px;padding:8px 18px;border-radius:12px;border:1px solid var(--line2);font-size:14px;font-weight:600}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--goldsoft);border:1px solid var(--line);color:var(--gold2);border-radius:999px;padding:7px 16px;font-size:13.5px;font-weight:600}
+svg.ic{width:20px;height:20px;flex:none}
+/* ---------- ticker ---------- */
+.ticker{background:#04100C;border-bottom:1px solid var(--line2);font-size:13px;position:relative;z-index:60}
+.ticker .row{display:flex;align-items:center;gap:30px;overflow-x:auto;white-space:nowrap;padding-block:9px;scrollbar-width:none}
+.ticker .row::-webkit-scrollbar{display:none}
+.tk{display:flex;align-items:center;gap:8px}
+.tk .t{color:var(--mut)}
+.tk b{font-weight:700;color:var(--cream)}
+.tk .chg{font-size:12px;font-weight:700}
+.up{color:var(--up)} .down{color:var(--down)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--up);display:inline-block;animation:pl 1.6s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
+.flash{animation:fl .9s}
+@keyframes fl{0%{background:rgba(201,162,75,.35)}100%{background:transparent}}
+/* ---------- header ---------- */
+#hdr{position:sticky;top:0;z-index:50;background:rgba(7,18,14,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line2)}
+.hbar{display:flex;align-items:center;gap:20px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:24px}
+.logo .mark{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--gold2),var(--gold));display:grid;place-items:center;color:#221A05}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--mut);line-height:1.4}
+.search{flex:1;max-width:480px;margin-inline:auto;position:relative}
+.search input{width:100%;background:var(--panel);border:1px solid var(--line2);border-radius:13px;padding:11px 44px 11px 16px;font-size:14px;color:var(--cream);min-height:48px}
+.search input::placeholder{color:var(--mut2)}
+.search input:focus{outline:none;border-color:var(--gold)}
+.search svg{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--mut)}
+.hact{display:flex;align-items:center;gap:10px;margin-inline-start:auto}
+.cartbtn{position:relative}
+.cartn{position:absolute;top:-7px;left:-7px;background:var(--gold);color:#221A05;font-size:12px;font-weight:800;min-width:21px;height:21px;border-radius:999px;display:grid;place-items:center;padding-inline:5px}
+.nav{border-top:1px solid var(--line2)}
+.nav .row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:6px}
+.nav .row::-webkit-scrollbar{display:none}
+.nav a{font-size:14px;color:var(--mut);padding:9px 14px;border-radius:10px;white-space:nowrap;transition:.2s}
+.nav a:hover{color:var(--gold2);background:var(--goldsoft)}
+.burger{display:none;width:48px;height:48px;border:1px solid var(--line2);border-radius:12px;place-items:center}
+/* ---------- hero ---------- */
+.hero{position:relative;background:radial-gradient(900px 480px at 85% -10%,rgba(201,162,75,.14),transparent 60%),linear-gradient(180deg,var(--deep),var(--bg))}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:clamp(44px,6vw,76px)}
+.hero h1{font-size:clamp(34px,4.6vw,58px);font-weight:900;line-height:1.3}
+.hero h1 .g{background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{color:var(--mut);font-size:clamp(16px,1.6vw,18.5px);margin-top:18px;max-width:540px}
+.hero .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .stats{display:flex;gap:36px;margin-top:38px;flex-wrap:wrap}
+.hero .stats b{font-size:22px;font-weight:800;color:var(--gold2);display:block;line-height:1.3}
+.hero .stats span{font-size:13px;color:var(--mut)}
+.hpanel{background:var(--panel);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+.hpanel .ph{position:relative;height:230px}
+.hpanel .ph img{width:100%;height:100%;object-fit:cover}
+.hpanel .ph::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,38,32,.92))}
+.hpanel .ph .live{position:absolute;bottom:14px;right:18px;left:18px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end}
+.hpanel .ph .live .lb{font-size:13px;color:var(--gold2);font-weight:600}
+.hpanel .ph .live .vl{font-size:24px;font-weight:800;line-height:1.3}
+.hpanel .ph .live .vl small{font-size:12px;color:var(--mut);font-weight:500}
+.hw{padding:22px 22px 24px}
+.hw h3{font-size:17px;font-weight:800;margin-bottom:4px}
+.hw .sub{font-size:13px;color:var(--mut);margin-bottom:16px}
+.fld{margin-bottom:14px}
+.fld .lr{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px}
+.fld .lr b{color:var(--gold2)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:99px;background:var(--panel3);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--gold2);border:3px solid #221A05;box-shadow:0 2px 10px rgba(0,0,0,.5);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--gold2);border:3px solid #221A05;cursor:pointer}
+.num-in{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:10px 14px;font-size:15px;font-weight:700;min-height:48px}
+.num-in:focus{outline:none;border-color:var(--gold)}
+.hw .outs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.out{background:var(--bg);border:1px solid var(--line2);border-radius:14px;padding:12px 14px}
+.out span{font-size:12.5px;color:var(--mut);display:block}
+.out b{font-size:19px;font-weight:800;color:var(--gold2)}
+.out b small{font-size:12px;color:var(--mut);font-weight:500}
+/* ---------- trust strip ---------- */
+.trust{border-block:1px solid var(--line2);background:var(--deep)}
+.trust .row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding-block:22px}
+.trust .it{display:flex;align-items:center;gap:12px;justify-content:center;font-size:14px;font-weight:600}
+.trust .it svg{color:var(--gold)}
+.trust .it small{display:block;color:var(--mut);font-weight:400;font-size:12px}
+/* ---------- price board ---------- */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pcard{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);padding:20px;transition:.25s}
+.pcard:hover{border-color:var(--line);transform:translateY(-3px)}
+.pcard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.pcard .lb{font-size:14px;color:var(--mut);font-weight:600}
+.pcard .vl{font-size:clamp(20px,2vw,26px);font-weight:800}
+.pcard .vl small{font-size:12.5px;color:var(--mut);font-weight:500}
+.pcard canvas{width:100%;height:38px;margin-top:10px}
+.chgchip{font-size:12px;font-weight:700;border-radius:8px;padding:2px 9px}
+.chgchip.up{background:rgba(62,207,122,.13)} .chgchip.down{background:rgba(248,113,113,.13)}
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);padding:26px 22px;position:relative}
+.step .n{width:46px;height:46px;border-radius:50%;background:var(--goldsoft);border:1px solid var(--line);color:var(--gold2);font-weight:900;font-size:19px;display:grid;place-items:center;margin-bottom:16px}
+.step h3{font-size:17px;font-weight:800;margin-bottom:8px}
+.step p{font-size:14px;color:var(--mut)}
+/* ---------- calculator ---------- */
+.calc{background:linear-gradient(180deg,var(--deep),var(--bg))}
+.calc-card{background:var(--panel);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,3.4vw,42px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,48px);box-shadow:var(--shadow)}
+.mchips{display:flex;gap:8px;flex-wrap:wrap}
+.mchip{min-height:44px;padding:8px 18px;border-radius:12px;border:1px solid var(--line2);font-weight:700;font-size:14.5px;transition:.2s}
+.mchip:hover{border-color:var(--gold)}
+.mchip.on{background:var(--gold);border-color:var(--gold);color:#221A05}
+.calc .res{display:flex;flex-direction:column;gap:12px}
+.rrow{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border:1px solid var(--line2);border-radius:14px;padding:14px 18px}
+.rrow span{font-size:14px;color:var(--mut)}
+.rrow b{font-size:19px;font-weight:800}
+.rrow.hero-r{background:var(--goldsoft);border-color:var(--line)}
+.rrow.hero-r b{font-size:clamp(24px,2.6vw,32px);color:var(--gold2)}
+.rrow.hero-r span{color:var(--gold2);font-weight:700;font-size:15px}
+.note{font-size:13px;color:var(--mut2);line-height:1.9}
+.tblwrap{margin-top:18px;border:1px solid var(--line2);border-radius:14px;overflow:hidden}
+.tblwrap .th{display:flex;justify-content:space-between;padding:12px 18px;background:var(--bg);font-weight:700;font-size:14.5px;cursor:pointer;min-height:48px;align-items:center}
+.tbl{max-height:240px;overflow-y:auto;display:none}
+.tbl.open{display:block}
+.tbl table{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl td,.tbl th{padding:9px 18px;border-top:1px solid var(--line2);text-align:right}
+.tbl th{color:var(--mut);font-weight:600;background:var(--panel2)}
+/* ---------- shop ---------- */
+.shopbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:26px}
+.fchips{display:flex;gap:8px;flex-wrap:wrap}
+.fchip{min-height:44px;padding:8px 20px;border-radius:999px;border:1px solid var(--line2);font-weight:600;font-size:14px;transition:.2s}
+.fchip:hover{border-color:var(--gold)}
+.fchip.on{background:var(--gold);color:#221A05;border-color:var(--gold);font-weight:800}
+.sortsel{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:10px 14px;min-height:48px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);border-color:var(--line);box-shadow:var(--shadow)}
+.card .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--panel2)}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.card:hover .im img{transform:scale(1.05)}
+.card .tag{position:absolute;top:12px;right:12px;background:rgba(7,18,14,.82);border:1px solid var(--line);color:var(--gold2);font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px;backdrop-filter:blur(4px)}
+.card .bd{padding:18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card h3{font-size:16.5px;font-weight:700;line-height:1.6}
+.card .meta{font-size:13px;color:var(--mut)}
+.card .pr{margin-top:auto;padding-top:8px}
+.card .pr .cash{font-size:19px;font-weight:800}
+.card .pr .cash small{font-size:12px;color:var(--mut);font-weight:500}
+.card .pr .inst{font-size:13px;color:var(--gold2);font-weight:600}
+.card .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.card .acts button{min-height:46px;border-radius:11px;font-size:13.5px;font-weight:700;transition:.2s}
+.b-add{border:1px solid var(--line);color:var(--cream)}
+.b-add:hover{background:var(--gold);color:#221A05;border-color:var(--gold)}
+.b-inst{background:var(--goldsoft);border:1px solid var(--line);color:var(--gold2)}
+.b-inst:hover{background:var(--gold);color:#221A05}
+.b-view{grid-column:1/-1;border:1px solid var(--line2);color:var(--mut)}
+.b-view:hover{color:var(--gold2);border-color:var(--gold)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:48px 0;font-size:15px}
+/* ---------- why / licenses ---------- */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.why .it{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);padding:26px 22px}
+.why .it svg{color:var(--gold);width:30px;height:30px;margin-bottom:14px}
+.why .it h3{font-size:16.5px;font-weight:800;margin-bottom:8px}
+.why .it p{font-size:14px;color:var(--mut)}
+.lic{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lic .it{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);padding:24px;display:flex;gap:16px;align-items:flex-start}
+.lic .bdg{width:54px;height:54px;flex:none;border-radius:15px;background:var(--goldsoft);border:1px solid var(--line);display:grid;place-items:center;color:var(--gold2)}
+.lic h3{font-size:16px;font-weight:800;margin-bottom:5px}
+.lic p{font-size:13.5px;color:var(--mut)}
+/* ---------- faq ---------- */
+.faq{max-width:860px}
+.fq{border:1px solid var(--line2);border-radius:14px;margin-bottom:12px;background:var(--panel);overflow:hidden}
+.fq .q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;padding:18px 22px;font-size:16px;font-weight:700;min-height:56px}
+.fq .q svg{transition:.3s;color:var(--gold);flex:none}
+.fq.open .q svg{transform:rotate(180deg)}
+.fq .a{display:none;padding:0 22px 20px;color:var(--mut);font-size:14.5px}
+.fq.open .a{display:block}
+/* ---------- contact / footer ---------- */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:20px}
+.cinfo{display:flex;flex-direction:column;gap:14px}
+.cinfo .it{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);padding:20px 22px;display:flex;gap:14px;align-items:center}
+.cinfo .it svg{color:var(--gold)}
+.cinfo .it b{display:block;font-size:15.5px}
+.cinfo .it span{font-size:13.5px;color:var(--mut)}
+.cform{background:var(--panel);border:1px solid var(--line2);border-radius:var(--radius);padding:26px}
+.cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cform input,.cform textarea{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:12px 15px;font-size:14.5px;color:var(--cream);margin-bottom:12px;min-height:48px}
+.cform textarea{min-height:110px;resize:vertical}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--gold)}
+footer{border-top:1px solid var(--line2);background:#050D0A}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px;padding-block:52px 34px}
+footer h4{font-size:16px;font-weight:800;margin-bottom:16px}
+footer a,footer p{font-size:14px;color:var(--mut)}
+footer li{list-style:none;margin-bottom:10px}
+footer a:hover{color:var(--gold2)}
+.fbot{border-top:1px solid var(--line2);padding-block:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mut2)}
+/* ---------- drawer / modal / toast ---------- */
+.ovl{position:fixed;inset:0;background:rgba(2,8,6,.62);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.3s;z-index:80}
+.ovl.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;height:100dvh;width:min(430px,94vw);background:var(--deep);border-inline-end:1px solid var(--line);z-index:90;transform:translateX(-105%);transition:.35s cubic-bezier(.2,.8,.25,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line2)}
+.drawer .dh b{font-size:18px}
+.drawer .items{flex:1;overflow-y:auto;padding:16px 22px;display:flex;flex-direction:column;gap:14px}
+.ci{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:12px}
+.ci img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+.ci .inf{flex:1}
+.ci .inf b{font-size:14px;display:block;line-height:1.6}
+.ci .inf span{font-size:13px;color:var(--gold2);font-weight:700}
+.qty{display:flex;align-items:center;gap:10px;margin-top:6px}
+.qty button{width:32px;height:32px;border:1px solid var(--line2);border-radius:9px;font-size:16px;display:grid;place-items:center}
+.qty button:hover{border-color:var(--gold);color:var(--gold2)}
+.ci .rm{color:var(--down);font-size:12.5px;margin-top:6px}
+.drawer .df{border-top:1px solid var(--line2);padding:18px 22px}
+.drawer .df .tr{display:flex;justify-content:space-between;font-size:15px;margin-bottom:14px}
+.drawer .df .tr b{font-size:19px;color:var(--gold2)}
+.modal{position:fixed;inset:0;z-index:95;display:none;place-items:center;padding:16px}
+.modal.on{display:grid}
+.modal .box{background:var(--deep);border:1px solid var(--line);border-radius:22px;width:min(560px,100%);max-height:92dvh;overflow-y:auto;box-shadow:var(--shadow);position:relative}
+.modal .x{position:absolute;top:14px;left:14px;width:40px;height:40px;border-radius:11px;border:1px solid var(--line2);display:grid;place-items:center;font-size:18px;z-index:3;background:var(--panel)}
+.modal .x:hover{border-color:var(--gold);color:var(--gold2)}
+.qv .im{height:300px;position:relative}
+.qv .im img{width:100%;height:100%;object-fit:cover}
+.qv .bd{padding:24px}
+.qv h3{font-size:21px;font-weight:800}
+.qv .meta{color:var(--mut);font-size:14px;margin-top:4px}
+.brk{margin-top:16px;border:1px solid var(--line2);border-radius:14px;overflow:hidden}
+.brk .r{display:flex;justify-content:space-between;padding:10px 16px;font-size:14px;border-top:1px solid var(--line2)}
+.brk .r:first-child{border-top:none}
+.brk .r span{color:var(--mut)}
+.brk .r.tt{background:var(--goldsoft);font-weight:800}
+.brk .r.tt span{color:var(--gold2)}
+.qv .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.co .bd{padding:26px}
+.co h3{font-size:20px;font-weight:800;margin-bottom:6px}
+.co .sub{color:var(--mut);font-size:14px;margin-bottom:18px}
+.radio{display:flex;gap:12px;margin-bottom:16px}
+.radio label{flex:1;border:1px solid var(--line2);border-radius:14px;padding:14px 16px;cursor:pointer;font-weight:700;font-size:14.5px;display:flex;gap:10px;align-items:flex-start;transition:.2s}
+.radio label:has(input:checked){border-color:var(--gold);background:var(--goldsoft)}
+.radio label small{display:block;color:var(--mut);font-weight:400;font-size:12.5px}
+.co input[type=text],.co input[type=tel]{width:100%;background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:12px 15px;margin-bottom:12px;min-height:48px;font-size:14.5px;color:var(--cream)}
+.co input:focus{outline:none;border-color:var(--gold)}
+.success{text-align:center;padding:14px 0 4px}
+.success .ok{width:74px;height:74px;margin:0 auto 16px;border-radius:50%;background:rgba(62,207,122,.14);border:1px solid rgba(62,207,122,.4);display:grid;place-items:center;color:var(--up)}
+.success .code{font-size:20px;font-weight:800;color:var(--gold2);margin-top:8px}
+#toasts{position:fixed;bottom:22px;right:22px;z-index:120;display:flex;flex-direction:column;gap:10px}
+.toast{background:var(--panel3);border:1px solid var(--line);color:var(--cream);border-radius:13px;padding:13px 20px;font-size:14px;font-weight:600;box-shadow:var(--shadow);animation:tin .3s}
+@keyframes tin{from{transform:translateY(12px);opacity:0}}
+/* ---------- responsive ---------- */
+@media(max-width:1100px){.pgrid{grid-template-columns:repeat(2,1fr)}.steps,.why{grid-template-columns:repeat(2,1fr)}.lic{grid-template-columns:1fr 1fr}.trust .row{grid-template-columns:repeat(3,1fr);gap:16px}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:1023px){
+  .hero .grid{grid-template-columns:1fr}
+  .search{display:none}
+  .burger{display:grid}
+  .nav{display:none}
+  .nav.open{display:block}
+  .nav .row{flex-direction:column;align-items:stretch;padding-block:10px}
+  .calc-card{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .pgrid{grid-template-columns:1fr 1fr;gap:10px}
+  .steps,.why,.lic{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card .bd{padding:13px}
+  .card h3{font-size:14.5px}
+  .card .acts{grid-template-columns:1fr}
+  .trust .row{grid-template-columns:1fr 1fr}
+  .hero .stats{gap:22px}
+  .cform .row2{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .qv .acts{grid-template-columns:1fr}
+  .hact .btn-ghost span{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ======= TICKER ======= -->
+<div class="ticker"><div class="wrap"><div class="row" id="tickerRow"></div></div></div>
+
+<!-- ======= HEADER ======= -->
+<header id="hdr">
+  <div class="wrap">
+    <div class="hbar">
+      <button class="burger" id="burger" aria-label="منو">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a class="logo" href="#home">
+        <span class="mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></svg></span>
+        <span>قسط‌طلا<small>خرید اقساطی طلا و سکه</small></span>
+      </a>
+      <div class="search">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+        <input id="searchIn" type="text" placeholder="جستجوی سکه، شمش، گردنبند، انگشتر…">
+      </div>
+      <div class="hact">
+        <button class="btn-ghost" id="loginBtn">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-3.6 4.5-5.4 8-5.4s6.5 1.8 8 5.4"/></svg>
+          <span>ورود / ثبت‌نام</span>
+        </button>
+        <button class="btn-ghost cartbtn" id="cartBtn" aria-label="سبد خرید">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h15l-1.5 9h-12z"/><path d="M6 8L5 3H2"/><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg>
+          <span>سبد خرید</span><span class="cartn" id="cartN">۰</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav" id="mainNav"><div class="row">
+      <a href="#home">خانه</a><a href="#prices">قیمت لحظه‌ای</a><a href="#steps">مراحل خرید اقساطی</a><a href="#calc">محاسبه‌گر اقساط</a><a href="#shop">فروشگاه</a><a href="#trust">مجوزها و اعتماد</a><a href="#faq">سوالات متداول</a><a href="#contact">تماس با ما</a>
+    </div></nav>
+  </div>
+</header>
+
+<!-- ======= HERO ======= -->
+<section class="hero" id="home">
+  <div class="wrap"><div class="grid">
+    <div>
+      <span class="chip"><span class="dot"></span> قیمت‌ها لحظه‌ای به‌روز می‌شوند</span>
+      <h1 style="margin-top:20px">طلا بخر،<br><span class="g">قسطی پرداخت کن</span></h1>
+      <p class="lead">سکه، شمش و جواهرات اصل را همین امروز با فاکتور رسمی تحویل بگیرید و مبلغش را از ۱۰٪ پیش‌پرداخت، در اقساط ۴ تا ۲۴ ماهه بپردازید — بدون ضامن، فقط با چک صیادی یا سفته الکترونیک.</p>
+      <div class="chips">
+        <span class="chip">بدون ضامن و وثیقه ملکی</span>
+        <span class="chip">تحویل فوری طلا</span>
+        <span class="chip">فاکتور رسمی و گواهی اصالت</span>
+      </div>
+      <div class="cta">
+        <a class="btn btn-gold" href="#calc">محاسبه اقساط من</a>
+        <a class="btn btn-out" href="#shop">مشاهده فروشگاه</a>
+      </div>
+      <div class="stats">
+        <div><b>+۱۲٬۴۰۰</b><span>خرید اقساطی موفق</span></div>
+        <div><b>۲۴ ماه</b><span>حداکثر بازپرداخت</span></div>
+        <div><b>۱۰٪</b><span>حداقل پیش‌پرداخت</span></div>
+      </div>
+    </div>
+    <div class="hpanel">
+      <div class="ph">
+        <img src="assets/p-10944923.jpg" alt="طلای ۱۸ عیار">
+        <div class="live">
+          <div><span class="lb">قیمت لحظه‌ای هر گرم طلای ۱۸ عیار</span><div class="vl" id="heroPrice">— <small>تومان</small></div></div>
+          <span class="chgchip up" id="heroChg">▲ ۰٪</span>
+        </div>
+      </div>
+      <div class="hw">
+        <h3>محاسبه سریع اقساط</h3>
+        <p class="sub">مبلغ خرید را انتخاب کنید؛ پیش‌پرداخت و قسط ماهانه را همین‌جا ببینید.</p>
+        <div class="fld">
+          <div class="lr"><span>مبلغ خرید طلا</span><b id="hwAmtLb">۱۰۰٬۰۰۰٬۰۰۰ تومان</b></div>
+          <input type="range" id="hwAmt" min="10000000" max="400000000" step="5000000" value="100000000">
+        </div>
+        <div class="fld">
+          <div class="lr"><span>پیش‌پرداخت</span><b id="hwDownLb">۳۰٪</b></div>
+          <input type="range" id="hwDown" min="10" max="50" step="5" value="30">
+        </div>
+        <div class="outs">
+          <div class="out"><span>پیش‌پرداخت شما</span><b id="hwDownOut">—</b></div>
+          <div class="out"><span>هر قسط (۱۲ ماهه)</span><b id="hwMonOut">—</b></div>
+        </div>
+        <a class="btn btn-gold" href="#calc" style="width:100%;margin-top:16px">محاسبه دقیق و مشاهده جدول اقساط</a>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ======= TRUST STRIP ======= -->
+<div class="trust"><div class="wrap"><div class="row">
+  <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4" stroke-linecap="round"/></svg><span>نماد اعتماد الکترونیکی<small>اینماد فعال و قابل استعلام</small></span></div>
+  <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>درگاه پرداخت امن<small>پرداخت مستقیم بانکی</small></span></div>
+  <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg><span>فاکتور رسمی<small>با وزن، عیار و کد انگ</small></span></div>
+  <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11v9H3zM14 11h4l3 3v3h-7z"/><circle cx="7" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg><span>ارسال بیمه‌شده<small>بسته‌بندی ضدجعل و مهرشده</small></span></div>
+  <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg><span>تحویل فیزیکی<small>دریافت حضوری از فروشگاه</small></span></div>
+</div></div></div>
+
+<!-- ======= LIVE PRICES ======= -->
+<section class="sec" id="prices">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">بازار زنده</span>
+      <h2>قیمت لحظه‌ای طلا و سکه</h2>
+      <p>نرخ‌ها بر اساس مظنه بازار تهران و به‌صورت خودکار به‌روز می‌شوند؛ قیمت نهایی خرید شما در لحظه ثبت سفارش قفل می‌شود.</p>
+    </div>
+    <div class="pgrid" id="priceGrid"></div>
+    <p class="note" style="margin-top:16px">آخرین به‌روزرسانی: <b id="updClock">—</b> · نرخ‌های این صفحه نمایشی و نزدیک به مظنه روز بازار است؛ نرخ قطعی هنگام صدور فاکتور اعلام می‌شود.</p>
+  </div>
+</section>
+
+<!-- ======= STEPS ======= -->
+<section class="sec" id="steps" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">فرآیند خرید</span>
+      <h2>خرید اقساطی در ۴ گام ساده</h2>
+      <p>از انتخاب طلا تا تحویل، همه‌چیز آنلاین انجام می‌شود و کمتر از یک ساعت طول می‌کشد.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">۱</div><h3>انتخاب طلا و محاسبه قسط</h3><p>سکه، شمش یا جواهر موردنظرتان را انتخاب کنید و با محاسبه‌گر اقساط، پیش‌پرداخت و مبلغ هر قسط را شفاف ببینید.</p></div>
+      <div class="step"><div class="n">۲</div><h3>ثبت درخواست و احراز هویت</h3><p>با کد ملی و شماره موبایل ثبت‌نام کنید؛ احراز هویت و اعتبارسنجی در چند دقیقه و کاملاً آنلاین انجام می‌شود.</p></div>
+      <div class="step"><div class="n">۳</div><h3>ارائه تضمین ساده</h3><p>بدون ضامن و بدون وثیقه ملکی؛ فقط یک برگ چک صیادی یا سفته الکترونیک به‌عنوان تضمین بازپرداخت کافی است.</p></div>
+      <div class="step"><div class="n">۴</div><h3>پرداخت پیش‌پرداخت و تحویل طلا</h3><p>پیش‌پرداخت را از درگاه امن بپردازید؛ طلای شما با فاکتور رسمی و بیمه، فوری تحویل یا ارسال می‌شود و اقساط از ماه بعد آغاز می‌گردد.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CALCULATOR ======= -->
+<section class="sec calc" id="calc">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">محاسبه‌گر اقساط</span>
+      <h2>قسط ماهانه‌تان را همین حالا حساب کنید</h2>
+      <p>بدون هزینه پنهان: کارمزد اعتبار ماهانه ۲٪ روی مبلغ تأمین‌شده است و همه اعداد — پیش‌پرداخت، هر قسط و مجموع بازپرداخت — پیش از ثبت سفارش شفاف نمایش داده می‌شود.</p>
+    </div>
+    <div class="calc-card">
+      <div>
+        <div class="fld">
+          <div class="lr"><span>مبلغ خرید طلا (تومان)</span><b id="cAmtLb"></b></div>
+          <input class="num-in" id="cAmtIn" type="text" inputmode="numeric" value="۱۰۰٬۰۰۰٬۰۰۰">
+          <input type="range" id="cAmt" min="5000000" max="600000000" step="1000000" value="100000000" style="margin-top:12px">
+        </div>
+        <div class="fld">
+          <div class="lr"><span>پیش‌پرداخت</span><b id="cDownLb"></b></div>
+          <input type="range" id="cDown" min="10" max="50" step="5" value="30">
+        </div>
+        <div class="fld">
+          <div class="lr"><span>تعداد اقساط (ماه)</span><b id="cMonLb"></b></div>
+          <div class="mchips" id="cMonths">
+            <button class="mchip" data-m="4">۴ ماهه</button>
+            <button class="mchip" data-m="6">۶ ماهه</button>
+            <button class="mchip on" data-m="12">۱۲ ماهه</button>
+            <button class="mchip" data-m="18">۱۸ ماهه</button>
+            <button class="mchip" data-m="24">۲۴ ماهه</button>
+          </div>
+        </div>
+        <div class="out" style="margin-top:6px">
+          <span>معادل طلایی مبلغ خرید شما (طلای ۱۸ عیار)</span>
+          <b id="cGrams">—</b>
+        </div>
+        <p class="note" style="margin-top:14px">تضمین بازپرداخت: چک صیادی یا سفته الکترونیک — بدون ضامن. تسویه زودهنگام در هر زمان ممکن است و کارمزد ماه‌های باقی‌مانده حذف می‌شود.</p>
+      </div>
+      <div>
+        <div class="res">
+          <div class="rrow hero-r"><span>مبلغ هر قسط</span><b id="rMonthly">—</b></div>
+          <div class="rrow"><span>پیش‌پرداخت (امروز)</span><b id="rDown">—</b></div>
+          <div class="rrow"><span>مبلغ تأمین‌شده (اعتبار)</span><b id="rFin">—</b></div>
+          <div class="rrow"><span>هزینه اعتبار (کارمزد کل)</span><b id="rFee">—</b></div>
+          <div class="rrow"><span>مجموع بازپرداخت</span><b id="rTotal">—</b></div>
+        </div>
+        <div class="tblwrap">
+          <div class="th" id="tblToggle"><span>جدول اقساط ماه‌به‌ماه</span><span>▾</span></div>
+          <div class="tbl" id="tblBody"></div>
+        </div>
+        <a class="btn btn-gold" href="#shop" style="width:100%;margin-top:16px">با همین شرایط، طلا انتخاب کنید</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SHOP ======= -->
+<section class="sec" id="shop">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">فروشگاه</span>
+      <h2>کاتالوگ طلا، سکه و شمش</h2>
+      <p>همه قیمت‌ها بر اساس نرخ لحظه‌ای طلای ۱۸ عیار محاسبه می‌شوند. روی هر کالا، قسط ماهانه با پیش‌پرداخت ۳۰٪ و بازپرداخت ۱۲ ماهه نمایش داده شده است.</p>
+    </div>
+    <div class="shopbar">
+      <div class="fchips" id="fchips">
+        <button class="fchip on" data-cat="all">همه</button>
+        <button class="fchip" data-cat="coin">سکه</button>
+        <button class="fchip" data-cat="inv">شمش و آب‌شده</button>
+        <button class="fchip" data-cat="jew">جواهرات</button>
+      </div>
+      <select class="sortsel" id="sortSel" aria-label="مرتب‌سازی">
+        <option value="pop">پرفروش‌ترین</option>
+        <option value="cheap">ارزان‌ترین</option>
+        <option value="exp">گران‌ترین</option>
+        <option value="light">سبک‌ترین</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ======= WHY ======= -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">چرا قسطی؟</span>
+      <h2>چرا خرید اقساطی طلا هوشمندانه است؟</h2>
+    </div>
+    <div class="why">
+      <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>بدون ضامن و دردسر بانکی</h3><p>نه ضامن کارمند می‌خواهید، نه وثیقه ملکی و نه صف بانک؛ تضمین فقط چک صیادی یا سفته الکترونیک خودتان است.</p></div>
+      <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg><h3>تحویل فوری، پیش از افزایش قیمت</h3><p>طلا را امروز با قیمت امروز تحویل می‌گیرید؛ اگر قیمت طلا بالا برود، سودش برای شماست نه فروشنده.</p></div>
+      <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg><h3>سپر تورمی برای پس‌انداز</h3><p>به‌جای نگه‌داشتن پول نقد، دارایی‌تان از روز اول طلاست و اقساط را با درآمد ماهانه‌تان مدیریت می‌کنید.</p></div>
+      <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><h3>شفافیت کامل هزینه‌ها</h3><p>کارمزد، تعداد اقساط و مجموع بازپرداخت پیش از امضا مشخص است؛ هیچ هزینه پنهان و بند غافلگیرکننده‌ای وجود ندارد.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= LICENSES ======= -->
+<section class="sec" id="trust" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">اعتماد و مجوزها</span>
+      <h2>خرید امن، زیر نظر نهادهای رسمی</h2>
+      <p>فعالیت فروشگاه تحت مجوزهای قانونی بازار طلا و تجارت الکترونیک انجام می‌شود و هر خرید با فاکتور رسمی و ضمانت اصالت همراه است.</p>
+    </div>
+    <div class="lic">
+      <div class="it"><span class="bdg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4" stroke-linecap="round"/></svg></span><div><h3>نماد اعتماد الکترونیکی (اینماد)</h3><p>دارای اینماد از مرکز توسعه تجارت الکترونیکی وزارت صمت؛ هویت فروشگاه قابل استعلام است.</p></div></div>
+      <div class="it"><span class="bdg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-2 7 5.5-3 5.5 3-2-7"/></svg></span><div><h3>پروانه کسب اتحادیه طلا و جواهر</h3><p>فعالیت صنفی زیر نظر اتحادیه فروشندگان و سازندگان طلا، جواهر و سکه تهران.</p></div></div>
+      <div class="it"><span class="bdg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div><h3>درگاه پرداخت امن بانکی</h3><p>همه پرداخت‌ها فقط از طریق درگاه رسمی بانکی (شاپرک) انجام می‌شود؛ هیچ وجهی به کارت شخصی واریز نمی‌شود.</p></div></div>
+      <div class="it"><span class="bdg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg></span><div><h3>فاکتور رسمی و گواهی اصالت</h3><p>برای هر قطعه، فاکتور رسمی با وزن دقیق، عیار، اجرت و کد انگ صادر و همراه کالا ارسال می‌شود.</p></div></div>
+      <div class="it"><span class="bdg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16v12H4zM4 8l3-4h10l3 4M12 12v3M10.5 13.5h3"/></svg></span><div><h3>نگهداری و ارسال بیمه‌شده</h3><p>طلای شما تا لحظه تحویل، کامل بیمه است و با بسته‌بندی ضدجعل و مهرشده ارسال می‌شود.</p></div></div>
+      <div class="it"><span class="bdg"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span><div><h3>بازخرید تضمینی</h3><p>طلای خریداری‌شده را هر زمان بخواهید، بر اساس نرخ روز بازار از شما بازخرید می‌کنیم؛ حتی در دوره اقساط.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FAQ ======= -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">سوالات متداول</span>
+      <h2>پرسش‌های خرید اقساطی طلا</h2>
+    </div>
+    <div class="faq" id="faqBox"></div>
+  </div>
+</section>
+
+<!-- ======= CONTACT ======= -->
+<section class="sec" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">تماس با ما</span>
+      <h2>مشاوره رایگان خرید اقساطی</h2>
+      <p>برای انتخاب بهترین پلن اقساط متناسب با بودجه‌تان، با ما در تماس باشید.</p>
+    </div>
+    <div class="contact">
+      <div class="cinfo">
+        <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><div><b>۰۲۱ - ۹۱۰۰ ۸۸۰۰</b><span>پشتیبانی فروش و اقساط — ۹ صبح تا ۹ شب</span></div></div>
+        <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><div><b>تهران، بازار بزرگ، راسته زرگرها</b><span>تحویل حضوری با هماهنگی قبلی</span></div></div>
+        <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><b>support@ghesttala.ir</b><span>پاسخ‌گویی ایمیلی کمتر از یک روز کاری</span></div></div>
+        <div class="it"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><div><b>شنبه تا پنجشنبه، ۹ تا ۲۱</b><span>معاملات آنلاین: ۲۴ ساعته، ۷ روز هفته</span></div></div>
+      </div>
+      <form class="cform" id="contactForm">
+        <div class="row2">
+          <input type="text" id="cfName" placeholder="نام و نام خانوادگی" required>
+          <input type="tel" id="cfPhone" placeholder="شماره موبایل" required>
+        </div>
+        <input type="text" id="cfSubj" placeholder="موضوع (مثلاً: مشاوره خرید سکه قسطی)">
+        <textarea id="cfMsg" placeholder="پیام شما…" required></textarea>
+        <button class="btn btn-gold" type="submit" style="width:100%">ارسال پیام</button>
+        <p class="note" id="cfOk" style="display:none;color:var(--up);margin-top:12px">پیام شما با موفقیت ثبت شد؛ کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#home" style="margin-bottom:16px"><span class="mark"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/></svg></span><span>قسط‌طلا<small>خرید اقساطی طلا و سکه</small></span></a>
+        <p style="margin-top:14px">فروشگاه آنلاین خرید اقساطی طلا، سکه و شمش با قیمت لحظه‌ای، فاکتور رسمی و تحویل بیمه‌شده در سراسر کشور.</p>
+      </div>
+      <div><h4>دسترسی سریع</h4><ul>
+        <li><a href="#prices">قیمت لحظه‌ای طلا</a></li>
+        <li><a href="#calc">محاسبه‌گر اقساط</a></li>
+        <li><a href="#shop">فروشگاه</a></li>
+        <li><a href="#steps">مراحل خرید اقساطی</a></li>
+      </ul></div>
+      <div><h4>خدمات مشتریان</h4><ul>
+        <li><a href="#faq">سوالات متداول</a></li>
+        <li><a href="#trust">مجوزها و اعتماد</a></li>
+        <li><a href="#contact">تماس با ما</a></li>
+        <li><a href="#faq">شرایط بازخرید طلا</a></li>
+      </ul></div>
+      <div><h4>اعتماد و امنیت</h4>
+        <p>دارای نماد اعتماد الکترونیکی، پروانه کسب اتحادیه طلا و جواهر و درگاه پرداخت امن بانکی. همه سفارش‌ها با فاکتور رسمی و بیمه کامل ارسال می‌شوند.</p>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© ۱۴۰۴ قسط‌طلا — همه حقوق محفوظ است.</span>
+      <span>نسخه نمایشی (دمو) — قیمت‌ها و موجودی صرفاً برای نمایش است.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= CART DRAWER ======= -->
+<div class="ovl" id="ovl"></div>
+<aside class="drawer" id="drawer" aria-label="سبد خرید">
+  <div class="dh"><b>سبد خرید شما</b><button class="btn-ghost" id="drawerX">بستن ✕</button></div>
+  <div class="items" id="cartItems"></div>
+  <div class="df">
+    <div class="tr"><span>مبلغ قابل پرداخت</span><b id="cartTotal">۰ تومان</b></div>
+    <button class="btn btn-gold" id="checkoutBtn" style="width:100%">ادامه و پرداخت امن</button>
+    <p class="note" style="margin-top:10px;text-align:center">پرداخت از طریق درگاه امن بانکی (شاپرک)</p>
+  </div>
+</aside>
+
+<!-- ======= QUICK VIEW MODAL ======= -->
+<div class="modal" id="qvModal"><div class="box qv">
+  <button class="x" data-close>✕</button>
+  <div class="im"><img id="qvImg" src="" alt=""></div>
+  <div class="bd">
+    <h3 id="qvName"></h3>
+    <p class="meta" id="qvMeta"></p>
+    <div class="brk" id="qvBrk"></div>
+    <p class="meta" id="qvInst" style="margin-top:14px;color:var(--gold2);font-weight:700"></p>
+    <div class="acts">
+      <button class="btn btn-gold" id="qvAdd">افزودن به سبد خرید</button>
+      <button class="btn btn-out" id="qvInstBtn">خرید قسطی این کالا</button>
+    </div>
+  </div>
+</div></div>
+
+<!-- ======= CHECKOUT MODAL ======= -->
+<div class="modal" id="coModal"><div class="box co">
+  <button class="x" data-close>✕</button>
+  <div class="bd" id="coBody"></div>
+</div></div>
+
+<div id="toasts"></div>
+
+<script>
+/* ================= helpers ================= */
+const FA='۰۱۲۳۴۵۶۷۸۹';
+const fa=s=>String(s).replace(/[0-9]/g,d=>FA[d]).replace(/\./g,'٫');
+const fmt=n=>{n=Math.round(n/1000)*1000;return fa(n.toLocaleString('en-US')).replace(/,/g,'٬')};
+const fmt0=n=>fa(Math.round(n).toLocaleString('en-US')).replace(/,/g,'٬');
+const faW=w=>fa(String(w));
+const $=s=>document.querySelector(s);
+const parseNum=s=>{const en=String(s).replace(/[۰-۹]/g,d=>FA.indexOf(d)).replace(/[^0-9]/g,'');return en?parseInt(en,10):0};
+function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;$('#toasts').appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transition='.4s';setTimeout(()=>t.remove(),420)},2800)}
+
+/* ================= live price engine ================= */
+const BASE_G18=24120000;
+const S={g18:BASE_G18,ons:4320};
+const H={g18:[],ons:[]};
+(function seed(){let g=BASE_G18*0.994,o=4298;for(let i=0;i<26;i++){g*=1+(Math.random()-0.46)*0.0022;o*=1+(Math.random()-0.48)*0.0012;H.g18.push(g);H.ons.push(o)}H.g18.push(S.g18);H.ons.push(S.ons)})();
+const dayOpen={g18:H.g18[0],ons:H.ons[0]};
+const ratio=()=>S.g18/BASE_G18;
+const INST=[
+ {k:'g18', lb:'طلای ۱۸ عیار', unit:'تومان / گرم', get:()=>S.g18, hist:()=>H.g18, open:()=>dayOpen.g18},
+ {k:'g24', lb:'طلای ۲۴ عیار', unit:'تومان / گرم', get:()=>S.g18*24/18, hist:()=>H.g18.map(v=>v*24/18), open:()=>dayOpen.g18*24/18},
+ {k:'mes', lb:'مثقال طلا (۱۸ عیار)', unit:'تومان', get:()=>S.g18*4.608, hist:()=>H.g18.map(v=>v*4.608), open:()=>dayOpen.g18*4.608},
+ {k:'full',lb:'سکه تمام بهار آزادی', unit:'تومان', get:()=>236500000*ratio(), hist:()=>H.g18.map(v=>236500000*v/BASE_G18), open:()=>236500000*dayOpen.g18/BASE_G18},
+ {k:'half',lb:'نیم‌سکه بهار آزادی', unit:'تومان', get:()=>119000000*ratio(), hist:()=>H.g18.map(v=>119000000*v/BASE_G18), open:()=>119000000*dayOpen.g18/BASE_G18},
+ {k:'qtr', lb:'ربع‌سکه بهار آزادی', unit:'تومان', get:()=>66500000*ratio(), hist:()=>H.g18.map(v=>66500000*v/BASE_G18), open:()=>66500000*dayOpen.g18/BASE_G18},
+ {k:'ons', lb:'انس جهانی طلا', unit:'دلار', get:()=>S.ons, hist:()=>H.ons, open:()=>dayOpen.ons, usd:true},
+];
+const chgOf=i=>((i.get()-i.open())/i.open()*100);
+function spark(cv,arr,up){
+  const ctx=cv.getContext('2d');const W=cv.width=cv.offsetWidth*2,Hh=cv.height=76;
+  const mn=Math.min(...arr),mx=Math.max(...arr),rg=(mx-mn)||1;
+  ctx.clearRect(0,0,W,Hh);ctx.beginPath();
+  arr.forEach((v,ix)=>{const x=ix/(arr.length-1)*W,y=Hh-6-((v-mn)/rg)*(Hh-12);ix?ctx.lineTo(x,y):ctx.moveTo(x,y)});
+  ctx.strokeStyle=up?'#3ECF7A':'#F87171';ctx.lineWidth=2.4;ctx.stroke();
+  ctx.lineTo(W,Hh);ctx.lineTo(0,Hh);ctx.closePath();
+  ctx.fillStyle=up?'rgba(62,207,122,.10)':'rgba(248,113,113,.10)';ctx.fill();
+}
+function renderTicker(){
+  const items=INST.map(i=>{const c=chgOf(i);return `<span class="tk"><span class="t">${i.lb}</span><b>${i.usd?'$'+fmt0(i.get()):fmt(i.get())+' تومان'}</b><span class="chg ${c>=0?'up':'down'}">${c>=0?'▲':'▼'} ${fa(Math.abs(c).toFixed(2))}٪</span></span>`}).join('');
+  $('#tickerRow').innerHTML=`<span class="tk"><span class="dot"></span><b style="color:var(--gold2)">زنده</b></span>${items}<span class="tk"><span class="t">آخرین به‌روزرسانی</span><b id="tickClock">${new Date().toLocaleTimeString('fa-IR')}</b></span>`;
+}
+function renderBoard(){
+  $('#priceGrid').innerHTML=INST.map(i=>{const c=chgOf(i);return `<div class="pcard"><div class="top"><span class="lb">${i.lb}</span><span class="chgchip ${c>=0?'up':'down'}">${c>=0?'▲':'▼'} ${fa(Math.abs(c).toFixed(2))}٪</span></div><div class="vl">${i.usd?'$'+fmt0(i.get()):fmt(i.get())} <small>${i.unit}</small></div><canvas data-spark="${i.k}"></canvas></div>`}).join('');
+  INST.forEach(i=>{const cv=document.querySelector(`[data-spark="${i.k}"]`);if(cv)spark(cv,i.hist(),chgOf(i)>=0)});
+  const g=INST[0],c=chgOf(g);
+  $('#heroPrice').innerHTML=`${fmt(S.g18)} <small>تومان</small>`;
+  const hc=$('#heroChg');hc.className='chgchip '+(c>=0?'up':'down');hc.textContent=`${c>=0?'▲':'▼'} ${fa(Math.abs(c).toFixed(2))}٪ امروز`;
+  $('#updClock').textContent=new Date().toLocaleTimeString('fa-IR');
+}
+function tick(){
+  S.g18*=1+(Math.random()-0.47)*0.0032; S.ons*=1+(Math.random()-0.48)*0.0016;
+  H.g18.push(S.g18);H.ons.push(S.ons);if(H.g18.length>40){H.g18.shift();H.ons.shift()}
+  renderTicker();renderBoard();renderGrid(false);renderCart();
+  document.querySelectorAll('.pcard,.tk b').forEach(el=>{el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')});
+}
+
+/* ================= products ================= */
+const PRODUCTS=[
+ {id:1, cat:'coin',name:'سکه تمام بهار آزادی (طرح جدید)',img:'p-8442324.jpg',w:8.133,ayar:'۲۲ عیار (۹۰۰)',kind:'fixed',base:236500000,tag:'پرفروش',sold:312},
+ {id:2, cat:'coin',name:'نیم‌سکه بهار آزادی',img:'p-8442429.jpg',w:4.066,ayar:'۲۲ عیار (۹۰۰)',kind:'fixed',base:119000000,tag:'',sold:428},
+ {id:3, cat:'coin',name:'ربع‌سکه بهار آزادی',img:'p-19673920.jpg',w:2.033,ayar:'۲۲ عیار (۹۰۰)',kind:'fixed',base:66500000,tag:'',sold:256},
+ {id:4, cat:'coin',name:'سکه گرمی پارسیان',img:'p-19590480.jpg',w:1,ayar:'۱۸ عیار',kind:'fixed',base:31900000,tag:'شروع آسان',sold:189},
+ {id:5, cat:'inv', name:'طلای آب‌شده ۱۸ عیار — قطعه ۵ گرمی',img:'p-32610505.jpg',w:5,ayar:'۱۸ عیار',kind:'gram',wage:0,tag:'بدون اجرت',sold:342},
+ {id:6, cat:'inv', name:'طلای آب‌شده ۱۸ عیار — قطعه ۱۰ گرمی',img:'p-15967464.jpg',w:10,ayar:'۱۸ عیار',kind:'gram',wage:0,tag:'بدون اجرت',sold:207},
+ {id:7, cat:'jew', name:'گردنبند طلای آویز گل',img:'p-13292666.jpg',w:3.4,ayar:'۱۸ عیار',kind:'wage',wage:22,tag:'جدید',sold:64},
+ {id:8, cat:'jew', name:'گردنبند طلای پلاک سکه‌ای',img:'p-4295007.jpg',w:6.2,ayar:'۱۸ عیار',kind:'wage',wage:16,tag:'',sold:58},
+ {id:9, cat:'jew', name:'گردنبند طلای ظریف',img:'p-4735888.jpg',w:2.8,ayar:'۱۸ عیار',kind:'wage',wage:20,tag:'',sold:97},
+ {id:10,cat:'jew', name:'دستبند طلای بافت',img:'p-34399145.jpg',w:4.6,ayar:'۱۸ عیار',kind:'wage',wage:17,tag:'پرفروش',sold:112},
+ {id:11,cat:'jew', name:'النگوی طلای طرح سنتی',img:'p-37485307.jpg',w:12.4,ayar:'۱۸ عیار',kind:'wage',wage:12,tag:'',sold:129},
+ {id:12,cat:'jew', name:'انگشتر طلای نگین‌دار',img:'p-6438667.jpg',w:4.2,ayar:'۱۸ عیار',kind:'wage',wage:18,tag:'پیشنهاد ویژه',sold:86},
+ {id:13,cat:'jew', name:'نیم‌ست طلای عروس',img:'p-29503018.jpg',w:18.5,ayar:'۱۸ عیار',kind:'wage',wage:14,tag:'محدود',sold:76},
+ {id:14,cat:'jew', name:'گوشواره طلای مروارید',img:'p-11790271.jpg',w:2.9,ayar:'۱۸ عیار',kind:'wage',wage:20,tag:'',sold:121},
+];
+const byId=id=>PRODUCTS.find(p=>p.id===id);
+function priceOf(p){
+  if(p.kind==='fixed')return Math.round(p.base*ratio()/10000)*10000;
+  const gold=p.w*S.g18;
+  if(p.kind==='gram')return Math.round(gold/10000)*10000;
+  const wage=gold*p.wage/100,profit=(gold+wage)*0.07,tax=(wage+profit)*0.10;
+  return Math.round((gold+wage+profit+tax)/10000)*10000;
+}
+function breakdown(p){
+  const gold=p.w*S.g18;
+  if(p.kind==='wage'){
+    const wage=gold*p.wage/100,profit=(gold+wage)*0.07,tax=(wage+profit)*0.10;
+    return [[`ارزش طلا (${faW(p.w)} گرم × نرخ روز)`,fmt(gold)],['اجرت ساخت',fmt(wage)],['سود فروشنده (۷٪)',fmt(profit)],['مالیات بر ارزش افزوده (۱۰٪ اجرت و سود)',fmt(tax)]];
+  }
+  if(p.kind==='gram')return [[`ارزش طلا (${faW(p.w)} گرم × نرخ روز)`,fmt(gold)],['اجرت ساخت','ندارد',false],['سود و مالیات','ندارد',false]];
+  return [['قیمت روز بازار (متناسب با نرخ لحظه‌ای طلا)',fmt(priceOf(p))],['اجرت ساخت','ندارد',false],['حباب و هزینه ضرب','در قیمت روز لحاظ شده است',false]];
+}
+/* installment math — کارمزد اعتبار: ۲٪ ماهانه روی مبلغ تأمین‌شده (شفاف) */
+function instCalc(amount,downPct,months){
+  const down=amount*downPct/100,fin=amount-down,fee=fin*0.02*months,monthly=(fin+fee)/months;
+  return {down,fin,fee,monthly,total:down+fin+fee};
+}
+
+/* ================= catalogue ================= */
+const state={cat:'all',sort:'pop',q:''};
+function renderGrid(scroll=true){
+  let list=PRODUCTS.filter(p=>(state.cat==='all'||p.cat===state.cat)&&(!state.q||p.name.includes(state.q)));
+  if(state.sort==='cheap')list.sort((a,b)=>priceOf(a)-priceOf(b));
+  else if(state.sort==='exp')list.sort((a,b)=>priceOf(b)-priceOf(a));
+  else if(state.sort==='light')list.sort((a,b)=>a.w-b.w);
+  else list.sort((a,b)=>b.sold-a.sold);
+  $('#grid').innerHTML=list.length?list.map(p=>{
+    const pr=priceOf(p),mo=instCalc(pr,30,12).monthly;
+    return `<article class="card">
+      <div class="im"><img src="assets/${p.img}" alt="${p.name}" loading="lazy">${p.tag?`<span class="tag">${p.tag}</span>`:''}</div>
+      <div class="bd">
+        <h3>${p.name}</h3>
+        <p class="meta">وزن: ${faW(p.w)} گرم · ${p.ayar} · فاکتور رسمی</p>
+        <div class="pr">
+          <div class="cash">${fmt(pr)} <small>تومان (نقدی)</small></div>
+          <div class="inst">یا ماهانه ${fmt(mo)} تومان — قسطی ۱۲ ماهه</div>
+        </div>
+        <div class="acts">
+          <button class="b-add" data-act="add" data-id="${p.id}">افزودن به سبد</button>
+          <button class="b-inst" data-act="inst" data-id="${p.id}">خرید قسطی</button>
+          <button class="b-view" data-act="view" data-id="${p.id}">مشاهده جزئیات و ریز قیمت</button>
+        </div>
+      </div></article>`}).join(''):'<div class="empty">کالایی با این جستجو پیدا نشد؛ عبارت دیگری را امتحان کنید.</div>';
+}
+$('#grid').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const p=byId(+b.dataset.id);
+  if(b.dataset.act==='add'){addToCart(p.id);toast(`«${p.name}» به سبد خرید اضافه شد`)}
+  if(b.dataset.act==='view')openQV(p);
+  if(b.dataset.act==='inst')presetCalc(priceOf(p),p.name);
+});
+$('#fchips').addEventListener('click',e=>{
+  const b=e.target.closest('[data-cat]');if(!b)return;
+  document.querySelectorAll('#fchips .fchip').forEach(c=>c.classList.remove('on'));b.classList.add('on');
+  state.cat=b.dataset.cat;renderGrid();
+});
+$('#sortSel').addEventListener('change',e=>{state.sort=e.target.value;renderGrid()});
+let searched=false;
+$('#searchIn').addEventListener('input',e=>{
+  state.q=e.target.value.trim();renderGrid(false);
+  if(state.q&&!searched){searched=true;document.getElementById('shop').scrollIntoView({behavior:'smooth'})}
+  if(!state.q)searched=false;
+});
+
+/* ================= quick view ================= */
+let qvId=null;
+function openQV(p){
+  qvId=p.id;
+  $('#qvImg').src='assets/'+p.img;$('#qvImg').alt=p.name;
+  $('#qvName').textContent=p.name;
+  $('#qvMeta').textContent=`وزن: ${faW(p.w)} گرم · عیار: ${p.ayar} · دارای فاکتور رسمی و گواهی اصالت · ارسال بیمه‌شده`;
+  const rows=breakdown(p).map(r=>`<div class="r"><span>${r[0]}</span><b>${r[2]===false?r[1]:r[1]+' تومان'}</b></div>`).join('');
+  $('#qvBrk').innerHTML=rows+`<div class="r tt"><span>قیمت نقدی نهایی</span><b>${fmt(priceOf(p))} تومان</b></div>`;
+  const mo=instCalc(priceOf(p),30,12);
+  $('#qvInst').textContent=`خرید قسطی: پیش‌پرداخت ${fmt(mo.down)} تومان + ۱۲ قسط ماهانه ${fmt(mo.monthly)} تومان`;
+  $('#qvModal').classList.add('on');
+}
+$('#qvAdd').addEventListener('click',()=>{addToCart(qvId);$('#qvModal').classList.remove('on');toast('به سبد خرید اضافه شد')});
+$('#qvInstBtn').addEventListener('click',()=>{const p=byId(qvId);$('#qvModal').classList.remove('on');presetCalc(priceOf(p),p.name)});
+
+/* ================= calculator ================= */
+const calc={amt:100000000,down:30,months:12};
+function renderCalc(){
+  $('#cAmtLb').textContent=fmt(calc.amt)+' تومان';
+  $('#cDownLb').textContent=fa(calc.down)+'٪';
+  $('#cMonLb').textContent=fa(calc.months)+' ماه';
+  const r=instCalc(calc.amt,calc.down,calc.months);
+  $('#rMonthly').textContent=fmt(r.monthly)+' تومان';
+  $('#rDown').textContent=fmt(r.down)+' تومان';
+  $('#rFin').textContent=fmt(r.fin)+' تومان';
+  $('#rFee').textContent=fmt(r.fee)+' تومان';
+  $('#rTotal').textContent=fmt(r.total)+' تومان';
+  $('#cGrams').textContent=fa((calc.amt/S.g18).toFixed(2))+' گرم';
+  let bal=r.fin+r.fee,rows='';
+  for(let i=1;i<=calc.months;i++){bal-=r.monthly;rows+=`<tr><td>${fa(i)}</td><td>${fmt(r.monthly)} تومان</td><td>${fmt(Math.max(bal,0))} تومان</td></tr>`}
+  $('#tblBody').innerHTML=`<table><tr><th>قسط</th><th>مبلغ قسط</th><th>مانده بدهی</th></tr>${rows}</table>`;
+  renderHeroW();
+}
+$('#cAmt').addEventListener('input',e=>{calc.amt=+e.target.value;$('#cAmtIn').value=fmt0(calc.amt);renderCalc()});
+$('#cAmtIn').addEventListener('change',e=>{
+  let v=parseNum(e.target.value);v=Math.min(Math.max(v,1000000),2000000000);
+  calc.amt=v;$('#cAmt').value=Math.min(Math.max(v,5000000),600000000);e.target.value=fmt0(v);renderCalc();
+});
+$('#cDown').addEventListener('input',e=>{calc.down=+e.target.value;renderCalc()});
+$('#cMonths').addEventListener('click',e=>{
+  const b=e.target.closest('[data-m]');if(!b)return;
+  document.querySelectorAll('#cMonths .mchip').forEach(c=>c.classList.remove('on'));b.classList.add('on');
+  calc.months=+b.dataset.m;renderCalc();
+});
+$('#tblToggle').addEventListener('click',()=>$('#tblBody').classList.toggle('open'));
+function presetCalc(amount,name){
+  calc.amt=amount;$('#cAmt').value=Math.min(Math.max(amount,5000000),600000000);$('#cAmtIn').value=fmt0(amount);
+  renderCalc();document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+  toast(`مبلغ «${name}» در محاسبه‌گر اقساط قرار گرفت`);
+}
+/* hero mini widget */
+function renderHeroW(){
+  const amt=+$('#hwAmt').value,down=+$('#hwDown').value;
+  $('#hwAmtLb').textContent=fmt(amt)+' تومان';
+  $('#hwDownLb').textContent=fa(down)+'٪';
+  const r=instCalc(amt,down,12);
+  $('#hwDownOut').innerHTML=fmt(r.down)+' <small>تومان</small>';
+  $('#hwMonOut').innerHTML=fmt(r.monthly)+' <small>تومان</small>';
+}
+$('#hwAmt').addEventListener('input',renderHeroW);
+$('#hwDown').addEventListener('input',renderHeroW);
+
+/* ================= cart & checkout ================= */
+const cart=new Map();
+function cartCount(){let n=0;cart.forEach(q=>n+=q);return n}
+function cartTotal(){let t=0;cart.forEach((q,id)=>t+=priceOf(byId(id))*q);return t}
+function addToCart(id){cart.set(id,(cart.get(id)||0)+1);renderCart()}
+function renderCart(){
+  $('#cartN').textContent=fa(cartCount());
+  const box=$('#cartItems');
+  if(!cart.size){box.innerHTML='<p style="color:var(--mut);text-align:center;padding:28px 0">سبد خرید شما خالی است.<br>از فروشگاه، طلای موردنظرتان را انتخاب کنید.</p>'}
+  else box.innerHTML=[...cart.entries()].map(([id,q])=>{const p=byId(id);return `<div class="ci">
+    <img src="assets/${p.img}" alt="${p.name}"><div class="inf"><b>${p.name}</b><span>${fmt(priceOf(p))} تومان</span>
+    <div class="qty"><button data-q="-1" data-id="${id}">−</button><b>${fa(q)}</b><button data-q="1" data-id="${id}">+</button></div>
+    <button class="rm" data-rm="${id}">حذف از سبد</button></div></div>`}).join('');
+  $('#cartTotal').textContent=fmt(cartTotal())+' تومان';
+}
+$('#cartItems').addEventListener('click',e=>{
+  const qb=e.target.closest('[data-q]'),rm=e.target.closest('[data-rm]');
+  if(qb){const id=+qb.dataset.id,q=(cart.get(id)||0)+ +qb.dataset.q;q<=0?cart.delete(id):cart.set(id,q);renderCart()}
+  if(rm){cart.delete(+rm.dataset.rm);renderCart()}
+});
+function openDrawer(){$('#drawer').classList.add('on');$('#ovl').classList.add('on')}
+function closeDrawer(){$('#drawer').classList.remove('on');$('#ovl').classList.remove('on')}
+$('#cartBtn').addEventListener('click',openDrawer);
+$('#drawerX').addEventListener('click',closeDrawer);
+$('#ovl').addEventListener('click',closeDrawer);
+$('#checkoutBtn').addEventListener('click',()=>{
+  if(!cart.size){toast('سبد خرید خالی است');return}
+  closeDrawer();openCheckout();
+});
+function openCheckout(){
+  const total=cartTotal(),plan=instCalc(total,30,12);
+  $('#coBody').innerHTML=`
+    <h3>تکمیل خرید و پرداخت</h3>
+    <p class="sub">${fa(cartCount())} کالا · مبلغ سفارش: <b style="color:var(--gold2)">${fmt(total)} تومان</b></p>
+    <div class="radio">
+      <label><input type="radio" name="paym" value="cash" checked><span>پرداخت نقدی<small>پرداخت کامل از درگاه امن بانکی و تحویل فوری</small></span></label>
+      <label><input type="radio" name="paym" value="inst"><span>خرید اقساطی<small>پیش‌پرداخت ${fmt(plan.down)} تومان + ۱۲ قسط ${fmt(plan.monthly)} تومانی</small></span></label>
+    </div>
+    <input type="text" id="coName" placeholder="نام و نام خانوادگی">
+    <input type="tel" id="coPhone" placeholder="شماره موبایل (۰۹…)">
+    <button class="btn btn-gold" id="coPay" style="width:100%">پرداخت امن از درگاه بانکی</button>
+    <p class="note" style="margin-top:12px;text-align:center">با کلیک روی پرداخت، به درگاه امن بانکی (شاپرک) منتقل می‌شوید.</p>`;
+  $('#coModal').classList.add('on');
+  $('#coPay').addEventListener('click',()=>{
+    const nm=$('#coName').value.trim(),ph=$('#coPhone').value.trim();
+    if(nm.length<3){toast('نام و نام خانوادگی را کامل وارد کنید');return}
+    if(ph.replace(/[^0-9۰-۹]/g,'').length<10){toast('شماره موبایل معتبر وارد کنید');return}
+    const inst=document.querySelector('input[name=paym]:checked').value==='inst';
+    const code='QT-'+Math.floor(100000+Math.random()*900000);
+    $('#coBody').innerHTML=`<div class="success">
+      <div class="ok"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg></div>
+      <h3>سفارش شما با موفقیت ثبت شد</h3>
+      <p class="sub" style="margin-top:8px">${inst?'خرید اقساطی شما فعال شد؛ پیش‌پرداخت پرداخت و طلای شما آماده تحویل است.':'پرداخت نقدی انجام شد؛ سفارش شما آماده تحویل یا ارسال بیمه‌شده است.'}<br>فاکتور رسمی و جزئیات سفارش برای ${nm} ارسال می‌شود.</p>
+      <div class="code">کد پیگیری: ${fa(code)}</div>
+      <button class="btn btn-gold" data-close style="margin-top:20px">بازگشت به فروشگاه</button></div>`;
+    cart.clear();renderCart();
+    $('#coBody').querySelector('[data-close]').addEventListener('click',()=>$('#coModal').classList.remove('on'));
+  });
+}
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('.modal').classList.remove('on')));
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('on')}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.on').forEach(m=>m.classList.remove('on'));closeDrawer()}});
+
+/* ================= faq / misc ================= */
+const FAQ=[
+ ['برای خرید اقساطی چه مدارکی لازم است؟','فقط کارت ملی و یک برگ چک صیادی یا سفته الکترونیک کافی است؛ نه ضامن می‌خواهید و نه وثیقه ملکی. احراز هویت و اعتبارسنجی کاملاً آنلاین و در چند دقیقه انجام می‌شود.'],
+ ['طلا را چه زمانی تحویل می‌گیرم؟','بلافاصله پس از پرداخت پیش‌پرداخت و تأیید تضمین؛ یا حضوری از فروشگاه تحویل می‌گیرید یا با ارسال بیمه‌شده و بسته‌بندی ضدجعل برایتان فرستاده می‌شود. طلا از همان روز اول مال شماست.'],
+ ['کارمزد خرید اقساطی چقدر است؟','کارمزد اعتبار ماهانه ۲٪ روی مبلغ تأمین‌شده (قیمت کالا منهای پیش‌پرداخت) است. مبلغ دقیق هر قسط، هزینه کل اعتبار و مجموع بازپرداخت را پیش از ثبت سفارش در محاسبه‌گر اقساط همین صفحه می‌بینید؛ هیچ هزینه پنهانی وجود ندارد.'],
+ ['اگر قیمت طلا در دوره اقساط بالا برود، چه اتفاقی می‌افتد؟','هیچ؛ قیمت خرید شما در روز ثبت سفارش قفل شده و طلا تحویل داده شده است. افزایش قیمت طلا در دوره بازپرداخت، سود شماست و مبلغ اقساط ثابت می‌ماند.'],
+ ['آیا تسویه زودهنگام ممکن است؟','بله، در هر زمان می‌توانید مانده بدهی را یکجا تسویه کنید و کارمزد ماه‌های باقی‌مانده به‌طور کامل حذف می‌شود.'],
+ ['آیا برای خریدها فاکتور رسمی صادر می‌شود؟','بله؛ برای همه کالاها فاکتور رسمی شامل وزن دقیق، عیار، اجرت ساخت و کد انگ صادر می‌شود و گواهی اصالت همراه کالا ارسال می‌گردد.'],
+ ['اگر پرداخت یک قسط دیر شود چه می‌شود؟','برای هر قسط ۵ روز مهلت ارفاقی در نظر گرفته شده است. شرایط دیرکرد پیش از امضای قرارداد به‌صورت شفاف اعلام می‌شود و هیچ هزینه‌ای خارج از قرارداد دریافت نمی‌گردد.'],
+];
+$('#faqBox').innerHTML=FAQ.map(f=>`<div class="fq"><button class="q">${f[0]}<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="a">${f[1]}</div></div>`).join('');
+$('#faqBox').addEventListener('click',e=>{const q=e.target.closest('.q');if(q)q.parentElement.classList.toggle('open')});
+$('#contactForm').addEventListener('submit',e=>{e.preventDefault();$('#cfOk').style.display='block';e.target.querySelectorAll('input,textarea').forEach(i=>i.value='');toast('پیام شما ثبت شد')});
+$('#loginBtn').addEventListener('click',()=>toast('در نسخه نهایی، ورود با کد پیامکی (OTP) انجام می‌شود'));
+$('#burger').addEventListener('click',()=>$('#mainNav').classList.toggle('open'));
+document.querySelectorAll('#mainNav a').forEach(a=>a.addEventListener('click',()=>$('#mainNav').classList.remove('open')));
+
+/* ================= init ================= */
+renderTicker();renderBoard();renderGrid();renderCalc();renderCart();
+setInterval(tick,4000);
+</script>
+</body>
+</html>
