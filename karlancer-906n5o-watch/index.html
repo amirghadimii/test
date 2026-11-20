@@ -268,6 +268,16 @@ footer{border-top:1px solid var(--line);background:#090807;padding:60px 0 0}
 .f-links a:hover{color:var(--gold2)}
 footer .fbot{border-top:none}
 </style>
+<style>
+/* ===== MOBILEFIX 2026-11-20 batch-1: scroll cue overlaps hero CTA on mobile; sub-40px tap targets ===== */
+@media(max-width:1020px){
+  .hd .icobtn{width:40px;height:40px}
+  .pcard .qv{padding-top:10px;padding-bottom:10px}
+}
+@media(max-width:560px){
+  .scrollcue{display:none}
+}
+</style>
 </head>
 <body>
 
