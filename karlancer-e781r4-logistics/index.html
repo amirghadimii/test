@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>پارس ترانزیت | شرکت حمل‌ونقل بین‌المللی — دریایی، هوایی، زمینی و ریلی</title>
+<meta name="description" content="پارس ترانزیت؛ حمل‌ونقل بین‌المللی کالا از چین، امارات، ترکیه، اروپا و روسیه به ایران. حمل دریایی FCL و LCL، هوایی، زمینی و ریلی، ترخیص کالا و انبارداری — با محاسبه آنلاین برآورد کرایه و رهگیری لحظه‌ای محموله.">
+<meta name="theme-color" content="#0a2540">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --navy:#0a2540; --navy-2:#0d2f52; --navy-deep:#061a30; --teal:#0e7c86; --teal-2:#12a5b4; --teal-soft:#e6f4f5;
+  --bg:#f5f8fa; --card:#ffffff; --ink:#14273c; --ink2:#47617c; --muted:#7d93a9;
+  --line:#dde7ee; --amber:#e8a33d; --ok:#1e9e6a; --danger:#c0453e;
+  --sh:0 22px 50px -20px rgba(10,37,64,.28); --sh-sm:0 10px 26px -12px rgba(10,37,64,.22);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:16px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink)}
+::selection{background:var(--teal);color:#fff}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:84px 0}
+.sec-head{max-width:640px;margin-bottom:42px}
+.sec-head .kicker{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:700;font-size:.85rem;background:var(--teal-soft);padding:4px 14px;border-radius:99px;margin-bottom:14px}
+.sec-head h2{font-size:clamp(1.55rem,3.4vw,2.2rem);font-weight:800;line-height:1.4;color:var(--navy)}
+.sec-head p{color:var(--ink2);margin-top:10px}
+/* ---------- top strip + header ---------- */
+.topstrip{background:var(--navy-deep);color:#bcd2e4;font-size:.8rem;padding:7px 0}
+.topstrip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.topstrip b{color:#fff;font-weight:600}
+header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:26px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.28rem;color:var(--navy)}
+.logo .mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--teal));display:grid;place-items:center;flex:none}
+.logo small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);letter-spacing:.2px}
+.nav nav{display:flex;gap:24px;margin-inline-start:auto}
+.nav nav a{font-size:.94rem;font-weight:500;color:var(--ink2);transition:color .2s}
+.nav nav a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--teal);color:#fff;font-weight:700;padding:11px 24px;border-radius:12px;font-size:.95rem;transition:.25s;box-shadow:0 10px 22px -10px rgba(14,124,134,.55)}
+.btn:hover{background:#0a6a73;transform:translateY(-1px)}
+.btn.navy{background:var(--navy);box-shadow:0 10px 22px -10px rgba(10,37,64,.5)}
+.btn.navy:hover{background:var(--navy-2)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--teal);color:var(--teal)}
+.burger{display:none;width:42px;height:42px;border-radius:11px;border:1.5px solid var(--line);place-items:center;margin-inline-start:auto}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 0 16px}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:9px 4px;font-weight:500;color:var(--ink2);border-bottom:1px dashed var(--line)}
+.mobile-menu a:last-of-type{border-bottom:none}
+/* ---------- hero ---------- */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--navy-deep)}
+.hero::before{content:"";position:absolute;inset:0;background:url('assets/img/hero-port.jpg') center/cover no-repeat;opacity:.34}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(6,26,48,.55) 0%,rgba(6,26,48,.88) 78%)}
+.hero .wrap{position:relative;z-index:2;padding:64px 0 74px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:start}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:900;line-height:1.35}
+.hero h1 .hl{color:#3fd2de}
+.hero .lead{color:#c3d7e8;font-size:1.06rem;margin:18px 0 26px;max-width:520px}
+.hero-points{display:grid;gap:12px;margin-bottom:30px}
+.hero-points li{list-style:none;display:flex;gap:11px;align-items:flex-start;color:#dcebf7;font-size:.96rem}
+.hero-points .tick{flex:none;width:23px;height:23px;border-radius:50%;background:rgba(63,210,222,.18);border:1px solid rgba(63,210,222,.5);display:grid;place-items:center;margin-top:4px}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap}
+.hero-tags span{font-size:.8rem;border:1px solid rgba(255,255,255,.28);color:#e6f1fa;padding:5px 13px;border-radius:99px;background:rgba(255,255,255,.06)}
+/* calculator card */
+.calc{background:#fff;color:var(--ink);border-radius:22px;padding:26px;box-shadow:var(--sh)}
+.calc h3{font-size:1.13rem;font-weight:800;color:var(--navy);display:flex;align-items:center;gap:10px}
+.calc h3 .ic{width:36px;height:36px;border-radius:10px;background:var(--teal-soft);display:grid;place-items:center;flex:none}
+.calc .sub{font-size:.85rem;color:var(--muted);margin:6px 0 18px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.f-field{display:grid;gap:6px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:.83rem;font-weight:600;color:var(--ink2)}
+.f-field select,.f-field input,.f-field textarea{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:10px 13px;background:#fbfcfd;transition:.2s;appearance:none}
+.f-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230e7c86' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 13px center;padding-left:34px}
+.f-field select:focus,.f-field input:focus,.f-field textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(14,124,134,.12)}
+.f-field select:disabled{opacity:.45;background-color:#eef3f6}
+.calc .btn{width:100%;margin-top:17px;padding:13px}
+.calc-result{display:none;margin-top:18px;border:1.5px dashed #bfe0e2;background:var(--teal-soft);border-radius:15px;padding:16px 18px}
+.calc-result.show{display:block;animation:fadeUp .45s ease}
+.calc-result .price{font-size:1.24rem;font-weight:900;color:var(--navy)}
+.calc-result .price b{color:var(--teal)}
+.calc-result .meta{display:flex;gap:8px 22px;flex-wrap:wrap;margin-top:7px;font-size:.9rem;color:var(--ink2)}
+.calc-result .meta b{color:var(--navy)}
+.calc-result .basis{font-size:.8rem;color:var(--ink2);margin-top:9px;border-top:1px solid #cfe6e7;padding-top:9px}
+.demo-note{display:flex;gap:8px;align-items:flex-start;font-size:.76rem;color:#8a6d1f;background:#fdf3d9;border:1px solid #f0dfae;border-radius:10px;padding:8px 12px;margin-top:14px;line-height:1.7}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--sh-sm);border-color:#c3d9de}
+.svc .ph{height:168px;overflow:hidden;position:relative}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.svc:hover .ph img{transform:scale(1.06)}
+.svc .ph .tag{position:absolute;bottom:12px;inset-inline-start:12px;background:rgba(6,26,48,.82);color:#fff;font-size:.74rem;padding:3px 12px;border-radius:99px;backdrop-filter:blur(4px)}
+.svc .bd{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.svc h3{font-size:1.06rem;font-weight:800;color:var(--navy)}
+.svc p{font-size:.9rem;color:var(--ink2);flex:1}
+.svc .chips{display:flex;gap:7px;flex-wrap:wrap}
+.svc .chips span{font-size:.74rem;background:var(--bg);border:1px solid var(--line);color:var(--ink2);padding:2px 11px;border-radius:99px}
+/* ---------- tracking ---------- */
+.track-sec{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;position:relative;overflow:hidden}
+.track-sec::before{content:"";position:absolute;inset:0;background:url('assets/img/customs-yard.jpg') center/cover;opacity:.09}
+.track-sec .wrap{position:relative;z-index:2}
+.track-sec .sec-head h2{color:#fff}
+.track-sec .sec-head p{color:#b9cfdf}
+.track-sec .sec-head .kicker{background:rgba(63,210,222,.14);color:#3fd2de}
+.track-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:26px;backdrop-filter:blur(6px)}
+.track-form{display:flex;gap:12px;flex-wrap:wrap}
+.track-form input{flex:1;min-width:230px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);border-radius:12px;padding:12px 16px;color:#fff;font-size:1.02rem;letter-spacing:.5px}
+.track-form input::placeholder{color:#8fa9bf;letter-spacing:0}
+.track-form input:focus{outline:none;border-color:#3fd2de;background:rgba(255,255,255,.12)}
+.track-hint{font-size:.82rem;color:#9db8cf;margin-top:11px}
+.track-hint button{color:#3fd2de;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.track-result{display:none;margin-top:24px}
+.track-result.show{display:block;animation:fadeUp .45s ease}
+.track-meta{display:flex;gap:10px 26px;flex-wrap:wrap;font-size:.92rem;color:#cfe1ef;margin-bottom:26px}
+.track-meta b{color:#fff}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.tstep{position:relative;text-align:center;padding:0 4px}
+.tstep::before{content:"";position:absolute;top:17px;inset-inline-start:-50%;width:100%;height:3px;background:rgba(255,255,255,.16);border-radius:3px}
+.tstep:first-child::before{display:none}
+.tstep.done::before{background:var(--teal-2)}
+.tstep .dot{position:relative;z-index:2;width:35px;height:35px;margin:0 auto 10px;border-radius:50%;background:#12385c;border:2px solid rgba(255,255,255,.3);display:grid;place-items:center;color:transparent}
+.tstep.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.tstep.current .dot{background:var(--amber);border-color:var(--amber);color:#fff;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,163,61,.5)}70%{box-shadow:0 0 0 11px rgba(232,163,61,0)}100%{box-shadow:0 0 0 0 rgba(232,163,61,0)}}
+.tstep h4{font-size:.86rem;font-weight:700;line-height:1.6}
+.tstep.done h4{color:#fff}
+.tstep.current h4{color:#ffd9a0}
+.tstep.pending{opacity:.55}
+.tstep .dt{font-size:.74rem;color:#9db8cf;line-height:1.6;display:block;margin-top:2px}
+.track-error{display:none;margin-top:18px;background:rgba(192,69,62,.16);border:1px solid rgba(255,140,130,.45);color:#ffc9c4;border-radius:12px;padding:12px 16px;font-size:.9rem}
+.track-error.show{display:block}
+/* ---------- routes ---------- */
+.table-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:auto;box-shadow:var(--sh-sm)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th{background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;text-align:right;padding:14px 18px;white-space:nowrap}
+td{padding:13px 18px;border-top:1px solid var(--line);font-size:.93rem;color:var(--ink2);white-space:nowrap}
+td:first-child{color:var(--navy);font-weight:700}
+tbody tr{transition:background .2s}
+tbody tr:hover{background:var(--teal-soft)}
+.mode-badge{display:inline-block;font-size:.76rem;font-weight:700;padding:2px 12px;border-radius:99px;background:var(--teal-soft);color:var(--teal)}
+.mode-badge.sea{background:#e3ecfb;color:#2c5aa8}.mode-badge.air{background:#f3e8fb;color:#7a3fa3}.mode-badge.land{background:#fdf0dc;color:#a86e14}.mode-badge.rail{background:#e6f6ec;color:#1e7a4c}
+/* ---------- stats ---------- */
+.stats{background:#fff;border-block:1px solid var(--line);padding:52px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stat{text-align:center}
+.stat .num{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:900;color:var(--navy)}
+.stat .num em{font-style:normal;color:var(--teal)}
+.stat .lbl{color:var(--ink2);font-size:.9rem;margin-top:2px}
+/* ---------- quote form ---------- */
+.quote-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.quote-side h2{font-size:clamp(1.5rem,3.2vw,2.05rem);font-weight:800;color:var(--navy);line-height:1.45}
+.quote-side p{color:var(--ink2);margin-top:12px}
+.steps{display:grid;gap:16px;margin-top:26px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.92rem}
+.step h4{font-weight:700;color:var(--navy);font-size:.98rem}
+.step p{font-size:.87rem;color:var(--ink2);margin:0}
+.form-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--sh-sm)}
+.form-card h3{font-size:1.08rem;font-weight:800;color:var(--navy);margin-bottom:18px}
+.form-card .btn{width:100%;margin-top:18px;padding:13px}
+.err-msg{display:none;color:var(--danger);font-size:.83rem;margin-top:12px}
+.err-msg.show{display:block}
+.form-success{display:none;text-align:center;padding:16px 4px 6px}
+.form-success.show{display:block;animation:fadeUp .45s ease}
+.form-success .ok-ic{width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:#e6f6ec;display:grid;place-items:center}
+.form-success h4{font-size:1.12rem;font-weight:800;color:var(--navy)}
+.form-success p{color:var(--ink2);font-size:.92rem;margin-top:6px}
+.form-success .code{display:inline-block;margin-top:14px;background:var(--navy);color:#fff;font-weight:800;letter-spacing:1.5px;padding:9px 26px;border-radius:12px;font-size:1.05rem}
+.form-success .code small{display:block;letter-spacing:0;font-weight:500;font-size:.72rem;color:#9db8cf}
+/* ---------- faq ---------- */
+.faq-list{display:grid;gap:13px;max-width:820px}
+.faq{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.faq button.q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;padding:17px 21px;font-weight:700;color:var(--navy);font-size:.99rem}
+.faq button.q .arr{flex:none;width:28px;height:28px;border-radius:50%;background:var(--teal-soft);display:grid;place-items:center;transition:transform .3s;color:var(--teal)}
+.faq.open button.q .arr{transform:rotate(180deg)}
+.faq .a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq .a p{padding:0 21px 19px;color:var(--ink2);font-size:.93rem}
+/* ---------- footer ---------- */
+footer{background:var(--navy-deep);color:#a9c2d8;padding:52px 0 30px}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px;margin-bottom:34px}
+footer h5{color:#fff;font-size:1rem;margin-bottom:13px}
+footer a{display:block;padding:4px 0;font-size:.9rem;transition:color .2s}
+footer a:hover{color:#3fd2de}
+footer p{font-size:.88rem;line-height:1.95}
+footer .logo{color:#fff}
+.foot-note{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-size:.79rem;color:#7e99b1;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .quote-grid{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:820px){
+  .nav nav{display:none}
+  .nav .btn{display:none}
+  .burger{display:grid}
+  section{padding:60px 0}
+  .timeline{grid-template-columns:1fr;gap:20px;text-align:right}
+  .tstep{text-align:right;display:grid;grid-template-columns:35px 1fr;column-gap:14px;align-items:start}
+  .tstep .dot{margin:0}
+  .tstep::before{inset-inline-start:17px;top:38px;width:3px;height:calc(100% - 24px)}
+  .tstep:last-child::before{display:none}
+  .stats .wrap{grid-template-columns:repeat(2,1fr);gap:28px 12px}
+  footer .cols{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:560px){
+  .svc-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .hero .wrap{padding:44px 0 54px}
+  .calc{padding:21px}
+  .track-form{flex-direction:column}
+  .track-form .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="wrap">
+    <span>پوشش مسیرهای <b>چین، امارات، ترکیه، اروپا و روسیه</b></span>
+    <span>رهگیری آنلاین محموله • صدور بارنامه • بیمه باربری بین‌المللی</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="#">
+      <span class="mark" aria-hidden="true">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#3fd2de" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </span>
+      <span>پارس ترانزیت<small>PARSTRANSIT • INTERNATIONAL FREIGHT</small></span>
+    </a>
+    <nav>
+      <a href="#services">خدمات</a>
+      <a href="#calc">محاسبه کرایه</a>
+      <a href="#tracking">رهگیری بار</a>
+      <a href="#routes">مسیرها و زمان‌بندی</a>
+      <a href="#faq">سوالات متداول</a>
+    </nav>
+    <a class="btn" href="#quote">درخواست استعلام</a>
+    <button class="burger" id="burger" aria-label="منوی موبایل">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="#0a2540" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="wrap mobile-menu" id="mobileMenu">
+    <a href="#services">خدمات</a>
+    <a href="#calc">محاسبه کرایه</a>
+    <a href="#tracking">رهگیری بار</a>
+    <a href="#routes">مسیرها و زمان‌بندی</a>
+    <a href="#faq">سوالات متداول</a>
+    <a href="#quote">درخواست استعلام</a>
+  </div>
+</header>
+
+<!-- ================= HERO + CALCULATOR ================= -->
+<div class="hero" id="calc">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>حمل‌ونقل بین‌المللی کالا، <span class="hl">از مبدأ تا مقصد</span> بدون دغدغه</h1>
+        <p class="lead">پارس ترانزیت بار شما را از چین، امارات، ترکیه، اروپا و روسیه با حمل دریایی، هوایی، زمینی و ریلی به ایران می‌رساند؛ با ترخیص، انبارداری و رهگیری شفاف در تمام مسیر.</p>
+        <ul class="hero-points">
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#3fd2de" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>حمل دریایی کانتینر کامل (FCL) و خرده‌بار (LCL) از بنادر اصلی چین و اروپا</li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#3fd2de" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ترخیص کالا از گمرکات بندرعباس، بندر امام خمینی و فرودگاه امام خمینی</li>
+          <li><span class="tick"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#3fd2de" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>قیمت‌گذاری شفاف قبل از بارگیری؛ بدون هزینه پنهان در مقصد</li>
+        </ul>
+        <div class="hero-tags">
+          <span>دریایی FCL / LCL</span><span>هوایی</span><span>زمینی تریلی</span><span>ریلی</span><span>ترخیص و انبارداری</span>
+        </div>
+      </div>
+
+      <div class="calc" aria-label="ماشین‌حساب برآورد کرایه حمل">
+        <h3><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="#0e7c86" stroke-width="1.8"/><path d="M8.5 7.5h7M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01" stroke="#0e7c86" stroke-width="2.2" stroke-linecap="round"/></svg></span>محاسبه آنلاین برآورد کرایه</h3>
+        <p class="sub">مسیر و مشخصات بار را وارد کنید تا بازه تقریبی کرایه و زمان حمل نمایش داده شود.</p>
+        <div class="f-grid">
+          <div class="f-field">
+            <label for="origin">مبدأ</label>
+            <select id="origin">
+              <option value="shanghai">شانگهای — چین</option>
+              <option value="shenzhen">شنژن — چین</option>
+              <option value="dubai">دبی — امارات</option>
+              <option value="istanbul">استانبول — ترکیه</option>
+              <option value="hamburg">هامبورگ — آلمان</option>
+              <option value="moscow">مسکو — روسیه</option>
+            </select>
+          </div>
+          <div class="f-field">
+            <label for="dest">مقصد</label>
+            <select id="dest">
+              <option value="bandarabbas">بندرعباس</option>
+              <option value="bandarimam">بندر امام خمینی</option>
+              <option value="tehran">تهران</option>
+              <option value="mashhad">مشهد</option>
+              <option value="tabriz">تبریز</option>
+              <option value="isfahan">اصفهان</option>
+            </select>
+          </div>
+          <div class="f-field full">
+            <label for="mode">نوع حمل</label>
+            <select id="mode">
+              <option value="lcl">دریایی — خرده‌بار (LCL)</option>
+              <option value="fcl">دریایی — کانتینر کامل (FCL)</option>
+              <option value="air">هوایی</option>
+              <option value="land">زمینی — تریلی</option>
+              <option value="rail">ریلی</option>
+            </select>
+          </div>
+          <div class="f-field" id="fldWeight">
+            <label for="weight">وزن بار (کیلوگرم)</label>
+            <input id="weight" type="text" inputmode="decimal" value="500">
+          </div>
+          <div class="f-field" id="fldVolume">
+            <label for="volume">حجم بار (متر مکعب)</label>
+            <input id="volume" type="text" inputmode="decimal" value="3">
+          </div>
+          <div class="f-field full" id="fldContainer" style="display:none">
+            <label for="container">نوع کانتینر</label>
+            <select id="container">
+              <option value="20">کانتینر ۲۰ فوت</option>
+              <option value="40" selected>کانتینر ۴۰ فوت</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn" id="calcBtn" type="button">محاسبه برآورد کرایه</button>
+        <div class="calc-result" id="calcResult" role="status">
+          <div class="price">بازه برآورد کرایه: <b id="resPrice">—</b></div>
+          <div class="meta">
+            <span>زمان حمل تقریبی: <b id="resDays">—</b></span>
+            <span>مسیر: <b id="resRoute">—</b></span>
+          </div>
+          <p class="basis" id="resBasis">—</p>
+        </div>
+        <p class="demo-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="flex:none;margin-top:3px"><circle cx="12" cy="12" r="9" stroke="#b98a1e" stroke-width="1.8"/><path d="M12 11v5M12 8h.01" stroke="#b98a1e" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <span><b>برآورد نمونه دمو:</b> نرخ‌های این ماشین‌حساب نمونه و تقریبی‌اند؛ کرایه نهایی پس از بررسی نوع کالا، اسناد و ظرفیت مسیر توسط کارشناس اعلام می‌شود.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">خدمات پارس ترانزیت</span>
+      <h2>هر مسیر، هر نوع بار؛ یک پیمانکار پاسخگو</h2>
+      <p>از تحویل بار در انبار مبدأ تا تحویل در درب انبار شما در ایران، همه مراحل با یک قرارداد و یک تیم انجام می‌شود.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc">
+        <div class="ph"><img src="assets/img/sea-ship.jpg" alt="کشتی کانتینربر در دریا"><span class="tag">محبوب‌ترین مسیر وارداتی</span></div>
+        <div class="bd">
+          <h3>حمل دریایی (FCL / LCL)</h3>
+          <p>کانتینر کامل ۲۰ و ۴۰ فوت یا خرده‌بار تجمیعی از بنادر چین، امارات و اروپا به بندرعباس و بندر امام خمینی، با برنامه حرکت هفتگی کشتی‌ها.</p>
+          <div class="chips"><span>کانتینر ۲۰ و ۴۰ فوت</span><span>خرده‌بار LCL</span><span>بارنامه دریایی</span></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="ph"><img src="assets/img/air-cargo.jpg" alt="هواپیمای باری در فرودگاه"><span class="tag">سریع‌ترین گزینه</span></div>
+        <div class="bd">
+          <h3>حمل هوایی</h3>
+          <p>برای بارهای فوری، نمونه کالا و محموله‌های با ارزش؛ پرواز مستقیم و ترانزیتی به فرودگاه امام خمینی با ترخیص سریع پس از ورود.</p>
+          <div class="chips"><span>تحویل ۱ تا ۸ روزه</span><span>بار فوری و نمونه</span><span>چارتر جزئی</span></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="ph"><img src="assets/img/land-truck.jpg" alt="تریلی حمل بار در جاده"><span class="tag">ترکیه و اروپا</span></div>
+        <div class="bd">
+          <h3>حمل زمینی</h3>
+          <p>تریلی کامل و خرده‌بار زمینی از ترکیه و اروپا از مرز بازرگان و از امارات با لنج و تریلی؛ مناسب بارهای حجیم و پروژه‌ای.</p>
+          <div class="chips"><span>تریلی کامل FTL</span><span>خرده‌بار گروهی</span><span>درب تا درب</span></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="ph"><img src="assets/img/rail-train.jpg" alt="قطار باری کانتینری"><span class="tag">اقتصادی برای بار سنگین</span></div>
+        <div class="bd">
+          <h3>حمل ریلی</h3>
+          <p>واگن و کانتینر ریلی از چین و روسیه از کریدورهای قزاقستان و ترکمنستان به تهران و مشهد؛ تعادلی میان هزینه دریایی و سرعت زمینی.</p>
+          <div class="chips"><span>چین و روسیه</span><span>واگن کامل</span><span>بار سنگین</span></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="ph"><img src="assets/img/customs-yard.jpg" alt="محوطه کانتینری گمرک"><span class="tag">بدون واسطه</span></div>
+        <div class="bd">
+          <h3>ترخیص کالا</h3>
+          <p>ثبت سفارش، اخذ مجوزها، تنظیم اظهارنامه و ترخیص از گمرکات بندرعباس، بندر امام و فرودگاه امام خمینی توسط تیم حق‌العمل‌کاری مجرب.</p>
+          <div class="chips"><span>ثبت سفارش</span><span>اظهارنامه گمرکی</span><span>مجوزهای وارداتی</span></div>
+        </div>
+      </article>
+      <article class="svc">
+        <div class="ph"><img src="assets/img/warehouse.jpg" alt="انبار و لیفتراک در مرکز لجستیک"><span class="tag">در مبدأ و مقصد</span></div>
+        <div class="bd">
+          <h3>انبارداری و تجمیع بار</h3>
+          <p>انبار در شنژن، دبی و استانبول برای تجمیع خریدهای شما از چند فروشنده، بسته‌بندی صادراتی و نگهداری کالا تا زمان بارگیری.</p>
+          <div class="chips"><span>تجمیع چند خرید</span><span>بسته‌بندی صادراتی</span><span>بیمه انبار</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRACKING ================= -->
+<section class="track-sec" id="tracking">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">رهگیری آنلاین</span>
+      <h2>بارتان الان کجاست؟</h2>
+      <p>کد رهگیری روی بارنامه را وارد کنید تا آخرین وضعیت محموله را مرحله‌به‌مرحله ببینید.</p>
+    </div>
+    <div class="track-box">
+      <form class="track-form" id="trackForm">
+        <input id="trackInput" type="text" placeholder="کد رهگیری، مثال: PT-1001" autocomplete="off" dir="ltr" style="text-align:right">
+        <button class="btn" type="submit">رهگیری محموله</button>
+      </form>
+      <p class="track-hint">برای مشاهده نمونه، یکی از کدهای دمو را امتحان کنید: <button type="button" data-demo-code="PT-1001">PT-1001</button> (در مسیر) یا <button type="button" data-demo-code="PT-1002">PT-1002</button> (تحویل‌شده)</p>
+      <div class="track-error" id="trackError">کدی با این مشخصات یافت نشد. لطفاً کد روی بارنامه را دقیق وارد کنید.</div>
+      <div class="track-result" id="trackResult">
+        <div class="track-meta">
+          <span>مسیر: <b id="tkRoute">—</b></span>
+          <span>نوع حمل: <b id="tkMode">—</b></span>
+          <span>شرح بار: <b id="tkDesc">—</b></span>
+          <span>وضعیت فعلی: <b id="tkStatus">—</b></span>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROUTES ================= -->
+<section id="routes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">مسیرهای فعال</span>
+      <h2>مسیرها و زمان‌بندی تقریبی حمل</h2>
+      <p>زمان‌ها بر اساس تجربه مسیرهای فعال و به‌صورت تقریبی‌اند و با توجه به برنامه حرکت و شرایط گمرک ممکن است تغییر کنند.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>مسیر</th><th>نوع حمل</th><th>زمان تقریبی</th><th>دفعات حرکت</th><th>توضیح</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>شانگهای ← بندرعباس</td><td><span class="mode-badge sea">دریایی</span></td><td>۲۸ تا ۳۸ روز</td><td>هفتگی</td><td>FCL و LCL — مسیر اصلی واردات از چین</td></tr>
+          <tr><td>شنژن ← بندرعباس</td><td><span class="mode-badge sea">دریایی</span></td><td>۲۷ تا ۳۶ روز</td><td>هفتگی</td><td>مناسب بارهای الکترونیکی و تجمیع خرید</td></tr>
+          <tr><td>دبی ← بندرعباس</td><td><span class="mode-badge sea">دریایی</span></td><td>۳ تا ۶ روز</td><td>روزانه</td><td>لنج و کشتی — سریع‌ترین مسیر دریایی</td></tr>
+          <tr><td>هامبورگ ← بندرعباس</td><td><span class="mode-badge sea">دریایی</span></td><td>۳۲ تا ۴۲ روز</td><td>دو هفته یک‌بار</td><td>از کانال سوئز — ماشین‌آلات و تجهیزات</td></tr>
+          <tr><td>شانگهای ← تهران</td><td><span class="mode-badge air">هوایی</span></td><td>۵ تا ۸ روز</td><td>روزانه</td><td>ترانزیت از دبی یا دوحه — بار فوری</td></tr>
+          <tr><td>استانبول ← تبریز</td><td><span class="mode-badge land">زمینی</span></td><td>۷ تا ۱۱ روز</td><td>روزانه</td><td>از مرز بازرگان — تریلی کامل و خرده‌بار</td></tr>
+          <tr><td>هامبورگ ← تهران</td><td><span class="mode-badge land">زمینی</span></td><td>۱۴ تا ۱۹ روز</td><td>هفتگی</td><td>ترانزیت از ترکیه — بار پروژه‌ای</td></tr>
+          <tr><td>شانگهای ← تهران</td><td><span class="mode-badge rail">ریلی</span></td><td>۱۸ تا ۲۴ روز</td><td>هفتگی</td><td>کریدور قزاقستان — کانتینر ریلی</td></tr>
+          <tr><td>مسکو ← تهران</td><td><span class="mode-badge rail">ریلی</span></td><td>۱۰ تا ۱۴ روز</td><td>هفتگی</td><td>کریدور شمال–جنوب — واگن و کانتینر</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="num"><span data-count="18">۰</span><em>+</em></div><div class="lbl">سال تجربه در حمل بین‌المللی</div></div>
+    <div class="stat"><div class="num"><span data-count="4500">۰</span><em>+</em></div><div class="lbl">محموله تحویل‌شده</div></div>
+    <div class="stat"><div class="num"><span data-count="28">۰</span></div><div class="lbl">کشور تحت پوشش مسیرها</div></div>
+    <div class="stat"><div class="num"><span data-count="98">۰</span><em>٪</em></div><div class="lbl">رضایت مشتریان از پیگیری و اطلاع‌رسانی</div></div>
+  </div>
+</div>
+
+<!-- ================= QUOTE FORM ================= -->
+<section id="quote">
+  <div class="wrap">
+    <div class="quote-grid">
+      <div class="quote-side">
+        <span class="kicker" style="display:inline-flex;color:var(--teal);font-weight:700;font-size:.85rem;background:var(--teal-soft);padding:4px 14px;border-radius:99px;margin-bottom:14px">استعلام کرایه دقیق</span>
+        <h2>برای نرخ دقیق، مشخصات بار را بفرستید</h2>
+        <p>ماشین‌حساب بالای صفحه فقط یک برآورد اولیه است. برای نرخ قطعی مسیر، فرم استعلام را تکمیل کنید تا کارشناس بازرگانی پس از بررسی نوع کالا و اسناد، قیمت و برنامه حرکت را اعلام کند.</p>
+        <div class="steps">
+          <div class="step"><span class="n">۱</span><div><h4>ثبت درخواست</h4><p>فرم استعلام را با مشخصات کلی بار تکمیل می‌کنید و یک کد پیگیری می‌گیرید.</p></div></div>
+          <div class="step"><span class="n">۲</span><div><h4>بررسی و اعلام نرخ</h4><p>کارشناس مسیر، ظرفیت و اسناد لازم را بررسی و نرخ نهایی را با جزئیات اعلام می‌کند.</p></div></div>
+          <div class="step"><span class="n">۳</span><div><h4>بارگیری و رهگیری</h4><p>پس از تأیید شما، بار تحویل و بارنامه صادر می‌شود و در تمام مسیر از همین صفحه قابل رهگیری است.</p></div></div>
+        </div>
+      </div>
+      <div class="form-card">
+        <form id="quoteForm" novalidate>
+          <h3>فرم درخواست استعلام کرایه</h3>
+          <div class="f-grid">
+            <div class="f-field">
+              <label for="qName">نام و نام خانوادگی</label>
+              <input id="qName" type="text" placeholder="مثال: علی رضایی">
+            </div>
+            <div class="f-field">
+              <label for="qMobile">شماره موبایل</label>
+              <input id="qMobile" type="tel" placeholder="۰۹۱۲ ـــ ـــ ــ ــ" dir="ltr" style="text-align:right">
+            </div>
+            <div class="f-field">
+              <label for="qOrigin">مبدأ بار</label>
+              <select id="qOrigin">
+                <option value="شانگهای — چین">شانگهای — چین</option>
+                <option value="شنژن — چین">شنژن — چین</option>
+                <option value="دبی — امارات">دبی — امارات</option>
+                <option value="استانبول — ترکیه">استانبول — ترکیه</option>
+                <option value="هامبورگ — آلمان">هامبورگ — آلمان</option>
+                <option value="مسکو — روسیه">مسکو — روسیه</option>
+              </select>
+            </div>
+            <div class="f-field">
+              <label for="qDest">مقصد</label>
+              <select id="qDest">
+                <option value="بندرعباس">بندرعباس</option>
+                <option value="بندر امام خمینی">بندر امام خمینی</option>
+                <option value="تهران" selected>تهران</option>
+                <option value="مشهد">مشهد</option>
+                <option value="تبریز">تبریز</option>
+                <option value="اصفهان">اصفهان</option>
+              </select>
+            </div>
+            <div class="f-field full">
+              <label for="qCargo">شرح بار (نوع کالا، وزن و حجم تقریبی)</label>
+              <textarea id="qCargo" rows="3" placeholder="مثال: قطعات یدکی خودرو — حدود ۸۰۰ کیلوگرم، ۴ متر مکعب"></textarea>
+            </div>
+          </div>
+          <p class="err-msg" id="quoteError">لطفاً نام، شماره موبایل معتبر (شروع با ۰۹ و ۱۱ رقم) و شرح بار را کامل وارد کنید.</p>
+          <button class="btn navy" type="submit">ثبت درخواست استعلام</button>
+        </form>
+        <div class="form-success" id="quoteSuccess">
+          <div class="ok-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#1e9e6a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>درخواست شما ثبت شد</h4>
+          <p>کارشناس بازرگانی پارس ترانزیت درخواست را بررسی می‌کند. وضعیت درخواست را هر وقت خواستید از بخش «رهگیری بار» با همین کد ببینید:</p>
+          <div class="code"><span id="quoteCode" dir="ltr">PT-000000</span><small>کد پیگیری درخواست</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">سوالات متداول</span>
+      <h2>پرسش‌های رایج صاحبان بار</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq">
+        <button class="q" type="button">کرایه حمل چطور محاسبه می‌شود؟<span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="a"><p>در حمل خرده‌بار، کرایه بر اساس وزن یا حجم بار — هرکدام که بزرگ‌تر باشد — محاسبه می‌شود. در حمل هوایی، وزن حجمی (حجم × ۱۶۷) با وزن واقعی مقایسه می‌شود. هزینه‌های ترخیص، انبارداری و حمل داخلی تا مقصد نهایی هم جداگانه و شفاف در پیش‌فاکتور اعلام می‌شود تا در مقصد با هزینه پیش‌بینی‌نشده روبه‌رو نشوید.</p></div>
+      </div>
+      <div class="faq">
+        <button class="q" type="button">تفاوت FCL و LCL چیست و کدام برای بار من مناسب است؟<span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="a"><p>در FCL یک کانتینر کامل (۲۰ یا ۴۰ فوت) فقط به بار شما اختصاص دارد؛ سریع‌تر تخلیه می‌شود و برای بارهای بالای حدود ۱۳ متر مکعب معمولاً اقتصادی‌تر است. در LCL بار شما با بار چند صاحب بار دیگر در یک کانتینر تجمیع می‌شود و برای حجم‌های کمتر مناسب است، اما به‌خاطر تجمیع و تفکیک، چند روز بیشتر طول می‌کشد.</p></div>
+      </div>
+      <div class="faq">
+        <button class="q" type="button">برای واردات چه مدارکی لازم است؟<span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="a"><p>کارت بازرگانی، ثبت سفارش کالا، اینویس و پکینگ‌لیست فروشنده، گواهی مبدأ و بارنامه اصلی مهم‌ترین مدارک‌اند. برای بعضی کالاها مجوزهای تخصصی (مثل استاندارد، بهداشت یا انرژی اتمی) هم لازم است که تیم ترخیص ما پیش از بارگیری، فهرست دقیق آن را برای کالای شما اعلام می‌کند.</p></div>
+      </div>
+      <div class="faq">
+        <button class="q" type="button">ترخیص کالا از گمرک چقدر طول می‌کشد؟<span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="a"><p>اگر اسناد کامل باشد و کالا نیاز به مجوز خاصی نداشته باشد، ترخیص معمولاً بین ۳ تا ۷ روز کاری پس از رسیدن بار و صدور قبض انبار انجام می‌شود. کالاهای نیازمند مجوز یا بازرسی ممکن است بیشتر طول بکشند؛ در هر مرحله، وضعیت پرونده از طریق کد رهگیری قابل مشاهده است.</p></div>
+      </div>
+      <div class="faq">
+        <button class="q" type="button">آیا بار در مسیر بیمه می‌شود؟<span class="arr"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="a"><p>بله؛ به درخواست صاحب کالا، بیمه‌نامه باربری بین‌المللی با پوشش‌های مختلف (از جمله پوشش تمام‌خطر) بر اساس ارزش اظهارشده بار صادر می‌شود. توصیه می‌کنیم برای بارهای با ارزش بالا حتماً بیمه تمام‌خطر بگیرید؛ هزینه آن معمولاً کسری از ارزش بار است و در پیش‌فاکتور جداگانه درج می‌شود.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="logo" href="#" style="margin-bottom:14px">
+          <span class="mark" aria-hidden="true"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M3 8l9-4 9 4v8l-9 4-9-4V8z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 8l9 4 9-4M12 12v8" stroke="#3fd2de" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+          <span>پارس ترانزیت<small style="color:#7e99b1">PARSTRANSIT • INTERNATIONAL FREIGHT</small></span>
+        </a>
+        <p>شرکت حمل‌ونقل بین‌المللی پارس ترانزیت؛ حمل دریایی، هوایی، زمینی و ریلی کالا از آسیا، خاورمیانه و اروپا به ایران، همراه با خدمات ترخیص، انبارداری و تجمیع بار در مبدأ.</p>
+      </div>
+      <div>
+        <h5>خدمات</h5>
+        <a href="#services">حمل دریایی FCL و LCL</a>
+        <a href="#services">حمل هوایی</a>
+        <a href="#services">حمل زمینی</a>
+        <a href="#services">حمل ریلی</a>
+        <a href="#services">ترخیص کالا و انبارداری</a>
+      </div>
+      <div>
+        <h5>دسترسی سریع</h5>
+        <a href="#calc">محاسبه برآورد کرایه</a>
+        <a href="#tracking">رهگیری محموله</a>
+        <a href="#routes">مسیرها و زمان‌بندی</a>
+        <a href="#quote">درخواست استعلام</a>
+        <a href="#faq">سوالات متداول</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>© ۱۴۰۵ پارس ترانزیت — تمامی حقوق محفوظ است.</span>
+      <span>این وب‌سایت یک نمونه‌کار نمایشی (دمو) است؛ نرخ‌ها، زمان‌بندی‌ها و کدهای رهگیری صرفاً نمونه‌اند.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= helpers ================= */
+const $ = s => document.querySelector(s);
+const FA = n => Math.round(n).toLocaleString('fa-IR');
+const toEnDigits = s => String(s).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const parseNum = s => { const v = parseFloat(toEnDigits(s).replace(/[,٬\s]/g, '')); return isNaN(v) ? 0 : v; };
+const round1000 = n => Math.round(n / 1000) * 1000;
+
+/* ================= rate table (sample demo rates, Toman) ================= */
+const ORIGINS = { shanghai:'شانگهای — چین', shenzhen:'شنژن — چین', dubai:'دبی — امارات', istanbul:'استانبول — ترکیه', hamburg:'هامبورگ — آلمان', moscow:'مسکو — روسیه' };
+const DESTS = { bandarabbas:'بندرعباس', bandarimam:'بندر امام خمینی', tehran:'تهران', mashhad:'مشهد', tabriz:'تبریز', isfahan:'اصفهان' };
+const MODES = { lcl:'دریایی — خرده‌بار (LCL)', fcl:'دریایی — کانتینر کامل (FCL)', air:'هوایی', land:'زمینی — تریلی', rail:'ریلی' };
+/* perKg / perCbm / minFee / transit days — by origin & mode */
+const RATES = {
+  shanghai: { lcl:{perKg:55000, perCbm:4800000, min:2500000, days:[28,38]}, air:{perKg:385000, perCbm:64345000, min:1800000, days:[5,8]},  rail:{perKg:120000, perCbm:7500000, min:3000000, days:[18,24]} },
+  shenzhen: { lcl:{perKg:52000, perCbm:4600000, min:2400000, days:[27,36]}, air:{perKg:365000, perCbm:60955000, min:1700000, days:[5,8]},  rail:{perKg:115000, perCbm:7200000, min:2900000, days:[17,23]} },
+  dubai:    { lcl:{perKg:28000, perCbm:1900000, min:900000,  days:[3,6]},   air:{perKg:210000, perCbm:35070000, min:1200000, days:[1,3]},  land:{perKg:65000, perCbm:3400000, min:1500000, days:[6,9]} },
+  istanbul: { land:{perKg:88000, perCbm:4600000, min:1600000, days:[7,11]}, air:{perKg:240000, perCbm:40080000, min:1300000, days:[2,4]},  rail:{perKg:95000, perCbm:5200000, min:2200000, days:[12,16]} },
+  hamburg:  { lcl:{perKg:62000, perCbm:5600000, min:2800000, days:[32,42]}, air:{perKg:420000, perCbm:70140000, min:2000000, days:[4,7]},  land:{perKg:110000, perCbm:6000000, min:2600000, days:[14,19]}, rail:{perKg:135000, perCbm:8200000, min:3400000, days:[20,27]} },
+  moscow:   { rail:{perKg:72000, perCbm:4200000, min:1900000, days:[10,14]}, land:{perKg:58000, perCbm:3100000, min:1400000, days:[8,12]},  air:{perKg:260000, perCbm:43420000, min:1400000, days:[2,4]} }
+};
+/* inland add-on per destination: perKg / perCbm / extra days */
+const DEST_ADD = {
+  bandarabbas:{perKg:0, perCbm:0, days:0}, bandarimam:{perKg:4000, perCbm:180000, days:1},
+  tehran:{perKg:12000, perCbm:550000, days:3}, mashhad:{perKg:15000, perCbm:680000, days:4},
+  tabriz:{perKg:14000, perCbm:620000, days:4}, isfahan:{perKg:11000, perCbm:500000, days:3}
+};
+/* FCL flat rates per origin (to port) + per-container inland add-on */
+const FCL = {
+  shanghai:{ '20':68000000, '40':96000000, days:[28,38] }, shenzhen:{ '20':65000000, '40':92000000, days:[27,36] },
+  dubai:{ '20':34000000, '40':48000000, days:[3,6] },       hamburg:{ '20':79000000, '40':110000000, days:[32,42] }
+};
+const FCL_DEST_ADD = { bandarabbas:0, bandarimam:3500000, tehran:13000000, mashhad:16000000, tabriz:15000000, isfahan:12000000 };
+const AVAIL = {
+  shanghai:['lcl','fcl','air','rail'], shenzhen:['lcl','fcl','air','rail'], dubai:['lcl','fcl','air','land'],
+  istanbul:['land','air','rail'], hamburg:['lcl','fcl','air','land','rail'], moscow:['rail','land','air']
+};
+
+const originSel = $('#origin'), destSel = $('#dest'), modeSel = $('#mode');
+function syncModes(){
+  const avail = AVAIL[originSel.value];
+  [...modeSel.options].forEach(op => { op.disabled = !avail.includes(op.value); });
+  if (!avail.includes(modeSel.value)) modeSel.value = avail[0];
+  const isFcl = modeSel.value === 'fcl';
+  $('#fldContainer').style.display = isFcl ? '' : 'none';
+  $('#fldWeight').style.display = isFcl ? 'none' : '';
+  $('#fldVolume').style.display = isFcl ? 'none' : '';
+}
+originSel.addEventListener('change', syncModes);
+modeSel.addEventListener('change', syncModes);
+syncModes();
+
+function calcQuote(){
+  const o = originSel.value, d = destSel.value, m = modeSel.value, add = DEST_ADD[d];
+  let total, days, basis;
+  if (m === 'fcl'){
+    const size = $('#container').value, flat = FCL[o][size], inland = FCL_DEST_ADD[d];
+    total = flat + inland;
+    days = [FCL[o].days[0] + add.days, FCL[o].days[1] + add.days];
+    basis = 'مبنای محاسبه: کرایه ثابت کانتینر ' + (size === '20' ? '۲۰' : '۴۰') + ' فوت (' + FA(flat) + ' تومان)' +
+            (inland ? ' + حمل داخلی تا مقصد (' + FA(inland) + ' تومان)' : ' — تحویل در بندر مقصد') + '؛ جمع مبنا: ' + FA(total) + ' تومان.';
+  } else {
+    const r = RATES[o][m];
+    const w = Math.max(parseNum($('#weight').value), 0), v = Math.max(parseNum($('#volume').value), 0);
+    const perKg = r.perKg + add.perKg, perCbm = r.perCbm + add.perCbm;
+    const costW = w * perKg, costV = v * perCbm;
+    total = Math.max(costW, costV, r.min);
+    days = [r.days[0] + add.days, r.days[1] + add.days];
+    const winner = total === r.min && r.min >= costW && r.min >= costV ? 'حداقل کرایه مسیر' : (costW >= costV ? 'هزینه وزنی' : 'هزینه حجمی');
+    basis = 'مبنای محاسبه: هزینه وزنی ' + FA(costW) + ' تومان، هزینه حجمی ' + FA(costV) + ' تومان، حداقل کرایه مسیر ' + FA(r.min) + ' تومان — مبنای اعمال‌شده: ' + winner + ' (' + FA(total) + ' تومان).';
+  }
+  const low = round1000(total * 0.9), high = round1000(total * 1.15);
+  $('#resPrice').textContent = FA(low) + ' تا ' + FA(high) + ' تومان';
+  $('#resDays').textContent = FA(days[0]) + ' تا ' + FA(days[1]) + ' روز';
+  $('#resRoute').textContent = ORIGINS[o] + ' ← ' + DESTS[d] + ' • ' + MODES[m];
+  $('#resBasis').textContent = basis;
+  $('#calcResult').classList.add('show');
+}
+$('#calcBtn').addEventListener('click', calcQuote);
+
+/* ================= tracking ================= */
+const STAGES = ['تحویل به انبار مبدا', 'بارگیری و صدور بارنامه', 'حرکت و در مسیر', 'رسیدن به گمرک مقصد', 'ترخیص کالا', 'تحویل نهایی'];
+const SHIPMENTS = {
+  'PT-1001': { route:'شانگهای ← بندرعباس', mode:'دریایی — خرده‌بار (LCL)', desc:'قطعات الکترونیکی — ۵۰۰ کیلوگرم / ۳ متر مکعب', current:2,
+    dates:['۱۲ آبان ۱۴۰۵', '۱۵ آبان ۱۴۰۵', 'از ۱۶ آبان ۱۴۰۵ — در مسیر دریایی', 'پیش‌بینی: اوایل آذر', '—', '—'] },
+  'PT-1002': { route:'استانبول ← تبریز', mode:'زمینی — تریلی کامل', desc:'پارچه و منسوجات — ۴٬۲۰۰ کیلوگرم', current:6,
+    dates:['۱۸ آبان ۱۴۰۵', '۱۹ آبان ۱۴۰۵', '۲۰ آبان ۱۴۰۵', '۲۶ آبان ۱۴۰۵', '۲۷ آبان ۱۴۰۵', '۲۸ آبان ۱۴۰۵ — تحویل شد'] }
+};
+function renderTracking(sh, code){
+  $('#tkRoute').textContent = sh.route;
+  $('#tkMode').textContent = sh.mode;
+  $('#tkDesc').textContent = sh.desc;
+  $('#tkStatus').textContent = sh.current >= 6 ? 'تحویل نهایی انجام شده است' : STAGES[sh.current];
+  const tl = $('#timeline'); tl.innerHTML = '';
+  STAGES.forEach((label, i) => {
+    const state = i < sh.current ? 'done' : (i === sh.current ? 'current' : 'pending');
+    const step = document.createElement('div');
+    step.className = 'tstep ' + state;
+    step.innerHTML = '<span class="dot">' + (state === 'done'
+      ? '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" fill="#fff"/></svg>') +
+      '</span><div><h4>' + label + '</h4><span class="dt">' + (sh.dates[i] || '—') + '</span></div>';
+    tl.appendChild(step);
+  });
+  $('#trackError').classList.remove('show');
+  $('#trackResult').classList.add('show');
+}
+function doTrack(code){
+  code = toEnDigits(code).trim().toUpperCase();
+  if (SHIPMENTS[code]) { renderTracking(SHIPMENTS[code], code); return; }
+  let reqs = [];
+  try { reqs = JSON.parse(localStorage.getItem('pt_requests') || '[]'); } catch(e) {}
+  const found = reqs.find(r => r.code === code);
+  if (found) {
+    renderTracking({ route: found.origin + ' ← ' + found.dest, mode:'درخواست استعلام', desc: found.cargo || '—', current:0,
+      dates:['ثبت شده — در انتظار بررسی کارشناس', '—', '—', '—', '—', '—'] }, code);
+    $('#tkStatus').textContent = 'درخواست استعلام ثبت شده و در حال بررسی است';
+    return;
+  }
+  $('#trackResult').classList.remove('show');
+  $('#trackError').classList.add('show');
+}
+$('#trackForm').addEventListener('submit', e => { e.preventDefault(); doTrack($('#trackInput').value); });
+document.querySelectorAll('[data-demo-code]').forEach(b => b.addEventListener('click', () => {
+  $('#trackInput').value = b.dataset.demoCode; doTrack(b.dataset.demoCode);
+  $('#tracking').scrollIntoView({ behavior:'smooth', block:'center' });
+}));
+
+/* ================= stats counters ================= */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target, target = +el.dataset.count, t0 = performance.now(), dur = 1400;
+    (function tick(t){
+      const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('fa-IR');
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+    io.unobserve(el);
+  });
+}, { threshold:.5 });
+document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
+
+/* ================= quote form ================= */
+$('#quoteForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('#qName').value.trim();
+  const mobile = toEnDigits($('#qMobile').value).replace(/[\s-]/g, '');
+  const cargo = $('#qCargo').value.trim();
+  const err = $('#quoteError');
+  if (name.length < 3 || !/^09\d{9}$/.test(mobile) || cargo.length < 5) { err.classList.add('show'); return; }
+  err.classList.remove('show');
+  const code = 'PT-' + Math.floor(100000 + Math.random() * 900000);
+  const rec = { code, name, mobile, origin: $('#qOrigin').value, dest: $('#qDest').value, cargo, at: Date.now() };
+  let reqs = [];
+  try { reqs = JSON.parse(localStorage.getItem('pt_requests') || '[]'); } catch(e2) {}
+  reqs.push(rec);
+  try { localStorage.setItem('pt_requests', JSON.stringify(reqs)); } catch(e3) {}
+  $('#quoteCode').textContent = code;
+  $('#quoteForm').style.display = 'none';
+  $('#quoteSuccess').classList.add('show');
+});
+
+/* ================= faq + burger ================= */
+document.querySelectorAll('.faq button.q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement, ans = item.querySelector('.a'), open = item.classList.contains('open');
+    document.querySelectorAll('.faq.open').forEach(f => { f.classList.remove('open'); f.querySelector('.a').style.maxHeight = '0px'; });
+    if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  });
+});
+$('#burger').addEventListener('click', () => $('#mobileMenu').classList.toggle('open'));
+document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => $('#mobileMenu').classList.remove('open')));
+</script>
+</body>
+</html>
