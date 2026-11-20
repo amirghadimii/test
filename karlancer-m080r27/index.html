@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>پارت‌ایران تجارت — واردات قطعات خودرو | PartIran Trading — Auto Parts Import</title>
+<meta name="description" content="شرکت بازرگانی پارت‌ایران تجارت — واردات و تأمین قطعات اصلی خودرو، ثبت سفارش خدمات و مشاوره تخصصی.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --bg:#0E1114; --bg2:#14181D; --panel:#181E24; --panel2:#1E252D;
+  --line:#2A323B; --ink:#F2F5F7; --mu:#9AA7B2; --mu2:#6E7B88;
+  --org:#FF6A00; --org-d:#E05A00; --org-soft:rgba(255,106,0,.12);
+  --ok:#22C55E; --bad:#F87171; --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.85}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1220px;margin:0 auto;padding:0 22px}
+::selection{background:var(--org);color:#fff}
+/* ===== topbar ===== */
+.topbar{background:#0A0C0F;border-bottom:1px solid var(--line);font-size:13px;color:var(--mu)}
+.topbar .wrap{display:flex;align-items:center;gap:18px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topbar .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block;margin-inline-end:6px}
+.topbar .sp{flex:1}
+/* ===== header ===== */
+header.site{position:sticky;top:0;z-index:70;background:rgba(14,17,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:24px;padding-top:13px;padding-bottom:13px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px}
+.logo .mk{width:42px;height:42px;border-radius:10px;background:var(--org);display:flex;align-items:center;justify-content:center;flex:none}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--mu);line-height:1.3}
+nav.main{display:flex;gap:22px;margin-inline-start:6px}
+nav.main a{font-size:14.5px;color:#C9D3DB;font-weight:500}
+nav.main a:hover{color:var(--org)}
+header.site .sp{flex:1}
+.langsw{display:flex;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
+.langsw button{border:0;background:transparent;color:var(--mu);padding:6px 15px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:700}
+.langsw button.on{background:var(--org);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;border-radius:11px;padding:12px 24px;font-size:15px;font-weight:800;background:var(--org);color:#fff;transition:.15s}
+.btn:hover{background:var(--org-d)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--org);color:var(--org)}
+.btn.sm{padding:9px 18px;font-size:14px}
+.burger{display:none;background:var(--panel2);border:1px solid var(--line);border-radius:10px;width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
+/* ===== hero ===== */
+.hero{position:relative;background:#0A0C0F;overflow:hidden}
+.hero .bgimg{position:absolute;inset:0;background:url('assets/img/hero.jpg') center/cover no-repeat;opacity:.34}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,15,.55),rgba(14,17,20,.94) 88%)}
+[dir="ltr"] .hero .shade{background:linear-gradient(180deg,rgba(10,12,15,.55),rgba(14,17,20,.94) 88%)}
+.hero .wrap{position:relative;padding:86px 22px 0}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;background:var(--org-soft);border:1px solid rgba(255,106,0,.45);color:#FFB27A;padding:6px 15px;border-radius:99px;font-size:13px;font-weight:700}
+.hero h1{font-size:46px;font-weight:900;line-height:1.3;max-width:760px;margin:22px 0 8px}
+.hero h1 em{font-style:normal;color:var(--org)}
+.hero p.lead{color:#C4CED7;font-size:17.5px;max-width:640px}
+.hero .cta{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.hero .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-bottom:0;margin-top:56px}
+.hero .stats div{background:rgba(20,24,29,.96);padding:20px 22px}
+.hero .stats b{display:block;font-size:27px;font-weight:900;color:#fff;line-height:1.2}
+.hero .stats b i{font-style:normal;color:var(--org)}
+.hero .stats span{font-size:13px;color:var(--mu)}
+/* ===== brands ===== */
+.brands{border-bottom:1px solid var(--line);background:var(--bg2)}
+.brands .wrap{display:flex;align-items:center;gap:34px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap;justify-content:space-between}
+.brands span{font-weight:900;font-size:19px;letter-spacing:2.5px;color:#5D6B78}
+.brands span:hover{color:#C9D3DB}
+/* ===== sections ===== */
+section{padding:78px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.shead{display:flex;align-items:flex-end;gap:20px;margin-bottom:38px;flex-wrap:wrap}
+.shead .no{font-size:54px;font-weight:900;color:transparent;-webkit-text-stroke:1.6px #39434E;line-height:1;flex:none}
+.shead h2{font-size:30px;font-weight:900;line-height:1.35}
+.shead p{color:var(--mu);max-width:560px;font-size:15px}
+.shead .sp{flex:1}
+/* about */
+.about{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
+.about .ph{border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative}
+.about .ph img{height:100%;object-fit:cover;min-height:340px;width:100%}
+.about .ph .badge{position:absolute;bottom:16px;inset-inline-start:16px;background:rgba(10,12,15,.88);border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:13.5px;font-weight:700}
+.about .ph .badge b{color:var(--org)}
+.about h3{font-size:23px;font-weight:800;margin-bottom:10px}
+.about p{color:#C4CED7;margin-bottom:14px}
+.about ul{list-style:none;margin-top:8px}
+.about li{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line);color:#DDE5EB;font-size:15px}
+.about li:last-child{border-bottom:0}
+.about li svg{flex:none;margin-top:5px}
+/* activities */
+.act{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.act .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;transition:.15s}
+.act .card:hover{border-color:var(--org);transform:translateY(-3px)}
+.act .ic{width:48px;height:48px;border-radius:12px;background:var(--org-soft);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.act h3{font-size:16.5px;font-weight:800;margin-bottom:6px}
+.act p{font-size:13.5px;color:var(--mu);line-height:1.75}
+.act .card .k{font-size:11.5px;font-weight:800;color:var(--org);letter-spacing:1px}
+/* catalogue */
+.cat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cat .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.15s}
+.cat .card:hover{border-color:#3D4854;transform:translateY(-3px)}
+.cat .card img{height:190px;width:100%;object-fit:cover}
+.cat .bd{padding:18px 20px 20px}
+.cat h3{font-size:17px;font-weight:800}
+.cat p{font-size:13.5px;color:var(--mu);margin:4px 0 12px}
+.cat .row{display:flex;align-items:center;justify-content:space-between}
+.cat .cnt{font-size:12.5px;color:#FFB27A;background:var(--org-soft);border-radius:99px;padding:3px 11px;font-weight:700}
+.cat a.go{font-size:13.5px;font-weight:800;color:var(--org)}
+/* order / consult layout */
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:start}
+.split .ph{border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.split .ph img{width:100%;height:300px;object-fit:cover}
+.split .note{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px;font-size:14px;color:#C4CED7}
+.split .note b{color:var(--org)}
+form .fld{margin-bottom:15px}
+form label{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px;color:#DDE5EB}
+form input,form select,form textarea{width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;outline:none;transition:.15s}
+form textarea{resize:vertical;min-height:104px}
+form input:focus,form select:focus,form textarea:focus{border-color:var(--org)}
+form .err{border-color:var(--bad)!important}
+form .msg{display:none;font-size:13px;color:var(--bad);margin-top:5px}
+form .msg.on{display:block}
+.formbox{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}
+.formbox h3{font-size:19px;font-weight:800;margin-bottom:4px}
+.formbox>p{color:var(--mu);font-size:14px;margin-bottom:20px}
+.success{display:none;background:rgba(34,197,94,.1);border:1.5px solid rgba(34,197,94,.5);border-radius:14px;padding:22px;text-align:center}
+.success.on{display:block}
+.success b.code{display:block;font-size:24px;font-weight:900;color:var(--ok);letter-spacing:1.5px;margin:6px 0}
+.success p{color:#C4CED7;font-size:14px}
+/* faq */
+.faq{max-width:840px}
+.faq .item{background:var(--panel);border:1px solid var(--line);border-radius:13px;margin-bottom:11px;overflow:hidden}
+.faq button.q{width:100%;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 20px;font-size:15.5px;font-weight:700;text-align:start}
+.faq .a{display:none;padding:0 20px 18px;color:var(--mu);font-size:14.5px}
+.faq .item.open .a{display:block}
+.faq .item.open button.q{color:var(--org)}
+.faq .chev{transition:.2s;flex:none}
+.faq .item.open .chev{transform:rotate(180deg)}
+/* footer */
+footer{background:#0A0C0F;border-top:1px solid var(--line);padding:56px 0 0}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:38px}
+footer h4{font-size:16px;font-weight:800;margin-bottom:14px}
+footer p,footer a{color:var(--mu);font-size:14px}
+footer ul{list-style:none}
+footer li{margin-bottom:9px}
+footer a:hover{color:var(--org)}
+.msgbtns{display:flex;gap:10px;margin-top:18px}
+.msgbtns a{width:42px;height:42px;border-radius:11px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.msgbtns a:hover{border-color:var(--org);background:var(--org-soft)}
+footer .bar{border-top:1px solid var(--line);padding:17px 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--mu2)}
+footer .bar .sp{flex:1}
+/* modal */
+.modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:18px}
+.modal.on{display:flex}
+.modal .bk{position:absolute;inset:0;background:rgba(5,6,8,.78)}
+.modal .box{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;max-width:480px;width:100%;padding:28px;max-height:92vh;overflow:auto}
+.modal .x{position:absolute;top:14px;inset-inline-end:14px;background:var(--panel2);border:1px solid var(--line);width:36px;height:36px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+@media(max-width:1020px){.act{grid-template-columns:repeat(2,1fr)}.cat{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){
+  nav.main{display:none;position:absolute;top:100%;inset-inline:0;background:var(--bg2);border-bottom:1px solid var(--line);flex-direction:column;padding:16px 22px;gap:14px}
+  nav.main.on{display:flex}
+  .burger{display:flex}
+  .about,.split{grid-template-columns:1fr}
+  .hero h1{font-size:33px}
+  .hero .stats{grid-template-columns:repeat(2,1fr)}
+  footer .cols{grid-template-columns:1fr}
+  header.site .btn.cta{display:none}
+}
+@media(max-width:560px){.act,.cat{grid-template-columns:1fr}section{padding:56px 0}.shead .no{font-size:40px}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><span class="dot"></span><span data-fa="دفتر مرکزی و انبار: تهران" data-en="Head office & warehouse: Tehran">دفتر مرکزی و انبار: تهران</span></span>
+  <span data-fa="شنبه تا پنجشنبه — ۸:۳۰ تا ۱۷:۳۰" data-en="Sat–Thu — 8:30 to 17:30">شنبه تا پنجشنبه — ۸:۳۰ تا ۱۷:۳۰</span>
+  <span class="sp"></span>
+  <span data-fa="پاسخ‌گویی به سفارش‌های خدماتی در کمتر از یک روز کاری" data-en="Service orders answered within one business day">پاسخ‌گویی به سفارش‌های خدماتی در کمتر از یک روز کاری</span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <a class="logo" href="#">
+    <span class="mk"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v2h18V7L12 2Z" fill="#fff"/><path d="M5 11h14v9a1 1 0 0 1-1 1h-4v-6H10v6H6a1 1 0 0 1-1-1v-9Z" fill="#fff" opacity=".85"/></svg></span>
+    <span><span data-fa="پارت‌ایران تجارت" data-en="PartIran Trading">پارت‌ایران تجارت</span><small data-fa="واردات و تأمین قطعات خودرو" data-en="Auto Parts Import & Supply">واردات و تأمین قطعات خودرو</small></span>
+  </a>
+  <nav class="main" id="mainNav">
+    <a href="#about" data-fa="درباره ما" data-en="About">درباره ما</a>
+    <a href="#activities" data-fa="حوزه‌های فعالیت" data-en="Activities">حوزه‌های فعالیت</a>
+    <a href="#catalogue" data-fa="کاتالوگ قطعات" data-en="Parts Catalogue">کاتالوگ قطعات</a>
+    <a href="#order" data-fa="ثبت سفارش خدمات" data-en="Service Order">ثبت سفارش خدمات</a>
+    <a href="#faq" data-fa="پرسش‌های متداول" data-en="FAQ">پرسش‌های متداول</a>
+  </nav>
+  <span class="sp"></span>
+  <div class="langsw" role="group" aria-label="Language">
+    <button id="btnFa" class="on" onclick="setLang('fa')">FA</button>
+    <button id="btnEn" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="btn sm cta" onclick="openModal()" data-fa="درخواست مشاوره" data-en="Request Consultation">درخواست مشاوره</button>
+  <button class="burger" onclick="document.getElementById('mainNav').classList.toggle('on')" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+
+<div class="hero">
+  <div class="bgimg"></div><div class="shade"></div>
+  <div class="wrap">
+    <span class="tag" data-fa="بازرگانی بین‌المللی — واردات مستقیم از مبدأ" data-en="International Trading — Direct Import from Origin">بازرگانی بین‌المللی — واردات مستقیم از مبدأ</span>
+    <h1><span data-fa="واردات قطعات اصلی خودرو،" data-en="Genuine auto parts import,">واردات قطعات اصلی خودرو،</span> <em data-fa="بدون واسطه" data-en="without middlemen">بدون واسطه</em></h1>
+    <p class="lead" data-fa="پارت‌ایران تجارت با شبکه تأمین مستقیم در کره، ژاپن و اروپا، قطعات موتوری، بدنه و برقی خودروهای آسیایی و اروپایی را با ضمانت اصالت و زنجیره تأمین شفاف به بازار ایران می‌رساند." data-en="With a direct supply network in Korea, Japan and Europe, PartIran Trading delivers engine, body and electrical parts for Asian and European cars to the Iranian market — with authenticity guarantee and a transparent supply chain.">پارت‌ایران تجارت با شبکه تأمین مستقیم در کره، ژاپن و اروپا، قطعات موتوری، بدنه و برقی خودروهای آسیایی و اروپایی را با ضمانت اصالت و زنجیره تأمین شفاف به بازار ایران می‌رساند.</p>
+    <div class="cta">
+      <a class="btn" href="#order" data-fa="ثبت سفارش خدمات" data-en="Place a Service Order">ثبت سفارش خدمات</a>
+      <button class="btn ghost" onclick="openModal()" data-fa="درخواست مشاوره تخصصی" data-en="Request Expert Consultation">درخواست مشاوره تخصصی</button>
+    </div>
+    <div class="stats">
+      <div><b><i>+</i><span data-fa="۱۸" data-en="18">۱۸</span></b><span data-fa="سال تجربه بازرگانی" data-en="Years of trading experience">سال تجربه بازرگانی</span></div>
+      <div><b><span data-fa="۱۲" data-en="12">۱۲</span></b><span data-fa="برند تحت پوشش" data-en="Brands covered">برند تحت پوشش</span></div>
+      <div><b><i>+</i><span data-fa="۴٬۵۰۰" data-en="4,500">۴٬۵۰۰</span></b><span data-fa="سفارش انجام‌شده" data-en="Orders completed">سفارش انجام‌شده</span></div>
+      <div><b><span data-fa="۹۸٪" data-en="98%">۹۸٪</span></b><span data-fa="رضایت مشتریان سازمانی" data-en="Corporate client satisfaction">رضایت مشتریان سازمانی</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="brands"><div class="wrap">
+  <span>HYUNDAI</span><span>KIA</span><span>TOYOTA</span><span>NISSAN</span><span>RENAULT</span><span>MAZDA</span><span>MITSUBISHI</span><span>PEUGEOT</span>
+</div></div>
+
+<section id="about"><div class="wrap">
+  <div class="shead"><span class="no">01</span><div><h2 data-fa="هویت شرکت" data-en="Company Identity">هویت شرکت</h2><p data-fa="یک شرکت بازرگانی تخصصی در زنجیره تأمین قطعات خودرو — نه یک فروشگاه واسطه‌ای." data-en="A specialised trading company in the auto-parts supply chain — not a middleman store.">یک شرکت بازرگانی تخصصی در زنجیره تأمین قطعات خودرو — نه یک فروشگاه واسطه‌ای.</p></div></div>
+  <div class="about">
+    <div class="ph"><img src="assets/img/port.jpg" alt="Logistics port">
+      <div class="badge"><span data-fa="ترخیص مستقیم از گمرکات اصلی کشور — میانگین چرخه تأمین: " data-en="Direct clearance at major customs — average supply cycle: ">ترخیص مستقیم از گمرکات اصلی کشور — میانگین چرخه تأمین: </span><b data-fa="۲۱ روز" data-en="21 days">۲۱ روز</b></div>
+    </div>
+    <div>
+      <h3 data-fa="از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران" data-en="From ordering at origin to delivery at our Tehran warehouse">از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران</h3>
+      <p data-fa="فعالیت اصلی ما واردات برنامه‌ریزی‌شده قطعات پرگردش و سفارشی است؛ هر محموله پیش از حمل، بازرسی کیفی می‌شود و اصالت آن با کد رهگیری سازنده قابل استعلام است. فعالیت‌های فرعی شرکت، لجستیک بین‌المللی، ترخیص و توزیع سراسری را پوشش می‌دهد تا مشتری سازمانی فقط با یک طرف حساب روبه‌رو باشد." data-en="Our core business is planned import of fast-moving and custom-order parts; every shipment is quality-inspected before loading and its authenticity can be verified with the manufacturer's traceability code. Secondary activities — international logistics, customs clearance and nationwide distribution — mean corporate clients deal with a single accountable partner.">فعالیت اصلی ما واردات برنامه‌ریزی‌شده قطعات پرگردش و سفارشی است؛ هر محموله پیش از حمل، بازرسی کیفی می‌شود و اصالت آن با کد رهگیری سازنده قابل استعلام است. فعالیت‌های فرعی شرکت، لجستیک بین‌المللی، ترخیص و توزیع سراسری را پوشش می‌دهد تا مشتری سازمانی فقط با یک طرف حساب روبه‌رو باشد.</p>
+      <ul>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2.6"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span data-fa="خرید مستقیم از سازنده و نمایندگان رسمی برندها" data-en="Direct purchasing from manufacturers and authorised brand agents">خرید مستقیم از سازنده و نمایندگان رسمی برندها</span></li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2.6"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span data-fa="ضمانت اصالت کالا و امکان مرجوعی قطعه معیوب" data-en="Authenticity guarantee and defective-part returns">ضمانت اصالت کالا و امکان مرجوعی قطعه معیوب</span></li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2.6"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span data-fa="قرارداد تأمین مستمر با تعمیرگاه‌ها و ناوگان‌های سازمانی" data-en="Continuous supply contracts with workshops and corporate fleets">قرارداد تأمین مستمر با تعمیرگاه‌ها و ناوگان‌های سازمانی</span></li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2.6"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span data-fa="گزارش شفاف وضعیت هر سفارش، از مبدأ تا تحویل" data-en="Transparent status reporting for every order, origin to delivery">گزارش شفاف وضعیت هر سفارش، از مبدأ تا تحویل</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="activities" class="alt"><div class="wrap">
+  <div class="shead"><span class="no">02</span><div><h2 data-fa="حوزه‌های فعالیت" data-en="Areas of Activity">حوزه‌های فعالیت</h2><p data-fa="فعالیت‌های اصلی در سطر اول و فعالیت‌های پشتیبان در سطر دوم؛ هر حوزه یک واحد تخصصی مستقل دارد." data-en="Core activities in the first row, supporting activities in the second — each run by its own specialist unit.">فعالیت‌های اصلی در سطر اول و فعالیت‌های پشتیبان در سطر دوم؛ هر حوزه یک واحد تخصصی مستقل دارد.</p></div></div>
+  <div class="act">
+    <div class="card"><span class="k" data-fa="فعالیت اصلی" data-en="CORE">فعالیت اصلی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1"/></svg></div><h3 data-fa="قطعات موتوری" data-en="Engine Parts">قطعات موتوری</h3><p data-fa="پیستون، سوپاپ، واشر سرسیلندر، تایمینگ و قطعات داخلی موتور با کد فنی دقیق سازنده." data-en="Pistons, valves, head gaskets, timing kits and engine internals with exact OEM part numbers.">پیستون، سوپاپ، واشر سرسیلندر، تایمینگ و قطعات داخلی موتور با کد فنی دقیق سازنده.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت اصلی" data-en="CORE">فعالیت اصلی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><path d="M4 16 6.5 8.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L20 16M4 16h16M4 16v3M20 16v3M7 19h2M15 19h2"/></svg></div><h3 data-fa="قطعات بدنه" data-en="Body Parts">قطعات بدنه</h3><p data-fa="سپر، چراغ، آینه، گلگیر و قطعات تزئینی بدنه با تطابق رنگ و مدل سال ساخت." data-en="Bumpers, lamps, mirrors, fenders and body trim matched by colour and model year.">سپر، چراغ، آینه، گلگیر و قطعات تزئینی بدنه با تطابق رنگ و مدل سال ساخت.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت اصلی" data-en="CORE">فعالیت اصلی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2Z"/></svg></div><h3 data-fa="سیستم‌های برقی" data-en="Electrical Systems">سیستم‌های برقی</h3><p data-fa="استارت، دینام، باتری، سنسورها و یونیت‌های الکترونیکی با تست عملکرد پیش از تحویل." data-en="Starters, alternators, batteries, sensors and ECUs — function-tested before delivery.">استارت، دینام، باتری، سنسورها و یونیت‌های الکترونیکی با تست عملکرد پیش از تحویل.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت اصلی" data-en="CORE">فعالیت اصلی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg></div><h3 data-fa="تعلیق و جلوبندی" data-en="Suspension & Steering">تعلیق و جلوبندی</h3><p data-fa="کمک‌فنر، طبق، سیبک، جعبه‌فرمان و قطعات سیستم تعلیق برای سواری نرم و ایمن." data-en="Shock absorbers, control arms, ball joints, steering racks and suspension components.">کمک‌فنر، طبق، سیبک، جعبه‌فرمان و قطعات سیستم تعلیق برای سواری نرم و ایمن.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت فرعی" data-en="SUPPORTING">فعالیت فرعی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><path d="M3 8h11v9H3zM14 11h4l3 3v3h-7z"/><circle cx="7" cy="19" r="1.8"/><circle cx="17.5" cy="19" r="1.8"/></svg></div><h3 data-fa="لجستیک و ترخیص" data-en="Logistics & Clearance">لجستیک و ترخیص</h3><p data-fa="حمل دریایی و هوایی، بیمه باربری و ترخیص از گمرک با تیم ثابت و مجرب." data-en="Sea and air freight, cargo insurance and customs clearance by a dedicated in-house team.">حمل دریایی و هوایی، بیمه باربری و ترخیص از گمرک با تیم ثابت و مجرب.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت فرعی" data-en="SUPPORTING">فعالیت فرعی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><path d="M12 3 5 6v5c0 4.6 3 8.4 7 10 4-1.6 7-5.4 7-10V6l-7-3Z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></div><h3 data-fa="کنترل کیفیت و اصالت" data-en="Quality & Authenticity">کنترل کیفیت و اصالت</h3><p data-fa="بازرسی پیش از حمل و تطبیق هولوگرام و شماره سریال هر قطعه با اسناد سازنده." data-en="Pre-shipment inspection and hologram/serial matching against manufacturer documents.">بازرسی پیش از حمل و تطبیق هولوگرام و شماره سریال هر قطعه با اسناد سازنده.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت فرعی" data-en="SUPPORTING">فعالیت فرعی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><path d="M4 20V9l8-5 8 5v11M4 20h16M9.5 20v-6h5v6"/></svg></div><h3 data-fa="انبارداری و توزیع" data-en="Warehousing & Distribution">انبارداری و توزیع</h3><p data-fa="انبار مکانیزه در تهران و ارسال برنامه‌ریزی‌شده به سراسر کشور برای مشتریان ثابت." data-en="A mechanised Tehran warehouse and scheduled nationwide dispatch for regular clients.">انبار مکانیزه در تهران و ارسال برنامه‌ریزی‌شده به سراسر کشور برای مشتریان ثابت.</p></div>
+    <div class="card"><span class="k" data-fa="فعالیت فرعی" data-en="SUPPORTING">فعالیت فرعی</span><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2"><path d="M21 12a9 9 0 1 1-4.4-7.7M21 4v5h-5"/></svg></div><h3 data-fa="مشاوره فنی قطعات" data-en="Technical Parts Advice">مشاوره فنی قطعات</h3><p data-fa="شناسایی قطعه جایگزین، استعلام کد فنی و انتخاب اقتصادی‌ترین مسیر تأمین." data-en="Identifying equivalent parts, part-number lookups and the most economical sourcing route.">شناسایی قطعه جایگزین، استعلام کد فنی و انتخاب اقتصادی‌ترین مسیر تأمین.</p></div>
+  </div>
+</div></section>
+
+<section id="catalogue"><div class="wrap">
+  <div class="shead"><span class="no">03</span><div><h2 data-fa="کاتالوگ قطعات" data-en="Parts Catalogue">کاتالوگ قطعات</h2><p data-fa="نمای کلی خانواده‌های کالایی تحت پوشش. فروش آنلاین در این مرحله فعال نیست؛ برای هر گروه می‌توانید سفارش خدماتی ثبت کنید." data-en="An overview of the part families we cover. Online sales are not active at this stage; you can place a service order for any group.">نمای کلی خانواده‌های کالایی تحت پوشش. فروش آنلاین در این مرحله فعال نیست؛ برای هر گروه می‌توانید سفارش خدماتی ثبت کنید.</p></div><span class="sp"></span><a class="btn ghost sm" href="#order" data-fa="ثبت سفارش برای یک گروه کالایی" data-en="Order for a category">ثبت سفارش برای یک گروه کالایی</a></div>
+  <div class="cat">
+    <div class="card"><img src="assets/img/engine.jpg" alt="Engine parts"><div class="bd"><h3 data-fa="موتور و متعلقات" data-en="Engine & Components">موتور و متعلقات</h3><p data-fa="قطعات داخلی موتور، سرسیلندر و سیستم خنک‌کاری" data-en="Engine internals, cylinder heads and cooling systems">قطعات داخلی موتور، سرسیلندر و سیستم خنک‌کاری</p><div class="row"><span class="cnt" data-fa="۱٬۲۰۰+ قلم" data-en="1,200+ items">۱٬۲۰۰+ قلم</span><a class="go" href="#order" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</a></div></div></div>
+    <div class="card"><img src="assets/img/parts-shelf.jpg" alt="Parts warehouse"><div class="bd"><h3 data-fa="گیربکس و انتقال قدرت" data-en="Gearbox & Drivetrain">گیربکس و انتقال قدرت</h3><p data-fa="گیربکس کامل، کلاچ، دیفرانسیل و پلوس" data-en="Complete gearboxes, clutches, differentials and drive shafts">گیربکس کامل، کلاچ، دیفرانسیل و پلوس</p><div class="row"><span class="cnt" data-fa="۶۸۰+ قلم" data-en="680+ items">۶۸۰+ قلم</span><a class="go" href="#order" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</a></div></div></div>
+    <div class="card"><img src="assets/img/battery.jpg" alt="Electrical parts"><div class="bd"><h3 data-fa="برق و الکترونیک" data-en="Electrical & Electronics">برق و الکترونیک</h3><p data-fa="باتری، استارت، دینام، سنسور و یونیت کنترل" data-en="Batteries, starters, alternators, sensors and control units">باتری، استارت، دینام، سنسور و یونیت کنترل</p><div class="row"><span class="cnt" data-fa="۹۴۰+ قلم" data-en="940+ items">۹۴۰+ قلم</span><a class="go" href="#order" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</a></div></div></div>
+    <div class="card"><img src="assets/img/engine-bay.jpg" alt="Suspension"><div class="bd"><h3 data-fa="تعلیق، ترمز و فرمان" data-en="Suspension, Brakes & Steering">تعلیق، ترمز و فرمان</h3><p data-fa="کمک‌فنر، لنت و دیسک ترمز، جعبه‌فرمان" data-en="Shock absorbers, brake pads and discs, steering racks">کمک‌فنر، لنت و دیسک ترمز، جعبه‌فرمان</p><div class="row"><span class="cnt" data-fa="۸۱۰+ قلم" data-en="810+ items">۸۱۰+ قلم</span><a class="go" href="#order" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</a></div></div></div>
+    <div class="card"><img src="assets/img/repair.jpg" alt="Body parts"><div class="bd"><h3 data-fa="بدنه و تزئینات" data-en="Body & Trim">بدنه و تزئینات</h3><p data-fa="سپر، چراغ، آینه و قطعات ظاهری بدنه" data-en="Bumpers, lamps, mirrors and exterior body parts">سپر، چراغ، آینه و قطعات ظاهری بدنه</p><div class="row"><span class="cnt" data-fa="۱٬۵۰۰+ قلم" data-en="1,500+ items">۱٬۵۰۰+ قلم</span><a class="go" href="#order" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</a></div></div></div>
+    <div class="card"><img src="assets/img/mechanic.jpg" alt="Consumables"><div class="bd"><h3 data-fa="مصرفی و سرویس دوره‌ای" data-en="Consumables & Service Kits">مصرفی و سرویس دوره‌ای</h3><p data-fa="فیلترها، تسمه‌ها، شمع و کیت سرویس کامل" data-en="Filters, belts, spark plugs and complete service kits">فیلترها، تسمه‌ها، شمع و کیت سرویس کامل</p><div class="row"><span class="cnt" data-fa="۷۳۰+ قلم" data-en="730+ items">۷۳۰+ قلم</span><a class="go" href="#order" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</a></div></div></div>
+  </div>
+</div></section>
+
+<section id="order" class="alt"><div class="wrap">
+  <div class="shead"><span class="no">04</span><div><h2 data-fa="ثبت سفارش خدمات" data-en="Service Order">ثبت سفارش خدمات</h2><p data-fa="سفارش شما مستقیم در واحد بازرگانی ثبت می‌شود و کد رهگیری دریافت می‌کنید؛ فروش قطعه از طریق سایت انجام نمی‌شود." data-en="Your order is registered directly with our trading unit and you receive a tracking code; parts are not sold through the website.">سفارش شما مستقیم در واحد بازرگانی ثبت می‌شود و کد رهگیری دریافت می‌کنید؛ فروش قطعه از طریق سایت انجام نمی‌شود.</p></div></div>
+  <div class="split">
+    <div>
+      <div class="ph"><img src="assets/img/forklift.jpg" alt="Warehouse forklift"></div>
+      <div class="note"><b data-fa="روند رسیدگی:" data-en="How it works:">روند رسیدگی:</b> <span data-fa="ثبت فرم ← تماس کارشناس و استعلام موجودی و قیمت ← صدور پیش‌فاکتور ← تأمین و تحویل. میانگین زمان پاسخ اولیه کمتر از یک روز کاری است." data-en="Submit the form → our expert calls with stock and price inquiry → proforma invoice → sourcing and delivery. Average first response is under one business day.">ثبت فرم ← تماس کارشناس و استعلام موجودی و قیمت ← صدور پیش‌فاکتور ← تأمین و تحویل. میانگین زمان پاسخ اولیه کمتر از یک روز کاری است.</span></div>
+      <div class="ph" style="margin-top:16px"><img src="assets/img/warehouse-team.jpg" alt="Warehouse team" style="height:220px"></div>
+    </div>
+    <div class="formbox">
+      <h3 data-fa="فرم سفارش خدمات" data-en="Service Order Form">فرم سفارش خدمات</h3>
+      <p data-fa="هرچه شرح درخواست دقیق‌تر باشد (برند، مدل، سال، کد فنی)، استعلام سریع‌تر انجام می‌شود." data-en="The more precise your request (brand, model, year, part number), the faster the inquiry.">هرچه شرح درخواست دقیق‌تر باشد (برند، مدل، سال، کد فنی)، استعلام سریع‌تر انجام می‌شود.</p>
+      <form id="orderForm" novalidate>
+        <div class="fld"><label data-fa="نام و نام خانوادگی / نام مجموعه" data-en="Full name / Company">نام و نام خانوادگی / نام مجموعه</label><input id="oName" type="text" data-fa-ph="مثلاً: تعمیرگاه مرکزی پارس" data-en-ph="e.g. Pars Central Workshop" placeholder="مثلاً: تعمیرگاه مرکزی پارس"><div class="msg" id="eName" data-fa="نام را کامل وارد کنید (حداقل ۳ نویسه)." data-en="Please enter a full name (at least 3 characters).">نام را کامل وارد کنید (حداقل ۳ نویسه).</div></div>
+        <div class="fld"><label data-fa="شماره موبایل" data-en="Mobile number">شماره موبایل</label><input id="oPhone" type="tel" inputmode="tel" placeholder="09xxxxxxxxx"><div class="msg" id="ePhone" data-fa="شماره موبایل معتبر ۱۱ رقمی وارد کنید." data-en="Please enter a valid 11-digit mobile number.">شماره موبایل معتبر ۱۱ رقمی وارد کنید.</div></div>
+        <div class="fld"><label data-fa="نوع خدمت" data-en="Service type">نوع خدمت</label>
+          <select id="oType">
+            <option value="import" data-fa="تأمین و واردات قطعه مشخص" data-en="Sourcing & import of a specific part">تأمین و واردات قطعه مشخص</option>
+            <option value="contract" data-fa="قرارداد تأمین مستمر سازمانی" data-en="Ongoing corporate supply contract">قرارداد تأمین مستمر سازمانی</option>
+            <option value="bulk" data-fa="خرید عمده و همکاری توزیع" data-en="Wholesale & distribution partnership">خرید عمده و همکاری توزیع</option>
+            <option value="clearance" data-fa="ترخیص و حمل بین‌المللی" data-en="Customs clearance & intl. freight">ترخیص و حمل بین‌المللی</option>
+            <option value="other" data-fa="سایر خدمات بازرگانی" data-en="Other trading services">سایر خدمات بازرگانی</option>
+          </select></div>
+        <div class="fld"><label data-fa="شرح درخواست" data-en="Request details">شرح درخواست</label><textarea id="oDesc" data-fa-ph="برند و مدل خودرو، نام یا کد فنی قطعه، تعداد موردنیاز و هر توضیح لازم…" data-en-ph="Car brand and model, part name or number, quantity and any notes…" placeholder="برند و مدل خودرو، نام یا کد فنی قطعه، تعداد موردنیاز و هر توضیح لازم…"></textarea><div class="msg" id="eDesc" data-fa="شرح درخواست را کامل‌تر بنویسید (حداقل ۱۰ نویسه)." data-en="Please describe your request in more detail (at least 10 characters).">شرح درخواست را کامل‌تر بنویسید (حداقل ۱۰ نویسه).</div></div>
+        <button class="btn" type="submit" style="width:100%" data-fa="ثبت سفارش و دریافت کد رهگیری" data-en="Submit Order & Get Tracking Code">ثبت سفارش و دریافت کد رهگیری</button>
+      </form>
+      <div class="success" id="orderSuccess">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12.5 11 15.5 16.5 9"/></svg>
+        <p data-fa="سفارش خدمات شما با موفقیت ثبت شد." data-en="Your service order has been registered successfully.">سفارش خدمات شما با موفقیت ثبت شد.</p>
+        <span data-fa="کد رهگیری سفارش:" data-en="Order tracking code:">کد رهگیری سفارش:</span>
+        <b class="code" id="orderCode">PIT-000000</b>
+        <p data-fa="کارشناس بازرگانی حداکثر تا یک روز کاری آینده برای استعلام و صدور پیش‌فاکتور با شما تماس می‌گیرد." data-en="Our trading expert will contact you within one business day for the inquiry and proforma invoice.">کارشناس بازرگانی حداکثر تا یک روز کاری آینده برای استعلام و صدور پیش‌فاکتور با شما تماس می‌گیرد.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="consult"><div class="wrap">
+  <div class="shead"><span class="no">05</span><div><h2 data-fa="مشاوره تخصصی" data-en="Expert Consultation">مشاوره تخصصی</h2><p data-fa="پیش از هر خرید عمده، مسیر تأمین را با کارشناسان ما بررسی کنید؛ مشاوره اول رایگان است." data-en="Before any bulk purchase, review the sourcing route with our experts — the first consultation is free.">پیش از هر خرید عمده، مسیر تأمین را با کارشناسان ما بررسی کنید؛ مشاوره اول رایگان است.</p></div></div>
+  <div class="about">
+    <div>
+      <h3 data-fa="قطعه را اشتباه نخرید؛ اول کد فنی را قطعی کنید" data-en="Don't buy the wrong part — confirm the part number first">قطعه را اشتباه نخرید؛ اول کد فنی را قطعی کنید</h3>
+      <p data-fa="بیشترین هزینه پنهان در تأمین قطعات، خرید قطعه نامتناسب با مدل و سال ساخت است. کارشناسان ما با شماره شاسی یا کد فنی، معادل دقیق و اقتصادی‌ترین مسیر تأمین — موجودی انبار، واردات برنامه‌ریزی‌شده یا خرید از مبدأ — را پیشنهاد می‌کنند." data-en="The biggest hidden cost in parts sourcing is buying a part that doesn't match the model and year. With a VIN or part number, our experts identify the exact equivalent and the most economical sourcing route — warehouse stock, planned import or direct purchase at origin.">بیشترین هزینه پنهان در تأمین قطعات، خرید قطعه نامتناسب با مدل و سال ساخت است. کارشناسان ما با شماره شاسی یا کد فنی، معادل دقیق و اقتصادی‌ترین مسیر تأمین — موجودی انبار، واردات برنامه‌ریزی‌شده یا خرید از مبدأ — را پیشنهاد می‌کنند.</p>
+      <button class="btn" onclick="openModal()" data-fa="درخواست مشاوره رایگان" data-en="Request Free Consultation">درخواست مشاوره رایگان</button>
+    </div>
+    <div class="ph"><img src="assets/img/consult.jpg" alt="Consultation"></div>
+  </div>
+</div></section>
+
+<section id="faq" class="alt"><div class="wrap">
+  <div class="shead"><span class="no">06</span><div><h2 data-fa="پرسش‌های متداول" data-en="Frequently Asked Questions">پرسش‌های متداول</h2></div></div>
+  <div class="faq">
+    <div class="item"><button class="q" onclick="toggleFaq(this)"><span data-fa="آیا امکان خرید مستقیم قطعه از سایت وجود دارد؟" data-en="Can I buy parts directly from the website?">آیا امکان خرید مستقیم قطعه از سایت وجود دارد؟</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="a" data-fa="در این مرحله فروش آنلاین فعال نیست. از بخش «ثبت سفارش خدمات» درخواست خود را ثبت کنید تا کارشناس ما موجودی، قیمت و زمان تحویل را استعلام و پیش‌فاکتور صادر کند." data-en="Online sales are not active at this stage. Register your request in the Service Order section and our expert will check stock, price and delivery time and issue a proforma invoice.">در این مرحله فروش آنلاین فعال نیست. از بخش «ثبت سفارش خدمات» درخواست خود را ثبت کنید تا کارشناس ما موجودی، قیمت و زمان تحویل را استعلام و پیش‌فاکتور صادر کند.</div></div>
+    <div class="item"><button class="q" onclick="toggleFaq(this)"><span data-fa="اصالت قطعات چگونه تضمین می‌شود؟" data-en="How is part authenticity guaranteed?">اصالت قطعات چگونه تضمین می‌شود؟</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="a" data-fa="همه محموله‌ها پیش از حمل بازرسی می‌شوند و هر قطعه با هولوگرام و شماره سریال قابل استعلام از سازنده تحویل داده می‌شود؛ قطعه معیوب یا نامتناسب نیز مرجوع می‌شود." data-en="All shipments are inspected before loading and every part is delivered with a hologram and serial number verifiable with the manufacturer; defective or mismatched parts can be returned.">همه محموله‌ها پیش از حمل بازرسی می‌شوند و هر قطعه با هولوگرام و شماره سریال قابل استعلام از سازنده تحویل داده می‌شود؛ قطعه معیوب یا نامتناسب نیز مرجوع می‌شود.</div></div>
+    <div class="item"><button class="q" onclick="toggleFaq(this)"><span data-fa="چرخه تأمین یک سفارش وارداتی چقدر طول می‌کشد؟" data-en="How long does an import order cycle take?">چرخه تأمین یک سفارش وارداتی چقدر طول می‌کشد؟</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="a" data-fa="برای قطعات موجود در انبار تهران، تحویل ۱ تا ۳ روز کاری است. سفارش‌های وارداتی بسته به مبدأ، به‌طور میانگین ۲۱ روز از ثبت سفارش تا تحویل طول می‌کشند و وضعیت آن‌ها در هر مرحله گزارش می‌شود." data-en="Parts in Tehran warehouse stock are delivered in 1–3 business days. Import orders take on average 21 days from registration to delivery depending on origin, with status reported at every stage.">برای قطعات موجود در انبار تهران، تحویل ۱ تا ۳ روز کاری است. سفارش‌های وارداتی بسته به مبدأ، به‌طور میانگین ۲۱ روز از ثبت سفارش تا تحویل طول می‌کشند و وضعیت آن‌ها در هر مرحله گزارش می‌شود.</div></div>
+    <div class="item"><button class="q" onclick="toggleFaq(this)"><span data-fa="آیا با تعمیرگاه‌ها و سازمان‌ها قرارداد مستمر می‌بندید؟" data-en="Do you sign ongoing contracts with workshops and organisations?">آیا با تعمیرگاه‌ها و سازمان‌ها قرارداد مستمر می‌بندید؟</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="a" data-fa="بله؛ قرارداد تأمین مستمر با سقف اعتبار و اولویت تأمین برای تعمیرگاه‌های تخصصی، ناوگان‌های سازمانی و فروشگاه‌های قطعات در سراسر کشور منعقد می‌شود. از فرم سفارش خدمات، گزینه «قرارداد تأمین مستمر سازمانی» را انتخاب کنید." data-en="Yes — ongoing supply contracts with credit limits and sourcing priority are offered to specialist workshops, corporate fleets and parts retailers nationwide. Choose 'Ongoing corporate supply contract' in the service order form.">بله؛ قرارداد تأمین مستمر با سقف اعتبار و اولویت تأمین برای تعمیرگاه‌های تخصصی، ناوگان‌های سازمانی و فروشگاه‌های قطعات در سراسر کشور منعقد می‌شود. از فرم سفارش خدمات، گزینه «قرارداد تأمین مستمر سازمانی» را انتخاب کنید.</div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <a class="logo" href="#"><span class="mk"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v2h18V7L12 2Z" fill="#fff"/><path d="M5 11h14v9a1 1 0 0 1-1 1h-4v-6H10v6H6a1 1 0 0 1-1-1v-9Z" fill="#fff" opacity=".85"/></svg></span><span data-fa="پارت‌ایران تجارت" data-en="PartIran Trading">پارت‌ایران تجارت</span></a>
+      <p style="margin-top:14px" data-fa="شرکت بازرگانی پارت‌ایران تجارت — واردات مستقیم و تأمین قطعات اصلی خودرو برای بازار ایران، با انبار و دفتر مرکزی در تهران." data-en="PartIran Trading Co. — direct import and supply of genuine auto parts for the Iranian market, with head office and warehouse in Tehran.">شرکت بازرگانی پارت‌ایران تجارت — واردات مستقیم و تأمین قطعات اصلی خودرو برای بازار ایران، با انبار و دفتر مرکزی در تهران.</p>
+      <div class="msgbtns">
+        <a href="#" aria-label="Telegram"><svg width="19" height="19" viewBox="0 0 24 24" fill="#9AA7B2"><path d="M21.9 4.4 18.8 19c-.2 1-.8 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L7.2 13.2 2.6 11.8c-1-.3-1-1 .2-1.5l18-6.9c.8-.3 1.6.2 1.1 1Z"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg width="19" height="19" viewBox="0 0 24 24" fill="#9AA7B2"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2.1 1c.3.2.5.3.6.5 0 .1 0 .4-.2.7Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#9AA7B2" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="#9AA7B2" stroke="none"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg width="19" height="19" viewBox="0 0 24 24" fill="#9AA7B2"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21H9z"/></svg></a>
+      </div>
+    </div>
+    <div><h4 data-fa="دسترسی سریع" data-en="Quick Links">دسترسی سریع</h4><ul>
+      <li><a href="#about" data-fa="درباره شرکت" data-en="About the company">درباره شرکت</a></li>
+      <li><a href="#activities" data-fa="حوزه‌های فعالیت" data-en="Areas of activity">حوزه‌های فعالیت</a></li>
+      <li><a href="#catalogue" data-fa="کاتالوگ قطعات" data-en="Parts catalogue">کاتالوگ قطعات</a></li>
+      <li><a href="#order" data-fa="ثبت سفارش خدمات" data-en="Service order">ثبت سفارش خدمات</a></li>
+      <li><a href="#faq" data-fa="پرسش‌های متداول" data-en="FAQ">پرسش‌های متداول</a></li>
+    </ul></div>
+    <div><h4 data-fa="خدمات بازرگانی" data-en="Trading Services">خدمات بازرگانی</h4><ul>
+      <li><a href="#order" data-fa="تأمین و واردات قطعه" data-en="Parts sourcing & import">تأمین و واردات قطعه</a></li>
+      <li><a href="#order" data-fa="قرارداد تأمین سازمانی" data-en="Corporate supply contracts">قرارداد تأمین سازمانی</a></li>
+      <li><a href="#order" data-fa="ترخیص و حمل بین‌المللی" data-en="Clearance & intl. freight">ترخیص و حمل بین‌المللی</a></li>
+      <li><a href="#consult" data-fa="مشاوره فنی قطعات" data-en="Technical parts advice">مشاوره فنی قطعات</a></li>
+    </ul></div>
+  </div>
+  <div class="bar">
+    <span data-fa="© ۱۴۰۴ پارت‌ایران تجارت — تمامی حقوق محفوظ است." data-en="© 2025 PartIran Trading — All rights reserved.">© ۱۴۰۴ پارت‌ایران تجارت — تمامی حقوق محفوظ است.</span>
+    <span class="sp"></span>
+    <span data-fa="دموی پیشنهادی اپ‌وبینو" data-en="Proposed demo by AppWebino">دموی پیشنهادی اپ‌وبینو</span>
+  </div>
+</div></footer>
+
+<div class="modal" id="consultModal">
+  <div class="bk" onclick="closeModal()"></div>
+  <div class="box">
+    <button class="x" onclick="closeModal()" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="formbox" style="border:0;padding:0;background:transparent">
+      <h3 data-fa="درخواست مشاوره تخصصی" data-en="Request Expert Consultation">درخواست مشاوره تخصصی</h3>
+      <p data-fa="مشخصات خود را وارد کنید؛ کارشناس ما برای هماهنگی جلسه مشاوره تماس می‌گیرد." data-en="Enter your details; our expert will call to arrange the consultation session.">مشخصات خود را وارد کنید؛ کارشناس ما برای هماهنگی جلسه مشاوره تماس می‌گیرد.</p>
+      <form id="consultForm" novalidate>
+        <div class="fld"><label data-fa="نام و نام خانوادگی" data-en="Full name">نام و نام خانوادگی</label><input id="cName" type="text"><div class="msg" id="ecName" data-fa="نام را کامل وارد کنید (حداقل ۳ نویسه)." data-en="Please enter a full name (at least 3 characters).">نام را کامل وارد کنید (حداقل ۳ نویسه).</div></div>
+        <div class="fld"><label data-fa="شماره موبایل" data-en="Mobile number">شماره موبایل</label><input id="cPhone" type="tel" inputmode="tel" placeholder="09xxxxxxxxx"><div class="msg" id="ecPhone" data-fa="شماره موبایل معتبر ۱۱ رقمی وارد کنید." data-en="Please enter a valid 11-digit mobile number.">شماره موبایل معتبر ۱۱ رقمی وارد کنید.</div></div>
+        <div class="fld"><label data-fa="موضوع مشاوره" data-en="Consultation topic">موضوع مشاوره</label>
+          <select id="cTopic">
+            <option data-fa="شناسایی و استعلام کد فنی قطعه" data-en="Part identification & part-number lookup">شناسایی و استعلام کد فنی قطعه</option>
+            <option data-fa="قرارداد تأمین مستمر سازمانی" data-en="Ongoing corporate supply contract">قرارداد تأمین مستمر سازمانی</option>
+            <option data-fa="واردات مستقیم از مبدأ" data-en="Direct import from origin">واردات مستقیم از مبدأ</option>
+            <option data-fa="سایر موضوعات بازرگانی" data-en="Other trading topics">سایر موضوعات بازرگانی</option>
+          </select></div>
+        <button class="btn" type="submit" style="width:100%" data-fa="ثبت درخواست مشاوره" data-en="Submit Consultation Request">ثبت درخواست مشاوره</button>
+      </form>
+      <div class="success" id="consultSuccess">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12.5 11 15.5 16.5 9"/></svg>
+        <p data-fa="درخواست مشاوره شما ثبت شد." data-en="Your consultation request has been registered.">درخواست مشاوره شما ثبت شد.</p>
+        <span data-fa="کد رهگیری مشاوره:" data-en="Consultation tracking code:">کد رهگیری مشاوره:</span>
+        <b class="code" id="consultCode">PIT-C00000</b>
+        <p data-fa="به‌زودی برای هماهنگی زمان جلسه با شما تماس می‌گیریم." data-en="We will contact you shortly to schedule the session.">به‌زودی برای هماهنگی زمان جلسه با شما تماس می‌گیریم.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var LANG='fa';
+function setLang(l){
+  LANG=l;
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==='fa')?'rtl':'ltr';
+  document.getElementById('btnFa').classList.toggle('on',l==='fa');
+  document.getElementById('btnEn').classList.toggle('on',l==='en');
+  document.querySelectorAll('[data-fa]').forEach(function(el){
+    el.textContent=(l==='fa')?el.getAttribute('data-fa'):el.getAttribute('data-en');
+  });
+  document.querySelectorAll('[data-fa-ph]').forEach(function(el){
+    el.setAttribute('placeholder',(l==='fa')?el.getAttribute('data-fa-ph'):el.getAttribute('data-en-ph'));
+  });
+}
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq .item').forEach(function(i){i.classList.remove('open')});
+  if(!wasOpen)item.classList.add('open');
+}
+function openModal(){document.getElementById('consultModal').classList.add('on');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('consultModal').classList.remove('on');document.body.style.overflow=''}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+function normDigits(s){return s.replace(/[۰-۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)}).replace(/[٠-٩]/g,function(d){return '٠١٢٣٤٥٦٧٨٩'.indexOf(d)})}
+function validName(v){return v.trim().length>=3}
+function validPhone(v){return /^09\d{9}$/.test(normDigits(v).replace(/[\s-]/g,''))}
+function mark(input,msg,ok){input.classList.toggle('err',!ok);document.getElementById(msg).classList.toggle('on',!ok);return ok}
+function trackCode(prefix){return prefix+'-'+Math.floor(100000+Math.random()*900000)}
+document.getElementById('orderForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  ok=mark(document.getElementById('oName'),'eName',validName(document.getElementById('oName').value))&&ok;
+  ok=mark(document.getElementById('oPhone'),'ePhone',validPhone(document.getElementById('oPhone').value))&&ok;
+  ok=mark(document.getElementById('oDesc'),'eDesc',document.getElementById('oDesc').value.trim().length>=10)&&ok;
+  if(!ok)return;
+  document.getElementById('orderCode').textContent=trackCode('PIT');
+  this.style.display='none';
+  document.getElementById('orderSuccess').classList.add('on');
+  document.getElementById('orderSuccess').scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('consultForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var ok=true;
+  ok=mark(document.getElementById('cName'),'ecName',validName(document.getElementById('cName').value))&&ok;
+  ok=mark(document.getElementById('cPhone'),'ecPhone',validPhone(document.getElementById('cPhone').value))&&ok;
+  if(!ok)return;
+  document.getElementById('consultCode').textContent=trackCode('PIT-C');
+  this.style.display='none';
+  document.getElementById('consultSuccess').classList.add('on');
+});
+document.querySelectorAll('nav.main a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mainNav').classList.remove('on')})});
+</script>
+</body>
+</html>
