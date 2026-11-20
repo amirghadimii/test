@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!--
+DESIGN BRIEF (reference-first):
+References studied:
+1) chap.sch.ir — Iran's official textbook database (chap.sch.ir): cascade مقطع ← پایه ← رشته, then the book list; «تازه‌ها» (newly-added) rail; free in-browser PDF files.
+2) Rashtriya e-Pustakalaya (India's national school digital-library app, Google Play): grade/category browsing, book cards with covers, favourites/bookmarks, clean mobile-first reading app chrome.
+3) Telegram channel UI pattern (employer's mirror requirement): channel header bar, message bubbles with time + view counts, pinned-message bar at top.
+Pattern adopted: app = grade chips → subject chips → cover-grid of books (chap.sch.ir cascade, compressed into chips), in-app viewer for PDF/video/image, announcements tab = mirrored Telegram feed with a pinned mandatory-announcement bar; admin = full CRUD panel editing the SAME data the app renders.
+-->
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درس‌خانه — دموی اپلیکیشن کتابخانه درسی (PWA) + پنل ادمین</title>
+<meta name="description" content="دموی زنده اپلیکیشن PWA کتابخانه درسی با اطلاعیه‌های میرورشده از تلگرام و پنل ادمین کامل — پیشنهادی اپ‌وبینو">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --ink:#17233b; --ink2:#3d4c6b; --mut:#75819c; --paper:#f6f3ec; --card:#fff;
+  --indigo:#2b3a8f; --indigo2:#3f51c9; --amber:#f2a81d; --amber2:#ffbe45;
+  --teal:#0e8a6d; --red:#d64541; --line:#e7e1d3; --tg:#229ed9;
+  --sh:0 18px 50px -18px rgba(23,35,59,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--paper);color:var(--ink);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit}
+::selection{background:var(--amber);color:var(--ink)}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(246,243,236,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1240px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}
+.brand .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--indigo),var(--indigo2));display:grid;place-items:center;color:#fff;flex:none}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--mut);line-height:1.4}
+.topbar .sp{flex:1}
+.pwa-badge{display:flex;align-items:center;gap:7px;background:#e9f7f1;color:#0a6b52;border:1px solid #bfe8d8;font-size:12px;font-weight:700;padding:6px 12px;border-radius:99px}
+.pwa-badge i{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.35}}
+
+/* ---------- hero ---------- */
+.hero{max-width:1240px;margin:0 auto;padding:44px 20px 8px;display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center}
+.hero h1{font-size:clamp(28px,4.4vw,46px);font-weight:900;line-height:1.35}
+.hero h1 .hl{background:linear-gradient(transparent 62%,var(--amber2) 62%);padding:0 4px}
+.hero p{color:var(--ink2);font-size:16.5px;margin:14px 0 20px;max-width:56ch}
+.hero-photo{border-radius:22px;overflow:hidden;box-shadow:var(--sh);position:relative}
+.hero-photo img{width:100%;height:320px;object-fit:cover}
+.hero-photo figcaption{position:absolute;bottom:12px;right:12px;background:rgba(23,35,59,.82);color:#fff;font-size:12.5px;padding:6px 14px;border-radius:99px;backdrop-filter:blur(4px)}
+.req-chips{display:flex;flex-wrap:wrap;gap:8px}
+.req-chips span{background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--ink2)}
+.req-chips span b{color:var(--indigo)}
+
+/* ---------- view toggle ---------- */
+.toggle-wrap{max-width:1240px;margin:26px auto 0;padding:0 20px;display:flex;justify-content:center}
+.toggle{display:inline-flex;background:var(--ink);border-radius:16px;padding:5px;gap:5px;box-shadow:var(--sh)}
+.toggle button{border:0;background:transparent;color:#c6cede;font-weight:800;font-size:15px;padding:11px 26px;border-radius:12px;display:flex;align-items:center;gap:9px;transition:.25s}
+.toggle button.on{background:var(--amber);color:var(--ink)}
+.toggle button svg{flex:none}
+
+/* ---------- stage ---------- */
+.stage{max-width:1240px;margin:0 auto;padding:30px 20px 10px}
+.view{display:none}
+.view.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* phone layout */
+.app-layout{display:grid;grid-template-columns:400px 1fr;gap:44px;align-items:start}
+.phone{width:400px;max-width:94vw;margin:0 auto;background:#0d1526;border-radius:46px;padding:12px;box-shadow:0 40px 80px -30px rgba(13,21,38,.55),inset 0 0 0 2px #2a3852;position:sticky;top:96px}
+.screen{background:#f4f6fb;border-radius:36px;overflow:hidden;height:760px;display:flex;flex-direction:column;position:relative}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:22px;background:#0d1526;border-radius:99px;z-index:30}
+.app-head{background:linear-gradient(135deg,var(--indigo),var(--indigo2));color:#fff;padding:34px 18px 14px;flex:none}
+.app-head .row1{display:flex;align-items:center;gap:10px}
+.app-head .logo{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.app-head h2{font-size:17px;font-weight:900}
+.app-head .sub{font-size:11.5px;opacity:.85}
+.install-btn{margin-inline-start:auto;background:var(--amber);color:var(--ink);border:0;font-weight:800;font-size:12px;padding:7px 13px;border-radius:99px;display:flex;gap:6px;align-items:center}
+.search{margin-top:13px;background:#fff;border-radius:13px;display:flex;align-items:center;gap:8px;padding:9px 13px;color:var(--mut)}
+.search input{border:0;outline:0;flex:1;font-size:13.5px;color:var(--ink);background:transparent}
+.search input::placeholder{color:#9aa5bd}
+.app-body{flex:1;overflow-y:auto;padding:14px 14px 8px;scrollbar-width:thin}
+.app-body::-webkit-scrollbar{width:0}
+.tabpage{display:none}
+.tabpage.on{display:block}
+
+/* pinned forced announcement */
+.pinned{background:linear-gradient(135deg,#fff4e0,#ffe9bd);border:1.5px solid var(--amber);border-radius:15px;padding:11px 13px;display:flex;gap:10px;align-items:flex-start;margin-bottom:14px}
+.pinned .pin-ic{width:30px;height:30px;flex:none;border-radius:9px;background:var(--amber);display:grid;place-items:center;color:#5c3a00}
+.pinned h4{font-size:13.5px;font-weight:900;color:#7a4d00}
+.pinned p{font-size:12.5px;color:#6b5320;line-height:1.7}
+.pinned .must{font-size:10.5px;background:var(--red);color:#fff;border-radius:6px;padding:1px 8px;font-weight:800;margin-inline-start:6px;vertical-align:2px}
+
+.chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;border:1.5px solid #dfe4f2;background:#fff;color:var(--ink2);font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:99px;transition:.2s}
+.chips button.on{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.chips.subj button.on{background:var(--teal);border-color:var(--teal)}
+.sec-t{display:flex;align-items:baseline;gap:8px;margin:12px 2px 10px}
+.sec-t h3{font-size:15px;font-weight:900}
+.sec-t span{font-size:11.5px;color:var(--mut)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.book{background:#fff;border-radius:16px;overflow:hidden;border:1px solid #e6eaf4;cursor:pointer;transition:.2s;text-align:right;width:100%;padding:0}
+.book:hover{transform:translateY(-3px);box-shadow:0 14px 26px -14px rgba(43,58,143,.4)}
+.cover{height:118px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 12px;color:#fff;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,255,255,.16),transparent 55%)}
+.cover .c-subj{font-size:10.5px;font-weight:700;opacity:.9;position:relative;z-index:1}
+.cover .c-title{font-size:14.5px;font-weight:900;line-height:1.5;position:relative;z-index:1}
+.cover .c-grade{position:absolute;top:9px;inset-inline-start:10px;background:rgba(0,0,0,.28);font-size:10px;font-weight:800;padding:2px 9px;border-radius:99px;z-index:1}
+.type-badge{position:absolute;top:9px;inset-inline-end:10px;z-index:1;background:#fff;color:var(--ink);font-size:10px;font-weight:900;padding:2px 9px;border-radius:99px;display:flex;gap:4px;align-items:center}
+.book .meta{padding:9px 12px 11px;font-size:11.5px;color:var(--mut)}
+.book .meta .m-detail{display:block;margin-bottom:5px}
+.book .meta .m-detail b{color:var(--ink2);font-size:12.5px}
+.book .meta .m-row{display:flex;align-items:center;gap:8px}
+.book .open{margin-inline-start:auto;color:var(--indigo);font-weight:900;font-size:12px}
+.empty{display:none;text-align:center;color:var(--mut);font-size:13px;padding:26px 10px}
+.empty.show{display:block}
+
+/* telegram feed */
+.tg-head{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6eaf4;border-radius:15px;padding:10px 13px;margin-bottom:12px}
+.tg-ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#37aee2,var(--tg));display:grid;place-items:center;color:#fff;font-weight:900;flex:none}
+.tg-head h4{font-size:13.5px;font-weight:900}
+.tg-head p{font-size:11px;color:var(--mut)}
+.tg-head .mirror{margin-inline-start:auto;font-size:10.5px;background:#e8f5fd;color:#15719e;font-weight:800;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.tg-post{background:#fff;border:1px solid #e6eaf4;border-radius:15px;padding:12px 14px;margin-bottom:10px;position:relative}
+.tg-post.pinned-post{border-color:var(--amber);background:#fffdf6}
+.tg-post .tp-top{display:flex;gap:7px;align-items:center;font-size:11px;color:var(--mut);margin-bottom:5px}
+.tg-post .tp-top .ch{color:var(--tg);font-weight:900;font-size:12px}
+.tg-post .tp-top .pin-tag{color:#b57e00;font-weight:800}
+.tg-post p{font-size:13px;color:var(--ink2);line-height:1.85}
+.tg-post .tp-img{border-radius:11px;overflow:hidden;margin:8px 0 4px}
+.tg-post .tp-img img{width:100%;height:130px;object-fit:cover}
+.tg-post .tp-meta{display:flex;gap:12px;font-size:10.5px;color:#9aa5bd;margin-top:6px}
+.tg-post .tp-meta span{display:flex;gap:4px;align-items:center}
+
+/* bottom nav */
+.bottom-nav{flex:none;background:#fff;border-top:1px solid #e6eaf4;display:grid;grid-template-columns:repeat(4,1fr);padding:8px 6px 14px}
+.bottom-nav button{background:none;border:0;color:#98a2ba;font-size:11px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0}
+.bottom-nav button.on{color:var(--indigo)}
+
+/* viewer overlay */
+.viewer{position:absolute;inset:0;background:#101828;z-index:40;display:none;flex-direction:column;color:#fff}
+.viewer.on{display:flex}
+.viewer-head{display:flex;align-items:center;gap:10px;padding:38px 16px 10px}
+.viewer-head h4{font-size:14.5px;font-weight:900;flex:1}
+.viewer-head .vtype{font-size:10.5px;background:rgba(255,255,255,.15);padding:3px 10px;border-radius:99px;font-weight:800}
+.vclose{background:rgba(255,255,255,.14);border:0;color:#fff;width:34px;height:34px;border-radius:10px;font-size:17px;line-height:1}
+.viewer-body{flex:1;overflow-y:auto;padding:8px 16px 18px;display:flex;flex-direction:column}
+.pdf-page{background:#fff;color:#26314d;border-radius:8px;padding:22px 20px;box-shadow:0 20px 40px rgba(0,0,0,.4);min-height:430px}
+.pdf-page h5{font-size:16px;font-weight:900;border-bottom:2px solid var(--amber);padding-bottom:8px;margin-bottom:12px}
+.pdf-page .ln{height:9px;border-radius:99px;background:#dde3f0;margin:11px 0}
+.pdf-page .ln.s{width:62%}.pdf-page .ln.m{width:84%}
+.pdf-page .fig{border-radius:8px;overflow:hidden;margin:14px 0}
+.pdf-page .fig img{width:100%;height:130px;object-fit:cover}
+.pdf-page .cap{font-size:11px;color:#75819c;text-align:center}
+.pdf-nav{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.pdf-nav button{background:rgba(255,255,255,.14);color:#fff;border:0;padding:8px 18px;border-radius:10px;font-weight:800;font-size:13px}
+.pdf-nav button:disabled{opacity:.35;cursor:default}
+.video-box{border-radius:14px;overflow:hidden;position:relative;background:#000}
+.video-box img{width:100%;height:230px;object-fit:cover;opacity:.92}
+.play-btn{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,15,30,.25);border:0;width:100%}
+.play-btn .circ{width:64px;height:64px;border-radius:50%;background:var(--amber);display:grid;place-items:center;color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.45)}
+.vprog{height:6px;background:rgba(255,255,255,.22);border-radius:99px;margin-top:14px;overflow:hidden}
+.vprog i{display:block;height:100%;width:0;background:var(--amber);border-radius:99px;transition:width .3s linear}
+.vtime{display:flex;justify-content:space-between;font-size:11.5px;color:#c6cede;margin-top:7px}
+.img-view img{width:100%;border-radius:12px;transition:transform .35s}
+.img-view.zoom img{transform:scale(1.6)}
+.zoom-btn{margin-top:12px;background:rgba(255,255,255,.14);color:#fff;border:0;padding:9px;border-radius:10px;font-weight:800;font-size:13px;width:100%}
+.viewer .vnote{font-size:12px;color:#aeb9d2;margin-top:12px;text-align:center}
+
+/* side notes (app view) */
+.notes{display:flex;flex-direction:column;gap:14px}
+.note{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+.note .n-ic{width:44px;height:44px;flex:none;border-radius:13px;display:grid;place-items:center}
+.note h4{font-size:15.5px;font-weight:900;margin-bottom:3px}
+.note p{font-size:13.5px;color:var(--ink2)}
+.note .n-img{border-radius:14px;overflow:hidden;margin-top:4px}
+.note .n-img img{width:100%;height:150px;object-fit:cover}
+
+/* ---------- admin ---------- */
+.admin{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--sh);display:grid;grid-template-columns:230px 1fr;min-height:640px}
+.admin-side{background:var(--ink);color:#c6cede;padding:22px 0;display:flex;flex-direction:column}
+.admin-side .a-brand{display:flex;gap:10px;align-items:center;padding:0 20px 18px;color:#fff;font-weight:900;font-size:16px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:14px}
+.admin-side nav button{display:flex;gap:10px;align-items:center;width:100%;background:none;border:0;color:#c6cede;font-size:14px;font-weight:700;padding:11px 20px;text-align:right;border-inline-start:3px solid transparent}
+.admin-side nav button.on{background:rgba(255,255,255,.07);color:#fff;border-inline-start-color:var(--amber)}
+.admin-side .a-foot{margin-top:auto;padding:14px 20px 0;font-size:11.5px;color:#7e8db0;border-top:1px solid rgba(255,255,255,.09)}
+.admin-main{padding:24px 26px;background:#fbfaf7;min-width:0}
+.admin-main h3{font-size:19px;font-weight:900}
+.admin-main .a-sub{font-size:13px;color:var(--mut);margin-bottom:18px}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px 16px}
+.stat .s-num{font-size:23px;font-weight:900;color:var(--indigo)}
+.stat .s-lbl{font-size:12px;color:var(--mut)}
+.panel-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+.panel-card h5{font-size:15px;font-weight:900;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.panel-card h5 .tag{font-size:10.5px;background:#e9f7f1;color:#0a6b52;padding:2px 9px;border-radius:99px;font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:right;color:var(--mut);font-weight:700;font-size:12px;padding:8px 10px;border-bottom:2px solid var(--line)}
+td{padding:10px;border-bottom:1px solid #f0ebdd;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.t-type{font-size:11px;font-weight:900;padding:2px 10px;border-radius:99px;background:#eef1fb;color:var(--indigo);white-space:nowrap}
+.t-type.vid{background:#fdecec;color:#b3352f}.t-type.img{background:#e9f7f1;color:#0a6b52}
+.row-btns{display:flex;gap:6px}
+.row-btns button{border:1.5px solid var(--line);background:#fff;border-radius:9px;font-size:12px;font-weight:800;padding:5px 12px;color:var(--ink2)}
+.row-btns button.del{color:var(--red);border-color:#f3cfcd}
+.row-btns button:hover{border-color:var(--indigo);color:var(--indigo)}
+.row-btns button.del:hover{border-color:var(--red);color:var(--red)}
+.form-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:10px;align-items:end}
+.fld label{display:block;font-size:12px;font-weight:800;color:var(--ink2);margin-bottom:5px}
+.fld input,.fld select,.fld textarea{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:9px 12px;font-size:13.5px;background:#fff;color:var(--ink);outline:none}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--indigo)}
+.add-btn{background:var(--indigo);color:#fff;border:0;border-radius:11px;padding:10px 20px;font-weight:900;font-size:13.5px;white-space:nowrap}
+.add-btn.amber{background:var(--amber);color:var(--ink)}
+.ann-row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f0ebdd}
+.ann-row:last-child{border-bottom:0}
+.ann-row .a-txt{flex:1;min-width:0}
+.ann-row .a-txt b{font-size:13.5px;display:block}
+.ann-row .a-txt p{font-size:12.5px;color:var(--ink2)}
+.switch{position:relative;display:block;width:46px;height:26px;flex:none;margin-top:3px}
+.switch input{opacity:0;width:0;height:0}
+.switch .tr{position:absolute;inset:0;background:#d5dbe9;border-radius:99px;transition:.25s;cursor:pointer}
+.switch .tr::before{content:"";position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;top:3px;inset-inline-start:3px;transition:.25s;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.switch input:checked + .tr{background:var(--red)}
+.switch input:checked + .tr::before{transform:translateX(-20px)}
+.sw-lbl{font-size:11px;font-weight:800;color:var(--mut);text-align:center}
+.toast{position:fixed;bottom:22px;inset-inline-start:50%;transform:translate(50%,80px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:13px;font-size:14px;font-weight:800;z-index:99;transition:.35s;box-shadow:var(--sh);display:flex;gap:9px;align-items:center}
+.toast.show{transform:translate(50%,0)}
+.apage{display:none}.apage.on{display:block}
+
+/* ---------- features ---------- */
+.features{max-width:1240px;margin:0 auto;padding:56px 20px 6px}
+.features h2{font-size:clamp(22px,3vw,30px);font-weight:900;text-align:center}
+.features .f-sub{text-align:center;color:var(--mut);margin:8px auto 28px;font-size:15px}
+.f-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.f-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.f-card .f-ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:12px}
+.f-card h4{font-size:16px;font-weight:900;margin-bottom:5px}
+.f-card p{font-size:13.5px;color:var(--ink2)}
+.photo-band{max-width:1240px;margin:34px auto 0;padding:0 20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.photo-band figure{border-radius:18px;overflow:hidden;position:relative;box-shadow:var(--sh)}
+.photo-band img{width:100%;height:190px;object-fit:cover}
+.photo-band figcaption{position:absolute;bottom:10px;right:10px;background:rgba(23,35,59,.85);color:#fff;font-size:12px;font-weight:700;padding:5px 13px;border-radius:99px}
+.delivery{max-width:1240px;margin:36px auto 0;padding:0 20px}
+.delivery-in{background:linear-gradient(135deg,var(--indigo),#1c2658);border-radius:22px;color:#fff;padding:28px 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.delivery-in .d-item b{display:block;font-size:16px;font-weight:900;margin-bottom:4px}
+.delivery-in .d-item span{font-size:13px;color:#c6cede}
+.delivery-in .d-num{font-size:26px;font-weight:900;color:var(--amber2)}
+footer{max-width:1240px;margin:0 auto;padding:30px 20px 44px;text-align:center;color:var(--mut);font-size:13.5px}
+footer b{color:var(--ink)}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .hero{grid-template-columns:1fr}
+  .hero-photo img{height:230px}
+  .app-layout{grid-template-columns:1fr}
+  .phone{position:relative;top:0}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .photo-band{grid-template-columns:1fr 1fr}
+  .delivery-in{grid-template-columns:1fr 1fr}
+  .admin{grid-template-columns:1fr}
+  .admin-side{flex-direction:row;flex-wrap:wrap;align-items:center;padding:12px}
+  .admin-side .a-brand{border:0;margin:0;padding:0 8px}
+  .admin-side nav{display:flex;flex-wrap:wrap}
+  .admin-side nav button{width:auto;border:0;border-radius:10px;padding:8px 13px}
+  .admin-side .a-foot{display:none}
+  .form-grid{grid-template-columns:1fr 1fr}
+  .stat-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .f-grid,.photo-band{grid-template-columns:1fr}
+  .screen{height:700px}
+  .toggle button{padding:10px 16px;font-size:13.5px}
+  .form-grid{grid-template-columns:1fr}
+  table{font-size:12px}
+  td,th{padding:7px 6px}
+  .admin-main{padding:18px 14px}
+  .delivery-in{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <span class="mark"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+      <span>درس‌خانه<small>اپلیکیشن کتابخانه درسی — نسخه دمو</small></span>
+    </div>
+    <span class="sp"></span>
+    <span class="pwa-badge"><i></i> PWA — قابل نصب روی موبایل، بدون نیاز به مارکت</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>کتابخانه درسی مدرسه، <span class="hl">داخل جیب دانش‌آموز</span></h1>
+    <p>این دمو دقیقاً همان چیزی است که در نسخه نهایی تحویل می‌گیرید: یک وب‌اپلیکیشن پیش‌رونده (PWA) برای کتاب‌ها و فایل‌های درسی، با اطلاعیه‌هایی که خودکار از کانال تلگرام شما میرور می‌شوند و پنل ادمینی که <b>همه‌چیز</b> از داخل آن قابل ویرایش است. هر دو نما را زنده امتحان کنید؛ داده‌ها بین اپ و پنل مشترک‌اند.</p>
+    <div class="req-chips">
+      <span><b>✓</b> سورس کامل ۰ تا ۱۰۰</span>
+      <span><b>✓</b> میرور خودکار تلگرام</span>
+      <span><b>✓</b> اطلاعیه اجباری پین‌شده</span>
+      <span><b>✓</b> پخش PDF، ویدیو و عکس داخل اپ</span>
+      <span><b>✓</b> نصب روی هاست داخلی</span>
+    </div>
+  </div>
+  <figure class="hero-photo">
+    <img src="assets/img/hero.jpg" alt="دانش‌آموزان در حال مطالعه در کلاس">
+    <figcaption>کتاب‌های همه پایه‌ها؛ همیشه در دسترس، حتی آفلاین</figcaption>
+  </figure>
+</section>
+
+<div class="toggle-wrap">
+  <div class="toggle" role="tablist">
+    <button id="tgApp" class="on" onclick="switchView('app')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>نمای اپلیکیشن</button>
+    <button id="tgAdmin" onclick="switchView('admin')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5.5" rx="1.5"/><rect x="13.5" y="12" width="7.5" height="9" rx="1.5"/><rect x="3" y="15.5" width="7.5" height="5.5" rx="1.5"/></svg>پنل ادمین</button>
+  </div>
+</div>
+
+<main class="stage">
+
+  <!-- ============ APP VIEW ============ -->
+  <section class="view on" id="view-app">
+    <div class="app-layout">
+      <div class="phone">
+        <div class="screen">
+          <div class="notch"></div>
+          <div class="app-head">
+            <div class="row1">
+              <span class="logo"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>
+              <div><h2>درس‌خانه</h2><div class="sub">کتابخانه درسی دبیرستان</div></div>
+              <button class="install-btn" onclick="toast('در نسخه نهایی، اپ بدون مارکت روی گوشی نصب می‌شود')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 21h16"/></svg>نصب اپ</button>
+            </div>
+            <div class="search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+              <input id="searchInput" type="text" placeholder="جستجوی کتاب، درس یا فایل…" oninput="renderBooks()">
+            </div>
+          </div>
+
+          <div class="app-body">
+            <!-- library tab -->
+            <div class="tabpage on" id="tab-library">
+              <div class="pinned">
+                <span class="pin-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3a1 1 0 0 1 .7.3l4 4a1 1 0 0 1-.4 1.6l-2.6 1-3.2 3.2.5 4.6a1 1 0 0 1-1.7.8L12 16.8l-1.3 1.7a1 1 0 0 1-1.7-.8l.5-4.6L6.3 9.9l-2.6-1A1 1 0 0 1 3.3 7.3l4-4A1 1 0 0 1 8 3h8z" transform="rotate(45 12 12)"/></svg></span>
+                <div><h4>اطلاعیه اجباری<span class="must">نمایش برای همه</span></h4><p>آزمون هماهنگ نوبت اول از شنبه ۲۹ آذر آغاز می‌شود. برنامه کامل آزمون‌ها در بخش اطلاعیه‌ها منتشر شده است.</p></div>
+              </div>
+
+              <div class="chips" id="gradeChips"></div>
+              <div class="chips subj" id="subjChips" style="margin-top:2px"></div>
+
+              <div class="sec-t"><h3>کتاب‌ها و فایل‌های درسی</h3><span id="bookCount"></span></div>
+              <div class="book-grid" id="bookGrid"></div>
+              <div class="empty" id="bookEmpty">برای این فیلتر کتابی پیدا نشد؛ از پنل ادمین می‌توانید اضافه‌اش کنید.</div>
+
+              <div class="sec-t" style="margin-top:20px"><h3>تازه‌های کتابخانه</h3><span>مثل بخش «تازه‌ها» در پایگاه کتاب‌های درسی</span></div>
+              <div class="tg-post" style="display:flex;gap:11px;align-items:center">
+                <img src="assets/img/books-stack.jpg" alt="کتاب‌های تازه" style="width:58px;height:58px;border-radius:11px;object-fit:cover">
+                <div><b style="font-size:13.5px">نسخه جدید کتاب‌های سال تحصیلی تازه بارگذاری شد</b><p style="font-size:12px;color:var(--mut)">همه پایه‌ها به‌روزرسانی شدند — از پنل ادمین قابل مدیریت است.</p></div>
+              </div>
+            </div>
+
+            <!-- announcements tab -->
+            <div class="tabpage" id="tab-news">
+              <div class="tg-head">
+                <span class="tg-ava">ا</span>
+                <div><h4>کانال اطلاع‌رسانی دبیرستان</h4><p>۲٬۴۸۰ عضو — پیام‌ها خودکار در اپ نمایش داده می‌شوند</p></div>
+                <span class="mirror">میرور تلگرام</span>
+              </div>
+              <div id="newsFeed"></div>
+            </div>
+
+            <!-- saved tab -->
+            <div class="tabpage" id="tab-saved">
+              <div class="sec-t"><h3>نشان‌شده‌ها</h3><span>مثل «علاقه‌مندی‌ها» در کتابخانه‌های دیجیتال</span></div>
+              <div class="book-grid" id="savedGrid"></div>
+              <div class="empty show" id="savedEmpty">هنوز کتابی را نشان نکرده‌اید. روی قلب هر کتاب بزنید تا اینجا ذخیره شود.</div>
+            </div>
+
+            <!-- profile tab -->
+            <div class="tabpage" id="tab-profile">
+              <div class="tg-post" style="text-align:center;padding:22px 14px">
+                <img src="assets/img/lesson.jpg" alt="دانش‌آموز" style="width:76px;height:76px;border-radius:50%;object-fit:cover;margin:0 auto 10px">
+                <b style="font-size:15px">دانش‌آموز نمونه</b>
+                <p style="font-size:12.5px;color:var(--mut)">پایه دهم — رشته تجربی</p>
+              </div>
+              <div class="tg-post"><p>حالت مطالعه آفلاین: <b>فعال</b> — کتاب‌های دانلودشده بدون اینترنت باز می‌شوند.</p></div>
+              <div class="tg-post"><p>حجم داده ذخیره‌شده روی گوشی: <b>۱۸۴ مگابایت</b></p></div>
+              <div class="tg-post"><p>نسخه اپ: <b>۱٫۰ — PWA</b> (نصب‌شده از مرورگر، بدون نیاز به کافه‌بازار یا گوگل‌پلی)</p></div>
+            </div>
+          </div>
+
+          <nav class="bottom-nav">
+            <button class="on" data-tab="library" onclick="switchTab('library',this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>کتابخانه</button>
+            <button data-tab="news" onclick="switchTab('news',this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>اطلاعیه‌ها</button>
+            <button data-tab="saved" onclick="switchTab('saved',this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>نشان‌شده‌ها</button>
+            <button data-tab="profile" onclick="switchTab('profile',this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>پروفایل</button>
+          </nav>
+
+          <!-- in-app viewer -->
+          <div class="viewer" id="viewer">
+            <div class="viewer-head">
+              <button class="vclose" onclick="closeViewer()" aria-label="بستن">✕</button>
+              <h4 id="vTitle"></h4><span class="vtype" id="vType"></span>
+            </div>
+            <div class="viewer-body" id="viewerBody"></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="notes">
+        <div class="note">
+          <span class="n-ic" style="background:#e8f5fd;color:#15719e"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></span>
+          <div><h4>اطلاعیه‌ها = آینه کانال تلگرام شما</h4><p>هر پیامی که در کانال تلگرام منتشر کنید، خودکار و بدون کار اضافه در تب «اطلاعیه‌ها»ی اپ می‌نشیند — دقیقاً با همان ظاهر پیام تلگرام: ساعت، تعداد بازدید و پین. تب اطلاعیه‌ها را در گوشی امتحان کنید.</p></div>
+        </div>
+        <div class="note">
+          <span class="n-ic" style="background:#fff1d6;color:#a86e00"><svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 3 7v2h18V7L12 2zM5 11v8H3v-8h2zm5.5 0v8h-2v-8h2zm5 0v8h-2v-8h2zM21 11v8h-2v-8h2zM3 21h18v2H3z" opacity=".9"/></svg></span>
+          <div><h4>اطلاعیه اجباری، همیشه بالای همه‌چیز</h4><p>اطلاعیه‌های مهم را یک بار در پنل «اجباری» می‌کنید؛ بالای کتابخانه برای همه دانش‌آموزها ثابت می‌ماند و قابل رد کردن نیست — همان بنر زرد بالای گوشی.</p></div>
+        </div>
+        <div class="note">
+          <span class="n-ic" style="background:#fdecec;color:#b3352f"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3" fill="currentColor" stroke="none"/></svg></span>
+          <div><h4>فایل‌ها داخل خود اپ پخش می‌شوند</h4><p>روی هر کتاب بزنید: PDF صفحه‌به‌صفحه داخل اپ ورق می‌خورد، ویدیو با پخش‌کننده داخلی اجرا می‌شود و عکس تمام‌صفحه با زوم باز می‌شود — بدون خروج از اپ و بدون دانلود اجباری.</p>
+            <div class="n-img"><img src="assets/img/reading.jpg" alt="مطالعه کتاب در کتابخانه"></div>
+          </div>
+        </div>
+        <div class="note">
+          <span class="n-ic" style="background:#e9f7f1;color:#0a6b52"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+          <div><h4>الگو گرفته از مراجع واقعی</h4><p>چیدمان پایه ← درس ← کتاب از پایگاه رسمی کتاب‌های درسی (chap.sch.ir) و امکاناتی مثل نشان‌کردن و مطالعه آفلاین از اپ کتابخانه ملی مدارس هند (Rashtriya e-Pustakalaya) الگو گرفته شده؛ اما همه‌چیز برای مدرسه شما و از پنل خودتان مدیریت می‌شود.</p></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ ADMIN VIEW ============ -->
+  <section class="view" id="view-admin">
+    <div class="admin">
+      <aside class="admin-side">
+        <div class="a-brand"><span style="width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.14);display:grid;place-items:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>پنل درس‌خانه</div>
+        <nav>
+          <button class="on" onclick="adminPage('dash',this)">داشبورد و کتاب‌ها</button>
+          <button onclick="adminPage('news',this)">اطلاعیه‌ها</button>
+          <button onclick="adminPage('cats',this)">دسته‌بندی‌ها و تنظیمات</button>
+        </nav>
+        <div class="a-foot">نقش: مدیر مدرسه<br>همه بخش‌های اپ از همین پنل ویرایش می‌شود.</div>
+      </aside>
+
+      <div class="admin-main">
+        <!-- dashboard / books -->
+        <div class="apage on" id="apage-dash">
+          <h3>داشبورد مدیریت</h3>
+          <p class="a-sub">هر تغییری اینجا بدهید، همان لحظه در نمای اپلیکیشن (گوشی سمت چپ) دیده می‌شود — امتحان کنید.</p>
+          <div class="stat-row">
+            <div class="stat"><div class="s-num" id="stBooks">۰</div><div class="s-lbl">کتاب و فایل در کتابخانه</div></div>
+            <div class="stat"><div class="s-num" id="stNews">۰</div><div class="s-lbl">اطلاعیه منتشرشده</div></div>
+            <div class="stat"><div class="s-num">۲٬۴۸۰</div><div class="s-lbl">عضو کانال و کاربر اپ</div></div>
+            <div class="stat"><div class="s-num">۱۰۰٪</div><div class="s-lbl">بخش‌های قابل ویرایش از پنل</div></div>
+          </div>
+
+          <div class="panel-card">
+            <h5 id="formTitle">افزودن کتاب یا فایل جدید <span class="tag">بدون نیاز به برنامه‌نویس</span></h5>
+            <form class="form-grid" onsubmit="return saveBook(event)">
+              <div class="fld"><label>عنوان</label><input id="fTitle" required placeholder="مثلاً: ریاضی هشتم"></div>
+              <div class="fld"><label>پایه</label><select id="fGrade"></select></div>
+              <div class="fld"><label>درس</label><select id="fSubj"></select></div>
+              <div class="fld"><label>نوع فایل</label><select id="fType"><option value="pdf">PDF</option><option value="video">ویدیو</option><option value="image">عکس</option></select></div>
+              <button class="add-btn" id="saveBtn" type="submit">+ افزودن</button>
+            </form>
+          </div>
+
+          <div class="panel-card">
+            <h5>مدیریت کتاب‌ها و فایل‌ها</h5>
+            <div style="overflow-x:auto">
+            <table>
+              <thead><tr><th>عنوان</th><th>پایه</th><th>درس</th><th>نوع</th><th>جزئیات</th><th>عملیات</th></tr></thead>
+              <tbody id="bookTable"></tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- announcements admin -->
+        <div class="apage" id="apage-news">
+          <h3>مدیریت اطلاعیه‌ها</h3>
+          <p class="a-sub">پیام‌های کانال تلگرام خودکار میرور می‌شوند. از اینجا هم می‌توانید اطلاعیه دستی ثبت کنید یا هر اطلاعیه‌ای را «اجباری» کنید تا بالای اپ پین شود.</p>
+          <div class="panel-card">
+            <h5>ثبت اطلاعیه جدید</h5>
+            <form onsubmit="return addNews(event)">
+              <div class="fld" style="margin-bottom:10px"><label>عنوان</label><input id="nTitle" required placeholder="مثلاً: تغییر ساعت کلاس‌ها"></div>
+              <div class="fld" style="margin-bottom:12px"><label>متن اطلاعیه</label><textarea id="nText" rows="2" required placeholder="متن اطلاعیه را بنویسید…"></textarea></div>
+              <button class="add-btn amber" type="submit">انتشار در اپ</button>
+            </form>
+          </div>
+          <div class="panel-card">
+            <h5>اطلاعیه‌های فعلی <span class="tag">کلید قرمز = اطلاعیه اجباری (پین‌شده در اپ)</span></h5>
+            <div id="newsAdmin"></div>
+          </div>
+        </div>
+
+        <!-- categories / settings admin -->
+        <div class="apage" id="apage-cats">
+          <h3>دسته‌بندی‌ها و تنظیمات اپ</h3>
+          <p class="a-sub">پایه‌ها، درس‌ها، نام مدرسه، رنگ اپ و متن بنر — تک‌تک موارد سایت و اپ از پنل قابل ویرایش‌اند.</p>
+          <div class="panel-card">
+            <h5>پایه‌ها و درس‌های فعال</h5>
+            <div class="req-chips" id="catChips" style="margin-bottom:6px"></div>
+            <p style="font-size:12.5px;color:var(--mut)">در نسخه نهایی، افزودن یا حذف هر پایه و درس از همین‌جا انجام می‌شود و فیلترهای اپ خودکار به‌روز می‌شوند.</p>
+          </div>
+          <div class="panel-card">
+            <h5>تنظیمات ظاهری و عمومی</h5>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr">
+              <div class="fld"><label>نام نمایش اپ</label><input value="درس‌خانه — کتابخانه درسی دبیرستان"></div>
+              <div class="fld"><label>کانال تلگرام متصل (میرور)</label><input value="کانال اطلاع‌رسانی دبیرستان" style="direction:rtl"></div>
+              <div class="fld"><label>متن بنر بالای اپ</label><input value="آزمون هماهنگ نوبت اول از شنبه ۲۹ آذر آغاز می‌شود"></div>
+              <div class="fld"><label>وضعیت مطالعه آفلاین</label><select><option>فعال — دانلود خودکار کتاب‌های پایه دانش‌آموز</option><option>فقط با انتخاب کاربر</option><option>غیرفعال</option></select></div>
+            </div>
+            <button class="add-btn" style="margin-top:14px" onclick="toast('تنظیمات ذخیره شد — در نسخه نهایی روی اپ اعمال می‌شود')">ذخیره تنظیمات</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FEATURES ============ -->
+<section class="features">
+  <h2>دقیقاً همان چیزهایی که خواستید — نه کمتر، نه اضافه‌فروشی</h2>
+  <p class="f-sub">هر مورد از شرح پروژه شما، در این دمو قابل لمس است؛ روی گوشی و پنل بالا امتحانش کنید.</p>
+  <div class="f-grid">
+    <div class="f-card"><span class="f-ic" style="background:#eef1fb;color:var(--indigo)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h4>سورس کامل، ۰ تا ۱۰۰</h4><p>اپ PWA و پنل مدیریت از صفر و اختصاصی برای مدرسه شما ساخته و سورس کامل تحویل داده می‌شود؛ وابستگی به سازنده ندارید.</p></div>
+    <div class="f-card"><span class="f-ic" style="background:#e8f5fd;color:#15719e"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></span><h4>میرور خودکار تلگرام</h4><p>بخش اطلاع‌رسانی به کانال تلگرام شما وصل است؛ هر پیام کانال، خودکار و با همان قالب در اپ نمایش داده می‌شود.</p></div>
+    <div class="f-card"><span class="f-ic" style="background:#fff1d6;color:#a86e00"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 17v5"/><path d="M9 3h6l1 7 3 3H5l3-3 1-7z"/></svg></span><h4>اطلاعیه اجباری</h4><p>اطلاعیه‌های حیاتی از پنل «اجباری» می‌شوند و بالای اپ برای همه ثابت می‌مانند تا وقتی خودتان برشان دارید.</p></div>
+    <div class="f-card"><span class="f-ic" style="background:#fdecec;color:#b3352f"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3" fill="currentColor" stroke="none"/></svg></span><h4>پخش داخل خود سایت</h4><p>PDF، ویدیو و عکس داخل خود اپ باز و پخش می‌شوند؛ دانش‌آموز برای خواندن کتاب از اپ خارج نمی‌شود.</p></div>
+    <div class="f-card"><span class="f-ic" style="background:#e9f7f1;color:#0a6b52"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="9" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="5.5" rx="1.5"/><rect x="13.5" y="12" width="7.5" height="9" rx="1.5"/><rect x="3" y="15.5" width="7.5" height="5.5" rx="1.5"/></svg></span><h4>پنل ادمینِ همه‌کاره</h4><p>کتاب، فایل، اطلاعیه، دسته‌بندی و تنظیمات — تک‌تک موارد از پنل قابل افزودن و ویرایش‌اند؛ بدون حتی یک خط کد.</p></div>
+    <div class="f-card"><span class="f-ic" style="background:#f3eafd;color:#6d3fc4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h4>هاست داخلی + PWA</h4><p>کل سیستم روی هاست داخلی شما نصب می‌شود و اپ به‌صورت PWA روی گوشی دانش‌آموز نصب می‌شود؛ سریع، آفلاین‌پذیر و بدون هزینه مارکت.</p></div>
+  </div>
+</section>
+
+<div class="photo-band">
+  <figure><img src="assets/img/classroom.jpg" alt="کلاس درس"><figcaption>برای کلاس و مدرسه واقعی طراحی شده</figcaption></figure>
+  <figure><img src="assets/img/library.jpg" alt="کتابخانه"><figcaption>کتابخانه‌ای که همیشه باز است</figcaption></figure>
+  <figure><img src="assets/img/study.jpg" alt="مطالعه گروهی دانش‌آموزان"><figcaption>مطالعه در هر جا؛ خانه، کلاس، مسیر</figcaption></figure>
+</div>
+
+<section class="delivery">
+  <div class="delivery-in">
+    <div class="d-item"><span class="d-num">۰۱</span><b>تحلیل و طراحی</b><span>ساختار پایه‌ها و درس‌های مدرسه شما و قالب اختصاصی اپ</span></div>
+    <div class="d-item"><span class="d-num">۰۲</span><b>توسعه اپ و پنل</b><span>PWA کتابخانه + اتصال میرور تلگرام + پنل ادمین کامل</span></div>
+    <div class="d-item"><span class="d-num">۰۳</span><b>نصب روی هاست داخلی</b><span>راه‌اندازی روی هاست شما و بارگذاری کتاب‌های فعلی</span></div>
+    <div class="d-item"><span class="d-num">۰۴</span><b>تحویل سورس + آموزش</b><span>سورس کامل و آموزش کار با پنل به مدیر مدرسه</span></div>
+  </div>
+</section>
+
+<footer>
+  این صفحه یک <b>دموی تعاملی</b> از محصول نهایی است — داده‌ها نمونه‌اند و برای نمایش قابلیت‌ها به کار رفته‌اند.<br>
+  دموی پیشنهادی <b>اپ‌وبینو (AppWebino)</b> — طراحی و توسعه اختصاصی وب‌اپلیکیشن و PWA
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+const fa = n => String(n).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+const GRADES = ["هفتم","هشتم","نهم","دهم","یازدهم","دوازدهم"];
+const SUBJECTS = ["ریاضی","علوم تجربی","فارسی","زبان انگلیسی","شیمی","فیزیک","عربی","مطالعات اجتماعی","جغرافیا"];
+const COVERS = {"ریاضی":"linear-gradient(135deg,#2b3a8f,#5b7fe0)","علوم تجربی":"linear-gradient(135deg,#0e8a6d,#37c39a)","فارسی":"linear-gradient(135deg,#b3541e,#e08b3a)","زبان انگلیسی":"linear-gradient(135deg,#5b2a86,#9a5fd0)","شیمی":"linear-gradient(135deg,#0f766e,#2dd4bf)","فیزیک":"linear-gradient(135deg,#1e3a5f,#3f7fbf)","عربی":"linear-gradient(135deg,#7a5c00,#c9a227)","مطالعات اجتماعی":"linear-gradient(135deg,#8a3324,#d2691e)","جغرافیا":"linear-gradient(135deg,#14532d,#4caf7d)"};
+const TYPE_LBL = {pdf:"PDF", video:"ویدیو", image:"عکس"};
+let books = [
+  {id:1, title:"ریاضی هفتم", grade:"هفتم", subj:"ریاضی", type:"pdf", detail:"۲۴۸ صفحه"},
+  {id:2, title:"علوم تجربی هشتم", grade:"هشتم", subj:"علوم تجربی", type:"pdf", detail:"۱۷۶ صفحه"},
+  {id:3, title:"فارسی نهم", grade:"نهم", subj:"فارسی", type:"pdf", detail:"۱۹۲ صفحه"},
+  {id:4, title:"زبان انگلیسی دهم — Vision 1", grade:"دهم", subj:"زبان انگلیسی", type:"pdf", detail:"۱۴۴ صفحه"},
+  {id:5, title:"شیمی یازدهم", grade:"یازدهم", subj:"شیمی", type:"pdf", detail:"۲۲۴ صفحه"},
+  {id:6, title:"فیزیک دوازدهم", grade:"دوازدهم", subj:"فیزیک", type:"pdf", detail:"۲۸۰ صفحه"},
+  {id:7, title:"ویدیوی تدریس فصل ۳ ریاضی نهم", grade:"نهم", subj:"ریاضی", type:"video", detail:"۴۲ دقیقه"},
+  {id:8, title:"آزمایشگاه مجازی علوم هفتم", grade:"هفتم", subj:"علوم تجربی", type:"video", detail:"۱۸ دقیقه"},
+  {id:9, title:"اطلس و نقشه‌های جغرافیای دهم", grade:"دهم", subj:"جغرافیا", type:"image", detail:"۳۶ نقشه"},
+  {id:10, title:"عربی هشتم", grade:"هشتم", subj:"عربی", type:"pdf", detail:"۱۲۸ صفحه"},
+  {id:11, title:"مطالعات اجتماعی هفتم", grade:"هفتم", subj:"مطالعات اجتماعی", type:"pdf", detail:"۱۶۰ صفحه"},
+  {id:12, title:"حل تمرین فیزیک یازدهم — فصل ۲", grade:"یازدهم", subj:"فیزیک", type:"video", detail:"۳۵ دقیقه"}
+];
+let news = [
+  {id:1, title:"برنامه آزمون‌های هماهنگ نوبت اول", text:"آزمون‌های نوبت اول از شنبه ۲۹ آذر آغاز می‌شود. جدول کامل دروس و ساعت هر آزمون در فایل پیوست کانال منتشر شده است. لطفاً کارت ورود به جلسه را از دفتر مدرسه تحویل بگیرید.", time:"۰۹:۱۵", views:"۲٬۳۱۰", pinned:true, img:null},
+  {id:2, title:"ویدیوی جدید آزمایشگاه علوم بارگذاری شد", text:"فیلم آزمایش «چگالی و شناوری» برای پایه هفتم در کتابخانه اپ قرار گرفت؛ از بخش کتابخانه، درس علوم تجربی قابل مشاهده است.", time:"۱۸:۴۲", views:"۱٬۸۷۵", pinned:false, img:"assets/img/lesson.jpg"},
+  {id:3, title:"نسخه جدید کتاب‌های درسی سال تحصیلی", text:"فایل به‌روز همه کتاب‌های درسی پایه‌های هفتم تا دوازدهم در اپ بارگذاری شد. نسخه‌های قبلی به‌صورت خودکار جایگزین شده‌اند.", time:"۰۸:۰۵", views:"۳٬۰۴۲", pinned:false, img:"assets/img/books-stack.jpg"}
+];
+let saved = new Set();
+let curGrade = "همه", curSubj = "همه", editId = null;
+let toastTimer = null;
+
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7ee2b8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' + msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2600);
+}
+
+/* ---------- view toggle ---------- */
+function switchView(v){
+  document.getElementById("view-app").classList.toggle("on", v==="app");
+  document.getElementById("view-admin").classList.toggle("on", v==="admin");
+  document.getElementById("tgApp").classList.toggle("on", v==="app");
+  document.getElementById("tgAdmin").classList.toggle("on", v==="admin");
+  document.querySelector(".stage").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* ---------- app tabs ---------- */
+function switchTab(name, btn){
+  document.querySelectorAll(".tabpage").forEach(p=>p.classList.remove("on"));
+  document.getElementById("tab-"+name).classList.add("on");
+  document.querySelectorAll(".bottom-nav button").forEach(b=>b.classList.toggle("on", b===btn));
+  document.querySelector(".app-body").scrollTop = 0;
+}
+
+/* ---------- filters ---------- */
+function buildChips(){
+  const g = document.getElementById("gradeChips");
+  g.innerHTML = ["همه", ...GRADES].map(x=>`<button class="${x===curGrade?'on':''}" onclick="setGrade('${x}')">${x==="همه"?"همه پایه‌ها":"پایه "+x}</button>`).join("");
+  const s = document.getElementById("subjChips");
+  s.innerHTML = ["همه", ...SUBJECTS].map(x=>`<button class="${x===curSubj?'on':''}" onclick="setSubj('${x}')">${x==="همه"?"همه درس‌ها":x}</button>`).join("");
+}
+function setGrade(x){ curGrade = x; buildChips(); renderBooks(); }
+function setSubj(x){ curSubj = x; buildChips(); renderBooks(); }
+
+function filteredBooks(){
+  const q = document.getElementById("searchInput").value.trim();
+  return books.filter(b =>
+    (curGrade==="همه" || b.grade===curGrade) &&
+    (curSubj==="همه" || b.subj===curSubj) &&
+    (!q || b.title.includes(q) || b.subj.includes(q))
+  );
+}
+function bookCard(b){
+  const heart = saved.has(b.id) ? "#d64541" : "#c3cbdd";
+  return `<div class="book" role="button" tabindex="0" onclick="openViewer(${b.id})" onkeydown="if(event.key==='Enter')openViewer(${b.id})">
+    <div class="cover" style="background:${COVERS[b.subj]||COVERS["ریاضی"]}">
+      <span class="c-grade">پایه ${b.grade}</span>
+      <span class="type-badge">${TYPE_LBL[b.type]}</span>
+      <span class="c-subj">${b.subj}</span>
+      <span class="c-title">${b.title}</span>
+    </div>
+    <div class="meta">
+      <span class="m-detail"><b>${b.detail}</b>${b.type==="pdf"?" — فایل PDF":b.type==="video"?" — ویدیوی آموزشی":" — گالری تصویر"}</span>
+      <span class="m-row">
+      <span class="open">مشاهده ←</span>
+      <button aria-label="نشان کردن" onclick="event.stopPropagation();toggleSave(${b.id})" style="background:none;border:0;padding:2px">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="${saved.has(b.id)?'#d64541':'none'}" stroke="${heart}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </button>
+      </span>
+    </div>
+  </div>`;
+}
+function renderBooks(){
+  const list = filteredBooks();
+  document.getElementById("bookGrid").innerHTML = list.map(bookCard).join("");
+  document.getElementById("bookEmpty").classList.toggle("show", list.length===0);
+  document.getElementById("bookCount").textContent = fa(list.length) + " فایل";
+  renderSaved();
+}
+function renderSaved(){
+  const list = books.filter(b=>saved.has(b.id));
+  document.getElementById("savedGrid").innerHTML = list.map(bookCard).join("");
+  document.getElementById("savedEmpty").classList.toggle("show", list.length===0);
+}
+function toggleSave(id){
+  if(saved.has(id)){ saved.delete(id); toast("از نشان‌شده‌ها حذف شد"); }
+  else { saved.add(id); toast("به نشان‌شده‌ها اضافه شد"); }
+  renderBooks();
+}
+
+/* ---------- news (telegram mirror) ---------- */
+function renderNews(){
+  const feed = document.getElementById("newsFeed");
+  const sorted = [...news].sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0));
+  feed.innerHTML = sorted.map(n=>`
+    <article class="tg-post ${n.pinned?'pinned-post':''}">
+      <div class="tp-top"><span class="ch">کانال اطلاع‌رسانی دبیرستان</span>${n.pinned?'<span class="pin-tag">پیام پین‌شده — اطلاعیه اجباری</span>':''}</div>
+      <p><b>${n.title}</b><br>${n.text}</p>
+      ${n.img?`<div class="tp-img"><img src="${n.img}" alt=""></div>`:""}
+      <div class="tp-meta"><span>${n.time}</span><span>${n.views} بازدید</span><span>میرورشده از تلگرام</span></div>
+    </article>`).join("");
+  renderNewsAdmin();
+  document.getElementById("stNews").textContent = fa(news.length);
+}
+
+/* ---------- viewer ---------- */
+let vPage = 1, vTimer = null, vSec = 0;
+function openViewer(id){
+  const b = books.find(x=>x.id===id); if(!b) return;
+  document.getElementById("vTitle").textContent = b.title;
+  document.getElementById("vType").textContent = TYPE_LBL[b.type] + " — پخش داخل اپ";
+  const body = document.getElementById("viewerBody");
+  vPage = 1; vSec = 0; clearInterval(vTimer);
+  if(b.type==="pdf"){
+    body.innerHTML = `<div class="pdf-page">
+        <h5>${b.title} — فصل اول</h5>
+        <div class="ln"></div><div class="ln m"></div><div class="ln"></div><div class="ln s"></div>
+        <div class="fig"><img src="assets/img/books-stack.jpg" alt="تصویر داخل کتاب"></div>
+        <div class="cap">شکل ۱-۱ — نمونه تصویر آموزشی داخل فایل PDF</div>
+        <div class="ln m"></div><div class="ln"></div><div class="ln"></div><div class="ln s"></div><div class="ln m"></div><div class="ln"></div>
+      </div>
+      <div class="pdf-nav"><button id="pvPrev" onclick="pdfNav(-1)">→ صفحه قبل</button><span id="pvLbl">صفحه ۱ از ۲۴</span><button id="pvNext" onclick="pdfNav(1)">صفحه بعد ←</button></div>
+      <p class="vnote">در نسخه نهایی، فایل PDF واقعی کتاب صفحه‌به‌صفحه همین‌جا ورق می‌خورد و برای مطالعه آفلاین ذخیره می‌شود.</p>`;
+    updPdfNav();
+  } else if(b.type==="video"){
+    body.innerHTML = `<div class="video-box"><img src="assets/img/study.jpg" alt="ویدیوی آموزشی">
+        <button class="play-btn" id="playBtn" onclick="togglePlay()"><span class="circ"><svg id="playIc" width="24" height="24" viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20" fill="currentColor"/></svg></span></button></div>
+      <div class="vprog"><i id="vBar"></i></div>
+      <div class="vtime"><span id="vCur">۰۰:۰۰</span><span>${b.detail}</span></div>
+      <p class="vnote">پخش‌کننده داخلی اپ — بدون خروج به تلگرام یا مرورگر؛ با قابلیت ادامه از همان نقطه قبلی.</p>`;
+  } else {
+    body.innerHTML = `<div class="img-view" id="imgView"><img src="assets/img/lesson.jpg" alt="${b.title}"></div>
+      <button class="zoom-btn" onclick="document.getElementById('imgView').classList.toggle('zoom')">بزرگ‌نمایی / بازگشت</button>
+      <p class="vnote">تصاویر و نقشه‌ها تمام‌صفحه و با کیفیت اصلی داخل اپ نمایش داده می‌شوند.</p>`;
+  }
+  document.getElementById("viewer").classList.add("on");
+}
+function updPdfNav(){
+  document.getElementById("pvLbl").textContent = "صفحه " + fa(vPage) + " از ۲۴";
+  document.getElementById("pvPrev").disabled = vPage<=1;
+  document.getElementById("pvNext").disabled = vPage>=24;
+}
+function pdfNav(d){ vPage = Math.min(24, Math.max(1, vPage+d)); updPdfNav(); }
+function togglePlay(){
+  const ic = document.getElementById("playIc");
+  if(vTimer){ clearInterval(vTimer); vTimer = null; ic.innerHTML = '<polygon points="7 4 20 12 7 20" fill="currentColor"/>'; return; }
+  ic.innerHTML = '<rect x="6" y="4" width="4" height="16" fill="currentColor"/><rect x="14" y="4" width="4" height="16" fill="currentColor"/>';
+  vTimer = setInterval(()=>{
+    vSec++;
+    const total = 42*60, pct = Math.min(100, vSec/total*100);
+    document.getElementById("vBar").style.width = pct + "%";
+    const m = String(Math.floor(vSec/60)).padStart(2,"0"), s = String(vSec%60).padStart(2,"0");
+    document.getElementById("vCur").textContent = fa(m) + ":" + fa(s);
+    if(vSec>=total) togglePlay();
+  }, 250);
+}
+function closeViewer(){ clearInterval(vTimer); vTimer = null; document.getElementById("viewer").classList.remove("on"); }
+
+/* ---------- admin ---------- */
+function adminPage(name, btn){
+  document.querySelectorAll(".apage").forEach(p=>p.classList.remove("on"));
+  document.getElementById("apage-"+name).classList.add("on");
+  document.querySelectorAll(".admin-side nav button").forEach(b=>b.classList.toggle("on", b===btn));
+}
+function renderTable(){
+  document.getElementById("bookTable").innerHTML = books.map(b=>`
+    <tr><td><b>${b.title}</b></td><td>${b.grade}</td><td>${b.subj}</td>
+    <td><span class="t-type ${b.type==='video'?'vid':b.type==='image'?'img':''}">${TYPE_LBL[b.type]}</span></td>
+    <td>${b.detail}</td>
+    <td><div class="row-btns"><button onclick="editBook(${b.id})">ویرایش</button><button class="del" onclick="delBook(${b.id})">حذف</button></div></td></tr>`).join("");
+  document.getElementById("stBooks").textContent = fa(books.length);
+}
+function fillFormSelects(){
+  document.getElementById("fGrade").innerHTML = GRADES.map(g=>`<option>${g}</option>`).join("");
+  document.getElementById("fSubj").innerHTML = SUBJECTS.map(s=>`<option>${s}</option>`).join("");
+}
+function saveBook(e){
+  e.preventDefault();
+  const title = document.getElementById("fTitle").value.trim(); if(!title) return false;
+  const grade = document.getElementById("fGrade").value, subj = document.getElementById("fSubj").value, type = document.getElementById("fType").value;
+  const detail = type==="pdf" ? "۱۲۰ صفحه" : type==="video" ? "۲۰ دقیقه" : "۱۰ تصویر";
+  if(editId){
+    const b = books.find(x=>x.id===editId); Object.assign(b, {title, grade, subj, type});
+    toast("کتاب ویرایش شد و در اپ به‌روز شد");
+  } else {
+    books.unshift({id: Date.now(), title, grade, subj, type, detail});
+    toast("کتاب جدید به کتابخانه اپ اضافه شد");
+  }
+  editId = null;
+  document.getElementById("formTitle").firstChild.textContent = "افزودن کتاب یا فایل جدید ";
+  document.getElementById("saveBtn").textContent = "+ افزودن";
+  e.target.reset(); fillFormSelects();
+  renderAll();
+  return false;
+}
+function editBook(id){
+  const b = books.find(x=>x.id===id); if(!b) return;
+  editId = id;
+  document.getElementById("fTitle").value = b.title;
+  fillFormSelects();
+  document.getElementById("fGrade").value = b.grade;
+  document.getElementById("fSubj").value = b.subj;
+  document.getElementById("fType").value = b.type;
+  document.getElementById("formTitle").firstChild.textContent = "ویرایش: " + b.title + " ";
+  document.getElementById("saveBtn").textContent = "ذخیره ویرایش";
+  document.getElementById("fTitle").focus();
+}
+function delBook(id){
+  const b = books.find(x=>x.id===id);
+  books = books.filter(x=>x.id!==id); saved.delete(id);
+  toast("«" + (b?b.title:"") + "» حذف شد");
+  renderAll();
+}
+function renderNewsAdmin(){
+  const el = document.getElementById("newsAdmin"); if(!el) return;
+  el.innerHTML = news.map(n=>`
+    <div class="ann-row">
+      <div class="a-txt"><b>${n.title}</b><p>${n.text}</p></div>
+      <div><label class="switch"><input type="checkbox" ${n.pinned?"checked":""} onchange="togglePin(${n.id}, this.checked)"><span class="tr"></span></label><div class="sw-lbl">اجباری</div></div>
+      <div class="row-btns"><button class="del" onclick="delNews(${n.id})">حذف</button></div>
+    </div>`).join("");
+}
+function togglePin(id, on){
+  news.forEach(n=>{ if(n.id===id) n.pinned = on; });
+  toast(on ? "اطلاعیه اجباری شد و بالای اپ پین شد" : "اطلاعیه از حالت اجباری خارج شد");
+  renderNews();
+}
+function addNews(e){
+  e.preventDefault();
+  const title = document.getElementById("nTitle").value.trim(), text = document.getElementById("nText").value.trim();
+  if(!title || !text) return false;
+  news.unshift({id: Date.now(), title, text, time:"هم‌اکنون", views:"۰", pinned:false, img:null});
+  e.target.reset();
+  toast("اطلاعیه منتشر شد — در تب اطلاعیه‌های اپ ببینید");
+  renderNews();
+  return false;
+}
+function delNews(id){ news = news.filter(n=>n.id!==id); toast("اطلاعیه حذف شد"); renderNews(); }
+
+function renderCats(){
+  document.getElementById("catChips").innerHTML =
+    GRADES.map(g=>`<span>پایه <b>${g}</b></span>`).join("") + SUBJECTS.map(s=>`<span><b>${s}</b></span>`).join("");
+}
+function renderAll(){ renderBooks(); renderTable(); renderNews(); renderCats(); }
+
+/* init */
+fillFormSelects();
+buildChips();
+renderAll();
+</script>
+</body>
+</html>
