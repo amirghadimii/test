@@ -38,16 +38,24 @@ input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink)}
 
 /* ---------- header ---------- */
 header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.hd{display:flex;align-items:center;gap:18px;padding:14px 0}
+.hd{display:flex;align-items:center;gap:12px;padding:14px 0 2px;flex-wrap:wrap}
+.hd-top{display:flex;align-items:center;gap:18px;width:100%;order:1}
+.hd-top .hd-actions{margin-inline-start:auto}
 .logo{display:flex;align-items:center;gap:11px;flex:none}
 .logo-mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-sm)}
 .logo-mark svg{width:26px;height:26px;fill:#fff}
 .logo b{font-size:1.22rem;font-weight:800;display:block;line-height:1.3}
 .logo small{color:var(--ink2);font-size:.76rem;display:block}
-.search{flex:1;display:flex;align-items:center;background:var(--mint2);border:1.5px solid var(--line);border-radius:14px;padding:0 14px;gap:9px;min-width:0}
-.search:focus-within{border-color:var(--green);background:#fff}
-.search .ic{color:var(--muted);width:20px;height:20px}
-.search input{flex:1;border:none;background:none;outline:none;padding:11px 0;min-width:0}
+.search{order:2;flex:1 1 100%;display:flex;align-items:center;background:#fff;border:2px solid var(--green);border-radius:18px;gap:10px;min-width:0;min-height:60px;padding-inline-start:18px;padding-inline-end:8px;box-shadow:0 10px 26px rgba(13,90,60,.13)}
+.search:focus-within{border-color:var(--green-d);background:#fff;box-shadow:0 12px 30px rgba(13,90,60,.18)}
+.search .ic{color:var(--green-d);width:25px;height:25px}
+.search input{flex:1;border:none;background:none;outline:none;padding:15px 0;min-width:0;font-size:1.06rem;font-weight:600}
+.search input::placeholder{color:var(--muted);font-weight:500}
+.search-go{flex:none;background:var(--green);color:#fff;border-radius:12px;padding:11px 24px;font-weight:800;font-size:.98rem}
+.search-go:hover{background:var(--green-d)}
+.search-hints{order:3;flex:1 1 100%;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);padding-bottom:10px}
+.search-hints button{border:1px solid var(--line);background:var(--mint2);color:var(--green-d);border-radius:99px;padding:3px 12px;font-size:.78rem;font-weight:700}
+.search-hints button:hover{border-color:var(--green);background:var(--mint)}
 .hd-actions{display:flex;align-items:center;gap:10px;flex:none}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:13px;padding:11px 18px;font-weight:700;font-size:.95rem;transition:.2s;border:1.5px solid transparent}
 .btn .ic{width:19px;height:19px}
@@ -206,6 +214,15 @@ section.blk{padding:38px 0}
 footer{background:#0d2c1f;color:#b9d9c9;margin-top:20px}
 footer .wrap{padding-top:34px;padding-bottom:26px}
 .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
+.ft-top{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;flex-wrap:wrap}
+.ft-top p{max-width:34rem}
+.ft-links{display:flex;gap:6px;flex-wrap:wrap}
+.ft-links a{border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:6px 15px;font-size:.84rem;font-weight:700;color:#dff5ea}
+.ft-links a:hover{background:rgba(255,255,255,.1)}
+.info-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.info-block{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:15px;padding:17px 19px}
+.info-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.info-tags span{background:rgba(255,255,255,.1);border-radius:99px;padding:3px 11px;font-size:.76rem;font-weight:700;color:#dff5ea}
 footer b{color:#fff;display:block;margin-bottom:9px}
 footer p,footer li{font-size:.88rem}
 footer ul{list-style:none}
@@ -287,10 +304,11 @@ footer li{margin-bottom:5px}
   .hero-img img{height:300px}
   .rx-wrap{grid-template-columns:1fr}
   .ft-grid{grid-template-columns:1fr 1fr}
+  .info-strip{grid-template-columns:1fr}
 }
 @media(max-width:768px){
   .hd{flex-wrap:wrap}
-  .search{order:3;flex-basis:100%}
+  .search{flex-basis:100%}
   .logo b{font-size:1.08rem}
   .btn-rx-hd span{display:none}
   .btn-rx-hd{padding:11px 13px}
@@ -327,14 +345,11 @@ footer li{margin-bottom:5px}
 <header class="site">
   <div class="wrap">
     <div class="hd">
+      <div class="hd-top">
       <a class="logo" href="#">
         <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>
         <span><b>داروخانه دکتر سلامت</b><small>داروخانه آنلاین — تهران</small></span>
       </a>
-      <label class="search">
-        <i class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></i>
-        <input id="searchInput" type="text" placeholder="جستجوی دارو، مکمل یا محصول…">
-      </label>
       <div class="hd-actions">
         <a class="btn btn-green btn-rx-hd" href="#rx"><i class="ic"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></i><span>آپلود نسخه</span></a>
         <button class="cart-btn" id="cartBtn" aria-label="سبد خرید">
@@ -342,6 +357,13 @@ footer li{margin-bottom:5px}
           <span class="cart-badge" id="cartCount">۰</span>
         </button>
       </div>
+      </div>
+      <label class="search">
+        <i class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></i>
+        <input id="searchInput" type="text" placeholder="جستجوی دارو، مکمل و محصولات بهداشتی">
+        <button type="button" class="search-go" id="searchGo">جستجو</button>
+      </label>
+      <div class="search-hints"><span>پرتکرارها:</span><button type="button" data-q="مولتی‌ویتامین">مولتی‌ویتامین</button><button type="button" data-q="ضدآفتاب">کرم ضدآفتاب</button><button type="button" data-q="فشارسنج">فشارسنج دیجیتال</button><button type="button" data-q="امگا">امگا ۳</button></div>
     </div>
   </div>
   <nav class="main"><div class="wrap">
@@ -463,10 +485,14 @@ footer li{margin-bottom:5px}
 </div></section>
 
 <footer><div class="wrap">
-  <div class="ft-grid">
+  <div class="ft-top">
     <div><b>داروخانه آنلاین دکتر سلامت</b><p>فروش اینترنتی دارو، مکمل و محصولات بهداشتی با امکان ثبت نسخه و مشاوره داروساز. این صفحه یک نسخه نمایشی (دمو) است و سفارش واقعی در آن ثبت نمی‌شود.</p></div>
-    <div><b>دسترسی سریع</b><ul><li><a href="#shop">فروشگاه</a></li><li><a href="#rx">آپلود نسخه</a></li><li><a href="#consult">مشاوره داروساز</a></li><li><a href="#faq">سؤالات متداول</a></li></ul></div>
-    <div><b>راهنمای خرید</b><ul><li>ثبت سفارش نسخه‌ای با کد رهگیری</li><li>ارسال رایگان سفارش‌های بالای ۱ میلیون تومان</li><li>ضمانت اصالت و سلامت کالا</li></ul></div>
+    <nav class="ft-links"><a href="#shop">فروشگاه</a><a href="#rx">آپلود نسخه</a><a href="#consult">مشاوره داروساز</a><a href="#faq">سؤالات متداول</a></nav>
+  </div>
+  <div class="info-strip">
+    <div class="info-block"><b>بیمه‌های طرف قرارداد</b><p>نسخه‌های تحت پوشش بیمه پس از تأیید داروساز با تعرفه بیمه‌ای محاسبه می‌شوند.</p><div class="info-tags"><span>تأمین اجتماعی</span><span>بیمه سلامت</span><span>خدمات درمانی</span><span>نیروهای مسلح</span><span>بیمه‌های تکمیلی</span></div></div>
+    <div class="info-block"><b>ساعت پاسخگویی داروساز</b><p>پاسخ‌گویی همه‌روزه؛ معمولاً چند دقیقه‌ای پاسخ می‌دهیم. نسخه پیش از آماده‌سازی سفارش توسط داروساز بررسی می‌شود.</p></div>
+    <div class="info-block"><b>شرایط ارسال و تحویل</b><p>ارسال سریع در تهران؛ پیک و پست به سراسر کشور. ارسال سفارش‌های بالای ۱٬۰۰۰٬۰۰۰ تومان رایگان است و در غیر این صورت هزینه ثابت ۴۵٬۰۰۰ تومان محاسبه می‌شود.</p></div>
   </div>
   <p class="disclaimer">اطلاعات این صفحه صرفاً معرفی کالا و خدمات است و جنبه تشخیصی یا درمانی ندارد؛ برای مصرف هر دارو طبق دستور پزشک یا داروساز عمل کنید.</p>
 </div></footer>
@@ -848,6 +874,20 @@ renderChips();
 renderGrid();
 renderCart();
 renderRxList();
+</script>
+<script>
+document.getElementById('searchGo').addEventListener('click',function(){
+  var inp=document.getElementById('searchInput');
+  if(inp.value.trim()){document.getElementById('shop').scrollIntoView({behavior:'smooth',block:'start'});}
+  else{inp.focus();}
+});
+document.querySelectorAll('.search-hints [data-q]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var inp=document.getElementById('searchInput');
+    inp.value=b.dataset.q;
+    inp.dispatchEvent(new Event('input',{bubbles:true}));
+  });
+});
 </script>
 </body>
 </html>
