@@ -281,6 +281,10 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
   .cart-btn .lbl{display:none}
   .cart-btn{padding:10px 12px}
 }
+
+/* F11 INFO-STRIP (diversity rework) */
+.info-block{background:var(--steel-900);border:1px solid var(--line);border-top:3px solid var(--org);border-radius:10px;padding:18px}
+.info-block li{color:var(--muted);font-size:.89rem}
 </style>
 </head>
 <body>
@@ -376,17 +380,6 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
   </div>
 </div>
 
-<!-- دسته‌بندی -->
-<section class="block" id="cats">
-  <div class="container">
-    <div class="sec-head">
-      <div><h2><span class="bar">▌</span>دسته‌بندی‌های تخصصی</h2><p>شش خانواده اصلی کالا؛ همه با موجودی انبار تهران</p></div>
-      <a class="sec-link" href="#shop">مشاهده همه محصولات ←</a>
-    </div>
-    <div class="cats" id="catGrid"></div>
-  </div>
-</section>
-
 <!-- محصولات -->
 <section class="block shop-wrap" id="shop" style="padding-top:50px">
   <div class="container">
@@ -395,6 +388,17 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
     </div>
     <div class="filters" id="filters"></div>
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- دسته‌بندی -->
+<section class="block" id="cats">
+  <div class="container">
+    <div class="sec-head">
+      <div><h2><span class="bar">▌</span>دسته‌بندی‌های تخصصی</h2><p>شش خانواده اصلی کالا؛ همه با موجودی انبار تهران</p></div>
+      <a class="sec-link" href="#shop">مشاهده همه محصولات ←</a>
+    </div>
+    <div class="cats" id="catGrid"></div>
   </div>
 </section>
 
@@ -483,6 +487,7 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
 </section>
 
 <footer>
+  <div class="hazard" style="margin:-48px 0 34px"></div>
   <div class="container">
     <div class="foot-grid">
       <div>
@@ -492,21 +497,20 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
         </a>
         <p>فروشگاه تخصصی لوله و اتصالات گازی با انبار فعال در تهران؛ تأمین خرده و پروژه‌ای با استاندارد ملی و API، فاکتور رسمی و مشاوره فنی حضوری پیش از خرید.</p>
       </div>
-      <div><h4>دسته‌بندی‌ها</h4><ul>
-        <li><a href="#shop" data-cat-link="pipes">لوله‌های گازی</a></li>
-        <li><a href="#shop" data-cat-link="threaded">اتصالات رزوه‌ای</a></li>
-        <li><a href="#shop" data-cat-link="valves">شیرآلات گازی</a></li>
-        <li><a href="#shop" data-cat-link="welded">اتصالات جوشی</a></li>
-        <li><a href="#shop" data-cat-link="seamless">لوله مانیسمان</a></li>
-        <li><a href="#shop" data-cat-link="safety">تجهیزات ایمنی گاز</a></li>
+      <div class="info-block"><h4>انبار و آدرس انبار</h4><ul>
+        <li>انبار مرکزی و بارگیری: تهران — تحویل حضوری از انبار</li>
+        <li>شوروم و فروش حضوری: تهران؛ مشاوره فقط با رزرو قبلی</li>
+        <li>ارسال باربری به سراسر کشور از انبار تهران</li>
+        <li>رزرو موجودی انبار تا ۷۲ ساعت برای پروژه‌ها</li>
       </ul></div>
-      <div><h4>دسترسی سریع</h4><ul>
-        <li><a href="#shop">محصولات</a></li>
+      <div class="info-block"><h4>شرایط فاکتور رسمی و فروش عمده</h4><ul>
+        <li>فاکتور رسمی برای پروژه‌ها و خریدهای سازمانی</li>
+        <li>قیمت عمده با استعلام؛ پیش‌فاکتور حداکثر تا ۲۴ ساعت کاری</li>
+        <li>فروش خرده و عمده با استاندارد ملی و API</li>
         <li><a href="#bulk">استعلام قیمت عمده</a></li>
-        <li><a href="#consult">مشاوره حضوری در تهران</a></li>
         <li><a href="#faq">پرسش‌های پرتکرار</a></li>
       </ul></div>
-      <div><h4>ساعت کاری شوروم و انبار</h4><ul>
+      <div class="info-block"><h4>ساعت کاری شوروم و انبار</h4><ul>
         <li>شنبه تا چهارشنبه: ۸:۳۰ تا ۱۸</li>
         <li>پنجشنبه: ۸:۳۰ تا ۱۴</li>
         <li>بارگیری انبار: تا ۱۷ هر روز کاری</li>
