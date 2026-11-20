@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>همگام‌سازی قیمت محصولات — مدیریت وردپرس</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Vazirmatn',Tahoma,sans-serif;min-width:0}
+body{background:#f0f0f1;color:#1d2327;font-size:13px;line-height:1.6}
+button{font-family:inherit;cursor:pointer}
+input,select{font-family:inherit;font-size:13px}
+:focus-visible{outline:2px solid #2271b1;outline-offset:1px;box-shadow:0 0 0 1px #fff}
+.adminbar{height:32px;background:#1d2327;color:#eee;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:13px;position:fixed;top:0;right:0;left:0;z-index:60}
+.adminbar .ab{display:flex;gap:16px;align-items:center}
+.adminbar a{color:#eee;text-decoration:none}
+.layout{display:flex;padding-top:32px}
+.sidebar{width:160px;background:#1d2327;color:#eee;position:fixed;top:32px;bottom:0;right:0;z-index:50;overflow-y:auto}
+.sidebar a{display:flex;align-items:center;gap:8px;height:34px;padding:0 12px;color:#eee;text-decoration:none;font-size:14px}
+.sidebar a:hover{background:#2c3338}
+.sidebar a.active{background:#2271b1;color:#fff}
+.sidebar .sub{background:#2c3338}
+.sidebar .sub a{height:30px;font-size:13px;padding-right:36px;color:#c3c4c7}
+.sidebar .sub a.on{color:#fff;font-weight:600}
+.side-ic{font-size:16px;width:20px;text-align:center;flex:none}
+.content{margin-right:160px;flex:1;padding:20px 20px 40px}
+.adminbar .hamb.btn{display:none}
+.chip svg,.thumb svg{width:20px;height:20px}
+.side-ic{display:inline-flex;align-items:center;justify-content:center}
+.side-ic svg{width:20px;height:20px}
+h1{font-size:23px;font-weight:600;line-height:1.4}
+.sub{color:#646970;font-size:13px;margin-top:4px}
+.headrow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;padding-bottom:16px}
+.btn{height:32px;padding:0 14px;border-radius:4px;border:1px solid #2271b1;background:#f6f7f7;color:#2271b1;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:6px;justify-content:center}
+.btn:hover{background:#f0f0f1}
+.btn.primary{background:#2271b1;color:#fff}
+.btn.primary:hover{background:#135e96}
+.btn.big{height:48px;font-size:15px;font-weight:600;width:100%}
+.btn:disabled{background:#f6f7f7;color:#a7aaad;border-color:#dcdcde;cursor:not-allowed}
+.btn.ghost{border-color:transparent;background:transparent}
+.tabs{display:flex;border-bottom:1px solid #dcdcde;overflow-x:auto;scrollbar-width:none;margin-bottom:20px}
+.tabs button{height:40px;padding:0 16px;background:none;border:none;border-bottom:2px solid transparent;font-size:14px;font-weight:500;color:#646970;white-space:nowrap;min-height:44px}
+.tabs button.active{color:#2271b1;border-bottom-color:#2271b1}
+.card{background:#fff;border:1px solid #dcdcde;border-radius:4px;box-shadow:0 1px 1px rgba(0,0,0,.04);padding:20px;margin-bottom:16px}
+.card h2{font-size:16px;font-weight:600;line-height:1.5;margin-bottom:12px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid #dcdcde;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:16px 20px}
+.kpi .top{display:flex;gap:12px;align-items:center}
+.chip{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+.kpi .val{font-size:24px;font-weight:700;line-height:1.3}
+.kpi .lbl{font-size:13px;color:#646970}
+.bar{height:6px;background:#eee;border-radius:999px;margin-top:12px;overflow:hidden}
+.bar i{display:block;height:100%;background:#2271b1;border-radius:999px;transition:width .3s}
+.barlbl{font-size:12px;color:#646970;margin-top:4px}
+.dot{width:10px;height:10px;border-radius:50%;background:#00a32a;display:inline-block;flex:none}
+.dot.off{background:#d63638}
+.ep{font-size:12px;background:#f6f7f7;border:1px solid #dcdcde;border-radius:4px;padding:2px 8px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block}
+.grid2{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.tl{position:relative;padding-right:16px}
+.tl:before{content:'';position:absolute;right:4px;top:6px;bottom:6px;width:2px;background:#e0e0e0}
+.tl .ev{position:relative;padding:8px 0;display:flex;justify-content:space-between;gap:8px}
+.tl .ev:before{content:'';position:absolute;right:-16px;top:14px;width:10px;height:10px;border-radius:50%;background:#2271b1}
+.tl .ev.s:before{background:#00a32a}.tl .ev.e:before{background:#e0245e}.tl .ev.p:before{background:#a7aaad}.tl .ev.w:before{background:#dba617}
+.tl .t{font-size:12px;color:#646970;white-space:nowrap}
+.notice{background:#fff;border:1px solid #dcdcde;border-right:4px solid #00a32a;padding:10px 14px;margin-bottom:12px;display:none;justify-content:space-between;border-radius:2px}
+.notice.err{border-right-color:#d63638}.notice.warn{border-right-color:#dba617}
+.notice.show{display:flex}
+table{width:100%;border-collapse:collapse}
+th{font-size:13px;font-weight:600;text-align:right;padding:8px 12px;border-bottom:1px solid #dcdcde}
+td{font-size:13px;padding:8px 12px;border-bottom:1px solid #eee;vertical-align:middle}
+.maprow{display:flex;align-items:center;gap:12px;min-height:52px;padding:6px 16px;border-bottom:1px solid #eee;flex-wrap:wrap}
+.maprow select,.fld{height:40px;padding:0 12px;border:1px solid #8c8f94;border-radius:4px;background:#fff;flex:1}
+.maprow select.err{border-color:#d63638}
+.errtxt{color:#d63638;font-size:12px;width:100%}
+.unsaved{width:8px;height:8px;border-radius:50%;background:#dba617;display:none;flex:none}
+.unsaved.on{display:inline-block}
+.tgl{position:relative;width:36px;height:20px;flex:none;cursor:pointer}
+.tgl input{opacity:0;width:100%;height:100%;position:absolute;cursor:pointer}
+.tgl span{position:absolute;inset:0;background:#c3c4c7;border-radius:999px;transition:.15s;pointer-events:none}
+.tgl span:before{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;right:2px;transition:.15s}
+.tgl input:checked+span{background:#2271b1}
+.tgl input:checked+span:before{transform:translateX(-16px)}
+.iconbtn{background:none;border:none;font-size:16px;min-width:36px;min-height:36px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+label.fl{display:block;font-size:13px;font-weight:500;margin-bottom:6px}
+.suffix{display:flex}.suffix input{flex:1;height:40px;padding:0 12px;border:1px solid #8c8f94;border-radius:0 4px 4px 0}
+.suffix b{background:#f6f7f7;border:1px solid #8c8f94;border-right:none;border-radius:4px 0 0 4px;padding:0 12px;display:flex;align-items:center;font-weight:400}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{border:1px solid #8c8f94;border-radius:4px;padding:8px 14px;cursor:pointer;min-height:44px;display:flex;align-items:center}
+.seg input{accent-color:#2271b1}
+.preview{background:#f6f7f7;border-radius:4px;padding:12px 16px;margin-top:16px;font-size:14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pbar{height:8px;background:#eee;border-radius:999px;overflow:hidden;margin:12px 0}
+.pbar i{display:block;height:100%;background:#2271b1;transition:width .3s}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:600;line-height:1}
+.b-ok{background:#d1e7dd;color:#0a3622}.b-err{background:#fbeaea;color:#8a2424}.b-run{background:#dbeafe;color:#1e40af}.b-grey{background:#eee;color:#646970}.b-up{background:#d1e7dd;color:#0a3622}.b-dn{background:#fbeaea;color:#8a2424}
+.zebra tr:nth-child(even) td{background:#f6f7f7}
+.thumb{width:40px;height:40px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.toolbar input,.toolbar select{height:40px;padding:0 12px;border:1px solid #8c8f94;border-radius:4px}
+.subtabs{display:flex;gap:4px;border-bottom:1px solid #dcdcde;margin-bottom:8px}
+.subtabs button{height:36px;min-height:44px;padding:0 14px;background:none;border:none;border-bottom:2px solid transparent;font-size:13px;font-weight:500;color:#646970}
+.subtabs button.active{color:#2271b1;border-bottom-color:#2271b1}
+.filterbar{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;align-items:end}
+.filterbar .btn{height:44px}
+.filterbar input,.filterbar select{height:40px;padding:0 12px;border:1px solid #8c8f94;border-radius:4px;background:#fff}
+.detail{background:#f6f7f7;padding:16px 20px}
+.detail td{background:#f6f7f7!important}
+.chev{transition:transform .2s;width:32px;height:32px;border:1px solid #dcdcde;background:#fff;border-radius:4px}
+.chev.open{transform:rotate(180deg)}
+.pager{display:flex;gap:6px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.pager button{width:32px;height:32px;min-height:44px;border:1px solid #dcdcde;background:#fff;border-radius:4px}
+.pager button.on{background:#2271b1;color:#fff;border-color:#2271b1}
+.pulse{animation:pl 1s infinite}@keyframes pl{50%{opacity:.4}}
+.spin{display:inline-block;width:16px;height:16px;border:2px solid #fff;border-top-color:transparent;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-3px}
+@keyframes sp{to{transform:rotate(360deg)}}
+footer.st{margin-top:20px;font-size:12px;color:#646970;display:flex;gap:16px;flex-wrap:wrap}
+footer.st a{color:#2271b1}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.modal.show{display:flex}
+.modal .box{background:#fff;border-radius:8px;padding:24px;max-width:480px;width:100%}
+@media(max-width:1024px){.kpis{grid-template-columns:1fr 1fr}.grid2,.split,.formgrid{grid-template-columns:1fr}}
+@media(max-width:782px){.sidebar{width:36px}.sidebar a span.lbl,.sidebar .sub{display:none}.content{margin-right:36px}.sidebar a{justify-content:center;padding:0}}
+@media(max-width:480px){.btn{min-height:44px;height:44px}.btn.big{height:48px}.chev{width:44px;height:44px;min-height:44px}.iconbtn{min-width:44px;min-height:44px}.pager button{height:44px;min-height:44px}.adminbar .hamb.btn{display:inline-flex;height:44px;min-height:44px}.sidebar{display:none}.sidebar.open{display:block;width:200px}.sidebar.open a span.lbl{display:inline}.content{margin-right:0;padding:16px}.kpis{grid-template-columns:1fr}.card{padding:16px}.filterbar>*{flex:1 1 100%}.filterbar .btn{width:100%;height:48px}.detail{padding:12px}}
+</style>
+</head>
+<body>
+<div class="adminbar"><div class="ab"><span style="display:inline-flex;gap:6px;align-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg> فروشگاه نمونه ووکامرس</span><a href="#" onclick="return note('پنل مدیریت وردپرس')">وردپرس</a></div><div class="ab"><span>مدیر فروشگاه ▾</span><button class="hamb btn" onclick="document.querySelector('.sidebar').classList.toggle('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg> منو</button></div></div>
+<div class="layout">
+<nav class="sidebar" id="sb">
+<a href="#" onclick="return note('بخش پیشخوان')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg></span><span class="lbl">پیشخوان</span></a>
+<a href="#" onclick="return note('بخش محصولات')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg></span><span class="lbl">محصولات</span></a>
+<a href="#" onclick="return note('بخش سفارش‌ها')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"/><path d="M9 7h6M9 11h6"/></svg></span><span class="lbl">سفارش‌ها</span></a>
+<a href="#" onclick="return note('بخش ووکامرس')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M2 3h3l2.6 12h10.8l2-8H6"/></svg></span><span class="lbl">ووکامرس</span></a>
+<a href="#" class="active"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></span><span class="lbl">همگام‌سازی قیمت</span></a>
+<div class="sub"><a href="#dash" class="on">داشبورد</a><a href="#logsec">لاگ اجراها</a><a href="#cmpsec">مقایسه قیمت‌ها</a></div>
+<a href="#" onclick="return note('بخش گزارش‌ها')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15v3M12 10v8M17 6v12"/></svg></span><span class="lbl">گزارش‌ها</span></a>
+<a href="#" onclick="return note('بخش تنظیمات')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></span><span class="lbl">تنظیمات</span></a>
+<a href="#" onclick="return note('بخش افزونه‌ها')"><span class="side-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v4a2 2 0 1 0 4 0h2v6h-4a2 2 0 1 0 0 4H9v-4a2 2 0 1 0-4 0H3V7h4a2 2 0 1 0 0-4z"/></svg></span><span class="lbl">افزونه‌ها</span></a>
+</nav>
+<main class="content">
+<div class="notice" id="notice"><span id="noticeTxt"></span><button class="iconbtn" onclick="hideNote()">✕</button></div>
+<div class="headrow"><div><h1>همگام‌سازی قیمت محصولات</h1><p class="sub">اتصال به API سایت مرجع و به‌روزرسانی خودکار قیمت و موجودی</p></div>
+<div style="display:flex;gap:8px"><button class="btn" onclick="goTab(0);document.getElementById('apikey').focus()">تنظیمات اتصال</button><button class="btn primary" onclick="startSync()">همگام‌سازی دستی</button></div></div>
+<div class="tabs" role="tablist">
+<button class="active" onclick="goTab(0)">داشبورد</button><button onclick="goTab(1)">نگاشت فیلدها</button><button onclick="goTab(2)">قوانین قیمت</button><button onclick="goTab(3)">لاگ اجراها</button><button onclick="goTab(4)">مقایسه قیمت‌ها</button>
+</div>
+<!-- PANEL 0: DASHBOARD -->
+<section class="panel" id="p0">
+<div class="kpis" id="dash">
+<div class="kpi"><div class="top"><span class="chip" style="background:#d1e7dd;color:#0a3622"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2v6M15 2v6"/><path d="M5 8h14v3a7 7 0 0 1-14 0z"/><path d="M12 18v4"/></svg></span><div><div class="val"><span class="dot" id="connDot"></span> <span id="connTxt">متصل</span></div><div class="lbl">وضعیت اتصال API</div></div></div><div style="margin-top:10px"><span class="ep" dir="ltr">https://api.ref-shop.ir/v1/products</span><div class="barlbl">آخرین بررسی: ۲ دقیقه پیش</div></div></div>
+<div class="kpi"><div class="top"><span class="chip" style="background:#dbeafe;color:#1e40af"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="val" id="kpiLast">۲۹ آبان ۱۴۰۵ — ۱۴:۳۲</div><div class="lbl">آخرین همگام‌سازی</div></div></div><div class="barlbl" style="margin-top:12px">مدت اجرا: ۴۲ ثانیه</div></div>
+<div class="kpi"><div class="top"><span class="chip" style="background:#fde8f1;color:#0a3622"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><div><div class="val" id="kpiUpd">۱٬۲۴۸</div><div class="lbl">محصولات به‌روزشده</div></div></div><div class="bar"><i style="width:86%"></i></div><div class="barlbl">۸۶٪ از کل محصولات</div></div>
+<div class="kpi"><div class="top"><span class="chip" style="background:#fbeaea;color:#8a2424"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18.5v.5"/></svg></span><div><div class="val" style="color:#d63638" id="kpiErr">۳</div><div class="lbl">خطاهای امروز</div></div></div><div class="bar"><i style="width:8%;background:#d63638"></i></div><div class="barlbl">نیازمند بررسی در لاگ</div></div>
+</div>
+<div class="grid2">
+<div class="card"><h2>روند همگام‌سازی — ۷ اجرای اخیر</h2>
+<svg viewBox="0 0 520 180" style="width:100%" role="img" aria-label="نمودار روند همگام‌سازی">
+<line x1="30" y1="150" x2="500" y2="150" stroke="#dcdcde"/><line x1="30" y1="100" x2="500" y2="100" stroke="#f0f0f1"/><line x1="30" y1="50" x2="500" y2="50" stroke="#f0f0f1"/>
+<polyline points="40,120 110,80 180,95 250,45 320,65 390,30 460,50" fill="none" stroke="#2271b1" stroke-width="2.5"/>
+<polyline points="40,135 110,110 180,120 250,90 320,100 390,75 460,85" fill="none" stroke="#e0245e" stroke-width="2"/>
+<g font-size="11" fill="#646970"><text x="30" y="168">شنبه</text><text x="105" y="168">یکشنبه</text><text x="180" y="168">دوشنبه</text><text x="250" y="168">سه‌شنبه</text><text x="315" y="168">چهارشنبه</text><text x="385" y="168">پنجشنبه</text><text x="455" y="168">جمعه</text></g>
+</svg><p style="font-size:12px;color:#646970"><span style="color:#2271b1">■</span> به‌روزشده &nbsp; <span style="color:#e0245e">■</span> خطادار</p></div>
+<div class="card"><h2>رویدادهای اخیر</h2><div class="tl" id="timeline">
+<div class="ev s"><span>همگام‌سازی خودکار کامل شد</span><span class="t">اکنون</span></div>
+<div class="ev"><span>قیمت ۲۴۸ محصول به‌روز شد</span><span class="t">۱۰ دقیقه پیش</span></div>
+<div class="ev e"><span>خطا در به‌روزرسانی ۳ محصول</span><span class="t">۱ ساعت پیش</span></div>
+<div class="ev s"><span>تست اتصال API موفق بود</span><span class="t">۲۹ آبان — ۱۱:۲۲</span></div>
+<div class="ev w"><span>قانون رند کردن قیمت تغییر کرد</span><span class="t">۲۹ آبان — ۰۹:۳۰</span></div>
+<div class="ev p"><span>زمان‌بندی خودکار فعال شد</span><span class="t">۲۸ آبان — ۰۸:۰۲</span></div>
+<div class="ev"><span>نگاشت فیلد موجودی ذخیره شد</span><span class="t">۲۸ آبان — ۰۶:۰۰</span></div>
+</div></div>
+</div>
+<div class="card"><h2>تنظیمات اتصال API</h2>
+<label class="fl" for="apikey">کلید API سایت مرجع</label>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><input class="fld" type="password" id="apikey" value="sk-live-764296-demo-key" style="flex:1"><button class="btn" onclick="toggleKey(this)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></svg> نمایش</button><button class="btn primary" onclick="saveKey()">ذخیره</button></div>
+<p class="errtxt" id="keyErr" style="margin-top:6px"></p>
+<div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn" id="testBtn" onclick="testConn()">تست اتصال</button><button class="btn" id="discBtn" onclick="toggleConn()">قطع اتصال</button></div>
+</div>
+<div class="split">
+<div class="card"><h2>همگام‌سازی دستی</h2><p style="color:#646970;margin-bottom:8px">همگام‌سازی فوری همه محصولات از API مرجع</p>
+<button class="btn primary big" id="syncBtn" onclick="startSync()">شروع همگام‌سازی</button>
+<div id="syncProg" style="display:none"><div class="pbar"><i id="syncBar" style="width:0%"></i></div><p id="syncCnt" style="font-size:13px">در حال پردازش محصول ۰ از ۱٬۲۴۸</p><button class="btn ghost" style="color:#d63638" onclick="cancelSync()">لغو همگام‌سازی</button></div></div>
+<div class="card"><h2>زمان‌بندی خودکار</h2>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span>فعال بودن همگام‌سازی خودکار</span><label class="tgl"><input type="checkbox" id="schedOn" checked onchange="schedToggle()"><span></span></label></div>
+<div id="schedCtrls">
+<label class="fl">تناوب اجرا</label><select class="fld" id="freq" style="width:100%" onchange="nextRun()"><option>هر ساعت</option><option selected>هر ۶ ساعت</option><option>روزانه</option><option>هفتگی</option></select>
+<label class="fl" style="margin-top:12px">ساعت اجرا</label><input class="fld" id="schedTime" value="۰۲:۳۰" style="width:100%" oninput="nextRun()">
+<label class="fl" style="margin-top:12px">روز هفته (برای حالت هفتگی)</label><select class="fld" id="schedDay" style="width:100%" onchange="nextRun()"><option>شنبه</option><option>یکشنبه</option><option>دوشنبه</option><option>سه‌شنبه</option><option>چهارشنبه</option><option>پنجشنبه</option><option>جمعه</option></select>
+<p style="margin-top:12px" id="nextRunTxt">اجرای بعدی: ۳۰ آبان ۱۴۰۵ — ۰۲:۳۰</p>
+<button class="btn primary" style="margin-top:10px" onclick="note('زمان‌بندی خودکار ذخیره شد')">ذخیره زمان‌بندی</button></div></div>
+</div>
+</section>
+<!-- PANEL 1: MAPPING -->
+<section class="panel" id="p1" style="display:none">
+<div class="card"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><h2>نگاشت فیلدها</h2><button class="btn primary" onclick="saveMap()">ذخیره نگاشت</button></div>
+<div style="display:flex;gap:12px;padding:8px 16px;font-weight:600"><span style="flex:1">فیلد مرجع (API)</span><span>جهت</span><span style="flex:1">فیلد ووکامرس</span><span style="width:36px">فعال</span><span style="width:36px"></span></div>
+<div id="mapRows"></div>
+<button class="btn" style="margin-top:14px" onclick="addMapRow()">+ افزودن نگاشت</button></div>
+</section>
+<!-- PANEL 2: RULES -->
+<section class="panel" id="p2" style="display:none">
+<div class="card"><h2>قوانین تغییر قیمت</h2>
+<div class="formgrid">
+<div><label class="fl">نوع قانون</label><div class="seg" id="ruleType">
+<label><input type="radio" name="rt" value="pct" checked onchange="preview()"> درصدی ٪</label>
+<label><input type="radio" name="rt" value="fix" onchange="preview()"> مبلغ ثابت (حاشیه سود)</label>
+<label><input type="radio" name="rt" value="both" onchange="preview()"> ترکیبی</label></div></div>
+<div><label class="fl">اعمال روی</label><label style="display:block;margin-bottom:6px"><input type="checkbox" checked> همه محصولات</label><label style="display:block;margin-bottom:6px"><input type="checkbox" id="onlyStock"> فقط موجودها</label><label style="display:block"><input type="checkbox" id="catChk" onchange="document.getElementById('catSel').style.display=this.checked?'block':'none'"> دسته‌های انتخابی</label><select class="fld" id="catSel" style="display:none;width:100%;margin-top:6px"><option>لوازم خانگی</option><option>دیجیتال</option><option>ابزار</option></select></div>
+<div><label class="fl">مقدار درصد</label><div class="suffix"><input id="pct" value="۱۵" oninput="preview()"><b>٪</b></div></div>
+<div><label class="fl">حاشیه سود ثابت</label><div class="suffix"><input id="fix" value="۵۰۰۰۰" oninput="preview()"><b>تومان</b></div></div>
+<div><label class="fl">رند کردن</label><select class="fld" id="roundAmt" style="width:100%" onchange="preview()"><option value="0">بدون رند</option><option value="100">نزدیک‌ترین ۱۰۰ تومان</option><option value="500">نزدیک‌ترین ۵۰۰ تومان</option><option value="1000" selected>نزدیک‌ترین ۱٬۰۰۰ تومان</option></select></div>
+<div><label class="fl">جهت رند</label><select class="fld" id="roundDir" style="width:100%" onchange="preview()"><option value="near">نزدیک‌ترین</option><option value="up">رو به بالا</option><option value="down">رو به پایین</option></select></div>
+<div><label class="fl">کف تغییر (٪)</label><div class="suffix"><input id="minP" value="۰" oninput="preview()"><b>٪</b></div></div>
+<div><label class="fl">سقف تغییر (٪)</label><div class="suffix"><input id="maxP" value="۵۰" oninput="preview()"><b>٪</b></div></div>
+</div><p class="errtxt" id="ruleErr"></p>
+<div class="preview" id="previewBox">قیمت مرجع ۱٬۰۰۰٬۰۰۰ تومان ← قیمت نهایی ۱٬۱۵۰٬۰۰۰ تومان</div>
+<div style="display:flex;gap:8px;margin-top:16px"><button class="btn primary" onclick="saveRules()">ذخیره قوانین</button><button class="btn" onclick="resetRules()">بازنشانی</button></div></div>
+</section>
+<!-- PANEL 3: LOG -->
+<section class="panel" id="p3" style="display:none">
+<div class="card" id="logsec"><h2 style="font-size:15px">مجموع رکوردها: <span id="logCount">۳۶۵</span> <span class="badge b-run">لاگ اجراها</span></h2>
+<div class="subtabs"><button class="active" onclick="logTab(this,'all')">همه اجراها</button><button onclick="logTab(this,'ok')">موفق</button><button onclick="logTab(this,'err')">دارای خطا</button></div>
+<div class="filterbar">
+<div><label class="fl">از تاریخ</label><input id="dFrom" value="۱۴۰۵/۰۸/۰۱"></div>
+<div><label class="fl">تا تاریخ</label><input id="dTo" value="۱۴۰۵/۰۸/۲۹"></div>
+<div><label class="fl">منبع</label><select id="srcF"><option value="">همه</option><option>دستی</option><option>خودکار</option><option>API</option></select></div>
+<div><label class="fl">جستجو</label><input id="logSearch" placeholder="جستجو در لاگ…" oninput="renderLog()"></div>
+<button class="btn primary" onclick="renderLog();note('فیلتر لاگ اعمال شد')">فیلتر</button>
+<button class="btn ghost" onclick="downloadLog()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 19h16"/></svg> دانلود لاگ</button></div>
+<div style="overflow-x:auto"><table><thead><tr><th>وضعیت</th><th>تاریخ و ساعت اجرا</th><th>منبع</th><th>پردازش‌شده</th><th>به‌روزشده</th><th>خطاها</th><th>مدت</th><th>جزئیات</th></tr></thead><tbody id="logBody"></tbody></table></div>
+<div class="pager" id="logPager"></div></div>
+</section>
+<!-- PANEL 4: COMPARISON -->
+<section class="panel" id="p4" style="display:none">
+<div class="card" id="cmpsec"><h2>مقایسه قیمت‌ها — قبل و بعد از همگام‌سازی</h2>
+<div class="toolbar"><input id="cmpSearch" placeholder="جستجوی محصول یا SKU…" oninput="renderCmp()" style="flex:1;min-width:180px">
+<select id="cmpFilter" onchange="renderCmp()"><option value="all">همه</option><option value="changed">فقط تغییرکرده</option><option value="up">فقط افزایش</option><option value="down">فقط کاهش</option></select>
+<button class="btn primary" onclick="exportCSV()">خروجی اکسل (CSV)</button></div>
+<div style="overflow-x:auto"><table class="zebra"><thead><tr><th>محصول</th><th>قیمت قبل</th><th>قیمت مرجع</th><th>قیمت بعد</th><th>تغییر</th><th>موجودی قبل ← بعد</th></tr></thead><tbody id="cmpBody"></tbody></table></div>
+<p style="margin-top:12px;color:#646970" id="cmpCount">نمایش ۸ از ۱٬۲۴۸ محصول</p></div>
+</section>
+<footer class="st"><span>همگام‌ساز قیمت ووکامرس — نسخه ۲٫۴٫۰</span><span>آخرین اتصال موفق: ۲۹ آبان ۱۴۰۵ — ۱۴:۳۲</span><a href="#" onclick="openModal();return false">مستندات API</a><a href="#" onclick="note('گزارش شما ثبت شد؛ پشتیبانی بررسی می‌کند','warn');return false">گزارش مشکل</a></footer>
+</main></div>
+<div class="modal" id="modal"><div class="box"><h2 style="font-size:16px;font-weight:600;margin-bottom:10px">مستندات API مرجع</h2><p>نقطه پایانی محصولات: <span class="ep" dir="ltr">GET /v1/products</span></p><p style="margin-top:8px">احراز هویت با کلید API در هدر درخواست انجام می‌شود. پاسخ شامل فیلدهای <span dir="ltr">price, stock_quantity, title, sku, sale_price</span> است که در تب «نگاشت فیلدها» به فیلدهای ووکامرس متصل می‌شوند.</p><button class="btn primary" style="margin-top:16px" onclick="closeModal()">بستن</button></div></div>
+<script>
+const FA='۰۱۲۳۴۵۶۷۸۹';
+const fa=s=>String(s).replace(/[0-9]/g,d=>FA[d]).replace(/\B(?=(\d{3})+(?!\d))/g,'٬');
+const faNum=n=>fa(Math.round(n).toLocaleString('en-US')).replace(/,/g,'٬');
+const en=s=>String(s).replace(/[۰-۹]/g,d=>FA.indexOf(d)).replace(/٬|,/g,'');
+const num=id=>parseFloat(en(document.getElementById(id).value))||0;
+function note(t,type){const n=document.getElementById('notice');document.getElementById('noticeTxt').textContent=t;n.className='notice show '+(type||'');clearTimeout(window._nt);window._nt=setTimeout(hideNote,4000);return false}
+function hideNote(){document.getElementById('notice').className='notice'}
+function goTab(i){document.querySelectorAll('.tabs button').forEach((b,j)=>b.classList.toggle('active',i===j));document.querySelectorAll('.panel').forEach((p,j)=>p.style.display=i===j?'block':'none');window.scrollTo({top:0,behavior:'smooth'})}
+function toggleKey(b){const k=document.getElementById('apikey');const show=k.type==='password';k.type=show?'text':'password';b.innerHTML=show?'پنهان':'نمایش'}
+function saveKey(){const v=document.getElementById('apikey').value.trim();const e=document.getElementById('keyErr');if(v.length<8){e.textContent='کلید API باید حداقل ۸ نویسه باشد.';return}e.textContent='';note('کلید API ذخیره شد')}
+let connected=true;
+function toggleConn(){connected=!connected;document.getElementById('connDot').className='dot'+(connected?'':' off');document.getElementById('connTxt').textContent=connected?'متصل':'قطع';document.getElementById('discBtn').textContent=connected?'قطع اتصال':'اتصال مجدد';note(connected?'اتصال API برقرار شد':'اتصال API قطع شد',connected?'':'warn')}
+function testConn(){const b=document.getElementById('testBtn');b.innerHTML='<span class="spin" style="border-color:#2271b1;border-top-color:transparent"></span> در حال تست…';b.disabled=true;setTimeout(()=>{b.textContent='تست اتصال';b.disabled=false;connected=true;document.getElementById('connDot').className='dot';document.getElementById('connTxt').textContent='متصل';note('تست اتصال موفق بود — پاسخ API در ۱۸۰ میلی‌ثانیه دریافت شد')},1100)}
+/* mapping */
+const APIF=['price — قیمت','stock_quantity — موجودی','title — عنوان','sku — شناسه','sale_price — قیمت حراج','weight — وزن','category — دسته'];
+const WOOF=['قیمت محصول','موجودی انبار','نام محصول','شناسه محصول (SKU)','قیمت حراج','وزن محصول','دسته‌بندی'];
+let maps=[['price — قیمت','قیمت محصول',1],['stock_quantity — موجودی','موجودی انبار',1],['title — عنوان','نام محصول',1],['sku — شناسه','شناسه محصول (SKU)',1],['sale_price — قیمت حراج','قیمت حراج',0]];
+function renderMaps(){const w=document.getElementById('mapRows');w.innerHTML='';maps.forEach((m,i)=>{const dup=maps.some((x,j)=>j!==i&&x[1]===m[1]);const d=document.createElement('div');d.className='maprow';d.innerHTML=`<select onchange="mapCh(${i},0,this.value)">${APIF.map(f=>`<option ${f===m[0]?'selected':''}>${f}</option>`).join('')}</select><span>←</span><select class="${dup?'err':''}" onchange="mapCh(${i},1,this.value)">${WOOF.map(f=>`<option ${f===m[1]?'selected':''}>${f}</option>`).join('')}</select><label class="tgl"><input type="checkbox" ${m[2]?'checked':''} onchange="maps[${i}][2]=this.checked?1:0"><span></span></label><button class="iconbtn" title="حذف" onclick="maps.splice(${i},1);renderMaps()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V3h8v3M6 6l1 15h10l1-15M10 11v6M14 11v6"/></svg></button><span class="unsaved" id="uns${i}"></span>${dup?'<span class="errtxt">این فیلد ووکامرس قبلاً نگاشت شده است — نگاشت تکراری مجاز نیست.</span>':''}`;w.appendChild(d)})}
+function mapCh(i,k,v){maps[i][k]=v;renderMaps();const u=document.getElementById('uns'+i);if(u)u.classList.add('on')}
+function addMapRow(){maps.push([APIF[5],WOOF[5],1]);renderMaps();note('ردیف نگاشت جدید اضافه شد','warn')}
+function saveMap(){if(maps.some((m,i)=>maps.some((x,j)=>j!==i&&x[1]===m[1]))){note('نگاشت تکراری وجود دارد؛ ابتدا خطا را برطرف کنید','err');return}note('نگاشت فیلدها ذخیره شد')}
+renderMaps();
+/* rules */
+function preview(){const t=document.querySelector('input[name=rt]:checked').value;let base=1000000,out=base;if(t==='pct'||t==='both')out+=base*num('pct')/100;if(t==='fix'||t==='both')out+=num('fix');const ra=num('roundAmt'),rd=document.getElementById('roundDir').value;if(ra>0){out=rd==='up'?Math.ceil(out/ra)*ra:rd==='down'?Math.floor(out/ra)*ra:Math.round(out/ra)*ra}const chg=(out-base)/base*100;const mn=num('minP'),mx=num('maxP');const e=document.getElementById('ruleErr');if(mn>=mx&&mx>0){e.textContent='کف تغییر باید کمتر از سقف تغییر باشد.'}else if(chg<mn||(mx>0&&chg>mx)){e.textContent='تغییر محاسبه‌شده ('+fa(chg.toFixed(1))+'٪) خارج از بازه کف/سقف مجاز است.'}else e.textContent='';document.getElementById('previewBox').textContent='قیمت مرجع '+faNum(base)+' تومان ← قیمت نهایی '+faNum(out)+' تومان (تغییر '+fa(chg.toFixed(1))+'٪)'}
+function saveRules(){if(document.getElementById('ruleErr').textContent){note('قوانین معتبر نیستند','err');return}note('قوانین قیمت ذخیره شد')}
+function resetRules(){document.getElementById('pct').value='۱۵';document.getElementById('fix').value='۵۰۰۰۰';document.getElementById('roundAmt').value='1000';preview();note('قوانین به مقادیر پیش‌فرض بازگشت','warn')}
+preview();
+/* sync */
+let syncTimer=null;
+function startSync(){goTab(0);const box=document.getElementById('syncProg'),btn=document.getElementById('syncBtn');box.style.display='block';btn.disabled=true;btn.innerHTML='<span class="spin"></span> در حال همگام‌سازی…';let n=0;clearInterval(syncTimer);syncTimer=setInterval(()=>{n+=62;if(n>=1248){n=1248;clearInterval(syncTimer);btn.disabled=false;btn.textContent='شروع همگام‌سازی';box.style.display='none';document.getElementById('kpiLast').textContent='۲۹ آبان ۱۴۰۵ — ۱۵:۰۵';logs.unshift({s:'ok',d:'۲۹ آبان ۱۴۰۵ — ۱۵:۰۵',src:'دستی',p:1248,u:1248,e:0,dur:'۴۸ ثانیه',items:[]});renderLog();const tl=document.getElementById('timeline');tl.insertAdjacentHTML('afterbegin','<div class="ev s"><span>همگام‌سازی دستی کامل شد</span><span class="t">اکنون</span></div>');note('همگام‌سازی کامل شد — ۱٬۲۴۸ محصول به‌روز شد و ردیف جدید در لاگ ثبت شد')}document.getElementById('syncBar').style.width=(n/1248*100)+'%';document.getElementById('syncCnt').textContent='در حال پردازش محصول '+faNum(n)+' از ۱٬۲۴۸'},120)}
+function cancelSync(){clearInterval(syncTimer);const btn=document.getElementById('syncBtn');btn.disabled=false;btn.textContent='شروع همگام‌سازی';document.getElementById('syncProg').style.display='none';logs.unshift({s:'cancel',d:'۲۹ آبان ۱۴۰۵ — ۱۵:۰۶',src:'دستی',p:310,u:298,e:0,dur:'۱۲ ثانیه',items:[]});renderLog();note('همگام‌سازی لغو شد','warn')}
+/* schedule */
+function schedToggle(){const on=document.getElementById('schedOn').checked;document.querySelectorAll('#schedCtrls select,#schedCtrls input,#schedCtrls button').forEach(el=>el.disabled=!on);document.getElementById('schedCtrls').style.opacity=on?1:.5;nextRun()}
+function nextRun(){const f=document.getElementById('freq').value,t=document.getElementById('schedTime').value||'۰۲:۳۰';const day=f==='هفتگی'?' ('+document.getElementById('schedDay').value+')':'';document.getElementById('nextRunTxt').textContent=document.getElementById('schedOn').checked?('اجرای بعدی: ۳۰ آبان ۱۴۰۵ — '+t+day):'زمان‌بندی غیرفعال است'}
+/* comparison */
+const cmp=[['یخچال فریزر ۲۷ فوت اسنوا','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="1"/><path d="M6 10h12M9 5v2M9 13v3"/></svg>','SNW-2700',85000000,91200000,97500000,24,24],['ماشین لباسشویی ۹ کیلویی پاکشوما','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M8 5h.5M11 5h4"/></svg>','PKW-900',42500000,44800000,45500000,12,10],['تلویزیون ۵۵ اینچ ایکس‌ویژن','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="13" rx="1"/><path d="M8 21h8"/></svg>','XTV-55',38900000,37400000,36500000,8,8],['جاروبرقی ۲۴۰۰ وات پارس‌خزر','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l6-9"/><circle cx="14" cy="8" r="5"/><path d="M17 12l3 8"/></svg>','PKV-240',9850000,10200000,10500000,40,38],['گوشی موبایل شیائومی نوت ۱۳','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>','XMI-N13',11200000,11200000,11200000,57,57],['لپ‌تاپ ایسوس ویووبوک ۱۵','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="11" rx="1"/><path d="M2 19h20"/></svg>','ASU-V15',54700000,56900000,58200000,6,5],['کولر گازی ۱۸۰۰۰ جنرال','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="9" rx="1"/><path d="M6 10h12M7 18c0 2 2 2 2 4M12 18c0 2 2 2 2 4M17 18c0 2 2 2 2 4"/></svg>','GEN-18',46800000,45100000,44000000,15,13],['اتو بخار فیلیپس','<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17c4-6 9-9 18-9v3H5"/><path d="M3 17h18v3H3z"/><path d="M8 8a4 4 0 0 1 4-3h5"/></svg>','PHL-ST',3250000,3480000,3600000,63,60]];
+function renderCmp(){const q=en(document.getElementById('cmpSearch').value).toLowerCase(),f=document.getElementById('cmpFilter').value;const tb=document.getElementById('cmpBody');tb.innerHTML='';const filtered=cmp.filter(r=>{const chg=(r[6-1],(r[5]-r[3])/r[3]*100);const txt=(r[0]+r[2]).toLowerCase();if(q&&!txt.includes(q)&&!en(r[0]).toLowerCase().includes(q))return false;if(f==='changed')return r[5]!==r[3];if(f==='up')return r[5]>r[3];if(f==='down')return r[5]<r[3];return true});document.getElementById('cmpCount').textContent='نمایش '+faNum(filtered.length)+' از ۱٬۲۴۸ محصول';filtered.forEach(r=>{const chg=(r[5]-r[3])/r[3]*100;const b=chg>0?'<span class="badge b-up">▲ '+fa(chg.toFixed(1))+'٪</span>':chg<0?'<span class="badge b-dn">▼ '+fa(Math.abs(chg).toFixed(1))+'٪</span>':'<span class="badge b-grey">بدون تغییر</span>';tb.innerHTML+=`<tr><td><span style="display:flex;gap:10px;align-items:center"><span class="thumb" style="background:#f0f6fc">${r[1]}</span><span>${r[0]}<br><span style="font-size:12px;color:#646970" dir="ltr">${r[2]}</span></span></span></td><td>${faNum(r[3])} تومان</td><td>${faNum(r[4])} تومان</td><td><b>${faNum(r[5])} تومان</b></td><td>${b}</td><td>${faNum(r[6])} ← ${faNum(r[7])}</td></tr>`})}
+renderCmp();
+function exportCSV(){let csv='product,sku,before,reference,after,stock_before,stock_after\n'+cmp.map(r=>[r[0],r[2],r[3],r[4],r[5],r[6],r[7]].join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download='price-comparison.csv';a.click();note('فایل CSV مقایسه قیمت‌ها دانلود شد')}
+/* log */
+let logs=[
+{s:'ok',d:'۲۹ آبان ۱۴۰۵ — ۱۴:۳۲',src:'خودکار',p:1248,u:1210,e:3,dur:'۴۲ ثانیه',items:[['یخچال فریزر اسنوا','SNW-2700','قیمت مرجع نامعتبر است','422'],['کولر گازی جنرال','GEN-18','موجودی مرجع خالی برگشت','400']]},
+{s:'err',d:'۲۹ آبان ۱۴۰۵ — ۰۸:۰۰',src:'خودکار',p:1248,u:980,e:12,dur:'۵۵ ثانیه',items:[['لپ‌تاپ ایسوس ویووبوک','ASU-V15','timeout در پاسخ API','504'],['اتو بخار فیلیپس','PHL-ST','قیمت مرجع صفر است','422']]},
+{s:'ok',d:'۲۸ آبان ۱۴۰۵ — ۲۲:۱۵',src:'دستی',p:1248,u:1248,e:0,dur:'۳۹ ثانیه',items:[]},
+{s:'run',d:'۲۸ آبان ۱۴۰۵ — ۱۶:۴۰',src:'API',p:640,u:601,e:1,dur:'در حال اجرا',items:[['جاروبرقی پارس‌خزر','PKV-240','تأخیر پاسخ مرجع','408']]},
+{s:'cancel',d:'۲۸ آبان ۱۴۰۵ — ۱۰:۰۵',src:'دستی',p:310,u:298,e:0,dur:'۱۲ ثانیه',items:[]},
+{s:'ok',d:'۲۷ آبان ۱۴۰۵ — ۱۴:۳۲',src:'خودکار',p:1248,u:1231,e:2,dur:'۴۴ ثانیه',items:[]}];
+let logFilter='all',logPage=1;const PER=3;
+const JM={'فروردین':1,'اردیبهشت':2,'خرداد':3,'تیر':4,'مرداد':5,'شهریور':6,'مهر':7,'آبان':8,'آذر':9,'دی':10,'بهمن':11,'اسفند':12};
+function jKeyLog(d){const parts=en(d).split('—')[0].trim().split(/\s+/);if(parts.length<3)return 0;return (+parts[2])*10000+(JM[parts[1]]||0)*100+(+parts[0])}
+function jKeyInput(v){const a=en(v).trim().split('/');if(a.length<3||!a[0])return null;return (+a[0])*10000+(+a[1])*100+(+a[2])}
+function logTab(b,f){document.querySelectorAll('.subtabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');logFilter=f;logPage=1;renderLog()}
+function renderLog(){const q=document.getElementById('logSearch').value.trim(),src=document.getElementById('srcF').value;const kf=jKeyInput(document.getElementById('dFrom').value),kt=jKeyInput(document.getElementById('dTo').value);let rows=logs.filter(l=>(logFilter==='all'||(logFilter==='ok'&&l.s==='ok')||(logFilter==='err'&&(l.s==='err'||l.e>0)))&&(!src||l.src===src)&&(!q||JSON.stringify(l).includes(q))&&(kf===null||jKeyLog(l.d)>=kf)&&(kt===null||jKeyLog(l.d)<=kt));const pages=Math.max(1,Math.ceil(rows.length/PER));if(logPage>pages)logPage=pages;const slice=rows.slice((logPage-1)*PER,logPage*PER);const tb=document.getElementById('logBody');tb.innerHTML='';const badge={ok:'<span class="badge b-ok">موفق</span>',err:'<span class="badge b-err">خطادار</span>',run:'<span class="badge b-run pulse">در حال اجرا</span>',cancel:'<span class="badge b-grey">لغوشده</span>'};slice.forEach((l,idx)=>{tb.innerHTML+=`<tr><td>${badge[l.s]}</td><td>${l.d}</td><td>${l.src}</td><td>${faNum(l.p)}</td><td>${faNum(l.u)}</td><td>${l.e>0?'<span style="color:#d63638;font-weight:700">'+faNum(l.e)+'</span>':faNum(0)}</td><td>${l.dur}</td><td><button class="chev" id="chev${idx}" onclick="toggleDetail(${idx})">⌄</button></td></tr>`;const items=l.items.length?l.items.map((it,j)=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed #dcdcde;flex-wrap:wrap"><span>${it[0]} — <span dir="ltr">${it[1]}</span> — ${it[2]} — کد پاسخ: ${fa(it[3])}</span><button class="btn" onclick="retryItem(this)">تلاش مجدد</button></div>`).join(''):'<p>این اجرا خطایی نداشته است.</p>';tb.innerHTML+=`<tr id="det${idx}" style="display:none"><td colspan="8" class="detail">${items}<button class="btn" style="margin-top:10px" onclick="copyDet(this)">کپی جزئیات</button></td></tr>`});document.getElementById('logCount').textContent=faNum(rows.length);const pg=document.getElementById('logPager');pg.innerHTML=`<button ${logPage<=1?'disabled':''} onclick="logPage--;renderLog()">قبلی</button>`+Array.from({length:pages},(_,i)=>`<button class="${logPage===i+1?'on':''}" onclick="logPage=${i+1};renderLog()">${fa(i+1)}</button>`).join('')+`<button ${logPage>=pages?'disabled':''} onclick="logPage++;renderLog()">بعدی</button>`}
+function toggleDetail(i){const d=document.getElementById('det'+i),c=document.getElementById('chev'+i);const open=d.style.display!=='none';document.querySelectorAll('[id^=det]').forEach(x=>x.style.display='none');document.querySelectorAll('.chev').forEach(x=>x.classList.remove('open'));if(!open){d.style.display='table-row';c.classList.add('open')}}
+function retryItem(b){b.innerHTML='<span class="spin" style="border-color:#2271b1;border-top-color:transparent"></span>';setTimeout(()=>{b.textContent='✓ موفق شد';b.disabled=true;note('تلاش مجدد موفق بود — محصول به‌روز شد')},800)}
+function copyDet(b){const t=b.closest('td').innerText;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>note('جزئیات لاگ کپی شد')).catch(()=>note('جزئیات لاگ کپی شد'))}
+function downloadLog(){let txt=logs.map(l=>[l.d,l.src,l.p,l.u,l.e,l.dur].join(' | ')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/plain'}));a.download='sync-log.txt';a.click();note('فایل لاگ دانلود شد')}
+renderLog();
+function openModal(){document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body></html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فروشگاه نمونه اپ‌وبینو | لوازم خانگی و کالای دیجیتال</title>
+<meta name="description" content="نمونه فروشگاه اینترنتی طراحی‌شده توسط اپ‌وبینو — تجربه خرید مدرن، سریع و راست‌چین با سبد خرید و تسویه کامل.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --emerald:#04464a;
+  --emerald-2:#065a5f;
+  --emerald-dark:#03363a;
+  --coral:#ff6b4a;
+  --coral-dark:#f0522e;
+  --coral-soft:#ffe9e2;
+  --cream:#faf6ef;
+  --paper:#fffdf9;
+  --ink:#1d2b2a;
+  --muted:#6f7f7c;
+  --line:#e9e2d4;
+  --gold:#f5a623;
+  --green-ok:#1d9e75;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(4,70,74,.10);
+  --shadow-lg:0 24px 60px rgba(4,70,74,.22);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{
+  margin:0;
+  font-family:'Vazirmatn',system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  font-size:15.5px;
+  line-height:1.8;
+}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font-family:inherit;font-size:1rem}
+a{color:inherit;text-decoration:none}
+.container{max-width:1280px;margin-inline:auto;padding-inline:20px}
+
+/* ---------- نوار بالایی ---------- */
+.topbar{
+  background:var(--emerald-dark);color:#dff3ee;
+  font-size:.82rem;padding:7px 0;
+}
+.topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar b{color:#ffd9ce;font-weight:700}
+
+/* ---------- هدر ---------- */
+header.site{
+  position:sticky;top:0;z-index:60;
+  background:rgba(255,253,249,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-in{display:flex;align-items:center;gap:18px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{
+  width:44px;height:44px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(140deg,var(--emerald-2),var(--emerald-dark));
+  display:grid;place-items:center;
+}
+.logo-text{line-height:1.25}
+.logo-text strong{display:block;font-size:1.12rem;font-weight:900;color:var(--emerald)}
+.logo-text span{font-size:.74rem;color:var(--muted)}
+.searchbox{
+  flex:1;display:flex;align-items:center;gap:8px;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;
+  padding:4px 6px 4px 14px;transition:border-color .2s, box-shadow .2s;
+}
+.searchbox:focus-within{border-color:var(--emerald-2);box-shadow:0 0 0 4px rgba(6,90,95,.10)}
+.searchbox svg{flex-shrink:0;color:var(--muted)}
+.searchbox input{flex:1;border:none;outline:none;background:transparent;padding:8px 2px;color:var(--ink)}
+.searchbox input::placeholder{color:#9db0ac}
+.head-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.icon-btn{
+  position:relative;width:44px;height:44px;border-radius:14px;
+  display:grid;place-items:center;color:var(--emerald);
+  border:1.5px solid var(--line);background:#fff;transition:.2s;
+}
+.icon-btn:hover{border-color:var(--emerald-2);transform:translateY(-1px)}
+.cart-count{
+  position:absolute;top:-7px;inset-inline-start:-7px;
+  background:var(--coral);color:#fff;font-size:.72rem;font-weight:800;
+  min-width:20px;height:20px;border-radius:99px;display:grid;place-items:center;
+  padding-inline:5px;border:2px solid var(--paper);
+}
+nav.main-nav{border-top:1px dashed var(--line)}
+nav.main-nav .container{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:6px}
+nav.main-nav .container::-webkit-scrollbar{display:none}
+nav.main-nav a{
+  padding:6px 14px;border-radius:99px;font-size:.92rem;font-weight:500;color:#33524f;white-space:nowrap;transition:.2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{background:var(--emerald);color:#fff}
+
+/* ---------- هیرو ---------- */
+.hero{padding:26px 0 6px}
+.hero-banner{
+  position:relative;overflow:hidden;border-radius:28px;
+  background:
+    radial-gradient(600px 300px at 88% -10%,rgba(255,107,74,.35),transparent 60%),
+    linear-gradient(120deg,var(--emerald-dark),var(--emerald) 55%,var(--emerald-2));
+  color:#fff;padding:52px 54px;
+}
+.hero-banner .leaves{position:absolute;inset:0;opacity:.16;pointer-events:none}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:5px 14px;border-radius:99px;font-size:.82rem;font-weight:500;
+}
+.hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--coral);display:inline-block}
+.hero h1{font-size:2.35rem;font-weight:900;line-height:1.35;margin:18px 0 10px;max-width:640px}
+.hero h1 em{font-style:normal;color:#ffb59f}
+.hero p{color:#d7ece7;max-width:560px;margin:0 0 26px;font-size:1.02rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  border-radius:14px;padding:13px 26px;font-weight:800;font-size:.98rem;transition:.2s;border:1.5px solid transparent;
+}
+.btn-coral{background:var(--coral);color:#fff;box-shadow:0 12px 24px rgba(255,107,74,.35)}
+.btn-coral:hover{background:var(--coral-dark);transform:translateY(-2px)}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.06)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-emerald{background:var(--emerald);color:#fff}
+.btn-emerald:hover{background:var(--emerald-2);transform:translateY(-1px)}
+.hero-points{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;font-size:.86rem;color:#cfe8e2}
+.hero-points span{display:inline-flex;align-items:center;gap:7px}
+.hero-points svg{color:#ffb59f;flex-shrink:0}
+
+/* ---------- نوار مزیت‌ها ---------- */
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 4px}
+.perk{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;display:flex;gap:12px;align-items:center;
+}
+.perk .p-ic{
+  width:46px;height:46px;border-radius:14px;flex-shrink:0;display:grid;place-items:center;
+  background:var(--coral-soft);color:var(--coral-dark);
+}
+.perk:nth-child(2) .p-ic{background:#e2f2ec;color:var(--emerald)}
+.perk:nth-child(3) .p-ic{background:#fdf0d7;color:#b97a08}
+.perk:nth-child(4) .p-ic{background:#e6ecfb;color:#3d5a99}
+.perk strong{display:block;font-size:.94rem;line-height:1.5}
+.perk small{color:var(--muted);font-size:.78rem}
+</style>
+</head>
+<body>
+<style>
+/* ---------- سکشن و دسته‌ها ---------- */
+.section{padding:34px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.sec-head h2{font-size:1.5rem;font-weight:900;margin:0;color:var(--emerald-dark)}
+.sec-head p{margin:2px 0 0;color:var(--muted);font-size:.9rem}
+.cat-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.chip{
+  text-align:start;border-radius:20px;padding:18px 20px;color:#fff;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:2px;transition:.22s;border:2px solid transparent;width:100%;
+}
+.chip::after{
+  content:"";position:absolute;width:110px;height:110px;border-radius:50%;
+  background:rgba(255,255,255,.14);inset-inline-end:-30px;top:-40px;
+}
+.chip:hover{transform:translateY(-3px)}
+.chip.on{border-color:var(--ink);box-shadow:var(--shadow)}
+.chip .c-ic{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.02rem}
+.chip small{opacity:.92;font-size:.8rem}
+.chip .c-rate{font-size:.78rem;opacity:.95}
+.chip-all{background:linear-gradient(130deg,#3c4a49,#223331)}
+.chip-home{background:linear-gradient(130deg,#ff7d5c,var(--coral-dark))}
+.chip-digital{background:linear-gradient(130deg,var(--emerald-2),var(--emerald-dark))}
+.chip-offer{background:linear-gradient(130deg,#e8930c,#c96a00)}
+
+/* ---------- نوار ابزار محصولات ---------- */
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px 18px;margin-bottom:20px;
+}
+.toolbar .t-count{font-size:.92rem;color:var(--muted)}
+.toolbar .t-count b{color:var(--emerald);font-size:1.02rem}
+.toolbar label{font-size:.88rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.toolbar select{
+  border:1.5px solid var(--line);border-radius:10px;padding:7px 10px;background:#fff;color:var(--ink);outline:none;
+}
+.toolbar select:focus{border-color:var(--emerald-2)}
+
+/* ---------- گرید محصولات ---------- */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  display:flex;flex-direction:column;transition:.25s;position:relative;
+}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:#ddd2ba}
+.card .thumb{
+  position:relative;background:linear-gradient(160deg,#f3eee1,#e9f0ea);
+  aspect-ratio:4/3;display:grid;place-items:center;cursor:pointer;overflow:hidden;
+}
+.card .thumb svg{width:46%;height:auto;transition:transform .35s}
+.card:hover .thumb svg{transform:scale(1.07) rotate(-1deg)}
+.off-tag{
+  position:absolute;top:12px;inset-inline-start:12px;z-index:2;
+  background:var(--coral);color:#fff;font-size:.76rem;font-weight:800;
+  padding:3px 10px;border-radius:99px;
+}
+.cat-tag{
+  position:absolute;top:12px;inset-inline-end:12px;z-index:2;
+  background:rgba(4,70,74,.88);color:#fff;font-size:.72rem;padding:3px 10px;border-radius:99px;
+}
+.quick-btn{
+  position:absolute;bottom:12px;inset-inline:12px;z-index:2;
+  background:rgba(255,255,255,.95);color:var(--emerald);border:1.5px solid var(--line);
+  border-radius:12px;padding:8px;font-weight:700;font-size:.85rem;
+  opacity:0;transform:translateY(8px);transition:.25s;
+}
+.card:hover .quick-btn{opacity:1;transform:none}
+.quick-btn:hover{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card h3{margin:0;font-size:1rem;font-weight:800;line-height:1.6;cursor:pointer}
+.card h3:hover{color:var(--emerald)}
+.rate{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.rate .stars{color:var(--gold);letter-spacing:1px;font-size:.85rem;line-height:1}
+.price-row{margin-top:auto;padding-top:6px}
+.price-old{color:#b3a58c;text-decoration:line-through;font-size:.85rem}
+.price{font-size:1.18rem;font-weight:900;color:var(--emerald-dark)}
+.price small{font-size:.75rem;font-weight:500;color:var(--muted)}
+.add-btn{
+  margin-top:10px;width:100%;background:var(--coral);color:#fff;border-radius:13px;
+  padding:11px;font-weight:800;font-size:.94rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;
+}
+.add-btn:hover{background:var(--coral-dark)}
+.add-btn.added{background:var(--green-ok)}
+.empty-state{
+  grid-column:1/-1;text-align:center;padding:56px 20px;background:var(--paper);
+  border:1.5px dashed var(--line);border-radius:22px;color:var(--muted);
+}
+.empty-state strong{display:block;font-size:1.1rem;color:var(--ink);margin-bottom:4px}
+
+/* ---------- بنر میانی ---------- */
+.mid-banner{
+  border-radius:26px;padding:38px 42px;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(115deg,#7a3b12,#c96a00 60%,#e8930c);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.mid-banner h3{margin:0 0 6px;font-size:1.55rem;font-weight:900}
+.mid-banner p{margin:0;color:#ffe8cd;max-width:520px}
+.mid-banner .btn{background:#fff;color:#a35400;box-shadow:none;flex-shrink:0}
+.mid-banner .btn:hover{background:var(--cream)}
+
+/* ---------- فوتر ---------- */
+footer.site{background:var(--emerald-dark);color:#cfe4de;margin-top:56px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:30px;padding:48px 0 30px}
+footer.site h4{color:#fff;margin:0 0 14px;font-size:1.02rem}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.9rem}
+footer.site ul a:hover{color:#ffb59f}
+footer.site p{font-size:.9rem;margin:0}
+.trust-badges{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.trust-badges span{
+  border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:8px 12px;
+  font-size:.76rem;color:#eaf5f1;background:rgba(255,255,255,.05);
+}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);padding:16px 0;font-size:.82rem;color:#9dbdb2;text-align:center}
+
+/* ---------- سبد خرید (دراور) ---------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(16,32,30,.55);backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;transition:.3s;z-index:80;
+}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(430px,100vw);z-index:90;
+  background:var(--paper);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;
+  transform:translateX(-105%);transition:transform .38s cubic-bezier(.32,.72,.24,1);
+}
+[dir="rtl"] .drawer{transform:translateX(-105%)}
+.drawer.open{transform:translateX(0)!important}
+.drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 22px;border-bottom:1px solid var(--line);
+}
+.drawer-head h3{margin:0;font-size:1.12rem;font-weight:900;color:var(--emerald-dark)}
+.drawer-head h3 span{color:var(--coral);font-size:.95rem}
+.drawer-body{flex:1;overflow-y:auto;padding:16px 22px;display:flex;flex-direction:column;gap:14px}
+.cart-item{
+  display:flex;gap:12px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;
+}
+.cart-item .ci-thumb{
+  width:74px;height:74px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(160deg,#f3eee1,#e9f0ea);display:grid;place-items:center;
+}
+.cart-item .ci-thumb svg{width:62%}
+.ci-info{flex:1;display:flex;flex-direction:column;gap:3px}
+.ci-info strong{font-size:.9rem;line-height:1.55}
+.ci-info .ci-price{color:var(--emerald);font-weight:800;font-size:.92rem}
+.ci-row{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.qty{display:inline-flex;align-items:center;gap:2px;border:1.5px solid var(--line);border-radius:99px;padding:2px}
+.qty button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:1rem;color:var(--emerald);font-weight:800}
+.qty button:hover{background:var(--coral-soft)}
+.qty b{min-width:26px;text-align:center;font-size:.92rem}
+.ci-remove{color:#c0392b;font-size:.8rem;display:inline-flex;gap:4px;align-items:center}
+.ci-remove:hover{text-decoration:underline}
+.cart-empty{text-align:center;color:var(--muted);padding:48px 10px}
+.cart-empty svg{margin:0 auto 14px;color:#cbbd9d}
+.drawer-foot{border-top:1px solid var(--line);padding:18px 22px;background:#fff}
+.tot-row{display:flex;justify-content:space-between;font-size:.92rem;color:#44584f;padding-block:3px}
+.tot-row.grand{font-size:1.08rem;font-weight:900;color:var(--emerald-dark);border-top:1px dashed var(--line);margin-top:8px;padding-top:12px}
+.tot-row .free{color:var(--green-ok);font-weight:800}
+.ship-note{font-size:.78rem;color:var(--muted);margin-top:4px}
+.drawer-foot .btn{width:100%;margin-top:12px}
+
+/* ---------- مودال مشاهده سریع ---------- */
+.modal{
+  position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:18px;
+  opacity:0;pointer-events:none;transition:.3s;
+}
+.modal.show{opacity:1;pointer-events:auto}
+.modal-box{
+  background:var(--paper);border-radius:26px;max-width:860px;width:100%;max-height:92vh;overflow-y:auto;
+  display:grid;grid-template-columns:1fr 1.1fr;position:relative;box-shadow:var(--shadow-lg);
+  transform:translateY(14px) scale(.98);transition:.3s;
+}
+.modal.show .modal-box{transform:none}
+.modal .m-thumb{background:linear-gradient(160deg,#f3eee1,#e6efe7);display:grid;place-items:center;padding:34px;position:relative}
+.modal .m-thumb svg{width:72%}
+.modal .m-body{padding:30px 30px 34px}
+.modal .m-body h3{margin:6px 0 8px;font-size:1.35rem;font-weight:900;line-height:1.55}
+.modal .m-desc{color:#4c605b;font-size:.94rem}
+.spec-list{list-style:none;margin:16px 0;padding:0;display:grid;gap:7px;font-size:.9rem}
+.spec-list li{display:flex;gap:8px;align-items:flex-start}
+.spec-list li::before{content:"✓";color:var(--green-ok);font-weight:900}
+.modal .m-close{
+  position:absolute;top:14px;inset-inline-end:14px;z-index:3;
+  width:38px;height:38px;border-radius:12px;background:#fff;border:1px solid var(--line);
+  display:grid;place-items:center;font-size:1.05rem;color:var(--ink);
+}
+.m-actions{display:flex;gap:10px;align-items:stretch;margin-top:18px;flex-wrap:wrap}
+.m-actions .qty{padding:5px}
+.m-actions .add-btn{margin-top:0;flex:1;width:auto}
+
+/* ---------- تسویه و موفقیت ---------- */
+.checkout-wrap{display:none;padding:34px 0 10px}
+.checkout-wrap.show{display:block}
+.shop-view.hide{display:none}
+.co-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:20px;align-items:start}
+.co-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px 28px}
+.co-card h3{margin:0 0 18px;font-size:1.18rem;font-weight:900;color:var(--emerald-dark)}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-field{display:flex;flex-direction:column;gap:6px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:.88rem;font-weight:700;color:#33524f}
+.f-field label i{color:var(--coral);font-style:normal}
+.f-field input,.f-field select,.f-field textarea{
+  border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;background:#fff;outline:none;transition:.2s;width:100%;
+}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--emerald-2);box-shadow:0 0 0 4px rgba(6,90,95,.09)}
+.f-field .err{font-size:.78rem;color:#c0392b;display:none}
+.f-field.invalid input,.f-field.invalid textarea{border-color:#c0392b}
+.f-field.invalid .err{display:block}
+.pay-opts{display:grid;gap:10px}
+.pay-opt{
+  display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;
+  padding:14px 16px;cursor:pointer;transition:.2s;background:#fff;
+}
+.pay-opt:hover{border-color:var(--emerald-2)}
+.pay-opt.sel{border-color:var(--emerald);background:#eef6f1;box-shadow:0 0 0 3px rgba(4,70,74,.08)}
+.pay-opt input{margin-top:6px;accent-color:var(--emerald)}
+.pay-opt strong{display:block;font-size:.95rem}
+.pay-opt small{color:var(--muted);font-size:.8rem}
+.sum-item{display:flex;gap:10px;align-items:center;padding-block:9px;border-bottom:1px dashed var(--line);font-size:.88rem}
+.sum-item .s-thumb{width:46px;height:46px;border-radius:10px;background:linear-gradient(160deg,#f3eee1,#e9f0ea);display:grid;place-items:center;flex-shrink:0}
+.sum-item .s-thumb svg{width:64%}
+.sum-item .s-name{flex:1;line-height:1.5}
+.sum-item .s-name small{color:var(--muted)}
+.success-box{
+  display:none;background:var(--paper);border:1px solid var(--line);border-radius:26px;
+  padding:48px 30px;text-align:center;max-width:640px;margin:20px auto 0;
+}
+.success-box.show{display:block}
+.success-box .ok-ic{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 18px;
+  background:#e2f4ec;color:var(--green-ok);display:grid;place-items:center;
+  animation:pop .45s cubic-bezier(.2,1.6,.4,1);
+}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.success-box h3{font-size:1.5rem;font-weight:900;margin:0 0 8px;color:var(--emerald-dark)}
+.success-box p{color:var(--muted);margin:0 auto 6px;max-width:440px}
+.order-code{
+  display:inline-block;background:var(--coral-soft);color:var(--coral-dark);border:1.5px dashed var(--coral);
+  font-weight:900;font-size:1.15rem;border-radius:14px;padding:10px 26px;margin:16px 0 8px;letter-spacing:.5px;
+}
+.success-meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0 24px}
+.success-meta span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:6px 16px;font-size:.85rem;color:#44584f}
+
+/* ---------- تست ---------- */
+.toast{
+  position:fixed;bottom:24px;inset-inline-start:50%;transform:translate(50%,90px);z-index:120;pointer-events:none;
+  background:var(--emerald-dark);color:#fff;border-radius:14px;padding:13px 22px;
+  display:flex;gap:10px;align-items:center;font-size:.92rem;font-weight:600;
+  box-shadow:var(--shadow-lg);transition:transform .4s cubic-bezier(.2,1.2,.3,1);max-width:calc(100vw - 32px);
+}
+.toast.show{transform:translate(50%,0)}
+.toast svg{color:#7fe3b0;flex-shrink:0}
+
+/* ---------- ریسپانسیو ---------- */
+@media (max-width:1020px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .perks{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .cat-chips{grid-template-columns:repeat(2,1fr)}
+  .co-grid{grid-template-columns:1fr}
+  .modal-box{grid-template-columns:1fr}
+  .modal .m-thumb{padding:26px}
+  .modal .m-thumb svg{width:44%}
+  .hero-banner{padding:38px 28px}
+  .hero h1{font-size:1.8rem}
+  .header-in{flex-wrap:wrap}
+  .searchbox{order:3;flex-basis:100%}
+}
+@media (max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .cat-chips{grid-template-columns:1fr}
+  .perks{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .hero-banner{padding:32px 22px;border-radius:22px}
+  .hero h1{font-size:1.5rem}
+  .hero-points{gap:12px}
+  .mid-banner{padding:28px 22px}
+  .foot-grid{grid-template-columns:1fr}
+  .co-card{padding:22px 18px}
+  .card:hover .quick-btn{opacity:1;transform:none}
+  .quick-btn{opacity:1;transform:none}
+  .drawer-body,.drawer-foot,.drawer-head{padding-inline:16px}
+}
+</style>
+
+<div class="topbar">
+  <div class="container">
+    <span>ارسال رایگان برای خریدهای بالای <b>۲٬۰۰۰٬۰۰۰ تومان</b></span>
+    <span>پشتیبانی تلفنی: ۰۲۱-۹۱۰۰۹۹۰۰ · همه‌روزه ۹ تا ۲۱</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container header-in">
+    <a class="logo" href="#" aria-label="فروشگاه نمونه اپ‌وبینو">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21c-4.5-2.2-7-5.6-7-10.2C5 6.6 7.6 4 12 3c4.4 1 7 3.6 7 7.8 0 4.6-2.5 8-7 10.2Z" fill="#ff6b4a"/><path d="M12 20V8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M12 12c-1.8-.4-3-1.6-3.4-3.4C10.4 8.9 11.6 10.2 12 12Zm0 3c1.8-.4 3-1.6 3.4-3.4C13.6 11.9 12.4 13.2 12 15Z" fill="#fff"/></svg>
+      </span>
+      <span class="logo-text">
+        <strong>فروشگاه نمونه اپ‌وبینو</strong>
+        <span>طراحی‌شده با وسواس روی جزئیات</span>
+      </span>
+    </a>
+    <div class="searchbox" role="search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      <input id="searchInput" type="search" placeholder="جستجو در میان محصولات… مثلاً قهوه‌ساز یا هدفون" aria-label="جستجوی محصول">
+    </div>
+    <div class="head-actions">
+      <button class="icon-btn" type="button" aria-label="حساب کاربری" title="حساب کاربری">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20.5c1.4-3.4 4.4-5 8-5s6.6 1.6 8 5"/></svg>
+      </button>
+      <button class="icon-btn" type="button" id="cartBtn" aria-label="سبد خرید" title="سبد خرید">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.4l2.3 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 8H6"/><circle cx="10" cy="21" r="1.4"/><circle cx="17.5" cy="21" r="1.4"/></svg>
+        <span class="cart-count" id="cartCount">۰</span>
+      </button>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="ناوبری اصلی">
+    <div class="container">
+      <a href="#" class="active">خانه</a>
+      <a href="#cats">دسته‌بندی‌ها</a>
+      <a href="#products">محصولات</a>
+      <a href="#offer">تخفیف‌ها</a>
+      <a href="#footer">درباره ما</a>
+      <a href="#footer">تماس با ما</a>
+    </div>
+  </nav>
+</header>
+
+<main class="shop-view" id="shopView">
+  <!-- هیرو -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-banner">
+        <svg class="leaves" width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 800 300" aria-hidden="true">
+          <path d="M60 260c-30-40-28-84 4-118 26 36 24 82-4 118Z" fill="#fff"/>
+          <path d="M150 285c-22-30-20-62 3-88 19 27 18 61-3 88Z" fill="#fff"/>
+          <path d="M700 40c34 30 40 72 20 112-30-28-38-70-20-112Z" fill="#fff"/>
+          <path d="M620 20c24 22 29 52 14 82-22-20-28-51-14-82Z" fill="#fff"/>
+        </svg>
+        <span class="hero-badge"><i></i> جشنواره پاییزه اپ‌وبینو آغاز شد</span>
+        <h1>خرید لوازم خانگی و دیجیتال <em>لوکس و مدرن</em>، بدون واسطه</h1>
+        <p>تا ۳۰٪ تخفیف ویژه پاییزه، ضمانت اصالت کالا و ارسال رایگان برای خریدهای بالای ۲ میلیون تومان؛ تجربه‌ای که کیفیت را از همان کلیک اول حس می‌کنید.</p>
+        <div class="hero-cta">
+          <a class="btn btn-coral" href="#products">همین حالا خرید کنید
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-7-7 7 7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#cats">مشاهده دسته‌بندی‌ها</a>
+        </div>
+        <div class="hero-points">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> ضمانت اصالت کالا</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> ۷ روز مهلت بازگشت</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> ارسال سریع به سراسر کشور</span>
+        </div>
+      </div>
+
+      <div class="perks">
+        <div class="perk">
+          <span class="p-ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11v9H3zM14 11h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
+          <span><strong>ارسال سریع و بیمه‌شده</strong><small>تحویل تهران در همان روز کاری</small></span>
+        </div>
+        <div class="perk">
+          <span class="p-ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.6 3 7.9 7 9.5 4-1.6 7-4.9 7-9.5V6l-7-3Z"/><path d="m9 11.5 2.2 2.2L15.5 9"/></svg></span>
+          <span><strong>ضمانت اصالت و گارانتی</strong><small>کالای اصل با ضمانت‌نامه معتبر</small></span>
+        </div>
+        <div class="perk">
+          <span class="p-ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg></span>
+          <span><strong>۷ روز بازگشت بی‌قیدوشرط</strong><small>بدون پرسش، با بازگشت کامل وجه</small></span>
+        </div>
+        <div class="perk">
+          <span class="p-ic"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2.5" y="13" width="4" height="6.5" rx="2"/><rect x="17.5" y="13" width="4" height="6.5" rx="2"/><path d="M19.5 19.5c0 1.4-1.2 2-3 2"/></svg></span>
+          <span><strong>پشتیبانی واقعی انسانی</strong><small>پاسخ‌گویی در کمتر از ۵ دقیقه</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- دسته‌بندی‌ها -->
+  <section class="section" id="cats" style="padding-top:16px">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2>دسته‌های ویژه</h2>
+          <p>از هر دسته شروع کنید؛ فیلترها فوراً روی محصولات اعمال می‌شوند.</p>
+        </div>
+      </div>
+      <div class="cat-chips" id="catChips">
+        <button type="button" class="chip chip-all on" data-cat="all">
+          <span class="c-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg> همه محصولات</span>
+          <small>۸ کالای منتخب فروشگاه</small>
+          <span class="c-rate">★ ۴٫۸ میانگین امتیاز خریداران</span>
+        </button>
+        <button type="button" class="chip chip-home" data-cat="home">
+          <span class="c-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 11 8.5-7 8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg> لوازم خانگی</span>
+          <small>۴ کالا · آشپزخانه و خانه مدرن</small>
+          <span class="c-rate">★ ۴٫۷ (۳٬۲۸۰ نظر)</span>
+        </button>
+        <button type="button" class="chip chip-digital" data-cat="digital">
+          <span class="c-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.4"/><path d="M11 18.5h2"/></svg> کالای دیجیتال</span>
+          <small>۴ کالا · صوتی، پوشیدنی و همراه</small>
+          <span class="c-rate">★ ۴٫۹ (۴٬۸۱۰ نظر)</span>
+        </button>
+        <button type="button" class="chip chip-offer" data-cat="offer">
+          <span class="c-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3.6 4 13.4h5.4L8.6 20.4 19 9.9h-5.6l-.8-6.3Z" transform="scale(.92) translate(1 1)"/></svg> پیشنهاد شگفت‌انگیز</span>
+          <small>کالاهای دارای تخفیف فعال</small>
+          <span class="c-rate">تا ۳۰٪ تخفیف جشنواره پاییزه</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- محصولات -->
+  <section class="section" id="products" style="padding-top:6px">
+    <div class="container">
+      <div class="sec-head">
+        <div>
+          <h2>فهرست محصولات</h2>
+          <p>قیمت‌ها به تومان و با احتساب مالیات بر ارزش افزوده هستند.</p>
+        </div>
+      </div>
+      <div class="toolbar">
+        <span class="t-count"><b id="resultCount">۸</b> محصول یافت شد</span>
+        <label>مرتب‌سازی بر اساس:
+          <select id="sortSel" aria-label="مرتب‌سازی محصولات">
+            <option value="popular">پرفروش‌ترین</option>
+            <option value="cheap">ارزان‌ترین</option>
+            <option value="exp">گران‌ترین</option>
+            <option value="off">بیشترین تخفیف</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- بنر میانی -->
+  <section class="section" id="offer" style="padding-top:4px">
+    <div class="container">
+      <div class="mid-banner">
+        <div>
+          <h3>جشنواره پاییزه: تا ۳۰٪ تخفیف + ارسال رایگان</h3>
+          <p>برای خریدهای بالای ۲ میلیون تومان، هزینه ارسال مهمان ما هستید. این پیشنهاد تا پایان آبان فعال است.</p>
+        </div>
+        <button class="btn" type="button" id="offerBtn">مشاهده کالاهای تخفیف‌دار</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- تسویه حساب -->
+<section class="checkout-wrap" id="checkoutView">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <h2>تسویه حساب</h2>
+        <p>اطلاعات گیرنده را کامل کنید تا سفارش شما ثبت شود.</p>
+      </div>
+      <button class="btn btn-emerald" type="button" id="backToShop" style="padding:10px 20px">بازگشت به فروشگاه</button>
+    </div>
+
+    <form id="checkoutForm" novalidate>
+      <div class="co-grid">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <div class="co-card">
+            <h3>اطلاعات گیرنده</h3>
+            <div class="f-grid">
+              <div class="f-field">
+                <label for="fName">نام و نام خانوادگی <i>*</i></label>
+                <input id="fName" type="text" placeholder="مثلاً سارا محمدی" autocomplete="name">
+                <span class="err">نام گیرنده را وارد کنید.</span>
+              </div>
+              <div class="f-field">
+                <label for="fPhone">شماره موبایل <i>*</i></label>
+                <input id="fPhone" type="tel" inputmode="numeric" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel">
+                <span class="err">شماره موبایل معتبر ۱۱ رقمی وارد کنید.</span>
+              </div>
+              <div class="f-field">
+                <label for="fCity">شهر <i>*</i></label>
+                <select id="fCity">
+                  <option value="">انتخاب کنید…</option>
+                  <option>تهران</option><option>مشهد</option><option>اصفهان</option>
+                  <option>شیراز</option><option>تبریز</option><option>کرج</option><option>سایر شهرها</option>
+                </select>
+                <span class="err">شهر را انتخاب کنید.</span>
+              </div>
+              <div class="f-field">
+                <label for="fPostal">کد پستی</label>
+                <input id="fPostal" type="text" inputmode="numeric" placeholder="۱۰ رقمی (اختیاری)">
+                <span class="err"></span>
+              </div>
+              <div class="f-field full">
+                <label for="fAddr">نشانی کامل <i>*</i></label>
+                <textarea id="fAddr" rows="3" placeholder="خیابان، کوچه، پلاک، واحد…"></textarea>
+                <span class="err">نشانی کامل را وارد کنید.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="co-card">
+            <h3>روش پرداخت</h3>
+            <div class="pay-opts" id="payOpts">
+              <label class="pay-opt sel">
+                <input type="radio" name="pay" value="درگاه پرداخت بانکی" checked>
+                <span><strong>درگاه پرداخت بانکی</strong><small>پرداخت امن آنلاین با همه کارت‌های شتاب · رمزنگاری SSL</small></span>
+              </label>
+              <label class="pay-opt">
+                <input type="radio" name="pay" value="پرداخت کارت به کارت">
+                <span><strong>پرداخت کارت به کارت</strong><small>هماهنگی و ارسال رسید پس از ثبت سفارش</small></span>
+              </label>
+              <label class="pay-opt">
+                <input type="radio" name="pay" value="پرداخت در محل">
+                <span><strong>پرداخت در محل</strong><small>فقط برای سفارش‌های تهران · پرداخت هنگام تحویل</small></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="co-card">
+          <h3>خلاصه سفارش</h3>
+          <div id="sumItems"></div>
+          <div style="margin-top:14px">
+            <div class="tot-row"><span>جمع سبد خرید</span><span id="coSubtotal">۰ تومان</span></div>
+            <div class="tot-row"><span>هزینه ارسال</span><span id="coShipping">—</span></div>
+            <div class="tot-row grand"><span>جمع قابل پرداخت</span><span id="coGrand">۰ تومان</span></div>
+          </div>
+          <button class="btn btn-coral" type="submit" style="width:100%;margin-top:18px">ثبت نهایی سفارش و پرداخت</button>
+          <p class="ship-note" style="text-align:center;margin-top:10px">با ثبت سفارش، قوانین خرید و حریم خصوصی فروشگاه را می‌پذیرید.</p>
+        </div>
+      </div>
+    </form>
+
+    <div class="success-box" id="successBox">
+      <span class="ok-ic">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.5 9.5 17 4 11.5"/></svg>
+      </span>
+      <h3>سفارش شما با موفقیت ثبت شد</h3>
+      <p>رسید سفارش و جزئیات ارسال به شماره موبایل شما پیامک می‌شود. می‌توانید با کد رهگیری زیر، وضعیت بسته را پیگیری کنید.</p>
+      <div class="order-code" id="orderCode">AW-۰۰۰۰۰۰</div>
+      <div class="success-meta">
+        <span id="okName">گیرنده: —</span>
+        <span id="okPay">روش پرداخت: —</span>
+        <span id="okTotal">مبلغ: —</span>
+      </div>
+      <button class="btn btn-emerald" type="button" id="successBack">ادامه خرید از فروشگاه</button>
+    </div>
+  </div>
+</section>
+
+<!-- فوتر -->
+<footer class="site" id="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <h4>فروشگاه نمونه اپ‌وبینو</h4>
+        <p>این فروشگاه یک نمونه‌کار زنده از تیم اپ‌وبینو است؛ با تمرکز بر سرعت، تجربه کاربری راست‌چین و جزئیاتی که اعتماد می‌سازند. نسخه نهایی هر پروژه، اختصاصی و بر اساس هویت برند شما طراحی می‌شود.</p>
+        <div class="trust-badges">
+          <span>نماد اعتماد الکترونیکی</span>
+          <span>درگاه پرداخت امن</span>
+          <span>ضمانت بازگشت وجه</span>
+        </div>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#products">همه محصولات</a></li>
+          <li><a href="#cats">دسته‌بندی‌ها</a></li>
+          <li><a href="#offer">پیشنهادهای شگفت‌انگیز</a></li>
+          <li><a href="#">پیگیری سفارش</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>خدمات مشتریان</h4>
+        <ul>
+          <li><a href="#">رویه بازگشت کالا</a></li>
+          <li><a href="#">شرایط گارانتی</a></li>
+          <li><a href="#">هزینه و زمان ارسال</a></li>
+          <li><a href="#">پرسش‌های متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تماس با ما</h4>
+        <ul>
+          <li>تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک ۲۴</li>
+          <li>تلفن پشتیبانی: ۰۲۱-۹۱۰۰۹۹۰۰</li>
+          <li>ایمیل: support@appwebino.ir</li>
+          <li>ساعات پاسخ‌گویی: ۹ تا ۲۱</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">© ۱۴۰۳ فروشگاه نمونه اپ‌وبینو — نمونه‌کار طراحی فروشگاه اینترنتی؛ قیمت‌ها و موجودی صرفاً نمایشی‌اند.</div>
+  </div>
+</footer>
+
+<!-- سبد خرید -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="سبد خرید">
+  <div class="drawer-head">
+    <h3>سبد خرید شما <span id="drawerCount"></span></h3>
+    <button class="icon-btn" type="button" id="closeDrawer" aria-label="بستن سبد خرید" style="width:38px;height:38px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="tot-row"><span>جمع سبد خرید</span><span id="dSubtotal">۰ تومان</span></div>
+    <div class="tot-row"><span>هزینه ارسال</span><span id="dShipping">—</span></div>
+    <p class="ship-note" id="shipNote"></p>
+    <div class="tot-row grand"><span>جمع قابل پرداخت</span><span id="dGrand">۰ تومان</span></div>
+    <button class="btn btn-coral" type="button" id="goCheckout">ادامه و تسویه حساب</button>
+  </div>
+</aside>
+
+<!-- مودال مشاهده سریع -->
+<div class="modal" id="quickModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="m-close" type="button" id="closeModal" aria-label="بستن">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="m-thumb" id="mThumb"></div>
+    <div class="m-body">
+      <span class="cat-tag" style="position:static" id="mCat"></span>
+      <h3 id="mName"></h3>
+      <div class="rate"><span class="stars" id="mStars"></span><span id="mRate"></span></div>
+      <p class="m-desc" id="mDesc"></p>
+      <ul class="spec-list" id="mSpecs"></ul>
+      <div class="price-row">
+        <span class="price-old" id="mOld"></span>
+        <div class="price" id="mPrice"></div>
+      </div>
+      <div class="m-actions">
+        <span class="qty">
+          <button type="button" id="mMinus" aria-label="کم کردن">−</button>
+          <b id="mQty">۱</b>
+          <button type="button" id="mPlus" aria-label="زیاد کردن">+</button>
+        </span>
+        <button class="add-btn" type="button" id="mAdd">افزودن به سبد خرید</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.5 9.5 17 4 11.5"/></svg>
+  <span id="toastText"></span>
+</div>
+
+<script>
+/* ---------- داده محصولات ---------- */
+const ART = {
+  coffee:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h44v14H38z" fill="#04464a" stroke="none"/><path d="M42 32h36l-4 22H46L42 32Z" fill="#dcebe4"/><path d="M82 40h8a10 10 0 0 1 0 20h-9" /><path d="M50 62h20l4 34H46l4-34Z" fill="#ff6b4a" fill-opacity=".18"/><path d="M46 96h28" /><path d="M34 104h52" stroke="#ff6b4a"/><path d="M56 44c0 4 6 4 6 8M66 44c0 4 6 4 6 8" stroke="#ff6b4a" stroke-width="3"/></svg>',
+  headphones:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 78v-14a36 36 0 0 1 72 0v14" /><rect x="16" y="72" width="18" height="30" rx="8" fill="#04464a" stroke="none"/><rect x="86" y="72" width="18" height="30" rx="8" fill="#04464a" stroke="none"/><path d="M96 102c0 8-8 12-18 12h-8" stroke="#ff6b4a"/></svg>',
+  blender:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M40 14h34l-5 44H45L40 14Z" fill="#dcebe4"/><path d="M69 24h9a9 9 0 0 1 0 18h-8" /><path d="M44 14h26" /><path d="M52 58h10v10H52z" /><path d="M40 68h34l3 36H37l3-36Z" fill="#04464a" fill-opacity=".08"/><circle cx="57" cy="86" r="6" stroke="#ff6b4a"/><path d="M44 104h26" stroke="#ff6b4a"/></svg>',
+  watch:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M46 8h28l-3 18H49L46 8ZM49 94h22l3 18H46l3-18Z" fill="#04464a" fill-opacity=".12"/><rect x="38" y="24" width="44" height="52" rx="13" fill="#04464a" stroke="none"/><path d="M50 50l8 6 14-13" stroke="#ff6b4a" stroke-width="4.5"/><circle cx="60" cy="50" r="17" stroke="#fff" stroke-width="2.5" stroke-dasharray="3 5" fill="none"/><path d="M84 42h5M84 56h5" stroke="#ff6b4a"/></svg>',
+  mug:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M30 38h56l-5 62a8 8 0 0 1-8 7H43a8 8 0 0 1-8-7L30 38Z" fill="#ff6b4a" fill-opacity=".22"/><path d="M86 48h6a12 12 0 0 1 0 24H84" /><path d="M30 52h55" stroke="#ff6b4a"/><path d="M46 24c0 5 7 5 7 10M60 24c0 5 7 5 7 10" stroke="#ff6b4a" stroke-width="3"/><path d="M48 78c6-8 18-8 24 0" /></svg>',
+  speaker:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="28" y="26" width="64" height="68" rx="14" fill="#04464a" stroke="none"/><circle cx="60" cy="68" r="15" stroke="#fff"/><circle cx="60" cy="68" r="6" fill="#ff6b4a" stroke="none"/><path d="M44 40h32" stroke="#ff6b4a"/><path d="M98 46c6 8 6 20 0 28M22 46c-6 8-6 20 0 28" stroke="#ff6b4a" stroke-width="3.4"/></svg>',
+  kettle:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M44 34h34l6 66H38l6-66Z" fill="#dcebe4"/><path d="M44 34c-8 2-14 8-16 16l12-2" /><path d="M78 40c10 0 14 8 14 16s-5 14-13 15" /><path d="M40 34h36" /><path d="M34 104h52" stroke="#ff6b4a"/><path d="M52 56h18M52 68h18" stroke="#ff6b4a" stroke-width="3.4"/></svg>',
+  powerbank:'<svg viewBox="0 0 120 120" fill="none" stroke="#04464a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="16" width="46" height="88" rx="10" fill="#04464a" stroke="none"/><path d="M64 44 50 68h9l-4 16 16-26h-9l2-14Z" fill="#ff6b4a"/><path d="M40 28h26" stroke="#fff" stroke-width="3"/><path d="M84 34c10 8 14 18 12 30M90 26c14 12 20 26 18 44" stroke="#ff6b4a" stroke-width="3.4"/></svg>'
+};
+const PRODUCTS = [
+  {id:1, name:'قهوه‌ساز برقی استیل نفیس مدل X200', cat:'home', catName:'لوازم خانگی', price:2450000, old:2900000, rate:4.9, reviews:187, sold:96, art:'coffee',
+   desc:'قهوه‌ساز قطره‌ای نفیس با بدنه استیل ضدزنگ، پارچ شیشه‌ای ۱٫۲۵ لیتری و سیستم ضدچکه؛ برای عاشقان قهوه دمی تازه در خانه و محل کار.',
+   specs:['ظرفیت ۱٫۲۵ لیتر · مناسب ۱۰ فنجان','بدنه استیل ضدزنگ و پارچ پیرکس','سیستم ضدچکه و گرم‌نگهدار خودکار','گارانتی ۱۸ ماهه نفیس سرویس']},
+  {id:2, name:'هدفون بی‌سیم سونی مدل WH-1000XM5', cat:'digital', catName:'کالای دیجیتال', price:14850000, old:16500000, rate:4.8, reviews:342, sold:88, art:'headphones',
+   desc:'پرچم‌دار حذف نویز سونی با درایور ۳۰ میلی‌متری، ۳۰ ساعت شارژدهی و صدای Hi-Res؛ سبک، راحت و ساخته‌شده برای تمرکز عمیق.',
+   specs:['حذف نویز فعال پیشرفته (ANC)','۳۰ ساعت پخش با یک بار شارژ','بلوتوث ۵٫۲ و اتصال هم‌زمان دو دستگاه','گارانتی معتبر شرکتی']},
+  {id:3, name:'مخلوط‌کن حرفه‌ای نفیس ۱۲۰۰ وات', cat:'home', catName:'لوازم خانگی', price:3120000, old:0, rate:4.7, reviews:89, sold:74, art:'blender',
+   desc:'موتور قدرتمند ۱۲۰۰ واتی با تیغه استیل ۶ پره و پارچ ۱٫۸ لیتری؛ از اسموتی و سوپ تا خردکردن یخ، همه را در چند ثانیه انجام می‌دهد.',
+   specs:['موتور ۱۲۰۰ وات مسی با فن خنک‌کننده','پارچ ۱٫۸ لیتری نشکن','۵ سرعت + عملکرد پالس و یخ‌شکن','قطعات قابل شست‌وشو در ماشین ظرفشویی']},
+  {id:4, name:'ساعت هوشمند شیائومی واچ S3', cat:'digital', catName:'کالای دیجیتال', price:6490000, old:7200000, rate:4.6, reviews:518, sold:81, art:'watch',
+   desc:'نمایشگر امولد ۱٫۴۳ اینچی، قاب قابل تعویض و پایش کامل سلامت؛ همراهی شیک برای ورزش، کار و خواب بهتر.',
+   specs:['نمایشگر AMOLED با روشنایی ۶۰۰ نیت','پایش ضربان قلب، اکسیژن خون و خواب','۱۵ روز شارژدهی معمول','مقاومت در برابر آب تا ۵ اتمسفر']},
+  {id:5, name:'ماگ سرامیکی دست‌ساز مرجانی', cat:'home', catName:'لوازم خانگی', price:345000, old:0, rate:4.7, reviews:264, sold:92, art:'mug',
+   desc:'ماگ دست‌ساز سرامیکی با لعاب مرجانی مات؛ هر قطعه کمی با دیگری فرق دارد و همین، امضای دست سازنده روی فنجان صبح شماست.',
+   specs:['حجم ۳۵۰ میلی‌لیتر','سرامیک پخت بالا، بدون سرب','قابل استفاده در مایکروویو','ساخته دست هنرمندان ایرانی']},
+  {id:6, name:'اسپیکر بلوتوثی جی‌بی‌ال فلیپ ۶', cat:'digital', catName:'کالای دیجیتال', price:5980000, old:0, rate:4.8, reviews:431, sold:79, art:'speaker',
+   desc:'صدای پرقدرت و بیس عمیق در بدنه‌ای ضدآب و جمع‌وجور؛ برای دورهمی، سفر و هر جایی که موسیقی باید همراهتان باشد.',
+   specs:['توان خروجی ۳۰ وات','استاندارد ضدآب و گردوغبار IP67','۱۲ ساعت پخش مداوم','قابلیت اتصال دو اسپیکر (PartyBoost)']},
+  {id:7, name:'کتری برقی استیل کم‌مصرف ۱٫۷ لیتری', cat:'home', catName:'لوازم خانگی', price:1890000, old:2400000, rate:4.5, reviews:156, sold:68, art:'kettle',
+   desc:'جوش‌آوردن سریع با المنت مخفی استیل و خاموشی خودکار؛ بدنه دوجداره که بیرونش خنک می‌ماند و مصرف برق را پایین می‌آورد.',
+   specs:['ظرفیت ۱٫۷ لیتر · توان ۱۸۰۰ وات','خاموشی خودکار و محافظ جوش خشک','بدنه دوجداره استیل','چرخش ۳۶۰ درجه روی پایه']},
+  {id:8, name:'پاوربانک انکر ۲۰۰۰۰ میلی‌آمپرساعت', cat:'digital', catName:'کالای دیجیتال', price:2350000, old:2690000, rate:4.7, reviews:689, sold:90, art:'powerbank',
+   desc:'ظرفیت واقعی ۲۰٬۰۰۰ با شارژ سریع ۲۲٫۵ واتی و دو خروجی هم‌زمان؛ گوشی شما را تا ۴ بار کامل شارژ می‌کند.',
+   specs:['ظرفیت ۲۰٬۰۰۰ میلی‌آمپرساعت','شارژ سریع ۲۲٫۵ وات USB-C','دو خروجی هم‌زمان USB-A و USB-C','نمایشگر درصد شارژ و بدنه ضدخش']}
+];
+const FREE_SHIP = 2000000, SHIP_COST = 85000;
+
+/* ---------- ابزارها ---------- */
+const $ = s => document.querySelector(s);
+const faNum = n => Number(n).toLocaleString('fa-IR');
+const money = n => faNum(n) + ' تومان';
+const faDigits = s => String(s).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const toEnDigits = s => String(s).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const stars = r => '★★★★★'.slice(0, Math.round(r)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(r));
+const offPct = p => p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
+
+/* ---------- وضعیت ---------- */
+const state = { cat:'all', query:'', sort:'popular' };
+const cart = new Map(); // id -> qty
+
+/* ---------- رندر محصولات ---------- */
+function getVisible(){
+  let list = PRODUCTS.filter(p => {
+    const inCat = state.cat === 'all' ? true
+      : state.cat === 'offer' ? p.old > 0
+      : p.cat === state.cat;
+    const inQuery = !state.query || p.name.includes(state.query) || p.catName.includes(state.query);
+    return inCat && inQuery;
+  });
+  if (state.sort === 'cheap') list.sort((a,b) => a.price - b.price);
+  else if (state.sort === 'exp') list.sort((a,b) => b.price - a.price);
+  else if (state.sort === 'off') list.sort((a,b) => offPct(b) - offPct(a));
+  else list.sort((a,b) => b.sold - a.sold);
+  return list;
+}
+function renderProducts(){
+  const list = getVisible();
+  $('#resultCount').textContent = faNum(list.length);
+  const grid = $('#productGrid');
+  if (!list.length){
+    grid.innerHTML = '<div class="empty-state"><strong>محصولی پیدا نشد</strong>عبارت دیگری جستجو کنید یا دسته‌بندی را تغییر دهید.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <article class="card">
+      <div class="thumb" data-quick="${p.id}" title="مشاهده سریع">
+        ${offPct(p) ? `<span class="off-tag">${faDigits(offPct(p))}٪ تخفیف</span>` : ''}
+        <span class="cat-tag">${p.catName}</span>
+        ${ART[p.art]}
+        <button type="button" class="quick-btn" data-quick="${p.id}">مشاهده سریع محصول</button>
+      </div>
+      <div class="body">
+        <h3 data-quick="${p.id}">${p.name}</h3>
+        <div class="rate"><span class="stars">${stars(p.rate)}</span><span>${faDigits(String(p.rate).replace('.', '٫'))} (${faNum(p.reviews)} نظر)</span></div>
+        <div class="price-row">
+          ${p.old ? `<span class="price-old">${money(p.old)}</span>` : ''}
+          <div class="price">${faNum(p.price)} <small>تومان</small></div>
+        </div>
+        <button type="button" class="add-btn" data-add="${p.id}">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.4l2.3 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 8H6"/><circle cx="10" cy="21" r="1.4"/><circle cx="17.5" cy="21" r="1.4"/></svg>
+          افزودن به سبد
+        </button>
+      </div>
+    </article>`).join('');
+}
+
+/* ---------- سبد خرید ---------- */
+function cartTotals(){
+  let sub = 0, count = 0;
+  cart.forEach((q, id) => { const p = PRODUCTS.find(x => x.id === id); sub += p.price * q; count += q; });
+  const ship = sub === 0 ? 0 : (sub >= FREE_SHIP ? 0 : SHIP_COST);
+  return { sub, ship, grand: sub + ship, count };
+}
+function renderCart(){
+  const t = cartTotals();
+  $('#cartCount').textContent = faNum(t.count);
+  $('#drawerCount').textContent = t.count ? `(${faNum(t.count)} کالا)` : '';
+  const box = $('#cartItems');
+  if (!cart.size){
+    box.innerHTML = `<div class="cart-empty">
+      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.4l2.3 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 8H6"/><circle cx="10" cy="21" r="1.4"/><circle cx="17.5" cy="21" r="1.4"/></svg>
+      <strong style="display:block;color:var(--ink);font-size:1.05rem;margin-bottom:4px">سبد خرید شما خالی است</strong>
+      از میان محصولات منتخب فروشگاه، اولین خریدتان را شروع کنید.</div>`;
+  } else {
+    box.innerHTML = [...cart.entries()].map(([id, q]) => {
+      const p = PRODUCTS.find(x => x.id === id);
+      return `<div class="cart-item">
+        <span class="ci-thumb">${ART[p.art]}</span>
+        <div class="ci-info">
+          <strong>${p.name}</strong>
+          <span class="ci-price">${money(p.price * q)}</span>
+          <div class="ci-row">
+            <span class="qty">
+              <button type="button" data-dec="${id}" aria-label="کم کردن">−</button>
+              <b>${faNum(q)}</b>
+              <button type="button" data-inc="${id}" aria-label="زیاد کردن">+</button>
+            </span>
+            <button type="button" class="ci-remove" data-remove="${id}">حذف از سبد</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  $('#dSubtotal').textContent = money(t.sub);
+  $('#dShipping').innerHTML = t.sub === 0 ? '—' : (t.ship === 0 ? '<span class="free">رایگان</span>' : money(t.ship));
+  $('#dGrand').textContent = money(t.grand);
+  $('#shipNote').textContent = t.sub > 0 && t.ship > 0
+    ? `با ${money(FREE_SHIP - t.sub)} خرید بیشتر، ارسال سفارش رایگان می‌شود.`
+    : (t.ship === 0 && t.sub > 0 ? 'آفرین! ارسال این سفارش رایگان است.' : '');
+  $('#cartFoot').style.display = cart.size ? '' : 'none';
+}
+function addToCart(id, qty = 1, btn){
+  cart.set(id, (cart.get(id) || 0) + qty);
+  renderCart();
+  const p = PRODUCTS.find(x => x.id === id);
+  showToast(`«${p.name}» به سبد خرید اضافه شد`);
+  if (btn){
+    const old = btn.innerHTML;
+    btn.classList.add('added'); btn.innerHTML = '✓ به سبد اضافه شد';
+    setTimeout(() => { btn.classList.remove('added'); btn.innerHTML = old; }, 1300);
+  }
+}
+
+/* ---------- دراور و مودال ---------- */
+const drawer = $('#cartDrawer'), overlay = $('#overlay'), modal = $('#quickModal');
+function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('show'); document.body.style.overflow = 'hidden'; }
+function closeAll(){
+  drawer.classList.remove('open'); modal.classList.remove('show'); overlay.classList.remove('show');
+  document.body.style.overflow = '';
+}
+$('#cartBtn').addEventListener('click', openDrawer);
+$('#closeDrawer').addEventListener('click', closeAll);
+overlay.addEventListener('click', closeAll);
+$('#closeModal').addEventListener('click', closeAll);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+
+let modalId = null, modalQty = 1;
+function openQuick(id){
+  const p = PRODUCTS.find(x => x.id === id);
+  modalId = id; modalQty = 1;
+  $('#mQty').textContent = '۱';
+  $('#mThumb').innerHTML = (offPct(p) ? `<span class="off-tag">${faDigits(offPct(p))}٪ تخفیف</span>` : '') + ART[p.art];
+  $('#mCat').textContent = p.catName;
+  $('#mName').textContent = p.name;
+  $('#mStars').textContent = stars(p.rate);
+  $('#mRate').textContent = `${faDigits(String(p.rate).replace('.', '٫'))} از ۵ · ${faNum(p.reviews)} دیدگاه خریداران`;
+  $('#mDesc').textContent = p.desc;
+  $('#mSpecs').innerHTML = p.specs.map(s => `<li>${s}</li>`).join('');
+  $('#mOld').textContent = p.old ? money(p.old) : '';
+  $('#mPrice').innerHTML = `${faNum(p.price)} <small style="font-size:.78rem;color:var(--muted);font-weight:500">تومان</small>`;
+  modal.classList.add('show'); overlay.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+$('#mPlus').addEventListener('click', () => { modalQty = Math.min(9, modalQty + 1); $('#mQty').textContent = faNum(modalQty); });
+$('#mMinus').addEventListener('click', () => { modalQty = Math.max(1, modalQty - 1); $('#mQty').textContent = faNum(modalQty); });
+$('#mAdd').addEventListener('click', e => { addToCart(modalId, modalQty, e.currentTarget); });
+
+/* ---------- رویدادهای گرید و سبد (تفویض) ---------- */
+document.addEventListener('click', e => {
+  const add = e.target.closest('[data-add]');
+  if (add){ addToCart(+add.dataset.add, 1, add); return; }
+  const quick = e.target.closest('[data-quick]');
+  if (quick && !e.target.closest('[data-add]')){ openQuick(+quick.dataset.quick); return; }
+  const inc = e.target.closest('[data-inc]');
+  if (inc){ const id = +inc.dataset.inc; cart.set(id, cart.get(id) + 1); renderCart(); return; }
+  const dec = e.target.closest('[data-dec]');
+  if (dec){ const id = +dec.dataset.dec; const q = cart.get(id) - 1; q <= 0 ? cart.delete(id) : cart.set(id, q); renderCart(); return; }
+  const rem = e.target.closest('[data-remove]');
+  if (rem){ cart.delete(+rem.dataset.remove); renderCart(); return; }
+});
+
+/* ---------- فیلتر، جستجو، مرتب‌سازی ---------- */
+$('#catChips').addEventListener('click', e => {
+  const chip = e.target.closest('.chip'); if (!chip) return;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  chip.classList.add('on');
+  state.cat = chip.dataset.cat;
+  renderProducts();
+});
+$('#offerBtn').addEventListener('click', () => {
+  state.cat = 'offer';
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.dataset.cat === 'offer'));
+  renderProducts();
+  document.getElementById('products').scrollIntoView({ behavior:'smooth' });
+});
+$('#searchInput').addEventListener('input', e => { state.query = e.target.value.trim(); renderProducts(); });
+$('#sortSel').addEventListener('change', e => { state.sort = e.target.value; renderProducts(); });
+
+/* ---------- تست ---------- */
+let toastTimer;
+function showToast(msg){
+  $('#toastText').textContent = msg;
+  const t = $('#toast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---------- تسویه حساب ---------- */
+function showCheckout(){
+  if (!cart.size){ showToast('سبد خرید شما خالی است'); return; }
+  closeAll();
+  renderSummary();
+  $('#shopView').classList.add('hide');
+  $('#checkoutView').classList.add('show');
+  $('#successBox').classList.remove('show');
+  $('#checkoutForm').style.display = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function showShop(){
+  $('#checkoutView').classList.remove('show');
+  $('#shopView').classList.remove('hide');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function renderSummary(){
+  const t = cartTotals();
+  $('#sumItems').innerHTML = [...cart.entries()].map(([id, q]) => {
+    const p = PRODUCTS.find(x => x.id === id);
+    return `<div class="sum-item">
+      <span class="s-thumb">${ART[p.art]}</span>
+      <span class="s-name">${p.name}<br><small>تعداد: ${faNum(q)}</small></span>
+      <b>${money(p.price * q)}</b>
+    </div>`;
+  }).join('');
+  $('#coSubtotal').textContent = money(t.sub);
+  $('#coShipping').innerHTML = t.ship === 0 ? '<span class="free" style="color:var(--green-ok);font-weight:800">رایگان</span>' : money(t.ship);
+  $('#coGrand').textContent = money(t.grand);
+}
+$('#goCheckout').addEventListener('click', showCheckout);
+$('#backToShop').addEventListener('click', showShop);
+$('#successBack').addEventListener('click', showShop);
+document.querySelectorAll('.pay-opt').forEach(o => {
+  o.addEventListener('click', () => {
+    document.querySelectorAll('.pay-opt').forEach(x => x.classList.remove('sel'));
+    o.classList.add('sel');
+  });
+});
+
+function setInvalid(id, bad){
+  document.getElementById(id).closest('.f-field').classList.toggle('invalid', bad);
+}
+$('#checkoutForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('#fName').value.trim();
+  const phoneRaw = toEnDigits($('#fPhone').value.trim());
+  const city = $('#fCity').value;
+  const addr = $('#fAddr').value.trim();
+  let ok = true;
+  const checks = [
+    ['fName', name.length < 3],
+    ['fPhone', !/^09\d{9}$/.test(phoneRaw)],
+    ['fCity', !city],
+    ['fAddr', addr.length < 10]
+  ];
+  checks.forEach(([id, bad]) => { setInvalid(id, bad); if (bad) ok = false; });
+  if (!ok){
+    showToast('لطفاً بخش‌های مشخص‌شده را کامل کنید');
+    document.querySelector('.f-field.invalid input, .f-field.invalid select, .f-field.invalid textarea')?.focus();
+    return;
+  }
+  const t = cartTotals();
+  const pay = document.querySelector('input[name="pay"]:checked').value;
+  const code = 'AW-' + faDigits(String(Math.floor(100000 + Math.random() * 900000)));
+  $('#orderCode').textContent = code;
+  $('#okName').textContent = 'گیرنده: ' + name + ' · ' + city;
+  $('#okPay').textContent = 'روش پرداخت: ' + pay;
+  $('#okTotal').textContent = 'مبلغ پرداختی: ' + money(t.grand);
+  $('#checkoutForm').style.display = 'none';
+  $('#successBox').classList.add('show');
+  cart.clear(); renderCart();
+  document.getElementById('successBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+
+/* ---------- شروع ---------- */
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
