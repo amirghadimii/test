@@ -270,6 +270,20 @@ code.ep{font-family:"Vazirmatn",sans-serif;background:#f2f5fa;border:1px solid v
 .stack-item p{color:var(--mut);font-size:12.8px;margin-top:5px}
 footer.app{padding:20px 28px 30px;color:var(--faint);font-size:12.3px;text-align:center}
 
+/* ---------- LANDING FOOTER — F10 split CTA ---------- */
+.landing-foot{grid-column:1/-1;background:linear-gradient(180deg,var(--side2),var(--side));color:#dbe4f3;border-top:1px solid rgba(255,255,255,.09)}
+.lf-cta{max-width:1240px;margin:0 auto;padding:34px 28px 26px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.lf-cta h3{color:#fff;font-size:21px;font-weight:800;line-height:1.5}
+.lf-cta h3 span{color:#a5b4fc}
+.lf-cta p{color:#8fa5c4;font-size:13.5px;margin-top:5px;max-width:56ch}
+.lf-btn{display:inline-flex;align-items:center;gap:9px;background:var(--acc);color:#fff;font-weight:800;font-size:15px;padding:13px 28px;border-radius:12px;text-decoration:none;box-shadow:0 14px 28px -10px rgba(79,70,229,.75);transition:.15s;white-space:nowrap}
+.lf-btn:hover{background:#4338ca;transform:translateY(-1px)}
+.lf-links{max-width:1240px;margin:0 auto;padding:15px 28px 22px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.3px;color:#7e93b5}
+.lf-links nav{display:flex;gap:20px}
+.lf-links a{color:#a9bcd8;text-decoration:none;font-weight:600}
+.lf-links a:hover{color:#fff}
+@media(max-width:640px){.lf-cta{padding:28px 18px 22px}.lf-links{padding:14px 18px 20px}.lf-btn{width:100%;justify-content:center}}
+
 /* ---------- MODAL / TOAST ---------- */
 .overlay{position:fixed;inset:0;background:rgba(9,16,30,.55);backdrop-filter:blur(3px);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:34px 16px;overflow-y:auto}
 .overlay.open{display:flex}
@@ -405,6 +419,21 @@ footer.app{padding:20px 28px 30px;color:var(--faint);font-size:12.3px;text-align
       <div class="demo-note"><b>حساب دمو:</b> با هر ایمیل و رمز عبوری وارد شوید — مثلاً ایمیل <span dir="ltr">demo@parsweb.ir</span> و رمز <span dir="ltr">1234</span>. اعتبارسنجی فرم واقعی است، اما در دمو هیچ حسابی رد نمی‌شود.</div>
     </form>
   </div>
+  <footer class="landing-foot">
+    <div class="lf-cta">
+      <div>
+        <h3>پنل مدیریت کسب‌وکارتان را <span>همین امروز</span> تجربه کنید</h3>
+        <p>بدون ثبت‌نام و بدون نصب — دموی زنده پارس‌وب با داده‌های نمونه آماده است تا همه بخش‌ها را خودتان امتحان کنید.</p>
+      </div>
+      <a class="lf-btn" href="#loginView">شروع رایگان
+        <svg class="ic sm" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+    </div>
+    <div class="lf-links">
+      <span>دموی پیشنهادی اپ‌وبینو — نمونه وب‌اپلیکیشن فول‌استک (React + Node.js/Express + PostgreSQL)</span>
+      <nav><a href="#landingHero">معرفی پارس‌وب</a><a href="#loginView">ورود به دمو</a></nav>
+    </div>
+  </footer>
 </section>
 
 <!-- ================= APP ================= -->
