@@ -386,6 +386,15 @@ footer b{color:var(--ink)}
   .phones-wrap{transform:scale(.66);margin-bottom:-150px}
   .phone-a{margin-inline-end:-64px}
 }
+
+/* === DIVERSITY POLISH: tightened topbar + platform badges === */
+.topbar-in{padding-top:8px;padding-bottom:8px;gap:10px}
+.brand .mark{width:34px;height:34px;border-radius:10px}
+.brand{font-size:19px}
+.platform-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.platform-badges span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:6px 15px;font-size:12.5px;font-weight:800;color:var(--ink2)}
+.platform-badges span b{color:var(--indigo);font-weight:900}
+.platform-badges .pb-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block}
 </style>
 </head>
 <body>
@@ -725,6 +734,11 @@ footer b{color:var(--ink)}
 </section>
 
 <footer>
+  <div class="platform-badges" aria-label="پلتفرم‌های قابل نصب">
+    <span><i class="pb-dot"></i><b>PWA</b> نصب مستقیم از مرورگر</span>
+    <span><b>Android</b> قابل نصب روی اندروید</span>
+    <span><b>iOS</b> قابل نصب روی آیفون و آیپد</span>
+  </div>
   این صفحه یک <b>دموی تعاملی</b> از محصول نهایی است — داده‌ها نمونه‌اند و برای نمایش قابلیت‌ها به کار رفته‌اند.<br>
   دموی پیشنهادی <b>اپ‌وبینو (AppWebino)</b> — طراحی و توسعه اختصاصی وب‌اپلیکیشن و PWA
 </footer>
