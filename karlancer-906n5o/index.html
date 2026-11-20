@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کالاچین | فروشگاه کامل + انتقال از سایت قبلی</title>
+<meta name="description" content="دموی فروشگاه اینترنتی کامل ووکامرس با انتقال دامنه، انتقال همه محصولات، فعال‌سازی اینماد و حفظ ساختار و سئوی سایت قبلی.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --ink:#17211f; --ink2:#24312e; --muted:#68736f; --paper:#fbf7ef; --card:#fffdf8;
+  --teal:#075e57; --teal2:#0b766c; --deep:#10231f; --lime:#c9f16f; --orange:#ff6b35;
+  --amber:#ffb703; --rose:#ef476f; --line:#e7ddcc; --soft:#f1ead9; --shadow:0 18px 45px rgba(23,33,31,.11);
+  --shadow-lg:0 28px 70px rgba(16,35,31,.22); --r:22px;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Vazirmatn',sans-serif;background:var(--paper);color:var(--ink);font-size:15.5px;line-height:1.85;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.34;z-index:-1;background-image:radial-gradient(rgba(7,94,87,.16) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(to bottom,black,transparent 70%)}
+img{display:block;max-width:100%}
+button,input,select{font-family:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1280px,calc(100% - 40px));margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:12px 22px;font-weight:800;font-size:.95rem;transition:.22s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--deep);color:#fff}.btn-dark:hover{background:var(--teal)}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 12px 26px rgba(255,107,53,.28)}
+.btn-light{background:#fff;color:var(--deep);border:1px solid var(--line)}
+.btn-teal{background:var(--teal);color:#fff}
+.icon-btn{width:46px;height:46px;border-radius:15px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;position:relative;color:var(--deep)}
+.icon-btn svg{width:22px;height:22px}
+.cart-count{position:absolute;top:-7px;left:-7px;min-width:23px;height:23px;padding:0 6px;border-radius:999px;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:.76rem;font-weight:900;border:2px solid #fff}
+/* Header */
+.top-strip{background:var(--deep);color:#e9f5df;font-size:.82rem;padding:7px 0}
+.top-strip .container{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.top-strip b{color:var(--lime)}
+header.site{position:sticky;top:0;z-index:70;background:rgba(251,247,239,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,221,204,.9)}
+.header-in{display:flex;align-items:center;gap:18px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.logo>.logo-mark{width:48px;height:48px;border-radius:16px;background:var(--deep);color:var(--lime);display:grid;place-items:center;font-size:1.45rem;line-height:1;font-weight:900;box-shadow:8px 8px 0 var(--lime)}
+.logo-text strong{display:block;font-size:1.28rem;line-height:1.15;font-weight:900}
+.logo-text>span{display:block;font-size:.73rem;color:var(--muted);font-weight:600}
+.main-nav{display:flex;gap:4px;margin-inline-start:8px}
+.main-nav a{padding:9px 12px;border-radius:999px;font-weight:700;font-size:.92rem;color:var(--ink2)}
+.main-nav a:hover{background:#fff;color:var(--teal)}
+.header-search{flex:1;display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 7px 5px 16px;box-shadow:0 6px 18px rgba(23,33,31,.05)}
+.header-search svg{width:20px;height:20px;color:var(--muted);flex:0 0 auto}
+.header-search input{border:0;outline:0;background:transparent;width:100%;padding:8px;font-size:.92rem;color:var(--ink)}
+.header-actions{display:flex;align-items:center;gap:9px}
+.menu-btn{display:none}
+/* Hero */
+.hero{padding:52px 0 34px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:42px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:800;color:var(--teal)}
+.kicker i{width:8px;height:8px;background:var(--orange);border-radius:50%;display:block}
+.hero h1{font-size:clamp(2.25rem,5vw,4.35rem);line-height:1.18;font-weight:900;margin:18px 0 16px;letter-spacing:-.8px}
+.hero h1 .hl{color:var(--teal);box-shadow:inset 0 -18px 0 var(--lime);padding:0 4px}
+.hero p.lead{font-size:1.08rem;color:#4d5a56;max-width:660px;margin:0}
+.hero-cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
+.hero-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px;max-width:680px}
+.hero-points div{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:17px;padding:13px}
+.hero-points b{display:block;font-size:1.18rem;line-height:1.3;color:var(--deep)}
+.hero-points span{font-size:.8rem;color:var(--muted);font-weight:600}
+.hero-visual{position:relative}
+.hero-card{background:var(--deep);border-radius:34px;padding:14px;box-shadow:var(--shadow-lg);transform:rotate(1.2deg)}
+.hero-card img{height:510px;width:100%;object-fit:cover;border-radius:25px}
+.hero-badge{position:absolute;bottom:34px;right:-18px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:14px 16px;max-width:290px}
+.hero-badge b{display:block;line-height:1.5}.hero-badge span{font-size:.82rem;color:var(--muted)}
+.mini-tag{position:absolute;top:28px;left:-12px;background:var(--lime);color:var(--deep);border-radius:999px;padding:9px 14px;font-weight:900;box-shadow:var(--shadow);transform:rotate(-3deg)}
+/* Trust */
+.trust{margin:18px 0 8px}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.trust-item{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:19px;padding:15px}
+.trust-icon{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:#e8f3df;color:var(--teal);flex:0 0 auto}
+.trust-icon svg{width:24px;height:24px}
+.trust-item b{display:block;line-height:1.45}.trust-item span{font-size:.8rem;color:var(--muted)}
+/* Sections */
+section.block{padding:58px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.eyebrow{font-size:.8rem;font-weight:900;color:var(--orange);letter-spacing:.2px}
+.section-head h2{font-size:clamp(1.65rem,3vw,2.45rem);line-height:1.35;margin:3px 0 6px;font-weight:900}
+.section-head p{margin:0;color:var(--muted);max-width:680px}
+.num-label{font-size:4.3rem;line-height:1;font-weight:900;color:transparent;-webkit-text-stroke:1.5px #cfc4ab;opacity:.65}
+/* Categories */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cat-card{border:0;text-align:right;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:0 10px 26px rgba(23,33,31,.06);transition:.22s;padding:0;color:var(--ink)}
+.cat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.cat-card img{width:100%;height:168px;object-fit:cover}
+.cat-body{padding:16px 18px 18px;display:flex;justify-content:space-between;align-items:center}
+.cat-body b{font-size:1.05rem}.cat-body span{display:block;color:var(--muted);font-size:.82rem}
+.cat-arrow{width:36px;height:36px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:900}
+/* Shop */
+.shop-shell{background:#fff;border:1px solid var(--line);border-radius:30px;padding:22px;box-shadow:0 16px 42px rgba(23,33,31,.06)}
+.shop-tools{display:grid;grid-template-columns:1.2fr auto auto;gap:12px;align-items:center;margin-bottom:18px}
+.search-large{display:flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.search-large svg{width:20px;height:20px;color:var(--muted)}
+.search-large input{border:0;outline:0;background:transparent;width:100%;font-size:.95rem}
+.sort-select{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:11px 14px;font-weight:700;color:var(--ink)}
+.pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:999px;padding:9px 15px;font-weight:800;font-size:.88rem}
+.pill.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+.result-line{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.88rem;margin:4px 0 16px}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.product-card{background:var(--card);border:1px solid #eee3cf;border-radius:23px;overflow:hidden;display:flex;flex-direction:column;transition:.22s;position:relative}
+.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.product-media{position:relative;background:#eee;aspect-ratio:4/3;overflow:hidden}
+.product-media img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.product-card:hover .product-media img{transform:scale(1.055)}
+.discount{position:absolute;top:11px;right:11px;background:var(--rose);color:#fff;border-radius:999px;padding:3px 9px;font-size:.78rem;font-weight:900;z-index:2}
+.stock{position:absolute;bottom:11px;right:11px;background:rgba(255,255,255,.92);backdrop-filter:blur(5px);border-radius:999px;padding:3px 9px;font-size:.74rem;font-weight:800;color:var(--teal)}
+.quick-btn{position:absolute;left:11px;bottom:11px;border:0;background:var(--deep);color:#fff;border-radius:999px;padding:7px 11px;font-size:.78rem;font-weight:800;opacity:0;transform:translateY(5px);transition:.2s}
+.product-card:hover .quick-btn{opacity:1;transform:none}
+.product-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.cat-label{font-size:.75rem;color:var(--teal);font-weight:900}
+.product-body h3{font-size:1rem;line-height:1.6;margin:0;font-weight:800}
+.product-body p{font-size:.83rem;color:var(--muted);margin:0;line-height:1.7;min-height:44px}
+.rating{color:#d98e00;font-size:.82rem;font-weight:800}
+.price-row{margin-top:auto;display:flex;align-items:end;justify-content:space-between;gap:8px}
+.old-price{font-size:.8rem;color:#9a958a;text-decoration:line-through;display:block;line-height:1.3}
+.new-price{font-weight:900;font-size:1.05rem;color:var(--deep)}
+.new-price small{font-size:.75rem;color:var(--muted)}
+.add-btn{width:43px;height:43px;border:0;border-radius:14px;background:var(--orange);color:#fff;font-size:1.35rem;font-weight:900;display:grid;place-items:center;box-shadow:0 9px 18px rgba(255,107,53,.25)}
+.empty-state{display:none;text-align:center;padding:42px 10px;color:var(--muted)}
+.empty-state b{display:block;font-size:1.15rem;color:var(--ink)}
+/* Migration */
+.migration{background:var(--deep);color:#f4f1e6;border-radius:36px;padding:36px;position:relative;overflow:hidden}
+.migration::after{content:"MOVE";position:absolute;left:-12px;top:8px;font-size:8rem;line-height:1;font-weight:900;color:rgba(255,255,255,.035);letter-spacing:-4px}
+.migration .eyebrow{color:var(--lime)}
+.migration h2{color:#fff}
+.migration .section-head p{color:#bfc9c1}
+.migration .num-label{-webkit-text-stroke-color:rgba(255,255,255,.25)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;position:relative;z-index:1}
+.step{background:rgba(255,255,255,.065);border:1px solid rgba(255,255,255,.13);border-radius:23px;padding:20px;min-height:245px;position:relative}
+.step:not(:last-child)::after{content:"←";position:absolute;top:42%;left:-19px;width:26px;height:26px;border-radius:50%;background:var(--lime);color:var(--deep);display:grid;place-items:center;font-weight:900;z-index:3}
+.step-no{font-size:.78rem;font-weight:900;color:var(--lime);letter-spacing:1px}
+.step h3{font-size:1.08rem;line-height:1.65;margin:8px 0;color:#fff}
+.step p{font-size:.86rem;color:#c6d0c7;margin:0}
+.step .done{margin-top:16px;display:inline-flex;background:rgba(201,241,111,.14);color:var(--lime);border:1px solid rgba(201,241,111,.26);padding:4px 9px;border-radius:999px;font-size:.76rem;font-weight:800}
+.migration-bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-top:13px;position:relative;z-index:1}
+.mig-note{background:#fff;color:var(--ink);border-radius:20px;padding:17px}
+.mig-note b{display:block;color:var(--teal)}
+.mig-note span{font-size:.85rem;color:var(--muted)}
+/* Woo features */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feature{background:var(--card);border:1px solid var(--line);border-radius:23px;padding:21px}
+.feature .f-icon{width:48px;height:48px;border-radius:16px;background:#fff0e8;color:var(--orange);display:grid;place-items:center;margin-bottom:12px}
+.feature .f-icon svg{width:25px;height:25px}
+.feature h3{margin:0 0 5px;font-size:1.05rem}
+.feature p{margin:0;color:var(--muted);font-size:.88rem}
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:start}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;border:0;background:none;padding:17px 19px;display:flex;justify-content:space-between;gap:14px;text-align:right;font-weight:800;color:var(--ink)}
+.faq-a{display:none;padding:0 19px 18px;color:var(--muted);font-size:.9rem}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+/* Footer */
+footer{background:var(--deep);color:#d9e2d7;margin-top:60px;padding:36px 0 24px}
+.footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:24px}
+footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap;font-size:.9rem}
+.copyright{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:18px;font-size:.83rem;color:#aebbb0}
+.appwebino{color:var(--lime);font-weight:900}
+/* Drawer/modal */
+.overlay{position:fixed;inset:0;background:rgba(13,24,21,.55);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.25s;z-index:90}
+.overlay.show{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;top:0;left:0;height:100dvh;width:min(430px,94vw);background:#fffdf8;z-index:100;transform:translateX(-110%);transition:.3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:var(--shadow-lg)}
+.cart-drawer.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:19px;border-bottom:1px solid var(--line)}
+.drawer-head h3{margin:0}.drawer-head p{margin:0;color:var(--muted);font-size:.82rem}
+.close-x{width:39px;height:39px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:1.1rem}
+.free-ship{padding:14px 19px;background:#eef6e6;border-bottom:1px solid var(--line);font-size:.84rem}
+.progress{height:8px;background:#dce8d2;border-radius:999px;overflow:hidden;margin-top:8px}.progress i{display:block;height:100%;background:var(--teal);width:0;transition:.3s}
+.cart-items{padding:12px 19px;overflow:auto;flex:1}
+.cart-item{display:grid;grid-template-columns:72px 1fr auto;gap:11px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.cart-item img{width:72px;height:72px;object-fit:cover;border-radius:14px}
+.cart-item h4{font-size:.88rem;line-height:1.55;margin:0 0 3px}
+.cart-item .unit{font-size:.78rem;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:6px;margin-top:7px}
+.qty button{width:27px;height:27px;border-radius:9px;border:1px solid var(--line);background:#fff;font-weight:900}
+.remove{border:0;background:none;color:var(--rose);font-size:.78rem;padding:0;margin-top:5px}
+.line-total{font-weight:900;font-size:.88rem;white-space:nowrap}
+.drawer-foot{border-top:1px solid var(--line);padding:17px 19px;background:#fff}
+.total-row{display:flex;justify-content:space-between;margin:5px 0;font-size:.92rem}.total-row.grand{font-size:1.08rem;font-weight:900}
+.checkout{width:100%;margin-top:11px}
+.cart-empty{text-align:center;color:var(--muted);padding:42px 8px}
+.success-box{display:none;background:#e9f7e8;border:1px solid #bfe3bd;color:#256b26;border-radius:14px;padding:11px;margin-top:11px;font-size:.86rem;font-weight:700}
+.modal{position:fixed;inset:0;z-index:110;display:none;place-items:center;padding:18px}
+.modal.show{display:grid}
+.modal-card{width:min(880px,100%);max-height:92dvh;overflow:auto;background:#fffdf8;border-radius:28px;box-shadow:var(--shadow-lg);position:relative;display:grid;grid-template-columns:1fr 1fr}
+.modal-card img.main{width:100%;height:100%;min-height:420px;object-fit:cover}
+.modal-info{padding:27px}
+.modal-info h3{font-size:1.45rem;line-height:1.55;margin:5px 0}
+.modal-info p{color:var(--muted)}
+.spec-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:17px 0}
+.spec-list div{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:9px 11px;font-size:.83rem}
+.spec-list b{display:block;color:var(--teal)}
+.modal-close{position:absolute;top:13px;right:13px;z-index:2}
+.toast{position:fixed;bottom:22px;right:22px;z-index:130;background:var(--deep);color:#fff;border-radius:16px;padding:13px 17px;box-shadow:var(--shadow-lg);transform:translateY(90px);opacity:0;transition:.3s;font-weight:800;font-size:.9rem}
+.toast.show{transform:none;opacity:1}
+@media(max-width:1050px){
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .cat-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}.step:not(:last-child)::after{display:none}
+  .header-search{display:none}.main-nav{display:none;position:absolute;top:100%;right:20px;left:20px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:var(--shadow);flex-direction:column}.main-nav.open{display:flex}.menu-btn{display:grid}
+  header.site .container{position:relative}
+}
+@media(max-width:760px){
+  .container{width:min(100% - 28px,1280px)}
+  .hero{padding-top:32px}.hero-grid{grid-template-columns:1fr}.hero-card img{height:340px}.hero-badge{right:8px;bottom:10px}.mini-tag{left:8px}
+  .hero-points{grid-template-columns:1fr 1fr 1fr;gap:7px}.hero-points div{padding:10px}.hero-points b{font-size:.98rem}.hero-points span{font-size:.7rem}
+  .shop-shell{padding:14px}.shop-tools{grid-template-columns:1fr}.product-grid{grid-template-columns:repeat(2,1fr)}
+  .feature-grid,.faq-grid,.migration-bottom{grid-template-columns:1fr}
+  .migration{padding:23px}.steps{grid-template-columns:1fr}.step{min-height:auto}
+  .modal-card{grid-template-columns:1fr}.modal-card img.main{min-height:260px;height:260px}
+  .section-head{align-items:start}.num-label{display:none}
+  .top-strip .container{justify-content:center;text-align:center}
+}
+@media(max-width:480px){
+  .product-grid,.cat-grid,.trust-grid{grid-template-columns:1fr}
+  .hero-points{grid-template-columns:1fr}
+  .product-body p{min-height:auto}
+  .logo-text>span{display:none}.btn{padding:11px 16px}
+  .header-in{gap:9px}.logo>.logo-mark{width:42px;height:42px}
+}
+</style>
+</head>
+<body>
+<div class="top-strip"><div class="container"><span>فروشگاه جدید، روی همان دامنه قبلی شما</span><span><b>انتقال کامل</b> محصولات، تصاویر و ساختار سایت</span></div></div>
+
+<header class="site">
+  <div class="container header-in">
+    <a class="logo" href="#top" aria-label="کالاچین">
+      <span class="logo-mark">ک</span>
+      <span class="logo-text"><strong>کالاچین</strong><span>فروشگاه عمومی آنلاین</span></span>
+    </a>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="باز کردن منو">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#shop">فروشگاه</a><a href="#categories">دسته‌بندی‌ها</a><a href="#migration">انتقال سایت قبلی</a><a href="#features">امکانات</a><a href="#faq">پرسش‌ها</a>
+    </nav>
+    <label class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="headerSearch" type="search" placeholder="جستجو در کالاها…">
+    </label>
+    <div class="header-actions">
+      <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg>
+        <span class="cart-count" id="cartCount">۰</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="kicker"><i></i> ووکامرس کامل؛ بدون از دست رفتن سایت قبلی</span>
+        <h1>فروشگاه تازه،<br><span class="hl">با همه محصولات قبلی</span><br>روی همان دامنه.</h1>
+        <p class="lead">کالاچین نمونه‌ای از فروشگاه کامل وردپرسی است که کاتالوگ، تصاویر، دسته‌بندی و مسیرهای مهم سایت قبلی را منتقل می‌کند؛ با اینماد فعال، درگاه امن و سبد خرید واقعی.</p>
+        <div class="hero-cta">
+          <a class="btn btn-orange" href="#shop">مشاهده محصولات</a>
+          <a class="btn btn-light" href="#migration">دیدن نقشه انتقال</a>
+        </div>
+        <div class="hero-points">
+          <div><b>۱۰۰٪</b><span>انتقال محصولات و تصاویر</span></div>
+          <div><b>۳۰۱</b><span>ریدایرکت برای حفظ سئو</span></div>
+          <div><b>۷ روز</b><span>ضمانت بازگشت کالا</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="mini-tag">کاتالوگ آماده فروش</div>
+        <div class="hero-card"><img src="assets/img/hero-headphones.jpg" alt="هدفون مدرن روی پس‌زمینه مینیمال"></div>
+        <div class="hero-badge"><b>مهاجرت بدون توقف فروش</b><span>اول نسخه جدید ساخته و تست می‌شود؛ بعد دامنه در زمان‌بندی مشخص جابه‌جا می‌شود.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust"><div class="container trust-grid">
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>نماد اعتماد الکترونیکی</b><span>اینماد فعال و قابل استعلام</span></div></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div><b>درگاه پرداخت امن</b><span>تسویه بانکی رمزنگاری‌شده</span></div></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span><div><b>ضمانت بازگشت</b><span>بازگشت آسان تا ۷ روز</span></div></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><div><b>ارسال رهگیری‌دار</b><span>پیگیری سفارش در هر مرحله</span></div></div>
+  </div></section>
+
+  <section class="block" id="categories">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow">شروع خرید</div><h2>دسته‌بندی‌هایی که از سایت قبلی منتقل می‌شوند</h2><p>ساختار دسته‌ها، ویژگی‌ها و فیلترها در نسخه جدید بازسازی می‌شود تا مشتری مسیر قبلی را گم نکند.</p></div><div class="num-label">01</div></div>
+      <div class="cat-grid">
+        <button class="cat-card" data-cat-link="digital"><img src="assets/img/headphones.jpg" alt="کالای دیجیتال"><span class="cat-body"><span><b>کالای دیجیتال</b><span>هدفون، ساعت و گجت</span></span><span class="cat-arrow">←</span></span></button>
+        <button class="cat-card" data-cat-link="home"><img src="assets/img/coffee-maker.jpg" alt="خانه و آشپزخانه"><span class="cat-body"><span><b>خانه و آشپزخانه</b><span>لوازم کاربردی خانه</span></span><span class="cat-arrow">←</span></span></button>
+        <button class="cat-card" data-cat-link="fashion"><img src="assets/img/sneakers.jpg" alt="مد و پوشاک"><span class="cat-body"><span><b>مد و سبک زندگی</b><span>کفش، کوله و اکسسوری</span></span><span class="cat-arrow">←</span></span></button>
+        <button class="cat-card" data-cat-link="beauty"><img src="assets/img/skincare-set.jpg" alt="زیبایی و سلامت"><span class="cat-body"><span><b>زیبایی و سلامت</b><span>مراقبت پوست و عطر</span></span><span class="cat-arrow">←</span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="shop" style="padding-top:18px">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow">ویترین زنده</div><h2>محصولات فروشگاه</h2><p>جستجو، فیلتر دسته‌بندی، مرتب‌سازی، مشاهده سریع و سبد خرید در همین دمو کار می‌کند.</p></div><div class="num-label">02</div></div>
+      <div class="shop-shell">
+        <div class="shop-tools">
+          <label class="search-large"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="shopSearch" type="search" placeholder="نام کالا، برند یا ویژگی…"></label>
+          <div class="pills" id="filterPills">
+            <button class="pill active" data-filter="all">همه</button>
+            <button class="pill" data-filter="digital">دیجیتال</button>
+            <button class="pill" data-filter="home">خانه</button>
+            <button class="pill" data-filter="fashion">مد و سبک زندگی</button>
+            <button class="pill" data-filter="beauty">زیبایی</button>
+          </div>
+          <select class="sort-select" id="sortSelect" aria-label="مرتب‌سازی محصولات">
+            <option value="featured">پیشنهادی</option><option value="cheap">ارزان‌ترین</option><option value="expensive">گران‌ترین</option><option value="discount">بیشترین تخفیف</option><option value="rating">بالاترین امتیاز</option>
+          </select>
+        </div>
+        <div class="result-line"><span id="resultCount"></span><span>قیمت‌ها به تومان است.</span></div>
+        <div class="product-grid" id="productGrid"></div>
+        <div class="empty-state" id="emptyState"><b>کالایی پیدا نشد</b>عبارت جستجو یا دسته‌بندی را تغییر دهید.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="migration">
+    <div class="container">
+      <div class="migration">
+        <div class="section-head"><div><div class="eyebrow">پیشنهاد اجرایی دقیقاً مطابق درخواست شما</div><h2>انتقال کامل از سایت قبلی</h2><p>نسخه جدید وردپرسی کنار سایت فعلی ساخته می‌شود؛ پس از کنترل محصول‌به‌محصول و تست پرداخت، انتقال نهایی انجام می‌شود.</p></div><div class="num-label">03</div></div>
+        <div class="steps">
+          <article class="step"><div class="step-no">STEP 01</div><h3>انتقال دامنه</h3><p>تنظیم DNS و اتصال دامنه فعلی به هاست و نصب جدید، با برنامه زمان‌بندی برای کمترین وقفه.</p><span class="done">همان آدرس قبلی</span></article>
+          <article class="step"><div class="step-no">STEP 02</div><h3>انتقال همه محصولات و تصاویر</h3><p>خروجی‌گیری از سایت قبلی و ورود کامل نام، قیمت، موجودی، ویژگی، دسته‌بندی، تصاویر و توضیحات به ووکامرس.</p><span class="done">کنترل محصول‌به‌محصول</span></article>
+          <article class="step"><div class="step-no">STEP 03</div><h3>فعال‌سازی اینماد</h3><p>آماده‌سازی اطلاعات و اتصال نماد اعتماد الکترونیکی به دامنه و فروشگاه جدید تا اعتماد مشتری حفظ شود.</p><span class="done">قابل نمایش در فوتر</span></article>
+          <article class="step"><div class="step-no">STEP 04</div><h3>تطبیق ساختار و سئو (ریدایرکت‌ها)</h3><p>بازسازی ساختار مهم صفحات و تنظیم ریدایرکت ۳۰۱ از URLهای قبلی به صفحات متناظر جدید برای کاهش افت رتبه.</p><span class="done">نقشه ریدایرکت کامل</span></article>
+        </div>
+        <div class="migration-bottom">
+          <div class="mig-note"><b>قبل از جابه‌جایی</b><span>بک‌آپ کامل از سایت و بانک اطلاعاتی فعلی گرفته می‌شود.</span></div>
+          <div class="mig-note"><b>حین انتقال</b><span>قیمت، موجودی و وضعیت انتشار تک‌تک محصولات نمونه‌برداری و تطبیق داده می‌شود.</span></div>
+          <div class="mig-note"><b>بعد از انتشار</b><span>درگاه، فرم‌ها، سرعت، نسخه موبایل و لینک‌های مهم دوباره تست می‌شوند.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="features" style="padding-top:20px">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow">فروشگاه کامل، نه یک قالب خالی</div><h2>امکانات آماده در ووکامرس</h2><p>ابزارهایی که برای فروش روزمره، مدیریت موجودی و رشد فروشگاه لازم است از روز اول پیکربندی می‌شود.</p></div><div class="num-label">04</div></div>
+      <div class="feature-grid">
+        <article class="feature"><span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><h3>کاتالوگ و موجودی</h3><p>محصول ساده و متغیر، ویژگی، برند، موجودی، هشدار اتمام و قیمت همکاری یا فروش ویژه.</p></article>
+        <article class="feature"><span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1.2 11H6.2L5 8Z"/><path d="M8.5 8a3.5 3.5 0 0 1 7 0"/></svg></span><h3>سبد و تسویه سریع</h3><p>سبد شناور، کد تخفیف، هزینه ارسال، درگاه پرداخت و پیامک وضعیت سفارش.</p></article>
+        <article class="feature"><span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8.5 11h5M11 8.5v5"/></svg></span><h3>جستجو و فیلتر</h3><p>جستجوی سریع، فیلتر دسته و ویژگی، مرتب‌سازی قیمت و نمایش موجودی واقعی.</p></article>
+        <article class="feature"><span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-8M20 16V6"/></svg></span><h3>گزارش فروش</h3><p>داشبورد سفارش‌ها، محصولات پرفروش، مشتریان و گزارش درآمد برای تصمیم‌گیری بهتر.</p></article>
+        <article class="feature"><span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 5 6v5c0 4.5 3 8.2 7 10 4-1.8 7-5.5 7-10V6l-7-3Z"/></svg></span><h3>امنیت و بک‌آپ</h3><p>به‌روزرسانی کنترل‌شده، نسخه پشتیبان و سخت‌سازی ورود و پرداخت.</p></article>
+        <article class="feature"><span class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg></span><h3>موبایل‌محور</h3><p>خرید سریع با موبایل، دکمه‌های در دسترس و سرعت مناسب در صفحات محصول.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq" style="padding-top:16px">
+    <div class="container faq-grid">
+      <div><div class="eyebrow">ابهام‌های رایج</div><h2 style="font-size:2rem;line-height:1.4;margin:5px 0">در انتقال سایت، چه چیزی از دست نمی‌رود؟</h2><p style="color:var(--muted)">هدف این دمو فقط نمایش ظاهر فروشگاه نیست؛ مسیر مهاجرت هم شفاف است تا کارفرما بداند محصول، دامنه، اعتماد و سئو چطور حفظ می‌شود.</p></div>
+      <div>
+        <div class="faq-item open"><button class="faq-q">آیا همه محصولات و عکس‌ها منتقل می‌شوند؟<span>＋</span></button><div class="faq-a">بله. اطلاعات ساخت‌یافته محصولات شامل عنوان، توضیح، قیمت، موجودی، دسته‌بندی، ویژگی و گالری تصاویر منتقل و در چند مرحله کنترل می‌شود.</div></div>
+        <div class="faq-item"><button class="faq-q">رتبه‌های گوگل بعد از تغییر سایت چه می‌شود؟<span>＋</span></button><div class="faq-a">برای URLهای مهم نقشه ریدایرکت ۳۰۱ ساخته می‌شود و ساختار دسته‌ها و صفحات تا حد امکان با نسخه قبلی تطبیق داده می‌شود.</div></div>
+        <div class="faq-item"><button class="faq-q">اینماد روی سایت جدید چطور فعال می‌شود؟<span>＋</span></button><div class="faq-a">اطلاعات دامنه و فروشگاه آماده و فرایند فعال‌سازی اینماد برای نسخه جدید پیگیری می‌شود تا نماد در فروشگاه قابل نمایش باشد.</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <a class="logo" href="#top"><span class="logo-mark">ک</span><span class="logo-text"><strong>کالاچین</strong><span>فروشگاه عمومی آنلاین</span></span></a>
+      <nav class="footer-links"><a href="#shop">فروشگاه</a><a href="#migration">انتقال سایت</a><a href="#features">امکانات</a><a href="#faq">پرسش‌ها</a></nav>
+    </div>
+    <div class="copyright"><span>© کالاچین — نمونه فروشگاه برای نمایش فرایند ساخت و انتقال.</span><span class="appwebino">دموی پیشنهادی اپ‌وبینو</span></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="سبد خرید">
+  <div class="drawer-head"><div><h3>سبد خرید</h3><p id="drawerSub">سبد شما خالی است.</p></div><button class="close-x" id="closeCart" aria-label="بستن سبد">×</button></div>
+  <div class="free-ship"><span id="shipText">برای ارسال رایگان، سبد را کامل‌تر کنید.</span><div class="progress"><i id="shipProgress"></i></div></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>جمع کالاها</span><b id="subTotal">۰ تومان</b></div>
+    <div class="total-row"><span>سود شما از تخفیف</span><b id="saveTotal">۰ تومان</b></div>
+    <div class="total-row grand"><span>مبلغ قابل پرداخت</span><b id="grandTotal">۰ تومان</b></div>
+    <button class="btn btn-orange checkout" id="checkoutBtn">ثبت سفارش و پرداخت</button>
+    <div class="success-box" id="successBox">سفارش آزمایشی ثبت شد. در فروشگاه واقعی، مشتری از همین مرحله به درگاه امن هدایت می‌شود.</div>
+  </div>
+</aside>
+
+<div class="modal" id="quickModal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="close-x modal-close" id="closeQuick" aria-label="بستن مشاهده سریع">×</button>
+    <img class="main" id="quickImg" src="" alt="">
+    <div class="modal-info">
+      <span class="cat-label" id="quickCat"></span>
+      <h3 id="quickName"></h3>
+      <div class="rating" id="quickRating"></div>
+      <p id="quickDesc"></p>
+      <div class="spec-list" id="quickSpecs"></div>
+      <div class="price-row"><div><span class="old-price" id="quickOld"></span><span class="new-price" id="quickPrice"></span></div></div>
+      <div style="display:flex;gap:9px;margin-top:19px;flex-wrap:wrap"><button class="btn btn-orange" id="quickAdd">افزودن به سبد</button><button class="btn btn-light" id="quickClose2">ادامه خرید</button></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">به سبد خرید اضافه شد</div>
+
+<script>
+const products = [
+  {id:1,name:'هدفون بی‌سیم نویزکنسلینگ آوا',cat:'digital',catName:'کالای دیجیتال',price:2890000,old:3650000,rating:4.8,sales:412,img:'assets/img/headphones.jpg',desc:'حذف نویز فعال، بلوتوث ۵.۳ و شارژدهی ۳۶ ساعته برای موسیقی و تماس‌های روزانه.',specs:{'شارژدهی':'۳۶ ساعت','اتصال':'Bluetooth 5.3','قابلیت':'ANC فعال','گارانتی':'۱۸ ماه'}},
+  {id:2,name:'ساعت هوشمند پالس پرو',cat:'digital',catName:'کالای دیجیتال',price:4750000,old:5400000,rating:4.7,sales:386,img:'assets/img/smartwatch.jpg',desc:'پایش خواب و ورزش، اعلان فارسی و صفحه‌نمایش همیشه روشن با بند سیلیکونی ضدحساسیت.',specs:{'نمایشگر':'AMOLED','مقاومت':'5ATM','سنسور':'ضربان و اکسیژن','باتری':'۱۰ روز'}},
+  {id:3,name:'ایربادز اکو بادز لایت',cat:'digital',catName:'کالای دیجیتال',price:1890000,old:2400000,rating:4.6,sales:529,img:'assets/img/earbuds.jpg',desc:'صدای شفاف، کیس شارژ سریع و طراحی سبک برای استفاده طولانی در طول روز.',specs:{'درایور':'۱۱ میلی‌متر','شارژدهی':'۲۸ ساعت با کیس','مقاومت':'IPX5','میکروفون':'دوگانه'}},
+  {id:4,name:'کتانی رانینگ اسپید فوم',cat:'fashion',catName:'مد و سبک زندگی',price:3290000,old:4100000,rating:4.9,sales:274,img:'assets/img/sneakers.jpg',desc:'زیره سبک و تنفس‌پذیر برای پیاده‌روی و تمرین روزانه؛ مناسب استفاده شهری.',specs:{'جنس رویه':'مش تنفسی','زیره':'EVA سبک','کاربرد':'رانینگ و روزمره','سایز':'۴۰ تا ۴۵'}},
+  {id:5,name:'کوله‌پشتی شهری تراولا',cat:'fashion',catName:'مد و سبک زندگی',price:2150000,old:2680000,rating:4.7,sales:198,img:'assets/img/backpack.jpg',desc:'جیب لپ‌تاپ، پارچه مقاوم در برابر آب و بندهای ارگونومیک برای رفت‌وآمد روزانه.',specs:{'ظرفیت':'۲۲ لیتر','لپ‌تاپ':'تا ۱۵.۶ اینچ','جنس':'پلی‌استر ضدآب','جیب':'۵ محفظه'}},
+  {id:6,name:'عینک آفتابی سولار کلاسیک',cat:'fashion',catName:'مد و سبک زندگی',price:1240000,old:1550000,rating:4.5,sales:167,img:'assets/img/sunglasses.jpg',desc:'لنز UV400 و فریم سبک؛ انتخابی تمیز برای استایل روزمره و سفر.',specs:{'محافظت':'UV400','جنس فریم':'استات سبک','لنز':'پولاریزه','همراه':'کیف و دستمال'}},
+  {id:7,name:'چراغ مطالعه نورین',cat:'home',catName:'خانه و آشپزخانه',price:980000,old:1280000,rating:4.6,sales:221,img:'assets/img/lamp.jpg',desc:'نور قابل تنظیم با بازوی انعطاف‌پذیر؛ مناسب میز کار، مطالعه و فضای مینیمال.',specs:{'دمای نور':'۳ حالت','بازو':'قابل تنظیم','منبع':'LED کم‌مصرف','کلید':'لمسی'}},
+  {id:8,name:'کتری برقی شیشه‌ای بخار',cat:'home',catName:'خانه و آشپزخانه',price:1740000,old:2190000,rating:4.7,sales:308,img:'assets/img/kettle.jpg',desc:'بدنه شیشه‌ای، خاموشی خودکار و ظرفیت مناسب خانواده برای چای و قهوه روزانه.',specs:{'ظرفیت':'۱.۷ لیتر','توان':'۲۲۰۰ وات','بدنه':'شیشه بوروسیلیکات','ایمنی':'خاموشی خودکار'}},
+  {id:9,name:'قهوه‌ساز آروما هوم',cat:'home',catName:'خانه و آشپزخانه',price:5890000,old:6900000,rating:4.8,sales:143,img:'assets/img/coffee-maker.jpg',desc:'قهوه خوش‌عطر با برنامه زمان‌بندی، گرم‌نگهدار و طراحی جمع‌وجور برای آشپزخانه.',specs:{'ظرفیت':'۱۲ فنجان','قوری':'شیشه‌ای','قابلیت':'زمان‌بندی','فیلتر':'دائمی'}},
+  {id:10,name:'ست مراقبت پوست لونا',cat:'beauty',catName:'زیبایی و سلامت',price:1460000,old:1820000,rating:4.8,sales:356,img:'assets/img/skincare-set.jpg',desc:'روتین کامل پاک‌سازی و آبرسانی با بطری‌های مینیمال و مناسب مصرف روزانه.',specs:{'حجم':'۳ محصول','نوع پوست':'انواع پوست','رایحه':'ملایم','فاقد':'پارابن'}},
+  {id:11,name:'عطر کهربا ۱۰۰ میل',cat:'beauty',catName:'زیبایی و سلامت',price:2680000,old:3150000,rating:4.9,sales:189,img:'assets/img/perfume.jpg',desc:'رایحه گرم و ماندگار با شیشه مینیمال؛ مناسب هدیه و استفاده روزانه.',specs:{'حجم':'۱۰۰ میل','خانواده':'گرم و چوبی','ماندگاری':'بالا','پخش بو':'متوسط رو به بالا'}},
+  {id:12,name:'ست روتین مینیمال پوست',cat:'beauty',catName:'زیبایی و سلامت',price:1130000,old:1390000,rating:4.6,sales:244,img:'assets/img/beauty-flatlay.jpg',desc:'چیدمان ساده و کامل برای شروع روتین پوستی؛ شوینده، سرم و مرطوب‌کننده هماهنگ.',specs:{'اقلام':'۳ عدد','کاربرد':'روتین صبح و شب','بافت':'سبک','مناسب':'هدیه'}}
+];
+const faNum = n => new Intl.NumberFormat('fa-IR').format(n);
+const money = n => faNum(n) + ' تومان';
+const grid = document.getElementById('productGrid');
+const emptyState = document.getElementById('emptyState');
+const resultCount = document.getElementById('resultCount');
+let activeFilter = 'all';
+let cart = new Map();
+let quickId = null;
+
+function discount(p){return Math.round((1-p.price/p.old)*100)}
+function renderProducts(){
+  const q = document.getElementById('shopSearch').value.trim().toLowerCase();
+  const sort = document.getElementById('sortSelect').value;
+  let list = products.filter(p => (activeFilter==='all' || p.cat===activeFilter) && (!q || (p.name+' '+p.catName+' '+p.desc).toLowerCase().includes(q)));
+  if(sort==='cheap') list.sort((a,b)=>a.price-b.price);
+  if(sort==='expensive') list.sort((a,b)=>b.price-a.price);
+  if(sort==='discount') list.sort((a,b)=>discount(b)-discount(a));
+  if(sort==='rating') list.sort((a,b)=>b.rating-a.rating);
+  if(sort==='featured') list.sort((a,b)=>b.sales-a.sales);
+  grid.innerHTML = list.map(p => `
+    <article class="product-card">
+      <div class="product-media">
+        <span class="discount">${faNum(discount(p))}٪ تخفیف</span>
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <span class="stock">موجود در انبار</span>
+        <button class="quick-btn" data-quick="${p.id}">مشاهده سریع</button>
+      </div>
+      <div class="product-body">
+        <span class="cat-label">${p.catName}</span>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="rating">★ ${faNum(p.rating)} <span style="color:var(--muted);font-weight:600">(${faNum(p.sales)} خرید)</span></div>
+        <div class="price-row">
+          <div><span class="old-price">${money(p.old)}</span><span class="new-price">${faNum(p.price)} <small>تومان</small></span></div>
+          <button class="add-btn" data-add="${p.id}" aria-label="افزودن ${p.name}">+</button>
+        </div>
+      </div>
+    </article>`).join('');
+  emptyState.style.display = list.length ? 'none' : 'block';
+  resultCount.textContent = faNum(list.length) + ' کالا نمایش داده شد';
+  bindProductButtons();
+}
+function bindProductButtons(){
+  document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>addToCart(+b.dataset.add)));
+  document.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>openQuick(+b.dataset.quick)));
+}
+function cartTotals(){
+  let count=0, sub=0, save=0;
+  cart.forEach((qty,id)=>{const p=products.find(x=>x.id===id); count+=qty; sub+=p.price*qty; save+=(p.old-p.price)*qty;});
+  return {count,sub,save};
+}
+function renderCart(){
+  const box=document.getElementById('cartItems');
+  const t=cartTotals();
+  document.getElementById('cartCount').textContent=faNum(t.count);
+  document.getElementById('subTotal').textContent=money(t.sub);
+  document.getElementById('saveTotal').textContent=money(t.save);
+  document.getElementById('grandTotal').textContent=money(t.sub);
+  document.getElementById('drawerSub').textContent=t.count ? faNum(t.count)+' کالا در سبد شما' : 'سبد شما خالی است.';
+  const freeLimit=5000000, pct=Math.min(100, Math.round(t.sub/freeLimit*100));
+  document.getElementById('shipProgress').style.width=pct+'%';
+  document.getElementById('shipText').textContent=t.sub>=freeLimit ? 'ارسال سفارش شما رایگان شد.' : 'تا ارسال رایگان ' + money(freeLimit-t.sub) + ' دیگر اضافه کنید.';
+  if(!cart.size){box.innerHTML='<div class="cart-empty">هنوز کالایی به سبد اضافه نشده است.<br>از ویترین فروشگاه شروع کنید.</div>'; return;}
+  box.innerHTML=[...cart.entries()].map(([id,qty])=>{const p=products.find(x=>x.id===id); return `
+    <div class="cart-item">
+      <img src="${p.img}" alt="${p.name}">
+      <div><h4>${p.name}</h4><span class="unit">${money(p.price)}</span>
+        <div class="qty"><button data-dec="${id}">−</button><b>${faNum(qty)}</b><button data-inc="${id}">+</button></div>
+        <button class="remove" data-remove="${id}">حذف از سبد</button>
+      </div><div class="line-total">${money(p.price*qty)}</div>
+    </div>`}).join('');
+  box.querySelectorAll('[data-inc]').forEach(b=>b.onclick=()=>{cart.set(+b.dataset.inc, cart.get(+b.dataset.inc)+1); renderCart();});
+  box.querySelectorAll('[data-dec]').forEach(b=>b.onclick=()=>{const id=+b.dataset.dec; const q=cart.get(id)-1; q<=0?cart.delete(id):cart.set(id,q); renderCart();});
+  box.querySelectorAll('[data-remove]').forEach(b=>b.onclick=()=>{cart.delete(+b.dataset.remove); renderCart();});
+}
+function showToast(msg){const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2300);}
+function addToCart(id,qty=1){cart.set(id,(cart.get(id)||0)+qty); renderCart(); showToast('به سبد خرید اضافه شد');}
+function openCart(){document.getElementById('cartDrawer').classList.add('open'); document.getElementById('overlay').classList.add('show');}
+function closeCart(){document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('overlay').classList.remove('show');}
+function openQuick(id){
+  const p=products.find(x=>x.id===id); quickId=id;
+  document.getElementById('quickImg').src=p.img; document.getElementById('quickImg').alt=p.name;
+  document.getElementById('quickCat').textContent=p.catName;
+  document.getElementById('quickName').textContent=p.name;
+  document.getElementById('quickRating').textContent='★ '+faNum(p.rating)+' از ۵ — '+faNum(p.sales)+' خرید ثبت‌شده در دمو';
+  document.getElementById('quickDesc').textContent=p.desc;
+  document.getElementById('quickOld').textContent=money(p.old);
+  document.getElementById('quickPrice').innerHTML=faNum(p.price)+' <small>تومان</small>';
+  document.getElementById('quickSpecs').innerHTML=Object.entries(p.specs).map(([k,v])=>`<div><b>${k}</b>${v}</div>`).join('');
+  document.getElementById('quickModal').classList.add('show'); document.getElementById('quickModal').setAttribute('aria-hidden','false');
+}
+function closeQuick(){document.getElementById('quickModal').classList.remove('show'); document.getElementById('quickModal').setAttribute('aria-hidden','true');}
+
+document.getElementById('filterPills').addEventListener('click',e=>{const b=e.target.closest('[data-filter]'); if(!b)return; activeFilter=b.dataset.filter; document.querySelectorAll('.pill').forEach(x=>x.classList.toggle('active',x===b)); renderProducts();});
+document.querySelectorAll('[data-cat-link]').forEach(card=>card.addEventListener('click',()=>{activeFilter=card.dataset.catLink; document.querySelectorAll('.pill').forEach(x=>x.classList.toggle('active',x.dataset.filter===activeFilter)); renderProducts(); document.getElementById('shop').scrollIntoView({behavior:'smooth'});}));
+document.getElementById('shopSearch').addEventListener('input',renderProducts);
+document.getElementById('headerSearch').addEventListener('input',e=>{document.getElementById('shopSearch').value=e.target.value; renderProducts();});
+document.getElementById('headerSearch').addEventListener('focus',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
+document.getElementById('sortSelect').addEventListener('change',renderProducts);
+document.getElementById('cartBtn').addEventListener('click',openCart);
+document.getElementById('closeCart').addEventListener('click',closeCart);
+document.getElementById('overlay').addEventListener('click',closeCart);
+document.getElementById('closeQuick').addEventListener('click',closeQuick);
+document.getElementById('quickClose2').addEventListener('click',closeQuick);
+document.getElementById('quickModal').addEventListener('click',e=>{if(e.target.id==='quickModal') closeQuick();});
+document.getElementById('quickAdd').addEventListener('click',()=>{if(quickId) addToCart(quickId); closeQuick(); openCart();});
+document.getElementById('checkoutBtn').addEventListener('click',()=>{if(!cart.size){showToast('سبد خرید خالی است'); return;} document.getElementById('successBox').style.display='block'; showToast('سفارش آزمایشی ثبت شد');});
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('mainNav').classList.toggle('open'));
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+renderProducts(); renderCart();
+</script>
+</body>
+</html>
