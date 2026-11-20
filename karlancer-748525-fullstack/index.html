@@ -19,7 +19,7 @@
   --r:14px; --sh:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
   --sh-lg:0 18px 44px -12px rgba(11,21,38,.28);
 }
-html{scrollbar-color:#c3cede transparent}
+html{scrollbar-color:#c3cede transparent;scroll-behavior:smooth}
 body{font-family:"Vazirmatn",system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:14.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
 button{cursor:pointer}
@@ -28,14 +28,78 @@ svg.ic{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-wid
 svg.ic.sm{width:16px;height:16px}
 .hidden{display:none!important}
 
+/* ---------- LANDING HERO (SaaS product-page top) ---------- */
+#landingHero{background:radial-gradient(1000px 560px at 88% -12%,#2a4378 0%,transparent 56%),radial-gradient(760px 480px at -6% 108%,#173a5e 0%,transparent 52%),linear-gradient(180deg,var(--side2),var(--side) 62%);color:#dbe4f3;padding:26px 28px 64px;overflow:hidden;position:relative}
+#landingHero::after{content:"";position:absolute;inset-inline:0;bottom:0;height:1px;background:rgba(255,255,255,.09)}
+.hero-nav{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hero-logo{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-size:18.5px}
+.hero-live{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:#c7d2fe;background:rgba(99,102,241,.18);border:1px solid rgba(165,180,252,.35);padding:6px 13px;border-radius:99px;white-space:nowrap}
+.hero-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.18)}
+.hero-grid{max-width:1240px;margin:52px auto 0;display:grid;grid-template-columns:.92fr 1.08fr;gap:52px;align-items:center}
+.hero-copy h1{color:#fff;font-size:40px;font-weight:800;line-height:1.45;letter-spacing:-.01em}
+.hero-copy h1 span{color:#a5b4fc}
+.hero-sub{margin-top:16px;color:#a9bcd8;font-size:15.5px;line-height:1.9;max-width:52ch}
+.hero-copy .stack-chips{margin-top:24px}
+.hero-cta{display:inline-flex;align-items:center;gap:9px;margin-top:30px;background:var(--acc);color:#fff;font-weight:800;font-size:15px;padding:13px 26px;border-radius:12px;text-decoration:none;box-shadow:0 14px 28px -10px rgba(79,70,229,.75);transition:.15s}
+.hero-cta:hover{background:#4338ca;transform:translateY(-1px)}
+.hero-note{margin-top:14px;color:#7e93b5;font-size:12.5px}
+.hero-preview-wrap{perspective:1400px;min-width:0}
+.hero-preview{transform:rotateX(5deg) rotateY(-9deg);transform-origin:center;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:20px;box-shadow:0 34px 70px -18px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.25);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:14px;color:var(--ink)}
+.pv-top{display:flex;align-items:center;gap:7px;padding:2px 4px 12px}
+.pv-dot{width:10px;height:10px;border-radius:50%;background:#f87171}
+.pv-dot.y{background:#fbbf24}.pv-dot.g{background:#34d399}
+.pv-title{margin-inline-start:8px;color:#e6edf9;font-size:12.5px;font-weight:700}
+.pv-badge{margin-inline-start:auto;background:rgba(255,255,255,.14);color:#dbe4f3;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px}
+.pv-body{display:grid;grid-template-columns:118px 1fr;gap:12px;min-width:0}
+.pv-side{background:rgba(11,21,38,.72);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:12px 10px;display:grid;gap:7px;align-content:start}
+.pv-side-brand{display:flex;align-items:center;gap:7px;color:#fff;font-size:11.5px;font-weight:800;padding:2px 4px 8px}
+.pv-side-brand i{width:20px;height:20px;border-radius:6px;background:var(--acc);display:inline-block}
+.pv-nav-item{height:26px;border-radius:8px;background:rgba(255,255,255,.07);color:#aebfd9;font-size:11px;font-weight:600;display:flex;align-items:center;gap:7px;padding:0 8px}
+.pv-nav-item.on{background:var(--acc);color:#fff}
+.pv-nav-item i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.8;flex:none}
+.pv-main{background:rgba(255,255,255,.96);border-radius:14px;padding:14px;min-width:0;box-shadow:inset 0 1px 0 #fff}
+.pv-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pv-kpi{border:1px solid var(--line);border-radius:11px;padding:10px 11px;background:#fff}
+.pv-kpi span{display:block;color:var(--mut);font-size:10.5px;font-weight:600}
+.pv-kpi b{display:block;font-size:15.5px;font-weight:800;margin-top:2px;color:var(--ink)}
+.pv-kpi em{font-style:normal;font-size:10.5px;font-weight:700;color:var(--ok)}
+.pv-chart{margin-top:12px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;padding:12px 12px 8px}
+.pv-chart-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:8px}
+.pv-chart-head span{color:var(--faint);font-weight:600}
+.pv-bars{display:flex;align-items:flex-end;gap:7px;height:74px;padding-top:4px}
+.pv-bars i{flex:1;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,var(--acc2),var(--acc));opacity:.92;display:block}
+.pv-table{margin-top:12px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff}
+.pv-row{display:flex;align-items:center;gap:10px;padding:9px 12px;font-size:11.5px;border-bottom:1px solid var(--line2);color:var(--ink2)}
+.pv-row:last-child{border-bottom:none}
+.pv-row b{color:var(--ink);font-size:11.5px}
+.pv-row .pv-amt{margin-inline-start:auto;font-weight:800;color:var(--ink);white-space:nowrap}
+.pv-pill{font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.pv-pill.ok{color:var(--ok);background:var(--ok-soft)}
+.pv-pill.warn{color:var(--warn);background:var(--warn-soft)}
+.pv-pill.info{color:var(--info);background:var(--info-soft)}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px;margin-top:38px}
+  .hero-copy h1{font-size:31px}
+  #landingHero{padding:22px 18px 44px}
+  .hero-preview{transform:rotateX(2deg) rotateY(-3deg)}
+}
+@media(max-width:480px){
+  .hero-preview{transform:none;padding:10px}
+  .pv-body{grid-template-columns:86px 1fr;gap:8px}
+  .pv-kpis{grid-template-columns:1fr 1fr}
+  .pv-kpi:last-child{grid-column:1/-1}
+  .pv-main{padding:10px}
+  .hero-copy h1{font-size:27px}
+}
+
 /* ---------- LOGIN ---------- */
 #loginView{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr}
 .login-brand{background:radial-gradient(1100px 600px at 85% -10%,#1e2c52 0%,transparent 55%),radial-gradient(800px 500px at 0% 110%,#173a5e 0%,transparent 50%),var(--side);color:#dbe4f3;padding:54px 58px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .login-brand .logo{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-size:19px}
 .logo-mark{width:42px;height:42px;border-radius:12px;background:var(--acc);display:grid;place-items:center;color:#fff;box-shadow:0 8px 20px -6px rgba(79,70,229,.65)}
 .logo-mark svg{width:24px;height:24px}
-.login-brand h1{color:#fff;font-size:33px;font-weight:800;line-height:1.5;margin-top:auto}
-.login-brand h1 span{color:#a5b4fc}
+.login-brand-tag{margin-top:28px;color:#fff;font-size:21px;font-weight:800;line-height:1.6;max-width:22ch}
+.login-brand-tag span{color:#a5b4fc}
 .login-brand p{margin-top:14px;max-width:44ch;color:#a9bcd8}
 .stack-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
 .stack-chips b{font-weight:600;font-size:12.5px;background:rgba(255,255,255,.07);border:1px solid var(--side-line);color:#c9d6ee;padding:5px 12px;border-radius:99px}
@@ -239,7 +303,7 @@ footer.app{padding:20px 28px 30px;color:var(--faint);font-size:12.3px;text-align
 @media(max-width:640px){
   #loginView{grid-template-columns:1fr}
   .login-brand{padding:34px 26px;min-height:0}
-  .login-brand h1{font-size:24px;margin-top:34px}
+  .login-brand-tag{font-size:19px;margin-top:22px}
   .login-feats{display:none}
   .login-brand small{padding-top:22px}
   .kpis{grid-template-columns:1fr 1fr;gap:11px}
@@ -254,6 +318,60 @@ footer.app{padding:20px 28px 30px;color:var(--faint);font-size:12.3px;text-align
 </head>
 <body>
 
+<!-- ================= LANDING HERO ================= -->
+<section id="landingHero" aria-label="معرفی پنل مدیریت پارس‌وب">
+  <div class="hero-nav">
+    <div class="hero-logo">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.8"/></svg></span>
+      پنل مدیریت پارس‌وب
+    </div>
+    <span class="hero-live">دموی زنده</span>
+  </div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <h1>وب‌اپلیکیشن مدیریتی،<br><span>ساخته‌شده برای رشد کسب‌وکار</span></h1>
+      <p class="hero-sub">نمونه زنده یک وب‌اپلیکیشن فول‌استک: مدیریت سفارش‌ها، مشتریان و گزارش‌های فروش — با همان معماری‌ای که نسخه نهایی روی آن پیاده‌سازی می‌شود.</p>
+      <div class="stack-chips"><b>React</b><b>Node.js</b><b>Express</b><b>REST API</b><b>PostgreSQL</b><b>JWT Auth</b></div>
+      <a class="hero-cta" href="#loginView">ورود به دمو
+        <svg class="ic sm" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+      <p class="hero-note">بدون نیاز به ثبت‌نام — فرم ورود در ادامه همین صفحه است.</p>
+    </div>
+    <div class="hero-preview-wrap" aria-hidden="true">
+      <div class="hero-preview">
+        <div class="pv-top"><span class="pv-dot"></span><span class="pv-dot y"></span><span class="pv-dot g"></span><span class="pv-title">داشبورد پارس‌وب — پیش‌نمایش</span><span class="pv-badge">Live</span></div>
+        <div class="pv-body">
+          <div class="pv-side">
+            <div class="pv-side-brand"><i></i>پارس‌وب</div>
+            <div class="pv-nav-item on"><i></i>داشبورد</div>
+            <div class="pv-nav-item"><i></i>سفارش‌ها</div>
+            <div class="pv-nav-item"><i></i>مشتریان</div>
+            <div class="pv-nav-item"><i></i>گزارش‌ها</div>
+            <div class="pv-nav-item"><i></i>تنظیمات</div>
+          </div>
+          <div class="pv-main">
+            <div class="pv-kpis">
+              <div class="pv-kpi"><span>درآمد کل</span><b>۲۸۴٬۵۰۰٬۰۰۰</b><em>▲ ۱۲٫۴٪</em></div>
+              <div class="pv-kpi"><span>سفارش امروز</span><b>۴۸ سفارش</b><em>▲ ۸٪</em></div>
+              <div class="pv-kpi"><span>مشتری فعال</span><b>۱٬۲۴۰ نفر</b><em>▲ ۵٪</em></div>
+            </div>
+            <div class="pv-chart">
+              <div class="pv-chart-head">روند فروش <span>۱۴ روز اخیر</span></div>
+              <svg width="100%" height="72" viewBox="0 0 320 72" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="pvGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4f46e5" stop-opacity=".28"/><stop offset="1" stop-color="#4f46e5" stop-opacity="0"/></linearGradient></defs><path d="M0,58 L36,48 L72,52 L108,34 L144,40 L180,22 L216,28 L252,14 L288,18 L320,8 L320,72 L0,72 Z" fill="url(#pvGrad)"/><path d="M0,58 L36,48 L72,52 L108,34 L144,40 L180,22 L216,28 L252,14 L288,18 L320,8" fill="none" stroke="#4f46e5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="pv-bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:66%"></i><i style="height:58%"></i><i style="height:78%"></i><i style="height:70%"></i><i style="height:92%"></i></div>
+            </div>
+            <div class="pv-table">
+              <div class="pv-row"><b>SF-۱۰۴۲</b><span>سارا محمدی</span><span class="pv-pill info">جدید</span><span class="pv-amt">۴۸٬۵۰۰٬۰۰۰</span></div>
+              <div class="pv-row"><b>SF-۱۰۴۱</b><span>علی رضایی</span><span class="pv-pill warn">در حال پردازش</span><span class="pv-amt">۲۱٬۹۰۰٬۰۰۰</span></div>
+              <div class="pv-row"><b>SF-۱۰۴۰</b><span>مریم کریمی</span><span class="pv-pill ok">تحویل شده</span><span class="pv-amt">۲۴٬۷۰۰٬۰۰۰</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= LOGIN ================= -->
 <section id="loginView">
   <div class="login-brand">
@@ -261,9 +379,7 @@ footer.app{padding:20px 28px 30px;color:var(--faint);font-size:12.3px;text-align
       <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.8"/></svg></span>
       پنل مدیریت پارس‌وب
     </div>
-    <h1>وب‌اپلیکیشن مدیریتی،<br><span>ساخته‌شده برای رشد کسب‌وکار</span></h1>
-    <p>نمونه زنده یک وب‌اپلیکیشن فول‌استک: مدیریت سفارش‌ها، مشتریان و گزارش‌های فروش — با همان معماری‌ای که نسخه نهایی روی آن پیاده‌سازی می‌شود.</p>
-    <div class="stack-chips"><b>React</b><b>Node.js</b><b>Express</b><b>REST API</b><b>PostgreSQL</b><b>JWT Auth</b></div>
+    <p class="login-brand-tag">داشبورد، سفارش‌ها و مشتریان — <span>همه در یک پنل یکپارچه</span></p>
     <div class="login-feats">
       <div><span class="dot"><svg class="ic sm" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>مدیریت کامل سفارش‌ها و مشتریان (CRUD) با جستجو و فیلتر زنده</div>
       <div><span class="dot"><svg class="ic sm" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>داشبورد تحلیلی با نمودار فروش و شاخص‌های لحظه‌ای</div>
@@ -592,13 +708,14 @@ function toast(msg,type="ok"){
 function currentUser(){ try{return JSON.parse(localStorage.getItem(AUTH_KEY));}catch(e){return null} }
 function showApp(){
   const u=currentUser(); if(!u) return;
+  document.getElementById("landingHero").classList.add("hidden");
   $("#loginView").classList.add("hidden"); $("#appView").classList.remove("hidden");
   const nm=DB.settings.name||u.name||"مدیر سیستم";
   $("#sideUserName").textContent=nm;
   $("#sideAvatar").textContent=initials(nm); $("#topAvatar").textContent=initials(nm);
   renderAll();
 }
-function showLogin(){ $("#appView").classList.add("hidden"); $("#loginView").classList.remove("hidden"); }
+function showLogin(){ $("#appView").classList.add("hidden"); $("#loginView").classList.remove("hidden"); document.getElementById("landingHero").classList.remove("hidden"); }
 $("#loginForm").addEventListener("submit",e=>{
   e.preventDefault();
   const em=$("#liEmail").value.trim(), pw=$("#liPass").value;
