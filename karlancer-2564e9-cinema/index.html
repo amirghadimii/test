@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>استودیو فیلم پارس — شرکت تولید فیلم و سریال</title>
+<meta name="description" content="استودیو فیلم پارس؛ تولید فیلم سینمایی، سریال، مستند و تیزر تبلیغاتی — از ایده تا اکران.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --bg:#0a0a0b; --bg2:#101012; --card:#141416; --line:rgba(201,162,75,.22); --line2:rgba(255,255,255,.08);
+  --gold:#c9a24b; --gold2:#e8cb7d; --text:#f3efe4; --muted:#a79f8d; --muted2:#7d7767;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.9;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--gold);color:#111}
+/* film grain */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:2000;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 9s steps(6) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-2%,2%)}40%{transform:translate(2%,-1%)}60%{transform:translate(-1%,-2%)}80%{transform:translate(1%,2%)}}
+.wrap{max-width:1220px;margin:0 auto;padding:0 22px}
+/* header */
+header{position:fixed;top:0;right:0;left:0;z-index:900;background:rgba(10,10,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:19px}
+.logo .mark{width:38px;height:38px;border:1.5px solid var(--gold);border-radius:9px;display:grid;place-items:center;color:var(--gold);font-size:17px;background:rgba(201,162,75,.08)}
+.logo small{display:block;font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:.4px}
+nav.main{display:flex;gap:30px;font-size:14.5px;font-weight:500}
+nav.main a{color:#ddd6c4;position:relative;padding:4px 0}
+nav.main a::after{content:"";position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+nav.main a:hover::after{width:100%}
+.hd-cta{background:var(--gold);color:#131313;border:none;font-weight:800;font-size:13.5px;padding:9px 20px;border-radius:9px;transition:.25s}
+.hd-cta:hover{background:var(--gold2)}
+.burger{display:none;background:none;border:1px solid var(--line2);border-radius:9px;width:42px;height:42px;color:var(--text);font-size:19px}
+/* hero / letterbox */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#000}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.62;transform:scale(1.06);animation:kenburns 22s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1.06) translateY(0)}to{transform:scale(1.14) translateY(-14px)}}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(10,10,11,.25) 40%,rgba(10,10,11,.92)),linear-gradient(270deg,rgba(10,10,11,.65),transparent 55%)}
+.bar{position:absolute;right:0;left:0;height:11vh;background:#000;z-index:3;transition:height 1.6s cubic-bezier(.7,0,.2,1)}
+.bar.top{top:0}.bar.bot{bottom:0}
+body.loaded .bar{height:6.5vh}
+.hero-in{position:relative;z-index:4;padding:130px 0 110px}
+.hero .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--gold2);font-size:13.5px;font-weight:700;letter-spacing:.6px;border:1px solid var(--line);padding:6px 16px;border-radius:99px;background:rgba(0,0,0,.35)}
+.hero .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.hero h1{font-size:clamp(38px,6.4vw,74px);font-weight:900;line-height:1.25;margin:26px 0 8px;max-width:820px}
+.hero h1 .gold{color:var(--gold);position:relative;white-space:nowrap}
+.hero p.lead{color:#d8d2c0;font-size:clamp(15px,2vw,19px);max-width:620px;font-weight:400}
+.hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:11px;padding:14px 28px;font-size:15px;font-weight:800;border:1px solid transparent;transition:.25s}
+.btn-gold{background:var(--gold);color:#141414}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-ghost{background:rgba(0,0,0,.35);color:var(--text);border-color:rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+.btn .play-ic{width:26px;height:26px;border-radius:50%;background:#141414;color:var(--gold);display:grid;place-items:center;font-size:11px}
+.btn-ghost .play-ic{background:var(--gold);color:#141414}
+.hero-meta{display:flex;gap:0;margin-top:52px;border-top:1px solid rgba(255,255,255,.16);max-width:640px}
+.hero-meta div{flex:1;padding:16px 4px 0;text-align:center}
+.hero-meta b{display:block;font-size:24px;font-weight:900;color:#fff}
+.hero-meta span{font-size:12.5px;color:var(--muted)}
+/* sections */
+section{padding:96px 0}
+.sec-head{max-width:640px;margin-bottom:46px}
+.sec-head .tag{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:1px}
+.sec-head h2{font-size:clamp(27px,4vw,40px);font-weight:900;line-height:1.4;margin:8px 0 10px}
+.sec-head p{color:var(--muted);font-size:15.5px}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+/* works */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.chip{background:var(--card);color:#cfc8b4;border:1px solid var(--line2);border-radius:99px;padding:9px 22px;font-size:14px;font-weight:700;transition:.25s}
+.chip:hover{border-color:var(--gold);color:var(--gold2)}
+.chip.on{background:var(--gold);color:#141414;border-color:var(--gold)}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.poster{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:2/3;background:var(--card);border:1px solid var(--line2);cursor:pointer;text-align:right;width:100%;padding:0;color:var(--text)}
+.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);opacity:.9}
+.poster:hover img{transform:scale(1.07)}
+.poster .shade{position:absolute;inset:0;background:linear-gradient(185deg,rgba(5,5,6,.08) 30%,rgba(5,5,6,.55) 62%,rgba(5,5,6,.96))}
+.poster .frame{position:absolute;inset:11px;border:1px solid rgba(232,203,125,.35);border-radius:9px;pointer-events:none;transition:.4s}
+.poster:hover .frame{inset:8px;border-color:rgba(232,203,125,.7)}
+.poster .info{position:absolute;right:0;left:0;bottom:0;padding:24px 22px}
+.poster .kind{display:block;font-size:11.5px;font-weight:800;color:var(--gold2);letter-spacing:.8px}
+.poster h3{font-size:clamp(24px,2.6vw,31px);font-weight:900;line-height:1.35;margin:5px 0 4px;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.poster .rule{display:block;width:44px;height:3px;background:var(--gold);border-radius:2px;margin:9px 0}
+.poster .sub{display:block;font-size:13px;color:#cfc9b8}
+.poster .yr{position:absolute;top:20px;left:20px;background:rgba(0,0,0,.55);border:1px solid var(--line);color:var(--gold2);font-size:12.5px;font-weight:800;padding:3px 12px;border-radius:99px;backdrop-filter:blur(4px)}
+.poster.hide{display:none}
+/* services */
+#services{background:var(--bg2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.svc{background:var(--card);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.svc:hover{transform:translateY(-6px);border-color:var(--line)}
+.svc img{height:158px;width:100%;object-fit:cover}
+.svc .body{padding:22px}
+.svc .num{color:var(--gold);font-weight:900;font-size:13px;letter-spacing:2px}
+.svc h3{font-size:19px;font-weight:800;margin:6px 0 8px}
+.svc p{font-size:13.5px;color:var(--muted)}
+.svc ul{list-style:none;margin-top:12px;font-size:13px;color:#cfc9b8}
+.svc li{padding:5px 0;border-top:1px dashed rgba(255,255,255,.09);display:flex;gap:8px}
+.svc li::before{content:"◆";color:var(--gold);font-size:9px;margin-top:5px}
+/* about */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.about-img{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.about-img img{width:100%;height:100%;object-fit:cover;min-height:380px}
+.about-img .stamp{position:absolute;bottom:16px;right:16px;background:rgba(8,8,9,.82);border:1px solid var(--line);border-radius:11px;padding:10px 18px;backdrop-filter:blur(6px)}
+.about-img .stamp b{color:var(--gold2);font-size:19px;font-weight:900}
+.about-img .stamp span{display:block;font-size:11.5px;color:var(--muted)}
+.about-txt h2{font-size:clamp(26px,3.6vw,38px);font-weight:900;line-height:1.45;margin-bottom:14px}
+.about-txt p{color:var(--muted);font-size:15.5px;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.stat{background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:18px 8px;text-align:center}
+.stat b{display:block;font-size:27px;font-weight:900;color:var(--gold2)}
+.stat span{font-size:12px;color:var(--muted)}
+/* team */
+#team{background:var(--bg2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.member{background:var(--card);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;text-align:center;transition:.3s}
+.member:hover{transform:translateY(-5px);border-color:var(--line)}
+.member img{width:100%;height:250px;object-fit:cover;object-position:top center;filter:saturate(.88)}
+.member .body{padding:18px 14px 22px}
+.member h3{font-size:17px;font-weight:800}
+.member span{color:var(--gold);font-size:13px;font-weight:700}
+.member p{font-size:12.5px;color:var(--muted);margin-top:6px}
+/* news */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.news{background:var(--card);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;transition:.3s}
+.news:hover{transform:translateY(-5px);border-color:var(--line)}
+.news img{height:180px;width:100%;object-fit:cover}
+.news .body{padding:20px 22px 24px}
+.news time{font-size:12px;color:var(--gold);font-weight:700}
+.news h3{font-size:16.5px;font-weight:800;line-height:1.7;margin:6px 0 8px}
+.news p{font-size:13.5px;color:var(--muted)}
+/* contact */
+#contact{background:linear-gradient(180deg,var(--bg) ,#0d0c08)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:44px;align-items:start}
+.contact-side h2{font-size:clamp(26px,3.6vw,38px);font-weight:900;line-height:1.45;margin-bottom:12px}
+.contact-side p{color:var(--muted);font-size:15.5px}
+.steps{margin-top:26px;display:grid;gap:14px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step .n{flex:none;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold2);display:grid;place-items:center;font-weight:900;font-size:14px}
+.step b{display:block;font-size:15px}
+.step span{font-size:13px;color:var(--muted)}
+form.coop{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-group{margin-bottom:16px}
+.f-group label{display:block;font-size:13.5px;font-weight:700;margin-bottom:7px}
+.f-group input,.f-group select,.f-group textarea{width:100%;background:#0c0c0e;border:1px solid var(--line2);border-radius:10px;color:var(--text);padding:12px 14px;font-family:inherit;font-size:14.5px;transition:.25s}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.15)}
+.f-group .err{display:none;color:#ff8a7a;font-size:12px;margin-top:5px}
+.f-group.invalid input,.f-group.invalid select,.f-group.invalid textarea{border-color:#c0452f}
+.f-group.invalid .err{display:block}
+.submit-btn{width:100%;background:var(--gold);color:#141414;border:none;border-radius:11px;padding:15px;font-size:16px;font-weight:900;transition:.25s}
+.submit-btn:hover{background:var(--gold2)}
+.success{display:none;background:var(--card);border:1px solid var(--gold);border-radius:18px;padding:38px 30px;text-align:center}
+.success .tick{width:66px;height:66px;margin:0 auto 16px;border-radius:50%;background:rgba(201,162,75,.14);border:1.5px solid var(--gold);display:grid;place-items:center;font-size:28px;color:var(--gold2)}
+.success h3{font-size:21px;font-weight:900;margin-bottom:8px}
+.success p{color:var(--muted);font-size:14.5px}
+.success .code{display:inline-block;margin-top:16px;background:#0c0c0e;border:1px dashed var(--gold);color:var(--gold2);border-radius:10px;padding:10px 26px;font-weight:900;font-size:18px;letter-spacing:1px}
+/* footer */
+footer{border-top:1px solid var(--line2);padding:38px 0 30px;background:#070708}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.ft p{color:var(--muted2);font-size:13px}
+/* modals */
+.modal{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal .back{position:absolute;inset:0;background:rgba(4,4,5,.86);backdrop-filter:blur(6px)}
+.modal .box{position:relative;background:#121214;border:1px solid var(--line);border-radius:18px;max-width:760px;width:100%;max-height:90vh;overflow:auto;animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{opacity:0;transform:scale(.94) translateY(14px)}to{opacity:1;transform:none}}
+.modal .x{position:absolute;top:14px;left:14px;z-index:5;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.6);border:1px solid var(--line2);color:#fff;font-size:16px}
+.film-hero{position:relative;height:300px}
+.film-hero img{width:100%;height:100%;object-fit:cover}
+.film-hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#121214)}
+.film-hero .ttl{position:absolute;bottom:14px;right:26px;left:26px}
+.film-hero .ttl .kind{color:var(--gold2);font-size:12.5px;font-weight:800;letter-spacing:.8px}
+.film-hero .ttl h3{font-size:34px;font-weight:900}
+.film-body{padding:10px 26px 30px}
+.film-meta{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 16px}
+.film-meta span{background:#0c0c0e;border:1px solid var(--line2);border-radius:99px;padding:5px 15px;font-size:13px;color:#d9d3c0}
+.film-meta b{color:var(--gold2)}
+.film-body p{color:#cfc9b8;font-size:15px}
+.film-body h4{margin:20px 0 8px;font-size:16px;color:var(--gold2)}
+.awards{list-style:none}
+.awards li{padding:7px 0;border-top:1px dashed rgba(255,255,255,.1);font-size:14px;color:#d9d3c0;display:flex;gap:9px}
+.awards li::before{content:"✦";color:var(--gold)}
+/* showreel */
+.reel-box{max-width:820px}
+.reel-screen{position:relative;aspect-ratio:16/9;background:#000;border-radius:12px 12px 0 0;overflow:hidden}
+.reel-screen img.poster-img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.reel-play{position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.25)}
+.reel-play button{width:84px;height:84px;border-radius:50%;background:var(--gold);border:none;color:#141414;font-size:28px;box-shadow:0 10px 40px rgba(201,162,75,.45);transition:.25s}
+.reel-play button:hover{transform:scale(1.08)}
+.slate{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#1b1b1e,#050506);text-align:center;padding:20px}
+.slate.on{display:flex}
+.slate .clap{font-size:44px;color:var(--gold);animation:clap 1s ease .2s both}
+@keyframes clap{0%{transform:rotate(-16deg)}55%{transform:rotate(3deg)}100%{transform:rotate(0)}}
+.slate .now{letter-spacing:6px;font-size:13px;color:var(--muted);font-weight:700}
+.slate .ttl{font-size:clamp(26px,4.5vw,42px);font-weight:900;margin:8px 0 2px;min-height:1.4em}
+.slate .sub{color:var(--gold2);font-size:14.5px}
+.slate .bar2{width:min(420px,80%);height:5px;background:rgba(255,255,255,.14);border-radius:99px;margin-top:26px;overflow:hidden}
+.slate .bar2 i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px}
+.slate .tc{margin-top:12px;font-size:13px;color:var(--muted);letter-spacing:2px}
+.reel-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;flex-wrap:wrap}
+.reel-foot b{font-size:16px}
+.reel-foot span{display:block;font-size:12.5px;color:var(--muted)}
+.reel-foot .note{font-size:12px;color:var(--muted2)}
+/* responsive */
+@media(max-width:1020px){
+  .works-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:760px){
+  nav.main{display:none;position:absolute;top:66px;right:0;left:0;background:#0d0d0f;flex-direction:column;gap:0;padding:10px 22px 18px;border-bottom:1px solid var(--line)}
+  nav.main.open{display:flex}
+  nav.main a{padding:11px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+  .burger{display:grid;place-items:center}
+  .hd-cta{display:none}
+  section{padding:64px 0}
+  .news-grid{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero-meta{flex-wrap:wrap}
+  .hero-meta div{flex:1 1 40%}
+}
+@media(max-width:520px){
+  .works-grid,.svc-grid,.team-grid{grid-template-columns:1fr}
+  .poster{aspect-ratio:16/10}
+  .film-hero{height:220px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header>
+  <div class="wrap hd-in">
+    <a class="logo" href="#top">
+      <span class="mark">▶</span>
+      <span>استودیو فیلم پارس<small>PARS FILM STUDIO</small></span>
+    </a>
+    <nav class="main" id="mainNav">
+      <a href="#works">آثار</a>
+      <a href="#services">خدمات تولید</a>
+      <a href="#about">درباره ما</a>
+      <a href="#team">تیم</a>
+      <a href="#news">اخبار</a>
+      <a href="#contact">همکاری</a>
+    </nav>
+    <a href="#contact" class="hd-cta">سفارش پروژه</a>
+    <button class="burger" id="burger" aria-label="منو">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-bg"><img src="assets/img/hero.jpg" alt="پشت صحنه فیلمبرداری استودیو فیلم پارس"></div>
+  <div class="hero-shade"></div>
+  <div class="bar top"></div><div class="bar bot"></div>
+  <div class="wrap hero-in">
+    <span class="kicker">شرکت تولید فیلم و سریال — تهران</span>
+    <h1>ما قصه‌هایی می‌سازیم که<br>روی پرده <span class="gold">زنده می‌مانند</span></h1>
+    <p class="lead">استودیو فیلم پارس از ایده تا اکران کنار شماست؛ تولید فیلم سینمایی، سریال، مستند و محتوای تبلیغاتی با تیمی از کارگردانان، فیلمبرداران و تدوینگران حرفه‌ای سینمای ایران.</p>
+    <div class="hero-cta">
+      <button class="btn btn-gold" id="openReel"><span class="play-ic">▶</span> تماشای شو ریل</button>
+      <a class="btn btn-ghost" href="#works">مشاهده آثار</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>۴۵+</b><span>پروژه تکمیل‌شده</span></div>
+      <div><b>۱۸</b><span>سال تجربه</span></div>
+      <div><b>۲۶</b><span>جایزه جشنواره‌ای</span></div>
+      <div><b>۱۲۰+</b><span>برند و شبکه همکار</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">FILMOGRAPHY</span>
+      <h2>آثار منتخب استودیو</h2>
+      <p>از درام‌های سینمایی تا مستندهای طبیعت؛ هر پروژه برای ما یک جهان تازه است. روی هر اثر کلیک کنید تا جزئیاتش را ببینید.</p>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="chip on" data-f="all">همه آثار</button>
+      <button class="chip" data-f="feature">فیلم سینمایی</button>
+      <button class="chip" data-f="series">سریال</button>
+      <button class="chip" data-f="doc">مستند</button>
+      <button class="chip" data-f="ad">تبلیغاتی</button>
+    </div>
+    <div class="works-grid reveal" id="worksGrid"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">PRODUCTION SERVICES</span>
+      <h2>خدمات تولید؛ از ایده تا اکران</h2>
+      <p>زنجیره کامل تولید زیر یک سقف؛ لازم نیست برای هر مرحله سراغ تیم دیگری بروید.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <img src="assets/img/svc-pre.jpg" alt="پیش‌تولید">
+        <div class="body"><span class="num">۰۱</span><h3>پیش‌تولید</h3>
+          <p>جایی که فیلم، پیش از روشن شدن دوربین، ساخته می‌شود.</p>
+          <ul><li>توسعه ایده و نگارش فیلمنامه</li><li>انتخاب بازیگر و لوکیشن</li><li>بودجه‌بندی و برنامه‌ریزی تولید</li></ul>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/img/svc-prod.jpg" alt="تولید و فیلمبرداری">
+        <div class="body"><span class="num">۰۲</span><h3>تولید</h3>
+          <p>فیلمبرداری با تجهیزات روز سینما و تیمی باتجربه در صحنه.</p>
+          <ul><li>کارگردانی و مدیریت صحنه</li><li>فیلمبرداری 4K و 6K سینمایی</li><li>طراحی صحنه، لباس و گریم</li></ul>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/img/svc-post.jpg" alt="پس‌تولید">
+        <div class="body"><span class="num">۰۳</span><h3>پس‌تولید</h3>
+          <p>تدوین، صدا و رنگ؛ جایی که ریتم و حس فیلم شکل می‌گیرد.</p>
+          <ul><li>تدوین و اصلاح رنگ حرفه‌ای</li><li>صداگذاری و میکس نهایی</li><li>جلوه‌های ویژه و موشن‌گرافیک</li></ul>
+        </div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/img/svc-dist.jpg" alt="پخش و بازاریابی">
+        <div class="body"><span class="num">۰۴</span><h3>پخش و بازاریابی</h3>
+          <p>رساندن اثر به مخاطب؛ روی پرده، آنتن و پلتفرم‌ها.</p>
+          <ul><li>اکران سینمایی و جشنواره‌ای</li><li>پخش در پلتفرم‌های نمایش خانگی</li><li>کمپین تبلیغاتی و روابط عمومی</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <img src="assets/img/about.jpg" alt="اتاق فرمان استودیو فیلم پارس">
+        <div class="stamp"><b>از سال ۱۳۸۵</b><span>در کنار سینمای ایران</span></div>
+      </div>
+      <div class="about-txt reveal">
+        <span class="tag" style="color:var(--gold);font-weight:800;font-size:13px;letter-spacing:1px">ABOUT US</span>
+        <h2>استودیویی که با قصه شروع شد</h2>
+        <p>استودیو فیلم پارس در سال ۱۳۸۵ با یک دوربین کرایه‌ای و یک ایده ساده شروع کرد: قصه‌های ایرانی را با استاندارد جهانی روایت کنیم. امروز با بیش از ۴۵ پروژه سینمایی، تلویزیونی و تبلیغاتی، یکی از تیم‌های مستقل تولید در تهران هستیم.</p>
+        <p>ما به تولید چابک باور داریم؛ تیم ثابت و کوچک، تصمیم‌های سریع و کیفیتی که در هیچ مرحله‌ای قربانی سرعت نمی‌شود.</p>
+        <div class="stats">
+          <div class="stat"><b><span class="count" data-to="45">۰</span>+</b><span>پروژه تکمیل‌شده</span></div>
+          <div class="stat"><b><span class="count" data-to="18">۰</span></b><span>سال تجربه</span></div>
+          <div class="stat"><b><span class="count" data-to="26">۰</span></b><span>جایزه جشنواره‌ای</span></div>
+          <div class="stat"><b><span class="count" data-to="120">۰</span>+</b><span>برند و شبکه همکار</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">THE TEAM</span>
+      <h2>تیم اصلی استودیو</h2>
+      <p>چهار نفر، چهار نگاه متفاوت؛ یک هدف مشترک: ساختن اثری که بماند.</p>
+    </div>
+    <div class="team-grid">
+      <article class="member reveal">
+        <img src="assets/img/team-1.jpg" alt="آرش کیانی">
+        <div class="body"><h3>آرش کیانی</h3><span>بنیان‌گذار و کارگردان ارشد</span>
+        <p>کارگردان «سکوت برف» و «مه»؛ ۱۸ سال تجربه در سینمای داستانی.</p></div>
+      </article>
+      <article class="member reveal">
+        <img src="assets/img/team-2.jpg" alt="سارا مهرابی">
+        <div class="body"><h3>سارا مهرابی</h3><span>مدیر تولید</span>
+        <p>مدیر تولید بیش از ۳۰ پروژه سینمایی و سریال؛ متخصص تولید در لوکیشن‌های سخت.</p></div>
+      </article>
+      <article class="member reveal">
+        <img src="assets/img/team-3.jpg" alt="لیلا احمدی">
+        <div class="body"><h3>لیلا احمدی</h3><span>مدیر هنری</span>
+        <p>طراح صحنه و لباس؛ سازنده جهان بصری «خانه پدری» و «رودهای بی‌پایان».</p></div>
+      </article>
+      <article class="member reveal">
+        <img src="assets/img/team-4.jpg" alt="مریم صادقی" style="object-position:62% top">
+        <div class="body"><h3>مریم صادقی</h3><span>مدیر پس‌تولید</span>
+        <p>تدوینگر و ناظر کیفی پس‌تولید؛ مسئول اتاق رنگ و صدای استودیو.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">NEWSROOM</span>
+      <h2>اخبار استودیو</h2>
+    </div>
+    <div class="news-grid">
+      <article class="news reveal">
+        <img src="assets/img/news-fest.jpg" alt="حلقه‌های فیلم">
+        <div class="body"><time>۱۲ آبان ۱۴۰۴</time>
+          <h3>سه اثر استودیو در راه جشنواره‌های بین‌المللی</h3>
+          <p>«سکوت برف»، «رودهای بی‌پایان» و «مه» برای حضور در بخش مسابقه چند جشنواره معتبر اروپایی و آسیایی ارسال شدند.</p></div>
+      </article>
+      <article class="news reveal">
+        <img src="assets/img/svc-post.jpg" alt="اتاق تدوین و رنگ">
+        <div class="body"><time>۲۸ مهر ۱۴۰۴</time>
+          <h3>اتاق رنگ و صدای استودیو نوسازی شد</h3>
+          <p>با تجهیز اتاق پس‌تولید به سیستم اصلاح رنگ HDR و میکس صدای دالبی، همه مراحل نهایی تولید حالا در داخل استودیو انجام می‌شود.</p></div>
+      </article>
+      <article class="news reveal">
+        <img src="assets/img/poster-snow.jpg" alt="کوهستان برفی">
+        <div class="body"><time>۵ مهر ۱۴۰۴</time>
+          <h3>فیلمبرداری «سکوت برف» در ارتفاعات به پایان رسید</h3>
+          <p>پس از ۴۰ جلسه فیلمبرداری در سرمای ارتفاعات البرز، تازه‌ترین فیلم سینمایی استودیو وارد مرحله تدوین شد.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-side reveal">
+        <span class="tag" style="color:var(--gold);font-weight:800;font-size:13px;letter-spacing:1px">WORK WITH US</span>
+        <h2>پروژه‌ای در ذهن دارید؟<br>از همین‌جا شروع کنیم</h2>
+        <p>فرم را تکمیل کنید؛ حداکثر ظرف دو روز کاری با شما تماس می‌گیریم و درباره ایده، زمان‌بندی و برآورد هزینه گفت‌وگو می‌کنیم.</p>
+        <div class="steps">
+          <div class="step"><span class="n">۱</span><div><b>ثبت درخواست</b><span>ایده و نوع پروژه‌تان را برای ما بفرستید.</span></div></div>
+          <div class="step"><span class="n">۲</span><div><b>جلسه شناخت</b><span>در یک جلسه آنلاین یا حضوری، نیازها را دقیق می‌کنیم.</span></div></div>
+          <div class="step"><span class="n">۳</span><div><b>پیشنهاد و قرارداد</b><span>برآورد شفاف هزینه و زمان‌بندی تولید را دریافت می‌کنید.</span></div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="coop" id="coopForm" novalidate>
+          <div class="f-row">
+            <div class="f-group" id="g-name">
+              <label for="f-name">نام و نام خانوادگی *</label>
+              <input id="f-name" type="text" placeholder="مثلاً علی رضایی" autocomplete="name">
+              <span class="err">نام را کامل وارد کنید.</span>
+            </div>
+            <div class="f-group" id="g-contact">
+              <label for="f-contact">موبایل یا ایمیل *</label>
+              <input id="f-contact" type="text" placeholder="۰۹۱۲ ـــ ـــ ــ ــ یا ایمیل" autocomplete="email">
+              <span class="err">یک شماره موبایل یا ایمیل معتبر وارد کنید.</span>
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="f-group">
+              <label for="f-type">نوع پروژه</label>
+              <select id="f-type">
+                <option>فیلم سینمایی</option><option>سریال</option><option>مستند</option>
+                <option>تیزر و محتوای تبلیغاتی</option><option>خدمات پس‌تولید</option><option>سایر</option>
+              </select>
+            </div>
+            <div class="f-group">
+              <label for="f-budget">بودجه تقریبی</label>
+              <select id="f-budget">
+                <option>هنوز مشخص نیست</option><option>کمتر از ۵۰۰ میلیون تومان</option>
+                <option>۵۰۰ میلیون تا ۲ میلیارد تومان</option><option>۲ تا ۵ میلیارد تومان</option><option>بیش از ۵ میلیارد تومان</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-group" id="g-msg">
+            <label for="f-msg">درباره پروژه *</label>
+            <textarea id="f-msg" rows="4" placeholder="ایده، موضوع و هر نکته‌ای که باید بدانیم…"></textarea>
+            <span class="err">کمی درباره پروژه بنویسید (حداقل ۱۰ نویسه).</span>
+          </div>
+          <button type="submit" class="submit-btn">ثبت درخواست همکاری</button>
+        </form>
+        <div class="success" id="successBox">
+          <div class="tick">✓</div>
+          <h3>درخواست شما ثبت شد</h3>
+          <p>از اعتماد شما سپاسگزاریم. کارشناسان استودیو حداکثر ظرف دو روز کاری برای هماهنگی جلسه شناخت با شما تماس می‌گیرند.</p>
+          <div class="code" id="trackCode">PARS-۰۰۰۰۰۰</div>
+          <p style="margin-top:14px;font-size:12.5px">کد رهگیری را برای پیگیری‌های بعدی نگه دارید.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <a class="logo" href="#top"><span class="mark">▶</span><span>استودیو فیلم پارس<small>PARS FILM STUDIO</small></span></a>
+    <p>© ۱۴۰۴ استودیو فیلم پارس — تهران، ایران. تمامی حقوق آثار محفوظ است.</p>
+    <p>ساخته‌شده با قصه، نور و صبر.</p>
+  </div>
+</footer>
+
+<!-- FILM MODAL -->
+<div class="modal" id="filmModal" role="dialog" aria-modal="true">
+  <div class="back" data-close></div>
+  <div class="box">
+    <button class="x" data-close aria-label="بستن">✕</button>
+    <div class="film-hero">
+      <img id="fmImg" src="" alt="">
+      <div class="shade"></div>
+      <div class="ttl"><span class="kind" id="fmKind"></span><h3 id="fmTitle"></h3></div>
+    </div>
+    <div class="film-body">
+      <div class="film-meta" id="fmMeta"></div>
+      <p id="fmSummary"></p>
+      <h4>جوایز و افتخارات</h4>
+      <ul class="awards" id="fmAwards"></ul>
+    </div>
+  </div>
+</div>
+
+<!-- SHOWREEL MODAL -->
+<div class="modal" id="reelModal" role="dialog" aria-modal="true">
+  <div class="back" data-close></div>
+  <div class="box reel-box">
+    <button class="x" data-close aria-label="بستن">✕</button>
+    <div class="reel-screen">
+      <img class="poster-img" src="assets/img/svc-dist.jpg" alt="سالن سینما">
+      <div class="reel-play" id="reelPlay"><button id="reelPlayBtn" aria-label="پخش شو ریل">▶</button></div>
+      <div class="slate" id="slate">
+        <div class="clap">🎬</div>
+        <div class="now">NOW SHOWING</div>
+        <div class="ttl" id="slateTitle">استودیو فیلم پارس</div>
+        <div class="sub" id="slateSub">شو ریل ۱۴۰۴</div>
+        <div class="bar2"><i id="slateBar"></i></div>
+        <div class="tc" id="slateTc">۰۰:۰۰ / ۰۰:۲۴</div>
+      </div>
+    </div>
+    <div class="reel-foot">
+      <div><b>شو ریل استودیو فیلم پارس</b><span>گزیده‌ای از آثار سینمایی، سریال و تبلیغاتی</span></div>
+      <span class="note">پخش نمایشی در نسخه دمو — ویدیوی کامل هنگام تحویل پروژه بارگذاری می‌شود.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const fa = n => Number(n).toLocaleString('fa-IR');
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+/* ---------- films data ---------- */
+const FILMS = [
+ {id:1, cat:'feature', kind:'فیلم سینمایی — درام', title:'سکوت برف', img:'assets/img/poster-snow.jpg',
+  director:'آرش کیانی', year:'۱۴۰۲', dur:'۱۰۴ دقیقه', genre:'درام',
+  summary:'روایت پیرمردی کوهستان‌نشین که پس از سال‌ها سکوت، با بازگشت نوه‌اش به روستای برفی زادگاهش روبه‌رو می‌شود؛ فیلمی درباره فاصله نسل‌ها، حافظه و بخشش که تماماً در ارتفاعات البرز فیلمبرداری شده است.',
+  awards:['نامزد سیمرغ بلورین بهترین فیلمبرداری — جشنواره فیلم فجر','جایزه ویژه هیئت داوران — جشنواره بین‌المللی فیلم‌های کوهستانی','منتخب بخش مسابقه — جشنواره فیلم‌های ایرانی پاریس']},
+ {id:2, cat:'feature', kind:'فیلم سینمایی — معمایی', title:'آخرین قطار', img:'assets/img/poster-train.jpg',
+  director:'سارا مهرابی', year:'۱۴۰۱', dur:'۹۸ دقیقه', genre:'معمایی / جنایی',
+  summary:'در شبی بارانی، هفت مسافر در ایستگاهی متروکه منتظر آخرین قطارند؛ اما یکی از آن‌ها رازی دارد که سفر همه را برای همیشه تغییر می‌دهد. تریلری تک‌لوکیشن با پایانی غیرمنتظره.',
+  awards:['سیمرغ بلورین بهترین فیلمنامه — جشنواره فیلم فجر','پرفروش‌ترین فیلم معمایی سال در اکران آنلاین']},
+ {id:3, cat:'series', kind:'سریال — درام خانوادگی', title:'خانه پدری', img:'assets/img/poster-house.jpg',
+  director:'آرش کیانی', year:'۱۴۰۳', dur:'۲۶ قسمت', genre:'درام خانوادگی',
+  summary:'سه خواهر و برادر پس از درگذشت پدر، برای تعیین تکلیف خانه قدیمی خانواده در روستا دور هم جمع می‌شوند؛ خانه‌ای که هر دیوارش خاطره‌ای و هر اتاقش رازی دارد. سریالی درباره ریشه‌ها و آنچه از ما می‌ماند.',
+  awards:['پربیننده‌ترین سریال نمایش خانگی پاییز ۱۴۰۳','نامزد بهترین طراحی صحنه — جشن حافظ']},
+ {id:4, cat:'doc', kind:'مستند — طبیعت', title:'رودهای بی‌پایان', img:'assets/img/poster-river.jpg',
+  director:'لیلا احمدی', year:'۱۴۰۲', dur:'۷۸ دقیقه', genre:'مستند طبیعت',
+  summary:'سفری هوایی و زمینی در امتداد رودخانه‌های بزرگ ایران و جهان؛ از سرچشمه‌های برفی تا دشت‌های تشنه. مستندی شاعرانه درباره آب، زندگی و آنچه در سکوت جاری است.',
+  awards:['جایزه بهترین فیلمبرداری — جشنواره مستند محیط زیست','منتخب رسمی — جشنواره فیلم‌های طبیعت اروپا']},
+ {id:5, cat:'ad', kind:'تبلیغاتی — فیلم برند', title:'طعم تابستان', img:'assets/img/poster-lemon.jpg',
+  director:'نیما رستگار', year:'۱۴۰۳', dur:'۹۰ ثانیه', genre:'فیلم تبلیغاتی برند',
+  summary:'فیلم برند یک نوشیدنی تابستانی که با نور طبیعی، رنگ‌های زنده و ریتمی شاد، حس خنکی و تازگی را در نود ثانیه به مخاطب منتقل می‌کند؛ از ایده و استوری‌بورد تا تدوین نهایی در استودیو ساخته شد.',
+  awards:['اثر برگزیده — جشنواره تبلیغات ایران','بیش از ۱۲ میلیون بازدید در کمپین دیجیتال']},
+ {id:6, cat:'feature', kind:'فیلم سینمایی — رازآلود', title:'مه', img:'assets/img/poster-fog.jpg',
+  director:'آرش کیانی', year:'۱۴۰۰', dur:'۱۱۰ دقیقه', genre:'رازآلود / روان‌شناختی',
+  summary:'جنگلبانی جوان در روستایی مه‌آلود در شمال، هر شب صدای زنی را از دل جنگل می‌شنود که نام او را صدا می‌زند. فیلمی اتمسفریک درباره گناه، خاطره و چیزهایی که مه پنهان می‌کند.',
+  awards:['جایزه بهترین کارگردانی — جشنواره فیلم‌های رازآلود','منتخب بخش اصلی — جشنواره بین‌المللی فیلم فجر']}
+];
+
+/* ---------- works grid + filter ---------- */
+const grid = $('#worksGrid');
+function renderWorks(){
+  grid.innerHTML = FILMS.map(f => `
+    <button class="poster" data-cat="${f.cat}" data-id="${f.id}">
+      <img src="${f.img}" alt="${f.title}" loading="lazy">
+      <span class="shade"></span><span class="frame"></span>
+      <span class="yr">${f.year}</span>
+      <span class="info">
+        <span class="kind">${f.kind}</span>
+        <h3>${f.title}</h3>
+        <span class="rule"></span>
+        <span class="sub">کارگردان: ${f.director} — ${f.genre}</span>
+      </span>
+    </button>`).join('');
+  grid.querySelectorAll('.poster').forEach(p => p.addEventListener('click', () => openFilm(+p.dataset.id)));
+}
+renderWorks();
+
+$('#filters').addEventListener('click', e => {
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  $$('#filters .chip').forEach(c => c.classList.remove('on'));
+  btn.classList.add('on');
+  const f = btn.dataset.f;
+  grid.querySelectorAll('.poster').forEach(p => p.classList.toggle('hide', f !== 'all' && p.dataset.cat !== f));
+});
+
+/* ---------- film modal ---------- */
+const filmModal = $('#filmModal');
+function openFilm(id){
+  const f = FILMS.find(x => x.id === id); if(!f) return;
+  $('#fmImg').src = f.img; $('#fmImg').alt = f.title;
+  $('#fmKind').textContent = f.kind; $('#fmTitle').textContent = f.title;
+  $('#fmSummary').textContent = f.summary;
+  $('#fmMeta').innerHTML =
+    `<span>کارگردان: <b>${f.director}</b></span><span>سال تولید: <b>${f.year}</b></span>` +
+    `<span>مدت: <b>${f.dur}</b></span><span>ژانر: <b>${f.genre}</b></span>`;
+  $('#fmAwards').innerHTML = f.awards.map(a => `<li>${a}</li>`).join('');
+  filmModal.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+function closeModal(m){ m.classList.remove('open'); document.body.style.overflow = ''; if(m === reelModal) stopReel(); }
+$$('.modal').forEach(m => m.addEventListener('click', e => { if(e.target.closest('[data-close]')) closeModal(m); }));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') $$('.modal.open').forEach(closeModal); });
+
+/* ---------- showreel simulation ---------- */
+const reelModal = $('#reelModal'), slate = $('#slate'), reelPlay = $('#reelPlay');
+const SLIDES = [
+  {t:'استودیو فیلم پارس', s:'شو ریل ۱۴۰۴ — از ایده تا اکران'},
+  {t:'سکوت برف', s:'فیلم سینمایی — ۱۴۰۲'},
+  {t:'آخرین قطار', s:'فیلم سینمایی — ۱۴۰۱'},
+  {t:'خانه پدری', s:'سریال — ۱۴۰۳'},
+  {t:'رودهای بی‌پایان', s:'مستند — ۱۴۰۲'},
+  {t:'طعم تابستان', s:'فیلم برند — ۱۴۰۳'},
+  {t:'مه', s:'فیلم سینمایی — ۱۴۰۰'},
+  {t:'قصه بعدی، قصه شماست', s:'استودیو فیلم پارس'}
+];
+let reelTimer = null, reelStart = 0;
+const REEL_LEN = 24; // seconds (simulated)
+function fmt(s){ return '۰۰:' + String(Math.floor(s)).padStart(2,'0').replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]); }
+function startReel(){
+  reelPlay.style.display = 'none'; slate.classList.add('on');
+  reelStart = Date.now();
+  let idx = -1;
+  reelTimer = setInterval(() => {
+    const el = (Date.now() - reelStart) / 1000;
+    if(el >= REEL_LEN){ stopReel(); return; }
+    $('#slateBar').style.width = (el / REEL_LEN * 100) + '%';
+    $('#slateTc').textContent = fmt(el) + ' / ' + fmt(REEL_LEN);
+    const i = Math.min(SLIDES.length - 1, Math.floor(el / (REEL_LEN / SLIDES.length)));
+    if(i !== idx){ idx = i; $('#slateTitle').textContent = SLIDES[i].t; $('#slateSub').textContent = SLIDES[i].s; }
+  }, 100);
+}
+function stopReel(){
+  clearInterval(reelTimer); reelTimer = null;
+  slate.classList.remove('on'); reelPlay.style.display = 'grid';
+  $('#slateBar').style.width = '0'; $('#slateTc').textContent = '۰۰:۰۰ / ۰۰:۲۴';
+}
+$('#openReel').addEventListener('click', () => { reelModal.classList.add('open'); document.body.style.overflow = 'hidden'; });
+$('#reelPlayBtn').addEventListener('click', startReel);
+
+/* ---------- counters + reveal ---------- */
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if(!en.isIntersecting) return;
+  en.target.classList.add('in');
+  en.target.querySelectorAll('.count').forEach(c => {
+    if(c.dataset.done) return; c.dataset.done = 1;
+    const to = +c.dataset.to, t0 = performance.now();
+    (function tick(t){ const p = Math.min(1, (t - t0) / 1400); c.textContent = fa(Math.round(to * p)); if(p < 1) requestAnimationFrame(tick); })(t0);
+  });
+  io.unobserve(en.target);
+}), {threshold: .18});
+$$('.reveal').forEach(el => io.observe(el));
+
+/* ---------- mobile nav ---------- */
+$('#burger').addEventListener('click', () => $('#mainNav').classList.toggle('open'));
+$$('#mainNav a').forEach(a => a.addEventListener('click', () => $('#mainNav').classList.remove('open')));
+
+/* ---------- form ---------- */
+$('#coopForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('#f-name').value.trim();
+  const contact = $('#f-contact').value.trim();
+  const msg = $('#f-msg').value.trim();
+  const digits = contact.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/\D/g, '');
+  const okName = name.length >= 3;
+  const okContact = /^09\d{9}$/.test(digits) || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact);
+  const okMsg = msg.length >= 10;
+  $('#g-name').classList.toggle('invalid', !okName);
+  $('#g-contact').classList.toggle('invalid', !okContact);
+  $('#g-msg').classList.toggle('invalid', !okMsg);
+  if(!(okName && okContact && okMsg)) return;
+  const code = 'PARS-' + Math.floor(100000 + Math.random() * 900000);
+  const req = {code, name, contact, type: $('#f-type').value, budget: $('#f-budget').value, msg, at: new Date().toISOString()};
+  const all = JSON.parse(localStorage.getItem('pars_requests') || '[]'); all.push(req);
+  localStorage.setItem('pars_requests', JSON.stringify(all));
+  $('#trackCode').textContent = code.replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+  $('#coopForm').style.display = 'none';
+  $('#successBox').style.display = 'block';
+  $('#successBox').scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+window.addEventListener('load', () => document.body.classList.add('loaded'));
+</script>
+</body>
+</html>
