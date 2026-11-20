@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>گازپایپ تهران | فروشگاه لوله و اتصالات گازی</title>
+<meta name="description" content="دموی فروشگاه اینترنتی لوله، اتصالات و شیرآلات گازی — فروش خرده و عمده با استاندارد ملی و API، مشاوره حضوری در تهران.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --steel-950:#0c0e11; --steel-900:#12151a; --steel-850:#171b21; --steel-800:#1d222a;
+  --steel-700:#2a3038; --steel-600:#3a424d;
+  --line:#262c34; --line-soft:#1f242c;
+  --txt:#eef1f4; --muted:#9aa6b2; --muted-2:#6e7a87;
+  --org:#ff7a1a; --org-2:#ffa53d; --org-dark:#d95f06; --org-soft:rgba(255,122,26,.12);
+  --ok:#35c26e; --red:#ff5d5d;
+  --radius:14px; --radius-lg:20px;
+  --shadow:0 14px 40px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;font-family:'Vazirmatn',system-ui,sans-serif;background:var(--steel-950);color:var(--txt);font-size:15.5px;line-height:1.8}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:.98rem;color:var(--txt)}
+a{color:inherit;text-decoration:none}
+.container{max-width:1300px;margin-inline:auto;padding-inline:20px}
+.hazard{height:8px;background:repeating-linear-gradient(-45deg,var(--org) 0 18px,#14161a 18px 36px)}
+::selection{background:var(--org);color:#14100b}
+
+/* ---------- نوار بالا ---------- */
+.topbar{background:#000;color:#c8d0d9;font-size:.8rem;padding:7px 0;border-bottom:1px solid var(--line-soft)}
+.topbar .container{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.topbar b{color:var(--org-2);font-weight:700}
+.topbar .dot{color:var(--org);margin-inline:6px}
+
+/* ---------- هدر ---------- */
+header.site{position:sticky;top:0;z-index:70;background:rgba(12,14,17,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;gap:16px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(145deg,var(--org),var(--org-dark));display:grid;place-items:center;box-shadow:0 8px 22px rgba(255,122,26,.35)}
+.logo-text{line-height:1.3}
+.logo-text strong{display:block;font-size:1.14rem;font-weight:900;letter-spacing:-.2px}
+.logo-text strong em{font-style:normal;color:var(--org)}
+.logo-text span{font-size:.72rem;color:var(--muted)}
+.searchbox{flex:1;display:flex;align-items:center;gap:8px;background:var(--steel-850);border:1.5px solid var(--line);border-radius:13px;padding:4px 6px 4px 14px;transition:.2s}
+.searchbox:focus-within{border-color:var(--org);box-shadow:0 0 0 4px var(--org-soft)}
+.searchbox svg{flex-shrink:0;color:var(--muted)}
+.searchbox input{flex:1;border:none;outline:none;background:transparent;color:var(--txt)}
+.searchbox input::placeholder{color:var(--muted-2)}
+nav.main{display:flex;gap:4px;flex-shrink:0}
+nav.main a{padding:8px 12px;border-radius:10px;font-weight:500;font-size:.93rem;color:#cfd7df;transition:.15s}
+nav.main a:hover{background:var(--steel-800);color:#fff}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;background:var(--org);color:#171106;font-weight:800;padding:10px 16px;border-radius:12px;transition:.15s;flex-shrink:0}
+.cart-btn:hover{background:var(--org-2)}
+.cart-count{position:absolute;top:-8px;inset-inline-start:-8px;background:#fff;color:#14161a;border:2px solid var(--steel-950);min-width:24px;height:24px;border-radius:99px;display:grid;place-items:center;font-size:.76rem;font-weight:900;padding-inline:5px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;background:var(--steel-800);place-items:center;flex-shrink:0}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 20px 16px;background:var(--steel-900)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:10px 6px;border-bottom:1px solid var(--line-soft);font-weight:500}
+.mobile-menu a:last-child{border-bottom:none}
+
+/* ---------- هیرو ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.34}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,14,17,.55),rgba(12,14,17,.88) 78%),linear-gradient(90deg,rgba(12,14,17,.85),transparent 65%)}
+.hero-in{position:relative;padding:74px 0 58px;max-width:760px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,122,26,.14);border:1px solid rgba(255,122,26,.45);color:var(--org-2);font-size:.82rem;font-weight:700;padding:5px 13px;border-radius:99px;margin-bottom:18px}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3.15rem);font-weight:900;line-height:1.35;margin:0 0 14px}
+.hero h1 .hl{color:var(--org);position:relative}
+.hero p.lead{color:#c3ccd5;font-size:1.05rem;margin:0 0 26px;max-width:620px}
+.hero-search{display:flex;gap:8px;background:var(--steel-900);border:1.5px solid var(--steel-600);border-radius:16px;padding:6px;max-width:600px}
+.hero-search input{flex:1;background:transparent;border:none;outline:none;padding-inline:12px;color:var(--txt)}
+.hero-search input::placeholder{color:var(--muted-2)}
+.hero-search button{background:var(--org);color:#171106;font-weight:800;border-radius:11px;padding:11px 22px}
+.hero-search button:hover{background:var(--org-2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chips span{font-size:.8rem;color:var(--muted)}
+.chip{font-size:.8rem;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:4px 12px;border-radius:99px;color:#d6dde4;cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--org);color:var(--org-2)}
+.hero-stats{display:flex;gap:0;margin-top:38px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;max-width:640px;background:rgba(18,21,26,.75);backdrop-filter:blur(6px)}
+.hero-stats div{flex:1;padding:13px 16px;border-inline-start:1px solid var(--line-soft)}
+.hero-stats div:first-child{border-inline-start:none}
+.hero-stats b{display:block;font-size:1.22rem;font-weight:900;color:#fff;line-height:1.4}
+.hero-stats b i{font-style:normal;color:var(--org)}
+.hero-stats small{color:var(--muted);font-size:.76rem}
+
+/* ---------- نوار اعتماد ---------- */
+.trust{background:var(--steel-900);border-bottom:1px solid var(--line)}
+.trust-in{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:20px 0}
+.trust-item{display:flex;gap:11px;align-items:flex-start}
+.trust-item .ic{width:42px;height:42px;flex-shrink:0;border-radius:11px;background:var(--org-soft);display:grid;place-items:center;color:var(--org)}
+.trust-item b{display:block;font-size:.92rem;line-height:1.5}
+.trust-item span{font-size:.78rem;color:var(--muted);line-height:1.6;display:block}
+
+/* ---------- بخش‌ها ---------- */
+section.block{padding:58px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:1.55rem;font-weight:900;margin:0;line-height:1.5}
+.sec-head h2 .bar{color:var(--org)}
+.sec-head p{margin:4px 0 0;color:var(--muted);font-size:.93rem}
+.sec-link{font-weight:700;color:var(--org-2);font-size:.92rem;white-space:nowrap}
+.sec-link:hover{color:var(--org)}
+
+/* ---------- دسته‌بندی ---------- */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cat{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);min-height:168px;display:flex;align-items:flex-end;cursor:pointer;transition:.2s;background:var(--steel-850)}
+.cat:hover{transform:translateY(-4px);border-color:var(--org)}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;transition:.3s}
+.cat:hover img{opacity:.65;transform:scale(1.05)}
+.cat .veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,11,14,.92))}
+.cat .ct{position:relative;padding:15px}
+.cat .ct b{display:block;font-size:1rem;line-height:1.5}
+.cat .ct span{font-size:.76rem;color:var(--org-2);font-weight:700}
+
+/* ---------- محصولات ---------- */
+.shop-wrap{background:var(--steel-900);border-block:1px solid var(--line)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.fbtn{padding:8px 17px;border-radius:99px;border:1.5px solid var(--line);background:var(--steel-850);font-weight:600;font-size:.9rem;color:#cfd7df;transition:.15s}
+.fbtn:hover{border-color:var(--steel-600)}
+.fbtn.active{background:var(--org);border-color:var(--org);color:#171106;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--steel-850);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--steel-600);box-shadow:var(--shadow)}
+.card .ph{position:relative;aspect-ratio:4/2.9;overflow:hidden;background:var(--steel-800)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.card:hover .ph img{transform:scale(1.06)}
+.badges{position:absolute;top:10px;inset-inline-start:10px;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.bdg{font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:7px;background:rgba(10,11,14,.85);color:var(--org-2);border:1px solid rgba(255,122,26,.5);backdrop-filter:blur(4px)}
+.bdg.std{color:#7ee2a8;border-color:rgba(53,194,110,.5)}
+.qv-btn{position:absolute;bottom:10px;inset-inline-end:10px;background:rgba(10,11,14,.88);color:#fff;font-size:.78rem;font-weight:700;padding:7px 13px;border-radius:9px;border:1px solid var(--steel-600);backdrop-filter:blur(4px);transition:.15s}
+.qv-btn:hover{background:var(--org);color:#171106;border-color:var(--org)}
+.card .bd{padding:15px 16px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card .cat-name{font-size:.74rem;color:var(--muted);font-weight:600}
+.card h3{margin:0;font-size:1rem;font-weight:800;line-height:1.65;min-height:3.3em}
+.card .spec{font-size:.8rem;color:var(--muted);line-height:1.7}
+.card .foot{margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
+.price-row{display:flex;align-items:baseline;gap:6px;margin-bottom:11px}
+.price-row b{font-size:1.18rem;font-weight:900;color:#fff}
+.price-row span{font-size:.78rem;color:var(--muted)}
+.price-row .unit{margin-inline-start:auto;font-size:.74rem;color:var(--org-2);font-weight:700;background:var(--org-soft);padding:2px 9px;border-radius:7px}
+.add-btn{width:100%;background:var(--steel-700);color:#fff;font-weight:800;padding:11px;border-radius:11px;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.add-btn:hover{background:var(--org);color:#171106}
+.add-btn.added{background:var(--ok);color:#08130c}
+.empty-msg{grid-column:1/-1;text-align:center;color:var(--muted);padding:44px 0;border:1px dashed var(--line);border-radius:var(--radius-lg)}
+
+/* ---------- استعلام عمده + مشاوره ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--steel-850)}
+.panel .pimg{height:190px;position:relative}
+.panel .pimg img{width:100%;height:100%;object-fit:cover}
+.panel .pimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(23,27,33,.95))}
+.panel .pimg h3{position:absolute;bottom:12px;inset-inline:20px;margin:0;font-size:1.25rem;font-weight:900;z-index:2;line-height:1.5}
+.panel .pbody{padding:20px}
+.panel .pbody>p{color:var(--muted);font-size:.92rem;margin:0 0 16px}
+.check-list{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:8px}
+.check-list li{display:flex;gap:9px;font-size:.9rem;color:#d3dae1}
+.check-list li::before{content:"✓";color:var(--ok);font-weight:900;flex-shrink:0}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:5px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;background:var(--steel-900);border:1.5px solid var(--line);border-radius:11px;padding:10px 13px;outline:none;transition:.15s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--org);box-shadow:0 0 0 3px var(--org-soft)}
+.field select option{background:var(--steel-900)}
+.submit-btn{width:100%;background:var(--org);color:#171106;font-weight:900;padding:13px;border-radius:12px;font-size:1rem;transition:.15s}
+.submit-btn:hover{background:var(--org-2)}
+.form-ok{display:none;background:rgba(53,194,110,.12);border:1px solid rgba(53,194,110,.5);color:#8fe6b1;border-radius:12px;padding:14px 16px;font-size:.92rem;font-weight:600}
+.form-ok.show{display:block}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:860px}
+.faq-item{border:1px solid var(--line);border-radius:var(--radius);background:var(--steel-850);margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:start;padding:16px 19px;font-weight:800;font-size:.99rem}
+.faq-q .arr{color:var(--org);font-size:1.15rem;transition:.25s;flex-shrink:0}
+.faq-item.open .arr{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{margin:0;padding:0 19px 17px;color:var(--muted);font-size:.92rem}
+
+/* ---------- فوتر ---------- */
+footer{background:#08090b;border-top:1px solid var(--line);padding:48px 0 0;margin-top:0}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:28px;padding-bottom:34px}
+footer h4{margin:0 0 13px;font-size:1rem;font-weight:800}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer ul a,footer p{color:var(--muted);font-size:.89rem}
+footer ul a:hover{color:var(--org-2)}
+.foot-bottom{border-top:1px solid var(--line-soft);padding:16px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted-2)}
+.foot-bottom b{color:var(--muted)}
+
+/* ---------- سبد خرید ---------- */
+.overlay{position:fixed;inset:0;background:rgba(4,5,7,.66);backdrop-filter:blur(3px);z-index:90;opacity:0;pointer-events:none;transition:.25s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(430px,94vw);background:var(--steel-900);z-index:95;transform:translateX(-110%);transition:transform .3s ease;display:flex;flex-direction:column;border-inline-start:1px solid var(--line);box-shadow:var(--shadow)}
+html[dir="rtl"] .drawer{transform:translateX(-110%)}
+.drawer.show{transform:translateX(0)!important}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer-head b{font-size:1.08rem;font-weight:900}
+.x-btn{width:36px;height:36px;border-radius:10px;background:var(--steel-800);display:grid;place-items:center;font-size:1.05rem}
+.drawer-items{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.ci{display:flex;gap:12px;background:var(--steel-850);border:1px solid var(--line);border-radius:13px;padding:11px}
+.ci img{width:74px;height:64px;object-fit:cover;border-radius:9px;flex-shrink:0}
+.ci .info{flex:1}
+.ci .info b{display:block;font-size:.88rem;line-height:1.6}
+.ci .info span{font-size:.8rem;color:var(--org-2);font-weight:700}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:26px;height:26px;border-radius:8px;background:var(--steel-700);font-weight:900;line-height:1}
+.qty b{min-width:20px;text-align:center;font-size:.9rem}
+.ci .rm{align-self:flex-start;color:var(--red);font-size:.78rem;font-weight:700}
+.drawer-empty{text-align:center;color:var(--muted);padding:50px 10px}
+.drawer-foot{border-top:1px solid var(--line);padding:17px 20px;background:var(--steel-850)}
+.total-row{display:flex;justify-content:space-between;font-weight:900;font-size:1.05rem;margin-bottom:6px}
+.ship-note{font-size:.78rem;color:var(--muted);margin-bottom:13px}
+.checkout-btn{width:100%;background:var(--org);color:#171106;font-weight:900;padding:14px;border-radius:12px;font-size:1rem}
+.checkout-btn:hover{background:var(--org-2)}
+.checkout-ok{display:none;text-align:center;background:rgba(53,194,110,.12);border:1px solid rgba(53,194,110,.5);color:#8fe6b1;border-radius:12px;padding:13px;font-weight:700;font-size:.92rem;margin-top:11px}
+.checkout-ok.show{display:block}
+
+/* ---------- مودال ---------- */
+.modal{position:fixed;inset:0;z-index:96;display:none;place-items:center;padding:18px}
+.modal.show{display:grid}
+.modal-box{background:var(--steel-900);border:1px solid var(--line);border-radius:22px;max-width:820px;width:100%;max-height:92vh;overflow-y:auto;position:relative;box-shadow:var(--shadow)}
+.modal-grid{display:grid;grid-template-columns:1fr 1.15fr}
+.modal-grid .mph{min-height:320px}
+.modal-grid .mph img{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:24px}
+.modal-body h3{margin:0 0 6px;font-size:1.28rem;font-weight:900;line-height:1.6}
+.modal-body .mcat{color:var(--org-2);font-size:.8rem;font-weight:700}
+.spec-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.89rem}
+.spec-table td{padding:8px 11px;border:1px solid var(--line-soft)}
+.spec-table td:first-child{color:var(--muted);width:38%;background:var(--steel-850);font-weight:600}
+.modal-x{position:absolute;top:13px;inset-inline-end:13px;z-index:3;background:rgba(10,11,14,.8);border:1px solid var(--steel-600)}
+.mfoot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px}
+.mfoot .price-row{margin:0}
+
+/* ---------- تست ---------- */
+.toast{position:fixed;bottom:22px;inset-inline-start:50%;transform:translate(50%,90px);background:#101812;border:1px solid rgba(53,194,110,.6);color:#a9ecc2;padding:12px 22px;border-radius:13px;z-index:120;font-weight:700;font-size:.92rem;transition:.35s;box-shadow:var(--shadow);max-width:92vw;text-align:center}
+.toast.show{transform:translate(50%,0)}
+
+/* ---------- ریسپانسیو ---------- */
+@media(max-width:1100px){
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .trust-in{grid-template-columns:repeat(3,1fr)}
+  nav.main{display:none}
+}
+@media(max-width:820px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .modal-grid{grid-template-columns:1fr}
+  .modal-grid .mph{min-height:210px;max-height:230px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .searchbox{display:none}
+  .burger{display:grid}
+  .hero-in{padding:52px 0 44px}
+  .hero-stats{flex-wrap:wrap}
+  .hero-stats div{flex:1 1 40%}
+}
+@media(max-width:520px){
+  .hero h1{font-size:1.58rem;line-height:1.5}
+  .hero p.lead{font-size:.96rem}
+  .hero-in{max-width:100%}
+  .hero-search{max-width:100%}
+  .hero-search button{padding:11px 15px}
+  .grid{grid-template-columns:1fr}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .trust-in{grid-template-columns:1fr 1fr}
+  form .row{grid-template-columns:1fr}
+  .cart-btn .lbl{display:none}
+  .cart-btn{padding:10px 12px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div>انبار و شوروم تهران <span class="dot">•</span> ارسال باربری به سراسر کشور</div>
+    <div>فروش <b>خرده و عمده</b> <span class="dot">•</span> فاکتور رسمی برای پروژه‌ها</div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container header-in">
+    <button class="burger" id="burger" aria-label="منو">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+    <a class="logo" href="#">
+      <span class="logo-mark">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#171106" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 3.5v4L4 12l4.5 4.5v4"/><path d="M15.5 3.5v4L20 12l-4.5 4.5v4"/><circle cx="12" cy="12" r="1.6" fill="#171106" stroke="none"/></svg>
+      </span>
+      <span class="logo-text"><strong>گازپایپ <em>تهران</em></strong><span>لوله • اتصالات • شیرآلات گازی</span></span>
+    </a>
+    <div class="searchbox">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      <input type="text" id="headSearch" placeholder="جستجو: لوله مانیسمان، زانو جوشی، شیر گازی…">
+    </div>
+    <nav class="main">
+      <a href="#cats">دسته‌بندی‌ها</a>
+      <a href="#shop">محصولات</a>
+      <a href="#bulk">فروش عمده</a>
+      <a href="#consult">مشاوره حضوری</a>
+      <a href="#faq">پرسش‌ها</a>
+    </nav>
+    <button class="cart-btn" id="openCart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 3h2l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20.5 7H6"/></svg>
+      <span class="lbl">سبد خرید</span>
+      <span class="cart-count" id="cartCount">۰</span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#cats">دسته‌بندی‌ها</a>
+    <a href="#shop">محصولات</a>
+    <a href="#bulk">فروش عمده و استعلام</a>
+    <a href="#consult">مشاوره حضوری در تهران</a>
+    <a href="#faq">پرسش‌های پرتکرار</a>
+  </div>
+</header>
+
+<!-- هیرو -->
+<section class="hero">
+  <div class="hero-bg"><img src="assets/img/hero-warehouse.jpg" alt="انبار لوله‌های فولادی گازپایپ تهران"></div>
+  <div class="container hero-in">
+    <span class="hero-tag">تأمین‌کننده تخصصی لوله و اتصالات گاز — تهران</span>
+    <h1>لوله و اتصالات گازی،<br>با <span class="hl">استاندارد واقعی</span> و موجودی انبار واقعی</h1>
+    <p class="lead">از لوله مانیسمان و API تا شیرآلات و اتصالات جوشی و رزوه‌ای؛ هر قلم با گواهی استاندارد، تست فشار و فاکتور رسمی. برای پروژه‌ها، قیمت عمده و مشاوره حضوری در شوروم تهران.</p>
+    <div class="hero-search">
+      <input type="text" id="heroSearch" placeholder="دنبال چه قلمی هستید؟ مثلاً «زانو ۹۰ درجه ۲ اینچ»">
+      <button id="heroSearchBtn">جستجو</button>
+    </div>
+    <div class="chips">
+      <span>پرجستجوها:</span>
+      <button class="chip" data-q="مانیسمان">لوله مانیسمان</button>
+      <button class="chip" data-q="شیر گازی">شیر گازی</button>
+      <button class="chip" data-q="زانو">زانو جوشی</button>
+      <button class="chip" data-q="ماسوره">مهره ماسوره</button>
+    </div>
+    <div class="hero-stats">
+      <div><b>۲٬۵۰۰<i>+</i></b><small>قلم کالای فعال</small></div>
+      <div><b>۱۸۰<i>+</i></b><small>تن موجودی انبار</small></div>
+      <div><b>۹۸<i>٪</i></b><small>سفارش‌ها با فاکتور رسمی</small></div>
+      <div><b>۲۴<i> ساعته</i></b><small>پاسخ استعلام عمده</small></div>
+    </div>
+  </div>
+</section>
+<div class="hazard"></div>
+
+<!-- اعتماد -->
+<div class="trust">
+  <div class="container trust-in">
+    <div class="trust-item"><span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="m9 12 2 2 4-4.5"/></svg></span><div><b>استاندارد ملی ایران</b><span>لوله‌های گازی مطابق استاندارد ۳۳۶۰ و ISIRI</span></div></div>
+    <div class="trust-item"><span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span><div><b>گواهی API 5L</b><span>لوله‌های خطوط گاز با سرتیفیکیت کارخانه</span></div></div>
+    <div class="trust-item"><span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11v10H4z"/><path d="M15 10h3.5L21 13.5V17h-6z"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></span><div><b>ارسال باربری سراسری</b><span>بسته‌بندی شاخه‌ای و ارسال با بارنامه رسمی</span></div></div>
+    <div class="trust-item"><span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M9 8h6M9 16h4"/><rect x="5" y="3" width="14" height="18" rx="2"/></svg></span><div><b>فاکتور رسمی و ارزش افزوده</b><span>قابل ارائه به پیمانکاران و سازمان‌ها</span></div></div>
+    <div class="trust-item"><span class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span><div><b>مرجوعی قلم اشتباه</b><span>تعویض سایز تا ۷ روز با فاکتور خرید</span></div></div>
+  </div>
+</div>
+
+<!-- دسته‌بندی -->
+<section class="block" id="cats">
+  <div class="container">
+    <div class="sec-head">
+      <div><h2><span class="bar">▌</span>دسته‌بندی‌های تخصصی</h2><p>شش خانواده اصلی کالا؛ همه با موجودی انبار تهران</p></div>
+      <a class="sec-link" href="#shop">مشاهده همه محصولات ←</a>
+    </div>
+    <div class="cats" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- محصولات -->
+<section class="block shop-wrap" id="shop" style="padding-top:50px">
+  <div class="container">
+    <div class="sec-head">
+      <div><h2><span class="bar">▌</span>محصولات منتخب انبار</h2><p>قیمت‌ها به‌روز و به تومان است؛ برای خرید عمده از بخش استعلام استفاده کنید</p></div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- عمده + مشاوره -->
+<section class="block" id="bulk">
+  <div class="container">
+    <div class="sec-head">
+      <div><h2><span class="bar">▌</span>خرید پروژه‌ای و مشاوره حضوری</h2><p>دو مسیری که بیشتر مشتری‌های ما از آن شروع می‌کنند</p></div>
+    </div>
+    <div class="split">
+      <div class="panel">
+        <div class="pimg"><img src="assets/img/warehouse-crane.jpg" alt="انبار و جرثقیل بارگیری لوله"><h3>استعلام قیمت عمده (B2B)</h3></div>
+        <div class="pbody">
+          <p>لیست خرید پروژه‌تان را بفرستید؛ پیش‌فاکتور با قیمت همکاری، زمان تحویل و شرایط باربری حداکثر تا ۲۴ ساعت کاری برمی‌گردد.</p>
+          <ul class="check-list">
+            <li>قیمت پلکانی بر اساس تناژ و تعداد شاخه</li>
+            <li>رزرو موجودی انبار تا ۷۲ ساعت برای پروژه</li>
+            <li>برش و رزوه‌کاری سفارشی قبل از ارسال</li>
+          </ul>
+          <form id="bulkForm">
+            <div class="row">
+              <div class="field"><label>نام شرکت / پیمانکار</label><input required type="text" placeholder="مثلاً شرکت تأسیسات نمونه"></div>
+              <div class="field"><label>دسته کالای اصلی</label>
+                <select><option>لوله گازی و مانیسمان</option><option>اتصالات جوشی</option><option>اتصالات رزوه‌ای</option><option>شیرآلات گازی</option><option>ترکیبی / لیست کامل دارم</option></select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field"><label>حجم تقریبی خرید</label>
+                <select><option>کمتر از ۱ تن</option><option>۱ تا ۵ تن</option><option>۵ تا ۲۰ تن</option><option>بیش از ۲۰ تن</option></select>
+              </div>
+              <div class="field"><label>شهر تحویل</label><input type="text" placeholder="مثلاً تهران / کرج / قم"></div>
+            </div>
+            <div class="field"><label>شرح لیست خرید</label><textarea rows="3" placeholder="سایزها و تعداد را بنویسید؛ مثلاً: لوله ۲ اینچ API — ۴۰ شاخه، زانو جوشی ۲ اینچ — ۱۲۰ عدد…"></textarea></div>
+            <button class="submit-btn" type="submit">ثبت درخواست استعلام</button>
+            <div class="form-ok" id="bulkOk" style="margin-top:11px">درخواست استعلام شما ثبت شد. پیش‌فاکتور حداکثر تا ۲۴ ساعت کاری آماده و اطلاع‌رسانی می‌شود.</div>
+          </form>
+        </div>
+      </div>
+
+      <div class="panel" id="consult">
+        <div class="pimg"><img src="assets/img/engineer-clipboard.jpg" alt="کارشناس فنی در حال بررسی نقشه تأسیسات"><h3>مشاوره حضوری در تهران</h3></div>
+        <div class="pbody">
+          <p>انتخاب سایز، رده و استاندارد اشتباه در لوله‌کشی گاز یعنی دوباره‌کاری و هزینه اضافه. در شوروم تهران، نقشه یا لیست خریدتان را با کارشناس فنی بررسی کنید و بعد خرید کنید.</p>
+          <ul class="check-list">
+            <li>بررسی نقشه گازکشی و محاسبه سایز و افت فشار</li>
+            <li>مقایسه حضوری کیفیت و وزن واقعی برندها</li>
+            <li>مشاوره انتخاب بین مانیسمان، API و درزدار</li>
+            <li>بدون هزینه برای خریدهای پروژه‌ای</li>
+          </ul>
+          <form id="consultForm">
+            <div class="row">
+              <div class="field"><label>نام و نام خانوادگی</label><input required type="text" placeholder="نام شما"></div>
+              <div class="field"><label>موضوع مشاوره</label>
+                <select><option>انتخاب لوله برای پروژه ساختمانی</option><option>خط گاز صنعتی / کارخانه</option><option>تکمیل لیست خرید پیمانکاری</option><option>استاندارد و بازرسی (ناظر گاز)</option></select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field"><label>روز مراجعه</label>
+                <select><option>شنبه</option><option>یکشنبه</option><option>دوشنبه</option><option>سه‌شنبه</option><option>چهارشنبه</option><option>پنجشنبه</option></select>
+              </div>
+              <div class="field"><label>بازه زمانی</label>
+                <select><option>۹ تا ۱۲ صبح</option><option>۱۲ تا ۱۵</option><option>۱۵ تا ۱۸ عصر</option></select>
+              </div>
+            </div>
+            <button class="submit-btn" type="submit">رزرو جلسه مشاوره حضوری</button>
+            <div class="form-ok" id="consultOk" style="margin-top:11px">جلسه مشاوره شما رزرو شد. ساعت دقیق مراجعه در شوروم تهران هماهنگ و اطلاع‌رسانی می‌شود.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" style="padding-top:10px" id="faq">
+  <div class="container">
+    <div class="sec-head"><div><h2><span class="bar">▌</span>پرسش‌های پرتکرار</h2><p>قبل از خرید، این‌ها را بیشتر از ما می‌پرسند</p></div></div>
+    <div class="faq" id="faqList">
+      <div class="faq-item"><button class="faq-q">تفاوت لوله مانیسمان با لوله درزدار گازی چیست؟<span class="arr">▾</span></button><div class="faq-a"><p>مانیسمان بدون درز جوش ساخته می‌شود و برای فشارهای بالاتر و خطوط اصلی گاز انتخاب مطمئن‌تری است. لوله درزدار (API یا تست‌شده) برای انشعاب‌های ساختمانی با فشار معمول اقتصادی‌تر است. در صفحه هر محصول، فشار کاری و استاندارد دقیق درج شده است.</p></div></div>
+      <div class="faq-item"><button class="faq-q">آیا کالاها گواهی استاندارد و سرتیفیکیت کارخانه دارند؟<span class="arr">▾</span></button><div class="faq-a"><p>بله. لوله‌ها با استاندارد ملی ۳۳۶۰ یا API 5L عرضه می‌شوند و برای خریدهای پروژه‌ای، سرتیفیکیت و نتایج تست کارخانه همراه فاکتور رسمی تحویل داده می‌شود تا در بازرسی ناظر گاز مشکلی نداشته باشید.</p></div></div>
+      <div class="faq-item"><button class="faq-q">خرید عمده و پروژه‌ای چطور انجام می‌شود؟<span class="arr">▾</span></button><div class="faq-a"><p>لیست خرید را از فرم «استعلام قیمت عمده» بفرستید. بر اساس تناژ و تعداد، قیمت پلکانی همکاری محاسبه و پیش‌فاکتور صادر می‌شود. موجودی پروژه تا ۷۲ ساعت رزرو می‌ماند و ارسال با بارنامه رسمی باربری انجام می‌شود.</p></div></div>
+      <div class="faq-item"><button class="faq-q">مشاوره حضوری در تهران چطور رزرو می‌شود؟<span class="arr">▾</span></button><div class="faq-a"><p>از فرم «مشاوره حضوری» روز و بازه زمانی را انتخاب کنید. کارشناس فنی در شوروم تهران نقشه یا لیست خرید شما را بررسی می‌کند؛ برای خریدهای پروژه‌ای این جلسه بدون هزینه است.</p></div></div>
+      <div class="faq-item"><button class="faq-q">اگر سایز اشتباه سفارش بدهم، امکان تعویض هست؟<span class="arr">▾</span></button><div class="faq-a"><p>بله؛ اقلام برش‌نخورده و رزوه‌نشده تا ۷ روز با فاکتور خرید قابل تعویض با سایز دیگر هستند. هزینه بار برگشت برای سفارش‌های عمده با هماهنگی قبلی تقسیم می‌شود.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#" style="margin-bottom:13px">
+          <span class="logo-mark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#171106" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 3.5v4L4 12l4.5 4.5v4"/><path d="M15.5 3.5v4L20 12l-4.5 4.5v4"/><circle cx="12" cy="12" r="1.6" fill="#171106" stroke="none"/></svg></span>
+          <span class="logo-text"><strong>گازپایپ <em style="color:var(--org);font-style:normal">تهران</em></strong><span>لوله • اتصالات • شیرآلات گازی</span></span>
+        </a>
+        <p>فروشگاه تخصصی لوله و اتصالات گازی با انبار فعال در تهران؛ تأمین خرده و پروژه‌ای با استاندارد ملی و API، فاکتور رسمی و مشاوره فنی حضوری پیش از خرید.</p>
+      </div>
+      <div><h4>دسته‌بندی‌ها</h4><ul>
+        <li><a href="#shop" data-cat-link="pipes">لوله‌های گازی</a></li>
+        <li><a href="#shop" data-cat-link="threaded">اتصالات رزوه‌ای</a></li>
+        <li><a href="#shop" data-cat-link="valves">شیرآلات گازی</a></li>
+        <li><a href="#shop" data-cat-link="welded">اتصالات جوشی</a></li>
+        <li><a href="#shop" data-cat-link="seamless">لوله مانیسمان</a></li>
+        <li><a href="#shop" data-cat-link="safety">تجهیزات ایمنی گاز</a></li>
+      </ul></div>
+      <div><h4>دسترسی سریع</h4><ul>
+        <li><a href="#shop">محصولات</a></li>
+        <li><a href="#bulk">استعلام قیمت عمده</a></li>
+        <li><a href="#consult">مشاوره حضوری در تهران</a></li>
+        <li><a href="#faq">پرسش‌های پرتکرار</a></li>
+      </ul></div>
+      <div><h4>ساعت کاری شوروم و انبار</h4><ul>
+        <li>شنبه تا چهارشنبه: ۸:۳۰ تا ۱۸</li>
+        <li>پنجشنبه: ۸:۳۰ تا ۱۴</li>
+        <li>بارگیری انبار: تا ۱۷ هر روز کاری</li>
+        <li>مشاوره حضوری: فقط با رزرو قبلی</li>
+      </ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© گازپایپ تهران — فروشگاه لوله و اتصالات گازی</span>
+      <span><b>دموی پیشنهادی اپ‌وبینو</b> — نمونه طراحی فروشگاه اینترنتی صنعتی</span>
+    </div>
+  </div>
+</footer>
+
+<!-- سبد خرید -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="سبد خرید">
+  <div class="drawer-head"><b>سبد خرید شما</b><button class="x-btn" id="closeCart">✕</button></div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot">
+    <div class="total-row"><span>جمع قابل پرداخت</span><span id="cartTotal">۰ تومان</span></div>
+    <div class="ship-note">هزینه باربری بر اساس وزن و مقصد در فاکتور نهایی محاسبه می‌شود. برای سفارش عمده، پیش‌فاکتور رسمی صادر می‌شود.</div>
+    <button class="checkout-btn" id="checkoutBtn">ثبت سفارش و ادامه تسویه</button>
+    <div class="checkout-ok" id="checkoutOk">سفارش شما با موفقیت ثبت شد. کارشناس فروش برای هماهنگی پرداخت و باربری با شما در ارتباط خواهد بود.</div>
+  </div>
+</aside>
+
+<!-- مودال مشاهده سریع -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="x-btn modal-x" id="closeModal">✕</button>
+    <div class="modal-grid">
+      <div class="mph"><img id="mImg" src="" alt=""></div>
+      <div class="modal-body">
+        <span class="mcat" id="mCat"></span>
+        <h3 id="mName"></h3>
+        <div class="badges" style="position:static;flex-direction:row" id="mBadges"></div>
+        <table class="spec-table" id="mSpecs"></table>
+        <div class="mfoot">
+          <div class="price-row"><b id="mPrice"></b><span>تومان</span><span class="unit" id="mUnit"></span></div>
+        </div>
+        <div class="mfoot">
+          <div class="qty" style="margin:0">
+            <button id="mMinus">−</button><b id="mQty">۱</b><button id="mPlus">+</button>
+          </div>
+          <button class="add-btn" id="mAdd" style="flex:1;width:auto">افزودن به سبد خرید</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const CATS = [
+  {id:'pipes',    name:'لوله‌های گازی',        img:'assets/img/gas-yellow-pipes.jpg',  count:'۴۸۰+ قلم'},
+  {id:'threaded', name:'اتصالات رزوه‌ای',      img:'assets/img/fittings-chrome.jpg',   count:'۶۲۰+ قلم'},
+  {id:'valves',   name:'شیرآلات گازی',         img:'assets/img/pipes-valves.jpg',      count:'۲۱۰+ قلم'},
+  {id:'welded',   name:'اتصالات جوشی',         img:'assets/img/welding-sparks.jpg',    count:'۵۴۰+ قلم'},
+  {id:'seamless', name:'لوله مانیسمان',        img:'assets/img/stainless-complex.jpg', count:'۱۶۰+ قلم'},
+  {id:'safety',   name:'تجهیزات ایمنی گاز',    img:'assets/img/gauge-closeup.jpg',     count:'۹۰+ قلم'}
+];
+const catName = id => (CATS.find(c=>c.id===id)||{}).name || '';
+const PRODUCTS = [
+  {id:1, name:'لوله گازی روکار ۱ اینچ — شاخه ۶ متری', cat:'pipes', img:'assets/img/tubes-stack.jpg', price:1480000, unit:'شاخه', badges:['استاندارد ملی ۳۳۶۰','تست‌شده'],
+   specs:{'سایز':'۱ اینچ (DN25)','جنس':'فولاد ST37','فشار کاری':'۱۰ بار','استاندارد':'ملی ۳۳۶۰','ضخامت جداره':'۳٫۲ میلی‌متر','وضعیت':'موجود در انبار'}},
+  {id:2, name:'لوله مانیسمان رده ۴۰ — ۲ اینچ', cat:'seamless', img:'assets/img/stainless-complex.jpg', price:3950000, unit:'شاخه', badges:['بدون درز','API 5L'],
+   specs:{'سایز':'۲ اینچ (DN50)','جنس':'فولاد کربنی A106','فشار کاری':'۴۰ بار','استاندارد':'ASTM A106 / API 5L','رده':'SCH 40','وضعیت':'موجود در انبار'}},
+  {id:3, name:'لوله گازی API 5L — سایز ۳/۴ اینچ', cat:'pipes', img:'assets/img/gas-yellow-pipes.jpg', price:1190000, unit:'شاخه', badges:['API 5L','سرتیفیکیت کارخانه'],
+   specs:{'سایز':'۳/۴ اینچ (DN20)','جنس':'فولاد API 5L Gr.B','فشار کاری':'۱۶ بار','استاندارد':'API 5L','ضخامت جداره':'۲٫۹ میلی‌متر','وضعیت':'موجود در انبار'}},
+  {id:4, name:'زانو ۹۰ درجه جوشی — ۲ اینچ', cat:'welded', img:'assets/img/welding-pipe.jpg', price:185000, unit:'عدد', badges:['استاندارد ملی','فولاد ST37'],
+   specs:{'سایز':'۲ اینچ','جنس':'فولاد ST37','فشار کاری':'۲۵ بار','استاندارد':'DIN 2605','نوع اتصال':'جوشی لب‌به‌لب','وضعیت':'موجود در انبار'}},
+  {id:5, name:'سه‌راهی مساوی رزوه‌ای — ۱ اینچ', cat:'threaded', img:'assets/img/fittings-chrome.jpg', price:240000, unit:'عدد', badges:['گالوانیزه','رزوه NPT'],
+   specs:{'سایز':'۱ اینچ','جنس':'چدن گالوانیزه','فشار کاری':'۱۶ بار','استاندارد':'DIN 2999','نوع رزوه':'NPT داخلی','وضعیت':'موجود در انبار'}},
+  {id:6, name:'شیر گازی توپی دسته‌پروانه‌ای — ۳/۴ اینچ', cat:'valves', img:'assets/img/pipes-valves.jpg', price:685000, unit:'عدد', badges:['برنجی','استاندارد ملی'],
+   specs:{'سایز':'۳/۴ اینچ','جنس':'برنج CW617N','فشار کاری':'۲۵ بار (PN25)','استاندارد':'ملی ۴۰۴۷','نوع':'توپی ربع‌گرد','وضعیت':'موجود در انبار'}},
+  {id:7, name:'شیر فلکه گازی فلنجی — ۲ اینچ', cat:'valves', img:'assets/img/pipes-gauges.jpg', price:2450000, unit:'عدد', badges:['PN16','چدن داکتیل'],
+   specs:{'سایز':'۲ اینچ (DN50)','جنس':'چدن داکتیل GGG40','فشار کاری':'۱۶ بار (PN16)','استاندارد':'DIN 3352','نوع اتصال':'فلنجی','وضعیت':'موجود در انبار'}},
+  {id:8, name:'مانومتر فشار گاز ۰ تا ۶ بار — صفحه ۱۰', cat:'safety', img:'assets/img/gauge-closeup.jpg', price:890000, unit:'عدد', badges:['کالیبره','دقت ۱٫۶'],
+   specs:{'محدوده اندازه‌گیری':'۰ تا ۶ بار','جنس بدنه':'استیل ۳۰۴','قطر صفحه':'۱۰۰ میلی‌متر','کلاس دقت':'۱٫۶','نوع اتصال':'رزوه ۱/۴ زیرین','وضعیت':'موجود در انبار'}},
+  {id:9, name:'مهره ماسوره برنجی — ۱ اینچ', cat:'threaded', img:'assets/img/copper-dark.jpg', price:155000, unit:'عدد', badges:['برنجی','آب‌بندی تفلونی'],
+   specs:{'سایز':'۱ اینچ','جنس':'برنج','فشار کاری':'۲۰ بار','استاندارد':'DIN 2999','نوع':'ماسوره دوطرف رزوه','وضعیت':'موجود در انبار'}},
+  {id:10, name:'لوله گازی توکار پوشش‌دار — ۱/۲ اینچ', cat:'pipes', img:'assets/img/pipes-network.jpg', price:980000, unit:'شاخه', badges:['پوشش ضدخوردگی','استاندارد ملی ۳۳۶۰'],
+   specs:{'سایز':'۱/۲ اینچ (DN15)','جنس':'فولاد ST37 با پوشش اپوکسی','فشار کاری':'۱۰ بار','استاندارد':'ملی ۳۳۶۰','کاربرد':'توکار ساختمانی','وضعیت':'موجود در انبار'}},
+  {id:11, name:'تبدیل جوشی غیرهم‌مرکز ۳ به ۲ اینچ', cat:'welded', img:'assets/img/welding-sparks.jpg', price:310000, unit:'عدد', badges:['فولاد ST37','DIN 2616'],
+   specs:{'سایز':'۳ × ۲ اینچ','جنس':'فولاد ST37','فشار کاری':'۲۵ بار','استاندارد':'DIN 2616','نوع اتصال':'جوشی لب‌به‌لب','وضعیت':'موجود در انبار'}},
+  {id:12, name:'کیت تست نشتی و بازرسی خط گاز', cat:'safety', img:'assets/img/worker-inspect.jpg', price:1750000, unit:'دست', badges:['نشت‌یاب دیجیتال','کیف ابزار'],
+   specs:{'محتویات':'نشت‌یاب دیجیتال + مانومتر + اتصالات تست','حساسیت نشت‌یاب':'۱۰ ppm متان','جنس کیف':'پلی‌پروپیلن سخت','کاربرد':'بازرسی و تحویل خط گاز','گارانتی':'۱۲ ماه','وضعیت':'موجود در انبار'}}
+];
+const fa = n => n.toLocaleString('fa-IR');
+const $ = s => document.querySelector(s);
+let activeCat = 'all', query = '';
+const cart = new Map();
+
+/* دسته‌بندی‌ها */
+$('#catGrid').innerHTML = CATS.map(c=>`
+  <div class="cat" data-cat="${c.id}">
+    <img src="${c.img}" alt="${c.name}" loading="lazy">
+    <div class="veil"></div>
+    <div class="ct"><b>${c.name}</b><span>${c.count}</span></div>
+  </div>`).join('');
+
+/* فیلترها */
+const FILTERS = [{id:'all',name:'همه محصولات'},...CATS];
+$('#filters').innerHTML = FILTERS.map(f=>`<button class="fbtn${f.id==='all'?' active':''}" data-f="${f.id}">${f.name}</button>`).join('');
+
+function renderGrid(){
+  const list = PRODUCTS.filter(p => (activeCat==='all'||p.cat===activeCat) && (!query || (p.name+' '+catName(p.cat)).includes(query)));
+  $('#grid').innerHTML = list.length ? list.map(p=>`
+    <article class="card">
+      <div class="ph">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <div class="badges">${p.badges.map((b,i)=>`<span class="bdg${i===0?' std':''}">${b}</span>`).join('')}</div>
+        <button class="qv-btn" data-qv="${p.id}">مشاهده مشخصات</button>
+      </div>
+      <div class="bd">
+        <span class="cat-name">${catName(p.cat)}</span>
+        <h3>${p.name}</h3>
+        <div class="spec">${p.specs['سایز']||''} • ${p.specs['جنس']||''} • فشار کاری ${p.specs['فشار کاری']||'—'}</div>
+        <div class="foot">
+          <div class="price-row"><b>${fa(p.price)}</b><span>تومان</span><span class="unit">هر ${p.unit}</span></div>
+          <button class="add-btn" data-add="${p.id}">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            افزودن به سبد
+          </button>
+        </div>
+      </div>
+    </article>`).join('')
+  : `<div class="empty-msg">برای این جستجو کالایی در انبار پیدا نشد؛ عبارت دیگری را امتحان کنید یا از بخش استعلام عمده بپرسید.</div>`;
+}
+renderGrid();
+
+function setCat(id){
+  activeCat = id;
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.toggle('active', b.dataset.f===id));
+  renderGrid();
+}
+document.addEventListener('click', e=>{
+  const fb = e.target.closest('.fbtn'); if(fb) setCat(fb.dataset.f);
+  const ct = e.target.closest('.cat'); if(ct){ setCat(ct.dataset.cat); document.getElementById('shop').scrollIntoView({behavior:'smooth'}); }
+  const cl = e.target.closest('[data-cat-link]'); if(cl){ setCat(cl.dataset.catLink); }
+  const add = e.target.closest('[data-add]'); if(add) addToCart(+add.dataset.add, 1, add);
+  const qv = e.target.closest('[data-qv]'); if(qv) openModal(+qv.dataset.qv);
+  const chip = e.target.closest('.chip'); if(chip){ query = chip.dataset.q; $('#heroSearch').value = query; renderGrid(); document.getElementById('shop').scrollIntoView({behavior:'smooth'}); }
+});
+
+/* جستجو */
+function doSearch(v){ query = v.trim(); renderGrid(); }
+$('#headSearch').addEventListener('input', e=>doSearch(e.target.value));
+$('#heroSearch').addEventListener('input', e=>doSearch(e.target.value));
+$('#heroSearchBtn').addEventListener('click', ()=>{ doSearch($('#heroSearch').value); document.getElementById('shop').scrollIntoView({behavior:'smooth'}); });
+
+/* سبد خرید */
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2600); }
+function addToCart(id, qty, btn){
+  cart.set(id, (cart.get(id)||0)+qty);
+  renderCart();
+  const p = PRODUCTS.find(x=>x.id===id);
+  toast(`«${p.name}» به سبد خرید اضافه شد`);
+  if(btn){ btn.classList.add('added'); const old=btn.innerHTML; btn.textContent='✓ اضافه شد'; setTimeout(()=>{btn.classList.remove('added'); btn.innerHTML=old;},1300); }
+}
+function cartTotal(){ let t=0; cart.forEach((q,id)=>{ t += PRODUCTS.find(p=>p.id===id).price*q; }); return t; }
+function cartCount(){ let n=0; cart.forEach(q=>n+=q); return n; }
+function renderCart(){
+  $('#cartCount').textContent = fa(cartCount());
+  const box = $('#drawerItems');
+  if(!cart.size){ box.innerHTML = `<div class="drawer-empty">سبد خرید خالی است.<br>از بخش محصولات، اقلام موردنیاز پروژه را اضافه کنید.</div>`; }
+  else{
+    box.innerHTML = [...cart.entries()].map(([id,q])=>{
+      const p = PRODUCTS.find(x=>x.id===id);
+      return `<div class="ci">
+        <img src="${p.img}" alt="">
+        <div class="info"><b>${p.name}</b><span>${fa(p.price)} تومان / ${p.unit}</span>
+          <div class="qty"><button data-dec="${id}">−</button><b>${fa(q)}</b><button data-inc="${id}">+</button></div>
+        </div>
+        <button class="rm" data-rm="${id}">حذف</button>
+      </div>`;
+    }).join('');
+  }
+  $('#cartTotal').textContent = fa(cartTotal()) + ' تومان';
+}
+renderCart();
+document.addEventListener('click', e=>{
+  const inc=e.target.closest('[data-inc]'), dec=e.target.closest('[data-dec]'), rm=e.target.closest('[data-rm]');
+  if(inc){ cart.set(+inc.dataset.inc, cart.get(+inc.dataset.inc)+1); renderCart(); }
+  if(dec){ const id=+dec.dataset.dec, q=cart.get(id)-1; q<=0?cart.delete(id):cart.set(id,q); renderCart(); }
+  if(rm){ cart.delete(+rm.dataset.rm); renderCart(); }
+});
+function openCart(){ $('#drawer').classList.add('show'); $('#overlay').classList.add('show'); }
+function closeCart(){ $('#drawer').classList.remove('show'); $('#overlay').classList.remove('show'); }
+$('#openCart').addEventListener('click', openCart);
+$('#closeCart').addEventListener('click', closeCart);
+$('#overlay').addEventListener('click', ()=>{ closeCart(); closeModal(); });
+$('#checkoutBtn').addEventListener('click', ()=>{
+  if(!cart.size){ toast('سبد خرید خالی است'); return; }
+  $('#checkoutOk').classList.add('show');
+  cart.clear(); renderCart();
+  setTimeout(()=>{ $('#checkoutOk').classList.remove('show'); closeCart(); }, 3400);
+});
+
+/* مودال مشخصات */
+let mId=null, mQty=1;
+function openModal(id){
+  const p = PRODUCTS.find(x=>x.id===id); if(!p) return;
+  mId=id; mQty=1; $('#mQty').textContent='۱';
+  $('#mImg').src=p.img; $('#mImg').alt=p.name;
+  $('#mCat').textContent=catName(p.cat);
+  $('#mName').textContent=p.name;
+  $('#mBadges').innerHTML=p.badges.map((b,i)=>`<span class="bdg${i===0?' std':''}" style="position:static">${b}</span>`).join('');
+  $('#mSpecs').innerHTML=Object.entries(p.specs).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  $('#mPrice').textContent=fa(p.price);
+  $('#mUnit').textContent='هر '+p.unit;
+  $('#modal').classList.add('show'); $('#overlay').classList.add('show');
+}
+function closeModal(){ $('#modal').classList.remove('show'); if(!$('#drawer').classList.contains('show')) $('#overlay').classList.remove('show'); }
+$('#closeModal').addEventListener('click', closeModal);
+$('#modal').addEventListener('click', e=>{ if(e.target.id==='modal') closeModal(); });
+$('#mPlus').addEventListener('click', ()=>{ mQty++; $('#mQty').textContent=fa(mQty); });
+$('#mMinus').addEventListener('click', ()=>{ if(mQty>1) mQty--; $('#mQty').textContent=fa(mQty); });
+$('#mAdd').addEventListener('click', ()=>{ if(mId) { addToCart(mId, mQty, null); closeModal(); openCart(); } });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeModal(); closeCart(); } });
+
+/* فرم‌ها */
+$('#bulkForm').addEventListener('submit', e=>{ e.preventDefault(); $('#bulkOk').classList.add('show'); toast('درخواست استعلام عمده ثبت شد'); e.target.querySelectorAll('input,textarea').forEach(i=>i.value=''); });
+$('#consultForm').addEventListener('submit', e=>{ e.preventDefault(); $('#consultOk').classList.add('show'); toast('جلسه مشاوره حضوری رزرو شد'); e.target.querySelectorAll('input').forEach(i=>i.value=''); });
+
+/* FAQ */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight='0px'; });
+    if(!open){ item.classList.add('open'); a.style.maxHeight=a.scrollHeight+'px'; }
+  });
+});
+
+/* منوی موبایل */
+$('#burger').addEventListener('click', ()=> $('#mobileMenu').classList.toggle('open'));
+document.querySelectorAll('#mobileMenu a').forEach(a=>a.addEventListener('click', ()=> $('#mobileMenu').classList.remove('open')));
+</script>
+</body>
+</html>
