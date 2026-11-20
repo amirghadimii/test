@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>گزارش تشخیص و برنامه رفع خطای اتصال به پایگاه داده | اپ‌وبینو</title>
+<meta name="description" content="گزارش تشخیص اپ‌وبینو برای پروژه «نصب و راه‌اندازی قالب وردپرس و رفع خطای اتصال به پایگاه داده»: علت ریشه‌ای خطا، برنامه گام‌به‌گام رفع با نصب تمیز و Duplicator، و تحویل در یک روز کاری.">
+<style>
+@font-face{
+  font-family:"Vazirmatn";
+  src:url("assets/Vazirmatn.woff2") format("woff2");
+  font-weight:100 900;
+  font-display:swap;
+}
+:root{
+  --ink:#17203a;
+  --ink-2:#3d4767;
+  --muted:#6b7490;
+  --line:#e3e7f0;
+  --bg:#f4f6fa;
+  --card:#ffffff;
+  --navy:#16213a;
+  --navy-2:#1f2c4e;
+  --red:#d92d20;
+  --red-soft:#fdecea;
+  --green:#0e9f6e;
+  --green-soft:#e5f6ef;
+  --amber:#d9930d;
+  --amber-soft:#fdf3e0;
+  --blue:#2470d8;
+  --blue-soft:#e8f1fd;
+  --chip:#eef1f8;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(23,32,58,.05),0 8px 24px -12px rgba(23,32,58,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Vazirmatn",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px 64px}
+
+/* ---------- header ---------- */
+header{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+  color:#fff;
+  padding:44px 0 36px;
+  margin-bottom:28px;
+}
+header .wrap{padding-bottom:0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;padding:3px 14px;
+  font-size:13px;color:#c9d4ee;
+}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(217,45,32,.22)}
+header h1{font-size:27px;font-weight:800;line-height:1.5;margin:16px 0 8px}
+header p{color:#b9c4de;font-size:15px;max-width:640px}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.meta-chip{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+  border-radius:10px;padding:6px 14px;font-size:13px;color:#dbe3f5;
+}
+.meta-chip b{color:#fff;font-weight:700}
+.meta-chip.warn b{color:#ffb4ab}
+
+/* ---------- nav ---------- */
+nav.toc{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;
+}
+nav.toc a{
+  background:var(--card);border:1px solid var(--line);border-radius:999px;
+  padding:5px 16px;font-size:13.5px;color:var(--ink-2);font-weight:500;
+}
+nav.toc a:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ---------- sections ---------- */
+section{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:26px 28px;margin-bottom:20px;
+}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec-num{
+  width:34px;height:34px;flex:none;border-radius:10px;
+  background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:15px;
+}
+.sec-head h2{font-size:19px;font-weight:800}
+.sec-head .tag{margin-right:auto;font-size:12.5px;color:var(--muted)}
+p{color:var(--ink-2)}
+p + p{margin-top:8px}
+ul{list-style:none}
+ul li{color:var(--ink-2);padding-right:24px;position:relative;margin-top:6px}
+ul li::before{
+  content:"";position:absolute;right:2px;top:13px;width:7px;height:7px;border-radius:2px;background:var(--blue);
+}
+.code{
+  direction:ltr;unicode-bidi:embed;display:inline-block;
+  background:var(--chip);border:1px solid var(--line);border-radius:7px;
+  padding:0 8px;font-size:13.5px;color:var(--navy);font-weight:600;line-height:1.7;
+}
+
+/* symptom card */
+.symptom{
+  background:var(--red-soft);border:1px solid #f6cfc9;border-radius:12px;
+  padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+}
+.symptom .ic{
+  width:38px;height:38px;flex:none;border-radius:10px;background:#fff;border:1px solid #f6cfc9;
+  display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--red);font-weight:900;
+}
+.symptom b{color:#8f1d14}
+.symptom p{color:#7a2a21;font-size:14.5px}
+
+/* diagnosis blocks */
+.diag{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:12px;background:#fbfcfe}
+.diag h3{font-size:15.5px;font-weight:700;margin-bottom:4px}
+.diag h3 .k{
+  display:inline-block;background:var(--amber-soft);color:#92580a;border-radius:6px;
+  font-size:12px;padding:0 9px;margin-left:8px;font-weight:700;vertical-align:2px;
+}
+.diag p{font-size:14.5px}
+
+/* steps */
+.steps{counter-reset:step;margin-top:6px}
+.step{
+  display:flex;gap:16px;padding:16px 4px;border-bottom:1px dashed var(--line);cursor:pointer;
+}
+.step:last-child{border-bottom:none}
+.step .n{
+  counter-increment:step;flex:none;width:38px;height:38px;border-radius:50%;
+  border:2px solid var(--navy);color:var(--navy);font-weight:800;font-size:16px;
+  display:flex;align-items:center;justify-content:center;background:#fff;transition:.2s;
+}
+.step .n::before{content:counter(step,decimal)}
+.step.done .n{background:var(--green);border-color:var(--green);color:#fff}
+.step.done .n::before{content:"✓"}
+.step h3{font-size:15.5px;font-weight:700}
+.step p{font-size:14.5px}
+.step .hint{font-size:13px;color:var(--muted)}
+.progress-line{font-size:13px;color:var(--muted);margin-top:10px}
+.progress-line b{color:var(--green)}
+
+/* deliverables */
+.deliver{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+@media(max-width:640px){.deliver{grid-template-columns:1fr}}
+.deliver li{margin-top:2px}
+.deliver li::before{background:var(--green)}
+
+/* timeline */
+.timeline{
+  display:flex;align-items:stretch;gap:0;margin-top:8px;flex-wrap:wrap;
+}
+.tl{
+  flex:1;min-width:150px;background:#fbfcfe;border:1px solid var(--line);
+  padding:14px 16px;position:relative;
+}
+.tl:first-child{border-radius:0 12px 12px 0}
+.tl:last-child{border-radius:12px 0 0 12px}
+.tl .when{font-size:12.5px;color:var(--blue);font-weight:700}
+.tl h3{font-size:14.5px;font-weight:700;margin:2px 0}
+.tl p{font-size:13.5px}
+.big-time{
+  display:flex;align-items:center;gap:14px;background:var(--green-soft);
+  border:1px solid #bfe8d6;border-radius:12px;padding:14px 18px;margin-bottom:14px;
+}
+.big-time .num{font-size:30px;font-weight:900;color:var(--green);line-height:1}
+.big-time p{color:#14563e;font-size:14.5px}
+
+/* safety note */
+.safety{
+  background:var(--blue-soft);border:1px solid #c6dcf8;border-radius:12px;padding:16px 18px;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.safety .ic{
+  width:38px;height:38px;flex:none;border-radius:10px;background:#fff;border:1px solid #c6dcf8;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.safety b{color:var(--navy)}
+.safety p{font-size:14.5px;color:var(--ink-2)}
+
+footer{
+  text-align:center;color:var(--muted);font-size:13.5px;padding-top:10px;
+}
+footer .brand{font-weight:800;color:var(--navy);font-size:15px}
+@media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> گزارش فنی — تشخیص خطا و برنامه رفع</span>
+    <h1>گزارش تشخیص و برنامه رفع خطای اتصال به پایگاه داده</h1>
+    <p>بررسی خطای <span class="code">Error Establishing a Database Connection</span> در نصب وردپرس و راه‌اندازی قالب «اکسترا» خریداری‌شده از راست‌چین — علت ریشه‌ای، مسیر دقیق رفع و خروجی نهایی، پیش از شروع کار.</p>
+    <div class="meta-row">
+      <span class="meta-chip">وضعیت فعلی: <b>سایت از دسترس خارج است</b></span>
+      <span class="meta-chip">قالب: <b>اکسترا (راست‌چین)</b></span>
+      <span class="meta-chip">روش رفع: <b>نصب تمیز + بسته نصبی Duplicator</b></span>
+      <span class="meta-chip warn">زمان تحویل: <b>۱ روز کاری</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <a href="#symptom">نشانه خطا</a>
+    <a href="#diag">تشخیص و علت ریشه‌ای</a>
+    <a href="#plan">برنامه رفع — ۶ گام</a>
+    <a href="#deliver">خروجی تحویل</a>
+    <a href="#time">زمان‌بندی</a>
+  </nav>
+
+  <!-- ۱) نشانه -->
+  <section id="symptom">
+    <div class="sec-head">
+      <span class="sec-num">۱</span>
+      <h2>نشانه‌ای که الان دیده می‌شود</h2>
+      <span class="tag">وضعیت گزارش‌شده توسط کارفرما و پشتیبانی هاست</span>
+    </div>
+    <div class="symptom">
+      <span class="ic">!</span>
+      <div>
+        <b>Error Establishing a Database Connection</b>
+        <p>سایت به‌جای صفحه اصلی، فقط همین پیام خطا را نشان می‌دهد و پیشخوان وردپرس هم در دسترس نیست. پشتیبانی هاست پس از بررسی اعلام کرده نصب وردپرس <b>ناقص</b> انجام شده و جدول <span class="code">options</span> داده‌های اصلی وردپرس را ندارد؛ پیشنهاد آن‌ها نصب مجدد از طریق بسته نصبی و افزونه Duplicator است — مسیری که این برنامه دقیقاً بر همان اساس چیده شده است.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ۲) تشخیص -->
+  <section id="diag">
+    <div class="sec-head">
+      <span class="sec-num">۲</span>
+      <h2>تشخیص: علت ریشه‌ای خطا</h2>
+    </div>
+
+    <div class="diag">
+      <h3><span class="k">علت اصلی</span>نصب ناقص وردپرس؛ جدول <span class="code">options</span> خالی از داده‌های هسته</h3>
+      <p>در نصب سالم، وردپرس در همان قدم اول جدول‌های هسته را می‌سازد و مقادیر حیاتی مثل <span class="code">siteurl</span> و <span class="code">home</span> و <span class="code">admin_email</span> را داخل جدول <span class="code">options</span> می‌نویسد. وقتی نصب نیمه‌کاره رها شده باشد، این داده‌ها وجود ندارند و وردپرس عملاً «نصب‌شده» محسوب نمی‌شود — هرچقدر هم فایل‌ها روی هاست کامل باشند.</p>
+    </div>
+
+    <div class="diag">
+      <h3><span class="k">چرا این پیام؟</span>چرا خطا به شکل «خطای اتصال به دیتابیس» دیده می‌شود؟</h3>
+      <p>وردپرس در هر بار اجرا، پیش از نمایش هر صفحه‌ای، اول به دیتابیس وصل می‌شود و تنظیمات هسته را از جدول <span class="code">options</span> می‌خواند. این پیام عمومی در دو حالت ظاهر می‌شود: یا اتصال با مشخصات داخل <span class="code">wp-config.php</span> (نام دیتابیس، نام کاربری، رمز و هاست دیتابیس) برقرار نمی‌شود، یا دیتابیس و جدول‌های هسته آن‌طور که وردپرس انتظار دارد وجود ندارند. در این پرونده، طبق بررسی هاست، حالت دوم رخ داده است: مشکل از رمز یا آدرس دیتابیس نیست؛ خودِ نصب کامل نشده است.</p>
+    </div>
+
+    <div class="diag">
+      <h3><span class="k">نتیجه</span>چرا راه‌حل، نصب تمیز است نه وصله‌کاری؟</h3>
+      <p>ساختن دستی جدول <span class="code">options</span> یا تزریق مقادیر به دیتابیس ناقص، ریسک ناسازگاری نسخه و خطاهای پنهان بعدی دارد و معمولاً مشکل را از جایی دیگر بیرون می‌زند. مسیر درست و همان مسیر پیشنهادی پشتیبانی هاست: بکاپ کامل از وضعیت فعلی، بعد نصب تمیز وردپرس و راه‌اندازی قالب با بسته نصبی Duplicator — یک بار، اصولی و بدون بدهی فنی.</p>
+    </div>
+  </section>
+
+  <!-- ۳) برنامه رفع -->
+  <section id="plan">
+    <div class="sec-head">
+      <span class="sec-num">۳</span>
+      <h2>برنامه رفع خطا — گام‌به‌گام</h2>
+      <span class="tag">برای پیگیری، روی هر گام کلیک کنید</span>
+    </div>
+    <div class="steps" id="steps">
+      <div class="step">
+        <span class="n"></span>
+        <div>
+          <h3>بکاپ کامل از وضعیت فعلی</h3>
+          <p>پیش از هر تغییری، از همه فایل‌های هاست و خروجی کامل دیتابیس فعلی نسخه پشتیبان گرفته و جدا نگهداری می‌شود تا در هر نقطه‌ای امکان بازگشت به وضعیت امروز وجود داشته باشد.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <div>
+          <h3>ساخت دیتابیس تازه و نصب تمیز وردپرس</h3>
+          <p>یک دیتابیس و کاربر تازه با دسترسی کامل ساخته می‌شود و وردپرس از صفر و به‌صورت کامل نصب می‌گردد تا جدول‌های هسته — از جمله <span class="code">options</span> — سالم و کامل ساخته شوند.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <div>
+          <h3>نصب بسته نصبی قالب اکسترا با Duplicator</h3>
+          <p>بسته نصبی قالب خریداری‌شده از راست‌چین، دقیقاً طبق پیشنهاد پشتیبانی هاست، با افزونه Duplicator اجرا می‌شود تا قالب و ساختار استاندارد آن بدون خطای نصب دستی راه‌اندازی شود.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <div>
+          <h3>ایمپورت دمو و تنظیمات قالب راست‌چین</h3>
+          <p>دموی قالب ایمپورت و تنظیمات پایه راست‌چین (چیدمان، منوها، ابزارک‌ها و تنظیمات ظاهری) اعمال می‌شود تا سایت دقیقاً همان خروجی‌ای را داشته باشد که هنگام خرید قالب دیده‌اید.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <div>
+          <h3>بازبینی اتصال و سطح دسترسی‌ها</h3>
+          <p>مشخصات اتصال در <span class="code">wp-config.php</span>، پیشوند جدول‌ها و سطح دسترسی کاربر دیتابیس بازبینی و اصلاح می‌شود تا خطای اتصال دوباره تکرار نشود.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n"></span>
+        <div>
+          <h3>تست نهایی و تحویل</h3>
+          <p>فرانت سایت، پیشخوان مدیریت، فرم‌ها و سرعت اولیه بارگذاری تست می‌شود؛ سایت فقط وقتی تحویل داده می‌شود که همه این موارد بدون خطا کار کنند.</p>
+          <p class="hint">خروجی این گام: سایت زنده و قابل مدیریت + گزارش کوتاه اقدامات انجام‌شده.</p>
+        </div>
+      </div>
+    </div>
+    <p class="progress-line" id="progressLine">پیشرفت برنامه: <b>۰ از ۶ گام</b> — در اجرای واقعی، هر گام پس از تأیید همین‌جا علامت می‌خورد.</p>
+  </section>
+
+  <!-- ۴) خروجی -->
+  <section id="deliver">
+    <div class="sec-head">
+      <span class="sec-num">۴</span>
+      <h2>چه چیزی تحویل می‌گیرید</h2>
+    </div>
+    <ul class="deliver">
+      <li>سایت بالا و در دسترس، بدون خطای اتصال به پایگاه داده</li>
+      <li>قالب اکسترا نصب‌شده با دموی ایمپورت‌شده و تنظیمات راست‌چین</li>
+      <li>دسترسی کامل به پیشخوان وردپرس برای مدیریت سایت</li>
+      <li>نسخه بکاپ نهایی از سایت سالم، برای نگهداری شما</li>
+      <li>گزارش کوتاه و شفاف از علت خطا و اقدامات انجام‌شده</li>
+      <li>اطمینان از عدم تکرار خطا با بازبینی wp-config و دسترسی‌ها</li>
+    </ul>
+  </section>
+
+  <!-- ۵) زمان‌بندی -->
+  <section id="time">
+    <div class="sec-head">
+      <span class="sec-num">۵</span>
+      <h2>زمان‌بندی</h2>
+    </div>
+    <div class="big-time">
+      <span class="num">۱ روز کاری</span>
+      <p>کل مسیر — از بکاپ و نصب تمیز تا تست نهایی — در <b>یک روز کاری</b> انجام و تحویل می‌شود؛ چون مسیر رفع از قبل مشخص است و نیازی به آزمون‌وخطا نیست.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl">
+        <span class="when">شروع کار</span>
+        <h3>بکاپ + نصب تمیز</h3>
+        <p>بکاپ کامل، ساخت دیتابیس تازه و نصب کامل وردپرس.</p>
+      </div>
+      <div class="tl">
+        <span class="when">میانه روز</span>
+        <h3>راه‌اندازی قالب</h3>
+        <p>اجرای بسته نصبی با Duplicator، ایمپورت دمو و تنظیمات قالب.</p>
+      </div>
+      <div class="tl">
+        <span class="when">پایان روز</span>
+        <h3>تست و تحویل</h3>
+        <p>بازبینی اتصال و دسترسی‌ها، تست نهایی و تحویل دسترسی‌ها.</p>
+      </div>
+    </div>
+    <div class="safety" style="margin-top:16px">
+      <span class="ic">🛡</span>
+      <div>
+        <b>هیچ داده‌ای از دست نمی‌رود.</b>
+        <p>گام اول این برنامه بکاپ کامل از فایل‌ها و دیتابیس فعلی است و تا پایان کار نگهداری می‌شود؛ نصب تمیز روی دیتابیس تازه انجام می‌شود، نه روی داده‌های فعلی شما — پس در بدترین حالت هم، بازگشت به وضعیت امروز همیشه ممکن است.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand">اپ‌وبینو — AppWebino</div>
+    گزارش پیشنهادی اپ‌وبینو برای پروژه «نصب و راه‌اندازی قالب وردپرس و رفع خطای اتصال به پایگاه داده»
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var steps = Array.prototype.slice.call(document.querySelectorAll('#steps .step'));
+  var line = document.getElementById('progressLine');
+  function render(){
+    var done = steps.filter(function(s){ return s.classList.contains('done'); }).length;
+    line.innerHTML = 'پیشرفت برنامه: <b>' + done.toLocaleString('fa-IR') + ' از ' +
+      steps.length.toLocaleString('fa-IR') + ' گام</b> — در اجرای واقعی، هر گام پس از تأیید همین‌جا علامت می‌خورد.';
+  }
+  steps.forEach(function(s){
+    s.addEventListener('click', function(){ s.classList.toggle('done'); render(); });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
