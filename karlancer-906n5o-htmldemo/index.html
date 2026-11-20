@@ -47,6 +47,16 @@ button{font-family:inherit;cursor:pointer}
 .sec-head p{color:var(--mut);max-width:620px;margin-top:6px}
 section{padding:64px 0 8px;scroll-margin-top:90px}
 
+/* ---------- announcement strip ---------- */
+.announce{background:var(--ink);color:#dfe5ec;font-size:.85rem}
+.ann-in{display:flex;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px}
+.ann-dot{flex:none;width:8px;height:8px;border-radius:50%;background:#37d67a;animation:pulse 1.8s infinite}
+.ann-in p{flex:1}
+.ann-in p b{color:#ffb4a3}
+.ann-in a{flex:none;font-weight:800;color:#fff;border-bottom:2px solid var(--red);padding-bottom:1px;white-space:nowrap}
+.ann-in a:hover{color:#ffb4a3}
+@media(max-width:620px){.ann-in a{display:none}}
+
 /* ---------- header ---------- */
 header.site{position:sticky;top:0;z-index:60;background:rgba(248,247,243,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .hd-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
@@ -207,7 +217,10 @@ nav.main a:hover,nav.main a.on{color:var(--red-d);border-color:var(--red)}
 
 /* ---------- footer ---------- */
 footer{margin-top:76px;background:var(--ink);color:#dfe5ec}
-.f-in{padding:44px 20px 30px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.f-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;padding:36px 20px 28px;border-bottom:1px solid rgba(255,255,255,.12)}
+.f-cta h3{color:#fff;font-size:1.4rem;font-weight:900}
+.f-cta p{color:#9fb0c1;font-size:.92rem;margin-top:4px;max-width:560px}
+.f-in{padding:28px 20px 30px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
 footer .logo{color:#fff}
 footer .logo small{color:#8fa0b3}
 .f-nav{display:flex;gap:22px;flex-wrap:wrap}
@@ -247,6 +260,14 @@ footer .logo small{color:#8fa0b3}
 </head>
 <body>
 
+<div class="announce">
+  <div class="wrap ann-in">
+    <span class="ann-dot" aria-hidden="true"></span>
+    <p>ظرفیت سفارش پروژه محدود است — فرم سفارش را کامل کنید؛ <b>حداکثر تا یک روز کاری</b> بعد با پیش‌فاکتور و زمان‌بندی دقیق سراغ‌تان می‌آییم.</p>
+    <a href="#order">سفارش پروژه</a>
+  </div>
+</div>
+
 <header class="site">
   <div class="wrap hd-in">
     <a class="logo" href="#top" aria-label="پارس‌وب">
@@ -255,8 +276,8 @@ footer .logo small{color:#8fa0b3}
     </a>
     <nav class="main" aria-label="ناوبری اصلی">
       <a href="#services">خدمات</a>
-      <a href="#work">نمونه‌کارها</a>
       <a href="#pricing">تعرفه‌ها</a>
+      <a href="#work">نمونه‌کارها</a>
       <a href="#voices">نظرات مشتریان</a>
       <a href="#faq">سوالات متداول</a>
     </nav>
@@ -265,8 +286,8 @@ footer .logo small{color:#8fa0b3}
   </div>
   <nav class="mnav" id="mnav" aria-label="منوی موبایل">
     <a href="#services">خدمات</a>
-    <a href="#work">نمونه‌کارها</a>
     <a href="#pricing">تعرفه‌ها</a>
+    <a href="#work">نمونه‌کارها</a>
     <a href="#voices">نظرات مشتریان</a>
     <a href="#faq">سوالات متداول</a>
     <a href="#order">سفارش پروژه</a>
@@ -388,61 +409,12 @@ footer .logo small{color:#8fa0b3}
     </div>
   </section>
 
-  <!-- ================= PORTFOLIO ================= -->
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="spec">&lt;<b>section</b> id=<b>"portfolio"</b>&gt;</span>
-        <div class="row"><span class="sec-num">02</span><h2>نمونه‌کارها</h2></div>
-        <p>گزیده‌ای از پروژه‌های تحویل‌شده؛ همه با همان روش این صفحه ساخته شده‌اند: دست‌ساز، سبک و سریع. با دکمه‌های زیر می‌توانید بر اساس نوع پروژه پالایش کنید.</p>
-      </div>
-      <div class="filters" role="group" aria-label="پالایش نمونه‌کارها">
-        <button class="fbtn act" data-filter="all">همه پروژه‌ها</button>
-        <button class="fbtn" data-filter="corporate">شرکتی</button>
-        <button class="fbtn" data-filter="shop">فروشگاهی</button>
-        <button class="fbtn" data-filter="service">خدماتی</button>
-      </div>
-      <div class="pf-grid" id="pfGrid">
-        <article class="pf" data-cat="service">
-          <div class="ph"><img src="assets/img/hotel.jpg" alt="وب‌سایت هتل ساحلی آفتاب" loading="lazy"><span class="cat">خدماتی</span></div>
-          <div class="bd"><h3>هتل ساحلی آفتاب</h3><p>وب‌سایت رزرو آنلاین هتل با تقویم شمسی و پرداخت آنلاین؛ امتیاز سرعت موبایل ۹۷.</p>
-          <div class="meta"><span>HTML5</span><span>رزرو آنلاین</span><span>سرعت ۹۷</span></div></div>
-        </article>
-        <article class="pf" data-cat="shop">
-          <div class="ph"><img src="assets/img/sneakers.jpg" alt="فروشگاه اینترنتی اسپورت‌لند" loading="lazy"><span class="cat">فروشگاهی</span></div>
-          <div class="bd"><h3>فروشگاه اسپورت‌لند</h3><p>فروشگاه کفش ورزشی با فیلتر پیشرفته، سبد خرید سریع و تسویه یک‌مرحله‌ای.</p>
-          <div class="meta"><span>فروشگاه</span><span>سبد خرید</span><span>درگاه پرداخت</span></div></div>
-        </article>
-        <article class="pf" data-cat="corporate">
-          <div class="ph"><img src="assets/img/interior.jpg" alt="وب‌سایت شرکت معماری پارس" loading="lazy"><span class="cat">شرکتی</span></div>
-          <div class="bd"><h3>شرکت معماری پارس</h3><p>سایت شرکتی استودیو معماری با گالری پروژه‌ها و فرم برآورد هزینه آنلاین.</p>
-          <div class="meta"><span>شرکتی</span><span>گالری پروژه</span><span>دوزبانه</span></div></div>
-        </article>
-        <article class="pf" data-cat="service">
-          <div class="ph"><img src="assets/img/villa.jpg" alt="پلتفرم رزرو ویلا ویلاجار" loading="lazy"><span class="cat">خدماتی</span></div>
-          <div class="bd"><h3>اقامتگاه ویلاجار</h3><p>پلتفرم رزرو ویلا و اقامتگاه با جستجوی نقشه‌ای و تقویم دسترس‌پذیری لحظه‌ای.</p>
-          <div class="meta"><span>رزرو آنلاین</span><span>جستجوی نقشه‌ای</span><span>PWA</span></div></div>
-        </article>
-        <article class="pf" data-cat="shop">
-          <div class="ph"><img src="assets/img/watch.jpg" alt="فروشگاه ساعت و اکسسوری تایم‌پلاس" loading="lazy"><span class="cat">فروشگاهی</span></div>
-          <div class="bd"><h3>فروشگاه تایم‌پلاس</h3><p>فروشگاه ساعت و اکسسوری با مقایسه محصول و نمایش ۳۶۰ درجه؛ بارگذاری زیر ۱٫۲ ثانیه.</p>
-          <div class="meta"><span>فروشگاه</span><span>مقایسه محصول</span><span>سرعت ۹۸</span></div></div>
-        </article>
-        <article class="pf" data-cat="corporate">
-          <div class="ph"><img src="assets/img/beauty.jpg" alt="وب‌سایت کلینیک زیبایی رویا" loading="lazy"><span class="cat">شرکتی</span></div>
-          <div class="bd"><h3>کلینیک زیبایی رویا</h3><p>وب‌سایت کلینیک با نوبت‌دهی آنلاین، معرفی پزشکان و بخش پرسش‌های درمانی.</p>
-          <div class="meta"><span>شرکتی</span><span>نوبت‌دهی</span><span>سئو محلی</span></div></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= PRICING ================= -->
   <section id="pricing">
     <div class="wrap">
       <div class="sec-head">
         <span class="spec">&lt;<b>section</b> id=<b>"pricing"</b>&gt;</span>
-        <div class="row"><span class="sec-num">03</span><h2>تعرفه‌ها</h2></div>
+        <div class="row"><span class="sec-num">02</span><h2>تعرفه‌ها</h2></div>
         <p>قیمت شفاف، بدون هزینه پنهان. پرداخت سالانه شامل ۲۰٪ تخفیف است؛ با کلید زیر می‌توانید حالت نمایش را عوض کنید و اختلاف را ببینید.</p>
       </div>
       <div class="bill-toggle" role="group" aria-label="حالت پرداخت">
@@ -495,6 +467,55 @@ footer .logo small{color:#8fa0b3}
         </article>
       </div>
       <p class="price-note" id="priceNote">نمایش قیمت‌ها به‌صورت ماهانه است.</p>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>section</b> id=<b>"portfolio"</b>&gt;</span>
+        <div class="row"><span class="sec-num">03</span><h2>نمونه‌کارها</h2></div>
+        <p>گزیده‌ای از پروژه‌های تحویل‌شده؛ همه با همان روش این صفحه ساخته شده‌اند: دست‌ساز، سبک و سریع. با دکمه‌های زیر می‌توانید بر اساس نوع پروژه پالایش کنید.</p>
+      </div>
+      <div class="filters" role="group" aria-label="پالایش نمونه‌کارها">
+        <button class="fbtn act" data-filter="all">همه پروژه‌ها</button>
+        <button class="fbtn" data-filter="corporate">شرکتی</button>
+        <button class="fbtn" data-filter="shop">فروشگاهی</button>
+        <button class="fbtn" data-filter="service">خدماتی</button>
+      </div>
+      <div class="pf-grid" id="pfGrid">
+        <article class="pf" data-cat="service">
+          <div class="ph"><img src="assets/img/hotel.jpg" alt="وب‌سایت هتل ساحلی آفتاب" loading="lazy"><span class="cat">خدماتی</span></div>
+          <div class="bd"><h3>هتل ساحلی آفتاب</h3><p>وب‌سایت رزرو آنلاین هتل با تقویم شمسی و پرداخت آنلاین؛ امتیاز سرعت موبایل ۹۷.</p>
+          <div class="meta"><span>HTML5</span><span>رزرو آنلاین</span><span>سرعت ۹۷</span></div></div>
+        </article>
+        <article class="pf" data-cat="shop">
+          <div class="ph"><img src="assets/img/sneakers.jpg" alt="فروشگاه اینترنتی اسپورت‌لند" loading="lazy"><span class="cat">فروشگاهی</span></div>
+          <div class="bd"><h3>فروشگاه اسپورت‌لند</h3><p>فروشگاه کفش ورزشی با فیلتر پیشرفته، سبد خرید سریع و تسویه یک‌مرحله‌ای.</p>
+          <div class="meta"><span>فروشگاه</span><span>سبد خرید</span><span>درگاه پرداخت</span></div></div>
+        </article>
+        <article class="pf" data-cat="corporate">
+          <div class="ph"><img src="assets/img/interior.jpg" alt="وب‌سایت شرکت معماری پارس" loading="lazy"><span class="cat">شرکتی</span></div>
+          <div class="bd"><h3>شرکت معماری پارس</h3><p>سایت شرکتی استودیو معماری با گالری پروژه‌ها و فرم برآورد هزینه آنلاین.</p>
+          <div class="meta"><span>شرکتی</span><span>گالری پروژه</span><span>دوزبانه</span></div></div>
+        </article>
+        <article class="pf" data-cat="service">
+          <div class="ph"><img src="assets/img/villa.jpg" alt="پلتفرم رزرو ویلا ویلاجار" loading="lazy"><span class="cat">خدماتی</span></div>
+          <div class="bd"><h3>اقامتگاه ویلاجار</h3><p>پلتفرم رزرو ویلا و اقامتگاه با جستجوی نقشه‌ای و تقویم دسترس‌پذیری لحظه‌ای.</p>
+          <div class="meta"><span>رزرو آنلاین</span><span>جستجوی نقشه‌ای</span><span>PWA</span></div></div>
+        </article>
+        <article class="pf" data-cat="shop">
+          <div class="ph"><img src="assets/img/watch.jpg" alt="فروشگاه ساعت و اکسسوری تایم‌پلاس" loading="lazy"><span class="cat">فروشگاهی</span></div>
+          <div class="bd"><h3>فروشگاه تایم‌پلاس</h3><p>فروشگاه ساعت و اکسسوری با مقایسه محصول و نمایش ۳۶۰ درجه؛ بارگذاری زیر ۱٫۲ ثانیه.</p>
+          <div class="meta"><span>فروشگاه</span><span>مقایسه محصول</span><span>سرعت ۹۸</span></div></div>
+        </article>
+        <article class="pf" data-cat="corporate">
+          <div class="ph"><img src="assets/img/beauty.jpg" alt="وب‌سایت کلینیک زیبایی رویا" loading="lazy"><span class="cat">شرکتی</span></div>
+          <div class="bd"><h3>کلینیک زیبایی رویا</h3><p>وب‌سایت کلینیک با نوبت‌دهی آنلاین، معرفی پزشکان و بخش پرسش‌های درمانی.</p>
+          <div class="meta"><span>شرکتی</span><span>نوبت‌دهی</span><span>سئو محلی</span></div></div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -627,10 +648,17 @@ footer .logo small{color:#8fa0b3}
 </main>
 
 <footer>
+  <div class="wrap f-cta">
+    <div>
+      <h3>پروژه‌ای در ذهن دارید؟</h3>
+      <p>فرم سفارش را پر کنید؛ حداکثر تا یک روز کاری بعد با پیش‌فاکتور و زمان‌بندی دقیق سراغ‌تان می‌آییم و پس از ثبت، یک کد پیگیری دریافت می‌کنید.</p>
+    </div>
+    <a class="btn btn-red" href="#order">سفارش پروژه</a>
+  </div>
   <div class="wrap f-in">
     <a class="logo" href="#top"><span class="mark">&lt;/&gt;</span><span>پارس‌وب<small>استودیو طراحی و توسعه وب</small></span></a>
     <nav class="f-nav">
-      <a href="#services">خدمات</a><a href="#work">نمونه‌کارها</a><a href="#pricing">تعرفه‌ها</a><a href="#faq">سوالات متداول</a><a href="#order">سفارش پروژه</a>
+      <a href="#services">خدمات</a><a href="#pricing">تعرفه‌ها</a><a href="#work">نمونه‌کارها</a><a href="#faq">سوالات متداول</a><a href="#order">سفارش پروژه</a>
     </nav>
     <p class="f-note">این صفحه یک نمونه‌کار زنده است: تمام آن با <b>HTML معنایی، CSS مدرن و JavaScript وانیلا</b> و بدون هیچ فریم‌ورکی ساخته شده است — دقیقاً همان‌طور که سایت شما را خواهیم ساخت.</p>
     <p class="f-copy">© ۱۴۰۴ پارس‌وب — تمامی حقوق محفوظ است.</p>
