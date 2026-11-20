@@ -325,6 +325,26 @@ footer .flogo strong{color:#fff;font-size:1.25rem;font-weight:900}
   .topbar nav{display:none}
   .hero-card{inset-inline-start:8px}
 }
+
+/* ===== MOBILE FIX 2026-11-20 (batch 4) ===== */
+img{max-width:100%}
+@media(max-width:860px){
+  .toolbar{flex-direction:column;align-items:stretch;gap:10px}
+  .chips{flex:none;width:100%}
+  .chip{white-space:nowrap;min-height:40px}
+  .sortbox{flex-wrap:wrap}
+}
+@media(max-width:640px){
+  .cmpbar{flex-wrap:wrap;gap:10px;padding:12px 14px;bottom:10px}
+  .cmpbar p{flex:1 1 100%;order:-1}
+  .cmpbar .thumbs img,.cmpbar .thumbs .slot{width:38px;height:38px}
+  .cmpbar .go{min-height:44px;display:inline-flex;align-items:center}
+  .cmpbar .clr{min-height:40px;display:inline-flex;align-items:center}
+  nav.cats button{min-height:40px}
+  .brandchip{min-height:40px;align-items:center}
+  .filters input[type="checkbox"],.filters input[type="radio"]{width:20px;height:20px;flex:none}
+  .filters label{min-height:40px}
+}
 </style>
 </head>
 <body>
