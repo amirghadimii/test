@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>استودیو معماری آرمان — معماری، در گفت‌وگو با نور و زمین | ARMAN Architecture Studio</title>
+<meta name="description" content="استودیو معماری آرمان — دفتر معماری در تهران؛ طراحی معماری، دکوراسیون داخلی، نظارت و بازسازی. نمونه‌کارها، مجله و ساختار نسخه نهایی سایت دوزبانه.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --paper:#F3F0EA; --paper2:#EAE5DB; --card:#FBFAF7;
+  --ink:#171410; --ink2:#3E382E; --mu:#7C7462; --mu2:#A79C86;
+  --line:#D9D2C2; --line2:#C9C0AA;
+  --acc:#A9713B; --acc-d:#8C5A2C; --acc-soft:rgba(169,113,59,.10);
+  --dark:#14110D; --dark2:#1E1A14;
+  --ok:#3E7C4F; --bad:#B3402E;
+  --r:4px; --max:1340px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--paper);color:var(--ink);font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.label{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--acc);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.label::before{content:"";width:34px;height:1px;background:var(--acc);display:inline-block}
+[dir="ltr"] .label{letter-spacing:.22em}
+h2.sec{font-size:clamp(30px,4.4vw,52px);font-weight:900;line-height:1.25;margin:14px 0 10px}
+.secsub{color:var(--ink2);max-width:640px;font-size:16.5px}
+.sechead{margin-bottom:44px}
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* ===== header ===== */
+header.site{position:fixed;inset-inline:0;top:0;z-index:80;transition:background .35s,box-shadow .35s,border-color .35s;border-bottom:1px solid transparent}
+header.site .wrap{display:flex;align-items:center;gap:26px;padding-top:16px;padding-bottom:16px}
+header.site.over{color:#fff}
+header.site.solid{background:rgba(243,240,234,.94);backdrop-filter:blur(12px);color:var(--ink);border-bottom-color:var(--line)}
+.logo{display:flex;align-items:baseline;gap:11px;font-weight:900;font-size:21px;line-height:1.2}
+.logo .sq{width:13px;height:13px;background:var(--acc);flex:none;align-self:center}
+.logo small{display:block;font-size:10.5px;font-weight:500;letter-spacing:.28em;color:inherit;opacity:.65}
+nav.main{display:flex;gap:26px;margin-inline-start:14px}
+nav.main a{font-size:14.5px;font-weight:500;opacity:.85;padding:4px 0;border-bottom:1px solid transparent}
+nav.main a:hover{opacity:1;border-bottom-color:var(--acc)}
+header.site .sp{flex:1}
+.langsw{display:flex;border:1px solid currentColor;border-radius:99px;overflow:hidden;flex:none}
+.langsw button{background:transparent;border:0;padding:6px 15px;font-size:13px;font-weight:700;cursor:pointer;color:inherit;opacity:.65}
+.langsw button.on{background:var(--acc);color:#fff;opacity:1}
+.burger{display:none;background:transparent;border:0;cursor:pointer;width:42px;height:42px;position:relative;flex:none}
+.burger i{position:absolute;inset-inline:9px;height:2px;background:currentColor;transition:.3s}
+.burger i:nth-child(1){top:14px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:28px}
+.mnav{display:none;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 28px 20px;position:fixed;top:69px;inset-inline:0;z-index:79}
+.mnav.open{display:block}
+.mnav a{display:block;padding:11px 0;font-weight:700;font-size:17px;border-bottom:1px solid var(--line)}
+.mnav a:last-child{border-bottom:0}
+/* ===== hero ===== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:150px 0 0;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,5,.42) 0%,rgba(10,8,5,.05) 34%,rgba(10,8,5,.28) 62%,rgba(10,8,5,.78) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero .kicker{font-size:13px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#E9D9BE;display:flex;align-items:center;gap:14px}
+.hero .kicker::before{content:"";width:44px;height:1px;background:#E9D9BE}
+.hero h1{font-size:clamp(44px,7.6vw,104px);font-weight:900;line-height:1.14;margin:20px 0 8px;max-width:12em}
+.hero .poem{font-size:clamp(17px,2.2vw,23px);font-weight:400;color:rgba(255,255,255,.88);max-width:560px;line-height:1.9}
+.hero .meta{display:flex;gap:0;flex-wrap:wrap;margin-top:52px;border-top:1px solid rgba(255,255,255,.28)}
+.hero .meta div{padding:18px 30px 24px 0;margin-inline-end:30px}
+[dir="ltr"] .hero .meta div{padding:18px 0 24px 30px;margin-inline-end:0;margin-inline-start:30px}
+[dir="ltr"] .hero .meta div:first-child{margin-inline-start:0;padding-inline-start:0}
+.hero .meta b{display:block;font-size:22px;font-weight:800;line-height:1.4}
+.hero .meta span{font-size:12.5px;color:rgba(255,255,255,.72);letter-spacing:.06em}
+.hero .cta{display:inline-flex;align-items:center;gap:10px;margin-top:34px;background:#fff;color:var(--ink);font-weight:800;font-size:15px;padding:14px 28px;border-radius:99px;border:0;cursor:pointer;transition:.25s}
+.hero .cta:hover{background:var(--acc);color:#fff}
+.hero .cta.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);margin-inline-start:10px}
+.hero .cta.ghost:hover{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px #fff}
+/* ===== manifesto / stats ===== */
+.manifesto{padding:96px 0 84px}
+.manifesto p.big{font-size:clamp(24px,3.4vw,40px);font-weight:700;line-height:1.8;max-width:1000px}
+.manifesto p.big em{font-style:normal;color:var(--acc)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line2)}
+.stats .st{padding:26px 10px 4px;border-inline-start:1px solid var(--line);padding-inline-start:24px}
+.stats .st:first-child{border-inline-start:0;padding-inline-start:0}
+.stats b{font-size:clamp(34px,4vw,52px);font-weight:900;line-height:1.2;display:block}
+.stats b i{font-style:normal;color:var(--acc)}
+.stats span{color:var(--mu);font-size:13.5px;font-weight:500}
+/* ===== works ===== */
+.works{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.filters button{background:transparent;border:1px solid var(--line2);border-radius:99px;padding:9px 22px;font-size:14px;font-weight:700;cursor:pointer;color:var(--ink2);transition:.22s}
+.filters button:hover{border-color:var(--ink)}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 40px}
+.proj{cursor:pointer;background:none;border:0;text-align:start;padding:0;font:inherit;color:inherit;display:block;width:100%}
+.proj.hide{display:none}
+.proj .ph{overflow:hidden;border-radius:var(--r);position:relative;aspect-ratio:4/3;background:var(--paper2)}
+.proj.tall .ph{aspect-ratio:4/4.6}
+.proj .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.proj:hover .ph img{transform:scale(1.05)}
+.proj .ph .no{position:absolute;top:16px;inset-inline-start:16px;background:rgba(16,13,9,.72);color:#fff;backdrop-filter:blur(4px);font-size:12.5px;font-weight:800;padding:5px 12px;border-radius:99px;letter-spacing:.08em}
+.proj .ph .open{position:absolute;bottom:16px;inset-inline-end:16px;background:#fff;color:var(--ink);font-size:12.5px;font-weight:800;padding:7px 14px;border-radius:99px;opacity:0;transform:translateY(6px);transition:.3s}
+.proj:hover .ph .open{opacity:1;transform:none}
+.proj .pm{display:flex;align-items:baseline;gap:14px;margin-top:18px}
+.proj .pm .yr{color:var(--mu);font-size:13.5px;font-weight:700;letter-spacing:.05em;flex:none}
+.proj h3{font-size:clamp(20px,2.2vw,26px);font-weight:800;line-height:1.45}
+.proj .poemline{color:var(--ink2);font-size:15px;margin-top:3px}
+.proj .tags{margin-top:9px;display:flex;gap:8px;flex-wrap:wrap}
+.proj .tags span{font-size:12px;font-weight:700;color:var(--mu);border:1px solid var(--line);padding:3px 11px;border-radius:99px}
+/* ===== about ===== */
+.about .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
+.about .imgs{position:relative}
+.about .imgs .main{border-radius:var(--r);aspect-ratio:4/5;object-fit:cover;width:100%}
+.about .imgs .sub{position:absolute;bottom:-38px;inset-inline-end:-14px;width:52%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);border:6px solid var(--paper)}
+.about p{color:var(--ink2);margin-bottom:16px;font-size:16.5px}
+.team{margin-top:34px;border-top:1px solid var(--line2)}
+.team .tm{display:flex;align-items:baseline;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
+.team .tm b{font-size:16.5px;font-weight:800;min-width:150px}
+.team .tm span{color:var(--mu);font-size:14px}
+.team .tm i{font-style:normal;margin-inline-start:auto;color:var(--mu2);font-size:13px;letter-spacing:.05em}
+/* ===== services ===== */
+.services{background:var(--dark);color:#F0EBE0}
+.services .label{color:#D9B98A}.services .label::before{background:#D9B98A}
+.services h2.sec{color:#fff}
+.services .secsub{color:#B9B0A0}
+.svcgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.svc{background:var(--dark2);border:1px solid #322B20;border-radius:8px;overflow:hidden;display:grid;grid-template-columns:200px 1fr;transition:border-color .3s}
+.svc:hover{border-color:var(--acc)}
+.svc img{width:100%;height:100%;object-fit:cover;min-height:210px}
+.svc .sb{padding:26px 26px 22px}
+.svc .sn{font-size:13px;font-weight:800;color:var(--acc);letter-spacing:.14em}
+.svc h3{font-size:21px;font-weight:800;color:#fff;margin:6px 0 8px}
+.svc p{color:#B9B0A0;font-size:14.5px;line-height:1.95}
+/* ===== process ===== */
+.process .cols{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.process .pimg{border-radius:var(--r);width:100%;aspect-ratio:4/4.4;object-fit:cover}
+.steps{border-top:1px solid var(--line2)}
+.step{display:flex;gap:22px;padding:24px 0;border-bottom:1px solid var(--line)}
+.step .n{font-size:15px;font-weight:900;color:var(--acc);border:1px solid var(--line2);width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.step h3{font-size:18.5px;font-weight:800}
+.step p{color:var(--ink2);font-size:14.5px}
+/* ===== final structure ===== */
+.structure{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pg{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px}
+.pg .pn{font-size:12.5px;font-weight:800;color:var(--acc);letter-spacing:.1em}
+.pg h3{font-size:18px;font-weight:800;margin:6px 0 6px}
+.pg p{color:var(--ink2);font-size:14px;line-height:1.9}
+.feats{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.feats span{background:var(--ink);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:99px}
+.feats span.alt{background:transparent;color:var(--ink);border:1px solid var(--line2)}
+/* ===== journal ===== */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.post img{width:100%;aspect-ratio:16/10.5;object-fit:cover;border-radius:var(--r)}
+.post .pm2{color:var(--mu);font-size:13px;font-weight:700;margin-top:16px;letter-spacing:.04em}
+.post h3{font-size:19.5px;font-weight:800;line-height:1.6;margin-top:5px}
+.post p{color:var(--ink2);font-size:14.5px;margin-top:6px}
+.post .rd{color:var(--acc);font-weight:800;font-size:14px;display:inline-block;margin-top:10px}
+/* ===== awards ===== */
+.awards{padding:64px 0;border-top:1px solid var(--line2)}
+.awards .row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.awards .aw{border:1px solid var(--line2);border-radius:99px;padding:11px 22px;font-weight:700;font-size:14.5px;display:flex;gap:10px;align-items:center}
+.awards .aw i{font-style:normal;color:var(--acc)}
+/* ===== faq ===== */
+.faq .cols{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+.qa{border-bottom:1px solid var(--line2)}
+.qa:first-child{border-top:1px solid var(--line2)}
+.qa button{width:100%;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:14px;padding:22px 2px;text-align:start;font:inherit}
+.qa button h3{font-size:17.5px;font-weight:800;flex:1}
+.qa .ic{width:34px;height:34px;flex:none;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:400;transition:.3s;color:var(--acc)}
+.qa.open .ic{transform:rotate(45deg);background:var(--acc);color:#fff;border-color:var(--acc)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.qa .ans p{padding:0 2px 24px;color:var(--ink2);font-size:15px;max-width:640px}
+/* ===== visit ===== */
+.visit{padding:0;position:relative;color:#fff}
+.visit .bgimg{position:absolute;inset:0}
+.visit .bgimg img{width:100%;height:100%;object-fit:cover}
+.visit .bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,10,7,.88) 22%,rgba(13,10,7,.45) 60%,rgba(13,10,7,.25))}
+[dir="ltr"] .visit .bgimg::after{background:linear-gradient(-90deg,rgba(13,10,7,.88) 22%,rgba(13,10,7,.45) 60%,rgba(13,10,7,.25))}
+.visit .inner{position:relative;z-index:2;padding:104px 0}
+.visit .cols{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.visit h2.sec{color:#fff}
+.visit .label{color:#D9B98A}.visit .label::before{background:#D9B98A}
+.visit p{color:rgba(255,255,255,.82);max-width:460px}
+.visit .addr{margin-top:26px;display:grid;gap:12px}
+.visit .addr div{display:flex;gap:12px;font-size:15px}
+.visit .addr b{color:#D9B98A;min-width:86px;font-weight:700}
+.mapbox{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:22px;position:relative;overflow:hidden}
+.mapbox .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:34px 34px}
+.mapbox .pin{position:relative;font-size:30px;text-align:center}
+.mapbox p{position:relative;text-align:center;font-size:13.5px;color:rgba(255,255,255,.75);max-width:none}
+form.consult{background:rgba(20,16,11,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:30px}
+form.consult h3{font-size:20px;font-weight:800;margin-bottom:6px}
+form.consult .fs{color:rgba(255,255,255,.7);font-size:13.5px;margin-bottom:20px}
+.frow{margin-bottom:14px}
+.frow label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:rgba(255,255,255,.85)}
+.frow input,.frow select,.frow textarea{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px 14px;color:#fff;outline:none;transition:.2s}
+.frow select option{color:#171410}
+.frow textarea{resize:vertical;min-height:92px}
+.frow input:focus,.frow select:focus,.frow textarea:focus{border-color:var(--acc);background:rgba(255,255,255,.12)}
+.frow .err{display:none;color:#F0A294;font-size:12.5px;margin-top:5px}
+.frow.bad input,.frow.bad textarea{border-color:var(--bad)}
+.frow.bad .err{display:block}
+form.consult .submit{width:100%;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:14px;font-weight:800;font-size:15.5px;cursor:pointer;transition:.25s}
+form.consult .submit:hover{background:var(--acc-d)}
+.formok{display:none;text-align:center;padding:26px 6px}
+.formok .tick{width:62px;height:62px;border-radius:50%;background:var(--ok);color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.formok h4{font-size:19px;font-weight:800}
+.formok p{color:rgba(255,255,255,.75);font-size:14px;margin:6px auto 0}
+/* ===== footer ===== */
+footer.site{background:var(--dark);color:#CFC7B6;padding:70px 0 34px}
+footer.site .cols{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start}
+footer.site .logo{color:#fff}
+footer.site nav{display:flex;gap:22px;flex-wrap:wrap}
+footer.site nav a{font-size:14px;opacity:.8}
+footer.site nav a:hover{opacity:1;color:#D9B98A}
+footer.site .base{border-top:1px solid #322B20;margin-top:44px;padding-top:22px;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;font-size:13px;color:#8E8570}
+footer.site .base b{color:#D9B98A;font-weight:700}
+/* ===== modal ===== */
+.modal{position:fixed;inset:0;z-index:120;display:none}
+.modal.open{display:block}
+.modal .scrim{position:absolute;inset:0;background:rgba(12,9,6,.66);backdrop-filter:blur(5px)}
+.modal .box{position:absolute;inset-inline:0;bottom:0;top:5%;background:var(--paper);border-radius:18px 18px 0 0;overflow-y:auto;max-width:1060px;margin:0 auto;animation:up .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{transform:translateY(50px);opacity:0}to{transform:none;opacity:1}}
+.modal .mimg{position:relative;height:min(52vh,480px)}
+.modal .mimg img{width:100%;height:100%;object-fit:cover}
+.modal .mclose{position:absolute;top:16px;inset-inline-end:16px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(14,11,8,.72);color:#fff;font-size:20px;cursor:pointer;z-index:3}
+.modal .mbody{padding:38px 44px 50px}
+.modal .mno{color:var(--acc);font-weight:800;font-size:13px;letter-spacing:.14em}
+.modal h3{font-size:clamp(26px,3.6vw,38px);font-weight:900;line-height:1.35;margin-top:6px}
+.modal .mpoem{font-size:17px;color:var(--ink2);margin-top:4px}
+.modal .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);margin:28px 0;padding:18px 0}
+.modal .specs div{padding-inline-start:20px;border-inline-start:1px solid var(--line)}
+.modal .specs div:first-child{border-inline-start:0;padding-inline-start:0}
+.modal .specs span{display:block;color:var(--mu);font-size:12.5px;font-weight:700}
+.modal .specs b{font-size:16px;font-weight:800}
+.modal .mdesc{color:var(--ink2);font-size:16px;max-width:720px}
+/* ===== responsive ===== */
+@media(max-width:1020px){
+  .svcgrid{grid-template-columns:1fr}
+  .pages{grid-template-columns:repeat(2,1fr)}
+  .about .cols,.process .cols,.faq .cols,.visit .cols{grid-template-columns:1fr;gap:44px}
+  .process .pimg{aspect-ratio:16/10}
+  .about .imgs .main{aspect-ratio:16/11}
+  .about .imgs .sub{display:none}
+  .stats{grid-template-columns:repeat(2,1fr);gap:18px 0}
+  .stats .st:nth-child(3){border-inline-start:0;padding-inline-start:0}
+}
+@media(max-width:760px){
+  section{padding:72px 0}
+  nav.main{display:none}
+  .burger{display:block}
+  .grid{grid-template-columns:1fr;gap:44px}
+  .proj.tall .ph{aspect-ratio:4/3}
+  .posts{grid-template-columns:1fr;gap:40px}
+  .pages{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr}
+  .svc img{min-height:0;aspect-ratio:16/9}
+  .hero .meta div{padding-bottom:16px}
+  .modal .mbody{padding:28px 22px 40px}
+  .modal .specs{grid-template-columns:repeat(2,1fr);gap:16px 0}
+  .modal .specs div:nth-child(3){border-inline-start:0;padding-inline-start:0}
+  .team .tm b{min-width:110px}
+  .wrap{padding:0 20px}
+  .logo{font-size:18px}
+  .logo small{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site over" id="siteHeader">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="sq"></span><span><span data-fa="استودیو معماری آرمان" data-en="ARMAN STUDIO">استودیو معماری آرمان</span><small data-fa="ARCHITECTURE STUDIO" data-en="استودیو معماری">ARCHITECTURE STUDIO</small></span></a>
+    <nav class="main">
+      <a href="#works" data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</a>
+      <a href="#studio" data-fa="استودیو" data-en="Studio">استودیو</a>
+      <a href="#services" data-fa="خدمات" data-en="Services">خدمات</a>
+      <a href="#journal" data-fa="مجله" data-en="Journal">مجله</a>
+      <a href="#visit" data-fa="تماس" data-en="Contact">تماس</a>
+    </nav>
+    <span class="sp"></span>
+    <div class="langsw" role="group" aria-label="Language">
+      <button type="button" id="btnFa" class="on">فارسی</button>
+      <button type="button" id="btnEn">EN</button>
+    </div>
+    <button class="burger" id="burger" type="button" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav">
+  <a href="#works" data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</a>
+  <a href="#studio" data-fa="استودیو" data-en="Studio">استودیو</a>
+  <a href="#services" data-fa="خدمات" data-en="Services">خدمات</a>
+  <a href="#journal" data-fa="مجله" data-en="Journal">مجله</a>
+  <a href="#visit" data-fa="تماس" data-en="Contact">تماس</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="bg"><img src="assets/img/hero.jpg" alt="Modern villa at dusk — Arman Studio"></div>
+  <div class="wrap">
+    <div class="kicker" data-fa="دفتر معماری — تهران" data-en="Architecture Practice — Tehran">دفتر معماری — تهران</div>
+    <h1 data-fa="معماری، در گفت‌وگو با نور و زمین" data-en="Architecture in dialogue with light and land">معماری، در گفت‌وگو با نور و زمین</h1>
+    <p class="poem" data-fa="ما فضاهایی می‌سازیم که از مصالح ساده و نور صادقانه به وجود می‌آیند؛ خانه‌هایی برای زندگی، ساختمان‌هایی برای شهر و مکان‌هایی برای مکث." data-en="We shape spaces born of honest materials and natural light — homes for living, buildings for the city, and places made for pause.">ما فضاهایی می‌سازیم که از مصالح ساده و نور صادقانه به وجود می‌آیند؛ خانه‌هایی برای زندگی، ساختمان‌هایی برای شهر و مکان‌هایی برای مکث.</p>
+    <div>
+      <a class="cta" href="#works" data-fa="مشاهده پروژه‌ها" data-en="View projects">مشاهده پروژه‌ها</a>
+      <a class="cta ghost" href="#visit" data-fa="درخواست جلسه مشاوره" data-en="Book a consultation">درخواست جلسه مشاوره</a>
+    </div>
+    <div class="meta">
+      <div><b data-fa="۱۸+ سال" data-en="18+ Years">۱۸+ سال</b><span data-fa="تجربه طراحی و اجرا" data-en="Design &amp; build experience">تجربه طراحی و اجرا</span></div>
+      <div><b data-fa="۱۲۰+ پروژه" data-en="120+ Projects">۱۲۰+ پروژه</b><span data-fa="مسکونی، تجاری و فرهنگی" data-en="Residential, commercial, cultural">مسکونی، تجاری و فرهنگی</span></div>
+      <div><b data-fa="۲۶ عنوان" data-en="26 Honours">۲۶ عنوان</b><span data-fa="جوایز و نامزدی‌های معماری" data-en="Architecture awards &amp; shortlists">جوایز و نامزدی‌های معماری</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANIFESTO ===== -->
+<section class="manifesto">
+  <div class="wrap">
+    <div class="label reveal" data-fa="مانیفست استودیو" data-en="Studio Manifesto">مانیفست استودیو</div>
+    <p class="big reveal" data-fa="باور ما ساده است: ساختمان خوب، پیش از آنکه دیده شود، احساس می‌شود. نسبت، نور و سکوتِ فضا را طراحی می‌کنیم؛ باقی، خودبه‌خود زیبا می‌شود." data-en="Our belief is simple: a good building is felt before it is seen. We design proportion, light and the silence of space — the rest becomes beautiful on its own.">باور ما ساده است: ساختمان خوب، پیش از آنکه دیده شود، <em>احساس</em> می‌شود. نسبت، نور و سکوتِ فضا را طراحی می‌کنیم؛ باقی، خودبه‌خود زیبا می‌شود.</p>
+    <div class="stats reveal">
+      <div class="st"><b><span class="cnt" data-to="120">۰</span><i>+</i></b><span data-fa="پروژه تکمیل‌شده" data-en="Completed projects">پروژه تکمیل‌شده</span></div>
+      <div class="st"><b><span class="cnt" data-to="18">۰</span><i>+</i></b><span data-fa="سال فعالیت حرفه‌ای" data-en="Years of practice">سال فعالیت حرفه‌ای</span></div>
+      <div class="st"><b><span class="cnt" data-to="40">۰</span></b><span data-fa="معمار و متخصص در تیم" data-en="Architects &amp; specialists">معمار و متخصص در تیم</span></div>
+      <div class="st"><b><span class="cnt" data-to="9">۰</span></b><span data-fa="شهر محل اجرای پروژه‌ها" data-en="Cities with built work">شهر محل اجرای پروژه‌ها</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKS ===== -->
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="label" data-fa="آثار منتخب" data-en="Selected Works">آثار منتخب</div>
+      <h2 class="sec" data-fa="پروژه‌هایی که با آن‌ها زندگی می‌کنیم" data-en="Projects we live by">پروژه‌هایی که با آن‌ها زندگی می‌کنیم</h2>
+      <p class="secsub" data-fa="گزیده‌ای از کارهای اخیر استودیو؛ برای دیدن جزئیات هر پروژه، روی آن کلیک کنید." data-en="A selection of the studio's recent work — select any project to see its details.">گزیده‌ای از کارهای اخیر استودیو؛ برای دیدن جزئیات هر پروژه، روی آن کلیک کنید.</p>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button type="button" class="on" data-filter="all" data-fa="همه" data-en="All">همه</button>
+      <button type="button" data-filter="residential" data-fa="مسکونی" data-en="Residential">مسکونی</button>
+      <button type="button" data-filter="commercial" data-fa="تجاری" data-en="Commercial">تجاری</button>
+      <button type="button" data-filter="cultural" data-fa="فرهنگی" data-en="Cultural">فرهنگی</button>
+    </div>
+    <div class="grid" id="projGrid">
+      <button type="button" class="proj reveal" data-cat="residential" data-proj="lous">
+        <span class="ph"><img src="assets/img/proj-villa-lous.jpg" alt="Lavasan Villa" loading="lazy"><span class="no" data-fa="۰۱" data-en="01">۰۱</span><span class="open" data-fa="مشاهده پروژه" data-en="View project">مشاهده پروژه</span></span>
+        <span class="pm"><span class="yr" data-fa="۱۴۰۲" data-en="2023">۱۴۰۲</span><h3 data-fa="ویلای لواسان" data-en="Lavasan Villa">ویلای لواسان</h3></span>
+        <span class="poemline" data-fa="خانه‌ای از نور و سکوت، رو به کوهستان" data-en="A house of light and silence, facing the mountains">خانه‌ای از نور و سکوت، رو به کوهستان</span>
+        <span class="tags"><span data-fa="مسکونی" data-en="Residential">مسکونی</span><span data-fa="لواسان، تهران" data-en="Lavasan, Tehran">لواسان، تهران</span></span>
+      </button>
+      <button type="button" class="proj tall reveal" data-cat="cultural" data-proj="museum">
+        <span class="ph"><img src="assets/img/proj-museum.jpg" alt="Museum of Contemporary Art" loading="lazy"><span class="no" data-fa="۰۲" data-en="02">۰۲</span><span class="open" data-fa="مشاهده پروژه" data-en="View project">مشاهده پروژه</span></span>
+        <span class="pm"><span class="yr" data-fa="۱۴۰۰" data-en="2021">۱۴۰۰</span><h3 data-fa="موزه هنر معاصر" data-en="Museum of Contemporary Art">موزه هنر معاصر</h3></span>
+        <span class="poemline" data-fa="فرمی که خودش اولین اثر موزه است" data-en="A form that is itself the museum's first artwork">فرمی که خودش اولین اثر موزه است</span>
+        <span class="tags"><span data-fa="فرهنگی" data-en="Cultural">فرهنگی</span><span data-fa="تهران" data-en="Tehran">تهران</span></span>
+      </button>
+      <button type="button" class="proj reveal" data-cat="residential" data-proj="ferdos">
+        <span class="ph"><img src="assets/img/proj-villa-ferdos.jpg" alt="Ferdos Garden House" loading="lazy"><span class="no" data-fa="۰۳" data-en="03">۰۳</span><span class="open" data-fa="مشاهده پروژه" data-en="View project">مشاهده پروژه</span></span>
+        <span class="pm"><span class="yr" data-fa="۱۴۰۱" data-en="2022">۱۴۰۱</span><h3 data-fa="خانه‌باغ فردوس" data-en="Ferdos Garden House">خانه‌باغ فردوس</h3></span>
+        <span class="poemline" data-fa="باغی که به داخل خانه ادامه پیدا می‌کند" data-en="A garden that continues into the house">باغی که به داخل خانه ادامه پیدا می‌کند</span>
+        <span class="tags"><span data-fa="مسکونی" data-en="Residential">مسکونی</span><span data-fa="تهران" data-en="Tehran">تهران</span></span>
+      </button>
+      <button type="button" class="proj reveal" data-cat="commercial" data-proj="office">
+        <span class="ph"><img src="assets/img/proj-office.jpg" alt="Argentina Office Building" loading="lazy"><span class="no" data-fa="۰۴" data-en="04">۰۴</span><span class="open" data-fa="مشاهده پروژه" data-en="View project">مشاهده پروژه</span></span>
+        <span class="pm"><span class="yr" data-fa="۱۴۰۲" data-en="2023">۱۴۰۲</span><h3 data-fa="ساختمان اداری آرژانتین" data-en="Argentina Office Building">ساختمان اداری آرژانتین</h3></span>
+        <span class="poemline" data-fa="پوسته‌ای تیره و آرام در قلب شهر" data-en="A dark, calm shell in the heart of the city">پوسته‌ای تیره و آرام در قلب شهر</span>
+        <span class="tags"><span data-fa="تجاری" data-en="Commercial">تجاری</span><span data-fa="تهران" data-en="Tehran">تهران</span></span>
+      </button>
+      <button type="button" class="proj reveal" data-cat="residential" data-proj="tower">
+        <span class="ph"><img src="assets/img/proj-tower.jpg" alt="Saadat Abad Residential Tower" loading="lazy"><span class="no" data-fa="۰۵" data-en="05">۰۵</span><span class="open" data-fa="مشاهده پروژه" data-en="View project">مشاهده پروژه</span></span>
+        <span class="pm"><span class="yr" data-fa="۱۴۰۳" data-en="2024">۱۴۰۳</span><h3 data-fa="برج مسکونی سعادت‌آباد" data-en="Saadat Abad Residential Tower">برج مسکونی سعادت‌آباد</h3></span>
+        <span class="poemline" data-fa="نظم هندسی، برای زندگی روزمره" data-en="Geometric order for everyday life">نظم هندسی، برای زندگی روزمره</span>
+        <span class="tags"><span data-fa="مسکونی" data-en="Residential">مسکونی</span><span data-fa="تهران" data-en="Tehran">تهران</span></span>
+      </button>
+      <button type="button" class="proj reveal" data-cat="cultural" data-proj="cultural">
+        <span class="ph"><img src="assets/img/proj-cultural.jpg" alt="Aftab Cultural Hall" loading="lazy"><span class="no" data-fa="۰۶" data-en="06">۰۶</span><span class="open" data-fa="مشاهده پروژه" data-en="View project">مشاهده پروژه</span></span>
+        <span class="pm"><span class="yr" data-fa="۱۴۰۳" data-en="2024">۱۴۰۳</span><h3 data-fa="تالار فرهنگی آفتاب" data-en="Aftab Cultural Hall">تالار فرهنگی آفتاب</h3></span>
+        <span class="poemline" data-fa="سقفی از شیشه؛ آسمانی برای همه" data-en="A roof of glass; a sky for everyone">سقفی از شیشه؛ آسمانی برای همه</span>
+        <span class="tags"><span data-fa="فرهنگی" data-en="Cultural">فرهنگی</span><span data-fa="تهران" data-en="Tehran">تهران</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDIO ===== -->
+<section class="about" id="studio">
+  <div class="wrap">
+    <div class="cols">
+      <div class="imgs reveal">
+        <img class="main" src="assets/img/about.jpg" alt="Studio identity — minimal architecture" loading="lazy">
+        <img class="sub" src="assets/img/about-interior.jpg" alt="Interior by Arman Studio" loading="lazy">
+      </div>
+      <div class="reveal">
+        <div class="label" data-fa="استودیو" data-en="The Studio">استودیو</div>
+        <h2 class="sec" data-fa="دفتری کوچک، با وسواسِ بزرگ" data-en="A small office with a grand obsession">دفتری کوچک، با وسواسِ بزرگ</h2>
+        <p data-fa="استودیو معماری آرمان از سال ۱۳۸۵ در تهران کار می‌کند؛ تیمی چهل‌نفره از معماران، طراحان داخلی و مهندسان که هر پروژه را — از ویلای خصوصی تا ساختمان فرهنگی — با یک روش انجام می‌دهند: کمتر، اما دقیق‌تر." data-en="Arman Architecture Studio has practised in Tehran since 2007 — a team of forty architects, interior designers and engineers who approach every commission, from a private villa to a cultural building, the same way: less, but more precise.">استودیو معماری آرمان از سال ۱۳۸۵ در تهران کار می‌کند؛ تیمی چهل‌نفره از معماران، طراحان داخلی و مهندسان که هر پروژه را — از ویلای خصوصی تا ساختمان فرهنگی — با یک روش انجام می‌دهند: کمتر، اما دقیق‌تر.</p>
+        <p data-fa="ما به جای امضای پرزرق‌وبرق، به زمینه گوش می‌دهیم: اقلیم، نور، مصالح بومی و شیوه زندگی ساکنان. نتیجه، معماری‌ای است که به مکانش تعلق دارد و با گذر زمان کهنه نمی‌شود." data-en="Instead of a flashy signature, we listen to context — climate, light, local materials and the way people live. The result is architecture that belongs to its place and does not age.">ما به جای امضای پرزرق‌وبرق، به زمینه گوش می‌دهیم: اقلیم، نور، مصالح بومی و شیوه زندگی ساکنان. نتیجه، معماری‌ای است که به مکانش تعلق دارد و با گذر زمان کهنه نمی‌شود.</p>
+        <div class="team">
+          <div class="tm"><b data-fa="آرمان رستمی" data-en="Arman Rostami">آرمان رستمی</b><span data-fa="بنیان‌گذار و مدیر طراحی" data-en="Founder &amp; Design Director">بنیان‌گذار و مدیر طراحی</span><i data-fa="از ۱۳۸۵" data-en="Since 2007">از ۱۳۸۵</i></div>
+          <div class="tm"><b data-fa="سارا محمدی" data-en="Sara Mohammadi">سارا محمدی</b><span data-fa="مدیر پروژه" data-en="Project Director">مدیر پروژه</span><i data-fa="از ۱۳۹۱" data-en="Since 2012">از ۱۳۹۱</i></div>
+          <div class="tm"><b data-fa="نیما کریمی" data-en="Nima Karimi">نیما کریمی</b><span data-fa="معمار ارشد" data-en="Senior Architect">معمار ارشد</span><i data-fa="از ۱۳۹۴" data-en="Since 2015">از ۱۳۹۴</i></div>
+          <div class="tm"><b data-fa="الهه صادقی" data-en="Elahe Sadeghi">الهه صادقی</b><span data-fa="مدیر طراحی داخلی" data-en="Head of Interiors">مدیر طراحی داخلی</span><i data-fa="از ۱۳۹۶" data-en="Since 2017">از ۱۳۹۶</i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="label" data-fa="خدمات" data-en="Services">خدمات</div>
+      <h2 class="sec" data-fa="از ایده تا کلید، زیر یک سقف" data-en="From idea to keys, under one roof">از ایده تا کلید، زیر یک سقف</h2>
+      <p class="secsub" data-fa="چهار حوزه اصلی فعالیت استودیو؛ هر کدام با تیم و فرایند اختصاصی خودش." data-en="The studio's four core disciplines — each with its own dedicated team and process.">چهار حوزه اصلی فعالیت استودیو؛ هر کدام با تیم و فرایند اختصاصی خودش.</p>
+    </div>
+    <div class="svcgrid">
+      <article class="svc reveal">
+        <img src="assets/img/svc-design.jpg" alt="Architectural design" loading="lazy">
+        <div class="sb"><span class="sn" data-fa="۰۱ — خدمت اصلی" data-en="01 — Core Service">۰۱ — خدمت اصلی</span>
+          <h3 data-fa="طراحی معماری" data-en="Architectural Design">طراحی معماری</h3>
+          <p data-fa="طراحی فاز صفر تا دو برای پروژه‌های مسکونی، تجاری و فرهنگی؛ از مطالعه زمین و ایده اولیه تا نقشه‌های اجرایی کامل و هماهنگی با سازه و تأسیسات." data-en="Concept-to-construction design for residential, commercial and cultural projects — from site studies and first sketches to complete working drawings coordinated with structure and services.">طراحی فاز صفر تا دو برای پروژه‌های مسکونی، تجاری و فرهنگی؛ از مطالعه زمین و ایده اولیه تا نقشه‌های اجرایی کامل و هماهنگی با سازه و تأسیسات.</p></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/img/svc-interior.jpg" alt="Interior design" loading="lazy">
+        <div class="sb"><span class="sn" data-fa="۰۲ — فضای داخلی" data-en="02 — Interiors">۰۲ — فضای داخلی</span>
+          <h3 data-fa="دکوراسیون داخلی" data-en="Interior Design">دکوراسیون داخلی</h3>
+          <p data-fa="طراحی فضای داخلی خانه، دفتر و فضاهای تجاری؛ انتخاب مصالح، نورپردازی و مبلمان سفارشی، با اجرای کلیددر دست و تحویل آماده سکونت." data-en="Interior design for homes, workplaces and retail — materials, lighting and bespoke furniture, delivered turnkey and ready to move in.">طراحی فضای داخلی خانه، دفتر و فضاهای تجاری؛ انتخاب مصالح، نورپردازی و مبلمان سفارشی، با اجرای کلیددر دست و تحویل آماده سکونت.</p></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/img/svc-supervision.jpg" alt="Site supervision" loading="lazy">
+        <div class="sb"><span class="sn" data-fa="۰۳ — اجرا" data-en="03 — Delivery">۰۳ — اجرا</span>
+          <h3 data-fa="نظارت و اجرا" data-en="Supervision &amp; Build">نظارت و اجرا</h3>
+          <p data-fa="نظارت مقیم و عالیه بر اجرا، کنترل کیفیت مصالح و جزئیات، مدیریت پیمانکاران و گزارش پیشرفت شفاف؛ تا ساختمان ساخته‌شده، همان نقشه روی کاغذ باشد." data-en="Resident and periodic site supervision, material and detail quality control, contractor management and transparent progress reporting — so the built work matches the drawings.">نظارت مقیم و عالیه بر اجرا، کنترل کیفیت مصالح و جزئیات، مدیریت پیمانکاران و گزارش پیشرفت شفاف؛ تا ساختمان ساخته‌شده، همان نقشه روی کاغذ باشد.</p></div>
+      </article>
+      <article class="svc reveal">
+        <img src="assets/img/svc-renovation.jpg" alt="Renovation" loading="lazy">
+        <div class="sb"><span class="sn" data-fa="۰۴ — احیا" data-en="04 — Renewal">۰۴ — احیا</span>
+          <h3 data-fa="بازسازی" data-en="Renovation">بازسازی</h3>
+          <p data-fa="بازسازی آپارتمان، خانه‌های قدیمی و فضاهای اداری؛ حفظ روح بنا و افزودن آسایش امروز — با برآورد دقیق هزینه و زمان پیش از شروع." data-en="Renovation of apartments, older houses and workplaces — keeping the soul of the building while adding today's comfort, with accurate cost and time estimates before work begins.">بازسازی آپارتمان، خانه‌های قدیمی و فضاهای اداری؛ حفظ روح بنا و افزودن آسایش امروز — با برآورد دقیق هزینه و زمان پیش از شروع.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process">
+  <div class="wrap">
+    <div class="cols">
+      <div class="reveal">
+        <div class="label" data-fa="فرایند همکاری" data-en="Process">فرایند همکاری</div>
+        <h2 class="sec" data-fa="پنج قدم، بدون غافلگیری" data-en="Five steps, no surprises">پنج قدم، بدون غافلگیری</h2>
+        <p class="secsub" data-fa="در هر قدم می‌دانید چه چیزی تحویل می‌گیرید، چقدر طول می‌کشد و قدم بعدی چیست." data-en="At every step you know exactly what you receive, how long it takes, and what comes next.">در هر قدم می‌دانید چه چیزی تحویل می‌گیرید، چقدر طول می‌کشد و قدم بعدی چیست.</p>
+        <img class="pimg" src="assets/img/process.jpg" alt="Interior delivered by Arman Studio" loading="lazy" style="margin-top:30px">
+      </div>
+      <div class="steps reveal">
+        <div class="step"><span class="n" data-fa="۱" data-en="1">۱</span><div><h3 data-fa="شنیدن و شناخت" data-en="Listening &amp; Discovery">شنیدن و شناخت</h3><p data-fa="جلسه شناخت، بازدید از زمین یا بنای موجود و شنیدن نیازها؛ خروجی این قدم، برنامه فیزیکی و برآورد اولیه است." data-en="A discovery meeting, a site visit, and listening to your needs — the output is a physical brief and a first estimate.">جلسه شناخت، بازدید از زمین یا بنای موجود و شنیدن نیازها؛ خروجی این قدم، برنامه فیزیکی و برآورد اولیه است.</p></div></div>
+        <div class="step"><span class="n" data-fa="۲" data-en="2">۲</span><div><h3 data-fa="ایده و کانسپت" data-en="Idea &amp; Concept">ایده و کانسپت</h3><p data-fa="ارائه ایده اصلی با اسکیس، ماکت و رندر؛ کانسپت وقتی قفل می‌شود که هم ما و هم شما به آن بگوییم «همین است»." data-en="The core idea presented through sketches, models and renders — locked only when both sides say: this is it.">ارائه ایده اصلی با اسکیس، ماکت و رندر؛ کانسپت وقتی قفل می‌شود که هم ما و هم شما به آن بگوییم «همین است».</p></div></div>
+        <div class="step"><span class="n" data-fa="۳" data-en="3">۳</span><div><h3 data-fa="طراحی فاز یک و دو" data-en="Design Development">طراحی فاز یک و دو</h3><p data-fa="نقشه‌های معماری، سازه و تأسیسات با جزئیات اجرایی کامل؛ آماده اخذ پروانه و شروع ساخت، بدون ابهام برای پیمانکار." data-en="Architectural, structural and services drawings with full construction detail — permit-ready and unambiguous for the builder.">نقشه‌های معماری، سازه و تأسیسات با جزئیات اجرایی کامل؛ آماده اخذ پروانه و شروع ساخت، بدون ابهام برای پیمانکار.</p></div></div>
+        <div class="step"><span class="n" data-fa="۴" data-en="4">۴</span><div><h3 data-fa="اجرا و نظارت" data-en="Build &amp; Supervision">اجرا و نظارت</h3><p data-fa="نظارت مستمر بر کارگاه، کنترل کیفیت و گزارش تصویری هفتگی؛ انحراف از نقشه، همان هفته اصلاح می‌شود." data-en="Continuous site supervision, quality control and weekly photo reports — any deviation is corrected the same week.">نظارت مستمر بر کارگاه، کنترل کیفیت و گزارش تصویری هفتگی؛ انحراف از نقشه، همان هفته اصلاح می‌شود.</p></div></div>
+        <div class="step"><span class="n" data-fa="۵" data-en="5">۵</span><div><h3 data-fa="تحویل و همراهی" data-en="Handover &amp; Aftercare">تحویل و همراهی</h3><p data-fa="تحویل نهایی با صورت‌جلسه، دفترچه نگهداری بنا و یک سال همراهی پس از تحویل برای رفع ایرادهای احتمالی." data-en="Final handover with a signed record, a building care manual, and one year of aftercare for any snagging.">تحویل نهایی با صورت‌جلسه، دفترچه نگهداری بنا و یک سال همراهی پس از تحویل برای رفع ایرادهای احتمالی.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL STRUCTURE ===== -->
+<section class="structure">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="label" data-fa="ساختار نسخه نهایی سایت" data-en="Final Website Structure">ساختار نسخه نهایی سایت</div>
+      <h2 class="sec" data-fa="این دمو، نقشه راه سایت کامل شماست" data-en="This demo is the blueprint of your full website">این دمو، نقشه راه سایت کامل شماست</h2>
+      <p class="secsub" data-fa="نسخه نهایی در ۱۵ تا ۲۰ صفحه و با پنل مدیریت کامل فارسی ساخته می‌شود تا تیم شما بدون نیاز به برنامه‌نویس، همه محتوا را مدیریت کند." data-en="The final website is built across 15–20 pages with a complete Persian CMS, so your team manages all content without a developer.">نسخه نهایی در ۱۵ تا ۲۰ صفحه و با پنل مدیریت کامل فارسی ساخته می‌شود تا تیم شما بدون نیاز به برنامه‌نویس، همه محتوا را مدیریت کند.</p>
+    </div>
+    <div class="pages reveal">
+      <div class="pg"><span class="pn" data-fa="بخش ۰۱" data-en="Part 01">بخش ۰۱</span><h3 data-fa="صفحه اصلی و استودیو" data-en="Home &amp; Studio">صفحه اصلی و استودیو</h3><p data-fa="صفحه اصلی، درباره استودیو، تیم و اعضا، افتخارات و جوایز، فرصت‌های همکاری." data-en="Homepage, about the studio, team members, honours and awards, careers.">صفحه اصلی، درباره استودیو، تیم و اعضا، افتخارات و جوایز، فرصت‌های همکاری.</p></div>
+      <div class="pg"><span class="pn" data-fa="بخش ۰۲" data-en="Part 02">بخش ۰۲</span><h3 data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</h3><p data-fa="آرشیو پروژه‌ها با فیلتر دسته‌بندی و صفحه اختصاصی هر پروژه شامل گالری، مشخصات و داستان طراحی." data-en="A filterable project archive plus a dedicated page per project with gallery, specs and the design story.">آرشیو پروژه‌ها با فیلتر دسته‌بندی و صفحه اختصاصی هر پروژه شامل گالری، مشخصات و داستان طراحی.</p></div>
+      <div class="pg"><span class="pn" data-fa="بخش ۰۳" data-en="Part 03">بخش ۰۳</span><h3 data-fa="خدمات" data-en="Services">خدمات</h3><p data-fa="صفحه اختصاصی هر خدمت: طراحی معماری، دکوراسیون داخلی، نظارت و اجرا، بازسازی — با نمونه‌کار مرتبط." data-en="A dedicated page per service — architecture, interiors, supervision, renovation — each with related work.">صفحه اختصاصی هر خدمت: طراحی معماری، دکوراسیون داخلی، نظارت و اجرا، بازسازی — با نمونه‌کار مرتبط.</p></div>
+      <div class="pg"><span class="pn" data-fa="بخش ۰۴" data-en="Part 04">بخش ۰۴</span><h3 data-fa="مجله و اخبار" data-en="Journal &amp; News">مجله و اخبار</h3><p data-fa="وبلاگ معماری با دسته‌بندی و جست‌وجو، اخبار استودیو و انتشار پروژه‌های تازه — موتور رشد سئوی سایت." data-en="An architecture journal with categories and search, studio news and new project releases — the site's SEO growth engine.">وبلاگ معماری با دسته‌بندی و جست‌وجو، اخبار استودیو و انتشار پروژه‌های تازه — موتور رشد سئوی سایت.</p></div>
+      <div class="pg"><span class="pn" data-fa="بخش ۰۵" data-en="Part 05">بخش ۰۵</span><h3 data-fa="تماس و مشاوره" data-en="Contact &amp; Consultation">تماس و مشاوره</h3><p data-fa="فرم درخواست جلسه، نشانی و نقشه، پرسش‌های پرتکرار و مسیر دسترسی — با ثبت دفتر در گوگل‌مپ." data-en="Consultation request form, address and map, FAQs and directions — with the office registered on Google Maps.">فرم درخواست جلسه، نشانی و نقشه، پرسش‌های پرتکرار و مسیر دسترسی — با ثبت دفتر در گوگل‌مپ.</p></div>
+      <div class="pg"><span class="pn" data-fa="بخش ۰۶" data-en="Part 06">بخش ۰۶</span><h3 data-fa="پنل مدیریت (CMS)" data-en="CMS Admin Panel">پنل مدیریت (CMS)</h3><p data-fa="مدیریت کامل پروژه‌ها، مقالات، خدمات و فرم‌ها از پنل فارسی؛ بدون حتی یک خط کدنویسی برای تیم شما." data-en="Full management of projects, articles, services and forms from a Persian admin panel — no code needed.">مدیریت کامل پروژه‌ها، مقالات، خدمات و فرم‌ها از پنل فارسی؛ بدون حتی یک خط کدنویسی برای تیم شما.</p></div>
+    </div>
+    <div class="feats reveal">
+      <span data-fa="دوزبانه فارسی / انگلیسی" data-en="Bilingual FA / EN">دوزبانه فارسی / انگلیسی</span>
+      <span data-fa="سئوی فنی و محتوایی" data-en="Technical &amp; content SEO">سئوی فنی و محتوایی</span>
+      <span data-fa="ثبت کسب‌وکار در گوگل‌مپ" data-en="Google Maps registration">ثبت کسب‌وکار در گوگل‌مپ</span>
+      <span data-fa="سرعت بالا و امنیت" data-en="Speed &amp; security">سرعت بالا و امنیت</span>
+      <span class="alt" data-fa="کاملاً واکنش‌گرا" data-en="Fully responsive">کاملاً واکنش‌گرا</span>
+      <span class="alt" data-fa="آموزش و پشتیبانی" data-en="Training &amp; support">آموزش و پشتیبانی</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNAL ===== -->
+<section class="journal" id="journal">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="label" data-fa="مجله استودیو" data-en="Studio Journal">مجله استودیو</div>
+      <h2 class="sec" data-fa="یادداشت‌هایی درباره ساختن" data-en="Notes on building">یادداشت‌هایی درباره ساختن</h2>
+      <p class="secsub" data-fa="از مجله استودیو؛ جایی برای فکر کردن به معماری، مصالح و شهر." data-en="From the studio journal — a place to think about architecture, materials and the city.">از مجله استودیو؛ جایی برای فکر کردن به معماری، مصالح و شهر.</p>
+    </div>
+    <div class="posts">
+      <article class="post reveal">
+        <img src="assets/img/blog-future.jpg" alt="Future architecture" loading="lazy">
+        <div class="pm2" data-fa="معماری و فناوری — ۱۲ آبان ۱۴۰۴" data-en="Architecture &amp; Technology — Nov 2025">معماری و فناوری — ۱۲ آبان ۱۴۰۴</div>
+        <h3 data-fa="معماری آینده؛ وقتی فرم از داده به دنیا می‌آید" data-en="Future architecture: when form is born from data">معماری آینده؛ وقتی فرم از داده به دنیا می‌آید</h3>
+        <p data-fa="ساختمان‌هایی که با الگوریتم طراحی می‌شوند چه چیزی را از دست می‌دهند و چه چیزی به دست می‌آورند؟ نگاهی به موزه آینده دوبی و درس‌هایش برای ما." data-en="What do algorithm-designed buildings lose — and what do they gain? A look at Dubai's Museum of the Future and its lessons for us.">ساختمان‌هایی که با الگوریتم طراحی می‌شوند چه چیزی را از دست می‌دهند و چه چیزی به دست می‌آورند؟ نگاهی به موزه آینده دوبی و درس‌هایش برای ما.</p>
+        <a class="rd" href="#journal" data-fa="خواندن یادداشت ←" data-en="Read the note →">خواندن یادداشت ←</a>
+      </article>
+      <article class="post reveal">
+        <img src="assets/img/blog-minimal.jpg" alt="Minimal architecture" loading="lazy">
+        <div class="pm2" data-fa="نظریه معماری — ۲۸ مهر ۱۴۰۴" data-en="Theory — Oct 2025">نظریه معماری — ۲۸ مهر ۱۴۰۴</div>
+        <h3 data-fa="کم، بیشتر است؛ درس‌هایی از مینیمالیسم" data-en="Less is more: lessons from minimalism">کم، بیشتر است؛ درس‌هایی از مینیمالیسم</h3>
+        <p data-fa="مینیمالیسم یعنی حذف زائد، نه حذف معنا. چطور در پروژه‌های اخیر استودیو با کمتر ساختن، فضای بیشتری برای زندگی ساختیم." data-en="Minimalism means removing the excess, not the meaning. How building less gave our recent projects more room for life.">مینیمالیسم یعنی حذف زائد، نه حذف معنا. چطور در پروژه‌های اخیر استودیو با کمتر ساختن، فضای بیشتری برای زندگی ساختیم.</p>
+        <a class="rd" href="#journal" data-fa="خواندن یادداشت ←" data-en="Read the note →">خواندن یادداشت ←</a>
+      </article>
+      <article class="post reveal">
+        <img src="assets/img/blog-light.jpg" alt="Natural light in interiors" loading="lazy">
+        <div class="pm2" data-fa="طراحی داخلی — ۹ مهر ۱۴۰۴" data-en="Interiors — Oct 2025">طراحی داخلی — ۹ مهر ۱۴۰۴</div>
+        <h3 data-fa="نور طبیعی؛ ارزان‌ترین مصالح معماری" data-en="Natural light: architecture's cheapest material">نور طبیعی؛ ارزان‌ترین مصالح معماری</h3>
+        <p data-fa="یک پنجره درست، از گران‌ترین سنگ نما ارزشمندتر است. اصول جهت‌گیری، عمق نورگیر و سایه‌بان در اقلیم تهران." data-en="A well-placed window is worth more than the most expensive stone facade. Orientation, light depth and shading principles for Tehran's climate.">یک پنجره درست، از گران‌ترین سنگ نما ارزشمندتر است. اصول جهت‌گیری، عمق نورگیر و سایه‌بان در اقلیم تهران.</p>
+        <a class="rd" href="#journal" data-fa="خواندن یادداشت ←" data-en="Read the note →">خواندن یادداشت ←</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AWARDS ===== -->
+<div class="awards">
+  <div class="wrap">
+    <div class="row reveal">
+      <span class="aw"><i>✦</i><span data-fa="نامزد جایزه معمار — بخش مسکونی" data-en="Memar Award nominee — Residential">نامزد جایزه معمار — بخش مسکونی</span></span>
+      <span class="aw"><i>✦</i><span data-fa="فهرست کوتاه فستیوال جهانی معماری (WAF)" data-en="World Architecture Festival — Shortlist">فهرست کوتاه فستیوال جهانی معماری (WAF)</span></span>
+      <span class="aw"><i>✦</i><span data-fa="برگزیده دوسالانه معماری تهران" data-en="Tehran Architecture Biennial — Selected">برگزیده دوسالانه معماری تهران</span></span>
+      <span class="aw"><i>✦</i><span data-fa="ساختمان سال — انتخاب مردمی" data-en="Building of the Year — Public choice">ساختمان سال — انتخاب مردمی</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="wrap">
+    <div class="cols">
+      <div class="reveal">
+        <div class="label" data-fa="پرسش‌های پرتکرار" data-en="FAQ">پرسش‌های پرتکرار</div>
+        <h2 class="sec" data-fa="پیش از شروع، این‌ها را بدانید" data-en="Know this before we begin">پیش از شروع، این‌ها را بدانید</h2>
+        <p class="secsub" data-fa="پاسخ پرسش‌هایی که در بیشتر جلسه‌های اول شنیده‌ایم. پرسش دیگری دارید؟ در فرم مشاوره بنویسید." data-en="Answers to the questions we hear most in first meetings. Have another? Write it in the consultation form.">پاسخ پرسش‌هایی که در بیشتر جلسه‌های اول شنیده‌ایم. پرسش دیگری دارید؟ در فرم مشاوره بنویسید.</p>
+      </div>
+      <div class="reveal" id="faqList">
+        <div class="qa">
+          <button type="button"><h3 data-fa="هزینه طراحی چطور محاسبه می‌شود؟" data-en="How is the design fee calculated?">هزینه طراحی چطور محاسبه می‌شود؟</h3><span class="ic">+</span></button>
+          <div class="ans"><p data-fa="بر اساس متراژ، نوع پروژه و دامنه خدمات (فقط طراحی، یا طراحی + نظارت + اجرا). پس از جلسه شناخت و بازدید، پیشنهاد مالی شفاف و مرحله‌بندی‌شده ارائه می‌شود؛ هیچ هزینه پنهانی در کار نیست." data-en="Based on area, project type and scope of services (design only, or design + supervision + build). After the discovery meeting and site visit you receive a transparent, staged quotation — no hidden costs.">بر اساس متراژ، نوع پروژه و دامنه خدمات (فقط طراحی، یا طراحی + نظارت + اجرا). پس از جلسه شناخت و بازدید، پیشنهاد مالی شفاف و مرحله‌بندی‌شده ارائه می‌شود؛ هیچ هزینه پنهانی در کار نیست.</p></div>
+        </div>
+        <div class="qa">
+          <button type="button"><h3 data-fa="طراحی یک پروژه چقدر طول می‌کشد؟" data-en="How long does design take?">طراحی یک پروژه چقدر طول می‌کشد؟</h3><span class="ic">+</span></button>
+          <div class="ans"><p data-fa="برای یک واحد مسکونی معمولاً ۴ تا ۶ هفته تا فاز یک و ۴ هفته برای فاز دو. پروژه‌های بزرگ‌تر در قرارداد، زمان‌بندی دقیق و مرحله‌به‌مرحله دارند و پیشرفت کار هفتگی گزارش می‌شود." data-en="A typical home takes 4–6 weeks to developed design and 4 more to construction documents. Larger projects carry a precise, staged schedule in the contract, with weekly progress reports.">برای یک واحد مسکونی معمولاً ۴ تا ۶ هفته تا فاز یک و ۴ هفته برای فاز دو. پروژه‌های بزرگ‌تر در قرارداد، زمان‌بندی دقیق و مرحله‌به‌مرحله دارند و پیشرفت کار هفتگی گزارش می‌شود.</p></div>
+        </div>
+        <div class="qa">
+          <button type="button"><h3 data-fa="آیا نظارت بر اجرا را هم انجام می‌دهید؟" data-en="Do you also supervise construction?">آیا نظارت بر اجرا را هم انجام می‌دهید؟</h3><span class="ic">+</span></button>
+          <div class="ans"><p data-fa="بله؛ نظارت عالیه و مقیم هر دو ممکن است. تجربه ما می‌گوید بیشتر انحراف‌ها از نقشه در چند هفته اول اجرا رخ می‌دهد، پس حضور ما در کارگاه از همان روز اول برنامه‌ریزی می‌شود." data-en="Yes — both periodic and resident supervision are available. Most deviations from drawings happen in the first weeks of construction, so our site presence is planned from day one.">بله؛ نظارت عالیه و مقیم هر دو ممکن است. تجربه ما می‌گوید بیشتر انحراف‌ها از نقشه در چند هفته اول اجرا رخ می‌دهد، پس حضور ما در کارگاه از همان روز اول برنامه‌ریزی می‌شود.</p></div>
+        </div>
+        <div class="qa">
+          <button type="button"><h3 data-fa="برای شروع همکاری چه چیزی لازم است؟" data-en="What do we need to start?">برای شروع همکاری چه چیزی لازم است؟</h3><span class="ic">+</span></button>
+          <div class="ans"><p data-fa="فقط یک جلسه شناخت. اگر زمین یا بنای موجود دارید، سند و نقشه وضع موجود (در صورت وجود) کمک می‌کند؛ باقی مسیر — از برنامه فیزیکی تا قرارداد — قدم‌به‌قدم با هم جلو می‌رویم." data-en="Just one discovery meeting. If you have land or an existing building, title documents and existing drawings (if any) help; the rest — from brief to contract — we walk through together, step by step.">فقط یک جلسه شناخت. اگر زمین یا بنای موجود دارید، سند و نقشه وضع موجود (در صورت وجود) کمک می‌کند؛ باقی مسیر — از برنامه فیزیکی تا قرارداد — قدم‌به‌قدم با هم جلو می‌رویم.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section class="visit" id="visit">
+  <div class="bgimg"><img src="assets/img/visit.jpg" alt="Museum at night" loading="lazy"></div>
+  <div class="inner">
+    <div class="wrap">
+      <div class="cols">
+        <div class="reveal">
+          <div class="label" data-fa="بازدید از استودیو" data-en="Visit the Studio">بازدید از استودیو</div>
+          <h2 class="sec" data-fa="قهوه‌ای بنوشیم و از پروژه‌تان حرف بزنیم" data-en="Let's have coffee and talk about your project">قهوه‌ای بنوشیم و از پروژه‌تان حرف بزنیم</h2>
+          <p data-fa="دفتر ما در تهران است و درِ آن برای جلسه شناخت — بدون هیچ تعهدی — باز است. نشانی و نقشه دقیق در نسخه نهایی سایت، همراه با ثبت رسمی دفتر در گوگل‌مپ منتشر می‌شود." data-en="Our office is in Tehran and its door is open for a no-obligation discovery meeting. The exact address and map will be published on the final website, together with the office's official Google Maps registration.">دفتر ما در تهران است و درِ آن برای جلسه شناخت — بدون هیچ تعهدی — باز است. نشانی و نقشه دقیق در نسخه نهایی سایت، همراه با ثبت رسمی دفتر در گوگل‌مپ منتشر می‌شود.</p>
+          <div class="addr">
+            <div><b data-fa="نشانی" data-en="Address">نشانی</b><span data-fa="تهران، خیابان ولیعصر، بالاتر از پارک ساعی" data-en="Valiasr St., above Saee Park, Tehran">تهران، خیابان ولیعصر، بالاتر از پارک ساعی</span></div>
+            <div><b data-fa="ساعات کاری" data-en="Hours">ساعات کاری</b><span data-fa="شنبه تا پنجشنبه — ۹ تا ۱۸" data-en="Sat–Thu — 9:00 to 18:00">شنبه تا پنجشنبه — ۹ تا ۱۸</span></div>
+            <div><b data-fa="جلسه" data-en="Meetings">جلسه</b><span data-fa="با هماهنگی قبلی از طریق فرم روبه‌رو" data-en="By appointment via the form">با هماهنگی قبلی از طریق فرم روبه‌رو</span></div>
+          </div>
+          <div class="mapbox">
+            <div class="grid-bg"></div>
+            <div class="pin">📍</div>
+            <p data-fa="نقشه تعاملی گوگل‌مپ در نسخه نهایی سایت فعال می‌شود؛ دفتر استودیو نیز به‌صورت رسمی در گوگل‌مپ ثبت خواهد شد." data-en="The interactive Google Map activates on the final website; the studio office will also be officially registered on Google Maps.">نقشه تعاملی گوگل‌مپ در نسخه نهایی سایت فعال می‌شود؛ دفتر استودیو نیز به‌صورت رسمی در گوگل‌مپ ثبت خواهد شد.</p>
+          </div>
+        </div>
+        <form class="consult reveal" id="consultForm" novalidate>
+          <h3 data-fa="درخواست جلسه مشاوره" data-en="Request a consultation">درخواست جلسه مشاوره</h3>
+          <p class="fs" data-fa="فرم را پر کنید؛ در اولین فرصت برای هماهنگی جلسه با شما در تماس خواهیم بود." data-en="Fill in the form — we will get back to you shortly to arrange the meeting.">فرم را پر کنید؛ در اولین فرصت برای هماهنگی جلسه با شما در تماس خواهیم بود.</p>
+          <div class="frow" id="rowName">
+            <label for="fName" data-fa="نام و نام خانوادگی" data-en="Full name">نام و نام خانوادگی</label>
+            <input id="fName" type="text" autocomplete="name" data-fa-ph="مثلاً: سارا محمدی" data-en-ph="e.g. Sara Mohammadi" placeholder="مثلاً: سارا محمدی">
+            <span class="err" data-fa="نام را کامل وارد کنید." data-en="Please enter your full name.">نام را کامل وارد کنید.</span>
+          </div>
+          <div class="frow">
+            <label for="fTopic" data-fa="موضوع جلسه" data-en="Meeting topic">موضوع جلسه</label>
+            <select id="fTopic">
+              <option data-fa="طراحی ساختمان مسکونی" data-en="Residential building design">طراحی ساختمان مسکونی</option>
+              <option data-fa="طراحی ویلا" data-en="Villa design">طراحی ویلا</option>
+              <option data-fa="دکوراسیون داخلی" data-en="Interior design">دکوراسیون داخلی</option>
+              <option data-fa="بازسازی" data-en="Renovation">بازسازی</option>
+              <option data-fa="پروژه تجاری یا فرهنگی" data-en="Commercial or cultural project">پروژه تجاری یا فرهنگی</option>
+            </select>
+          </div>
+          <div class="frow" id="rowMsg">
+            <label for="fMsg" data-fa="درباره پروژه‌تان بنویسید" data-en="Tell us about your project">درباره پروژه‌تان بنویسید</label>
+            <textarea id="fMsg" data-fa-ph="زمین یا بنای فعلی، متراژ تقریبی و آنچه در ذهن دارید…" data-en-ph="Your land or existing building, approximate area, and what you have in mind…" placeholder="زمین یا بنای فعلی، متراژ تقریبی و آنچه در ذهن دارید…"></textarea>
+            <span class="err" data-fa="چند جمله درباره پروژه بنویسید (حداقل ۱۰ نویسه)." data-en="Please write a few words about your project (min. 10 characters).">چند جمله درباره پروژه بنویسید (حداقل ۱۰ نویسه).</span>
+          </div>
+          <button class="submit" type="submit" data-fa="ثبت درخواست جلسه" data-en="Submit request">ثبت درخواست جلسه</button>
+          <div class="formok" id="formOk">
+            <div class="tick">✓</div>
+            <h4 data-fa="درخواست شما ثبت شد" data-en="Your request has been received">درخواست شما ثبت شد</h4>
+            <p data-fa="از اعتمادتان سپاسگزاریم؛ هماهنگی جلسه در اولین فرصت انجام می‌شود. (این فرم در دموی پیشنهادی است و در نسخه نهایی به پنل مدیریت متصل می‌شود.)" data-en="Thank you for your trust — we will arrange the meeting shortly. (This form runs in the proposal demo; on the final site it connects to the CMS.)">از اعتمادتان سپاسگزاریم؛ هماهنگی جلسه در اولین فرصت انجام می‌شود. (این فرم در دموی پیشنهادی است و در نسخه نهایی به پنل مدیریت متصل می‌شود.)</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <a class="logo" href="#top"><span class="sq"></span><span><span data-fa="استودیو معماری آرمان" data-en="ARMAN STUDIO">استودیو معماری آرمان</span><small data-fa="ARCHITECTURE STUDIO" data-en="استودیو معماری">ARCHITECTURE STUDIO</small></span></a>
+      <span class="sp" style="flex:1"></span>
+      <nav>
+        <a href="#works" data-fa="پروژه‌ها" data-en="Projects">پروژه‌ها</a>
+        <a href="#studio" data-fa="استودیو" data-en="Studio">استودیو</a>
+        <a href="#services" data-fa="خدمات" data-en="Services">خدمات</a>
+        <a href="#journal" data-fa="مجله" data-en="Journal">مجله</a>
+        <a href="#visit" data-fa="تماس" data-en="Contact">تماس</a>
+      </nav>
+    </div>
+    <div class="base">
+      <span data-fa="© ۱۴۰۴ استودیو معماری آرمان — تمامی حقوق محفوظ است." data-en="© 2025 Arman Architecture Studio — All rights reserved.">© ۱۴۰۴ استودیو معماری آرمان — تمامی حقوق محفوظ است.</span>
+      <span><b data-fa="دموی پیشنهادی اپ‌وبینو" data-en="Proposal demo by AppWebino">دموی پیشنهادی اپ‌وبینو</b> <span data-fa="— نسخه نهایی: CMS فارسی، وبلاگ، دوزبانه، سئو و ثبت در گوگل‌مپ." data-en="— Final version: Persian CMS, blog, bilingual, SEO &amp; Google Maps.">— نسخه نهایی: CMS فارسی، وبلاگ، دوزبانه، سئو و ثبت در گوگل‌مپ.</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== PROJECT MODAL ===== -->
+<div class="modal" id="projModal" role="dialog" aria-modal="true">
+  <div class="scrim" id="modalScrim"></div>
+  <div class="box">
+    <div class="mimg"><img id="mImg" src="" alt=""><button class="mclose" id="mClose" type="button" aria-label="Close">✕</button></div>
+    <div class="mbody">
+      <span class="mno" id="mNo"></span>
+      <h3 id="mTitle"></h3>
+      <p class="mpoem" id="mPoem"></p>
+      <div class="specs">
+        <div><span data-fa="موقعیت" data-en="Location">موقعیت</span><b id="mLoc"></b></div>
+        <div><span data-fa="سال" data-en="Year">سال</span><b id="mYear"></b></div>
+        <div><span data-fa="زیربنا" data-en="Area">زیربنا</span><b id="mArea"></b></div>
+        <div><span data-fa="وضعیت" data-en="Status">وضعیت</span><b id="mStatus"></b></div>
+      </div>
+      <p class="mdesc" id="mDesc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+var FA_DIGITS="۰۱۲۳۴۵۶۷۸۹";
+function toFaNum(s){return String(s).replace(/[0-9]/g,function(d){return FA_DIGITS[+d];});}
+var lang=localStorage.getItem("arman-lang")||"fa";
+var PROJECTS={
+  lous:{img:"assets/img/proj-villa-lous.jpg",
+    fa:{no:"پروژه ۰۱ — مسکونی",title:"ویلای لواسان",poem:"خانه‌ای از نور و سکوت، رو به کوهستان",loc:"لواسان، تهران",year:"۱۴۰۲",area:"۸۵۰ مترمربع",status:"تکمیل‌شده",desc:"ویلایی برای یک خانواده سه‌نسله در دامنه البرز؛ حجم اصلی از سنگ بومی و شیشه ساخته شده تا مرز خانه و کوهستان محو شود. حیاط مرکزی، نور جنوب را به عمق پلان می‌آورد و تراس پیوسته، زندگی روزمره را به باغ پیوند می‌دهد."},
+    en:{no:"Project 01 — Residential",title:"Lavasan Villa",poem:"A house of light and silence, facing the mountains",loc:"Lavasan, Tehran",year:"2023",area:"850 m²",status:"Completed",desc:"A villa for a three-generation family on the Alborz foothills; the main volume is built of local stone and glass so the line between house and mountain dissolves. A central courtyard draws southern light deep into the plan, and a continuous terrace ties daily life to the garden."}},
+  museum:{img:"assets/img/proj-museum.jpg",
+    fa:{no:"پروژه ۰۲ — فرهنگی",title:"موزه هنر معاصر",poem:"فرمی که خودش اولین اثر موزه است",loc:"تهران",year:"۱۴۰۰",area:"۹٬۶۰۰ مترمربع",status:"تکمیل‌شده",desc:"پوسته‌ای یکپارچه و سیال که مانند مجسمه‌ای در شهر می‌ایستد و نور را از شکاف‌های حساب‌شده به گالری‌ها می‌رساند. مسیر حرکت بازدیدکننده یک رمپ پیوسته است؛ نمایشگاه از همان لحظه ورود آغاز می‌شود."},
+    en:{no:"Project 02 — Cultural",title:"Museum of Contemporary Art",poem:"A form that is itself the museum's first artwork",loc:"Tehran",year:"2021",area:"9,600 m²",status:"Completed",desc:"A single fluid shell that stands in the city like a sculpture, bringing light into the galleries through precisely cut openings. The visitor route is one continuous ramp — the exhibition begins the moment you enter."}},
+  ferdos:{img:"assets/img/proj-villa-ferdos.jpg",
+    fa:{no:"پروژه ۰۳ — مسکونی",title:"خانه‌باغ فردوس",poem:"باغی که به داخل خانه ادامه پیدا می‌کند",loc:"تهران",year:"۱۴۰۱",area:"۶۲۰ مترمربع",status:"تکمیل‌شده",desc:"خانه‌ای در میان باغی قدیمی که هیچ درختی برای ساختش قطع نشد؛ پلان دور درختان چرخیده و هر اتاق یک قاب از باغ است. آجر دست‌ساز و چوب گرم، زبان مشترک داخل و بیرون‌اند."},
+    en:{no:"Project 03 — Residential",title:"Ferdos Garden House",poem:"A garden that continues into the house",loc:"Tehran",year:"2022",area:"620 m²",status:"Completed",desc:"A house set in an old garden where not a single tree was cut for construction; the plan turns around the trees and every room frames a piece of the garden. Handmade brick and warm timber are the shared language of inside and out."}},
+  office:{img:"assets/img/proj-office.jpg",
+    fa:{no:"پروژه ۰۴ — تجاری",title:"ساختمان اداری آرژانتین",poem:"پوسته‌ای تیره و آرام در قلب شهر",loc:"تهران",year:"۱۴۰۲",area:"۴٬۸۰۰ مترمربع",status:"تکمیل‌شده",desc:"ساختمان اداری با نمای فلزی تیره و ریتم عمودی آرام؛ پوسته دوپوسته، هم سایه می‌سازد و هم مصرف انرژی را پایین می‌آورد. لابی سه‌طبقه با نور طبیعی، قلب اجتماعی ساختمان است."},
+    en:{no:"Project 04 — Commercial",title:"Argentina Office Building",poem:"A dark, calm shell in the heart of the city",loc:"Tehran",year:"2023",area:"4,800 m²",status:"Completed",desc:"An office building with a dark metal facade and a calm vertical rhythm; its double skin both shades the interior and cuts energy use. A three-storey, daylit lobby is the building's social heart."}},
+  tower:{img:"assets/img/proj-tower.jpg",
+    fa:{no:"پروژه ۰۵ — مسکونی",title:"برج مسکونی سعادت‌آباد",poem:"نظم هندسی، برای زندگی روزمره",loc:"تهران",year:"۱۴۰۳",area:"۱۲٬۴۰۰ مترمربع",status:"در حال اجرا",desc:"برج ۱۴ طبقه با شبکه‌ای منظم از قاب‌های سفید؛ هر واحد بالکن عمیق و نور دوطرفه دارد. فضاهای مشترک — باغ بام، سالن اجتماعات و حیاط بازی کودکان — در دل همان نظم هندسی جا گرفته‌اند."},
+    en:{no:"Project 05 — Residential",title:"Saadat Abad Residential Tower",poem:"Geometric order for everyday life",loc:"Tehran",year:"2024",area:"12,400 m²",status:"Under construction",desc:"A 14-storey tower organised by a regular grid of white frames; every unit has a deep balcony and dual-aspect light. Shared spaces — a roof garden, a community hall and a children's courtyard — sit inside the same geometric order."}},
+  cultural:{img:"assets/img/proj-cultural.jpg",
+    fa:{no:"پروژه ۰۶ — فرهنگی",title:"تالار فرهنگی آفتاب",poem:"سقفی از شیشه؛ آسمانی برای همه",loc:"تهران",year:"۱۴۰۳",area:"۳٬۲۰۰ مترمربع",status:"تکمیل‌شده",desc:"تالاری فرهنگی که سقف شیشه‌ای موج‌دارش، نور روز را به تالار اصلی و گالری‌های پیرامون می‌پاشد. فضا بدون دیوارهای سخت تقسیم شده؛ شهر از داخل بنا دیده می‌شود و بنا، بخشی از فضای عمومی شهر است."},
+    en:{no:"Project 06 — Cultural",title:"Aftab Cultural Hall",poem:"A roof of glass; a sky for everyone",loc:"Tehran",year:"2024",area:"3,200 m²",status:"Completed",desc:"A cultural hall whose undulating glass roof pours daylight into the main hall and surrounding galleries. Space is divided without hard walls; the city is visible from inside, and the building itself is part of the public realm."}}
+};
+/* ---- language ---- */
+var translatable=document.querySelectorAll("[data-fa]");
+var placeholders=document.querySelectorAll("[data-fa-ph]");
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=(l==="fa"?"fa":"en");
+  document.documentElement.dir=(l==="fa"?"rtl":"ltr");
+  translatable.forEach(function(el){el.textContent=(l==="fa"?el.getAttribute("data-fa"):el.getAttribute("data-en"));});
+  placeholders.forEach(function(el){el.placeholder=(l==="fa"?el.getAttribute("data-fa-ph"):el.getAttribute("data-en-ph"));});
+  document.getElementById("btnFa").classList.toggle("on",l==="fa");
+  document.getElementById("btnEn").classList.toggle("on",l==="en");
+  try{localStorage.setItem("arman-lang",l);}catch(e){}
+  if(modal.classList.contains("open")&&currentProj){fillModal(currentProj);}
+  runCounters();
+}
+document.getElementById("btnFa").addEventListener("click",function(){setLang("fa");});
+document.getElementById("btnEn").addEventListener("click",function(){setLang("en");});
+/* ---- header ---- */
+var header=document.getElementById("siteHeader");
+function onScroll(){
+  var y=window.scrollY||0;
+  if(y>window.innerHeight-90){header.classList.add("solid");header.classList.remove("over");}
+  else{header.classList.remove("solid");header.classList.add("over");}
+}
+window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+/* ---- mobile nav ---- */
+var mnav=document.getElementById("mnav");
+document.getElementById("burger").addEventListener("click",function(){
+  mnav.style.top=header.offsetHeight+"px";
+  mnav.classList.toggle("open");
+});
+mnav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){mnav.classList.remove("open");});});
+/* ---- reveal ---- */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+/* ---- counters ---- */
+var counted=false;
+function runCounters(){
+  if(counted)return;
+  var els=document.querySelectorAll(".cnt");if(!els.length)return;
+  var first=els[0].getBoundingClientRect();
+  if(first.top>window.innerHeight)return;
+  counted=true;
+  els.forEach(function(el){
+    var to=+el.getAttribute("data-to"),t0=null;
+    function step(ts){
+      if(!t0)t0=ts;var p=Math.min((ts-t0)/1400,1);
+      var v=Math.round(to*(0.2+0.8*p)*p);
+      el.textContent=(lang==="fa"?toFaNum(v):String(v));
+      if(p<1)requestAnimationFrame(step);else el.textContent=(lang==="fa"?toFaNum(to):String(to));
+    }
+    requestAnimationFrame(step);
+  });
+}
+window.addEventListener("scroll",runCounters,{passive:true});
+/* ---- filters ---- */
+var filterBtns=document.querySelectorAll("#filters button");
+filterBtns.forEach(function(btn){
+  btn.addEventListener("click",function(){
+    filterBtns.forEach(function(b){b.classList.remove("on");});
+    btn.classList.add("on");
+    var f=btn.getAttribute("data-filter");
+    document.querySelectorAll("#projGrid .proj").forEach(function(card){
+      var show=(f==="all"||card.getAttribute("data-cat")===f);
+      card.classList.toggle("hide",!show);
+      if(show){card.classList.add("in");}
+    });
+  });
+});
+/* ---- modal ---- */
+var modal=document.getElementById("projModal"),currentProj=null;
+function fillModal(key){
+  var d=PROJECTS[key][lang];
+  document.getElementById("mImg").src=PROJECTS[key].img;
+  document.getElementById("mNo").textContent=d.no;
+  document.getElementById("mTitle").textContent=d.title;
+  document.getElementById("mPoem").textContent=d.poem;
+  document.getElementById("mLoc").textContent=d.loc;
+  document.getElementById("mYear").textContent=d.year;
+  document.getElementById("mArea").textContent=d.area;
+  document.getElementById("mStatus").textContent=d.status;
+  document.getElementById("mDesc").textContent=d.desc;
+}
+function openModal(key){
+  currentProj=key;fillModal(key);
+  modal.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeModal(){modal.classList.remove("open");document.body.style.overflow="";currentProj=null;}
+document.querySelectorAll("#projGrid .proj").forEach(function(card){
+  card.addEventListener("click",function(){openModal(card.getAttribute("data-proj"));});
+});
+document.getElementById("mClose").addEventListener("click",closeModal);
+document.getElementById("modalScrim").addEventListener("click",closeModal);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){closeModal();mnav.classList.remove("open");}});
+/* ---- faq ---- */
+document.querySelectorAll("#faqList .qa").forEach(function(qa){
+  var btn=qa.querySelector("button"),ans=qa.querySelector(".ans");
+  btn.addEventListener("click",function(){
+    var open=qa.classList.contains("open");
+    document.querySelectorAll("#faqList .qa").forEach(function(o){o.classList.remove("open");o.querySelector(".ans").style.maxHeight=null;});
+    if(!open){qa.classList.add("open");ans.style.maxHeight=ans.scrollHeight+"px";}
+  });
+});
+/* ---- form ---- */
+var form=document.getElementById("consultForm");
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+  var name=document.getElementById("fName"),msg=document.getElementById("fMsg"),ok=true;
+  var rn=document.getElementById("rowName"),rm=document.getElementById("rowMsg");
+  rn.classList.remove("bad");rm.classList.remove("bad");
+  if(name.value.trim().length<3){rn.classList.add("bad");ok=false;}
+  if(msg.value.trim().length<10){rm.classList.add("bad");ok=false;}
+  if(!ok)return;
+  form.querySelectorAll(".frow,.submit").forEach(function(el){el.style.display="none";});
+  document.getElementById("formOk").style.display="block";
+});
+/* ---- init ---- */
+setLang(lang);
+runCounters();
+})();
+</script>
+</body>
+</html>
