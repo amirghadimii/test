@@ -24,8 +24,11 @@ a{color:inherit;text-decoration:none}
 .count{display:inline-flex;gap:5px;direction:ltr}
 .count span{background:#2A241A;border:1px solid #453B2A;border-radius:7px;padding:2px 7px;font-weight:700;min-width:36px;text-align:center}
 .count small{display:block;font-size:9px;color:#B9AC93;font-weight:400}
-/* header */
-header{position:sticky;top:0;z-index:60;background:rgba(250,247,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+/* header — transparent over hero, solid on scroll */
+header{position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,box-shadow .3s}
+header .logo,header nav.main a{text-shadow:0 1px 14px rgba(250,247,241,.95),0 0 3px rgba(250,247,241,.9)}
+header.scrolled{background:rgba(250,247,241,.94);backdrop-filter:blur(10px);border-bottom-color:var(--line);box-shadow:0 10px 30px rgba(23,19,12,.08)}
+header.scrolled .logo,header.scrolled nav.main a{text-shadow:none}
 .hwrap{max-width:1280px;margin:auto;display:flex;align-items:center;gap:22px;padding:14px 22px}
 .logo{font-size:27px;font-weight:800;letter-spacing:-.5px}
 .logo em{font-style:normal;color:var(--acc)}
@@ -36,7 +39,7 @@ nav.main a{opacity:.85}nav.main a:hover{opacity:1;color:var(--acc)}
 .icobtn:hover{border-color:var(--ink)}
 .icobtn .bdg{position:absolute;top:-5px;inset-inline-start:-5px;background:var(--acc);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:grid;place-items:center;padding:0 4px}
 /* hero */
-.hero{max-width:1280px;margin:auto;padding:38px 22px 10px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.hero{max-width:1280px;margin:-71px auto 0;padding:109px 22px 10px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
 .hero .kick{color:var(--acc);font-weight:700;font-size:15px;letter-spacing:.5px}
 .hero h1{font-size:clamp(52px,8.5vw,118px);font-weight:800;line-height:1.04;letter-spacing:-2px;margin:10px 0 6px}
 .hero h1 .thin{display:block;font-weight:500;font-size:clamp(24px,3.4vw,44px);letter-spacing:-1px;color:var(--mut)}
@@ -46,12 +49,13 @@ nav.main a{opacity:.85}nav.main a:hover{opacity:1;color:var(--acc)}
 .btn:hover{background:var(--acc)}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
-.heroimg{position:relative}
+.heroimg{position:relative;margin-top:-92px}
 .heroimg img{width:100%;height:560px;object-fit:cover;border-radius:200px 200px 14px 14px}
 .heroimg .tag{position:absolute;bottom:22px;inset-inline-start:-14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:0 14px 34px rgba(23,19,12,.13);font-size:14px}
 .heroimg .tag b{display:block;font-size:17px}
 /* marquee */
-.marquee{margin-top:34px;background:var(--acc);color:#FFF6EA;overflow:hidden;padding:11px 0;transform:rotate(-1.1deg) scale(1.02)}
+.mq-wrap{overflow:hidden;margin-top:26px;padding:8px 0}
+.marquee{background:var(--acc);color:#FFF6EA;overflow:hidden;padding:11px 0;transform:rotate(-1.1deg) scale(1.02)}
 .mq-track{display:flex;gap:0;width:max-content;animation:mq 26s linear infinite;font-weight:700;font-size:15.5px;white-space:nowrap}
 .mq-track span{padding:0 26px}
 @keyframes mq{to{transform:translateX(50%)}}
@@ -101,8 +105,9 @@ section.blk{max-width:1280px;margin:auto;padding:56px 22px 8px}
 .perk .pi{font-size:26px;margin-bottom:8px}
 .perk h3{font-size:16.5px;margin-bottom:5px}
 .perk p{color:var(--mut);font-size:14px;line-height:1.9}
-/* newsletter */
-.news{margin:56px auto 0;max-width:1280px;padding:0 22px}
+/* newsletter — now the footer-top club band */
+.news{margin:0;padding:0}
+.club-kick{color:var(--acc2);font-weight:800;font-size:14px;letter-spacing:.4px;margin-bottom:6px}
 .news-in{background:var(--ink);border-radius:22px;color:#F7F1E3;padding:44px 34px;display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
 .news h2{font-size:clamp(24px,3.4vw,36px);font-weight:800}
 .news p{color:#CFC4AC;margin-top:8px;line-height:1.9;font-size:15px}
@@ -111,7 +116,8 @@ section.blk{max-width:1280px;margin:auto;padding:56px 22px 8px}
 .nform input:focus{border-color:var(--acc2)}
 .nform button{background:var(--acc);color:#fff;border:none;border-radius:12px;padding:14px 26px;font-weight:700;font-size:15px}
 .nok{color:#8FD6A8;font-weight:700;margin-top:10px;display:none}
-footer{max-width:1280px;margin:54px auto 0;padding:26px 22px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--mut);font-size:13.5px}
+footer{max-width:1280px;margin:54px auto 0;padding:0 22px 40px;color:var(--mut);font-size:13.5px}
+footer .fbot{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
 footer .fl{display:flex;gap:20px;flex-wrap:wrap}
 /* drawer + modal */
 .overlay{position:fixed;inset:0;background:rgba(18,14,8,.55);opacity:0;pointer-events:none;transition:.25s;z-index:80}
@@ -186,7 +192,8 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
 @media(max-width:1020px){.grid{grid-template-columns:repeat(3,1fr)}.look{grid-template-columns:repeat(2,1fr)}.heroimg img{height:460px}}
 @media(max-width:760px){
  nav.main{display:none}
- .hero{grid-template-columns:1fr;padding-top:24px}
+ .hero{grid-template-columns:1fr;padding-top:95px}
+ .heroimg{margin-top:0}
  .heroimg img{height:400px}
  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
  .perks{grid-template-columns:1fr}
@@ -242,7 +249,22 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
   </div>
 </div>
 
-<div class="marquee"><div class="mq-track" id="mq"></div></div>
+<div class="mq-wrap"><div class="marquee"><div class="mq-track" id="mq"></div></div></div>
+
+<section class="blk" id="lookbook">
+  <div class="shead">
+    <div>
+      <h2>لوک‌بوک پاییزه</h2>
+      <p>ترکیب‌های پیشنهادی استایلیست لونا برای این فصل.</p>
+    </div>
+  </div>
+  <div class="look">
+    <figure><img src="assets/img/look1.jpg" alt="لوک ۱"><figcaption>لوک ۰۱ — خرید روزانه<small>پیراهن گلدار + کیف کارامل</small></figcaption></figure>
+    <figure><img src="assets/img/look2.jpg" alt="لوک ۲"><figcaption>لوک ۰۲ — فضای بوتیک<small>کالکشن آویخته‌شده فصل</small></figcaption></figure>
+    <figure><img src="assets/img/look3.jpg" alt="لوک ۳"><figcaption>لوک ۰۳ — پشت صحنه<small>طراحی و دوخت در آتلیه لونا</small></figcaption></figure>
+    <figure><img src="assets/img/look4.jpg" alt="لوک ۴"><figcaption>لوک ۰۴ — ویترین<small>آیتم‌های منتخب ویترین پاییزه</small></figcaption></figure>
+  </div>
+</section>
 
 <section class="blk" id="shop">
   <div class="shead">
@@ -261,21 +283,6 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
   <div class="grid" id="grid"></div>
 </section>
 
-<section class="blk" id="lookbook">
-  <div class="shead">
-    <div>
-      <h2>لوک‌بوک پاییزه</h2>
-      <p>ترکیب‌های پیشنهادی استایلیست لونا برای این فصل.</p>
-    </div>
-  </div>
-  <div class="look">
-    <figure><img src="assets/img/look1.jpg" alt="لوک ۱"><figcaption>لوک ۰۱ — خرید روزانه<small>پیراهن گلدار + کیف کارامل</small></figcaption></figure>
-    <figure><img src="assets/img/look2.jpg" alt="لوک ۲"><figcaption>لوک ۰۲ — فضای بوتیک<small>کالکشن آویخته‌شده فصل</small></figcaption></figure>
-    <figure><img src="assets/img/look3.jpg" alt="لوک ۳"><figcaption>لوک ۰۳ — پشت صحنه<small>طراحی و دوخت در آتلیه لونا</small></figcaption></figure>
-    <figure><img src="assets/img/look4.jpg" alt="لوک ۴"><figcaption>لوک ۰۴ — ویترین<small>آیتم‌های منتخب ویترین پاییزه</small></figcaption></figure>
-  </div>
-</section>
-
 <section class="blk" id="perks">
   <div class="shead"><div><h2>چرا لونا؟</h2></div></div>
   <div class="perks">
@@ -285,25 +292,27 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
   </div>
 </section>
 
-<div class="news" id="news">
-  <div class="news-in">
-    <div>
-      <h2>از کالکشن بعدی زودتر از همه باخبر شوید</h2>
-      <p>عضو باشگاه لونا شوید؛ پیش‌فروش کالکشن زمستانه اول برای اعضای باشگاه باز می‌شود و کد تخفیف ۱۰٪ اولین خرید برایتان ارسال خواهد شد.</p>
-    </div>
-    <div>
-      <form class="nform" id="newsForm">
-        <input type="email" id="newsEmail" placeholder="ایمیل شما" required>
-        <button type="submit">عضویت</button>
-      </form>
-      <div class="nok" id="newsOk">✓ عضویت شما در باشگاه لونا ثبت شد؛ کد تخفیف به‌زودی ارسال می‌شود.</div>
+<footer>
+  <div class="news" id="news">
+    <div class="news-in">
+      <div>
+        <div class="club-kick">باشگاه مشتریان لونا</div>
+        <h2>از کالکشن بعدی زودتر از همه باخبر شوید</h2>
+        <p>عضو باشگاه لونا شوید؛ پیش‌فروش کالکشن زمستانه اول برای اعضای باشگاه باز می‌شود و کد تخفیف ۱۰٪ اولین خرید برایتان ارسال خواهد شد.</p>
+      </div>
+      <div>
+        <form class="nform" id="newsForm">
+          <input type="email" id="newsEmail" placeholder="ایمیل شما" required>
+          <button type="submit">عضویت</button>
+        </form>
+        <div class="nok" id="newsOk">✓ عضویت شما در باشگاه لونا ثبت شد؛ کد تخفیف به‌زودی ارسال می‌شود.</div>
+      </div>
     </div>
   </div>
-</div>
-
-<footer>
-  <div>© ۱۴۰۴ بوتیک لونا — نمونه فروشگاه اینترنتی طراحی‌شده به‌صورت اختصاصی (دمو)</div>
-  <div class="fl"><a href="#shop">فروشگاه</a><a href="#lookbook">لوک‌بوک</a><a href="#perks">چرا لونا؟</a><a href="#">راهنمای سایز</a><a href="#">پیگیری سفارش</a></div>
+  <div class="fbot">
+    <div>© ۱۴۰۴ بوتیک لونا — نمونه فروشگاه اینترنتی طراحی‌شده به‌صورت اختصاصی (دمو)</div>
+    <div class="fl"><a href="#shop">فروشگاه</a><a href="#lookbook">لوک‌بوک</a><a href="#perks">چرا لونا؟</a><a href="#">راهنمای سایز</a><a href="#">پیگیری سفارش</a></div>
+  </div>
 </footer>
 
 <!-- CART DRAWER -->
@@ -519,6 +528,15 @@ $('#successClose').addEventListener('click',closeDrawer);
 $('#newsForm').addEventListener('submit',e=>{e.preventDefault();$('#newsOk').style.display='block';$('#newsEmail').value='';toast('عضویت در باشگاه لونا ثبت شد ✓')});
 
 render();updateCart();
+</script>
+<script>
+/* transparent header → solid on scroll */
+(function(){
+  var h=document.querySelector('header');
+  function onScroll(){h.classList.toggle('scrolled',window.scrollY>10)}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
 </script>
 </body>
 </html>
