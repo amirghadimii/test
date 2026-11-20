@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سلامت‌یار — اپلیکیشن جامع مراقبت سلامت | دموی تعاملی</title>
+<meta name="description" content="دموی تعاملی اپلیکیشن جامع مراقبت سلامت «سلامت‌یار»: داشبورد سلامت، یادآور دارو، نوبت‌دهی پزشک، گزارش و پرونده سلامت.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --teal:#0d9488; --teal2:#14b8a6; --teal-d:#0f766e; --teal-soft:#ccfbf1; --teal-bg:#f0fdfa;
+  --ink:#14332e; --ink2:#33544e; --mut:#64807b; --bg:#f4faf8; --card:#ffffff; --line:#d9ebe6;
+  --rose:#f43f5e; --amber:#f59e0b; --sky:#0284c7; --violet:#7c6cf0;
+  --shadow:0 18px 45px -18px rgba(13,148,136,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+/* ---------- Header ---------- */
+header.top{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:26px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:21px;color:var(--teal-d)}
+.logo .pulse-badge{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal2));display:grid;place-items:center;box-shadow:0 8px 18px -6px rgba(13,148,136,.55)}
+nav.main{display:flex;gap:24px;margin-inline-start:8px;font-size:14.5px;color:var(--ink2);font-weight:500}
+nav.main a:hover{color:var(--teal)}
+.top-cta{margin-inline-start:auto;display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:14px;padding:11px 22px;font-size:15px;font-weight:700;transition:.2s}
+.btn-teal{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;box-shadow:0 10px 22px -8px rgba(13,148,136,.6)}
+.btn-teal:hover{transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal-soft)}
+.btn-ghost:hover{border-color:var(--teal2)}
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:64px 0 30px;background:
+  radial-gradient(700px 380px at 88% -60px,rgba(20,184,166,.16),transparent 65%),
+  radial-gradient(600px 340px at 4% 20px,rgba(2,132,199,.10),transparent 60%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:clamp(30px,4.4vw,50px);font-weight:900;line-height:1.35;color:var(--ink)}
+.hero h1 .hl{color:var(--teal);position:relative;white-space:nowrap}
+.hero p.lead{margin-top:18px;font-size:17px;color:var(--ink2);max-width:520px}
+.disc-chip{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:#fff7ed;border:1.5px dashed #fdba74;color:#9a3412;border-radius:999px;padding:7px 16px;font-size:13.5px;font-weight:600}
+.hero-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:34px;margin-top:36px;flex-wrap:wrap}
+.hstat b{display:block;font-size:24px;font-weight:900;color:var(--teal-d)}
+.hstat span{font-size:13px;color:var(--mut)}
+/* ---------- Phone ---------- */
+.phone-zone{display:flex;justify-content:center}
+.phone{width:362px;max-width:94vw;height:744px;background:#0b2422;border-radius:48px;padding:11px;box-shadow:0 40px 80px -30px rgba(11,36,34,.5),0 0 0 2px #1d3a37;position:relative;flex-shrink:0}
+.phone::before{content:'';position:absolute;top:11px;left:50%;transform:translateX(-50%);width:118px;height:24px;background:#0b2422;border-radius:0 0 16px 16px;z-index:30}
+.screen-wrap{background:#f6fbfa;border-radius:38px;height:100%;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.statusbar{display:flex;justify-content:space-between;align-items:center;padding:8px 22px 2px;font-size:12px;font-weight:700;color:var(--ink2)}
+.statusbar .sic{display:flex;gap:5px;align-items:center}
+.app-scroll{flex:1;overflow-y:auto;padding:6px 16px 14px;scrollbar-width:none}
+.app-scroll::-webkit-scrollbar{display:none}
+.screen{display:none;animation:fade .3s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* app header */
+.app-head{display:flex;align-items:center;gap:11px;padding:10px 2px 14px}
+.avatar{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--teal2),var(--sky));display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px}
+.app-head .who{flex:1}
+.app-head .who small{display:block;color:var(--mut);font-size:12px;line-height:1.5}
+.app-head .who b{font-size:15.5px}
+.icon-btn{width:40px;height:40px;border-radius:13px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;position:relative}
+.icon-btn .dot{position:absolute;top:9px;inset-inline-start:9px;width:8px;height:8px;border-radius:50%;background:var(--rose);border:2px solid #fff}
+/* vitals */
+.vital{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 15px;box-shadow:0 6px 16px -10px rgba(20,51,46,.12)}
+.vital .v-top{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink2)}
+.vital .v-ico{width:30px;height:30px;border-radius:10px;display:grid;place-items:center}
+.vital .v-num{font-size:23px;font-weight:900;line-height:1.3}
+.vital .v-num small{font-size:12px;color:var(--mut);font-weight:600}
+.vital .v-sub{font-size:12px;color:var(--mut)}
+.heart-card{margin-bottom:12px}
+.heart-flex{display:flex;align-items:center;gap:10px}
+.heart-flex .big{font-size:34px;font-weight:900;color:var(--rose);line-height:1.1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ring-box{display:flex;align-items:center;gap:10px}
+.ring{transform:rotate(-90deg)}
+.ring .track{stroke:#e6f2ef}
+.ring-txt{font-size:12.5px;color:var(--mut);line-height:1.6}
+.ring-txt b{display:block;font-size:16px;color:var(--ink)}
+.water-btn{margin-top:9px;width:100%;border:none;background:var(--teal-bg);color:var(--teal-d);border:1.5px solid var(--teal-soft);border-radius:11px;padding:7px 0;font-weight:800;font-size:13.5px;transition:.15s}
+.water-btn:hover{background:var(--teal-soft)}
+.water-btn:disabled{opacity:.45;cursor:default}
+.sec-title{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 10px}
+.sec-title b{font-size:15.5px;font-weight:800}
+.sec-title a{font-size:12.5px;color:var(--teal);font-weight:700;cursor:pointer}
+/* med rows */
+.med-row{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 13px;margin-bottom:9px}
+.med-ico{width:38px;height:38px;border-radius:12px;background:var(--teal-bg);display:grid;place-items:center;flex-shrink:0}
+.med-info{flex:1;min-width:0}
+.med-info b{font-size:14.5px;display:block;line-height:1.5}
+.med-info span{font-size:12px;color:var(--mut)}
+.med-time{font-size:12.5px;font-weight:800;color:var(--ink2);background:#f1f7f5;border-radius:9px;padding:4px 9px;white-space:nowrap}
+.med-check{width:30px;height:30px;border-radius:50%;border:2px solid #bfe3db;background:#fff;display:grid;place-items:center;flex-shrink:0;transition:.15s;padding:0}
+.med-check svg{opacity:0;transform:scale(.4);transition:.15s}
+.med-row.taken{border-color:var(--teal-soft);background:#fbfefd}
+.med-row.taken .med-check{background:var(--teal);border-color:var(--teal)}
+.med-row.taken .med-check svg{opacity:1;transform:scale(1)}
+.med-row.taken .med-info b{color:var(--mut);text-decoration:line-through;text-decoration-color:#9fd8cd}
+.taken-at{font-size:11.5px;color:var(--teal-d);font-weight:700}
+/* generic app cards/forms */
+.app-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:12px}
+.app-card h3{font-size:15px;font-weight:800;margin-bottom:8px}
+.progress-line{height:9px;border-radius:99px;background:#e8f3f0;overflow:hidden}
+.progress-line i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--teal2));border-radius:99px;transition:width .4s ease}
+label.f{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin:10px 0 5px}
+input.inp,select.inp{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font-family:inherit;font-size:14px;background:#fbfefd;color:var(--ink);outline:none}
+input.inp:focus,select.inp:focus{border-color:var(--teal2)}
+.add-btn{width:100%;margin-top:14px;border:none;border-radius:13px;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;padding:11px 0;font-weight:800;font-size:14.5px}
+/* doctors */
+.doc-card{display:flex;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px;cursor:pointer;transition:.15s;text-align:right;width:100%}
+.doc-card:hover{border-color:var(--teal2)}
+.doc-card.selected{border-color:var(--teal);background:var(--teal-bg);box-shadow:0 8px 18px -10px rgba(13,148,136,.4)}
+.doc-ava{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;flex-shrink:0}
+.doc-info{flex:1}
+.doc-info b{font-size:15px;display:block;line-height:1.5}
+.doc-info span{font-size:12.5px;color:var(--mut);display:block}
+.doc-rate{display:flex;align-items:center;gap:4px;font-size:12.5px;font-weight:800;color:#b45309}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--ink2);transition:.15s}
+.chip:hover{border-color:var(--teal2)}
+.chip.sel{background:var(--teal);border-color:var(--teal);color:#fff}
+.chip:disabled{opacity:.38;cursor:not-allowed;text-decoration:line-through}
+.appt-row{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 13px;margin-bottom:9px}
+.appt-row .when{flex:1}
+.appt-row .when b{font-size:14px;display:block;line-height:1.5}
+.appt-row .when span{font-size:12px;color:var(--mut)}
+.cancel-btn{border:1.5px solid #fecdd3;background:#fff1f2;color:#be123c;border-radius:10px;padding:6px 13px;font-size:12.5px;font-weight:800}
+.empty-note{text-align:center;color:var(--mut);font-size:13px;padding:16px 6px;background:#fff;border:1.5px dashed var(--line);border-radius:16px}
+.toast{position:absolute;bottom:86px;left:50%;transform:translate(-50%,16px);background:#0f2c28;color:#fff;font-size:13px;font-weight:700;border-radius:12px;padding:10px 18px;opacity:0;pointer-events:none;transition:.3s;z-index:40;white-space:nowrap;box-shadow:0 14px 30px -10px rgba(0,0,0,.4)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+/* report */
+.score-flex{display:flex;align-items:center;gap:16px}
+.score-legend{flex:1;font-size:13px}
+.score-legend .row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #e3efec}
+.score-legend .row:last-child{border-bottom:none}
+.score-legend b{font-weight:800}
+.bar-wrap{display:flex;align-items:flex-end;gap:7px;height:132px;padding-top:16px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.bar-col .val{font-size:10.5px;font-weight:800;color:var(--ink2)}
+.bar-col .bar{width:100%;max-width:30px;border-radius:8px 8px 4px 4px;background:#bfe9e1;transition:height .5s ease}
+.bar-col.today .bar{background:linear-gradient(180deg,var(--teal2),var(--teal))}
+.bar-col .day{font-size:10.5px;color:var(--mut);font-weight:600}
+.bmi-out{display:none;margin-top:14px;border-radius:15px;padding:13px 15px;background:var(--teal-bg);border:1px solid var(--teal-soft)}
+.bmi-out.show{display:block}
+.bmi-out .bmi-big{font-size:27px;font-weight:900;color:var(--teal-d)}
+.bmi-cat{display:inline-block;border-radius:999px;padding:2px 13px;font-size:12.5px;font-weight:800;color:#fff;margin-inline-start:8px;vertical-align:middle}
+/* tab bar */
+.tabbar{display:flex;background:#fff;border-top:1px solid var(--line);padding:8px 8px 14px}
+.tab{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;font-weight:700;color:#93aca7;padding:4px 0}
+.tab svg{stroke:#93aca7}
+.tab.active{color:var(--teal-d)}
+.tab.active svg{stroke:var(--teal)}
+/* ---------- Landing sections ---------- */
+section.blk{padding:64px 0}
+.blk-head{text-align:center;max-width:640px;margin:0 auto 38px}
+.blk-head .kicker{display:inline-block;background:var(--teal-soft);color:var(--teal-d);font-size:13px;font-weight:800;border-radius:999px;padding:4px 16px;margin-bottom:12px}
+.blk-head h2{font-size:clamp(24px,3.4vw,34px);font-weight:900}
+.blk-head p{color:var(--mut);margin-top:8px;font-size:15.5px}
+.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.module{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;transition:.2s}
+.module:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--teal-soft)}
+.module .m-ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:14px}
+.module h3{font-size:17px;font-weight:800;margin-bottom:6px}
+.module p{font-size:14px;color:var(--mut)}
+.white-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.phase{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:24px;position:relative}
+.phase .ph-num{position:absolute;top:-15px;inset-inline-start:22px;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;font-size:13px;font-weight:900;border-radius:999px;padding:4px 15px;box-shadow:0 8px 16px -6px rgba(13,148,136,.55)}
+.phase h3{font-size:16.5px;font-weight:800;margin:6px 0 10px}
+.phase ul{list-style:none;font-size:14px;color:var(--ink2)}
+.phase li{padding:4px 0 4px 0;padding-inline-start:20px;position:relative}
+.phase li::before{content:'';position:absolute;inset-inline-start:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--teal2)}
+.phase .dur{margin-top:12px;font-size:12.5px;font-weight:800;color:var(--teal-d)}
+.tech-flex{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.tech-chip{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:13px 22px;font-weight:800;font-size:15px;display:flex;align-items:center;gap:9px}
+.tech-chip small{display:block;font-weight:600;color:var(--mut);font-size:12px}
+footer{background:#0d2422;color:#c9ded9;padding:44px 0 30px;margin-top:10px}
+footer .f-in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+footer p{font-size:13.5px;max-width:520px;color:#9dbcb5}
+footer .disc-chip{background:rgba(255,247,237,.07);margin-top:0}
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .modules,.road{grid-template-columns:1fr 1fr}
+  nav.main{display:none}
+}
+@media(max-width:600px){
+  .modules,.road{grid-template-columns:1fr}
+  .hero{padding-top:38px}
+  .phone{height:700px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#">
+      <span class="pulse-badge"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12L16 12h5"/></svg></span>
+      سلامت‌یار
+    </a>
+    <nav class="main">
+      <a href="#demo">دموی زنده</a>
+      <a href="#modules">ماژول‌ها</a>
+      <a href="#roadmap">نقشه راه</a>
+      <a href="#tech">فناوری</a>
+    </nav>
+    <div class="top-cta">
+      <a class="btn btn-teal" href="#demo">مشاهده دمو</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="demo">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>اپلیکیشن جامع <span class="hl">مراقبت سلامت</span><br>همه‌چیز، در یک همراه روزانه</h1>
+      <p class="lead">«سلامت‌یار» داشبورد زنده علائم حیاتی، یادآور هوشمند دارو، نوبت‌دهی پزشک، پرونده سلامت و گزارش‌های دوره‌ای را در یک اپلیکیشن یکپارچه کنار هم می‌آورد؛ نسخه سمت راست، دموی تعاملی و کاملاً قابل استفاده همین محصول است.</p>
+      <div>
+        <span class="disc-chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg> دموی تعاملی — داده‌ها نمونه‌اند و جنبه پزشکی/تشخیصی ندارند</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-teal" href="#modules">آشنایی با ماژول‌ها</a>
+        <a class="btn btn-ghost" href="#roadmap">نقشه راه توسعه</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>۶ ماژول</b><span>یکپارچه در یک اپ</span></div>
+        <div class="hstat"><b>۳ پلتفرم</b><span>اندروید، iOS و وب</span></div>
+        <div class="hstat"><b>۲۴/۷</b><span>پایش و یادآوری روزانه</span></div>
+      </div>
+    </div>
+
+    <div class="phone-zone">
+      <div class="phone" id="phone">
+        <div class="screen-wrap">
+          <div class="statusbar">
+            <span id="clock">۰۹:۴۱</span>
+            <span class="sic">
+              <svg width="16" height="12" viewBox="0 0 18 12" fill="#33544e"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity=".35"/></svg>
+              <svg width="22" height="12" viewBox="0 0 25 12"><rect x="0" y="1" width="20" height="10" rx="3" fill="none" stroke="#33544e"/><rect x="2" y="3" width="13" height="6" rx="1.5" fill="#0d9488"/><rect x="22" y="4" width="2.5" height="4" rx="1" fill="#33544e"/></svg>
+            </span>
+          </div>
+
+          <div class="app-scroll" id="appScroll">
+
+            <!-- ===== Screen: Home ===== -->
+            <div class="screen active" id="scr-home">
+              <div class="app-head">
+                <div class="avatar">س</div>
+                <div class="who"><small>صبح بخیر،</small><b>سارا احمدی</b></div>
+                <button class="icon-btn" type="button" aria-label="اعلان‌ها"><span class="dot"></span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#33544e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></button>
+              </div>
+
+              <div class="vital heart-card">
+                <div class="heart-flex">
+                  <div>
+                    <div class="v-top"><span class="v-ico" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 24 24" fill="#f43f5e"><path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 1 1 12 6.1a5 5 0 1 1 7.5 6.5Z"/></svg></span> ضربان قلب</div>
+                    <div class="big"><span id="hrVal">۷۲</span><small style="font-size:13px;color:var(--mut);font-weight:600"> bpm</small></div>
+                    <div class="v-sub">در حال استراحت — وضعیت نرمال</div>
+                  </div>
+                  <svg id="hrChart" viewBox="0 0 150 56" style="flex:1;min-width:0" preserveAspectRatio="none" aria-hidden="true">
+                    <polyline id="hrArea" fill="rgba(244,63,94,.10)" stroke="none" points=""/>
+                    <polyline id="hrLine" fill="none" stroke="#f43f5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" points=""/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="grid2">
+                <div class="vital">
+                  <div class="v-top"><span class="v-ico" style="background:#f0fdfa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4 6 13h5l-1.5 7L17 11h-5l1-7Z"/></svg></span> قدم‌های امروز</div>
+                  <div class="ring-box" style="margin-top:8px">
+                    <svg class="ring" width="58" height="58" viewBox="0 0 58 58">
+                      <circle class="track" cx="29" cy="29" r="24" fill="none" stroke-width="6"/>
+                      <circle id="stepsRing" cx="29" cy="29" r="24" fill="none" stroke="#0d9488" stroke-width="6" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="47.7"/>
+                    </svg>
+                    <div class="ring-txt"><b id="stepsVal">۶٬۸۴۰</b> از هدف ۱۰٬۰۰۰ قدم</div>
+                  </div>
+                </div>
+                <div class="vital">
+                  <div class="v-top"><span class="v-ico" style="background:#e0f2fe"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6.5 6.6 6.5 11a6.5 6.5 0 0 1-13 0C5.5 9.6 12 3 12 3Z"/></svg></span> آب مصرفی</div>
+                  <div class="ring-box" style="margin-top:8px">
+                    <svg class="ring" width="58" height="58" viewBox="0 0 58 58">
+                      <circle class="track" cx="29" cy="29" r="24" fill="none" stroke-width="6"/>
+                      <circle id="waterRing" cx="29" cy="29" r="24" fill="none" stroke="#0284c7" stroke-width="6" stroke-linecap="round" stroke-dasharray="150.8" stroke-dashoffset="94.25"/>
+                    </svg>
+                    <div class="ring-txt"><b><span id="waterCount">۳</span> از ۸</b> لیوان تا این لحظه</div>
+                  </div>
+                  <button class="water-btn" id="waterBtn" type="button">+ یک لیوان نوشیدم</button>
+                </div>
+                <div class="vital" style="grid-column:1/-1">
+                  <div style="display:flex;align-items:center;gap:12px">
+                    <span class="v-ico" style="background:#fef3c7;width:38px;height:38px;border-radius:12px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg></span>
+                    <div style="flex:1">
+                      <div style="font-size:13px;font-weight:700;color:var(--ink2)">خواب دیشب</div>
+                      <div style="font-size:19px;font-weight:900;line-height:1.4">۷ ساعت و ۲۰ دقیقه <small style="font-size:12px;color:var(--mut);font-weight:600">— کیفیت خوب</small></div>
+                    </div>
+                    <div style="text-align:center">
+                      <div style="font-size:11px;color:var(--mut)">خواب عمیق</div>
+                      <div style="font-weight:900;color:#b45309">۱:۴۵</div>
+                    </div>
+                  </div>
+                  <div class="progress-line" style="margin-top:10px"><i style="width:78%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></i></div>
+                </div>
+              </div>
+
+              <div class="sec-title"><b>داروهای امروز</b><a data-goto="meds">مشاهده همه</a></div>
+              <div id="dashMedList"></div>
+            </div>
+
+            <!-- ===== Screen: Meds ===== -->
+            <div class="screen" id="scr-meds">
+              <div class="app-head">
+                <div class="who"><small>یادآور هوشمند</small><b>داروهای من</b></div>
+              </div>
+              <div class="app-card">
+                <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:700"><span>پیشرفت مصرف امروز</span><span id="medProgTxt" style="color:var(--teal-d)">۲ از ۴ دارو</span></div>
+                <div class="progress-line" style="margin-top:9px"><i id="medProgBar" style="width:50%"></i></div>
+                <p style="font-size:12.5px;color:var(--mut);margin-top:9px">با زدن دایره کنار هر دارو، مصرف آن با ساعت دقیق ثبت می‌شود و در داشبورد و امتیاز سلامت هم اعمال می‌گردد.</p>
+              </div>
+              <div id="medList"></div>
+              <div class="app-card">
+                <h3>افزودن داروی جدید</h3>
+                <form id="addMedForm">
+                  <label class="f" for="medName">نام دارو</label>
+                  <input class="inp" id="medName" type="text" placeholder="مثلاً آسپرین" required>
+                  <label class="f" for="medDose">دوز مصرف</label>
+                  <input class="inp" id="medDose" type="text" placeholder="مثلاً ۸۰ میلی‌گرم" required>
+                  <label class="f" for="medTime">ساعت مصرف</label>
+                  <input class="inp" id="medTime" type="time" value="08:00" required>
+                  <button class="add-btn" type="submit">افزودن به برنامه دارویی</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- ===== Screen: Appointments ===== -->
+            <div class="screen" id="scr-appts">
+              <div class="app-head">
+                <div class="who"><small>نوبت‌دهی آنلاین</small><b>رزرو نوبت پزشک</b></div>
+              </div>
+              <div id="doctorList"></div>
+
+              <div class="app-card" id="bookingCard" style="display:none">
+                <h3>انتخاب زمان ویزیت — <span id="bookingDocName" style="color:var(--teal-d)"></span></h3>
+                <label class="f">روز مراجعه</label>
+                <div class="chips" id="dayChips"></div>
+                <label class="f">ساعت‌های خالی</label>
+                <div class="chips" id="slotChips"></div>
+                <button class="add-btn" id="confirmBooking" type="button" disabled style="opacity:.45">ابتدا روز و ساعت را انتخاب کنید</button>
+              </div>
+
+              <div class="sec-title"><b>نوبت‌های من</b></div>
+              <div id="myAppointments"></div>
+            </div>
+
+            <!-- ===== Screen: Report ===== -->
+            <div class="screen" id="scr-report">
+              <div class="app-head">
+                <div class="who"><small>تحلیل هفتگی</small><b>گزارش سلامت</b></div>
+              </div>
+
+              <div class="app-card">
+                <h3>امتیاز سلامت امروز</h3>
+                <div class="score-flex">
+                  <svg width="118" height="118" viewBox="0 0 118 118">
+                    <circle cx="59" cy="59" r="50" fill="none" stroke="#e6f2ef" stroke-width="11"/>
+                    <circle id="scoreRing" cx="59" cy="59" r="50" fill="none" stroke="#0d9488" stroke-width="11" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="160" transform="rotate(-90 59 59)" style="transition:stroke-dashoffset .5s ease"/>
+                    <text id="scoreValue" x="59" y="60" text-anchor="middle" font-size="30" font-weight="900" fill="#14332e" font-family="Vazirmatn">۴۹</text>
+                    <text x="59" y="80" text-anchor="middle" font-size="11" fill="#64807b" font-family="Vazirmatn">از ۱۰۰</text>
+                  </svg>
+                  <div class="score-legend">
+                    <div class="row"><span>نوشیدن آب</span><b id="scoreWater">۱۵ از ۴۰</b></div>
+                    <div class="row"><span>مصرف به‌موقع دارو</span><b id="scoreMeds">۲۰ از ۴۰</b></div>
+                    <div class="row"><span>فعالیت و قدم‌ها</span><b id="scoreSteps">۱۴ از ۲۰</b></div>
+                  </div>
+                </div>
+                <p style="font-size:12.5px;color:var(--mut);margin-top:10px">امتیاز سلامت با نوشیدن آب و مصرف داروها به‌صورت زنده به‌روز می‌شود؛ امتحان کنید و برگردید.</p>
+              </div>
+
+              <div class="app-card">
+                <h3>قدم‌های هفته گذشته</h3>
+                <div class="bar-wrap" id="weekChart"></div>
+                <p style="font-size:12.5px;color:var(--mut);margin-top:8px">میانگین هفته: <b style="color:var(--ink2)">۷٬۲۸۴ قدم</b> — بهترین روز: پنجشنبه با ۹٬۴۰۰ قدم</p>
+              </div>
+
+              <div class="app-card">
+                <h3>محاسبه شاخص توده بدنی (BMI)</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                  <div><label class="f" for="bmiHeight" style="margin-top:2px">قد (سانتی‌متر)</label><input class="inp" id="bmiHeight" type="number" min="100" max="230" placeholder="۱۷۰"></div>
+                  <div><label class="f" for="bmiWeight" style="margin-top:2px">وزن (کیلوگرم)</label><input class="inp" id="bmiWeight" type="number" min="25" max="300" placeholder="۷۰"></div>
+                </div>
+                <button class="add-btn" id="bmiBtn" type="button">محاسبه BMI</button>
+                <div class="bmi-out" id="bmiResult">
+                  <span style="font-size:13px;color:var(--ink2)">شاخص توده بدنی شما:</span>
+                  <div><span class="bmi-big" id="bmiValue">—</span><span class="bmi-cat" id="bmiCat">—</span></div>
+                  <p style="font-size:12.5px;color:var(--mut)" id="bmiNote"></p>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /app-scroll -->
+
+          <div class="toast" id="toast"></div>
+
+          <nav class="tabbar">
+            <button class="tab active" type="button" data-tab="home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10.5 9-7 9 7V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20Z"/><path d="M9.5 21v-6h5v6"/></svg>خانه</button>
+            <button class="tab" type="button" data-tab="meds"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>داروها</button>
+            <button class="tab" type="button" data-tab="appts"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 13v3M10.5 14.5h3"/></svg>نوبت پزشک</button>
+            <button class="tab" type="button" data-tab="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" transform="translate(-1 0)"/></svg>گزارش</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="modules">
+  <div class="wrap">
+    <div class="blk-head">
+      <span class="kicker">معماری محصول</span>
+      <h2>شش ماژول، یک پرونده سلامت یکپارچه</h2>
+      <p>هر ماژول مستقل طراحی شده اما همه روی یک هسته داده مشترک کار می‌کنند؛ کاربر یک‌بار وارد می‌شود و همه‌جا همان اطلاعات را می‌بیند.</p>
+    </div>
+    <div class="modules">
+      <div class="module">
+        <span class="m-ico" style="background:#f0fdfa"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg></span>
+        <h3>پرونده سلامت الکترونیک</h3>
+        <p>سوابق بیماری، حساسیت‌ها، واکسن‌ها و اسناد پزشکی در یک پرونده امن و همیشه در دسترس، با امکان اشتراک‌گذاری کنترل‌شده با پزشک.</p>
+      </div>
+      <div class="module">
+        <span class="m-ico" style="background:#eef2ff"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14a1 1 0 0 1 1 1v16l-2.7-1.6L14.6 20l-2.6-1.6L9.4 20l-2.7-1.6L4 20V4a1 1 0 0 1 1-1Z"/><path d="M12 7v6M9 10h6"/></svg></span>
+        <h3>نسخه الکترونیک</h3>
+        <p>دریافت و مشاهده نسخه‌های پزشک، تاریخچه تجویزها و اتصال مستقیم نسخه به برنامه یادآور دارو بدون ورود دستی اطلاعات.</p>
+      </div>
+      <div class="module">
+        <span class="m-ico" style="background:#fff7ed"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.3L4.8 18a2.4 2.4 0 0 0 2.1 3.5h10.2a2.4 2.4 0 0 0 2.1-3.5L14 9.3V3"/><path d="M7.5 15h9"/></svg></span>
+        <h3>آزمایش‌ها و نتایج</h3>
+        <p>آرشیو نتایج آزمایش با نمودار روند هر شاخص در طول زمان و هشدار خروج از بازه نرمال، قابل ارائه به پزشک در ویزیت بعدی.</p>
+      </div>
+      <div class="module">
+        <span class="m-ico" style="background:#fdf2f8"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span>
+        <h3>یادآور هوشمند دارو</h3>
+        <p>برنامه مصرف با اعلان دقیق، ثبت مصرف با یک لمس، هشدار اتمام موجودی دارو و گزارش پایبندی به درمان برای بیمار و پزشک.</p>
+      </div>
+      <div class="module">
+        <span class="m-ico" style="background:#f0f9ff"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="3"/><path d="m15.5 10.5 6-3.5v10l-6-3.5"/></svg></span>
+        <h3>ویزیت آنلاین</h3>
+        <p>نوبت‌دهی حضوری و ویزیت ویدیویی در یک تقویم واحد؛ یادآوری خودکار نوبت، ارسال مدارک پیش از ویزیت و ثبت خلاصه جلسه در پرونده.</p>
+      </div>
+      <div class="module">
+        <span class="m-ico" style="background:#f5f3ff"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="3.5"/><path d="M11 18.5h2"/></svg></span>
+        <h3>اتصال گجت‌های پوشیدنی</h3>
+        <p>همگام‌سازی خودکار قدم، ضربان قلب، خواب و فشار خون از ساعت و دستبند هوشمند و نمایش آن‌ها در داشبورد و گزارش‌های دوره‌ای.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk white-sec" id="roadmap">
+  <div class="wrap">
+    <div class="blk-head">
+      <span class="kicker">برنامه اجرا</span>
+      <h2>نقشه راه توسعه در سه فاز</h2>
+      <p>تحویل مرحله‌ای یعنی از همان فاز اول، محصول قابل انتشار و قابل استفاده است و هر فاز روی بازخورد کاربران واقعی سوار می‌شود.</p>
+    </div>
+    <div class="road">
+      <div class="phase">
+        <span class="ph-num">فاز ۱ — MVP</span>
+        <h3>هسته روزانه سلامت</h3>
+        <ul>
+          <li>ثبت‌نام و پروفایل کاربر</li>
+          <li>داشبورد علائم حیاتی و قدم‌شمار</li>
+          <li>یادآور دارو و ثبت مصرف</li>
+          <li>نوبت‌دهی پزشک و مدیریت نوبت‌ها</li>
+        </ul>
+        <div class="dur">خروجی: نسخه قابل انتشار در مارکت‌ها</div>
+      </div>
+      <div class="phase">
+        <span class="ph-num">فاز ۲ — پرونده یکپارچه</span>
+        <h3>داده پزشکی کامل</h3>
+        <ul>
+          <li>پرونده سلامت و بارگذاری اسناد</li>
+          <li>نسخه الکترونیک و تاریخچه تجویز</li>
+          <li>آرشیو آزمایش‌ها با نمودار روند</li>
+          <li>گزارش‌های دوره‌ای و امتیاز سلامت</li>
+        </ul>
+        <div class="dur">خروجی: اتصال به پزشک و آزمایشگاه</div>
+      </div>
+      <div class="phase">
+        <span class="ph-num">فاز ۳ — خدمات آنلاین</span>
+        <h3>ویزیت و گجت</h3>
+        <ul>
+          <li>ویزیت ویدیویی درون‌برنامه‌ای</li>
+          <li>اتصال ساعت و دستبند هوشمند</li>
+          <li>هشدارهای هوشمند و تحلیل روند</li>
+          <li>پنل پزشک و نسخه‌نویسی آنلاین</li>
+        </ul>
+        <div class="dur">خروجی: پلتفرم کامل مراقبت سلامت</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="tech">
+  <div class="wrap">
+    <div class="blk-head">
+      <span class="kicker">پشته فناوری</span>
+      <h2>یک کدبیس، سه خروجی</h2>
+      <p>اپلیکیشن با React Native برای اندروید و iOS و نسخه وب با PWA توسعه می‌یابد؛ سریع، آفلاین‌پذیر و همگام با گجت‌ها.</p>
+    </div>
+    <div class="tech-flex">
+      <span class="tech-chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></svg><span>React Native<small>اندروید و iOS از یک کدبیس</small></span></span>
+      <span class="tech-chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="M8 21h8M12 17v4"/></svg><span>PWA<small>نسخه وب، نصب‌پذیر و آفلاین</small></span></span>
+      <span class="tech-chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span>API و دیتابیس امن<small>رمزنگاری داده‌های سلامت</small></span></span>
+      <span class="tech-chip"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span>اعلان هوشمند<small>یادآور دارو و نوبت</small></span></span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap f-in">
+    <div>
+      <div style="font-weight:900;font-size:19px;color:#fff;margin-bottom:8px">سلامت‌یار — اپلیکیشن جامع مراقبت سلامت</div>
+      <p>این صفحه، دموی تعاملی محصول است که برای نمایش تجربه کاربری و جریان‌های اصلی اپلیکیشن ساخته شده است؛ در نسخه نهایی، داده‌ها از پرونده واقعی کاربر و گجت‌های متصل خوانده می‌شوند.</p>
+    </div>
+    <span class="disc-chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fdba74" stroke-width="2.2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg> دموی تعاملی — داده‌ها نمونه‌اند و جنبه پزشکی/تشخیصی ندارند</span>
+  </div>
+  <div class="wrap" style="margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;color:#7fa89f">سلامت‌یار — طراحی و توسعه: اپ‌وبینو</div>
+</footer>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const fa=s=>String(s).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]).replace(/\./g,'٫');
+const faNum=n=>Number(n).toLocaleString('fa-IR');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const nowTime=()=>new Date().toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
+$('#clock').textContent=nowTime();
+
+/* ---------- Toast ---------- */
+let toastT;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2400);}
+
+/* ---------- Tabs ---------- */
+function switchTab(name){
+  $$('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));
+  $$('.screen').forEach(s=>s.classList.remove('active'));
+  $('#scr-'+name).classList.add('active');
+  $('#appScroll').scrollTop=0;
+}
+$$('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+$$('[data-goto]').forEach(a=>a.addEventListener('click',()=>switchTab(a.dataset.goto)));
+
+/* ---------- State ---------- */
+const state={
+  water:3, waterGoal:8,
+  steps:6840, stepsGoal:10000,
+  meds:[
+    {id:1,name:'متفورمین',dose:'۵۰۰ میلی‌گرم — بعد از صبحانه',time:'۰۸:۰۰',taken:true,takenAt:'۰۸:۰۵'},
+    {id:2,name:'لوزارتان',dose:'۲۵ میلی‌گرم — فشار خون',time:'۰۹:۰۰',taken:true,takenAt:'۰۹:۰۲'},
+    {id:3,name:'ویتامین D3',dose:'۱۰۰۰ واحد — همراه ناهار',time:'۱۳:۰۰',taken:false,takenAt:null},
+    {id:4,name:'امگا ۳',dose:'۱۰۰۰ میلی‌گرم — بعد از شام',time:'۲۱:۰۰',taken:false,takenAt:null}
+  ],
+  appointments:[
+    {id:1,doc:'دکتر سارا محمدی',spec:'متخصص قلب و عروق',day:'فردا — شنبه ۳۰ آبان',slot:'۱۰:۰۰'}
+  ]
+};
+let medSeq=5, apptSeq=2;
+
+/* ---------- Score ---------- */
+function computeScore(){
+  const w=Math.round(state.water/state.waterGoal*40);
+  const taken=state.meds.filter(m=>m.taken).length;
+  const m=state.meds.length?Math.round(taken/state.meds.length*40):0;
+  const s=Math.round(state.steps/state.stepsGoal*20);
+  return {w,m,s,total:w+m+s,taken};
+}
+function renderScore(){
+  const sc=computeScore();
+  $('#scoreValue').textContent=fa(sc.total);
+  $('#scoreRing').style.strokeDashoffset=(314.16*(1-sc.total/100)).toFixed(1);
+  $('#scoreWater').textContent=fa(sc.w)+' از ۴۰';
+  $('#scoreMeds').textContent=fa(sc.m)+' از ۴۰';
+  $('#scoreSteps').textContent=fa(sc.s)+' از ۲۰';
+}
+
+/* ---------- Water ---------- */
+function renderWater(){
+  $('#waterCount').textContent=fa(state.water);
+  $('#waterRing').style.strokeDashoffset=(150.8*(1-state.water/state.waterGoal)).toFixed(2);
+  const b=$('#waterBtn');
+  if(state.water>=state.waterGoal){b.disabled=true;b.textContent='هدف آب امروز کامل شد';}
+  renderScore();
+}
+$('#waterBtn').addEventListener('click',()=>{
+  if(state.water<state.waterGoal){state.water++;renderWater();toast('یک لیوان آب ثبت شد — آفرین!');}
+});
+
+/* ---------- Meds ---------- */
+const pillSvg='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>';
+const checkSvg='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+function medRow(m){
+  return '<div class="med-row'+(m.taken?' taken':'')+'">'
+    +'<span class="med-ico">'+pillSvg+'</span>'
+    +'<div class="med-info"><b>'+esc(m.name)+'</b><span>'+esc(m.dose)+'</span>'
+    +(m.taken?'<div class="taken-at">مصرف شد — ساعت '+m.takenAt+'</div>':'<div style="font-size:11.5px;color:var(--mut)">نوبت مصرف: ساعت '+m.time+'</div>')
+    +'</div><span class="med-time">'+m.time+'</span>'
+    +'<button type="button" class="med-check" data-med="'+m.id+'" aria-label="ثبت مصرف">'+checkSvg+'</button></div>';
+}
+function renderMeds(){
+  const html=state.meds.map(medRow).join('');
+  $('#medList').innerHTML=html;
+  $('#dashMedList').innerHTML=html;
+  const sc=computeScore();
+  $('#medProgTxt').textContent=fa(sc.taken)+' از '+fa(state.meds.length)+' دارو';
+  $('#medProgBar').style.width=(state.meds.length?sc.taken/state.meds.length*100:0)+'%';
+  renderScore();
+}
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.med-check');
+  if(!btn)return;
+  const m=state.meds.find(x=>x.id==btn.dataset.med);
+  if(!m)return;
+  m.taken=!m.taken;
+  m.takenAt=m.taken?nowTime():null;
+  renderMeds();
+  toast(m.taken?('مصرف «'+m.name+'» ثبت شد'):('«'+m.name+'» به حالت مصرف‌نشده برگشت'));
+});
+$('#addMedForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('#medName').value.trim(), dose=$('#medDose').value.trim(), t=$('#medTime').value;
+  if(!name||!dose||!t)return;
+  const parts=t.split(':'); const timeFa=fa(parts[0].padStart(2,'0'))+':'+fa(parts[1].padStart(2,'0'));
+  state.meds.push({id:medSeq++,name,dose,time:timeFa,taken:false,takenAt:null});
+  state.meds.sort((a,b)=>a.time.localeCompare(b.time,'fa'));
+  renderMeds();
+  e.target.reset(); $('#medTime').value='08:00';
+  toast('داروی «'+name+'» به برنامه اضافه شد');
+});
+
+/* ---------- Doctors & booking ---------- */
+const doctors=[
+  {id:1,name:'دکتر سارا محمدی',spec:'متخصص قلب و عروق',rate:'۴٫۹',color:'#0d9488',init:'س'},
+  {id:2,name:'دکتر علی رضایی',spec:'متخصص بیماری‌های داخلی',rate:'۴٫۷',color:'#0284c7',init:'ع'},
+  {id:3,name:'دکتر مریم کریمی',spec:'متخصص پوست و مو',rate:'۴٫۸',color:'#db2777',init:'م'},
+  {id:4,name:'دکتر رضا احمدی',spec:'دندان‌پزشک',rate:'۴٫۶',color:'#d97706',init:'ر'}
+];
+const days=[
+  {label:'امروز',full:'امروز — جمعه ۲۹ آبان'},
+  {label:'فردا',full:'فردا — شنبه ۳۰ آبان'},
+  {label:'پس‌فردا',full:'پس‌فردا — یکشنبه ۱ آذر'}
+];
+const slots=[
+  {t:'۰۹:۰۰',booked:false},{t:'۱۰:۰۰',booked:false},{t:'۱۱:۳۰',booked:true},
+  {t:'۱۴:۰۰',booked:false},{t:'۱۶:۳۰',booked:false},{t:'۱۷:۰۰',booked:false}
+];
+let selDoc=null, selDay=null, selSlot=null;
+const starSvg='<svg width="14" height="14" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2.5 14.9 8.6 21.5 9.5 16.7 14.1 17.9 20.7 12 17.5 6.1 20.7 7.3 14.1 2.5 9.5 9.1 8.6Z"/></svg>';
+function renderDoctors(){
+  $('#doctorList').innerHTML=doctors.map(d=>
+    '<button type="button" class="doc-card'+(selDoc===d.id?' selected':'')+'" data-doc="'+d.id+'">'
+    +'<span class="doc-ava" style="background:'+d.color+'">'+d.init+'</span>'
+    +'<span class="doc-info"><b>'+d.name+'</b><span>'+d.spec+'</span></span>'
+    +'<span class="doc-rate">'+starSvg+' '+d.rate+'</span></button>').join('');
+}
+$('#doctorList').addEventListener('click',e=>{
+  const card=e.target.closest('.doc-card'); if(!card)return;
+  selDoc=+card.dataset.doc; selDay=null; selSlot=null;
+  renderDoctors(); renderBooking();
+});
+function renderBooking(){
+  const card=$('#bookingCard');
+  if(!selDoc){card.style.display='none';return;}
+  card.style.display='block';
+  $('#bookingDocName').textContent=doctors.find(d=>d.id===selDoc).name;
+  $('#dayChips').innerHTML=days.map((d,i)=>'<button type="button" class="chip'+(selDay===i?' sel':'')+'" data-day="'+i+'">'+d.full+'</button>').join('');
+  $('#slotChips').innerHTML=slots.map((s,i)=>'<button type="button" class="chip'+(selSlot===i?' sel':'')+'" data-slot="'+i+'" '+(s.booked?'disabled':'')+'>'+s.t+'</button>').join('');
+  const btn=$('#confirmBooking');
+  if(selDay!==null&&selSlot!==null){btn.disabled=false;btn.style.opacity='1';btn.textContent='تأیید و رزرو نوبت';}
+  else{btn.disabled=true;btn.style.opacity='.45';btn.textContent='ابتدا روز و ساعت را انتخاب کنید';}
+}
+$('#dayChips').addEventListener('click',e=>{const c=e.target.closest('[data-day]');if(!c)return;selDay=+c.dataset.day;renderBooking();});
+$('#slotChips').addEventListener('click',e=>{const c=e.target.closest('[data-slot]');if(!c||c.disabled)return;selSlot=+c.dataset.slot;renderBooking();});
+$('#confirmBooking').addEventListener('click',()=>{
+  if(selDoc===null||selDay===null||selSlot===null)return;
+  const d=doctors.find(x=>x.id===selDoc);
+  state.appointments.unshift({id:apptSeq++,doc:d.name,spec:d.spec,day:days[selDay].full,slot:slots[selSlot].t});
+  renderAppts();
+  selDoc=null;selDay=null;selSlot=null;renderDoctors();renderBooking();
+  toast('نوبت شما با موفقیت رزرو شد');
+});
+function renderAppts(){
+  const box=$('#myAppointments');
+  if(!state.appointments.length){box.innerHTML='<div class="empty-note">در حال حاضر نوبتی ندارید؛ از فهرست پزشکان بالا رزرو کنید.</div>';return;}
+  box.innerHTML=state.appointments.map(a=>
+    '<div class="appt-row"><span class="med-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>'
+    +'<div class="when"><b>'+a.doc+' — '+a.spec+'</b><span>'+a.day+' — ساعت '+a.slot+'</span></div>'
+    +'<button type="button" class="cancel-btn" data-cancel="'+a.id+'">لغو نوبت</button></div>').join('');
+}
+$('#myAppointments').addEventListener('click',e=>{
+  const b=e.target.closest('[data-cancel]'); if(!b)return;
+  state.appointments=state.appointments.filter(a=>a.id!=b.dataset.cancel);
+  renderAppts(); toast('نوبت لغو شد');
+});
+
+/* ---------- Week chart ---------- */
+const week=[{d:'شنبه',v:5200},{d:'یکشنبه',v:7800},{d:'دوشنبه',v:6100},{d:'سه‌شنبه',v:8900},{d:'چهارشنبه',v:7300},{d:'پنجشنبه',v:9400},{d:'جمعه',v:6840,today:true}];
+$('#weekChart').innerHTML=week.map(w=>
+  '<div class="bar-col'+(w.today?' today':'')+'"><span class="val">'+faNum(w.v)+'</span><div class="bar" style="height:'+Math.round(w.v/100)+'px"></div><span class="day">'+w.d+(w.today?' (امروز)':'')+'</span></div>').join('');
+
+/* ---------- BMI ---------- */
+$('#bmiBtn').addEventListener('click',()=>{
+  const h=parseFloat($('#bmiHeight').value), w=parseFloat($('#bmiWeight').value);
+  const out=$('#bmiResult');
+  if(!h||!w||h<100||h>230||w<25||w>300){out.classList.add('show');$('#bmiValue').textContent='—';$('#bmiCat').textContent='ورودی نامعتبر';$('#bmiCat').style.background='#94a3b8';$('#bmiNote').textContent='لطفاً قد (۱۰۰ تا ۲۳۰) و وزن (۲۵ تا ۳۰۰) معتبر وارد کنید.';return;}
+  const bmi=w/Math.pow(h/100,2);
+  let cat,color,note;
+  if(bmi<18.5){cat='کمبود وزن';color='#0284c7';note='شاخص شما پایین‌تر از بازه نرمال است؛ برای برنامه افزایش وزن سالم با پزشک یا متخصص تغذیه مشورت کنید.';}
+  else if(bmi<25){cat='وزن نرمال';color='#0d9488';note='شاخص شما در بازه نرمال قرار دارد؛ همین روند فعالیت و تغذیه را حفظ کنید.';}
+  else if(bmi<30){cat='اضافه وزن';color='#f59e0b';note='شاخص شما بالاتر از بازه نرمال است؛ افزایش فعالیت روزانه و بازبینی برنامه غذایی پیشنهاد می‌شود.';}
+  else{cat='چاقی';color='#f43f5e';note='شاخص شما در محدوده چاقی است؛ توصیه می‌شود برای برنامه کاهش وزن با پزشک مشورت کنید.';}
+  $('#bmiValue').textContent=fa(bmi.toFixed(1));
+  const c=$('#bmiCat'); c.textContent=cat; c.style.background=color;
+  $('#bmiNote').textContent=note;
+  out.classList.add('show');
+});
+
+/* ---------- Heart rate live chart ---------- */
+const hrData=Array.from({length:22},(_,i)=>72+Math.round(Math.sin(i/3)*3+(i%4===0?1:0)));
+function drawHR(){
+  const pts=hrData.map((v,i)=>{const x=(i*(150/21)).toFixed(1);const y=Math.max(5,Math.min(51,30-(v-70)*1.7)).toFixed(1);return x+','+y;});
+  $('#hrLine').setAttribute('points',pts.join(' '));
+  $('#hrArea').setAttribute('points',pts.join(' ')+' 150,56 0,56');
+  $('#hrVal').textContent=fa(hrData[hrData.length-1]);
+}
+drawHR();
+setInterval(()=>{const last=hrData[hrData.length-1];let nv=last+Math.round((Math.random()-0.5)*4);nv=Math.max(66,Math.min(79,nv));hrData.push(nv);hrData.shift();drawHR();},1400);
+
+/* ---------- Init ---------- */
+renderMeds(); renderDoctors(); renderAppts(); renderWater();
+</script>
+</body>
+</html>
