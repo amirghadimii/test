@@ -103,6 +103,29 @@ button{font-family:inherit;cursor:pointer}
 .topbar-sub{color:var(--ink-2);font-size:14px;max-width:760px;margin-top:6px}
 .topbar-tools{display:flex;gap:10px;flex:0 0 auto;padding-top:6px}
 
+/* ---------- Roadmap poster hero ---------- */
+.poster-band{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 55%,#1d3a5f 100%);border-radius:20px;color:#fff;padding:32px 36px 30px;margin-bottom:20px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.poster-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px 14px;font-size:12.5px;color:#c9d4ee;font-weight:700;position:relative;z-index:1}
+.poster-band h1{font-size:30px;font-weight:900;line-height:1.5;margin:15px 0 9px;max-width:850px;position:relative;z-index:1}
+.poster-sub{color:#c2cde8;font-size:14px;max-width:810px;position:relative;z-index:1}
+.poster-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;position:relative;z-index:1}
+.route-track{display:flex;margin-top:28px;position:relative;flex:1;min-width:290px}
+.route-track::before{content:"";position:absolute;top:16px;right:10%;left:10%;border-top:2px dashed rgba(255,255,255,.45)}
+.route-stop{flex:1;text-align:center;position:relative;padding:0 3px}
+.route-dot{width:33px;height:33px;margin:0 auto 8px;border-radius:50%;background:#fff;color:var(--navy);font-weight:900;font-size:14.5px;display:flex;align-items:center;justify-content:center;border:3px solid rgba(255,255,255,.35);position:relative;z-index:1}
+.route-stop span{display:block;font-size:12px;color:#dbe3f5;font-weight:700;line-height:1.7}
+.route-stop small{display:block;font-size:11px;color:#93a1c4;font-weight:500}
+.poster-band .topbar-tools{padding-top:0}
+.moved-note{margin:0 22px 20px;background:var(--blue-soft);border:1px solid #c6dcf8;border-radius:11px;padding:10px 16px;font-size:13px;color:var(--ink-2)}
+.poster-hero .cluster-wrap{padding-top:4px}
+@media(max-width:640px){
+  .poster-band{padding:24px 18px 22px}
+  .poster-band h1{font-size:23px}
+  .route-track{flex-wrap:wrap;gap:16px 0}
+  .route-stop{flex:1 1 33%}
+  .route-track::before{display:none}
+}
+
 .notice{
   display:flex;gap:14px;background:var(--amber-soft);border:1px solid #f0dcae;
   border-radius:var(--radius);padding:16px 18px;margin-bottom:24px;
@@ -289,15 +312,53 @@ footer.site strong{color:var(--ink-2)}
   </aside>
 
   <main class="main">
-    <header class="topbar">
-      <div>
-        <h1>برنامه سئو و تولید محتوای وب‌سایت مهاجرتی — اپ‌وبینو</h1>
-        <p class="topbar-sub">پاسخ اجرایی اپ‌وبینو به پروژه «سئو، تولید محتوا و بهینه‌سازی وب‌سایت مهاجرتی»: نقشه راه کامل ۳۰ روزه ما — از آدیت فنی و محتوایی و تحقیق کلمات کلیدی مهاجرتی بر اساس روش و کشور، تا معماری محتوا، تقویم تولید، سئوی داخلی، لینک‌سازی اصولی و گزارش‌دهی ماهانه شفاف. هر فاز خروجی مشخص و قابل بررسی دارد.</p>
+    <section class="poster-band">
+      <span class="poster-kicker">نقشه راه ۳۰ روزه — از آدیت تا گزارش ماهانه</span>
+      <h1>برنامه سئو و تولید محتوای وب‌سایت مهاجرتی — اپ‌وبینو</h1>
+      <p class="poster-sub">پاسخ اجرایی اپ‌وبینو به پروژه «سئو، تولید محتوا و بهینه‌سازی وب‌سایت مهاجرتی»: نقشه راه کامل ۳۰ روزه ما — از آدیت فنی و محتوایی و تحقیق کلمات کلیدی مهاجرتی بر اساس روش و کشور، تا معماری محتوا، تقویم تولید، سئوی داخلی، لینک‌سازی اصولی و گزارش‌دهی ماهانه شفاف. هر فاز خروجی مشخص و قابل بررسی دارد.</p>
+      <div class="poster-foot">
+        <div class="route-track" aria-label="ایستگاه‌های نقشه راه">
+          <div class="route-stop"><span class="route-dot">۱</span><span>آدیت فنی و محتوایی</span><small>هفته ۱</small></div>
+          <div class="route-stop"><span class="route-dot">۲</span><span>تحقیق کلمات کلیدی مهاجرتی</span><small>هفته ۲</small></div>
+          <div class="route-stop"><span class="route-dot">۳</span><span>معماری محتوا و تقویم تولید</span><small>هفته ۲ تا ۳</small></div>
+          <div class="route-stop"><span class="route-dot">۴</span><span>سئوی داخلی و لینک‌سازی اصولی</span><small>هفته ۳ تا ۴</small></div>
+          <div class="route-stop"><span class="route-dot">۵</span><span>گزارش‌دهی ماهانه شفاف</span><small>ماهانه</small></div>
+        </div>
+        <div class="topbar-tools">
+          <button class="btn-print" id="printBtn" type="button">چاپ برنامه</button>
+        </div>
       </div>
-      <div class="topbar-tools">
-        <button class="btn-print" id="printBtn" type="button">چاپ برنامه</button>
+    </section>
+
+    <section class="panel poster-hero" id="cluster-hero">
+      <div class="panel-head">
+        <div>
+          <h2>نقشه خوشه محتوا — قلب نقشه راه</h2>
+          <p class="panel-sub">نمونه معماری محتوای سایت مهاجرتی: هر موضوع اصلی یک صفحه ستون دارد و مقالات پشتیبان مانند ایستگاه‌های اطراف آن چیده می‌شوند و به آن لینک می‌دهند.</p>
+        </div>
+        <span class="head-badge">ایستگاه ۳ از ۵</span>
       </div>
-    </header>
+      <div class="cluster-wrap" aria-label="نمونه معماری خوشه محتوایی">
+        <p class="cluster-title">نمونه معماری یک خوشه — صفحه ستون و مقالات پشتیبان آن:</p>
+        <div class="cluster-map">
+          <div class="cluster-pillar">
+            <span class="cp-tag">صفحه ستون</span>
+            <strong>مهاجرت به کانادا — راهنمای کامل همه روش‌ها</strong>
+            <span class="cp-sub">مرجع اصلی خوشه؛ همه مقالات زیر به این صفحه لینک می‌دهند.</span>
+          </div>
+          <div class="cluster-card"><span class="cc-tag t1">تحصیلی</span><b>ویزای تحصیلی کانادا</b><span>شرایط، مدارک، هزینه و مراحل پذیرش دانشگاه</span></div>
+          <div class="cluster-card"><span class="cc-tag t2">کاری</span><b>مهاجرت کاری و جاب‌آفر کانادا</b><span>اکسپرس انتری، برنامه‌های استانی و مشاغل پرتقاضا</span></div>
+          <div class="cluster-card"><span class="cc-tag t3">سرمایه‌گذاری</span><b>سرمایه‌گذاری و استارتاپ ویزا</b><span>حداقل سرمایه، شرایط و مسیر اقامت دائم</span></div>
+          <div class="cluster-card"><span class="cc-tag t4">ویزا</span><b>ویزای توریستی کانادا</b><span>مدارک، تمکن مالی و دلایل ریجکتی و رفع آن</span></div>
+          <div class="cluster-card"><span class="cc-tag t5">اقامت</span><b>اقامت دائم و شهروندی کانادا</b><span>شرایط اقامت، کارت PR و مسیر تابعیت</span></div>
+          <div class="cluster-card"><span class="cc-tag t6">سؤالات</span><b>هزینه زندگی در کانادا چقدر است؟</b><span>مقاله سؤالی دم‌دراز با اسکیمای FAQ</span></div>
+        </div>
+      </div>
+      <ul class="cluster-points">
+        <li>همین الگو برای هر کشور هدف شما تکرار می‌شود؛ هیچ محتوایی بی‌خوشه و بی‌مقصد تولید نمی‌شود</li>
+        <li>هر مقاله یک اقدام هدف دارد: خواننده در پایان می‌داند قدم بعدی‌اش رزرو مشاوره است</li>
+      </ul>
+    </section>
 
     <div class="notice" role="note">
       <span class="n-ic" aria-hidden="true">
@@ -397,26 +458,7 @@ footer.site strong{color:var(--ink-2)}
         <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>تقویم تولید محتوای ۳۰ روزه</strong><span>برنامه انتشار مشخص هفته‌به‌هفته: کدام محتوا، برای کدام خوشه، با چه اولویتی منتشر می‌شود.</span></span></label></li>
       </ul>
 
-      <div class="cluster-wrap" aria-label="نمونه معماری خوشه محتوایی">
-        <p class="cluster-title">نمونه معماری یک خوشه — صفحه ستون و مقالات پشتیبان آن:</p>
-        <div class="cluster-map">
-          <div class="cluster-pillar">
-            <span class="cp-tag">صفحه ستون</span>
-            <strong>مهاجرت به کانادا — راهنمای کامل همه روش‌ها</strong>
-            <span class="cp-sub">مرجع اصلی خوشه؛ همه مقالات زیر به این صفحه لینک می‌دهند.</span>
-          </div>
-          <div class="cluster-card"><span class="cc-tag t1">تحصیلی</span><b>ویزای تحصیلی کانادا</b><span>شرایط، مدارک، هزینه و مراحل پذیرش دانشگاه</span></div>
-          <div class="cluster-card"><span class="cc-tag t2">کاری</span><b>مهاجرت کاری و جاب‌آفر کانادا</b><span>اکسپرس انتری، برنامه‌های استانی و مشاغل پرتقاضا</span></div>
-          <div class="cluster-card"><span class="cc-tag t3">سرمایه‌گذاری</span><b>سرمایه‌گذاری و استارتاپ ویزا</b><span>حداقل سرمایه، شرایط و مسیر اقامت دائم</span></div>
-          <div class="cluster-card"><span class="cc-tag t4">ویزا</span><b>ویزای توریستی کانادا</b><span>مدارک، تمکن مالی و دلایل ریجکتی و رفع آن</span></div>
-          <div class="cluster-card"><span class="cc-tag t5">اقامت</span><b>اقامت دائم و شهروندی کانادا</b><span>شرایط اقامت، کارت PR و مسیر تابعیت</span></div>
-          <div class="cluster-card"><span class="cc-tag t6">سؤالات</span><b>هزینه زندگی در کانادا چقدر است؟</b><span>مقاله سؤالی دم‌دراز با اسکیمای FAQ</span></div>
-        </div>
-      </div>
-      <ul class="cluster-points">
-        <li>همین الگو برای هر کشور هدف شما تکرار می‌شود؛ هیچ محتوایی بی‌خوشه و بی‌مقصد تولید نمی‌شود</li>
-        <li>هر مقاله یک اقدام هدف دارد: خواننده در پایان می‌داند قدم بعدی‌اش رزرو مشاوره است</li>
-      </ul>
+      <p class="moved-note">نقشه نمونه معماری خوشه محتوا در <a href="#cluster-hero">ابتدای همین صفحه</a> آمده است.</p>
     </section>
 
     <!-- Phase 4 -->
