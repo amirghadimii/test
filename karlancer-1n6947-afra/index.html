@@ -321,6 +321,17 @@ footer p{font-size:.94rem}
   .facilities{grid-template-columns:1fr}
   .hero-stats{gap:20px}
 }
+
+/* ===== MOBILE FIX 2026-11-20 (batch 4) ===== */
+section[id],footer[id]{scroll-margin-top:88px}
+@media(max-width:640px){
+  .book-tab{font-size:.78rem;padding:12px 2px;line-height:1.6}
+  .summary-box .row{gap:12px}
+  .summary-box .row b,.summary-box .row .amount{white-space:nowrap}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+  .book-body input,.book-body select,.book-body textarea,.search-bar input,.search-bar select,.contact-form input,.contact-form select,.contact-form textarea{font-size:16px}
+  .mg-thumbs img{width:84px;height:64px}
+}
 </style>
 </head>
 <body>
