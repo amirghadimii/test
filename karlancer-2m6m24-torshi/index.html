@@ -33,13 +33,19 @@ a{color:inherit;text-decoration:none}
 .ic{width:24px;height:24px;flex:none}
 .ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-/* ---------- header ---------- */
+/* ---------- header — topbar + centered masthead ---------- */
 header{position:sticky;top:0;z-index:60;background:rgba(253,248,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.hbar{display:flex;align-items:center;gap:16px;height:68px}
+.topstrip{background:var(--olive-dark);color:#eef1e0;font-size:.8rem;font-weight:500;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:6px 14px;text-align:center}
+.topstrip .sep{opacity:.45}
+.mast{display:flex;justify-content:center;padding:12px 16px 2px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.3rem;color:var(--olive-dark)}
+.mast .logo{font-size:1.45rem}
 .logo .mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--olive),var(--olive-dark));color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px rgba(92,107,53,.3)}
+.mast .logo .mark{width:50px;height:50px;border-radius:16px}
 .logo small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);line-height:1.2}
-nav.mainnav{display:flex;gap:26px;margin-inline-start:18px}
+.navrow{position:relative;display:flex;justify-content:center;align-items:center;min-height:50px;max-width:1140px;margin:0 auto;padding:0 20px}
+.navrow .cartbtn{position:absolute;inset-inline-end:20px}
+nav.mainnav{display:flex;gap:26px}
 nav.mainnav a{font-weight:500;color:var(--ink2);font-size:.98rem;position:relative;padding:4px 0}
 nav.mainnav a:hover{color:var(--rust)}
 .hsp{flex:1}
@@ -109,12 +115,21 @@ section{padding:44px 0}
 .about p{color:var(--ink2);margin-bottom:12px}
 .about .sig{font-weight:800;color:var(--rust)}
 
-/* ---------- footer ---------- */
+/* ---------- footer — info-strip blocks ---------- */
 footer{background:var(--olive-dark);color:#eef1e0;margin-top:20px}
-footer .fin{padding:34px 0 26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
-footer .flogo{font-weight:900;font-size:1.2rem;display:flex;align-items:center;gap:9px}
+footer .fin{padding:36px 0 26px}
+footer .flogo{font-weight:900;font-size:1.2rem;display:flex;align-items:center;gap:9px;justify-content:center}
 footer p{font-size:.88rem;opacity:.85}
+.fblocks{display:grid;grid-template-columns:repeat(3,1fr)}
+.fblock{padding:2px 24px;text-align:center}
+.fblock + .fblock{border-inline-start:1.5px dashed rgba(238,241,224,.35)}
+.fblock h4{font-size:1rem;font-weight:800;margin-bottom:8px;color:#fff}
+.fblock p{line-height:1.9}
 footer .copy{border-top:1px solid rgba(255,255,255,.15);padding:14px 0;text-align:center;font-size:.82rem;opacity:.75}
+@media(max-width:700px){
+  .fblocks{grid-template-columns:1fr;gap:20px}
+  .fblock + .fblock{border-inline-start:none;border-top:1.5px dashed rgba(238,241,224,.35);padding-top:18px}
+}
 
 /* ---------- cart drawer ---------- */
 .overlay{position:fixed;inset:0;background:rgba(46,40,14,.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}
@@ -188,17 +203,23 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding:14px 0;text-alig
 <body>
 
 <header>
-  <div class="wrap hbar">
+  <div class="topstrip">
+    <span>ساعت کاری: شنبه تا پنجشنبه، ۹ صبح تا ۶ عصر</span>
+    <span class="sep">•</span>
+    <span>پرداخت هنگام تحویل</span>
+  </div>
+  <div class="mast">
     <a class="logo" href="#top" aria-label="ترشی‌خانه مادربزرگ">
       <span class="mark"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 3h8M10 3v3.2c0 .5-.2 1-.6 1.4C8.2 8.8 8 9.7 8 11v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8c0-1.3-.2-2.2-1.4-3.4-.4-.4-.6-.9-.6-1.4V3"/><path d="M8 14h8"/></svg></span></span>
       <span>ترشی‌خانه مادربزرگ<small>ترشی خانگی، با دستور قدیمی</small></span>
     </a>
+  </div>
+  <div class="navrow">
     <nav class="mainnav">
       <a href="#products">محصولات</a>
       <a href="#about">درباره ما</a>
       <a href="#how">روش سفارش</a>
     </nav>
-    <div class="hsp"></div>
     <button class="cartbtn" id="cartOpen" aria-label="مشاهده سبد خرید">
       <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h2l2.4 11.2a1.8 1.8 0 0 0 1.8 1.4h7.9a1.8 1.8 0 0 0 1.8-1.4L21.5 8H7"/><circle cx="10.5" cy="20.5" r="1.3"/><circle cx="17.5" cy="20.5" r="1.3"/></svg></span>
       <span class="lbl">سبد خرید</span>
@@ -274,11 +295,23 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding:14px 0;text-alig
 <footer>
   <div class="wrap">
     <div class="fin">
-      <div>
-        <div class="flogo"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 3h8M10 3v3.2c0 .5-.2 1-.6 1.4C8.2 8.8 8 9.7 8 11v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8c0-1.3-.2-2.2-1.4-3.4-.4-.4-.6-.9-.6-1.4V3"/><path d="M8 14h8"/></svg></span>ترشی‌خانه مادربزرگ</div>
-        <p>ترشی و شور خانگی تهران — ساعت کاری: شنبه تا پنجشنبه، ۹ صبح تا ۶ عصر</p>
+      <div class="fblocks">
+        <div class="fblock">
+          <h4>ترشی‌خانه و آدرس</h4>
+          <div class="flogo"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 3h8M10 3v3.2c0 .5-.2 1-.6 1.4C8.2 8.8 8 9.7 8 11v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8c0-1.3-.2-2.2-1.4-3.4-.4-.4-.6-.9-.6-1.4V3"/><path d="M8 14h8"/></svg></span>ترشی‌خانه مادربزرگ</div>
+          <p>ترشی و شور خانگی تهران؛ تهیه تازه، هفته‌به‌هفته و بدون مواد نگهدارنده — با همان دستور قدیمی خانواده.</p>
+        </div>
+        <div class="fblock">
+          <h4>ساعت کاری</h4>
+          <p>شنبه تا پنجشنبه<br>۹ صبح تا ۶ عصر</p>
+          <p>سفارش‌های ثبت‌شده در ساعت کاری، همان روز برای هماهنگی ارسال بررسی می‌شوند.</p>
+        </div>
+        <div class="fblock">
+          <h4>پرداخت و ارسال</h4>
+          <p>پرداخت هنگام تحویل<br>ارسال با پیک در تهران و به سراسر تهران</p>
+          <p>برای هماهنگی ارسال، بعد از ثبت سفارش با شما تماس می‌گیریم.</p>
+        </div>
       </div>
-      <p>پرداخت هنگام تحویل · ارسال با پیک در تهران</p>
     </div>
     <div class="copy">ترشی‌خانه مادربزرگ — طعم اصیل، مثل همیشه.</div>
   </div>
