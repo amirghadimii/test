@@ -25,12 +25,16 @@ button{font-family:inherit;cursor:pointer}
 img{max-width:100%}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:40;background:rgba(247,242,233,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.5px}
+header{position:sticky;top:0;z-index:40;background:rgba(247,242,233,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mast-meta{display:flex;justify-content:space-between;gap:14px;padding-top:9px;font-size:.72rem;color:var(--ink2);font-weight:600}
+.logo{text-align:center;font-weight:900;font-size:1.85rem;letter-spacing:-.5px;line-height:1.5;margin-top:2px}
 .logo span{color:var(--gold)}
-nav{display:flex;gap:26px;font-size:.92rem;color:var(--ink2);font-weight:500}
+.mast-sub{text-align:center;color:var(--gold);font-size:.82rem;font-weight:700;margin-top:-2px}
+.mast-rule{border-top:2.5px solid var(--ink);border-bottom:1px solid var(--ink);height:4px;margin-top:9px}
+.mast-navrow{display:flex;align-items:center;gap:16px;padding:8px 0 10px}
+nav{display:flex;gap:26px;font-size:.9rem;color:var(--ink2);font-weight:500;flex:1;justify-content:center;flex-wrap:wrap}
 nav a:hover{color:var(--ink)}
+.book-sec,.order-sec{scroll-margin-top:172px}
 .cart-btn{background:var(--ink);color:#fff;border:none;border-radius:999px;padding:8px 18px;font-size:.9rem;font-weight:600;display:flex;gap:8px;align-items:center}
 .cart-btn b{background:var(--gold);border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;padding:0 6px}
 
@@ -80,7 +84,7 @@ nav a:hover{color:var(--ink)}
 .book-sec{padding:76px 0;border-top:1px solid var(--line)}
 .book-sec.alt{background:var(--paper2)}
 .book-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
-.book-side{position:sticky;top:96px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.book-side{position:sticky;top:182px;display:flex;flex-direction:column;align-items:center;gap:18px}
 .price-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 22px;text-align:center;box-shadow:var(--shadow);width:100%}
 .price-box .p{font-size:1.5rem;font-weight:900}
 .price-box .p small{font-size:.85rem;font-weight:600;color:var(--ink2)}
@@ -179,7 +183,12 @@ input.fi:focus,textarea.fi:focus{border-color:var(--gold)}
 .modal-nav button:disabled{opacity:.35;cursor:default}
 .modal-nav .pg{color:var(--ink2);font-size:.88rem;font-weight:600}
 
-footer{border-top:1px solid var(--line);padding:30px 0 96px;text-align:center;color:var(--ink2);font-size:.88rem}
+footer{border-top:3px double var(--ink);padding:58px 0 110px;text-align:center;color:var(--ink2)}
+footer .big-brand{font-size:clamp(2.7rem,8.5vw,4.8rem);font-weight:900;color:var(--ink);line-height:1.35;letter-spacing:-1px}
+footer .big-brand span{color:var(--gold)}
+footer .colo-line{margin-top:10px;font-size:.98rem;color:#453c30}
+footer .colo-rule{width:64px;border-top:2px solid var(--gold);margin:22px auto 16px}
+footer .colophon{font-size:.84rem;color:var(--ink2)}
 .toast{position:fixed;top:78px;right:50%;transform:translateX(50%) translateY(-16px);background:var(--teal);color:#fff;padding:11px 24px;border-radius:999px;font-weight:700;font-size:.92rem;z-index:90;opacity:0;pointer-events:none;transition:.3s;box-shadow:var(--shadow)}
 .toast.show{opacity:1;transform:translateX(50%) translateY(0)}
 
@@ -191,6 +200,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 96px;text-align:center;co
   .spec{grid-template-columns:repeat(2,1fr)}
   .reviews{grid-template-columns:1fr}
   nav{display:none}
+  .mast-navrow{justify-content:center}
+  .logo{font-size:1.5rem}
   .book3d{width:150px;height:216px}
   .book3d.sm{width:120px;height:174px}
 }
@@ -202,14 +213,19 @@ footer{border-top:1px solid var(--line);padding:30px 0 96px;text-align:center;co
 
 <header>
   <div class="wrap">
+    <div class="mast-meta"><span>چاپ اول</span><span>فروش مستقیم از ناشر، بدون واسطه</span></div>
     <div class="logo">نشر <span>سه‌کتاب</span></div>
-    <nav>
-      <a href="#book1">شهر خاموش</a>
-      <a href="#book2">نامه‌هایی به هیچ‌کس</a>
-      <a href="#book3">در ستایش سکوت</a>
-      <a href="#order">ثبت سفارش</a>
-    </nav>
-    <button class="cart-btn" onclick="goOrder()">سبد خرید <b id="cartCount">۰</b></button>
+    <div class="mast-sub">ناشر آثار نیما رستگار</div>
+    <div class="mast-rule"></div>
+    <div class="mast-navrow">
+      <nav>
+        <a href="#book1">شهر خاموش</a>
+        <a href="#book2">نامه‌هایی به هیچ‌کس</a>
+        <a href="#book3">در ستایش سکوت</a>
+        <a href="#order">ثبت سفارش</a>
+      </nav>
+      <button class="cart-btn" onclick="goOrder()">سبد خرید <b id="cartCount">۰</b></button>
+    </div>
   </div>
 </header>
 
@@ -343,7 +359,12 @@ footer{border-top:1px solid var(--line);padding:30px 0 96px;text-align:center;co
 </section>
 
 <footer>
-  <div class="wrap">نشر سه‌کتاب — صفحه‌ی رسمی فروش آثار نیما رستگار · این صفحه یک نمونه‌ی نمایشی (دمو) است.</div>
+  <div class="wrap">
+    <div class="big-brand">نشر <span>سه‌کتاب</span></div>
+    <p class="colo-line">صفحه‌ی رسمی فروش آثار نیما رستگار — سه‌گانه‌ی «شهر خاموش»، «نامه‌هایی به هیچ‌کس» و «در ستایش سکوت»</p>
+    <div class="colo-rule"></div>
+    <div class="colophon">چاپ و نشر: نشر سه‌کتاب · این صفحه یک نمونه‌ی نمایشی (دمو) است.</div>
+  </div>
 </footer>
 
 <!-- sticky mini order bar -->
