@@ -266,6 +266,18 @@ footer.site strong{color:var(--ink-2)}
   body{background:#fff}
   .panel,.kpi{box-shadow:none}
 }
+
+/* === DIVERSITY POLISH: editorial chapters + hand-drawn underline + KPI offsets === */
+.chap{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:900;color:var(--muted);letter-spacing:.06em;margin-bottom:6px}
+.chap::after{content:"";width:34px;height:1.5px;background:var(--line);display:inline-block}
+.chap b{font-size:15px;color:var(--ink)}
+.cover-underline{display:block;margin:2px 0 4px;max-width:520px}
+.cover-underline path{stroke:#2fd39a;stroke-width:5;fill:none;stroke-linecap:round;opacity:.9}
+.kpis .kpi:nth-child(1){transform:translateY(0)}
+.kpis .kpi:nth-child(2){transform:translateY(10px)}
+.kpis .kpi:nth-child(3){transform:translateY(-4px)}
+.kpis .kpi:nth-child(4){transform:translateY(6px)}
+@media(max-width:1080px){.kpis .kpi{transform:none}}
 </style>
 </head>
 <body>
@@ -315,6 +327,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="cover">
       <span class="cover-kicker">پیشنهاد اجرایی اپ‌وبینو — سند پاسخ به پروژه کارفرما</span>
       <h1>برنامه اجرایی سئو و بازطراحی رابط کاربری — اپ‌وبینو</h1>
+      <svg class="cover-underline" viewBox="0 0 520 14" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C 70 4, 130 12, 195 8 S 330 5, 395 9 S 480 11, 516 7"/></svg>
       <p class="cover-sub">پاسخ اجرایی اپ‌وبینو به پروژه «انجام سئو حرفه‌ای و طراحی رابط کاربری سایت»: سایت شما آماده است و نیاز به به‌روزرسانی دارد؛ این صفحه نقشه راه کامل ماست — از ممیزی فنی و تحقیق کلمات کلیدی تا بازطراحی مدرن رابط کاربری و برنامه لینک‌سازی — در یک برنامه سه‌هفته‌ای شفاف، مرحله‌به‌مرحله و قابل پیگیری.</p>
       <div class="cover-chips">
         <span class="cover-chip">مدت اجرا: <b>۳ هفته</b></span>
@@ -375,6 +388,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="panel p1" id="sec-1">
       <div class="panel-head">
         <div>
+          <span class="chap">فصل <b>۰۱</b></span>
           <h2><span class="phase-num">۱</span> فاز اول — ممیزی فنی سئو</h2>
           <p class="panel-sub">نقطه شروع: شناخت دقیق وضعیت فعلی سایت شما با ابزارهای حرفه‌ای؛ خروجی این فاز، گزارش ممیزی با اولویت‌بندی اصلاحات است.</p>
         </div>
@@ -396,6 +410,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="panel p2" id="sec-2">
       <div class="panel-head">
         <div>
+          <span class="chap">فصل <b>۰۲</b></span>
           <h2><span class="phase-num">۲</span> فاز دوم — تحقیق کلمات کلیدی و معماری محتوا</h2>
           <p class="panel-sub">مشخص می‌کنیم مشتری شما دقیقاً چه چیزی را جست‌وجو می‌کند و هر جست‌وجو باید به کدام صفحه برسد.</p>
         </div>
@@ -415,6 +430,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="panel p3" id="sec-3">
       <div class="panel-head">
         <div>
+          <span class="chap">فصل <b>۰۳</b></span>
           <h2><span class="phase-num">۳</span> فاز سوم — بازطراحی رابط کاربری (UI/UX)</h2>
           <p class="panel-sub">ظاهر و تجربه سایت به‌روز می‌شود؛ با حفظ کامل ساختار سئو و رتبه‌های فعلی. مسیر حرکت: وایرفریم ← طراحی مدرن ← پیاده‌سازی واکنش‌گرا.</p>
         </div>
@@ -472,6 +488,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="panel p4" id="sec-4">
       <div class="panel-head">
         <div>
+          <span class="chap">فصل <b>۰۴</b></span>
           <h2><span class="phase-num">۴</span> فاز چهارم — سئوی داخلی و لینک‌سازی</h2>
           <p class="panel-sub">بعد از آماده‌شدن زیرساخت و محتوا، صفحات برای رتبه‌گیری دقیق تنظیم و با لینک‌سازی اصولی تقویت می‌شوند.</p>
         </div>
@@ -491,6 +508,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="panel" id="timeline">
       <div class="panel-head">
         <div>
+          <span class="chap">فصل <b>۰۵</b></span>
           <h2>زمان‌بندی اجرا — سه هفته</h2>
           <p class="panel-sub">هر هفته یک خروجی مشخص دارد؛ پایان هر هفته، گزارش کوتاه پیشرفت برای شما ارسال می‌شود.</p>
         </div>
@@ -562,6 +580,7 @@ footer.site strong{color:var(--ink-2)}
     <section class="panel" id="deliver">
       <div class="panel-head">
         <div>
+          <span class="chap">فصل <b>۰۶</b></span>
           <h2>تحویل‌دادنی‌های پروژه</h2>
           <p class="panel-sub">در پایان سه هفته، این خروجی‌ها به‌صورت مکتوب و قابل بررسی تحویل شما می‌شود:</p>
         </div>
