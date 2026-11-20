@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سنگچین | فروشگاه تخصصی محصولات معماری و ساختمان</title>
+<meta name="description" content="دموی فروشگاه اینترنتی محصولات معماری و ساختمان — سنگ و سرامیک، شیرآلات، روشنایی، درب و پنجره، رنگ و پوشش، ابزار و یراق؛ با فروش پروژه‌ای برای معماران و پیمانکاران.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --bg:#f2efe9;
+  --paper:#fbfaf6;
+  --card:#ffffff;
+  --ink:#23201b;
+  --ink-2:#4c473e;
+  --muted:#8a8375;
+  --line:#ddd7c9;
+  --line-2:#e9e4d8;
+  --accent:#b0512c;
+  --accent-dark:#8c3e20;
+  --accent-soft:#f6e8e0;
+  --stone:#6f695c;
+  --dark:#211e19;
+  --ok:#2e7d4f;
+  --radius:4px;
+  --shadow:0 14px 34px rgba(35,32,27,.10);
+  --shadow-lg:0 30px 70px rgba(35,32,27,.28);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{
+  margin:0;font-family:'Vazirmatn',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);
+  font-size:15.5px;line-height:1.85;
+  background-image:linear-gradient(to left, rgba(35,32,27,.028) 1px, transparent 1px);
+  background-size:calc(100%/6) 100%;
+}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:inherit}
+a{color:inherit;text-decoration:none}
+.container{max-width:1300px;margin-inline:auto;padding-inline:22px}
+::selection{background:var(--accent);color:#fff}
+
+/* ---------- نوار بالا ---------- */
+.topbar{background:var(--dark);color:#d9d2c2;font-size:.8rem;padding:7px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.topbar b{color:#f0b79c;font-weight:700}
+
+/* ---------- هدر ---------- */
+header.site{
+  position:sticky;top:0;z-index:70;
+  background:rgba(251,250,246,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-in{display:flex;align-items:center;gap:18px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{width:44px;height:44px;background:var(--dark);display:grid;place-items:center;flex-shrink:0}
+.logo-text{line-height:1.25}
+.logo-text strong{display:block;font-size:1.22rem;font-weight:900;letter-spacing:-.2px}
+.logo-text span{font-size:.72rem;color:var(--muted);font-weight:500}
+.searchbox{
+  flex:1;display:flex;align-items:center;gap:8px;max-width:520px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:4px 6px 4px 14px;transition:border-color .2s, box-shadow .2s;
+}
+.searchbox:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(176,81,44,.10)}
+.searchbox svg{flex-shrink:0;color:var(--muted)}
+.searchbox input{flex:1;border:none;outline:none;background:none;padding:7px 0}
+.searchbox input::placeholder{color:#a89f8d}
+nav.main{display:flex;gap:4px;margin-inline-start:auto}
+nav.main a{
+  padding:8px 13px;font-size:.92rem;font-weight:600;color:var(--ink-2);
+  border-radius:var(--radius);transition:.2s;white-space:nowrap;
+}
+nav.main a:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.cart-btn{
+  position:relative;display:flex;align-items:center;gap:8px;
+  background:var(--dark);color:#f5f1e8;font-weight:700;font-size:.9rem;
+  padding:10px 16px;border-radius:var(--radius);transition:.2s;
+}
+.cart-btn:hover{background:var(--accent-dark)}
+.cart-count{
+  position:absolute;top:-8px;inset-inline-start:-8px;min-width:22px;height:22px;
+  background:var(--accent);color:#fff;border-radius:50%;
+  display:grid;place-items:center;font-size:.74rem;font-weight:800;padding:0 5px;
+  border:2px solid var(--paper);
+}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;place-items:center}
+.mobile-nav{display:none;border-top:1px solid var(--line-2);padding:10px 0 14px}
+.mobile-nav.open{display:block}
+.mobile-nav a{display:block;padding:9px 4px;font-weight:600;color:var(--ink-2);border-bottom:1px dashed var(--line-2)}
+.mobile-nav a:last-child{border-bottom:none}
+
+/* ---------- هیرو ---------- */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--dark)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to left, rgba(24,21,17,.88) 22%, rgba(24,21,17,.45) 58%, rgba(24,21,17,.12))}
+.hero-in{position:relative;z-index:2;padding:86px 0 74px;max-width:640px}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:9px;font-size:.82rem;font-weight:700;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);
+  padding:5px 13px;border-radius:99px;backdrop-filter:blur(4px);
+}
+.hero .kicker i{width:7px;height:7px;background:#e88a5c;border-radius:50%;display:block}
+.hero h1{font-size:2.65rem;font-weight:900;line-height:1.35;margin:20px 0 12px;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:#f0a37e}
+.hero p{color:#e6e0d0;font-size:1.02rem;margin:0 0 26px;max-width:520px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.95rem;
+  padding:12px 24px;border-radius:var(--radius);transition:.2s;border:1px solid transparent;
+}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-dark)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.btn-dark{background:var(--dark);color:#f5f1e8}
+.btn-dark:hover{background:var(--accent-dark);color:#fff}
+.hero-stats{
+  position:relative;z-index:2;display:flex;gap:0;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.22);
+}
+.hero-stats div{padding:16px 26px 20px;border-inline-start:1px solid rgba(255,255,255,.16)}
+.hero-stats div:first-child{border-inline-start:none;padding-inline-start:0}
+.hero-stats b{display:block;font-size:1.3rem;font-weight:900;color:#fff;line-height:1.4}
+.hero-stats span{font-size:.8rem;color:#cfc8b6}
+
+/* ---------- تیتر بخش ---------- */
+section.block{padding:72px 0 8px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:30px;flex-wrap:wrap}
+.sec-title{display:flex;gap:16px;align-items:flex-start}
+.sec-num{
+  font-size:.85rem;font-weight:900;color:var(--accent);
+  border:1px solid var(--accent);padding:2px 10px;border-radius:99px;white-space:nowrap;margin-top:8px;
+  background:var(--paper);
+}
+.sec-title h2{font-size:1.72rem;font-weight:900;margin:0;line-height:1.4;letter-spacing:-.3px}
+.sec-title p{margin:4px 0 0;color:var(--muted);font-size:.94rem}
+.sec-link{font-weight:800;color:var(--accent-dark);font-size:.92rem;display:inline-flex;gap:6px;align-items:center}
+.sec-link:hover{gap:10px}
+.sec-link{transition:gap .2s}
+
+/* ---------- دسته‌بندی ---------- */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cat{
+  position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;text-align:right;transition:.25s;padding:0;
+}
+.cat:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cbb99f}
+.cat .ph{height:118px;overflow:hidden}
+.cat .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat:hover .ph img{transform:scale(1.07)}
+.cat .tx{padding:12px 14px 14px}
+.cat .tx b{display:block;font-size:.98rem;font-weight:800;line-height:1.5}
+.cat .tx span{font-size:.78rem;color:var(--muted)}
+
+/* ---------- فیلتر و محصولات ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.chip{
+  padding:8px 18px;border:1px solid var(--line);background:var(--paper);
+  border-radius:99px;font-weight:700;font-size:.88rem;color:var(--ink-2);transition:.2s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent-dark)}
+.chip.active{background:var(--dark);color:#f5f1e8;border-color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pcard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative;
+}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cbb99f}
+.pcard .ph{position:relative;height:205px;overflow:hidden;cursor:pointer}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pcard:hover .ph img{transform:scale(1.06)}
+.badge-off{
+  position:absolute;top:10px;inset-inline-start:10px;background:var(--accent);color:#fff;
+  font-size:.76rem;font-weight:800;padding:2px 9px;border-radius:3px;z-index:2;
+}
+.badge-unit{
+  position:absolute;bottom:10px;inset-inline-end:10px;background:rgba(24,21,17,.82);color:#f0ead9;
+  font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:3px;z-index:2;
+}
+.pcard .body{padding:15px 16px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
+.pcard .cat-name{font-size:.74rem;color:var(--accent);font-weight:800}
+.pcard h3{margin:0;font-size:1rem;font-weight:800;line-height:1.6;cursor:pointer}
+.pcard h3:hover{color:var(--accent-dark)}
+.pcard .spec{font-size:.8rem;color:var(--muted);line-height:1.7}
+.pcard .foot{margin-top:auto;padding-top:9px;border-top:1px dashed var(--line-2)}
+.price-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price{font-size:1.13rem;font-weight:900}
+.price small{font-size:.74rem;font-weight:600;color:var(--muted)}
+.old-price{font-size:.84rem;color:#b3ab99;text-decoration:line-through}
+.pcard .actions{display:flex;gap:8px;margin-top:11px}
+.add-btn{
+  flex:1;background:var(--dark);color:#f5f1e8;font-weight:800;font-size:.88rem;
+  padding:10px 8px;border-radius:var(--radius);transition:.2s;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+}
+.add-btn:hover{background:var(--accent)}
+.add-btn.added{background:var(--ok)}
+.qv-btn{
+  border:1px solid var(--line);background:#fff;padding:10px 13px;border-radius:var(--radius);
+  font-weight:700;font-size:.86rem;color:var(--ink-2);transition:.2s;
+}
+.qv-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.empty-msg{grid-column:1/-1;text-align:center;color:var(--muted);padding:44px 0;font-weight:600}
+
+/* ---------- نوار برندها ---------- */
+.brands{
+  margin-top:64px;border-block:1px solid var(--line);background:var(--paper);
+  padding:20px 0;
+}
+.brands .container{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between}
+.brands span{font-weight:900;color:#a39a86;font-size:1.02rem;letter-spacing:.2px;white-space:nowrap}
+.brands span:hover{color:var(--ink)}
+.brands .lbl{font-size:.8rem;color:var(--muted);font-weight:700}
+
+/* ---------- پروژه‌ها ---------- */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.proj{
+  position:relative;border-radius:var(--radius);overflow:hidden;min-height:295px;
+  display:flex;align-items:flex-end;color:#fff;background:var(--dark);
+}
+.proj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.proj:hover img{transform:scale(1.05)}
+.proj::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(22,19,15,.9) 8%, rgba(22,19,15,.25) 55%, transparent)}
+.proj .tx{position:relative;z-index:2;padding:22px 24px;width:100%}
+.proj .tx .kind{font-size:.76rem;font-weight:800;color:#f0a37e}
+.proj .tx h3{margin:3px 0 6px;font-size:1.28rem;font-weight:900}
+.proj .tx p{margin:0;font-size:.85rem;color:#ddd6c4}
+.proj .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.proj .tags i{
+  font-style:normal;font-size:.72rem;font-weight:700;background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);padding:2px 10px;border-radius:99px;backdrop-filter:blur(3px);
+}
+
+/* ---------- استعلام پروژه‌ای ---------- */
+.quote-wrap{
+  display:grid;grid-template-columns:1fr 1.25fr;gap:0;border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;background:var(--card);
+}
+.quote-side{position:relative;min-height:420px;color:#fff}
+.quote-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.quote-side::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(22,19,15,.92) 20%, rgba(22,19,15,.35))}
+.quote-side .tx{position:absolute;z-index:2;bottom:0;padding:28px}
+.quote-side h3{margin:0 0 8px;font-size:1.35rem;font-weight:900}
+.quote-side p{margin:0;color:#e0d9c6;font-size:.9rem}
+.quote-side ul{margin:16px 0 0;padding:0;list-style:none}
+.quote-side li{display:flex;gap:9px;align-items:flex-start;font-size:.88rem;color:#efe9da;padding:4px 0}
+.quote-side li svg{flex-shrink:0;margin-top:5px;color:#f0a37e}
+.quote-form{padding:30px 32px}
+.quote-form h3{margin:0 0 4px;font-size:1.22rem;font-weight:900}
+.quote-form>p{margin:0 0 20px;color:var(--muted);font-size:.9rem}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.f-field{display:flex;flex-direction:column;gap:5px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:.83rem;font-weight:700;color:var(--ink-2)}
+.f-field input,.f-field select,.f-field textarea{
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);
+  padding:10px 13px;outline:none;transition:.2s;width:100%;
+}
+.f-field textarea{resize:vertical;min-height:86px}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(176,81,44,.10);background:#fff}
+.f-field.err input,.f-field.err select,.f-field.err textarea{border-color:#c0392b;box-shadow:0 0 0 4px rgba(192,57,43,.08)}
+.f-err{font-size:.74rem;color:#c0392b;font-weight:600;display:none}
+.f-field.err .f-err{display:block}
+.form-ok{
+  display:none;background:#eef7f1;border:1px solid #bfe3cf;color:#1e5c38;
+  border-radius:var(--radius);padding:16px 18px;font-size:.92rem;font-weight:600;margin-top:16px;
+}
+.form-ok.show{display:block}
+.form-ok b{font-weight:900}
+
+/* ---------- خدمات ---------- */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:64px}
+.svc{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;
+}
+.svc .ic{
+  width:46px;height:46px;background:var(--accent-soft);color:var(--accent-dark);
+  display:grid;place-items:center;border-radius:var(--radius);margin-bottom:13px;
+}
+.svc b{display:block;font-size:.99rem;font-weight:800;margin-bottom:4px}
+.svc p{margin:0;font-size:.84rem;color:var(--muted)}
+
+/* ---------- پرسش‌ها ---------- */
+.faq{max-width:820px}
+.faq-item{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);margin-bottom:10px;overflow:hidden}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:16px 20px;font-weight:800;font-size:.96rem;text-align:right;
+}
+.faq-q svg{flex-shrink:0;color:var(--accent);transition:transform .3s}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{margin:0;padding:0 20px 18px;color:var(--ink-2);font-size:.9rem}
+
+/* ---------- فوتر ---------- */
+footer.site{background:var(--dark);color:#cfc8b6;margin-top:84px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;padding:52px 0 38px}
+footer.site h4{color:#fff;font-size:1.02rem;font-weight:900;margin:0 0 14px}
+footer.site p{font-size:.88rem;margin:0;max-width:400px}
+footer.site ul{list-style:none;margin:0;padding:0}
+footer.site li{padding:4px 0;font-size:.88rem}
+footer.site li a:hover{color:#f0a37e}
+.foot-logo{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.foot-logo .logo-mark{background:#f5f1e8}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.13);padding:17px 0;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.8rem;color:#9a927e;
+}
+.foot-bottom b{color:#e8e1cf}
+
+/* ---------- سبد خرید ---------- */
+.overlay{
+  position:fixed;inset:0;background:rgba(24,21,17,.55);z-index:90;
+  opacity:0;pointer-events:none;transition:.3s;backdrop-filter:blur(2px);
+}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;bottom:0;inset-inline-start:0;width:min(410px,92vw);background:var(--paper);
+  z-index:95;transform:translateX(-110%);transition:transform .35s cubic-bezier(.3,.8,.3,1);
+  display:flex;flex-direction:column;box-shadow:var(--shadow-lg);
+}
+html[dir="rtl"] .drawer{transform:translateX(110%)}
+.drawer.open{transform:translateX(0)!important}
+.drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 20px;border-bottom:1px solid var(--line);
+}
+.drawer-head b{font-size:1.05rem;font-weight:900}
+.x-btn{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.x-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.drawer-items{flex:1;overflow-y:auto;padding:14px 18px}
+.cart-empty{text-align:center;color:var(--muted);padding:52px 10px;font-weight:600}
+.cart-empty svg{margin:0 auto 12px;color:#c9c0ab}
+.citem{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line-2)}
+.citem img{width:74px;height:74px;object-fit:cover;border-radius:var(--radius);flex-shrink:0}
+.citem .inf{flex:1}
+.citem .inf b{display:block;font-size:.88rem;font-weight:800;line-height:1.6}
+.citem .inf span{font-size:.76rem;color:var(--muted)}
+.citem .row{display:flex;align-items:center;justify-content:space-between;margin-top:7px}
+.qty{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:99px;padding:2px}
+.qty button{width:26px;height:26px;display:grid;place-items:center;font-weight:900;border-radius:50%}
+.qty button:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.qty b{min-width:26px;text-align:center;font-size:.88rem}
+.citem .amt{font-weight:900;font-size:.9rem}
+.rm-btn{color:#b0492f;font-size:.76rem;font-weight:700;margin-top:3px}
+.rm-btn:hover{text-decoration:underline}
+.drawer-foot{border-top:1px solid var(--line);padding:17px 20px;background:#fff}
+.trow{display:flex;justify-content:space-between;font-size:.9rem;color:var(--ink-2);padding:3px 0}
+.trow.total{font-size:1.05rem;font-weight:900;color:var(--ink);border-top:1px dashed var(--line-2);margin-top:8px;padding-top:11px}
+.drawer-foot .btn{width:100%;justify-content:center;margin-top:13px}
+.ship-note{font-size:.76rem;color:var(--muted);text-align:center;margin-top:9px}
+.order-ok{display:none;text-align:center;padding:20px 6px 4px}
+.order-ok.show{display:block}
+.order-ok .ok-ic{
+  width:60px;height:60px;margin:0 auto 12px;background:#eef7f1;color:var(--ok);
+  border-radius:50%;display:grid;place-items:center;
+}
+.order-ok b{font-size:1.05rem;font-weight:900;display:block}
+.order-ok p{color:var(--muted);font-size:.87rem;margin:6px 0 0}
+
+/* ---------- مشاهده سریع ---------- */
+.modal{
+  position:fixed;inset:0;z-index:96;display:none;place-items:center;padding:18px;
+}
+.modal.show{display:grid}
+.modal-box{
+  background:var(--paper);border-radius:6px;max-width:860px;width:100%;max-height:92vh;overflow-y:auto;
+  box-shadow:var(--shadow-lg);position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;animation:pop .3s cubic-bezier(.3,.9,.3,1);
+}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.modal-box .ph{min-height:340px}
+.modal-box .ph img{width:100%;height:100%;object-fit:cover}
+.modal-box .inf{padding:28px 28px 30px}
+.modal-box .inf .cat-name{font-size:.76rem;color:var(--accent);font-weight:800}
+.modal-box .inf h3{margin:4px 0 10px;font-size:1.35rem;font-weight:900;line-height:1.55}
+.spec-table{width:100%;border-collapse:collapse;font-size:.87rem;margin:14px 0}
+.spec-table td{padding:7px 4px;border-bottom:1px dashed var(--line-2)}
+.spec-table td:first-child{color:var(--muted);font-weight:600;width:38%}
+.spec-table td:last-child{font-weight:700}
+.modal-box .x-btn{position:absolute;top:12px;inset-inline-end:12px;z-index:3;background:#fff}
+.qty-row{display:flex;align-items:center;gap:14px;margin:16px 0}
+.qty-row .lbl{font-size:.86rem;font-weight:700;color:var(--ink-2)}
+
+/* ---------- پیام شناور ---------- */
+.toast{
+  position:fixed;bottom:24px;inset-inline-start:50%;transform:translate(50%,80px);
+  background:var(--dark);color:#f5f1e8;font-weight:700;font-size:.9rem;
+  padding:12px 22px;border-radius:99px;z-index:120;transition:transform .4s cubic-bezier(.3,.9,.3,1);
+  box-shadow:var(--shadow-lg);display:flex;gap:9px;align-items:center;max-width:92vw;
+}
+.toast.show{transform:translate(50%,0)}
+.toast svg{color:#8fd0a8;flex-shrink:0}
+
+/* ---------- واکنش‌گرا ---------- */
+@media (max-width:1080px){
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .services{grid-template-columns:repeat(2,1fr)}
+  nav.main{display:none}
+  .burger{display:grid}
+  .searchbox{max-width:none}
+}
+@media (max-width:820px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .projects{grid-template-columns:1fr}
+  .quote-wrap{grid-template-columns:1fr}
+  .quote-side{min-height:300px}
+  .modal-box{grid-template-columns:1fr}
+  .modal-box .ph{min-height:250px;max-height:280px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-in{padding:58px 0 52px}
+  .hero h1{font-size:2rem}
+  section.block{padding-top:54px}
+}
+@media (max-width:520px){
+  body{font-size:15px}
+  .container{padding-inline:15px}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .header-in{gap:10px;flex-wrap:wrap}
+  .searchbox{order:3;flex-basis:100%}
+  .cart-btn .txt{display:none}
+  .cart-btn{padding:10px 12px}
+  .hero h1{font-size:1.66rem}
+  .hero-stats div{padding:13px 16px 16px}
+  .sec-title h2{font-size:1.4rem}
+  .quote-form{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- نوار بالا -->
+<div class="topbar">
+  <div class="container">
+    <span>ارسال به سراسر کشور — <b>فروش پروژه‌ای</b> ویژه معماران، سازندگان و پیمانکاران</span>
+    <span>ضمانت اصالت کالا و قیمت روز بازار</span>
+  </div>
+</div>
+
+<!-- هدر -->
+<header class="site">
+  <div class="container">
+    <div class="header-in">
+      <a class="logo" href="#">
+        <span class="logo-mark" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 20V9.5L12 4l8 5.5V20" stroke="#f5f1e8" stroke-width="1.8"/><path d="M4 20h16M9.5 20v-5.5h5V20" stroke="#e88a5c" stroke-width="1.8"/></svg>
+        </span>
+        <span class="logo-text"><strong>سنگچین</strong><span>محصولات معماری و ساختمان</span></span>
+      </a>
+      <div class="searchbox">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+        <input id="searchInput" type="text" placeholder="جستجوی محصول، برند یا متریال… (مثلاً تراورتن)">
+      </div>
+      <nav class="main">
+        <a href="#cats">دسته‌بندی‌ها</a>
+        <a href="#products">محصولات</a>
+        <a href="#projects">پروژه‌ها</a>
+        <a href="#quote">استعلام پروژه</a>
+        <a href="#faq">پرسش‌ها</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" id="openCart" aria-label="سبد خرید">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4h2.5l2.2 11h10.6l2-8H7"/><circle cx="10" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg>
+          <span class="txt">سبد خرید</span>
+          <span class="cart-count" id="cartCount">۰</span>
+        </button>
+        <button class="burger" id="burger" aria-label="منو">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#cats">دسته‌بندی‌ها</a>
+      <a href="#products">محصولات</a>
+      <a href="#projects">پروژه‌های اجراشده</a>
+      <a href="#quote">استعلام پروژه‌ای</a>
+      <a href="#faq">پرسش‌های پرتکرار</a>
+    </nav>
+  </div>
+</header>
+
+<!-- هیرو -->
+<section class="hero">
+  <img class="bg" src="assets/img/hero.jpg" alt="نمای مدرن ساختمان با پوشش سنگ و شیشه">
+  <div class="container">
+    <div class="hero-in">
+      <span class="kicker"><i></i> فروشگاه تخصصی متریال معماری</span>
+      <h1>متریالِ پروژه‌های ماندگار،<br>از <em>اسلب سنگ</em> تا آخرین یراق</h1>
+      <p>سنگچین مرجع تأمین محصولات معماری و ساختمان است؛ خرید خرده برای بازسازی خانه یا تأمین یکجای کل متریال یک پروژه — با مشخصات فنی شفاف، قیمت روز و ارسال زمان‌بندی‌شده به کارگاه.</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent" href="#products">مشاهده محصولات</a>
+        <a class="btn btn-ghost" href="#quote">ثبت استعلام پروژه‌ای</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div><b>+۲٬۴۰۰</b><span>قلم محصول تخصصی</span></div>
+      <div><b>+۳۵۰</b><span>پروژه تأمین‌شده</span></div>
+      <div><b>+۴۰</b><span>برند معتبر داخلی و خارجی</span></div>
+      <div><b>۲۴ ساعته</b><span>پاسخ به استعلام پروژه</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- دسته‌بندی‌ها -->
+<section class="block" id="cats">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num">۰۱</span>
+        <div>
+          <h2>دسته‌بندی‌های تخصصی</h2>
+          <p>شش گروه اصلی متریال و تجهیزات ساختمان؛ هر گروه با برندهای منتخب و مشخصات فنی کامل.</p>
+        </div>
+      </div>
+      <a class="sec-link" href="#products">همه محصولات
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+    </div>
+    <div class="cats" id="catGrid"></div>
+  </div>
+</section>
+
+<!-- محصولات -->
+<section class="block" id="products">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num">۰۲</span>
+        <div>
+          <h2>محصولات منتخب</h2>
+          <p>قیمت‌ها به تومان و به‌روز است؛ برای خرید متراژی و پروژه‌ای، استعلام بگیرید تا قیمت همکاری اعمال شود.</p>
+        </div>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- برندها -->
+<div class="brands">
+  <div class="container">
+    <span class="lbl">برندهای موجود در فروشگاه:</span>
+    <span>کاشی سینا</span><span>پارس سرامیک</span><span>شودر</span><span>راسان</span><span>KWC</span><span>ساروج شیمی</span><span>رونیکس</span><span>آروا</span>
+  </div>
+</div>
+
+<!-- پروژه‌ها -->
+<section class="block" id="projects">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num">۰۳</span>
+        <div>
+          <h2>پروژه‌های اجراشده با متریال سنگچین</h2>
+          <p>از اسلب لابی هتل تا سنگ نمای ویلا؛ تأمین یکجا یعنی تحویل سرِ وقت و بدون کسری.</p>
+        </div>
+      </div>
+      <a class="sec-link" href="#quote">پروژه شما، پروژه بعدی
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+    </div>
+    <div class="projects">
+      <article class="proj">
+        <img src="assets/img/proj-hotel.jpg" alt="لابی هتل با ستون‌ها و کف سنگ مرمر" loading="lazy">
+        <div class="tx">
+          <span class="kind">هتل و اقامتی — تهران</span>
+          <h3>لابی هتل پنج‌ستاره «آفتاب»</h3>
+          <p>تأمین اسلب مرمر ستون‌ها و کف لابی به متراژ ۱٬۸۰۰ مترمربع، برش CNC و تحویل مرحله‌ای.</p>
+          <div class="tags"><i>اسلب مرمر</i><i>سنگ ستون</i><i>کف‌سازی</i></div>
+        </div>
+      </article>
+      <article class="proj">
+        <img src="assets/img/proj-villa.jpg" alt="ویلای مدرن با نمای سنگ روشن" loading="lazy">
+        <div class="tx">
+          <span class="kind">مسکونی — مهرشهر، کرج</span>
+          <h3>ویلای مدرن «باغ‌سار»</h3>
+          <p>نمای تراورتن کرم، سنگ پله و کف حیاط؛ تأمین کامل متریال نما در سه مرحله هماهنگ با پیشرفت کار.</p>
+          <div class="tags"><i>تراورتن نما</i><i>سنگ پله</i><i>محوطه‌سازی</i></div>
+        </div>
+      </article>
+      <article class="proj">
+        <img src="assets/img/proj-office.jpg" alt="دفتر کار مدرن با پنجره‌های بزرگ" loading="lazy">
+        <div class="tx">
+          <span class="kind">اداری — سعادت‌آباد، تهران</span>
+          <h3>دفتر مرکزی یک هلدینگ بازرگانی</h3>
+          <p>روشنایی خطی و آویز، پارتیشن و پنجره‌های قدی آلومینیومی برای ۱٬۲۰۰ مترمربع فضای اداری.</p>
+          <div class="tags"><i>روشنایی</i><i>پنجره قدی</i><i>یراق‌آلات</i></div>
+        </div>
+      </article>
+      <article class="proj">
+        <img src="assets/img/proj-restaurant.jpg" alt="رستوران مدرن با سقف بلند و گیاهان آویز" loading="lazy">
+        <div class="tx">
+          <span class="kind">تجاری — فرمانیه، تهران</span>
+          <h3>رستوران «سبزینه»</h3>
+          <p>کاشی دکوراتیو کانتر، چراغ‌های آویز سفارشی و شیرآلات صنعتی آشپزخانه؛ تحویل پیش از افتتاحیه.</p>
+          <div class="tags"><i>کاشی دکوراتیو</i><i>چراغ آویز</i><i>شیرآلات</i></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- استعلام پروژه‌ای -->
+<section class="block" id="quote">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num">۰۴</span>
+        <div>
+          <h2>استعلام قیمت پروژه‌ای (B2B)</h2>
+          <p>برای سازندگان، معماران و پیمانکاران؛ لیست متریال پروژه را بفرستید، پیش‌فاکتور رسمی بگیرید.</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-wrap">
+      <div class="quote-side">
+        <img src="assets/img/quote-stone.jpg" alt="بافت سنگ مرمر خاکستری با رگه‌های سفید" loading="lazy">
+        <div class="tx">
+          <h3>چرا خرید پروژه‌ای از سنگچین؟</h3>
+          <p>خرید متراژی و عمده، منطق قیمت خودش را دارد؛ ما آن را شفاف و مکتوب می‌کنیم.</p>
+          <ul>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg> قیمت همکاری و تخفیف پلکانی بر اساس متراژ</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg> رزرو موجودی انبار تا پایان پروژه</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg> ارسال مرحله‌ای و زمان‌بندی‌شده به آدرس کارگاه</li>
+            <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg> کارشناس اختصاصی پروژه از استعلام تا تحویل</li>
+          </ul>
+        </div>
+      </div>
+      <form class="quote-form" id="quoteForm" novalidate>
+        <h3>فرم درخواست استعلام</h3>
+        <p>معمولاً ظرف ۲۴ ساعت کاری، پیش‌فاکتور و زمان تحویل را دریافت می‌کنید.</p>
+        <div class="f-grid">
+          <div class="f-field">
+            <label for="qName">نام و نام خانوادگی *</label>
+            <input id="qName" type="text" placeholder="مثلاً علی رضایی">
+            <span class="f-err">نام را وارد کنید.</span>
+          </div>
+          <div class="f-field">
+            <label for="qPhone">شماره موبایل *</label>
+            <input id="qPhone" type="tel" inputmode="tel" placeholder="۰۹۱۲ ـــ ـــ ــ ــ">
+            <span class="f-err">شماره موبایل معتبر وارد کنید (مثل 09123456789).</span>
+          </div>
+          <div class="f-field">
+            <label for="qType">نوع پروژه *</label>
+            <select id="qType">
+              <option value="">انتخاب کنید…</option>
+              <option>مسکونی — آپارتمان / برج</option>
+              <option>مسکونی — ویلا</option>
+              <option>تجاری — فروشگاه / رستوران</option>
+              <option>اداری</option>
+              <option>هتل و اقامتی</option>
+              <option>بازسازی</option>
+            </select>
+            <span class="f-err">نوع پروژه را انتخاب کنید.</span>
+          </div>
+          <div class="f-field">
+            <label for="qArea">متراژ تقریبی پروژه (مترمربع)</label>
+            <input id="qArea" type="text" inputmode="numeric" placeholder="مثلاً ۸۵۰">
+            <span class="f-err">متراژ را به عدد وارد کنید.</span>
+          </div>
+          <div class="f-field full">
+            <label for="qDesc">شرح نیاز و لیست متریال *</label>
+            <textarea id="qDesc" placeholder="مثلاً: ۴۰۰ متر سنگ تراورتن کرم برای نما، ۱۲۰ متر اسلب مرمر لابی، ۴۰ دست شیرآلات…"></textarea>
+            <span class="f-err">شرح نیاز را بنویسید (حداقل چند کلمه).</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-accent" style="margin-top:18px;width:100%;justify-content:center">ثبت درخواست استعلام</button>
+        <div class="form-ok" id="quoteOk"></div>
+      </form>
+    </div>
+
+    <!-- خدمات -->
+    <div class="services">
+      <div class="svc">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l2.5 5.3 5.5.7-4 4 1 5.7-5-2.7-5 2.7 1-5.7-4-4 5.5-.7z"/></svg></span>
+        <b>مشاوره انتخاب متریال</b>
+        <p>کارشناسان ما کنار نقشه و رندر شما می‌نشینند و برای هر فضا، متریال درست را پیشنهاد می‌دهند.</p>
+      </div>
+      <div class="svc">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M8 5v14"/></svg></span>
+        <b>برش و فرآوری سنگ</b>
+        <p>برش اسلب و سنگ با CNC و واترجت در ابعاد سفارشی پروژه، با بسته‌بندی ایمن برای حمل.</p>
+      </div>
+      <div class="svc">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h11v9H3zM14 11h4l3 3v3h-7z"/><circle cx="7" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg></span>
+        <b>ارسال پروژه‌ای زمان‌بندی‌شده</b>
+        <p>تحویل مرحله‌ای دقیقاً طبق برنامه اجرای کارگاه؛ نه زودتر که انبار شوید، نه دیرتر که کار بخوابد.</p>
+      </div>
+      <div class="svc">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l7 3v6c0 4.5-3 7.4-7 9-4-1.6-7-4.5-7-9V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span>
+        <b>ضمانت اصالت و مرجوعی</b>
+        <p>همه کالاها با فاکتور رسمی و گارانتی شرکتی؛ کالای آسیب‌دیده در حمل، بدون قید و شرط تعویض می‌شود.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- پرسش‌ها -->
+<section class="block" id="faq">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num">۰۵</span>
+        <div>
+          <h2>پرسش‌های پرتکرار</h2>
+          <p>پاسخ کوتاه به سؤال‌هایی که بیشتر از ما پرسیده می‌شود.</p>
+        </div>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">حداقل مقدار خرید پروژه‌ای چقدر است؟
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>برای سنگ و سرامیک از ۵۰ مترمربع و برای سایر گروه‌ها از ۳۰ میلیون تومان خرید، قیمت همکاری پروژه‌ای اعمال می‌شود. برای مقادیر کمتر هم می‌توانید از همان فرم استعلام استفاده کنید تا بهترین قیمت روز را بفرستیم.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">نمونه متریال قبل از خرید عمده ارسال می‌شود؟
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>بله؛ برای سنگ، سرامیک و کاشی، سمپل برش‌خورده به آدرس دفتر یا کارگاه شما ارسال می‌شود تا رنگ و بافت را از نزدیک و زیر نور واقعی پروژه ببینید و بعد تصمیم بگیرید.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">زمان تحویل سفارش‌ها چقدر است؟
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>کالاهای موجود در انبار تهران ۲۴ تا ۴۸ ساعته تحویل می‌شوند. سفارش‌های پروژه‌ای طبق برنامه‌ای که در پیش‌فاکتور توافق می‌شود، مرحله‌ای ارسال می‌شوند و موجودی شما تا پایان پروژه رزرو می‌ماند.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">آیا امکان بازدید از شوروم و انبار وجود دارد؟
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>بله؛ اسلب‌ها و سنگ‌های نما را می‌توانید به‌صورت کامل (نه فقط سمپل) در انبار ببینید و همان بچ تولیدی پروژه‌تان را انتخاب و رزرو کنید. هماهنگی بازدید از طریق کارشناس پروژه انجام می‌شود.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- فوتر -->
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 20V9.5L12 4l8 5.5V20" stroke="#23201b" stroke-width="1.8"/><path d="M4 20h16M9.5 20v-5.5h5V20" stroke="#b0512c" stroke-width="1.8"/></svg>
+          </span>
+          <strong style="color:#fff;font-size:1.15rem;font-weight:900">سنگچین</strong>
+        </div>
+        <p>فروشگاه تخصصی محصولات معماری و ساختمان؛ از خرید یک شیر روشویی تا تأمین یکجای متریال یک برج. این صفحه یک دموی پیشنهادی است و فروشگاه واقعی پس از عقد قرارداد، با دامنه و برند خودتان راه‌اندازی می‌شود.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#cats">دسته‌بندی‌ها</a></li>
+          <li><a href="#products">محصولات منتخب</a></li>
+          <li><a href="#projects">پروژه‌های اجراشده</a></li>
+          <li><a href="#quote">استعلام پروژه‌ای</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>راهنمای خرید</h4>
+        <ul>
+          <li><a href="#faq">پرسش‌های پرتکرار</a></li>
+          <li><a href="#quote">خرید متراژی و عمده</a></li>
+          <li><a href="#products">قیمت روز محصولات</a></li>
+          <li><a href="#projects">نمونه پروژه‌های تأمین‌شده</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© ۱۴۰۴ سنگچین — فروشگاه محصولات معماری و ساختمان</span>
+      <span><b>دموی پیشنهادی اپ‌وبینو</b> — طراحی اختصاصی، بدون قالب آماده</span>
+    </div>
+  </div>
+</footer>
+
+<!-- سبد خرید -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="سبد خرید">
+  <div class="drawer-head">
+    <b>سبد خرید شما</b>
+    <button class="x-btn" id="closeCart" aria-label="بستن">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="trow"><span>جمع اقلام</span><span id="subTotal">۰ تومان</span></div>
+    <div class="trow"><span>هزینه ارسال</span><span id="shipCost">—</span></div>
+    <div class="trow total"><span>مبلغ قابل پرداخت</span><span id="grandTotal">۰ تومان</span></div>
+    <button class="btn btn-accent" id="checkoutBtn">ثبت سفارش و ادامه</button>
+    <div class="ship-note">ارسال کالای سبک با پیک و باربری؛ سنگ و اسلب با حمل تخصصی و بیمه بار.</div>
+    <div class="order-ok" id="orderOk">
+      <span class="ok-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+      <b>سفارش شما ثبت شد</b>
+      <p id="orderOkTxt"></p>
+    </div>
+  </div>
+</aside>
+
+<!-- مشاهده سریع -->
+<div class="modal" id="qvModal" role="dialog" aria-modal="true">
+  <div class="overlay show" id="qvOverlay" style="position:absolute;z-index:1"></div>
+  <div class="modal-box">
+    <button class="x-btn" id="closeQv" aria-label="بستن">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="ph"><img id="qvImg" src="" alt=""></div>
+    <div class="inf">
+      <span class="cat-name" id="qvCat"></span>
+      <h3 id="qvName"></h3>
+      <div class="price-row">
+        <span class="price" id="qvPrice"></span>
+        <span class="old-price" id="qvOld"></span>
+      </div>
+      <table class="spec-table"><tbody id="qvSpecs"></tbody></table>
+      <div class="qty-row">
+        <span class="lbl">تعداد / مقدار:</span>
+        <span class="qty">
+          <button id="qvMinus" aria-label="کم کردن">−</button>
+          <b id="qvQty">۱</b>
+          <button id="qvPlus" aria-label="زیاد کردن">+</button>
+        </span>
+        <span style="font-size:.8rem;color:var(--muted)" id="qvUnit"></span>
+      </div>
+      <button class="btn btn-accent" id="qvAdd" style="width:100%;justify-content:center">افزودن به سبد خرید</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12.5l5 5L20 6.5"/></svg>
+  <span id="toastTxt"></span>
+</div>
+
+<script>
+'use strict';
+const FA = n => Number(n).toLocaleString('fa-IR');
+const faNum = s => String(s).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+
+const CATS = [
+  {id:'stone',   name:'سنگ و سرامیک',        img:'assets/img/cat-stone.jpg',   note:'اسلب، تراورتن، کاشی و سرامیک'},
+  {id:'sanitary',name:'شیرآلات و لوازم بهداشتی', img:'assets/img/cat-sanitary.jpg', note:'شیرآلات، وان، روشویی و اکسسوری'},
+  {id:'light',   name:'روشنایی',              img:'assets/img/cat-light.jpg',   note:'آویز، سقفی، دیواری و نور خطی'},
+  {id:'door',    name:'درب و پنجره',          img:'assets/img/cat-door.jpg',    note:'درب داخلی، پنجره و پروفیل'},
+  {id:'paint',   name:'رنگ و پوشش',           img:'assets/img/cat-paint.jpg',   note:'رنگ نما و داخلی، آجر و پوشش دکوراتیو'},
+  {id:'tools',   name:'ابزار و یراق',          img:'assets/img/cat-tools.jpg',   note:'ابزار برقی و دستی، دستگیره و یراق'}
+];
+const catName = id => (CATS.find(c => c.id === id) || {}).name || '';
+
+const PRODUCTS = [
+  {id:1, cat:'stone', name:'اسلب مرمر سفید کارارا — بوک‌مچ', img:'assets/img/p-marble.jpg', price:4850000, old:5400000, unit:'مترمربع',
+   specShort:'ابعاد ۲۸۰×۱۶۰ سانتی‌متر — ضخامت ۲ سانتی‌متر',
+   specs:[['برند','سنگچین سلکت'],['جنس','مرمر طبیعی ایتالیایی'],['ابعاد','۲۸۰ × ۱۶۰ سانتی‌متر'],['پرداخت','پولیش براق — بوک‌مچ'],['کاربرد','کف و دیوار لابی، کانتر'],['گارانتی','ضمانت یکدستی رگه در هر بچ']]},
+  {id:2, cat:'stone', name:'سنگ تراورتن کرم حاجی‌آباد — سورت سوپر', img:'assets/img/p-travertine.jpg', price:1290000, old:null, unit:'مترمربع',
+   specShort:'ابعاد ۴۰ طولی — ضخامت ۱٫۷ سانتی‌متر',
+   specs:[['برند','تراورتن حاجی‌آباد'],['جنس','تراورتن طبیعی'],['ابعاد','۴۰ طولی (پلاک)'],['پرداخت','سابیده، رزین‌شده'],['کاربرد','نمای اصلی و دیوار داخلی'],['گارانتی','ضمانت سورت و یکنواختی رنگ']]},
+  {id:3, cat:'sanitary', name:'شیر روشویی پایه‌بلند طلایی — مدل لوکس', img:'assets/img/p-faucet.jpg', price:6750000, old:7400000, unit:'دست',
+   specShort:'بدنه برنجی — آبکاری طلایی PVD',
+   specs:[['برند','شودر'],['جنس','آلیاژ برنج'],['پرداخت','طلایی براق PVD'],['کارتریج','سرامیکی ۳۵ میلی‌متری'],['کاربرد','روشویی سرویس مهمان و مستر'],['گارانتی','۵ سال گارانتی شرکتی']]},
+  {id:4, cat:'sanitary', name:'وان ایستاده اکریلیک — مدل اُوال', img:'assets/img/p-bathtub.jpg', price:28400000, old:null, unit:'عدد',
+   specShort:'ابعاد ۱۷۰×۷۵ — ظرفیت ۲۶۰ لیتر',
+   specs:[['برند','بانیو تک'],['جنس','اکریلیک تقویت‌شده ۵ لایه'],['ابعاد','۱۷۰ × ۷۵ × ۵۸ سانتی‌متر'],['ظرفیت','۲۶۰ لیتر'],['کاربرد','حمام مستر و سوئیت'],['گارانتی','۱۰ سال بدنه']]},
+  {id:5, cat:'light', name:'چراغ آویز فلزی مشکی — تک‌شعله', img:'assets/img/p-pendant1.jpg', price:1850000, old:2200000, unit:'عدد',
+   specShort:'قطر ۳۰ سانتی‌متر — سرپیچ E27',
+   specs:[['برند','نورینو'],['جنس','فلز رنگ کوره‌ای'],['ابعاد','قطر ۳۰ — ارتفاع قابل تنظیم تا ۱۲۰ سانتی‌متر'],['سرپیچ','E27 — لامپ LED'],['کاربرد','جزیره آشپزخانه، کانتر، کافه'],['گارانتی','۲ سال']]},
+  {id:6, cat:'light', name:'چراغ آویز سه‌شعله مشکی و طلایی', img:'assets/img/p-pendant2.jpg', price:3420000, old:null, unit:'عدد',
+   specShort:'سه شعله با کلاهک دو رنگ — کابل قابل تنظیم',
+   specs:[['برند','نورینو'],['جنس','فلز و شیشه'],['ابعاد','عرض ۶۰ سانتی‌متر'],['سرپیچ','۳ × E27'],['کاربرد','بالای میز ناهارخوری و کانتر'],['گارانتی','۲ سال']]},
+  {id:7, cat:'door', name:'درب داخلی روکش گردوی آمریکایی', img:'assets/img/p-door.jpg', price:9800000, old:11200000, unit:'لنگه',
+   specShort:'ابعاد ۲۱۰×۹۰ — همراه چهارچوب و یراق',
+   specs:[['برند','درب‌سازان پارس'],['جنس','MDF با روکش گردوی طبیعی'],['ابعاد','۲۱۰ × ۹۰ سانتی‌متر'],['اقلام همراه','چهارچوب، لولا و دستگیره'],['کاربرد','اتاق خواب و فضای داخلی'],['گارانتی','۳ سال تاب‌برداشتگی']]},
+  {id:8, cat:'door', name:'پنجره قدی آلومینیوم ترمال‌بریک', img:'assets/img/p-window.jpg', price:7600000, old:null, unit:'مترمربع',
+   specShort:'شیشه دوجداره سکوریت — پروفیل اختصاصی',
+   specs:[['برند','آلوم پارس'],['جنس','آلومینیوم ترمال‌بریک'],['شیشه','دوجداره سکوریت ۶+۶'],['یراق','ROTO آلمان'],['کاربرد','پنجره قدی و نمای کرتن‌وال سبک'],['گارانتی','۱۰ سال پروفیل']]},
+  {id:9, cat:'paint', name:'رنگ اکریلیک داخلی قابل شست‌وشو — ۱۲ کیلویی', img:'assets/img/p-paint.jpg', price:2150000, old:2480000, unit:'دبه',
+   specShort:'پوشش ۱۱۰ مترمربع — بدون بو',
+   specs:[['برند','لوکساهوم'],['جنس','اکریلیک پایه آب'],['حجم','۱۲ کیلوگرم'],['پوشش','تا ۱۱۰ مترمربع (دو دست)'],['کاربرد','دیوار و سقف داخلی'],['گارانتی','۵ سال ثبات رنگ']]},
+  {id:10, cat:'paint', name:'آجر نسوز نما — قرمز سنتی', img:'assets/img/p-brick.jpg', price:890000, old:null, unit:'مترمربع',
+   specShort:'ابعاد ۲۰×۵٫۵ — مقاوم در برابر یخبندان',
+   specs:[['برند','آجر نمای قم'],['جنس','خاک نسوز پخته'],['ابعاد','۲۰ × ۵٫۵ × ۳ سانتی‌متر'],['جذب آب','کمتر از ۶٪'],['کاربرد','نما و دیوار دکوراتیو داخلی'],['گارانتی','ضمانت عدم شوره‌زدگی']]},
+  {id:11, cat:'tools', name:'دریل شارژی براشلس ۲۰ ولت', img:'assets/img/p-drill.jpg', price:5690000, old:6350000, unit:'دستگاه',
+   specShort:'گشتاور ۶۰ نیوتن‌متر — دو باتری لیتیومی',
+   specs:[['برند','رونیکس'],['موتور','براشلس — ۲۰ ولت'],['گشتاور','۶۰ نیوتن‌متر'],['اقلام همراه','۲ باتری، شارژر سریع، کیف BMC'],['کاربرد','نصب، مونتاژ و کارگاهی'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+  {id:12, cat:'tools', name:'دستگیره اهرمی استیل مات — جفتی', img:'assets/img/p-handle.jpg', price:745000, old:null, unit:'جفت',
+   specShort:'استیل ۳۰۴ — مناسب درب داخلی و ورودی',
+   specs:[['برند','یراق‌پارس'],['جنس','استیل ضدزنگ ۳۰۴'],['پرداخت','مات برس‌خورده'],['مغزی','قفل سوئیچی یا سرویسی به انتخاب'],['کاربرد','درب داخلی و ورودی'],['گارانتی','۵ سال فنر و مکانیزم']]}
+];
+
+/* ----- دسته‌بندی‌ها ----- */
+const catGrid = document.getElementById('catGrid');
+CATS.forEach(c => {
+  const n = PRODUCTS.filter(p => p.cat === c.id).length;
+  const b = document.createElement('button');
+  b.className = 'cat';
+  b.innerHTML = `<span class="ph"><img src="${c.img}" alt="${c.name}" loading="lazy"></span>
+    <span class="tx"><b>${c.name}</b><span>${c.note}</span></span>`;
+  b.addEventListener('click', () => { setFilter(c.id); document.getElementById('products').scrollIntoView({behavior:'smooth'}); });
+  catGrid.appendChild(b);
+});
+
+/* ----- فیلتر و گرید محصولات ----- */
+let activeFilter = 'all';
+let searchTerm = '';
+const filtersEl = document.getElementById('filters');
+const gridEl = document.getElementById('productGrid');
+
+function renderFilters(){
+  filtersEl.innerHTML = '';
+  [{id:'all', name:'همه محصولات'}, ...CATS].forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (activeFilter === c.id ? ' active' : '');
+    b.textContent = c.name;
+    b.addEventListener('click', () => setFilter(c.id));
+    filtersEl.appendChild(b);
+  });
+}
+function setFilter(id){ activeFilter = id; renderFilters(); renderGrid(); }
+
+function renderGrid(){
+  const list = PRODUCTS.filter(p =>
+    (activeFilter === 'all' || p.cat === activeFilter) &&
+    (!searchTerm || (p.name + ' ' + catName(p.cat) + ' ' + p.specShort).includes(searchTerm))
+  );
+  gridEl.innerHTML = '';
+  if(!list.length){
+    gridEl.innerHTML = '<div class="empty-msg">محصولی با این مشخصات پیدا نشد؛ عبارت دیگری را جستجو کنید.</div>';
+    return;
+  }
+  list.forEach(p => {
+    const off = p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
+    const card = document.createElement('article');
+    card.className = 'pcard';
+    card.innerHTML = `
+      <div class="ph" data-qv="${p.id}">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        ${off ? `<span class="badge-off">${FA(off)}٪ تخفیف</span>` : ''}
+        <span class="badge-unit">قیمت هر ${p.unit}</span>
+      </div>
+      <div class="body">
+        <span class="cat-name">${catName(p.cat)}</span>
+        <h3 data-qv="${p.id}">${p.name}</h3>
+        <p class="spec">${p.specShort}</p>
+        <div class="foot">
+          <div class="price-row">
+            <span class="price">${FA(p.price)} <small>تومان</small></span>
+            ${p.old ? `<span class="old-price">${FA(p.old)}</span>` : ''}
+          </div>
+          <div class="actions">
+            <button class="add-btn" data-add="${p.id}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 4h2.5l2.2 11h10.6l2-8H7"/><circle cx="10" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg>
+              افزودن به سبد
+            </button>
+            <button class="qv-btn" data-qv="${p.id}">مشاهده سریع</button>
+          </div>
+        </div>
+      </div>`;
+    gridEl.appendChild(card);
+  });
+}
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  renderGrid();
+});
+
+/* ----- سبد خرید ----- */
+let cart = [];
+const drawer = document.getElementById('cartDrawer');
+const overlay = document.getElementById('overlay');
+
+function openCart(){ drawer.classList.add('open'); overlay.classList.add('show'); document.body.style.overflow = 'hidden'; }
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('show'); document.body.style.overflow = ''; }
+document.getElementById('openCart').addEventListener('click', openCart);
+document.getElementById('closeCart').addEventListener('click', closeCart);
+overlay.addEventListener('click', () => { closeCart(); closeQv(); });
+
+function cartQty(){ return cart.reduce((s, i) => s + i.qty, 0); }
+function cartSum(){ return cart.reduce((s, i) => { const p = PRODUCTS.find(x => x.id === i.id); return s + p.price * i.qty; }, 0); }
+
+function renderCart(){
+  document.getElementById('cartCount').textContent = FA(cartQty());
+  const box = document.getElementById('cartItems');
+  const ok = document.getElementById('orderOk');
+  if(!cart.length){
+    box.innerHTML = `<div class="cart-empty">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4h2.5l2.2 11h10.6l2-8H7"/><circle cx="10" cy="20" r="1.6"/><circle cx="17.5" cy="20" r="1.6"/></svg>
+      سبد خرید شما خالی است.<br>از بخش محصولات، متریال موردنیازتان را اضافه کنید.</div>`;
+  } else {
+    box.innerHTML = '';
+    cart.forEach(i => {
+      const p = PRODUCTS.find(x => x.id === i.id);
+      const row = document.createElement('div');
+      row.className = 'citem';
+      row.innerHTML = `
+        <img src="${p.img}" alt="${p.name}">
+        <div class="inf">
+          <b>${p.name}</b>
+          <span>${FA(p.price)} تومان — هر ${p.unit}</span>
+          <div class="row">
+            <span class="qty">
+              <button data-dec="${p.id}" aria-label="کم کردن">−</button>
+              <b>${FA(i.qty)}</b>
+              <button data-inc="${p.id}" aria-label="زیاد کردن">+</button>
+            </span>
+            <span class="amt">${FA(p.price * i.qty)} تومان</span>
+          </div>
+          <button class="rm-btn" data-rm="${p.id}">حذف از سبد</button>
+        </div>`;
+      box.appendChild(row);
+    });
+  }
+  const sum = cartSum();
+  const ship = sum === 0 ? 0 : (sum >= 20000000 ? 0 : 450000);
+  document.getElementById('subTotal').textContent = FA(sum) + ' تومان';
+  document.getElementById('shipCost').textContent = sum === 0 ? '—' : (ship === 0 ? 'رایگان (خرید بالای ۲۰ میلیون)' : FA(ship) + ' تومان');
+  document.getElementById('grandTotal').textContent = FA(sum + ship) + ' تومان';
+  document.getElementById('checkoutBtn').style.display = cart.length ? '' : 'none';
+  if(!cart.length) ok.classList.remove('show');
+}
+function addToCart(id, qty){
+  const found = cart.find(i => i.id === id);
+  if(found) found.qty += qty; else cart.push({id, qty});
+  renderCart();
+  const p = PRODUCTS.find(x => x.id === id);
+  showToast(`«${p.name}» به سبد خرید اضافه شد`);
+}
+document.addEventListener('click', e => {
+  const add = e.target.closest('[data-add]');
+  if(add){
+    const id = +add.dataset.add;
+    addToCart(id, 1);
+    add.classList.add('added');
+    const old = add.innerHTML;
+    add.innerHTML = '✓ اضافه شد';
+    setTimeout(() => { add.classList.remove('added'); add.innerHTML = old; }, 1400);
+    return;
+  }
+  const inc = e.target.closest('[data-inc]');
+  if(inc){ cart.find(i => i.id === +inc.dataset.inc).qty++; renderCart(); return; }
+  const dec = e.target.closest('[data-dec]');
+  if(dec){
+    const it = cart.find(i => i.id === +dec.dataset.dec);
+    it.qty--;
+    if(it.qty <= 0) cart = cart.filter(i => i.id !== it.id);
+    renderCart(); return;
+  }
+  const rm = e.target.closest('[data-rm]');
+  if(rm){ cart = cart.filter(i => i.id !== +rm.dataset.rm); renderCart(); return; }
+  const qv = e.target.closest('[data-qv]');
+  if(qv){ openQv(+qv.dataset.qv); }
+});
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+  if(!cart.length) return;
+  const code = 'SG-' + Math.floor(100000 + Math.random() * 900000);
+  const total = document.getElementById('grandTotal').textContent;
+  document.getElementById('orderOkTxt').textContent =
+    `کد پیگیری سفارش: ${code} — مبلغ ${total}. کارشناس فروش برای هماهنگی پرداخت و ارسال با شما تماس می‌گیرد.`;
+  document.getElementById('orderOk').classList.add('show');
+  cart = [];
+  renderCart();
+  document.getElementById('orderOk').classList.add('show');
+  document.getElementById('orderOkTxt').textContent =
+    `کد پیگیری سفارش: ${code} — مبلغ ${total}. کارشناس فروش برای هماهنگی پرداخت و ارسال با شما تماس می‌گیرد.`;
+});
+
+/* ----- مشاهده سریع ----- */
+let qvId = null, qvQty = 1;
+const qvModal = document.getElementById('qvModal');
+function openQv(id){
+  const p = PRODUCTS.find(x => x.id === id);
+  if(!p) return;
+  qvId = id; qvQty = 1;
+  document.getElementById('qvQty').textContent = FA(qvQty);
+  document.getElementById('qvImg').src = p.img;
+  document.getElementById('qvImg').alt = p.name;
+  document.getElementById('qvCat').textContent = catName(p.cat);
+  document.getElementById('qvName').textContent = p.name;
+  document.getElementById('qvPrice').innerHTML = FA(p.price) + ' <small style="font-size:.78rem;color:var(--muted);font-weight:600">تومان — هر ' + p.unit + '</small>';
+  document.getElementById('qvOld').textContent = p.old ? FA(p.old) + ' تومان' : '';
+  document.getElementById('qvUnit').textContent = 'واحد فروش: ' + p.unit;
+  document.getElementById('qvSpecs').innerHTML = p.specs.map(s => `<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('');
+  qvModal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeQv(){ qvModal.classList.remove('show'); if(!drawer.classList.contains('open')) document.body.style.overflow = ''; }
+document.getElementById('closeQv').addEventListener('click', closeQv);
+document.getElementById('qvOverlay').addEventListener('click', closeQv);
+document.getElementById('qvPlus').addEventListener('click', () => { qvQty++; document.getElementById('qvQty').textContent = FA(qvQty); });
+document.getElementById('qvMinus').addEventListener('click', () => { if(qvQty > 1) qvQty--; document.getElementById('qvQty').textContent = FA(qvQty); });
+document.getElementById('qvAdd').addEventListener('click', () => { if(qvId) { addToCart(qvId, qvQty); closeQv(); openCart(); } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape'){ closeQv(); closeCart(); } });
+
+/* ----- پیام شناور ----- */
+let toastTimer = null;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  document.getElementById('toastTxt').textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ----- فرم استعلام پروژه ----- */
+const form = document.getElementById('quoteForm');
+function setErr(id, bad){ document.getElementById(id).closest('.f-field').classList.toggle('err', bad); return !bad; }
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('qName').value.trim();
+  const phoneRaw = faNum(document.getElementById('qPhone').value.replace(/[\s-]/g, ''));
+  const type = document.getElementById('qType').value;
+  const areaRaw = faNum(document.getElementById('qArea').value.trim());
+  const desc = document.getElementById('qDesc').value.trim();
+  let okAll = true;
+  okAll = setErr('qName', name.length < 3) && okAll;
+  okAll = setErr('qPhone', !/^09\d{9}$/.test(phoneRaw)) && okAll;
+  okAll = setErr('qType', !type) && okAll;
+  okAll = setErr('qArea', areaRaw !== '' && !/^\d+$/.test(areaRaw)) && okAll;
+  okAll = setErr('qDesc', desc.length < 10) && okAll;
+  if(!okAll){
+    const firstErr = form.querySelector('.f-field.err');
+    if(firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  const code = 'PRJ-' + Math.floor(10000 + Math.random() * 90000);
+  const okBox = document.getElementById('quoteOk');
+  okBox.innerHTML = `درخواست شما با موفقیت ثبت شد. کد پیگیری: <b>${code}</b> — کارشناس فروش پروژه حداکثر تا ۲۴ ساعت کاری آینده، پیش‌فاکتور «${type}» را برایتان ارسال می‌کند.`;
+  okBox.classList.add('show');
+  form.reset();
+  okBox.scrollIntoView({behavior:'smooth', block:'center'});
+});
+['qName','qPhone','qType','qArea','qDesc'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => document.getElementById(id).closest('.f-field').classList.remove('err'));
+});
+
+/* ----- پرسش‌ها ----- */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = '0px'; });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+  });
+});
+
+/* ----- منوی موبایل ----- */
+const mNav = document.getElementById('mobileNav');
+document.getElementById('burger').addEventListener('click', () => mNav.classList.toggle('open'));
+mNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mNav.classList.remove('open')));
+
+/* ----- شروع ----- */
+renderFilters();
+renderGrid();
+renderCart();
+</script>
+</body>
+</html>
