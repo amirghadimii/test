@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>داروخانه آنلاین دکتر سلامت — خرید دارو، مکمل و محصولات بهداشتی با امکان ارسال نسخه</title>
+<meta name="description" content="داروخانه آنلاین دکتر سلامت؛ خرید مکمل، محصولات آرایشی و بهداشتی، تجهیزات پزشکی و ثبت سفارش داروی نسخه‌ای با آپلود نسخه. مشاوره داروساز و ارسال سریع.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --green:#0d9d63; --green-d:#0a7a4c; --green-dd:#075c39; --mint:#e7f6ef; --mint2:#f2faf6;
+  --bg:#f6faf8; --card:#ffffff; --ink:#17352a; --ink2:#4a6a5c; --muted:#84a294;
+  --line:#dcebe3; --amber:#e8a13a; --amber-bg:#fdf3e0; --red:#d9534f; --red-bg:#fdeceb;
+  --shadow:0 10px 30px rgba(13,90,60,.10); --shadow-sm:0 4px 14px rgba(13,90,60,.08);
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:var(--ink)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.ic{width:22px;height:22px;flex:none;display:inline-block;vertical-align:middle}
+.ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- topbar ---------- */
+.topbar{background:var(--green-dd);color:#dff5ea;font-size:.82rem}
+.topbar .wrap{display:flex;gap:26px;align-items:center;justify-content:center;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topbar span{display:inline-flex;align-items:center;gap:7px}
+.topbar .ic{width:16px;height:16px}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:18px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:11px;flex:none}
+.logo-mark{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--green),var(--green-d));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow-sm)}
+.logo-mark svg{width:26px;height:26px;fill:#fff}
+.logo b{font-size:1.22rem;font-weight:800;display:block;line-height:1.3}
+.logo small{color:var(--ink2);font-size:.76rem;display:block}
+.search{flex:1;display:flex;align-items:center;background:var(--mint2);border:1.5px solid var(--line);border-radius:14px;padding:0 14px;gap:9px;min-width:0}
+.search:focus-within{border-color:var(--green);background:#fff}
+.search .ic{color:var(--muted);width:20px;height:20px}
+.search input{flex:1;border:none;background:none;outline:none;padding:11px 0;min-width:0}
+.hd-actions{display:flex;align-items:center;gap:10px;flex:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:13px;padding:11px 18px;font-weight:700;font-size:.95rem;transition:.2s;border:1.5px solid transparent}
+.btn .ic{width:19px;height:19px}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-d)}
+.btn-outline{border-color:var(--green);color:var(--green-d);background:#fff}
+.btn-outline:hover{background:var(--mint)}
+.btn-ghost{color:var(--ink2)}
+.cart-btn{position:relative;width:48px;height:48px;border-radius:13px;background:var(--mint);display:grid;place-items:center;color:var(--green-d)}
+.cart-btn:hover{background:#d8efe2}
+.cart-badge{position:absolute;top:-6px;inset-inline-start:-6px;background:var(--red);color:#fff;font-size:.72rem;font-weight:800;min-width:21px;height:21px;border-radius:99px;display:grid;place-items:center;padding:0 5px;border:2px solid #fff}
+nav.main{border-top:1px solid var(--line)}
+nav.main .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.main .wrap::-webkit-scrollbar{display:none}
+nav.main a{padding:10px 14px;font-size:.92rem;font-weight:600;color:var(--ink2);white-space:nowrap;border-bottom:2.5px solid transparent}
+nav.main a:hover{color:var(--green-d);border-color:var(--green)}
+
+/* ---------- hero ---------- */
+.hero{padding:44px 0 10px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.hero h1{font-size:2.35rem;font-weight:900;line-height:1.45}
+.hero h1 em{font-style:normal;color:var(--green-d)}
+.hero p.lead{color:var(--ink2);margin:14px 0 22px;font-size:1.05rem;max-width:34rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.hstat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-sm)}
+.hstat .ic{color:var(--green);width:26px;height:26px}
+.hstat b{display:block;line-height:1.4;font-size:.98rem}
+.hstat small{color:var(--muted);font-size:.76rem;display:block}
+.hero-img{position:relative}
+.hero-img img{border-radius:26px;box-shadow:var(--shadow);width:100%;height:380px;object-fit:cover}
+.hero-chip{position:absolute;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:10px 15px;display:flex;gap:9px;align-items:center;font-size:.85rem;font-weight:700}
+.hero-chip .ic{color:var(--green);width:20px;height:20px}
+.hero-chip.c1{bottom:22px;inset-inline-start:-14px}
+.hero-chip.c2{top:20px;inset-inline-end:-10px}
+
+/* ---------- insurance ---------- */
+.ins{margin:34px 0 6px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:var(--shadow-sm)}
+.ins .ic{width:30px;height:30px;color:var(--green-d)}
+.ins b{font-size:1rem}
+.ins p{color:var(--ink2);font-size:.9rem}
+.ins-tags{margin-inline-start:auto;display:flex;gap:8px;flex-wrap:wrap}
+.ins-tags span{background:var(--mint);color:var(--green-dd);font-size:.82rem;font-weight:700;border-radius:99px;padding:5px 13px}
+
+/* ---------- sections ---------- */
+section.blk{padding:38px 0}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:20px}
+.sec-head h2{font-size:1.55rem;font-weight:800}
+.sec-head p{color:var(--ink2);font-size:.94rem}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:8px 18px;font-weight:600;font-size:.92rem;color:var(--ink2);transition:.15s}
+.chip:hover{border-color:var(--green);color:var(--green-d)}
+.chip.on{background:var(--green);border-color:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.p-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.2s;position:relative}
+.p-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.p-card .ph{height:172px;background:var(--mint2);overflow:hidden}
+.p-card .ph img{width:100%;height:100%;object-fit:cover}
+.p-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.p-cat{font-size:.74rem;color:var(--green-d);font-weight:700}
+.p-name{font-weight:800;font-size:1rem;line-height:1.6}
+.p-sub{color:var(--ink2);font-size:.83rem;flex:1}
+.p-price{margin-top:8px;display:flex;align-items:baseline;gap:5px}
+.p-price b{font-size:1.13rem;font-weight:900;color:var(--green-dd)}
+.p-price span{font-size:.8rem;color:var(--muted)}
+.badge-rx{position:absolute;top:12px;inset-inline-start:12px;background:var(--amber-bg);color:#9a6a14;border:1px solid #f0d9a8;font-size:.74rem;font-weight:800;border-radius:99px;padding:4px 11px;display:inline-flex;gap:5px;align-items:center;z-index:2}
+.badge-rx .ic{width:14px;height:14px}
+.add-btn,.rx-buy-btn{margin-top:10px;width:100%;border-radius:11px;padding:10px;font-weight:700;font-size:.92rem;display:inline-flex;justify-content:center;align-items:center;gap:7px;transition:.15s}
+.add-btn{background:var(--green);color:#fff}
+.add-btn:hover{background:var(--green-d)}
+.add-btn.added{background:var(--green-dd)}
+.rx-buy-btn{background:#fff;border:1.5px solid var(--amber);color:#9a6a14}
+.rx-buy-btn:hover{background:var(--amber-bg)}
+.empty{display:none;text-align:center;color:var(--muted);padding:38px 0;border:1.5px dashed var(--line);border-radius:var(--r);background:#fff}
+.empty.show{display:block}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;gap:14px}
+.step .n{width:40px;height:40px;flex:none;border-radius:12px;background:var(--mint);color:var(--green-d);display:grid;place-items:center;font-weight:900;font-size:1.05rem}
+.step b{display:block;margin-bottom:3px}
+.step p{color:var(--ink2);font-size:.88rem}
+
+/* ---------- rx section ---------- */
+.rx-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow-sm)}
+.panel h3{font-size:1.18rem;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+.panel h3 .ic{color:var(--green)}
+.panel .hint{color:var(--ink2);font-size:.88rem;margin-bottom:16px}
+.drop{display:block;border:2px dashed #bfe3d2;border-radius:16px;background:var(--mint2);padding:22px;text-align:center;cursor:pointer;transition:.15s}
+.drop:hover,.drop.drag{border-color:var(--green);background:var(--mint)}
+.drop .ic{width:38px;height:38px;color:var(--green);margin:0 auto 6px}
+.drop b{display:block}
+.drop small{color:var(--muted)}
+.drop input{display:none}
+.rx-preview{display:none;margin-top:14px;align-items:center;gap:13px;background:var(--mint2);border:1px solid var(--line);border-radius:13px;padding:10px 13px}
+.rx-preview.show{display:flex}
+.rx-preview img{width:64px;height:64px;object-fit:cover;border-radius:9px;border:1px solid var(--line)}
+.rx-preview .fn{font-size:.86rem;font-weight:700;word-break:break-all}
+.rx-preview .rm{margin-inline-start:auto;color:var(--red);font-size:.83rem;font-weight:700;flex:none}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:18px}
+.f-field{display:flex;flex-direction:column;gap:5px}
+.f-field.full{grid-column:1/-1}
+.f-field label{font-size:.86rem;font-weight:700}
+.f-field input,.f-field select,.f-field textarea{border:1.5px solid var(--line);border-radius:11px;padding:10px 13px;background:#fff;outline:none;width:100%}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--green)}
+.f-field .err{color:var(--red);font-size:.78rem;display:none}
+.f-field.bad input,.f-field.bad select{border-color:var(--red)}
+.f-field.bad .err{display:block}
+.rx-submit{margin-top:18px;width:100%;padding:13px;font-size:1rem}
+.rx-result{display:none;margin-top:18px;background:var(--mint2);border:1.5px solid #bfe3d2;border-radius:15px;padding:16px}
+.rx-result.show{display:block}
+.rx-result .code{font-weight:900;font-size:1.15rem;color:var(--green-dd)}
+.timeline{margin-top:14px;display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:11px;position:relative;padding-bottom:17px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;top:24px;inset-inline-start:11px;width:2px;height:calc(100% - 22px);background:var(--line)}
+.tl-item:last-child::before{display:none}
+.tl-dot{width:23px;height:23px;flex:none;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-size:.68rem;color:#fff;z-index:1}
+.tl-item.done .tl-dot{background:var(--green);border-color:var(--green)}
+.tl-item.done::before{background:var(--green)}
+.tl-item.cur .tl-dot{border-color:var(--amber);background:var(--amber);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,161,58,.45)}70%{box-shadow:0 0 0 8px rgba(232,161,58,0)}100%{box-shadow:0 0 0 0 rgba(232,161,58,0)}}
+.tl-item b{font-size:.93rem;display:block;line-height:1.5}
+.tl-item small{color:var(--muted);font-size:.79rem;display:block}
+.tl-item.todo{opacity:.55}
+.rx-item{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.rx-item .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.rx-item .code{font-weight:800;color:var(--green-dd)}
+.pill{font-size:.75rem;font-weight:800;border-radius:99px;padding:3px 11px}
+.pill.wait{background:var(--amber-bg);color:#9a6a14}
+.pill.prep{background:#e3ecfd;color:#2b4c9a}
+.mini-tl{display:flex;gap:0;margin-top:10px}
+.mini-tl div{flex:1;text-align:center;font-size:.7rem;color:var(--muted);position:relative;padding-top:15px}
+.mini-tl div::before{content:"";position:absolute;top:4px;right:50%;transform:translateX(50%);width:9px;height:9px;border-radius:50%;background:#d7e5dd}
+.mini-tl div::after{content:"";position:absolute;top:8px;inset-inline-start:0;width:100%;height:2px;background:var(--line);z-index:-1}
+.mini-tl div.done{color:var(--green-d);font-weight:700}
+.mini-tl div.done::before{background:var(--green)}
+.mini-tl div.cur{color:#9a6a14;font-weight:800}
+.mini-tl div.cur::before{background:var(--amber)}
+
+/* ---------- consult ---------- */
+.consult{background:linear-gradient(120deg,var(--green-d),var(--green-dd));border-radius:22px;color:#fff;padding:28px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.consult .ic.big{width:52px;height:52px}
+.consult h3{font-size:1.3rem;font-weight:800}
+.consult p{color:#cdeede;font-size:.94rem;max-width:38rem}
+.consult .btn{margin-inline-start:auto;background:#fff;color:var(--green-dd)}
+.consult .btn:hover{background:var(--mint)}
+
+/* ---------- faq / footer ---------- */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px 18px}
+.faq summary{font-weight:700;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{color:var(--ink2);font-size:.9rem;margin-top:7px}
+footer{background:#0d2c1f;color:#b9d9c9;margin-top:20px}
+footer .wrap{padding-top:34px;padding-bottom:26px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px}
+footer b{color:#fff;display:block;margin-bottom:9px}
+footer p,footer li{font-size:.88rem}
+footer ul{list-style:none}
+footer li{margin-bottom:5px}
+.disclaimer{border-top:1px solid rgba(255,255,255,.14);margin-top:24px;padding-top:16px;font-size:.8rem;color:#8fb8a4;text-align:center}
+
+/* ---------- drawer / modals ---------- */
+.overlay{position:fixed;inset:0;background:rgba(13,44,31,.5);opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;height:100dvh;width:min(400px,92vw);background:#fff;z-index:90;transform:translateX(-105%);transition:.3s;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.drawer.show{transform:none}
+.drawer header{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.drawer header b{font-size:1.08rem}
+.x-btn{width:36px;height:36px;border-radius:10px;background:var(--mint2);display:grid;place-items:center;color:var(--ink2)}
+.x-btn .ic{width:18px;height:18px}
+.cart-items{flex:1;overflow-y:auto;padding:14px 20px}
+.ci{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.ci img{width:62px;height:62px;border-radius:11px;object-fit:cover;flex:none}
+.ci .nm{font-weight:700;font-size:.92rem;line-height:1.55}
+.ci .pr{color:var(--green-dd);font-weight:800;font-size:.9rem}
+.qty{display:inline-flex;align-items:center;gap:3px;border:1.5px solid var(--line);border-radius:99px;padding:2px;margin-top:5px}
+.qty button{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:var(--green-d)}
+.qty button:hover{background:var(--mint)}
+.qty b{min-width:22px;text-align:center;font-size:.9rem}
+.ci .del{margin-inline-start:auto;color:var(--red);font-size:.8rem;font-weight:700;align-self:flex-start}
+.cart-empty{text-align:center;color:var(--muted);padding:44px 0}
+.cart-foot{border-top:1px solid var(--line);padding:16px 20px;background:var(--mint2)}
+.trow{display:flex;justify-content:space-between;font-size:.93rem;margin-bottom:6px;color:var(--ink2)}
+.trow.total{font-size:1.05rem;color:var(--ink);font-weight:900;border-top:1px dashed var(--line);padding-top:9px;margin-top:9px}
+.free-note{font-size:.8rem;color:var(--green-d);background:var(--mint);border-radius:9px;padding:6px 11px;margin-bottom:11px;text-align:center}
+.cart-foot .btn{width:100%;justify-content:center;padding:13px}
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:18px}
+.modal.show{display:grid}
+.modal .box{background:#fff;border-radius:20px;max-width:520px;width:100%;max-height:92dvh;overflow-y:auto;padding:26px;position:relative;box-shadow:var(--shadow)}
+.modal .box .x-btn{position:absolute;top:14px;inset-inline-end:14px}
+.modal h3{font-size:1.2rem;font-weight:800;margin-bottom:6px;padding-inline-end:36px}
+.modal .sub{color:var(--ink2);font-size:.9rem;margin-bottom:14px}
+.notice-ic{width:58px;height:58px;border-radius:50%;background:var(--amber-bg);color:#9a6a14;display:grid;place-items:center;margin-bottom:13px}
+.notice-ic .ic{width:29px;height:29px}
+.success-ic{width:62px;height:62px;border-radius:50%;background:var(--mint);color:var(--green-d);display:grid;place-items:center;margin:0 auto 12px}
+.success-ic .ic{width:31px;height:31px}
+.center{text-align:center}
+.big-code{font-size:1.5rem;font-weight:900;color:var(--green-dd);letter-spacing:.5px}
+
+/* ---------- chat ---------- */
+.chat-fab{position:fixed;bottom:20px;left:20px;z-index:70;background:var(--green);color:#fff;border-radius:99px;padding:13px 20px;display:flex;gap:9px;align-items:center;font-weight:800;box-shadow:var(--shadow)}
+.chat-fab:hover{background:var(--green-d)}
+.chat-panel{position:fixed;bottom:84px;left:20px;z-index:95;width:min(360px,calc(100vw - 32px));height:480px;max-height:calc(100dvh - 110px);background:#fff;border-radius:20px;box-shadow:0 24px 60px rgba(10,60,40,.25);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+.chat-panel.show{display:flex}
+.chat-panel header{background:var(--green-d);color:#fff;padding:14px 17px;display:flex;gap:11px;align-items:center}
+.chat-panel header .av{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--green-d);display:grid;place-items:center}
+.chat-panel header b{display:block;line-height:1.4;font-size:.97rem}
+.chat-panel header small{color:#bfe6d2;font-size:.75rem;display:block}
+.chat-panel header .x-btn{margin-inline-start:auto;background:rgba(255,255,255,.15);color:#fff}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px;background:var(--mint2)}
+.msg{max-width:82%;padding:9px 13px;border-radius:15px;font-size:.88rem;line-height:1.75}
+.msg.bot{background:#fff;border:1px solid var(--line);align-self:flex-start;border-start-start-radius:4px}
+.msg.me{background:var(--green);color:#fff;align-self:flex-end;border-end-end-radius:4px}
+.msg.typing{color:var(--muted)}
+.chat-chips{display:flex;gap:7px;flex-wrap:wrap;padding:9px 12px;background:#fff;border-top:1px solid var(--line)}
+.chat-chips button{font-size:.78rem;border:1.5px solid var(--line);border-radius:99px;padding:5px 11px;font-weight:600;color:var(--green-d)}
+.chat-chips button:hover{border-color:var(--green);background:var(--mint)}
+.chat-form{display:flex;gap:8px;padding:11px 12px;border-top:1px solid var(--line);background:#fff}
+.chat-form input{flex:1;border:1.5px solid var(--line);border-radius:11px;padding:9px 12px;outline:none;min-width:0}
+.chat-form input:focus{border-color:var(--green)}
+.chat-form button{background:var(--green);color:#fff;border-radius:11px;padding:0 17px;font-weight:800}
+.demo-tag{font-size:.7rem;background:var(--amber-bg);color:#9a6a14;border-radius:99px;padding:2px 9px;font-weight:700}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;bottom:22px;right:50%;transform:translate(50%,90px);background:var(--green-dd);color:#fff;border-radius:13px;padding:12px 22px;font-weight:700;z-index:120;transition:.35s;box-shadow:var(--shadow);display:flex;gap:9px;align-items:center;max-width:92vw;text-align:center}
+.toast.show{transform:translate(50%,0)}
+.flash{animation:flash 1.4s}
+@keyframes flash{0%,60%{box-shadow:0 0 0 4px rgba(13,157,99,.4)}100%{box-shadow:var(--shadow-sm)}}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-img img{height:300px}
+  .rx-wrap{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .hd{flex-wrap:wrap}
+  .search{order:3;flex-basis:100%}
+  .logo b{font-size:1.08rem}
+  .btn-rx-hd span{display:none}
+  .btn-rx-hd{padding:11px 13px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .steps{grid-template-columns:1fr}
+  .faq{grid-template-columns:1fr}
+  .hero h1{font-size:1.8rem}
+  .hero-chip.c1{inset-inline-start:8px}
+  .hero-chip.c2{inset-inline-end:8px}
+  .f-grid{grid-template-columns:1fr}
+  .ins-tags{margin-inline-start:0}
+  .consult .btn{margin-inline-start:0}
+}
+@media(max-width:430px){
+  .grid{grid-template-columns:1fr 1fr}
+  .p-card .ph{height:128px}
+  .p-name{font-size:.9rem}
+  .p-price b{font-size:1rem}
+  .hero-stats{gap:8px}
+  .ft-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- topbar -->
+<div class="topbar"><div class="wrap">
+  <span><i class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg></i> ارسال سریع به سراسر کشور</span>
+  <span><i class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></i> پاسخ‌گویی و مشاوره داروساز</span>
+  <span><i class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i> خرید امن با ضمانت اصالت کالا</span>
+</div></div>
+
+<!-- header -->
+<header class="site">
+  <div class="wrap">
+    <div class="hd">
+      <a class="logo" href="#">
+        <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>
+        <span><b>داروخانه دکتر سلامت</b><small>داروخانه آنلاین — تهران</small></span>
+      </a>
+      <label class="search">
+        <i class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></i>
+        <input id="searchInput" type="text" placeholder="جستجوی دارو، مکمل یا محصول…">
+      </label>
+      <div class="hd-actions">
+        <a class="btn btn-green btn-rx-hd" href="#rx"><i class="ic"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></i><span>آپلود نسخه</span></a>
+        <button class="cart-btn" id="cartBtn" aria-label="سبد خرید">
+          <i class="ic"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 12.2A1.5 1.5 0 008.9 17.5h8.9a1.5 1.5 0 001.5-1.2L21 8H6"/><circle cx="9.5" cy="21" r="1.3"/><circle cx="17.5" cy="21" r="1.3"/></svg></i>
+          <span class="cart-badge" id="cartCount">۰</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav class="main"><div class="wrap">
+    <a href="#shop">فروشگاه</a><a href="#rx">ثبت سفارش نسخه</a><a href="#consult">مشاوره داروساز</a><a href="#ins">بیمه‌های طرف قرارداد</a><a href="#faq">سؤالات متداول</a>
+  </div></nav>
+</header>
+
+<!-- hero -->
+<div class="hero"><div class="wrap">
+  <div class="hero-grid">
+    <div>
+      <h1>دارو و محصولات سلامت، <em>آنلاین و با چند کلیک</em></h1>
+      <p class="lead">از مکمل و محصولات بهداشتی تا داروی نسخه‌ای؛ نسخه‌تان را آپلود کنید تا داروساز پس از بررسی، سفارش را برایتان آماده و ارسال کند. کالاهای بدون نسخه هم مستقیم به سبد خرید اضافه می‌شوند.</p>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="#rx"><i class="ic"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></i> آپلود نسخه</a>
+        <a class="btn btn-outline" href="#shop">مشاهده محصولات</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><i class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg></i><span><b>بررسی نسخه توسط داروساز</b><small>پیش از آماده‌سازی سفارش</small></span></div>
+        <div class="hstat"><i class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg></i><span><b>ارسال سریع در تهران</b><small>پیک و پست به سراسر کشور</small></span></div>
+        <div class="hstat"><i class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>ضمانت اصالت کالا</b><small>تأمین از توزیع‌کنندگان رسمی</small></span></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="assets/img/hero.jpg" alt="فضای داخلی داروخانه دکتر سلامت">
+      <div class="hero-chip c1"><i class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></i> پاسخ‌گویی همه‌روزه</div>
+      <div class="hero-chip c2"><i class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg></i> ثبت نسخه در کمتر از ۲ دقیقه</div>
+    </div>
+  </div>
+
+  <!-- insurance -->
+  <div class="ins" id="ins">
+    <i class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i>
+    <div><b>بیمه‌های طرف قرارداد</b><p>نسخه‌های تحت پوشش بیمه پس از تأیید داروساز با تعرفه بیمه‌ای محاسبه می‌شوند.</p></div>
+    <div class="ins-tags"><span>تأمین اجتماعی</span><span>بیمه سلامت</span><span>خدمات درمانی</span><span>نیروهای مسلح</span><span>بیمه‌های تکمیلی</span></div>
+  </div>
+</div></div>
+
+<!-- shop -->
+<section class="blk" id="shop"><div class="wrap">
+  <div class="sec-head"><div><h2>فروشگاه</h2><p>کالاهای بدون نسخه مستقیم خریداری می‌شوند؛ کالاهای نسخه‌ای فقط با ثبت نسخه.</p></div></div>
+  <div class="chips" id="catChips"></div>
+  <div class="grid" id="productGrid"></div>
+  <div class="empty" id="emptyState">محصولی با این جستجو پیدا نشد. عبارت دیگری را امتحان کنید.</div>
+</div></section>
+
+<!-- rx steps -->
+<section class="blk" style="padding-top:6px"><div class="wrap">
+  <div class="sec-head"><div><h2>سفارش داروی نسخه‌ای در ۳ گام</h2></div></div>
+  <div class="steps">
+    <div class="step"><span class="n">۱</span><div><b>آپلود تصویر نسخه</b><p>عکس واضح نسخه پزشک را بارگذاری و مشخصات خود را ثبت کنید.</p></div></div>
+    <div class="step"><span class="n">۲</span><div><b>بررسی و تأیید داروساز</b><p>داروساز نسخه را بررسی می‌کند؛ در صورت نیاز برای هماهنگی با شما تماس می‌گیرد.</p></div></div>
+    <div class="step"><span class="n">۳</span><div><b>آماده‌سازی و ارسال</b><p>سفارش آماده و با کد رهگیری، وضعیت آن در همین صفحه قابل پیگیری است.</p></div></div>
+  </div>
+</div></section>
+
+<!-- rx -->
+<section class="blk" id="rx" style="padding-top:6px"><div class="wrap">
+  <div class="sec-head"><div><h2>ثبت سفارش نسخه</h2><p>تصویر نسخه و اطلاعات زیر را ثبت کنید؛ کد رهگیری دریافت می‌کنید.</p></div></div>
+  <div class="rx-wrap">
+    <div class="panel" id="rxPanel">
+      <h3><i class="ic"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></i> آپلود نسخه</h3>
+      <p class="hint">تصویر نسخه باید خوانا و کامل باشد (فرمت‌های تصویری JPG یا PNG).</p>
+      <label class="drop" id="rxDrop">
+        <i class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg></i>
+        <b>برای انتخاب تصویر نسخه کلیک کنید</b>
+        <small>یا فایل را اینجا رها کنید</small>
+        <input type="file" id="rxFile" accept="image/*">
+      </label>
+      <div class="rx-preview" id="rxPreview">
+        <img id="rxPreviewImg" alt="پیش‌نمایش نسخه آپلودشده">
+        <div><div class="fn" id="rxFileName"></div><small style="color:var(--muted)">تصویر نسخه دریافت شد</small></div>
+        <button type="button" class="rm" id="rxRemove">حذف</button>
+      </div>
+      <form id="rxForm" novalidate>
+        <div class="f-grid">
+          <div class="f-field"><label for="rxName">نام و نام خانوادگی</label><input id="rxName" type="text" placeholder="مثلاً: سارا محمدی" autocomplete="name"><span class="err">نام را کامل وارد کنید.</span></div>
+          <div class="f-field"><label for="rxNid">کد ملی</label><input id="rxNid" type="text" inputmode="numeric" placeholder="کد ملی ۱۰ رقمی" maxlength="10"><span class="err">کد ملی باید ۱۰ رقم باشد.</span></div>
+          <div class="f-field"><label for="rxMobile">شماره موبایل</label><input id="rxMobile" type="tel" inputmode="numeric" placeholder="۰۹۱۲ ··· ····" maxlength="11"><span class="err">شماره موبایل معتبر وارد کنید (با ۰۹ شروع شود).</span></div>
+          <div class="f-field"><label for="rxIns">بیمه</label>
+            <select id="rxIns"><option value="none">بدون بیمه</option><option value="tamin">تأمین اجتماعی</option><option value="salamat">بیمه سلامت</option><option value="khadamat">خدمات درمانی</option><option value="mosalah">نیروهای مسلح</option><option value="takmili">بیمه تکمیلی</option></select>
+          </div>
+          <div class="f-field full"><label for="rxNote">توضیحات (اختیاری)</label><textarea id="rxNote" rows="2" placeholder="مثلاً: اگر دارویی موجود نبود، جایگزین آن را هماهنگ کنید."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-green rx-submit"><i class="ic"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i> ثبت نسخه و دریافت کد رهگیری</button>
+      </form>
+      <div class="rx-result" id="rxResult">
+        <div>نسخه شما با موفقیت ثبت شد. کد رهگیری:</div>
+        <div class="code" id="rxCode"></div>
+        <div class="timeline" id="rxTimeline"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3><i class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></i> پیگیری نسخه‌های من</h3>
+      <p class="hint">وضعیت نسخه‌های ثبت‌شده در این مرورگر، به‌صورت زنده نمایش داده می‌شود.</p>
+      <div id="rxList"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- consult -->
+<section class="blk" style="padding-top:6px"><div class="wrap">
+  <div class="consult" id="consult">
+    <i class="ic big"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H4l2-3a8 8 0 1115-5z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></i>
+    <div><h3>سؤالی درباره دارو یا سفارشتان دارید؟</h3><p>از طریق چت آنلاین با داروساز در ارتباط باشید؛ درباره نحوه ثبت نسخه، موجودی کالاها، بیمه و ارسال راهنمایی می‌گیرید. برای تشخیص و تجویز، حتماً به پزشک مراجعه کنید.</p></div>
+    <button class="btn" id="openChatBtn"><i class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H4l2-3a8 8 0 1115-5z"/></svg></i> چت با داروساز</button>
+  </div>
+</div></section>
+
+<!-- faq -->
+<section class="blk" id="faq" style="padding-top:6px"><div class="wrap">
+  <div class="sec-head"><div><h2>سؤالات متداول</h2></div></div>
+  <div class="faq">
+    <details><summary>آیا بدون نسخه هم می‌توانم سفارش بدهم؟</summary><p>بله؛ مکمل‌ها، محصولات بهداشتی و تجهیزات پزشکی بدون نسخه قابل خریدند. فقط داروهای دارای برچسب «نیاز به نسخه» با ثبت نسخه و تأیید داروساز آماده می‌شوند.</p></details>
+    <details><summary>بررسی نسخه چقدر طول می‌کشد؟</summary><p>پس از ثبت، نسخه در صف بررسی داروساز قرار می‌گیرد و نتیجه با پیامک اطلاع‌رسانی می‌شود. وضعیت لحظه‌ای را هم می‌توانید در بخش «پیگیری نسخه‌های من» ببینید.</p></details>
+    <details><summary>هزینه ارسال چطور محاسبه می‌شود؟</summary><p>برای سفارش‌های بالای ۱٬۰۰۰٬۰۰۰ تومان ارسال رایگان است؛ در غیر این صورت هزینه ثابت ۴۵٬۰۰۰ تومان در سبد خرید نمایش داده می‌شود.</p></details>
+    <details><summary>نسخه بیمه‌ای چطور محاسبه می‌شود؟</summary><p>هنگام ثبت نسخه، بیمه خود را انتخاب کنید. پس از تأیید داروساز، سهم بیمه کسر و مبلغ نهایی پیش از ارسال به شما اعلام می‌شود.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="ft-grid">
+    <div><b>داروخانه آنلاین دکتر سلامت</b><p>فروش اینترنتی دارو، مکمل و محصولات بهداشتی با امکان ثبت نسخه و مشاوره داروساز. این صفحه یک نسخه نمایشی (دمو) است و سفارش واقعی در آن ثبت نمی‌شود.</p></div>
+    <div><b>دسترسی سریع</b><ul><li><a href="#shop">فروشگاه</a></li><li><a href="#rx">آپلود نسخه</a></li><li><a href="#consult">مشاوره داروساز</a></li><li><a href="#faq">سؤالات متداول</a></li></ul></div>
+    <div><b>راهنمای خرید</b><ul><li>ثبت سفارش نسخه‌ای با کد رهگیری</li><li>ارسال رایگان سفارش‌های بالای ۱ میلیون تومان</li><li>ضمانت اصالت و سلامت کالا</li></ul></div>
+  </div>
+  <p class="disclaimer">اطلاعات این صفحه صرفاً معرفی کالا و خدمات است و جنبه تشخیصی یا درمانی ندارد؛ برای مصرف هر دارو طبق دستور پزشک یا داروساز عمل کنید.</p>
+</div></footer>
+
+<!-- cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="سبد خرید">
+  <header><b>سبد خرید</b><button class="x-btn" id="closeCart" aria-label="بستن"><i class="ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></i></button></header>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="free-note" id="freeNote"></div>
+    <div class="trow"><span>جمع کالاها</span><b id="subTotal">۰ تومان</b></div>
+    <div class="trow"><span>هزینه ارسال</span><b id="shipCost">—</b></div>
+    <div class="trow total"><span>مبلغ قابل پرداخت</span><span id="grandTotal">۰ تومان</span></div>
+    <button class="btn btn-green" id="checkoutBtn">ثبت سفارش و پرداخت</button>
+  </div>
+</aside>
+
+<!-- rx notice modal -->
+<div class="modal" id="rxModal"><div class="box">
+  <button class="x-btn" data-close aria-label="بستن"><i class="ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></i></button>
+  <div class="notice-ic"><i class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M12 11v6M9 14h6"/></svg></i></div>
+  <h3>این کالا نیازمند نسخه است</h3>
+  <p class="sub">«<b id="rxModalName"></b>» فقط با نسخه معتبر پزشک و پس از تأیید داروساز قابل تهیه است و به سبد خرید اضافه نمی‌شود. نسخه‌تان را آپلود کنید تا سفارش برایتان ثبت شود.</p>
+  <button class="btn btn-green" id="rxModalGo" style="width:100%;justify-content:center">آپلود نسخه و ثبت سفارش</button>
+  <button class="btn btn-ghost" data-close style="width:100%;justify-content:center;margin-top:6px">بازگشت به فروشگاه</button>
+</div></div>
+
+<!-- checkout modal -->
+<div class="modal" id="coModal"><div class="box">
+  <button class="x-btn" data-close aria-label="بستن"><i class="ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></i></button>
+  <div id="coFormView">
+    <h3>اطلاعات گیرنده</h3>
+    <p class="sub">سفارش پس از ثبت، آماده‌سازی و ارسال می‌شود.</p>
+    <form id="coForm" novalidate>
+      <div class="f-grid" style="margin-top:0">
+        <div class="f-field"><label for="coName">نام و نام خانوادگی</label><input id="coName" type="text" placeholder="نام گیرنده"><span class="err">نام گیرنده را وارد کنید.</span></div>
+        <div class="f-field"><label for="coMobile">شماره موبایل</label><input id="coMobile" type="tel" inputmode="numeric" placeholder="۰۹۱۲ ··· ····" maxlength="11"><span class="err">شماره موبایل معتبر وارد کنید.</span></div>
+        <div class="f-field full"><label for="coAddress">نشانی کامل</label><textarea id="coAddress" rows="2" placeholder="شهر، خیابان، پلاک و واحد"></textarea><span class="err">نشانی را کامل وارد کنید.</span></div>
+      </div>
+      <div class="trow" style="margin-top:14px"><span>جمع کالاها</span><b id="coSub"></b></div>
+      <div class="trow"><span>هزینه ارسال</span><b id="coShip"></b></div>
+      <div class="trow total"><span>مبلغ قابل پرداخت</span><span id="coTotal"></span></div>
+      <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;margin-top:12px;padding:13px">پرداخت و ثبت نهایی سفارش</button>
+    </form>
+  </div>
+  <div id="coSuccessView" class="center" style="display:none">
+    <div class="success-ic"><i class="ic"><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7"/></svg></i></div>
+    <h3 style="padding:0">سفارش شما ثبت شد</h3>
+    <p class="sub">کد رهگیری سفارش:</p>
+    <div class="big-code" id="orderCode"></div>
+    <p class="sub" style="margin-top:10px">رسید سفارش پیامک می‌شود و وضعیت آن از پشتیبانی قابل پیگیری است. (نمایشی)</p>
+    <button class="btn btn-green" data-close style="margin-top:6px">ادامه خرید</button>
+  </div>
+</div></div>
+
+<!-- chat -->
+<button class="chat-fab" id="chatFab"><i class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 01-8 8H4l2-3a8 8 0 1115-5z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg></i> چت با داروساز</button>
+<div class="chat-panel" id="chatPanel">
+  <header>
+    <span class="av"><i class="ic"><svg viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></i></span>
+    <div><b>پشتیبانی داروخانه دکتر سلامت</b><small>معمولاً چند دقیقه‌ای پاسخ می‌دهیم</small></div>
+    <span class="demo-tag">پاسخ خودکار نمایشی</span>
+    <button class="x-btn" id="closeChat" aria-label="بستن چت"><i class="ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></i></button>
+  </header>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips">
+    <button type="button" data-q="چطور نسخه آپلود کنم؟">چطور نسخه آپلود کنم؟</button>
+    <button type="button" data-q="هزینه ارسال چقدر است؟">هزینه ارسال</button>
+    <button type="button" data-q="چه بیمه‌هایی را قبول می‌کنید؟">بیمه‌های طرف قرارداد</button>
+    <button type="button" data-q="ساعت کاری داروخانه چیست؟">ساعت کاری</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" placeholder="پیامتان را بنویسید…" autocomplete="off">
+    <button type="submit">ارسال</button>
+  </form>
+</div>
+
+<div class="toast" id="toast"><i class="ic"><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7"/></svg></i><span id="toastTxt"></span></div>
+
+<script>
+"use strict";
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const fmt = n => Number(n).toLocaleString('fa-IR');
+const faNum = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const enDigits = s => String(s||'').replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+const FREE_LIMIT = 1000000, SHIP_COST = 45000;
+function toast(msg){
+  $('#toastTxt').textContent = msg;
+  const t = $('#toast'); t.classList.add('show');
+  clearTimeout(t._h); t._h = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+/* ---------- data ---------- */
+const CATS = ['همه','مکمل‌ها','نسخه‌ای','آرایشی و بهداشتی','مادر و کودک','تجهیزات پزشکی','مراقبت پوست'];
+const PRODUCTS = [
+  {id:1,  name:'مولتی‌ویتامین روزانه',        sub:'مکمل غذایی — ۶۰ عدد قرص روکش‌دار',            cat:'مکمل‌ها',        price:485000,  img:'assets/img/multivitamin.jpg', rx:false},
+  {id:2,  name:'امگا ۳ — روغن ماهی ۱۰۰۰',     sub:'کپسول ژلاتینی ۱۰۰۰ میلی‌گرم — ۹۰ عدد',       cat:'مکمل‌ها',        price:620000,  img:'assets/img/omega3.jpg',       rx:false},
+  {id:3,  name:'ویتامین D3 — ۱۰۰۰ واحد',      sub:'قرص ۱۰۰۰ واحد بین‌المللی — ۳۰ عدد',          cat:'مکمل‌ها',        price:185000,  img:'assets/img/vitd.jpg',         rx:false},
+  {id:4,  name:'آزیترومایسین ۲۵۰ میلی‌گرم',   sub:'کپسول ۲۵۰ میلی‌گرم — ۶ عدد',                  cat:'نسخه‌ای',        price:98500,   img:'assets/img/rx-blister2.jpg',  rx:true},
+  {id:5,  name:'متفورمین ۵۰۰ میلی‌گرم',       sub:'قرص ۵۰۰ میلی‌گرم — ۵۰ عدد',                  cat:'نسخه‌ای',        price:64000,   img:'assets/img/rx-bottle.jpg',    rx:true},
+  {id:6,  name:'لووتیروکسین ۱۰۰ میکروگرم',    sub:'قرص ۱۰۰ میکروگرم — ۱۰۰ عدد',                 cat:'نسخه‌ای',        price:118000,  img:'assets/img/rx-tablets.jpg',   rx:true},
+  {id:7,  name:'شوینده ملایم مو و بدن',       sub:'بطری ۴۰۰ میلی‌لیتر — مناسب مصرف روزانه',      cat:'آرایشی و بهداشتی', price:245000, img:'assets/img/shampoo.jpg',     rx:false},
+  {id:8,  name:'کرم مرطوب‌کننده دست و صورت',  sub:'تیوپ ۷۵ میلی‌لیتر',                          cat:'آرایشی و بهداشتی', price:165000, img:'assets/img/cream.jpg',        rx:false},
+  {id:9,  name:'لوسیون بدن کودک',             sub:'بطری ۲۰۰ میلی‌لیتر — مخصوص پوست کودک',        cat:'مادر و کودک',    price:210000,  img:'assets/img/babylotion.jpg',   rx:false},
+  {id:10, name:'پوشک کودک سایز ۴',            sub:'بسته ۳۴ عددی — مناسب ۹ تا ۱۴ کیلوگرم',        cat:'مادر و کودک',    price:385000,  img:'assets/img/diaper.jpg',       rx:false},
+  {id:11, name:'فشارسنج دیجیتال مچی',         sub:'نمایشگر دیجیتال با حافظه ذخیره نتایج',       cat:'تجهیزات پزشکی',  price:1850000, img:'assets/img/bp-monitor.jpg',   rx:false},
+  {id:12, name:'تب‌سنج دیجیتال',              sub:'نوک انعطاف‌پذیر — نمایش سریع دما',            cat:'تجهیزات پزشکی',  price:325000,  img:'assets/img/thermometer.jpg',  rx:false},
+  {id:13, name:'کرم ضدآفتاب SPF 50',          sub:'حجم ۵۰ میلی‌لیتر',                           cat:'مراقبت پوست',    price:480000,  img:'assets/img/sunscreen.jpg',    rx:false},
+  {id:14, name:'سرم صورت ویتامین C',          sub:'بطری قطره‌چکانی — ۳۰ میلی‌لیتر',              cat:'مراقبت پوست',    price:590000,  img:'assets/img/serum.jpg',        rx:false},
+];
+const byId = id => PRODUCTS.find(p => p.id === id);
+
+/* ---------- shop render ---------- */
+let activeCat = 'همه', query = '';
+function renderChips(){
+  $('#catChips').innerHTML = CATS.map(c =>
+    `<button class="chip ${c===activeCat?'on':''}" data-cat="${c}">${c}</button>`).join('');
+  $$('#catChips .chip').forEach(ch => ch.addEventListener('click', () => {
+    activeCat = ch.dataset.cat; renderChips(); renderGrid();
+  }));
+}
+function renderGrid(){
+  const list = PRODUCTS.filter(p =>
+    (activeCat==='همه' || p.cat===activeCat) &&
+    (!query || (p.name + ' ' + p.sub).includes(query)));
+  $('#productGrid').innerHTML = list.map(p => `
+    <article class="p-card" data-id="${p.id}">
+      ${p.rx ? `<span class="badge-rx"><i class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></i> نیاز به نسخه</span>` : ''}
+      <div class="ph"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+      <div class="p-body">
+        <span class="p-cat">${p.cat}</span>
+        <div class="p-name">${p.name}</div>
+        <p class="p-sub">${p.sub}</p>
+        <div class="p-price"><b>${fmt(p.price)}</b><span>تومان</span></div>
+        ${p.rx
+          ? `<button class="rx-buy-btn" data-rx="${p.id}">ثبت سفارش با نسخه</button>`
+          : `<button class="add-btn" data-add="${p.id}">افزودن به سبد خرید</button>`}
+      </div>
+    </article>`).join('');
+  $('#emptyState').classList.toggle('show', list.length === 0);
+  $$('#productGrid [data-add]').forEach(b => b.addEventListener('click', () => addToCart(+b.dataset.add, b)));
+  $$('#productGrid [data-rx]').forEach(b => b.addEventListener('click', () => openRxModal(+b.dataset.rx)));
+}
+$('#searchInput').addEventListener('input', e => {
+  query = e.target.value.trim();
+  renderGrid();
+  if (query) $('#shop').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+/* ---------- cart ---------- */
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem('ds_cart') || '{}'); } catch(e){ cart = {}; }
+function saveCart(){ localStorage.setItem('ds_cart', JSON.stringify(cart)); }
+function cartCount(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartSubtotal(){ return Object.entries(cart).reduce((s,[id,q]) => s + byId(+id).price * q, 0); }
+function shipFor(sub){ return sub === 0 ? 0 : (sub >= FREE_LIMIT ? 0 : SHIP_COST); }
+
+function addToCart(id, btn){
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart(); renderCart();
+  toast('«' + byId(id).name + '» به سبد خرید اضافه شد');
+  if (btn){ btn.classList.add('added'); const old = btn.textContent; btn.textContent = 'اضافه شد ✓';
+    setTimeout(()=>{ btn.classList.remove('added'); btn.textContent = old; }, 1200); }
+}
+function setQty(id, q){
+  if (q <= 0) delete cart[id]; else cart[id] = q;
+  saveCart(); renderCart();
+}
+function renderCart(){
+  const n = cartCount(), sub = cartSubtotal(), ship = shipFor(sub);
+  $('#cartCount').textContent = faNum(n);
+  const box = $('#cartItems');
+  if (n === 0){
+    box.innerHTML = '<div class="cart-empty">سبد خرید شما خالی است.<br>از فروشگاه، کالای موردنیازتان را انتخاب کنید.</div>';
+  } else {
+    box.innerHTML = Object.entries(cart).map(([id, q]) => {
+      const p = byId(+id);
+      return `<div class="ci" data-id="${p.id}">
+        <img src="${p.img}" alt="${p.name}">
+        <div><div class="nm">${p.name}</div><div class="pr">${fmt(p.price * q)} تومان</div>
+          <span class="qty"><button data-dec="${p.id}" aria-label="کم کردن">−</button><b>${faNum(q)}</b><button data-inc="${p.id}" aria-label="زیاد کردن">+</button></span>
+        </div>
+        <button class="del" data-del="${p.id}">حذف</button>
+      </div>`;
+    }).join('');
+    $$('#cartItems [data-inc]').forEach(b => b.addEventListener('click', () => setQty(+b.dataset.inc, (cart[b.dataset.inc]||0) + 1)));
+    $$('#cartItems [data-dec]').forEach(b => b.addEventListener('click', () => setQty(+b.dataset.dec, (cart[b.dataset.dec]||0) - 1)));
+    $$('#cartItems [data-del]').forEach(b => b.addEventListener('click', () => setQty(+b.dataset.del, 0)));
+  }
+  $('#cartFoot').style.display = n === 0 ? 'none' : 'block';
+  $('#subTotal').textContent = fmt(sub) + ' تومان';
+  $('#shipCost').textContent = sub === 0 ? '—' : (ship === 0 ? 'رایگان' : fmt(ship) + ' تومان');
+  $('#grandTotal').textContent = fmt(sub + ship) + ' تومان';
+  $('#freeNote').textContent = sub >= FREE_LIMIT
+    ? 'ارسال سفارش شما رایگان است.'
+    : 'فقط ' + fmt(FREE_LIMIT - sub) + ' تومان دیگر تا ارسال رایگان';
+}
+function openCart(){ $('#cartDrawer').classList.add('show'); $('#overlay').classList.add('show'); }
+function closeCart(){ $('#cartDrawer').classList.remove('show'); $('#overlay').classList.remove('show'); }
+$('#cartBtn').addEventListener('click', openCart);
+$('#closeCart').addEventListener('click', closeCart);
+$('#overlay').addEventListener('click', closeCart);
+
+/* ---------- checkout ---------- */
+function openModal(m){ m.classList.add('show'); }
+function closeModal(m){ m.classList.remove('show'); }
+$$('[data-close]').forEach(b => b.addEventListener('click', () => closeModal(b.closest('.modal'))));
+$$('.modal').forEach(m => m.addEventListener('mousedown', e => { if (e.target === m) closeModal(m); }));
+$('#checkoutBtn').addEventListener('click', () => {
+  const sub = cartSubtotal(), ship = shipFor(sub);
+  $('#coSub').textContent = fmt(sub) + ' تومان';
+  $('#coShip').textContent = ship === 0 ? 'رایگان' : fmt(ship) + ' تومان';
+  $('#coTotal').textContent = fmt(sub + ship) + ' تومان';
+  $('#coFormView').style.display = 'block';
+  $('#coSuccessView').style.display = 'none';
+  closeCart(); openModal($('#coModal'));
+});
+function fieldBad(input, bad){ input.closest('.f-field').classList.toggle('bad', bad); return !bad; }
+function validMobile(v){ return /^09\d{9}$/.test(enDigits(v).trim()); }
+$('#coForm').addEventListener('submit', e => {
+  e.preventDefault();
+  let ok = true;
+  ok = fieldBad($('#coName'), $('#coName').value.trim().length < 3) && ok;
+  ok = fieldBad($('#coMobile'), !validMobile($('#coMobile').value)) && ok;
+  ok = fieldBad($('#coAddress'), $('#coAddress').value.trim().length < 10) && ok;
+  if (!ok) return;
+  const code = 'PH-' + Math.floor(100000 + Math.random() * 900000);
+  $('#orderCode').textContent = faNum(code);
+  $('#coFormView').style.display = 'none';
+  $('#coSuccessView').style.display = 'block';
+  cart = {}; saveCart(); renderCart();
+});
+
+/* ---------- rx modal routing ---------- */
+function openRxModal(id){
+  $('#rxModalName').textContent = byId(id).name;
+  openModal($('#rxModal'));
+}
+$('#rxModalGo').addEventListener('click', () => {
+  closeModal($('#rxModal'));
+  const panel = $('#rxPanel');
+  panel.scrollIntoView({behavior:'smooth', block:'center'});
+  panel.classList.remove('flash'); void panel.offsetWidth; panel.classList.add('flash');
+  setTimeout(() => $('#rxName').focus({preventScroll:true}), 650);
+});
+
+/* ---------- rx flow ---------- */
+let rxFileURL = null;
+const rxFile = $('#rxFile'), rxDrop = $('#rxDrop');
+function handleRxFile(file){
+  if (!file) return;
+  if (!file.type.startsWith('image/')){ toast('لطفاً یک فایل تصویری انتخاب کنید'); return; }
+  if (rxFileURL) URL.revokeObjectURL(rxFileURL);
+  rxFileURL = URL.createObjectURL(file);
+  $('#rxPreviewImg').src = rxFileURL;
+  $('#rxFileName').textContent = file.name;
+  $('#rxPreview').classList.add('show');
+}
+rxFile.addEventListener('change', () => handleRxFile(rxFile.files[0]));
+['dragover','dragenter'].forEach(ev => rxDrop.addEventListener(ev, e => { e.preventDefault(); rxDrop.classList.add('drag'); }));
+['dragleave','drop'].forEach(ev => rxDrop.addEventListener(ev, e => { e.preventDefault(); rxDrop.classList.remove('drag'); }));
+rxDrop.addEventListener('drop', e => handleRxFile(e.dataTransfer.files[0]));
+$('#rxRemove').addEventListener('click', () => {
+  rxFile.value = ''; $('#rxPreview').classList.remove('show');
+  if (rxFileURL){ URL.revokeObjectURL(rxFileURL); rxFileURL = null; }
+});
+
+const TL_STEPS = ['ثبت نسخه','تأیید داروساز','آماده‌سازی سفارش','ارسال'];
+const TL_SUBS  = ['نسخه دریافت و در صف بررسی قرار گرفت','داروساز نسخه را بررسی و تأیید می‌کند','پس از تأیید داروساز انجام می‌شود','همراه با کد رهگیری ارسال می‌شود'];
+function timelineHTML(done){
+  return TL_STEPS.map((t, i) => {
+    const cls = i < done ? 'done' : (i === done ? 'cur' : 'todo');
+    return `<div class="tl-item ${cls}"><span class="tl-dot">${i < done ? '✓' : faNum(i+1)}</span>
+      <div><b>${i === done && done === 1 ? 'در انتظار تأیید داروساز' : t}</b><small>${TL_SUBS[i]}</small></div></div>`;
+  }).join('');
+}
+function miniTlHTML(done){
+  const labels = ['ثبت','تأیید','آماده‌سازی','ارسال'];
+  return '<div class="mini-tl">' + labels.map((t, i) =>
+    `<div class="${i < done ? 'done' : (i === done ? 'cur' : '')}">${t}</div>`).join('') + '</div>';
+}
+let rxList = [];
+try { rxList = JSON.parse(localStorage.getItem('ds_rx') || 'null') || []; } catch(e){ rxList = []; }
+if (!rxList.length){
+  rxList = [{code:'RX-824510', name:'نسخه نمونه (نمایشی)', done:2, cur:'در حال آماده‌سازی', when:'امروز — ثبت‌شده به‌صورت نمونه'}];
+  localStorage.setItem('ds_rx', JSON.stringify(rxList));
+}
+function saveRx(){ localStorage.setItem('ds_rx', JSON.stringify(rxList)); }
+function renderRxList(){
+  $('#rxList').innerHTML = rxList.map(r => `
+    <div class="rx-item">
+      <div class="top"><span class="code">${faNum(r.code)}</span>
+      <span class="pill ${r.done <= 1 ? 'wait' : 'prep'}">${r.cur}</span></div>
+      <small style="color:var(--muted)">${r.name} · ${r.when}</small>
+      ${miniTlHTML(r.done)}
+    </div>`).join('');
+}
+$('#rxForm').addEventListener('submit', e => {
+  e.preventDefault();
+  let ok = true;
+  ok = fieldBad($('#rxName'), $('#rxName').value.trim().length < 3) && ok;
+  ok = fieldBad($('#rxNid'), !/^\d{10}$/.test(enDigits($('#rxNid').value).trim())) && ok;
+  ok = fieldBad($('#rxMobile'), !validMobile($('#rxMobile').value)) && ok;
+  if (!ok) return;
+  if (!rxFile.files.length){ toast('لطفاً ابتدا تصویر نسخه را آپلود کنید'); rxDrop.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  const code = 'RX-' + Math.floor(100000 + Math.random() * 900000);
+  const item = {code, name: $('#rxName').value.trim(), done:1, cur:'در انتظار تأیید داروساز', when:'هم‌اکنون'};
+  rxList.unshift(item); saveRx(); renderRxList();
+  $('#rxCode').textContent = faNum(code);
+  $('#rxTimeline').innerHTML = timelineHTML(1);
+  $('#rxResult').classList.add('show');
+  $('#rxResult').scrollIntoView({behavior:'smooth', block:'center'});
+  toast('نسخه ثبت شد؛ کد رهگیری: ' + faNum(code));
+  e.target.reset();
+  $('#rxPreview').classList.remove('show');
+  if (rxFileURL){ URL.revokeObjectURL(rxFileURL); rxFileURL = null; }
+});
+
+/* ---------- chat ---------- */
+const chatPanel = $('#chatPanel'), chatMsgs = $('#chatMsgs');
+let chatOpened = false;
+function addMsg(text, who){
+  const d = document.createElement('div');
+  d.className = 'msg ' + who; d.textContent = text;
+  chatMsgs.appendChild(d); chatMsgs.scrollTop = chatMsgs.scrollHeight;
+  return d;
+}
+function botReply(q){
+  const t = q.toLowerCase();
+  if (t.includes('نسخه') || t.includes('آپلود') || t.includes('اپلود'))
+    return 'از بخش «ثبت سفارش نسخه» در همین صفحه، تصویر نسخه را آپلود کنید و نام، کد ملی و موبایل را بنویسید. پس از ثبت، کد رهگیری می‌گیرید و داروساز نسخه را بررسی می‌کند.';
+  if (t.includes('ارسال') || t.includes('پست') || t.includes('پیک'))
+    return 'سفارش‌های بالای ۱٬۰۰۰٬۰۰۰ تومان رایگان ارسال می‌شوند؛ در غیر این صورت هزینه ارسال ۴۵٬۰۰۰ تومان است. در تهران امکان ارسال با پیک هم وجود دارد.';
+  if (t.includes('بیمه'))
+    return 'بیمه‌های طرف قرارداد: تأمین اجتماعی، بیمه سلامت، خدمات درمانی، نیروهای مسلح و بیمه‌های تکمیلی. هنگام ثبت نسخه، بیمه‌تان را انتخاب کنید تا سهم بیمه پس از تأیید داروساز کسر شود.';
+  if (t.includes('ساعت') || t.includes('کاری') || t.includes('باز'))
+    return 'ثبت سفارش آنلاین در تمام ساعات شبانه‌روز امکان‌پذیر است و پشتیبانی داروخانه همه‌روزه پاسخ‌گوی شماست.';
+  if (t.includes('مرجوع') || t.includes('بازگشت'))
+    return 'در صورت مغایرت یا آسیب‌دیدگی کالا با پشتیبانی هماهنگ کنید. توجه: داروهای نسخه‌ای پس از تحویل، فقط در صورت اشتباه در آماده‌سازی قابل پیگیری‌اند.';
+  if (t.includes('موجود') || t.includes('قیمت'))
+    return 'نام ژنریک دارو یا کالای موردنظرتان را بنویسید تا موجودی و قیمتش را بررسی کنم. (در این نسخه نمایشی، پاسخ‌ها خودکار است.)';
+  if (t.includes('سلام') || t.includes('درود'))
+    return 'سلام! خوش آمدید. چطور می‌توانم کمک کنم؟ درباره ثبت نسخه، ارسال، بیمه یا موجودی کالا بپرسید.';
+  return 'پیام شما دریافت شد. در نسخه نهایی، داروساز پاسخ‌گو مستقیماً جواب می‌دهد؛ برای پاسخ سریع‌تر، یکی از سؤال‌های آماده بالای کادر پیام را انتخاب کنید.';
+}
+function sendChat(text){
+  const q = (text || '').trim();
+  if (!q) return;
+  addMsg(q, 'me');
+  const typing = addMsg('در حال پاسخ…', 'bot typing');
+  setTimeout(() => { typing.remove(); addMsg(botReply(q), 'bot'); }, 700);
+}
+function toggleChat(open){
+  chatPanel.classList.toggle('show', open);
+  if (open && !chatOpened){
+    chatOpened = true;
+    addMsg('سلام! من پشتیبانی داروخانه دکتر سلامت هستم. درباره ثبت نسخه، هزینه ارسال، بیمه یا موجودی کالاها سؤالی دارید؟', 'bot');
+  }
+  if (open) setTimeout(() => $('#chatInput').focus(), 60);
+}
+$('#chatFab').addEventListener('click', () => toggleChat(!chatPanel.classList.contains('show')));
+$('#openChatBtn').addEventListener('click', () => toggleChat(true));
+$('#closeChat').addEventListener('click', () => toggleChat(false));
+$('#chatForm').addEventListener('submit', e => {
+  e.preventDefault();
+  sendChat($('#chatInput').value);
+  $('#chatInput').value = '';
+});
+$$('#chatChips button').forEach(b => b.addEventListener('click', () => sendChat(b.dataset.q)));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape'){ closeCart(); toggleChat(false); $$('.modal.show').forEach(closeModal); }
+});
+
+/* ---------- init ---------- */
+renderChips();
+renderGrid();
+renderCart();
+renderRxList();
+</script>
+</body>
+</html>
