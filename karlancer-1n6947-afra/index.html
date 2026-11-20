@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دهکده افرا | اقامتگاه و مجتمع گردشگری</title>
+<meta name="description" content="دهکده افرا؛ مقصدی برای آرامش و خاطره‌سازی در دل طبیعت. ویلاهای لوکس، کافه‌رستوران افرا و رزرو آنلاین.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --green:#1c6a4a; --green-deep:#0e4230; --green-soft:#e7f1ea;
+  --red:#b3372c; --red-deep:#8c2a21; --red-soft:#faeeec;
+  --paper:#fbf9f4; --cream:#f3eee2; --ink:#1f2d26; --muted:#66766c; --line:#e2dac9;
+  --shadow:0 18px 45px rgba(14,66,48,.13); --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--paper);color:var(--ink);line-height:1.9;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit;font-size:1rem}
+.container{max-width:1240px;margin:0 auto;padding:0 24px}
+::selection{background:var(--green);color:#fff}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 10px 30px rgba(14,66,48,.10)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.35rem;color:var(--green-deep)}
+.logo .leaf-badge{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green-deep));display:grid;place-items:center;flex:none}
+.logo small{display:block;font-size:.68rem;font-weight:500;color:var(--red);letter-spacing:.4px;line-height:1.4}
+nav.main-nav{display:flex;gap:26px;font-weight:500;font-size:.97rem}
+nav.main-nav a{position:relative;padding:6px 2px;color:var(--ink)}
+nav.main-nav a::after{content:'';position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--red);transition:width .3s;border-radius:2px}
+nav.main-nav a:hover{color:var(--green)}
+nav.main-nav a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;padding:12px 26px;font-weight:700;font-size:.98rem;transition:.25s}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-deep);transform:translateY(-2px);box-shadow:0 12px 24px rgba(28,106,74,.28)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-deep);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid var(--green);color:var(--green)}
+.btn-outline:hover{background:var(--green-soft)}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.btn-sm{padding:9px 18px;font-size:.9rem;border-radius:10px}
+.burger{display:none;background:none;border:none;width:44px;height:44px}
+.burger span{display:block;width:24px;height:2.5px;background:var(--green-deep);margin:5px auto;border-radius:2px;transition:.3s}
+.mobile-menu{display:none;background:#fff;border-bottom:1px solid var(--line);padding:10px 24px 18px}
+.mobile-menu a{display:block;padding:10px 4px;font-weight:500;border-bottom:1px dashed var(--line)}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu.open{display:block}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;padding:150px 0 130px;background:url('assets/img/hero.jpg') center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(10,40,28,.28) 0%,rgba(10,40,28,.55) 55%,rgba(9,36,25,.82) 100%)}
+.hero-in{position:relative;z-index:2;color:#fff;max-width:760px}
+.hero .kicker{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);padding:7px 16px;border-radius:999px;font-size:.88rem;font-weight:500}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.7rem);font-weight:900;line-height:1.45;margin:22px 0 14px;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:#ffd9d2;border-bottom:4px solid var(--red)}
+.hero p{font-size:1.13rem;color:#eef4ef;max-width:600px}
+.hero-stats{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
+.hero-stats .hs b{display:block;font-size:1.5rem;font-weight:900}
+.hero-stats .hs span{font-size:.86rem;color:#d6e4d9}
+.search-bar{position:relative;z-index:3;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:20px;margin-top:-64px;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr auto;gap:14px;align-items:end;border:1px solid var(--line)}
+.field label{display:block;font-size:.83rem;font-weight:700;color:var(--green-deep);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;background:#fff;color:var(--ink);transition:border .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field .hint{font-size:.74rem;color:var(--muted);margin-top:4px}
+
+/* ---------- sections ---------- */
+section{padding:96px 0}
+.sec-head{max-width:720px;margin-bottom:48px}
+.sec-head.center{margin-inline:auto;text-align:center}
+.kicker-sm{display:inline-flex;align-items:center;gap:8px;color:var(--red);font-weight:800;font-size:.86rem;letter-spacing:.3px}
+.kicker-sm::before{content:'';width:26px;height:2px;background:var(--red);border-radius:2px}
+.sec-head.center .kicker-sm::after{content:'';width:26px;height:2px;background:var(--red);border-radius:2px}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:900;color:var(--green-deep);line-height:1.5;margin:8px 0 10px}
+.sec-head p{color:var(--muted);font-size:1.03rem}
+.alt{background:var(--cream)}
+.alt-soft{background:var(--green-soft)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center}
+.about-imgs{position:relative}
+.about-imgs .main-img{border-radius:24px;height:480px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
+.about-imgs .float-img{position:absolute;bottom:-26px;left:-14px;width:46%;height:210px;object-fit:cover;border-radius:18px;border:7px solid var(--paper);box-shadow:var(--shadow)}
+.about-imgs .badge-leaf{position:absolute;top:20px;right:20px;background:#fff;border-radius:14px;padding:10px 16px;display:flex;gap:10px;align-items:center;box-shadow:var(--shadow);font-weight:800;color:var(--green-deep);font-size:.92rem}
+.facilities{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:28px}
+.facilities li{list-style:none;display:flex;gap:11px;align-items:flex-start;font-size:.97rem}
+.facilities .fi{width:38px;height:38px;flex:none;border-radius:11px;background:var(--green-soft);display:grid;place-items:center;color:var(--green)}
+.facilities b{display:block;font-size:.97rem}
+.facilities span{color:var(--muted);font-size:.85rem;line-height:1.7}
+
+/* villas */
+.villa-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px}
+.villa-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.villa-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#cfd8c9}
+.villa-card .vc-img{position:relative;height:290px;overflow:hidden}
+.villa-card .vc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.villa-card:hover .vc-img img{transform:scale(1.06)}
+.price-badge{position:absolute;bottom:14px;right:14px;background:rgba(14,66,48,.92);color:#fff;padding:8px 15px;border-radius:11px;font-size:.9rem;font-weight:700;backdrop-filter:blur(4px)}
+.price-badge small{font-weight:400;opacity:.85;font-size:.76rem}
+.tag-badge{position:absolute;top:14px;right:14px;background:var(--red);color:#fff;padding:5px 13px;border-radius:999px;font-size:.78rem;font-weight:700}
+.vc-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:13px;flex:1}
+.vc-body h3{font-size:1.42rem;font-weight:900;color:var(--green-deep)}
+.vc-meta{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.vc-meta span{display:inline-flex;align-items:center;gap:6px}
+.vc-meta svg{color:var(--green)}
+.vc-desc{color:var(--muted);font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--green-soft);color:var(--green-deep);font-size:.8rem;font-weight:500;padding:5px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:5px}
+.chip.red{background:var(--red-soft);color:var(--red-deep)}
+.vc-actions{display:flex;gap:10px;margin-top:auto;padding-top:6px}
+.vc-actions .btn{flex:1}
+
+/* cafe */
+.cafe-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:54px;align-items:start}
+.cafe-imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cafe-imgs img{border-radius:18px;object-fit:cover;width:100%;box-shadow:0 12px 30px rgba(14,66,48,.12)}
+.cafe-imgs .big{grid-column:1/-1;height:320px}
+.cafe-imgs .small{height:190px}
+.menu-tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.menu-tab{border:1.5px solid var(--line);background:#fff;padding:9px 20px;border-radius:999px;font-weight:700;font-size:.93rem;color:var(--muted);transition:.25s}
+.menu-tab.active{background:var(--green);border-color:var(--green);color:#fff}
+.menu-list{display:flex;flex-direction:column}
+.menu-item{display:flex;justify-content:space-between;gap:16px;padding:15px 4px;border-bottom:1px dashed var(--line)}
+.menu-item:last-child{border-bottom:none}
+.menu-item h4{font-size:1.02rem;font-weight:700}
+.menu-item p{color:var(--muted);font-size:.86rem}
+.menu-item .mp{font-weight:800;color:var(--red);white-space:nowrap;font-size:.97rem}
+.menu-item .mp small{color:var(--muted);font-weight:400;font-size:.75rem}
+
+/* gallery */
+.gal-filters{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;height:230px;border:none;padding:0;background:none}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal-item:hover img{transform:scale(1.08)}
+.gal-item .cap{position:absolute;inset:auto 0 0 0;background:linear-gradient(transparent,rgba(9,36,25,.78));color:#fff;padding:26px 14px 10px;font-size:.86rem;font-weight:600;text-align:right;opacity:0;transition:.3s}
+.gal-item:hover .cap{opacity:1}
+.gal-item.hide{display:none}
+
+/* rules accordion */
+.rules-wrap{max-width:860px;margin:0 auto}
+.acc{border:1px solid var(--line);border-radius:15px;background:#fff;margin-bottom:13px;overflow:hidden}
+.acc-head{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:19px 24px;font-size:1.05rem;font-weight:800;color:var(--green-deep);text-align:right}
+.acc-head .plus{width:30px;height:30px;flex:none;border-radius:9px;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-size:1.15rem;transition:.3s}
+.acc.open .acc-head .plus{background:var(--red);color:#fff;transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.acc-body-in{padding:2px 24px 22px;color:var(--muted);font-size:.96rem}
+.acc-body-in ul{padding-right:20px}
+.acc-body-in li{margin-bottom:5px}
+
+/* booking */
+.book-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.book-tabs{display:flex;background:var(--green-deep)}
+.book-tab{flex:1;background:none;border:none;color:#cfe0d4;padding:17px 8px;font-weight:700;font-size:.99rem;transition:.25s;border-bottom:3px solid transparent}
+.book-tab.active{background:rgba(255,255,255,.07);color:#fff;border-bottom-color:var(--red)}
+.book-body{padding:36px 40px 42px}
+.steps-bar{display:flex;align-items:flex-start;margin-bottom:34px}
+.step-dot{display:flex;flex-direction:column;align-items:center;gap:7px;flex:none;width:86px;text-align:center}
+.step-dot .dot{width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;font-weight:800;color:var(--muted);transition:.3s}
+.step-dot span{font-size:.8rem;color:var(--muted);font-weight:600;line-height:1.5}
+.step-dot.active .dot{background:var(--green);border-color:var(--green);color:#fff}
+.step-dot.active span{color:var(--green-deep)}
+.step-dot.done .dot{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+.step-line{flex:1;height:2px;background:var(--line);margin-top:20px}
+.step-line.done{background:var(--green)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-grid .full{grid-column:1/-1}
+.err{display:none;background:var(--red-soft);border:1px solid #eec9c4;color:var(--red-deep);border-radius:11px;padding:11px 16px;font-size:.9rem;margin-bottom:18px}
+.err.show{display:block}
+.summary-box{background:var(--cream);border:1px dashed #cfc4a6;border-radius:15px;padding:20px 24px;margin-top:24px}
+.summary-box .row{display:flex;justify-content:space-between;padding:5px 0;font-size:.95rem}
+.summary-box .row.total{border-top:1px solid var(--line);margin-top:9px;padding-top:13px;font-weight:900;font-size:1.08rem;color:var(--green-deep)}
+.summary-box .row.total .amount{color:var(--red)}
+.form-nav{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap}
+.success-hero{text-align:center;padding:12px 0 4px}
+.success-hero .ok-ring{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;color:var(--green)}
+.success-hero h3{font-size:1.5rem;font-weight:900;color:var(--green-deep)}
+.track-code{display:inline-block;background:var(--cream);border:1.5px dashed var(--green);color:var(--green-deep);font-weight:900;font-size:1.25rem;letter-spacing:1px;border-radius:12px;padding:9px 26px;margin:14px 0}
+.timeline{max-width:560px;margin:28px auto 0;text-align:right}
+.tl-item{display:flex;gap:15px;position:relative;padding-bottom:26px}
+.tl-item::before{content:'';position:absolute;right:15px;top:34px;bottom:0;width:2px;background:var(--line)}
+.tl-item:last-child::before{display:none}
+.tl-item .tl-dot{width:32px;height:32px;flex:none;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;color:var(--muted);z-index:1;font-size:.85rem}
+.tl-item.done .tl-dot{background:var(--green);border-color:var(--green);color:#fff}
+.tl-item.now .tl-dot{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 0 0 6px var(--red-soft)}
+.tl-item h4{font-size:1rem;font-weight:800}
+.tl-item p{color:var(--muted);font-size:.88rem}
+.tl-item.dim{opacity:.55}
+.card-number-box{display:none;background:linear-gradient(120deg,var(--green-deep),var(--green));color:#fff;border-radius:16px;padding:20px 24px;max-width:480px;margin:22px auto 0;text-align:center}
+.card-number-box.show{display:block}
+.card-number-box .cn{font-size:1.45rem;font-weight:900;letter-spacing:2px;direction:ltr}
+.card-number-box p{font-size:.86rem;opacity:.9}
+
+/* admin */
+.admin-note{background:var(--green-soft);border:1px solid #cfe2d4;border-radius:14px;padding:17px 21px;font-size:.93rem;color:var(--green-deep);margin-bottom:26px;display:flex;gap:12px}
+.admin-note svg{flex:none;margin-top:4px}
+.req-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.req-table th{background:var(--cream);color:var(--green-deep);text-align:right;padding:12px 14px;font-weight:800;border-bottom:2px solid var(--line)}
+.req-table td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.status-pill{display:inline-block;padding:3px 13px;border-radius:999px;font-size:.79rem;font-weight:700}
+.st-pending{background:#fdf3e0;color:#96660a}
+.st-approved{background:var(--green-soft);color:var(--green-deep)}
+.st-rejected{background:var(--red-soft);color:var(--red-deep)}
+.mini-btn{border:none;border-radius:9px;padding:7px 15px;font-weight:700;font-size:.83rem;transition:.2s}
+.mini-btn.approve{background:var(--green);color:#fff}
+.mini-btn.approve:hover{background:var(--green-deep)}
+.mini-btn.reject{background:#fff;border:1.5px solid #e3b7b1;color:var(--red)}
+.mini-btn.reject:hover{background:var(--red-soft)}
+.mini-btn:disabled{opacity:.4;cursor:default}
+.price-mgmt{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.price-row{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.price-row .pv{flex:1;min-width:130px}
+.price-row .pv b{display:block}
+.price-row .pv span{color:var(--muted);font-size:.82rem}
+.price-row input{width:150px;border:1.5px solid var(--line);border-radius:10px;padding:9px 12px}
+.empty-note{text-align:center;color:var(--muted);padding:26px 0}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:30px;align-items:start}
+.info-card{background:var(--green-deep);color:#eaf2ec;border-radius:20px;padding:32px}
+.info-card h3{color:#fff;font-size:1.3rem;font-weight:900;margin-bottom:14px}
+.info-card li{list-style:none;display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.18);font-size:.95rem}
+.info-card li:last-child{border-bottom:none}
+.info-card li svg{flex:none;margin-top:5px;color:#9fd3b4}
+.contact-form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px}
+.form-ok{display:none;background:var(--green-soft);border:1px solid #cfe2d4;color:var(--green-deep);border-radius:11px;padding:12px 17px;margin-top:16px;font-size:.93rem}
+.form-ok.show{display:block}
+
+/* footer */
+footer{background:var(--green-deep);color:#cfded2;padding:70px 0 0;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;padding-bottom:48px}
+footer h4{color:#fff;font-size:1.08rem;font-weight:800;margin-bottom:16px}
+footer a{display:block;padding:5px 0;font-size:.94rem;transition:.2s}
+footer a:hover{color:#fff;padding-right:5px}
+footer p{font-size:.94rem}
+.footer-logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.3rem;color:#fff;margin-bottom:14px}
+.copyright{border-top:1px solid rgba(255,255,255,.14);padding:19px 0;text-align:center;font-size:.86rem;color:#a9c2ae}
+
+/* modal + lightbox */
+.overlay{position:fixed;inset:0;background:rgba(10,32,22,.72);backdrop-filter:blur(5px);z-index:400;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:22px;max-width:960px;width:100%;max-height:92vh;overflow-y:auto;animation:pop .3s ease}
+@keyframes pop{from{transform:scale(.96) translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.modal-grid{display:grid;grid-template-columns:1.15fr 1fr}
+.modal-gallery{padding:18px}
+.modal-gallery .mg-main{width:100%;height:330px;object-fit:cover;border-radius:15px}
+.mg-thumbs{display:flex;gap:9px;margin-top:10px}
+.mg-thumbs img{width:76px;height:58px;object-fit:cover;border-radius:9px;cursor:pointer;border:2.5px solid transparent;transition:.2s}
+.mg-thumbs img.sel{border-color:var(--red)}
+.modal-info{padding:28px 28px 28px 8px}
+.modal-info h3{font-size:1.6rem;font-weight:900;color:var(--green-deep)}
+.modal-close{position:absolute}
+.close-x{position:sticky;top:0;float:left;background:var(--red);color:#fff;border:none;width:38px;height:38px;border-radius:50%;font-size:1.05rem;margin:14px;z-index:5;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.lightbox-img{max-width:min(1060px,94vw);max-height:84vh;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.92);border:none;width:48px;height:48px;border-radius:50%;font-size:1.25rem;color:var(--green-deep);display:grid;place-items:center}
+.lb-prev{right:22px}.lb-next{left:22px}
+.lb-close{position:absolute;top:22px;left:22px;background:var(--red);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:1.1rem}
+.lb-cap{position:absolute;bottom:26px;right:0;left:0;text-align:center;color:#fff;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+
+/* toast */
+.toast{position:fixed;bottom:26px;right:50%;transform:translate(50%,120px);background:var(--green-deep);color:#fff;padding:14px 28px;border-radius:13px;font-weight:700;z-index:600;transition:transform .4s cubic-bezier(.2,.9,.3,1.2);box-shadow:0 18px 40px rgba(0,0,0,.3);max-width:92vw;text-align:center}
+.toast.show{transform:translate(50%,0)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:1020px){
+  nav.main-nav{display:none}
+  .burger{display:block}
+  .search-bar{grid-template-columns:1fr 1fr}
+  .about-grid,.cafe-grid,.contact-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(3,1fr)}
+  .modal-grid{grid-template-columns:1fr}
+  .modal-info{padding:6px 24px 28px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  section{padding:64px 0}
+  .header-in{height:66px}
+  .header-cta{display:none}
+  .hero{padding:120px 0 110px;min-height:auto}
+  .search-bar{grid-template-columns:1fr;margin-top:-52px}
+  .villa-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .book-body{padding:26px 20px 32px}
+  .book-tab{font-size:.86rem;padding:14px 4px}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-item{height:170px}
+  .price-mgmt{grid-template-columns:1fr}
+  .req-table thead{display:none}
+  .req-table td{display:block;border-bottom:none;padding:6px 14px}
+  .req-table tr{display:block;border-bottom:2px solid var(--line);padding:10px 0}
+  .footer-grid{grid-template-columns:1fr}
+  .about-imgs .main-img{height:330px}
+  .step-dot{width:64px}
+  .step-dot span{font-size:.7rem}
+  .facilities{grid-template-columns:1fr}
+  .hero-stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="siteHeader">
+  <div class="container header-in">
+    <a class="logo" href="#home">
+      <span class="leaf-badge" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 100 100"><polygon fill="#fff" points="50,3 58,20 74,10 72,28 90,22 84,40 98,44 84,54 88,70 70,64 66,82 56,72 54,97 46,97 44,72 34,82 30,64 12,70 16,54 2,44 16,40 10,22 28,28 26,10 42,20"/></svg>
+      </span>
+      <span>دهکده افرا<small>AFRA VILLAGE · اقامتگاه و گردشگری</small></span>
+    </a>
+    <nav class="main-nav" aria-label="ناوبری اصلی">
+      <a href="#home">خانه</a>
+      <a href="#about">درباره دهکده</a>
+      <a href="#villas">ویلاها</a>
+      <a href="#cafe">کافه‌رستوران</a>
+      <a href="#gallery">گالری</a>
+      <a href="#rules">قوانین اقامت</a>
+      <a href="#contact">تماس</a>
+    </nav>
+    <a href="#booking" class="btn btn-red btn-sm header-cta">رزرو آنلاین</a>
+    <button class="burger" id="burgerBtn" aria-label="باز کردن منو"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">خانه</a>
+    <a href="#about">درباره دهکده</a>
+    <a href="#villas">ویلاها</a>
+    <a href="#cafe">کافه‌رستوران</a>
+    <a href="#gallery">گالری</a>
+    <a href="#rules">قوانین اقامت</a>
+    <a href="#booking">رزرو آنلاین</a>
+    <a href="#contact">تماس</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero" id="home">
+  <div class="container hero-in">
+    <span class="kicker">
+      <svg width="17" height="17" viewBox="0 0 100 100"><polygon fill="#ffb3a7" points="50,3 58,20 74,10 72,28 90,22 84,40 98,44 84,54 88,70 70,64 66,82 56,72 54,97 46,97 44,72 34,82 30,64 12,70 16,54 2,44 16,40 10,22 28,28 26,10 42,20"/></svg>
+      اقامتگاه بوم‌گردی و مجتمع گردشگری
+    </span>
+    <h1>دهکده افرا؛ مقصدی برای <em>آرامش</em> و خاطره‌سازی</h1>
+    <p>چهار ویلای اختصاصی در آغوش جنگل، کافه‌رستورانی با طعم‌های محلی و سکوتی که فقط صدای پرنده‌ها آن را می‌شکند. افرا، خانه‌ی دوم شما در دل طبیعت است.</p>
+    <div class="hero-stats">
+      <div class="hs"><b>۴ واحد</b><span>ویلای اختصاصی</span></div>
+      <div class="hs"><b>۱۲ هکتار</b><span>فضای سبز و جنگل</span></div>
+      <div class="hs"><b>۴٫۹ از ۵</b><span>رضایت مهمانان</span></div>
+      <div class="hs"><b>+۳٬۲۰۰</b><span>مهمان خاطره‌ساز</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <form class="search-bar" id="heroSearch">
+    <div class="field">
+      <label for="hsVilla">انتخاب ویلا</label>
+      <select id="hsVilla"></select>
+    </div>
+    <div class="field">
+      <label for="hsIn">تاریخ ورود</label>
+      <input type="date" id="hsIn">
+    </div>
+    <div class="field">
+      <label for="hsOut">تاریخ خروج</label>
+      <input type="date" id="hsOut">
+    </div>
+    <div class="field">
+      <label for="hsGuests">تعداد مهمان</label>
+      <select id="hsGuests">
+        <option value="1">۱ نفر</option>
+        <option value="2" selected>۲ نفر</option>
+        <option value="3">۳ نفر</option>
+        <option value="4">۴ نفر</option>
+        <option value="5">۵ نفر</option>
+        <option value="6">۶ نفر</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-red">بررسی و رزرو</button>
+  </form>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-imgs reveal">
+      <img class="main-img" src="assets/img/forest.jpg" alt="مسیر جنگلی دهکده افرا">
+      <img class="float-img" src="assets/img/maple.jpg" alt="درختان افرا در پاییز">
+      <div class="badge-leaf">
+        <svg width="22" height="22" viewBox="0 0 100 100"><polygon fill="#b3372c" points="50,3 58,20 74,10 72,28 90,22 84,40 98,44 84,54 88,70 70,64 66,82 56,72 54,97 46,97 44,72 34,82 30,64 12,70 16,54 2,44 16,40 10,22 28,28 26,10 42,20"/></svg>
+        از سال ۱۳۹۵ میزبان شما
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:18px">
+        <span class="kicker-sm">درباره دهکده</span>
+        <h2>جایی که جنگل، خانه‌ی شماست</h2>
+        <p>دهکده افرا در دل جنگل‌های سرسبز و در سایه‌سار درختان کهن افرا ساخته شده است؛ مجموعه‌ای خانوادگی که از روز اول یک هدف داشت: اقامتی لوکس، اما با حس صمیمی خانه. هر ویلا حیاط و فضای اختصاصی خودش را دارد تا آرامش شما با هیچ‌کس تقسیم نشود.</p>
+      </div>
+      <ul class="facilities">
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17c2 0 2-1.5 4-1.5S8 17 10 17s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 2-1.5M2 21c2 0 2-1.5 4-1.5S8 21 10 21s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 2-1.5M7 13V6a3 3 0 0 1 6 0M13 6h4"/></svg></span><div><b>استخر روباز و جکوزی</b><span>استخر فصلی مجموعه و جکوزی اختصاصی ویلای البرز ۱</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V8l8-5 8 5v13M4 21h16M9 21v-6h6v6"/></svg></span><div><b>کافه‌رستوران افرا</b><span>صبحانه محلی، غذاهای سنتی و نوشیدنی‌های گرم و سرد</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4.5-8-7.6-8-11a8 8 0 0 1 16 0c0 3.4-4 6.5-8 11Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>مسیر پیاده‌روی جنگلی</b><span>۲ کیلومتر مسیر اختصاصی میان درختان افرا و بلوط</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><b>پذیرش ۲۴ ساعته</b><span>نگهبانی و پذیرش شبانه‌روزی برای امنیت و آسایش شما</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12a10 10 0 0 1 14 0M8.5 15.5a5.5 5.5 0 0 1 7 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></svg></span><div><b>اینترنت پرسرعت</b><span>وای‌فای رایگان در همه ویلاها و فضای کافه‌رستوران</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M3 11h18M7 15h4"/></svg></span><div><b>پارکینگ اختصاصی</b><span>برای هر ویلا، پارکینگ مسقف در مجاورت واحد</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20 14 4l6 16M7 14h10"/></svg></span><div><b>آلاچیق و باربیکیو</b><span>آلاچیق‌های چوبی خانوادگی با امکان باربیکیو</span></div></li>
+        <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span><div><b>زمین بازی کودکان</b><span>فضای بازی امن و سرسبز برای کوچولوهای خانواده</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VILLAS ================= -->
+<section id="villas" class="alt">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="kicker-sm">اقامت</span>
+      <h2>ویلاهای دهکده افرا</h2>
+      <p>از سوئیت دنج جنگلی برای دو نفر تا ویلای بزرگ خانواده؛ هر واحد با حیاط اختصاصی، آشپزخانه مجهز و چشم‌اندازی به جنگل.</p>
+    </div>
+    <div class="villa-grid" id="villaGrid"></div>
+  </div>
+</section>
+
+<!-- ================= CAFE ================= -->
+<section id="cafe">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker-sm">طعم افرا</span>
+      <h2>کافه‌رستوران افرا</h2>
+      <p>روز را با صبحانه‌ی محلی و نان تازه شروع کنید، ناهار را با طعم غذاهای سنتی جنگلی بگذرانید و غروب را با یک فنجان قهوه روی تراس سبز کافه تمام کنید. کافه‌رستوران افرا از ۷ صبح تا ۱۱ شب پذیرای مهمانان دهکده و عموم گردشگران است.</p>
+    </div>
+    <div class="cafe-grid">
+      <div class="cafe-imgs reveal">
+        <img class="big" src="assets/img/cafe-main.jpg" alt="فضای سبز کافه‌رستوران افرا">
+        <img class="small" src="assets/img/cafe-breakfast.jpg" alt="صبحانه محلی افرا">
+        <img class="small" src="assets/img/cafe-coffee.jpg" alt="قهوه تازه در کافه افرا">
+      </div>
+      <div class="reveal">
+        <div class="menu-tabs" id="menuTabs">
+          <button class="menu-tab active" data-menu="breakfast">صبحانه</button>
+          <button class="menu-tab" data-menu="local">غذاهای محلی</button>
+          <button class="menu-tab" data-menu="drinks">نوشیدنی و دسر</button>
+        </div>
+        <div class="menu-list" id="menuList"></div>
+        <p style="color:var(--muted);font-size:.88rem;margin-top:16px">صبحانه برای مهمانان مقیم دهکده رایگان است و روی تراس ویلا یا در سالن کافه سرو می‌شود.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section id="gallery" class="alt-soft">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="kicker-sm">قاب‌های افرا</span>
+      <h2>گالری تصاویر دهکده</h2>
+      <p>گوشه‌هایی از ویلاها، جنگل افرا و کافه‌رستوران ما؛ برای دیدن عکس بزرگ‌تر، روی هر تصویر کلیک کنید.</p>
+    </div>
+    <div class="gal-filters reveal" id="galFilters">
+      <button class="menu-tab active" data-gal="all">همه</button>
+      <button class="menu-tab" data-gal="villa">ویلاها</button>
+      <button class="menu-tab" data-gal="nature">طبیعت</button>
+      <button class="menu-tab" data-gal="cafe">کافه‌رستوران</button>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ================= RULES ================= -->
+<section id="rules">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="kicker-sm">پیش از رزرو بدانید</span>
+      <h2>قوانین رزرو و اقامت</h2>
+      <p>برای اینکه اقامتی آرام و بدون دغدغه داشته باشید، لطفاً پیش از ثبت درخواست رزرو این موارد را مطالعه کنید.</p>
+    </div>
+    <div class="rules-wrap reveal">
+      <div class="acc">
+        <button class="acc-head">شرایط رزرو و پرداخت<span class="plus">+</span></button>
+        <div class="acc-body"><div class="acc-body-in">
+          <ul>
+            <li>ثبت درخواست رزرو از طریق همین سایت انجام می‌شود و در این مرحله هیچ مبلغی پرداخت نمی‌کنید.</li>
+            <li>پس از تأیید اولیه مدیریت، شماره کارت نمایش داده می‌شود و با واریز بیعانه (۳۰٪ مبلغ کل) رزرو شما قطعی خواهد شد.</li>
+            <li>مهلت واریز بیعانه پس از تأیید، ۱۲ ساعت است؛ در صورت عدم واریز، درخواست به‌صورت خودکار لغو می‌شود.</li>
+            <li>مابقی مبلغ در زمان تحویل ویلا (کارت یا نقدی) تسویه می‌شود.</li>
+            <li>ساعت تحویل ویلا ۱۴:۰۰ و ساعت تخلیه ۱۲:۰۰ روز خروج است.</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="acc">
+        <button class="acc-head">مدارک لازم هنگام پذیرش<span class="plus">+</span></button>
+        <div class="acc-body"><div class="acc-body-in">
+          <ul>
+            <li>ارائه کارت ملی و شناسنامه‌ی سرپرست گروه در زمان پذیرش الزامی است.</li>
+            <li>برای زوج‌های محترم، همراه داشتن شناسنامه یا سند ازدواج جهت احراز محرمیت ضروری است.</li>
+            <li>کد رهگیری رزرو (ارسال‌شده پس از ثبت درخواست) را هنگام ورود همراه داشته باشید.</li>
+            <li>پذیرش مهمان اضافه بر ظرفیت ویلا، فقط با هماهنگی قبلی و پرداخت هزینه نفر اضافه ممکن است.</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="acc">
+        <button class="acc-head">قوانین اقامت در دهکده<span class="plus">+</span></button>
+        <div class="acc-body"><div class="acc-body-in">
+          <ul>
+            <li>حفظ سکوت و آرامش طبیعت از ساعت ۲۳:۰۰ تا ۷:۰۰ صبح برای آسایش همه مهمانان الزامی است.</li>
+            <li>روشن کردن آتش فقط در محل‌های مشخص باربیکیو و آلاچیق‌ها مجاز است.</li>
+            <li>ورود حیوانات خانگی با هماهنگی قبلی و فقط در ویلاهای دارای حیاط اختصاصی امکان‌پذیر است.</li>
+            <li>استعمال دخانیات در فضای داخلی ویلاها ممنوع است؛ تراس و حیاط هر واحد فضای آزاد شماست.</li>
+            <li>مسئولیت خسارت به اموال ویلا بر عهده مهمان است و مبلغ آن از ودیعه کسر می‌شود.</li>
+          </ul>
+        </div></div>
+      </div>
+      <div class="acc">
+        <button class="acc-head">شرایط کنسلی و بازگشت وجه<span class="plus">+</span></button>
+        <div class="acc-body"><div class="acc-body-in">
+          <ul>
+            <li>کنسلی تا ۷ روز پیش از تاریخ ورود: بازگشت کامل بیعانه.</li>
+            <li>کنسلی ۳ تا ۷ روز پیش از ورود: ۵۰٪ بیعانه بازگردانده می‌شود.</li>
+            <li>کنسلی کمتر از ۳ روز پیش از ورود یا عدم حضور: بیعانه قابل بازگشت نیست.</li>
+            <li>تغییر تاریخ اقامت (یک‌بار) تا ۵ روز پیش از ورود، بدون هزینه و بر اساس ظرفیت خالی امکان‌پذیر است.</li>
+            <li>مبالغ کنسلی حداکثر ظرف ۳ روز کاری به همان کارت مبدأ بازگردانده می‌شود.</li>
+          </ul>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKING ================= -->
+<section id="booking" class="alt">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="kicker-sm">رزرو آنلاین</span>
+      <h2>درخواست رزرو ویلا</h2>
+      <p>درخواست خود را در چند گام ساده ثبت کنید؛ مدیریت دهکده پس از بررسی، نتیجه را اعلام می‌کند و پس از تأیید اولیه مدیریت، شماره کارت برای واریز بیعانه نمایش داده می‌شود.</p>
+    </div>
+    <div class="book-card reveal">
+      <div class="book-tabs" role="tablist">
+        <button class="book-tab active" data-tab="new">ثبت درخواست رزرو</button>
+        <button class="book-tab" data-tab="track">پیگیری درخواست</button>
+        <button class="book-tab" data-tab="admin">پنل مدیریت دهکده</button>
+      </div>
+      <div class="book-body">
+
+        <!-- NEW BOOKING -->
+        <div id="tab-new">
+          <div class="steps-bar" id="stepsBar">
+            <div class="step-dot active" data-dot="1"><span class="dot">۱</span><span>انتخاب ویلا و تاریخ</span></div>
+            <div class="step-line"></div>
+            <div class="step-dot" data-dot="2"><span class="dot">۲</span><span>مهمانان و اطلاعات تماس</span></div>
+            <div class="step-line"></div>
+            <div class="step-dot" data-dot="3"><span class="dot">۳</span><span>ثبت و پیگیری</span></div>
+          </div>
+
+          <div class="err" id="bookErr"></div>
+
+          <!-- STEP 1 -->
+          <div id="bstep1">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="bkVilla">انتخاب ویلا</label>
+                <select id="bkVilla"></select>
+                <div class="hint" id="bkVillaHint"></div>
+              </div>
+              <div class="field">
+                <label for="bkIn">تاریخ ورود</label>
+                <input type="date" id="bkIn">
+                <div class="hint" id="bkInHint">معادل شمسی پس از انتخاب نمایش داده می‌شود.</div>
+              </div>
+              <div class="field">
+                <label for="bkOut">تاریخ خروج</label>
+                <input type="date" id="bkOut">
+                <div class="hint" id="bkOutHint"></div>
+              </div>
+            </div>
+            <div class="summary-box" id="sumStep1" style="display:none">
+              <div class="row"><span>تعداد شب اقامت</span><b id="sumNights">—</b></div>
+              <div class="row"><span>قیمت هر شب</span><b id="sumPerNight">—</b></div>
+              <div class="row total"><span>مبلغ کل اقامت</span><span class="amount" id="sumTotal">—</span></div>
+            </div>
+            <div class="form-nav">
+              <span></span>
+              <button class="btn btn-green" id="toStep2">ادامه: اطلاعات مهمانان ←</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div id="bstep2" style="display:none">
+            <div class="form-grid">
+              <div class="field">
+                <label for="bkGuests">تعداد مهمانان</label>
+                <select id="bkGuests">
+                  <option value="1">۱ نفر</option><option value="2">۲ نفر</option><option value="3">۳ نفر</option>
+                  <option value="4">۴ نفر</option><option value="5">۵ نفر</option><option value="6">۶ نفر</option>
+                  <option value="7">۷ نفر</option><option value="8">۸ نفر</option>
+                </select>
+                <div class="hint" id="bkCapHint"></div>
+              </div>
+              <div class="field">
+                <label for="bkName">نام و نام خانوادگی سرپرست</label>
+                <input type="text" id="bkName" placeholder="مثلاً: سارا محمدی">
+              </div>
+              <div class="field">
+                <label for="bkMobile">شماره موبایل</label>
+                <input type="tel" id="bkMobile" placeholder="۰۹۱۲ ··· ····" inputmode="tel" style="direction:ltr;text-align:left">
+              </div>
+              <div class="field">
+                <label for="bkDoc">نوع مدرک همراه</label>
+                <select id="bkDoc">
+                  <option>کارت ملی و شناسنامه</option>
+                  <option>سند ازدواج (زوج)</option>
+                  <option>گذرنامه</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="bkNote">توضیحات (اختیاری)</label>
+                <textarea id="bkNote" rows="2" placeholder="درخواست خاصی دارید؟ مثلاً تخت کودک، ورود زودهنگام و…"></textarea>
+              </div>
+            </div>
+            <div class="summary-box">
+              <div class="row"><span>ویلا</span><b id="sum2Villa">—</b></div>
+              <div class="row"><span>بازه اقامت</span><b id="sum2Dates">—</b></div>
+              <div class="row"><span>مهمانان</span><b id="sum2Guests">—</b></div>
+              <div class="row total"><span>مبلغ کل (بیعانه: ۳۰٪ پس از تأیید)</span><span class="amount" id="sum2Total">—</span></div>
+            </div>
+            <div class="form-nav">
+              <button class="btn btn-ghost" id="backStep1">→ بازگشت</button>
+              <button class="btn btn-red" id="submitBooking">ثبت درخواست رزرو</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 : CONFIRMATION -->
+          <div id="bstep3" style="display:none">
+            <div class="success-hero">
+              <div class="ok-ring"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+              <h3>درخواست شما با موفقیت ثبت شد</h3>
+              <p style="color:var(--muted)">کد رهگیری درخواست رزرو شما:</p>
+              <div class="track-code" id="finalCode">AF-۰۰۰۰۰۰</div>
+              <p style="color:var(--muted);max-width:560px;margin:0 auto">درخواست شما برای مدیریت دهکده ارسال شد. نتیجه بررسی از طریق پیامک اطلاع‌رسانی می‌شود و می‌توانید هر لحظه با همین کد، وضعیت را در زبانه «پیگیری درخواست» ببینید.</p>
+            </div>
+            <div class="timeline" id="finalTimeline"></div>
+            <div class="card-number-box" id="finalCardBox">
+              <p>شماره کارت دهکده افرا (واریز بیعانه)</p>
+              <div class="cn" id="finalCardNum">6037 - 9971 - 2345 - 6789</div>
+              <p>به نام: مدیریت دهکده افرا — پس از واریز، رسید را نگه دارید.</p>
+            </div>
+            <div class="form-nav" style="justify-content:center">
+              <button class="btn btn-green" id="newBookingBtn">ثبت درخواست جدید</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRACK -->
+        <div id="tab-track" style="display:none">
+          <div class="form-grid" style="max-width:640px;margin:0 auto">
+            <div class="field">
+              <label for="trackInput">کد رهگیری درخواست</label>
+              <input type="text" id="trackInput" placeholder="مثلاً: AF-100245" style="direction:ltr;text-align:left">
+            </div>
+            <div class="field" style="display:flex;align-items:flex-end">
+              <button class="btn btn-green" id="trackBtn" style="width:100%">مشاهده وضعیت</button>
+            </div>
+          </div>
+          <div class="err" id="trackErr" style="max-width:640px;margin:18px auto 0"></div>
+          <div id="trackResult" style="display:none">
+            <div class="summary-box" style="max-width:640px;margin:22px auto 0">
+              <div class="row"><span>ویلا</span><b id="trVilla">—</b></div>
+              <div class="row"><span>مهمان</span><b id="trName">—</b></div>
+              <div class="row"><span>بازه اقامت</span><b id="trDates">—</b></div>
+              <div class="row"><span>وضعیت درخواست</span><b id="trStatus">—</b></div>
+              <div class="row total"><span>مبلغ کل اقامت</span><span class="amount" id="trTotal">—</span></div>
+            </div>
+            <div class="timeline" id="trackTimeline"></div>
+            <div class="card-number-box" id="trackCardBox">
+              <p>درخواست شما تأیید شد — شماره کارت دهکده افرا برای واریز بیعانه (۳۰٪):</p>
+              <div class="cn">6037 - 9971 - 2345 - 6789</div>
+              <p>به نام: مدیریت دهکده افرا — مهلت واریز: ۱۲ ساعت پس از تأیید</p>
+            </div>
+          </div>
+          <p style="text-align:center;color:var(--muted);font-size:.88rem;margin-top:20px">برای آشنایی با روند کار، می‌توانید کد نمونه <b>AF-100245</b> (تأییدشده) یا <b>AF-100312</b> (در انتظار بررسی) را امتحان کنید.</p>
+        </div>
+
+        <!-- ADMIN -->
+        <div id="tab-admin" style="display:none">
+          <div class="admin-note">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
+            <div><b>مدیریت آسان، بدون نیاز به برنامه‌نویس:</b> در وب‌سایت نهایی، مدیر دهکده از همین پنل می‌تواند ویلاها و عکس‌ها را اضافه یا ویرایش کند، قیمت هر شب و ظرفیت‌ها را تغییر دهد، درخواست‌های رزرو را تأیید یا رد کند و تقویم در دسترس بودن هر ویلا را مدیریت کند. تغییرات بلافاصله روی سایت اعمال می‌شوند — نمونه‌اش را همین‌جا امتحان کنید:</div>
+          </div>
+          <h3 style="font-weight:900;color:var(--green-deep);margin-bottom:14px">درخواست‌های رزرو</h3>
+          <div style="overflow-x:auto">
+            <table class="req-table">
+              <thead><tr><th>کد رهگیری</th><th>مهمان</th><th>ویلا</th><th>ورود</th><th>خروج</th><th>نفرات</th><th>مبلغ کل</th><th>وضعیت</th><th>عملیات</th></tr></thead>
+              <tbody id="reqTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-note" id="reqEmpty" style="display:none">هنوز هیچ درخواستی ثبت نشده است.</div>
+          <h3 style="font-weight:900;color:var(--green-deep);margin:34px 0 14px">مدیریت ویلاها و قیمت‌ها</h3>
+          <div class="price-mgmt" id="priceMgmt"></div>
+          <p style="color:var(--muted);font-size:.87rem;margin-top:14px">قیمت‌ها به تومان و برای هر شب اقامت هستند؛ پس از ذخیره، کارت ویلا و فرم رزرو با قیمت جدید به‌روز می‌شوند.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="kicker-sm">در تماس باشیم</span>
+      <h2>تماس با دهکده افرا</h2>
+      <p>سؤالی درباره اقامت، ظرفیت ویلاها یا برگزاری دورهمی و مراسم دارید؟ از طریق فرم زیر پیام بگذارید؛ در ساعات پاسخ‌گویی حتماً جواب می‌دهیم.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="info-card reveal">
+        <h3>اطلاعات پاسخ‌گویی</h3>
+        <ul>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>ساعات پاسخ‌گویی: هر روز ۸ صبح تا ۱۰ شب</li>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>پاسخ پیام‌های فرم تماس: حداکثر تا ۲ ساعت در ساعات پاسخ‌گویی</li>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4-4.5-8-7.6-8-11a8 8 0 0 1 16 0c0 3.4-4 6.5-8 11Z"/><circle cx="12" cy="10" r="3"/></svg>موقعیت: در دل جنگل‌های هیرکانی؛ مسیر دسترسی پس از قطعی شدن رزرو برای مهمان ارسال می‌شود.</li>
+          <li><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 0 1 16 0v6a3 3 0 0 1-3 3h-3M4 12v5a2 2 0 0 0 2 2h1v-9H6a2 2 0 0 0-2 2Z"/></svg>برای رزرو گروهی و مراسم، در پیام خود تعداد مهمان و تاریخ را بنویسید.</li>
+        </ul>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="cfName">نام و نام خانوادگی</label>
+            <input type="text" id="cfName" required placeholder="نام شما">
+          </div>
+          <div class="field">
+            <label for="cfMobile">شماره موبایل</label>
+            <input type="tel" id="cfMobile" required placeholder="۰۹۱۲ ··· ····" style="direction:ltr;text-align:left">
+          </div>
+          <div class="field full">
+            <label for="cfSubject">موضوع پیام</label>
+            <select id="cfSubject">
+              <option>سؤال درباره رزرو</option>
+              <option>رزرو گروهی و مراسم</option>
+              <option>ظرفیت و امکانات ویلاها</option>
+              <option>سایر موضوعات</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="cfMsg">متن پیام</label>
+            <textarea id="cfMsg" rows="4" required placeholder="پیام خود را بنویسید…"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-green" style="margin-top:20px">ارسال پیام</button>
+        <div class="form-ok" id="contactOk">پیام شما با موفقیت ثبت شد. در ساعات پاسخ‌گویی با شما تماس می‌گیریم. 🌿</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <svg width="26" height="26" viewBox="0 0 100 100"><polygon fill="#e2574c" points="50,3 58,20 74,10 72,28 90,22 84,40 98,44 84,54 88,70 70,64 66,82 56,72 54,97 46,97 44,72 34,82 30,64 12,70 16,54 2,44 16,40 10,22 28,28 26,10 42,20"/></svg>
+          دهکده افرا
+        </div>
+        <p>اقامتگاه و مجتمع گردشگری افرا؛ چهار ویلای اختصاصی، کافه‌رستورانی با طعم‌های محلی و جنگلی که آرامش را به شما هدیه می‌دهد.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <a href="#about">درباره دهکده</a>
+        <a href="#villas">ویلاها</a>
+        <a href="#cafe">کافه‌رستوران</a>
+        <a href="#gallery">گالری تصاویر</a>
+        <a href="#booking">رزرو آنلاین</a>
+      </div>
+      <div>
+        <h4>راهنمای مهمان</h4>
+        <a href="#rules">شرایط رزرو و پرداخت</a>
+        <a href="#rules">مدارک لازم</a>
+        <a href="#rules">قوانین اقامت</a>
+        <a href="#rules">شرایط کنسلی</a>
+        <a href="#contact">تماس با ما</a>
+      </div>
+    </div>
+    <div class="copyright">© دهکده افرا — تمامی حقوق محفوظ است. ساخته‌شده با 🍁 در دل جنگل</div>
+  </div>
+</footer>
+
+<!-- ================= VILLA MODAL ================= -->
+<div class="overlay" id="villaModal">
+  <div class="modal">
+    <button class="close-x" id="modalClose" aria-label="بستن">✕</button>
+    <div class="modal-grid">
+      <div class="modal-gallery">
+        <img class="mg-main" id="mgMain" src="" alt="تصویر ویلا">
+        <div class="mg-thumbs" id="mgThumbs"></div>
+      </div>
+      <div class="modal-info">
+        <h3 id="mName"></h3>
+        <div class="vc-meta" id="mMeta" style="margin:10px 0"></div>
+        <p id="mDesc" style="color:var(--muted);font-size:.96rem"></p>
+        <h4 style="margin:18px 0 10px;font-weight:800;color:var(--green-deep)">امکانات ویلا</h4>
+        <div class="chips" id="mChips"></div>
+        <div class="summary-box" style="margin-top:22px">
+          <div class="row"><span>ظرفیت استاندارد</span><b id="mCap"></b></div>
+          <div class="row"><span>متراژ</span><b id="mArea"></b></div>
+          <div class="row total"><span>قیمت هر شب</span><span class="amount" id="mPrice"></span></div>
+        </div>
+        <button class="btn btn-red" id="mBookBtn" style="width:100%;margin-top:20px">رزرو این ویلا</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="overlay" id="lightbox">
+  <button class="lb-close" id="lbClose" aria-label="بستن">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="قبلی">›</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="تصویر گالری">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="بعدی">‹</button>
+  <div class="lb-cap" id="lbCap"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==================== DATA ==================== */
+const VILLAS = [
+  { id:'alborz1', name:'ویلای البرز ۱', tag:'پیشنهاد ویژه زوج‌ها',
+    capacity:2, bedrooms:1, area:85, price:4800000,
+    img:'assets/img/jacuzzi.jpg',
+    images:['assets/img/jacuzzi.jpg','assets/img/hero.jpg','assets/img/bedroom.jpg','assets/img/interior.jpg'],
+    desc:'دنج‌ترین واحد دهکده برای یک اقامت دونفره‌ی رویایی؛ ویلای البرز ۱ با یک اتاق‌خواب مستر، تراس خصوصی رو به جنگل و جکوزی اختصاصی در فضای باز، جایی است که غروب‌ها در آب گرم، زیر آسمان پرستاره معنا پیدا می‌کند.',
+    amenities:['جکوزی اختصاصی','۱ اتاق‌خواب مستر','تراس خصوصی','آشپزخانه مجهز','صبحانه رایگان','وای‌فای پرسرعت','پارکینگ اختصاصی','تلویزیون و سیستم صوتی','سرویس بهداشتی فرنگی و ایرانی','گرمایش از کف'] },
+  { id:'afra2', name:'ویلای افرا ۲', tag:'',
+    capacity:4, bedrooms:2, area:120, price:6500000,
+    img:'assets/img/villa-afra.jpg',
+    images:['assets/img/villa-afra.jpg','assets/img/bedroom.jpg','assets/img/interior.jpg','assets/img/forest.jpg'],
+    desc:'ویلایی روشن و دلباز با دو اتاق‌خواب، نشیمن بزرگ و بالکنی که صبح‌ها با صدای پرنده‌ها بیدارتان می‌کند. انتخابی ایده‌آل برای خانواده‌های کوچک و جمع‌های دوستانه‌ای که هم خلوت می‌خواهند، هم دورهمی.',
+    amenities:['۲ اتاق‌خواب','بالکن رو به جنگل','نشیمن مبله بزرگ','آشپزخانه مجهز','صبحانه رایگان','وای‌فای پرسرعت','پارکینگ اختصاصی','ماشین لباسشویی','باربیکیو در حیاط','شومینه'] },
+  { id:'suite', name:'سوئیت جنگلی', tag:'اقتصادی و دنج',
+    capacity:2, bedrooms:0, area:45, price:2900000,
+    img:'assets/img/cabin.jpg',
+    images:['assets/img/cabin.jpg','assets/img/forest.jpg','assets/img/bedroom.jpg','assets/img/maple.jpg'],
+    desc:'یک کلبه‌ی چوبی نقلی در قلب جنگل؛ سوئیت جنگلی با تخت دونفره، آشپزخانه‌ی کوچک و ایوانی چوبی برای چای عصرگاهی. اگر دنبال سکوت مطلق و بوی چوب و خاک باران‌خورده‌اید، همین‌جاست.',
+    amenities:['کلبه چوبی اختصاصی','ایوان چوبی','آشپزخانه کوچک','صبحانه رایگان','وای‌فای','پارکینگ','تخت دونفره','بخاری گازی','حیاط اختصاصی','نزدیک‌ترین واحد به مسیر جنگلی'] },
+  { id:'family', name:'ویلای خانواده', tag:'مناسب دورهمی',
+    capacity:6, bedrooms:3, area:210, price:9700000,
+    img:'assets/img/villa-family.jpg',
+    images:['assets/img/villa-family.jpg','assets/img/villa-dusk.jpg','assets/img/interior.jpg','assets/img/bedroom.jpg'],
+    desc:'بزرگ‌ترین واحد دهکده برای خانواده‌ها و دورهمی‌های پرجمعیت؛ سه اتاق‌خواب، نشیمن وسیع با شومینه، حیاط بزرگ با آلاچیق و دسترسی مستقیم به استخر مجموعه. این ویلا برای ساختن خاطره‌های دسته‌جمعی ساخته شده است.',
+    amenities:['۳ اتاق‌خواب','ظرفیت ۶ نفر','حیاط بزرگ و آلاچیق','شومینه','آشپزخانه کامل + ماشین ظرفشویی','صبحانه رایگان','وای‌فای پرسرعت','پارکینگ دو خودرو','باربیکیو','نزدیک به استخر مجموعه'] },
+];
+const MENUS = {
+  breakfast:[
+    {n:'صبحانه کامل افرا', d:'نان سنگک تازه، پنیر محلی، کره و عسل، تخم‌مرغ محلی، چای دمی', p:280000},
+    {n:'املت جنگلی', d:'گوجه تازه، تخم‌مرغ محلی و فلفل دلمه‌ای، همراه نان تازه', p:190000},
+    {n:'نیمرو و سوسیس', d:'تخم‌مرغ محلی، سوسیس دودی و دورچین سبزیجات', p:210000},
+    {n:'حلیم گندم (پنجشنبه و جمعه)', d:'حلیم سنتی با گوشت، دارچین و کره محلی', p:170000},
+    {n:'عدسی گرم', d:'عدسی سنتی با گلپر و آب‌لیمو، همراه نان', p:120000},
+  ],
+  local:[
+    {n:'میرزاقاسمی', d:'بادمجان دودی، سیر تازه و تخم‌مرغ؛ با برنج کته یا نان', p:320000},
+    {n:'باقلاقاتق', d:'خورش سنتی باقلا با شوید و تخم‌مرغ، همراه ماهی دودی', p:380000},
+    {n:'مرغ ترش', d:'مرغ محلی با سبزی‌های جنگلی و رب انار', p:450000},
+    {n:'کباب ترش', d:'گوشت گوسفندی خوابانده در رب انار و گردو', p:590000},
+    {n:'ماهی سفید سرخ‌شده', d:'ماهی تازه فصل با برنج کته، زیتون پرورده و نارنج', p:640000},
+    {n:'خورشت اناربیج', d:'گردو، رب انار و سبزی‌های معطر با گوشت قلقلی', p:470000},
+  ],
+  drinks:[
+    {n:'چای دمی بهارنارنج', d:'چای لاهیجان با عطر بهارنارنج، قوری سفالی', p:80000},
+    {n:'قهوه ترک', d:'قهوه تازه آسیاب‌شده، دم‌آوری سنتی روی شن', p:110000},
+    {n:'اسپرسو و لاته', d:'دانه عربیکا تازه، شیر محلی', p:140000},
+    {n:'شربت به‌لیمو و سکنجبین', d:'نوشیدنی خنک سنتی با خیار و نعناع', p:95000},
+    {n:'کیک خانگی روز', d:'کیک تازه پخت کافه (هویج گردو یا شکلاتی)', p:120000},
+    {n:'بستنی سنتی زعفرانی', d:'با خلال پسته و خامه محلی', p:130000},
+  ]
+};
+
+const GALLERY = [
+  {src:'assets/img/hero.jpg', cat:'villa', cap:'نمای غروب ویلای البرز ۱ و استخر اختصاصی'},
+  {src:'assets/img/villa-afra.jpg', cat:'villa', cap:'ویلای افرا ۲'},
+  {src:'assets/img/villa-family.jpg', cat:'villa', cap:'ویلای خانواده'},
+  {src:'assets/img/villa-dusk.jpg', cat:'villa', cap:'دهکده در نور غروب'},
+  {src:'assets/img/forest.jpg', cat:'nature', cap:'مسیر پیاده‌روی جنگلی دهکده'},
+  {src:'assets/img/maple.jpg', cat:'nature', cap:'پاییز درختان افرا'},
+  {src:'assets/img/cabin.jpg', cat:'nature', cap:'سوئیت جنگلی در میان درختان'},
+  {src:'assets/img/cafe-main.jpg', cat:'cafe', cap:'سالن سبز کافه‌رستوران افرا'},
+  {src:'assets/img/cafe-breakfast.jpg', cat:'cafe', cap:'صبحانه محلی افرا'},
+  {src:'assets/img/cafe-coffee.jpg', cat:'cafe', cap:'قهوه تازه‌دم کافه'},
+  {src:'assets/img/jacuzzi.jpg', cat:'villa', cap:'جکوزی اختصاصی ویلای البرز ۱'},
+  {src:'assets/img/interior.jpg', cat:'villa', cap:'نشیمن ویلای خانواده'},
+];
+
+/* ==================== HELPERS / STATE ==================== */
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const faNum = n => Number(n).toLocaleString('fa-IR');
+const money = n => faNum(n) + ' تومان';
+const faDigits = s => String(s).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const toISO = d => { const p=n=>String(n).padStart(2,'0'); return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()); };
+const fmtDate = iso => { if(!iso) return '—'; try{ return new Date(iso+'T12:00:00').toLocaleDateString('fa-IR',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return iso; } };
+const nightsBetween = (a,b) => Math.round((new Date(b+'T12:00:00') - new Date(a+'T12:00:00'))/86400000);
+
+let priceOverrides = {};
+try{ priceOverrides = JSON.parse(localStorage.getItem('afra_prices')||'{}'); }catch(e){}
+const priceOf = v => priceOverrides[v.id] || v.price;
+const villaById = id => VILLAS.find(v=>v.id===id);
+
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3400); }
+
+function getRequests(){
+  try{ const r = JSON.parse(localStorage.getItem('afra_requests')||'null'); if(Array.isArray(r)) return r; }catch(e){}
+  const t = new Date();
+  const d = n => toISO(new Date(t.getTime()+n*86400000));
+  const seed = [
+    {code:'AF-100245', name:'رضا کریمی', mobile:'09123456789', doc:'کارت ملی و شناسنامه', villaId:'alborz1', checkin:d(10), checkout:d(12), guests:2, nights:2, total:9600000, status:'approved', note:'ورود زودهنگام در صورت امکان', createdAt:Date.now()-86400000*2},
+    {code:'AF-100312', name:'مریم احمدی', mobile:'09351234567', doc:'کارت ملی و شناسنامه', villaId:'family', checkin:d(14), checkout:d(16), guests:6, nights:2, total:19400000, status:'pending', note:'', createdAt:Date.now()-3600000*5},
+  ];
+  localStorage.setItem('afra_requests', JSON.stringify(seed));
+  return seed;
+}
+function saveRequests(r){ localStorage.setItem('afra_requests', JSON.stringify(r)); }
+
+/* ==================== HEADER / NAV ==================== */
+window.addEventListener('scroll', ()=>{ $('#siteHeader').classList.toggle('scrolled', window.scrollY>10); });
+$('#burgerBtn').addEventListener('click', ()=> $('#mobileMenu').classList.toggle('open'));
+$$('#mobileMenu a').forEach(a=>a.addEventListener('click', ()=> $('#mobileMenu').classList.remove('open')));
+
+/* ==================== VILLA CARDS ==================== */
+const ICONS = {
+  users:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5M16 5a3.5 3.5 0 0 1 0 7M21.5 20c-.5-2.3-1.8-3.9-4-4.6"/></svg>',
+  bed:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v7M3 18h18M3 21v-3M21 21v-3M6 9V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/></svg>',
+  area:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9h5V4M20 15h-5v5"/></svg>',
+  check:'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5 9.5 18 20 6.5"/></svg>'
+};
+function renderVillas(){
+  $('#villaGrid').innerHTML = VILLAS.map(v=>`
+    <article class="villa-card reveal vis">
+      <div class="vc-img">
+        <img src="${v.img}" alt="${v.name}" loading="lazy">
+        ${v.tag?`<span class="tag-badge">${v.tag}</span>`:''}
+        <span class="price-badge">${money(priceOf(v))} <small>/ هر شب</small></span>
+      </div>
+      <div class="vc-body">
+        <h3>${v.name}</h3>
+        <div class="vc-meta">
+          <span>${ICONS.users} ظرفیت ${faNum(v.capacity)} نفر</span>
+          <span>${ICONS.bed} ${v.bedrooms? faNum(v.bedrooms)+' اتاق‌خواب' : 'سوئیت (بدون اتاق مجزا)'}</span>
+          <span>${ICONS.area} ${faNum(v.area)} متر</span>
+        </div>
+        <p class="vc-desc">${v.desc.slice(0,118)}…</p>
+        <div class="chips">${v.amenities.slice(0,4).map(a=>`<span class="chip">${ICONS.check} ${a}</span>`).join('')}</div>
+        <div class="vc-actions">
+          <button class="btn btn-outline" onclick="openVilla('${v.id}')">مشاهده جزئیات</button>
+          <button class="btn btn-green" onclick="bookVilla('${v.id}')">رزرو این ویلا</button>
+        </div>
+      </div>
+    </article>`).join('');
+}
+function fillVillaSelects(){
+  const opts = VILLAS.map(v=>`<option value="${v.id}">${v.name} — ${money(priceOf(v))} / شب</option>`).join('');
+  $('#hsVilla').innerHTML = opts;
+  $('#bkVilla').innerHTML = opts;
+  updateVillaHint();
+}
+function updateVillaHint(){
+  const v = villaById($('#bkVilla').value);
+  if(v) $('#bkVillaHint').textContent = `ظرفیت استاندارد: ${faNum(v.capacity)} نفر · ${v.bedrooms? faNum(v.bedrooms)+' اتاق‌خواب' : 'سوئیت'} · ${faNum(v.area)} متر مربع`;
+}
+
+/* ==================== VILLA MODAL ==================== */
+let modalVilla = null;
+function openVilla(id){
+  const v = villaById(id); if(!v) return; modalVilla = v;
+  $('#mName').textContent = v.name;
+  $('#mMeta').innerHTML = `<span>${ICONS.users} ظرفیت ${faNum(v.capacity)} نفر</span><span>${ICONS.bed} ${v.bedrooms? faNum(v.bedrooms)+' اتاق‌خواب':'سوئیت'}</span><span>${ICONS.area} ${faNum(v.area)} متر</span>`;
+  $('#mDesc').textContent = v.desc;
+  $('#mChips').innerHTML = v.amenities.map(a=>`<span class="chip">${ICONS.check} ${a}</span>`).join('');
+  $('#mCap').textContent = faNum(v.capacity)+' نفر';
+  $('#mArea').textContent = faNum(v.area)+' متر مربع';
+  $('#mPrice').textContent = money(priceOf(v));
+  $('#mgMain').src = v.images[0];
+  $('#mgThumbs').innerHTML = v.images.map((s,i)=>`<img src="${s}" class="${i===0?'sel':''}" alt="تصویر ${i+1} ${v.name}" onclick="mgSwap(this)">`).join('');
+  $('#villaModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function mgSwap(el){ $('#mgMain').src = el.src; $$('#mgThumbs img').forEach(i=>i.classList.remove('sel')); el.classList.add('sel'); }
+function closeVilla(){ $('#villaModal').classList.remove('open'); document.body.style.overflow=''; }
+$('#modalClose').addEventListener('click', closeVilla);
+$('#villaModal').addEventListener('click', e=>{ if(e.target.id==='villaModal') closeVilla(); });
+$('#mBookBtn').addEventListener('click', ()=>{ if(modalVilla){ closeVilla(); bookVilla(modalVilla.id); } });
+function bookVilla(id){
+  $('#bkVilla').value = id; updateVillaHint(); updateSummary();
+  document.querySelector('[data-tab="new"]').click();
+  gotoStep(1);
+  document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+  toast(villaById(id).name + ' برای رزرو انتخاب شد');
+}
+
+/* ==================== MENU ==================== */
+function renderMenu(key){
+  $('#menuList').innerHTML = MENUS[key].map(m=>`
+    <div class="menu-item"><div><h4>${m.n}</h4><p>${m.d}</p></div><div class="mp">${faNum(m.p)} <small>تومان</small></div></div>`).join('');
+}
+$('#menuTabs').addEventListener('click', e=>{
+  const b = e.target.closest('[data-menu]'); if(!b) return;
+  $$('#menuTabs .menu-tab').forEach(t=>t.classList.remove('active')); b.classList.add('active');
+  renderMenu(b.dataset.menu);
+});
+
+/* ==================== GALLERY / LIGHTBOX ==================== */
+function renderGallery(){
+  $('#galGrid').innerHTML = GALLERY.map((g,i)=>`
+    <button class="gal-item" data-cat="${g.cat}" data-idx="${i}" onclick="openLB(${i})">
+      <img src="${g.src}" alt="${g.cap}" loading="lazy"><span class="cap">${g.cap}</span>
+    </button>`).join('');
+}
+$('#galFilters').addEventListener('click', e=>{
+  const b = e.target.closest('[data-gal]'); if(!b) return;
+  $$('#galFilters .menu-tab').forEach(t=>t.classList.remove('active')); b.classList.add('active');
+  const f = b.dataset.gal;
+  $$('.gal-item').forEach(it=> it.classList.toggle('hide', f!=='all' && it.dataset.cat!==f));
+});
+let lbList = [], lbIdx = 0;
+function openLB(i){
+  lbList = GALLERY.map((g,idx)=>idx).filter(idx=>{
+    const el = document.querySelector(`.gal-item[data-idx="${idx}"]`);
+    return el && !el.classList.contains('hide');
+  });
+  lbIdx = Math.max(0, lbList.indexOf(i));
+  showLB(); $('#lightbox').classList.add('open'); document.body.style.overflow='hidden';
+}
+function showLB(){
+  const g = GALLERY[lbList[lbIdx]];
+  $('#lbImg').src = g.src; $('#lbCap').textContent = g.cap;
+}
+function stepLB(d){ lbIdx = (lbIdx + d + lbList.length) % lbList.length; showLB(); }
+function closeLB(){ $('#lightbox').classList.remove('open'); document.body.style.overflow=''; }
+$('#lbClose').addEventListener('click', closeLB);
+$('#lbPrev').addEventListener('click', ()=>stepLB(1));
+$('#lbNext').addEventListener('click', ()=>stepLB(-1));
+$('#lightbox').addEventListener('click', e=>{ if(e.target.id==='lightbox') closeLB(); });
+document.addEventListener('keydown', e=>{
+  if($('#lightbox').classList.contains('open')){ if(e.key==='Escape') closeLB(); if(e.key==='ArrowLeft') stepLB(-1); if(e.key==='ArrowRight') stepLB(1); }
+  if(e.key==='Escape') closeVilla();
+});
+
+/* ==================== ACCORDION ==================== */
+$$('.acc-head').forEach(h=> h.addEventListener('click', ()=>{
+  const acc = h.parentElement, body = acc.querySelector('.acc-body'), open = acc.classList.contains('open');
+  $$('.acc').forEach(a=>{ a.classList.remove('open'); a.querySelector('.acc-body').style.maxHeight = null; });
+  if(!open){ acc.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
+}));
+
+/* ==================== BOOKING TABS ==================== */
+$$('.book-tab').forEach(t=> t.addEventListener('click', ()=>{
+  $$('.book-tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+  ['new','track','admin'].forEach(k=> $('#tab-'+k).style.display = (k===t.dataset.tab)?'block':'none');
+  if(t.dataset.tab==='admin') renderAdmin();
+}));
+
+/* ==================== BOOKING WIZARD ==================== */
+let curStep = 1;
+function gotoStep(n){
+  curStep = n;
+  [1,2,3].forEach(i=> $('#bstep'+i).style.display = (i===n)?'block':'none');
+  $$('#stepsBar .step-dot').forEach(d=>{
+    const k = +d.dataset.dot;
+    d.classList.toggle('active', k===n); d.classList.toggle('done', k<n);
+    d.querySelector('.dot').innerHTML = k<n ? '✓' : faDigits(k);
+  });
+  $$('#stepsBar .step-line').forEach((l,i)=> l.classList.toggle('done', n> i+1));
+  if(n===2) fillStep2Summary();
+}
+function showErr(msg){ const e=$('#bookErr'); e.textContent=msg; e.classList.add('show'); e.scrollIntoView({behavior:'smooth',block:'center'}); }
+function hideErr(){ $('#bookErr').classList.remove('show'); }
+
+function calcBooking(){
+  const v = villaById($('#bkVilla').value);
+  const ci = $('#bkIn').value, co = $('#bkOut').value;
+  const nights = (ci&&co) ? nightsBetween(ci,co) : 0;
+  return { v, ci, co, nights, total: (v&&nights>0)? nights*priceOf(v) : 0 };
+}
+function updateSummary(){
+  const {v,ci,co,nights,total} = calcBooking();
+  $('#bkInHint').textContent = ci ? 'ورود: '+fmtDate(ci) : 'معادل شمسی پس از انتخاب نمایش داده می‌شود.';
+  $('#bkOutHint').textContent = co ? 'خروج: '+fmtDate(co) : '';
+  if(v && nights>0){
+    $('#sumStep1').style.display='block';
+    $('#sumNights').textContent = faNum(nights)+' شب';
+    $('#sumPerNight').textContent = money(priceOf(v));
+    $('#sumTotal').textContent = money(total);
+  } else { $('#sumStep1').style.display='none'; }
+}
+function fillStep2Summary(){
+  const {v,ci,co,nights,total} = calcBooking();
+  $('#sum2Villa').textContent = v? v.name : '—';
+  $('#sum2Dates').textContent = (ci&&co)? fmtDate(ci)+' تا '+fmtDate(co)+' ('+faNum(nights)+' شب)' : '—';
+  $('#sum2Total').textContent = total? money(total) : '—';
+  updateCapHint();
+}
+function updateCapHint(){
+  const v = villaById($('#bkVilla').value); if(!v) return;
+  const g = +$('#bkGuests').value;
+  $('#sum2Guests').textContent = faNum(g)+' نفر';
+  $('#bkCapHint').textContent = g>v.capacity
+    ? '⚠ بیشتر از ظرفیت ویلا ('+faNum(v.capacity)+' نفر) — برای ادامه، ویلای بزرگ‌تری انتخاب کنید یا تعداد را کم کنید.'
+    : 'ظرفیت ویلای انتخابی: حداکثر '+faNum(v.capacity)+' نفر';
+  $('#bkCapHint').style.color = g>v.capacity ? 'var(--red)' : '';
+}
+$('#bkVilla').addEventListener('change', ()=>{ updateVillaHint(); updateSummary(); updateCapHint(); });
+$('#bkIn').addEventListener('change', updateSummary);
+$('#bkOut').addEventListener('change', updateSummary);
+$('#bkGuests').addEventListener('change', updateCapHint);
+
+$('#toStep2').addEventListener('click', ()=>{
+  hideErr();
+  const {v,ci,co,nights} = calcBooking();
+  if(!v) return showErr('لطفاً ابتدا یک ویلا انتخاب کنید.');
+  if(!ci || !co) return showErr('لطفاً تاریخ ورود و خروج را مشخص کنید.');
+  if(nights<=0) return showErr('تاریخ خروج باید بعد از تاریخ ورود باشد؛ لطفاً بازه اقامت را اصلاح کنید.');
+  gotoStep(2);
+});
+$('#backStep1').addEventListener('click', ()=>{ hideErr(); gotoStep(1); });
+
+$('#submitBooking').addEventListener('click', ()=>{
+  hideErr();
+  const {v,ci,co,nights,total} = calcBooking();
+  const guests = +$('#bkGuests').value;
+  const name = $('#bkName').value.trim();
+  const mobile = $('#bkMobile').value.trim();
+  if(guests > v.capacity) return showErr('تعداد مهمانان ('+faDigits(guests)+' نفر) از ظرفیت «'+v.name+'» ('+faDigits(v.capacity)+' نفر) بیشتر است. لطفاً ویلای بزرگ‌تری انتخاب کنید یا تعداد مهمانان را کاهش دهید.');
+  if(name.length < 3) return showErr('لطفاً نام و نام خانوادگی سرپرست را کامل وارد کنید.');
+  if(!/^[0-9۰-۹]{10,11}$/.test(mobile.replace(/[\s-]/g,''))) return showErr('لطفاً یک شماره موبایل معتبر وارد کنید تا نتیجه بررسی با پیامک اطلاع‌رسانی شود.');
+  const reqs = getRequests();
+  const code = 'AF-' + Math.floor(100000 + Math.random()*900000);
+  const req = { code, name, mobile, doc:$('#bkDoc').value, villaId:v.id, checkin:ci, checkout:co, guests, nights, total, status:'pending', note:$('#bkNote').value.trim(), createdAt:Date.now() };
+  reqs.unshift(req); saveRequests(reqs);
+  $('#finalCode').textContent = code;
+  $('#finalTimeline').innerHTML = buildTimeline('pending');
+  $('#finalCardBox').classList.remove('show');
+  gotoStep(3);
+  toast('درخواست رزرو شما با کد '+code+' ثبت شد');
+});
+$('#newBookingBtn').addEventListener('click', ()=>{ hideErr(); gotoStep(1); });
+
+/* ==================== TIMELINE ==================== */
+function buildTimeline(status){
+  const check = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12.5 9.5 18 20 6.5"/></svg>';
+  if(status==='rejected'){
+    return `
+    <div class="tl-item done"><span class="tl-dot">${check}</span><div><h4>ثبت درخواست رزرو</h4><p>درخواست شما دریافت و برای مدیریت ارسال شد.</p></div></div>
+    <div class="tl-item now"><span class="tl-dot">✕</span><div><h4>بررسی مدیریت — تأیید نشد</h4><p>متأسفانه در بازه انتخابی ظرفیت تکمیل بود. لطفاً تاریخ یا ویلای دیگری را امتحان کنید.</p></div></div>`;
+  }
+  const step2 = status==='approved'
+    ? `<div class="tl-item done"><span class="tl-dot">${check}</span><div><h4>تأیید اولیه مدیریت</h4><p>درخواست شما توسط مدیریت دهکده تأیید شد.</p></div></div>`
+    : `<div class="tl-item now"><span class="tl-dot">۲</span><div><h4>در انتظار بررسی مدیریت</h4><p>مدیریت دهکده در حال بررسی ظرفیت و تاریخ‌های درخواستی است؛ نتیجه با پیامک اطلاع‌رسانی می‌شود.</p></div></div>`;
+  const step3 = status==='approved'
+    ? `<div class="tl-item now"><span class="tl-dot">۳</span><div><h4>نمایش شماره کارت — واریز بیعانه</h4><p>پس از تأیید اولیه مدیریت، شماره کارت نمایش داده می‌شود؛ با واریز بیعانه (۳۰٪ مبلغ کل) رزرو شما قطعی خواهد شد.</p></div></div>`
+    : `<div class="tl-item dim"><span class="tl-dot">۳</span><div><h4>نمایش شماره کارت</h4><p>پس از تأیید اولیه مدیریت، شماره کارت نمایش داده می‌شود تا بیعانه را واریز کنید.</p></div></div>`;
+  const step4 = `<div class="tl-item dim"><span class="tl-dot">۴</span><div><h4>قطعی شدن رزرو</h4><p>پس از واریز بیعانه و ارسال رسید، رزرو نهایی و پیامک تأیید ارسال می‌شود.</p></div></div>`;
+  return `
+    <div class="tl-item done"><span class="tl-dot">${check}</span><div><h4>ثبت درخواست رزرو</h4><p>درخواست شما دریافت و برای مدیریت ارسال شد.</p></div></div>
+    ${step2}${step3}${step4}`;
+}
+
+/* ==================== TRACKING ==================== */
+function trackLookup(){
+  const code = $('#trackInput').value.trim().toUpperCase();
+  const err = $('#trackErr'); err.classList.remove('show');
+  const req = getRequests().find(r=>r.code.toUpperCase()===code);
+  if(!req){
+    $('#trackResult').style.display='none';
+    err.textContent = 'درخواستی با این کد رهگیری پیدا نشد؛ کد را دوباره بررسی کنید.';
+    err.classList.add('show'); return;
+  }
+  const v = villaById(req.villaId);
+  $('#trVilla').textContent = v? v.name : req.villaId;
+  $('#trName').textContent = req.name;
+  $('#trDates').textContent = fmtDate(req.checkin)+' تا '+fmtDate(req.checkout)+' ('+faNum(req.nights)+' شب)';
+  $('#trStatus').innerHTML = req.status==='approved' ? '<span class="status-pill st-approved">تأیید شده — در انتظار واریز بیعانه</span>'
+    : req.status==='rejected' ? '<span class="status-pill st-rejected">تأیید نشد</span>'
+    : '<span class="status-pill st-pending">در انتظار بررسی مدیریت</span>';
+  $('#trTotal').textContent = money(req.total);
+  $('#trackTimeline').innerHTML = buildTimeline(req.status);
+  $('#trackCardBox').classList.toggle('show', req.status==='approved');
+  $('#trackResult').style.display='block';
+}
+$('#trackBtn').addEventListener('click', trackLookup);
+$('#trackInput').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); trackLookup(); } });
+
+/* ==================== ADMIN ==================== */
+function renderAdmin(){
+  const reqs = getRequests();
+  const body = $('#reqTableBody');
+  $('#reqEmpty').style.display = reqs.length? 'none':'block';
+  body.innerHTML = reqs.map(r=>{
+    const v = villaById(r.villaId);
+    const pill = r.status==='approved' ? '<span class="status-pill st-approved">تأیید شده</span>'
+      : r.status==='rejected' ? '<span class="status-pill st-rejected">رد شده</span>'
+      : '<span class="status-pill st-pending">در انتظار بررسی</span>';
+    const dis = r.status!=='pending' ? 'disabled' : '';
+    return `<tr>
+      <td><b>${r.code}</b></td><td>${r.name}</td><td>${v? v.name : ''}</td>
+      <td>${fmtDate(r.checkin)}</td><td>${fmtDate(r.checkout)}</td><td>${faNum(r.guests)} نفر</td>
+      <td>${money(r.total)}</td><td>${pill}</td>
+      <td style="white-space:nowrap">
+        <button class="mini-btn approve" ${dis} onclick="adminAct('${r.code}','approved')">تأیید</button>
+        <button class="mini-btn reject" ${dis} onclick="adminAct('${r.code}','rejected')">رد</button>
+      </td></tr>`;
+  }).join('');
+  $('#priceMgmt').innerHTML = VILLAS.map(v=>`
+    <div class="price-row">
+      <div class="pv"><b>${v.name}</b><span>ظرفیت ${faNum(v.capacity)} نفر · ${v.bedrooms? faNum(v.bedrooms)+' خوابه':'سوئیت'} · ${faNum(v.area)} متر</span></div>
+      <input type="number" id="price-${v.id}" value="${priceOf(v)}" min="0" step="100000">
+      <button class="mini-btn approve" onclick="savePrice('${v.id}')">ذخیره قیمت</button>
+    </div>`).join('');
+}
+function adminAct(code, status){
+  const reqs = getRequests();
+  const r = reqs.find(x=>x.code===code); if(!r) return;
+  r.status = status; saveRequests(reqs); renderAdmin();
+  toast(status==='approved' ? 'درخواست '+code+' تأیید شد؛ شماره کارت اکنون برای مهمان نمایش داده می‌شود' : 'درخواست '+code+' رد شد');
+  if($('#trackResult').style.display==='block' && $('#trackInput').value.trim().toUpperCase()===code) trackLookup();
+}
+function savePrice(id){
+  const val = parseInt($('#price-'+id).value, 10);
+  if(!val || val<=0){ toast('قیمت معتبر وارد کنید'); return; }
+  priceOverrides[id] = val;
+  localStorage.setItem('afra_prices', JSON.stringify(priceOverrides));
+  renderVillas(); fillVillaSelects(); updateSummary();
+  toast('قیمت «'+villaById(id).name+'» به‌روز شد: '+money(val));
+}
+
+/* ==================== HERO SEARCH ==================== */
+$('#heroSearch').addEventListener('submit', e=>{
+  e.preventDefault();
+  $('#bkVilla').value = $('#hsVilla').value;
+  if($('#hsIn').value) $('#bkIn').value = $('#hsIn').value;
+  if($('#hsOut').value) $('#bkOut').value = $('#hsOut').value;
+  $('#bkGuests').value = $('#hsGuests').value;
+  updateVillaHint(); updateSummary(); updateCapHint();
+  document.querySelector('[data-tab="new"]').click();
+  gotoStep(1);
+  document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+  toast('مشخصات جستجو به فرم رزرو منتقل شد');
+});
+
+/* ==================== CONTACT ==================== */
+$('#contactForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  $('#contactOk').classList.add('show');
+  e.target.querySelectorAll('input,textarea').forEach(f=>f.value='');
+  toast('پیام شما برای دهکده افرا ارسال شد');
+});
+
+/* ==================== REVEAL / INIT ==================== */
+const io = new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('vis'); }),{threshold:.1});
+$$('.reveal').forEach(el=>io.observe(el));
+
+(function init(){
+  renderVillas(); renderMenu('breakfast'); renderGallery(); fillVillaSelects();
+  const t = new Date();
+  const inD = toISO(new Date(t.getTime()+7*86400000)), outD = toISO(new Date(t.getTime()+9*86400000));
+  ['hsIn','bkIn'].forEach(id=>{ const el=document.getElementById(id); el.min=toISO(t); el.value=inD; });
+  ['hsOut','bkOut'].forEach(id=>{ const el=document.getElementById(id); el.min=toISO(t); el.value=outD; });
+  updateSummary(); updateCapHint(); getRequests();
+})();
+</script>
+</body>
+</html>
