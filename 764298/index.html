@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامه عیب‌یابی سئوی بین‌المللی | فروشگاه تجهیزات ورزشی | اپ‌وبینو</title>
+<meta name="description" content="برنامه عیب‌یابی و آدیت سئوی بین‌المللی اپ‌وبینو برای فروشگاهی که داخل ایران رتبه دارد ولی از خارج کشور در گوگل دیده نمی‌شود: ۷ فرضیه تشخیصی به ترتیب آزمون، روند اجرای ۱۴ روزه و بازبینی کشوربه‌کشور در سرچ کنسول.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><path d="M4 20V10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M10 20V4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16 20v-8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M22 20H2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" transform="translate(-1 0)"/></svg>
+      </span>
+      <div class="brand-text">
+        <strong>عیب‌یابی سئوی بین‌المللی</strong>
+        <span>فروشگاه تجهیزات ورزشی · اپ‌وبینو</span>
+      </div>
+    </div>
+
+    <nav class="side-nav" aria-label="بخش‌های برنامه">
+      <p class="nav-caption">بخش‌های برنامه</p>
+        <a class="nav-item" href="#sec-0" data-sec="0">
+          <span class="nav-num mono">۰</span>
+          <span class="nav-name">گام صفر — دسترسی و خط مبنا</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۵</span>
+        </a>
+        <a class="nav-item" href="#sec-1" data-sec="1">
+          <span class="nav-num mono">۱</span>
+          <span class="nav-name">فرضیه ۱ — سیگنال کشور در سرچ کنسول</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۵</span>
+        </a>
+        <a class="nav-item" href="#sec-2" data-sec="2">
+          <span class="nav-num mono">۲</span>
+          <span class="nav-name">فرضیه ۲ — hreflang</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۵</span>
+        </a>
+        <a class="nav-item" href="#sec-3" data-sec="3">
+          <span class="nav-num mono">۳</span>
+          <span class="nav-name">فرضیه ۳ — دسترسی خزش از خارج</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۶</span>
+        </a>
+        <a class="nav-item" href="#sec-4" data-sec="4">
+          <span class="nav-num mono">۴</span>
+          <span class="nav-name">فرضیه ۴ — ایندکس و کنونیکال</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۵</span>
+        </a>
+        <a class="nav-item" href="#sec-5" data-sec="5">
+          <span class="nav-num mono">۵</span>
+          <span class="nav-name">فرضیه ۵ — زبان و ارتباط محلی محتوا</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۵</span>
+        </a>
+        <a class="nav-item" href="#sec-6" data-sec="6">
+          <span class="nav-num mono">۶</span>
+          <span class="nav-name">فرضیه ۶ — سرعت از خارج و بودجه خزش</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۵</span>
+        </a>
+        <a class="nav-item" href="#sec-7" data-sec="7">
+          <span class="nav-num mono">۷</span>
+          <span class="nav-name">فرضیه ۷ — داده ساخت‌یافته و مرچنت</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۴</span>
+        </a>
+        <a class="nav-item" href="#sec-8" data-sec="8">
+          <span class="nav-num mono">۸</span>
+          <span class="nav-name">تحویل‌دادنی‌ها و بازبینی نهایی</span>
+          <span class="nav-count mono"><span class="nav-done">0</span>/۴</span>
+        </a>
+    </nav>
+
+    <div class="ring-card">
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 84 84" width="84" height="84" aria-hidden="true">
+          <circle class="ring-bg" cx="42" cy="42" r="36"></circle>
+          <circle class="ring-fg" cx="42" cy="42" r="36"></circle>
+        </svg>
+        <span class="ring-pct mono" id="ringPct">0%</span>
+      </div>
+      <div class="ring-meta">
+        <strong>پیشرفت برنامه</strong>
+        <span><span id="ringDone">۰</span> از ۴۴ اقدام</span>
+      </div>
+      <button class="btn-print side" id="printBtnSide" type="button">چاپ گزارش</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-titles">
+        <h1>برنامه عیب‌یابی و آدیت سئوی بین‌المللی — فروشگاه تجهیزات ورزشی</h1>
+        <p class="topbar-sub">برنامه اجرایی اپ‌وبینو برای پروژه «بررسی سئو و نمایش صفحه‌های سایت در گوگل» (پونیشا 764298) · علامت پروژه روشن است: <strong>داخل ایران رتبه دارید، از خارج کشور دیده نمی‌شوید.</strong> این برنامه علت را با سند پیدا می‌کند — نه با حدس. چون در بریف، آدرس سایت ذکر نشده، این صفحه «برنامه عیب‌یابی» است: ۷ فرضیه به ترتیب آزمون، و گام صفرِ کار، دریافت آدرس سایت و دسترسی سرچ کنسول است.</p>
+      </div>
+      <div class="topbar-tools">
+        <label class="search">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.8-3.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="searchInput" type="text" placeholder="جست‌وجو در اقدام‌ها…">
+        </label>
+        <button class="btn-print" id="printBtn" type="button">چاپ گزارش</button>
+      </div>
+    </header>
+
+    <section class="kpis" aria-label="شاخص‌های کلیدی برنامه">
+      <div class="kpi">
+        <span class="kpi-chip navy">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.8-3.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <p class="kpi-label">فرضیه تشخیصی</p>
+        <p class="kpi-value mono">۷ فرضیه</p>
+        <p class="kpi-delta">به ترتیب احتمال و هزینه آزمون</p>
+        <p class="kpi-note">هر فرضیه فقط با سند (سرچ کنسول، تست خزش، لاگ) تأیید یا رد می‌شود.</p>
+      </div>
+      <div class="kpi">
+        <span class="kpi-chip green">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <p class="kpi-label">مدت اجرای آدیت و اصلاحات</p>
+        <p class="kpi-value mono">۱۴ روز</p>
+        <p class="kpi-delta">از روز دریافت دسترسی‌ها</p>
+        <p class="kpi-note">گام صفر: آدرس سایت + دسترسی Google Search Console.</p>
+      </div>
+      <div class="kpi">
+        <span class="kpi-chip amber">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 15c3-2 5 1 8-1s5 1 8-1v-6c-3 2-5-1-8 1S7 9 4 7" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <p class="kpi-label">بازبینی پس از اصلاح</p>
+        <p class="kpi-value mono">۲ تا ۴ هفته</p>
+        <p class="kpi-delta">مقایسه قبل/بعد <strong>به تفکیک کشور</strong></p>
+        <p class="kpi-note">مبنای مقایسه: گزارش Performance سرچ کنسول خودتان.</p>
+      </div>
+      <div class="kpi">
+        <span class="kpi-chip violet">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <p class="kpi-label">سایت تحت مدیریت جاری سئو</p>
+        <p class="kpi-value mono">۷ وب‌سایت</p>
+        <p class="kpi-delta">از جمله یک سایت <strong>۴ زبانه</strong> با سئوی بین‌المللی</p>
+        <p class="kpi-note">چرخه روزانه: سرچ کنسول ← اقدام ← بررسی نتیجه.</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="علامت پروژه و برداشت اولیه">
+      <div class="panel-head">
+        <div>
+          <h2>علامت پروژه — از خودِ نشانه‌ها شروع می‌کنیم</h2>
+          <p class="panel-sub">آنچه از بریف پروژه معلوم است و اولین آزمون هر نشانه؛ قضاوت نهایی، خروجی آدیت است و در گزارش یافته‌ها با سند می‌آید.</p>
+        </div>
+        <span class="head-badge">پروژه 764298</span>
+      </div>
+      <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>نشانه</th><th>برداشت اولیه</th><th>اولین آزمون</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pg">رتبه و نمایش داخل ایران برقرار است<small>سایت از نظر گوگل سالم و فعال است</small></td>
+            <td>مشکل، کیفیت کلی سایت نیست؛ «سیگنال جغرافیایی» یا «دسترسی خزش از خارج» است</td>
+            <td>مقایسه گزارش Performance سرچ کنسول به تفکیک کشور</td>
+          </tr>
+          <tr>
+            <td class="pg">برخی صفحات از خارج اصلاً دیده نمی‌شوند<small>غیبت کامل، نه فقط افت رتبه</small></td>
+            <td>احتمال ایندکس ناقص برای خزش خارجی، مسدودی جغرافیایی یا کنونیکالِ اشاره‌کننده به نسخه دیگر</td>
+            <td>تست URL Inspection + دریافت صفحه با IP خارجی</td>
+          </tr>
+          <tr>
+            <td class="pg">افت رتبه در کشورهای خارجی هم‌زمان است<small>الگو یکدست، نه پراکنده</small></td>
+            <td>الگوی یکدست بیشتر شبیه سیگنال کشور یا hreflang اشتباه است تا مشکل محتوایی تک‌صفحه‌ها</td>
+            <td>بازبینی تنظیمات بین‌المللی سرچ کنسول و hreflang</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="sec-note" style="margin:16px 0 0"><strong>گام صفر:</strong> برای شروع فقط دو چیز لازم است — آدرس سایت و دسترسی Google Search Console (سطح کاربر کافی است). بدون این دو، هر تشخیصی درباره سایت شما حدس است و ما حدس نمی‌فروشیم؛ با همین دو دسترسی، خط مبنای عددی وضعیت فعلی (نمایش، کلیک و رتبه به تفکیک کشور) در روز اول ثبت می‌شود تا اثر اصلاحات در پایان، با همان اعداد سنجیده شود.</div>
+    </section>
+
+    <section class="panel" aria-label="نقشه راه اجرا">
+      <div class="panel-head">
+        <div>
+          <h2>نقشه راه اجرا — ۱۴ روز</h2>
+          <p class="panel-sub">ترتیب فازها؛ هر فاز با خروجی مکتوب بسته می‌شود.</p>
+        </div>
+      </div>
+      <ol class="timeline">
+        <li class="tl-step">
+          <span class="tl-dot mono">۱</span>
+          <p class="tl-when">روز ۱ · گام صفر</p>
+          <h3>دسترسی و خط مبنا</h3>
+          <p>دریافت آدرس سایت و دسترسی سرچ کنسول؛ ثبت نمایش، کلیک و رتبه فعلی به تفکیک کشور و نوع صفحه.</p>
+        </li>
+        <li class="tl-step">
+          <span class="tl-dot mono">۲</span>
+          <p class="tl-when">روزهای ۲ تا ۵</p>
+          <h3>آدیت تشخیصی</h3>
+          <p>آزمون ۷ فرضیه به ترتیب؛ هر فرضیه با سند رد یا تأیید می‌شود، نه با نظر شخصی.</p>
+        </li>
+        <li class="tl-step">
+          <span class="tl-dot mono">۳</span>
+          <p class="tl-when">روزهای ۶ تا ۱۲</p>
+          <h3>گزارش یافته‌ها و اجرای اصلاحات</h3>
+          <p>گزارش علت(های) قطعی با شواهد و فهرست اولویت‌بندی‌شده + اجرای اصلاحات فنی و محتوایی داخل سایت.</p>
+        </li>
+        <li class="tl-step">
+          <span class="tl-dot mono">۴</span>
+          <p class="tl-when">۲ تا ۴ هفته پس از اصلاح</p>
+          <h3>بازبینی و گزارش پایانی</h3>
+          <p>مقایسه قبل/بعد نمایش، کلیک و رتبه به تفکیک کشور در Performance سرچ کنسول و نقشه راه ادامه مسیر.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="sections">
+      <section class="panel sec" id="sec-0" data-sec="0">
+        <header class="sec-head">
+          <span class="sec-num mono">۰</span>
+          <div class="sec-titles">
+            <h2>گام صفر — دسترسی و خط مبنا</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="دریافت آدرس سایت و دسترسی Google Search Console (سطح کاربر) و در صورت وجود GA4 — بدون این دو دسترسی، آدیت مستند ممکن نیست">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">دریافت آدرس سایت و دسترسی Google Search Console (سطح کاربر) و در صورت وجود GA4 — بدون این دو دسترسی، آدیت مستند ممکن نیست</span>
+            <div class="row-tags"><span class="tag p-high">شروع کار</span></div>
+          </li>
+          <li class="row" data-text="ثبت خط مبنای عددی: نمایش، کلیک، CTR و میانگین جایگاه به تفکیک کشور (ایران در برابر کشورهای هدف) برای ۹۰ روز گذشته از گزارش Performance سرچ کنسول">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">ثبت خط مبنای عددی: نمایش، کلیک، CTR و میانگین جایگاه به تفکیک کشور (ایران در برابر کشورهای هدف) برای ۹۰ روز گذشته از گزارش Performance سرچ کنسول</span>
+          </li>
+          <li class="row" data-text="تفکیک وضعیت بر اساس نوع صفحه: کدام گروه‌ها (محصول، دسته‌بندی، برند، مقاله) در خارج غایب‌اند و کدام‌ها فقط رتبه ضعیف‌تری دارند">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">تفکیک وضعیت بر اساس نوع صفحه: کدام گروه‌ها (محصول، دسته‌بندی، برند، مقاله) در خارج غایب‌اند و کدام‌ها فقط رتبه ضعیف‌تری دارند</span>
+          </li>
+          <li class="row" data-text="بررسی پوشش پراپرتی‌های سرچ کنسول: نسخه‌های دامنه (www و بدون www، http و https) و این‌که داده کامل سایت در کدام پراپرتی جمع شده است">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">بررسی پوشش پراپرتی‌های سرچ کنسول: نسخه‌های دامنه (www و بدون www، http و https) و این‌که داده کامل سایت در کدام پراپرتی جمع شده است</span>
+          </li>
+          <li class="row" data-text="ساخت سند ردیابی پروژه: هر یافته با سندش و هر اصلاح با تاریخش ثبت می‌شود تا بازبینی پایانی دقیقاً قابل مقایسه باشد">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="0"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">ساخت سند ردیابی پروژه: هر یافته با سندش و هر اصلاح با تاریخش ثبت می‌شود تا بازبینی پایانی دقیقاً قابل مقایسه باشد</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel sec" id="sec-1" data-sec="1">
+        <header class="sec-head">
+          <span class="sec-num mono">۱</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۱ — سیگنال کشور و هدف‌گیری بین‌المللی در سرچ کنسول</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="بررسی تنظیمات International Targeting در سرچ کنسول: آیا کشور هدف روی ایران قفل شده یا سیگنال محدودکننده دیگری ثبت شده است">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">بررسی تنظیمات International Targeting در سرچ کنسول: آیا کشور هدف روی ایران قفل شده یا سیگنال محدودکننده دیگری ثبت شده است</span>
+            <div class="row-tags"><span class="tag p-high">اولویت بالا</span></div>
+          </li>
+          <li class="row" data-text="بررسی سیگنال‌های جغرافیایی دامنه: پسوند دامنه، کشور/زبان ثبت‌شده در داده‌های هویتی سایت و ناسازگاری آن‌ها با هدف دیده‌شدن در خارج">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بررسی سیگنال‌های جغرافیایی دامنه: پسوند دامنه، کشور/زبان ثبت‌شده در داده‌های هویتی سایت و ناسازگاری آن‌ها با هدف دیده‌شدن در خارج</span>
+          </li>
+          <li class="row" data-text="مقایسه داده Performance به تفکیک کشور: الگوی افت (همه کشورها یا کشورهای خاص) دامنه علت را محدود می‌کند">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">مقایسه داده Performance به تفکیک کشور: الگوی افت (همه کشورها یا کشورهای خاص) دامنه علت را محدود می‌کند</span>
+          </li>
+          <li class="row" data-text="بررسی این‌که صفحات در کشورهای هدف اصلاً نمایش می‌گیرند یا نمایش به ایران محدود مانده است — با کوئری‌های برند و غیربرند به‌صورت جدا">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">بررسی این‌که صفحات در کشورهای هدف اصلاً نمایش می‌گیرند یا نمایش به ایران محدود مانده است — با کوئری‌های برند و غیربرند به‌صورت جدا</span>
+          </li>
+          <li class="row" data-text="جمع‌بندی فرضیه ۱ با سند؛ اگر سیگنال کشور علت باشد، تنظیم صحیح و مسیر اصلاح در همین بخش اجرا می‌شود">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="1"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">جمع‌بندی فرضیه ۱ با سند؛ اگر سیگنال کشور علت باشد، تنظیم صحیح و مسیر اصلاح در همین بخش اجرا می‌شود</span>
+          </li>
+        </ul>
+        <p class="sec-note">چرا این فرضیه اول است؟ چون ارزان‌ترین آزمون و شایع‌ترین علتِ الگوی «داخل هست، خارج نیست» است؛ یک تنظیم اشتباه در هدف‌گیری کشور می‌تواند نمایش خارجی را بی‌سروصدا خفه کند.</p>
+      </section>
+
+      <section class="panel sec" id="sec-2" data-sec="2">
+        <header class="sec-head">
+          <span class="sec-num mono">۲</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۲ — hreflang: نبودن یا اجرای اشتباه</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="بررسی وجود تگ‌های hreflang در صفحات کلیدی — در سورس صفحه، نقشه سایت و هدر HTTP — و ثبت روش پیاده‌سازی فعلی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">بررسی وجود تگ‌های hreflang در صفحات کلیدی — در سورس صفحه، نقشه سایت و هدر HTTP — و ثبت روش پیاده‌سازی فعلی</span>
+          </li>
+          <li class="row" data-text="راستی‌آزمایی مقادیر hreflang: کد زبان/کشور معتبر، لینک‌های برگشتی دوطرفه (Return Tags) و خطاهای گزارش International Targeting سرچ کنسول">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">راستی‌آزمایی مقادیر hreflang: کد زبان/کشور معتبر، لینک‌های برگشتی دوطرفه (Return Tags) و خطاهای گزارش International Targeting سرچ کنسول</span>
+          </li>
+          <li class="row" data-text="بررسی تعارض hreflang با Canonical: صفحه‌ای که کنونیکالش نسخه دیگری است، عملاً از چرخه hreflang حذف می‌شود">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">بررسی تعارض hreflang با Canonical: صفحه‌ای که کنونیکالش نسخه دیگری است، عملاً از چرخه hreflang حذف می‌شود</span>
+          </li>
+          <li class="row" data-text="اگر سایت تک‌زبانه است: سنجش سیگنالی که نبود hreflang می‌فرستد و این‌که آیا نسخه یا ساختار چندزبانه برای کشورهای هدف لازم است یا نه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">اگر سایت تک‌زبانه است: سنجش سیگنالی که نبود hreflang می‌فرستد و این‌که آیا نسخه یا ساختار چندزبانه برای کشورهای هدف لازم است یا نه</span>
+          </li>
+          <li class="row" data-text="اصلاح یا پیاده‌سازی صحیح hreflang بر اساس نتیجه آزمون و ثبت صفحات نمونه برای بازبینی پس از اصلاح">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="2"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">اصلاح یا پیاده‌سازی صحیح hreflang بر اساس نتیجه آزمون و ثبت صفحات نمونه برای بازبینی پس از اصلاح</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel sec" id="sec-3" data-sec="3">
+        <header class="sec-head">
+          <span class="sec-num mono">۳</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۳ — دسترسی خزش گوگل از خارج: سرور، CDN و فایروال</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۶ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="تست خزش با IP خارجی: دریافت صفحات کلیدی از چند کشور هدف و مقایسه پاسخ (۲۰۰، مسدودی، چالش کپچا/CDN) با دریافت از داخل ایران">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">تست خزش با IP خارجی: دریافت صفحات کلیدی از چند کشور هدف و مقایسه پاسخ (۲۰۰، مسدودی، چالش کپچا/CDN) با دریافت از داخل ایران</span>
+            <div class="row-tags"><span class="tag p-high">اولویت بالا</span></div>
+          </li>
+          <li class="row" data-text="بررسی قوانین جغرافیایی CDN و فایروال (WAF): رول‌های مسدودسازی کشورها، محدودیت نرخ روی بات‌ها و چالش خودکار برای IPهای خارجی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بررسی قوانین جغرافیایی CDN و فایروال (WAF): رول‌های مسدودسازی کشورها، محدودیت نرخ روی بات‌ها و چالش خودکار برای IPهای خارجی</span>
+          </li>
+          <li class="row" data-text="بررسی مسدودی دیتاسنترها و رنج‌های IP گوگل‌بات در فایروال سرور یا افزونه‌های امنیتی سایت و پنل هاستینگ">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">بررسی مسدودی دیتاسنترها و رنج‌های IP گوگل‌بات در فایروال سرور یا افزونه‌های امنیتی سایت و پنل هاستینگ</span>
+          </li>
+          <li class="row" data-text="تحلیل لاگ سرور (در صورت دسترسی): فرکانس خزش گوگل‌بات، کدهای پاسخ و تفاوت رفتار بر اساس کشور و IP">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">تحلیل لاگ سرور (در صورت دسترسی): فرکانس خزش گوگل‌بات، کدهای پاسخ و تفاوت رفتار بر اساس کشور و IP</span>
+          </li>
+          <li class="row" data-text="تست URL Inspection در سرچ کنسول و مقایسه نتیجه رندر گوگل با نسخه‌ای که کاربر خارجی واقعاً می‌بیند">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">تست URL Inspection در سرچ کنسول و مقایسه نتیجه رندر گوگل با نسخه‌ای که کاربر خارجی واقعاً می‌بیند</span>
+          </li>
+          <li class="row" data-text="اصلاح تنظیمات مسدودکننده (لیست سفید گوگل‌بات، رول‌های CDN، استثنای صفحات عمومی از چالش) و تست مجدد از IP خارجی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="3"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">06</span>
+            <span class="row-text">اصلاح تنظیمات مسدودکننده (لیست سفید گوگل‌بات، رول‌های CDN، استثنای صفحات عمومی از چالش) و تست مجدد از IP خارجی</span>
+          </li>
+        </ul>
+        <p class="sec-note">نکته فنی مهم: گوگل‌بات عمدتاً از IPهای آمریکایی می‌خزد. اگر فایروال یا CDN سایت برای ترافیک خارجی «حالت دفاعی» داشته باشد، اولین قربانی‌اش خودِ گوگل‌بات است — سایت برای کاربر ایرانی باز است، ولی برای خزنده گوگل بسته.</p>
+      </section>
+
+      <section class="panel sec" id="sec-4" data-sec="4">
+        <header class="sec-head">
+          <span class="sec-num mono">۴</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۴ — وضعیت ایندکس و کنونیکال‌ها</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="گزارش Coverage سرچ کنسول به تفکیک نوع صفحه: ایندکس‌شده‌ها و گروه‌های Crawled/Discovered-not-indexed و Excluded، با دلیل هر گروه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">گزارش Coverage سرچ کنسول به تفکیک نوع صفحه: ایندکس‌شده‌ها و گروه‌های Crawled/Discovered-not-indexed و Excluded، با دلیل هر گروه</span>
+          </li>
+          <li class="row" data-text="بررسی نشت noindex و X-Robots-Tag روی قالب‌های محصول و دسته‌بندی و تفاوت رفتار در نسخه‌های مختلف دامنه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بررسی نشت noindex و X-Robots-Tag روی قالب‌های محصول و دسته‌بندی و تفاوت رفتار در نسخه‌های مختلف دامنه</span>
+          </li>
+          <li class="row" data-text="ممیزی Canonicalها: اشاره به نسخه دیگر (زبان/کشور/دامنه قدیمی)، کنونیکال زنجیره‌ای و صفحاتی که گوگل کنونیکال دیگری را به‌جای آن‌ها انتخاب کرده است">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">ممیزی Canonicalها: اشاره به نسخه دیگر (زبان/کشور/دامنه قدیمی)، کنونیکال زنجیره‌ای و صفحاتی که گوگل کنونیکال دیگری را به‌جای آن‌ها انتخاب کرده است</span>
+          </li>
+          <li class="row" data-text="بررسی Sitemap و Robots.txt: پوشش صفحات هدف در نقشه سایت، خطاهای نقشه و مسدود نبودن مسیرهای مهم در robots">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">بررسی Sitemap و Robots.txt: پوشش صفحات هدف در نقشه سایت، خطاهای نقشه و مسدود نبودن مسیرهای مهم در robots</span>
+          </li>
+          <li class="row" data-text="اجرای اصلاحات ایندکس (رفع noindex اشتباه، اصلاح کنونیکال‌ها، به‌روزرسانی نقشه سایت) و درخواست ایندکس مجدد صفحات کلیدی">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="4"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">اجرای اصلاحات ایندکس (رفع noindex اشتباه، اصلاح کنونیکال‌ها، به‌روزرسانی نقشه سایت) و درخواست ایندکس مجدد صفحات کلیدی</span>
+          </li>
+        </ul>
+      </section>
+      <section class="panel sec" id="sec-5" data-sec="5">
+        <header class="sec-head">
+          <span class="sec-num mono">۵</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۵ — زبان محتوا و سیگنال‌های ارتباط محلی</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="بررسی زبان واقعی صفحات و متاها: آیا محتوا برای جست‌وجوکننده خارجی (زبان و عبارت‌های بازار هدف) نوشته شده یا فقط برای بازار ایران">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">بررسی زبان واقعی صفحات و متاها: آیا محتوا برای جست‌وجوکننده خارجی (زبان و عبارت‌های بازار هدف) نوشته شده یا فقط برای بازار ایران</span>
+          </li>
+          <li class="row" data-text="بررسی سیگنال‌های محلی صفحه: واحد پول و قیمت، آدرس و تلفن، شرایط ارسال — و این‌که این سیگنال‌ها سایت را به یک کشور گره می‌زنند یا نه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بررسی سیگنال‌های محلی صفحه: واحد پول و قیمت، آدرس و تلفن، شرایط ارسال — و این‌که این سیگنال‌ها سایت را به یک کشور گره می‌زنند یا نه</span>
+          </li>
+          <li class="row" data-text="تحلیل کوئری‌های کشورهای هدف در سرچ کنسول: با چه عبارت‌هایی و چه زبانی باید دیده شوید و الان کدام صفحات پاسخ می‌دهند">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">تحلیل کوئری‌های کشورهای هدف در سرچ کنسول: با چه عبارت‌هایی و چه زبانی باید دیده شوید و الان کدام صفحات پاسخ می‌دهند</span>
+          </li>
+          <li class="row" data-text="شکاف محتوایی نسبت به رقبای حاضر در نتایج کشورهای هدف: صفحات و موضوعاتی که رقیب دارد و فروشگاه شما ندارد">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">شکاف محتوایی نسبت به رقبای حاضر در نتایج کشورهای هدف: صفحات و موضوعاتی که رقیب دارد و فروشگاه شما ندارد</span>
+          </li>
+          <li class="row" data-text="برنامه اصلاح محتوا: اولویت‌بندی صفحات برای بومی‌سازی (زبان، پول، اعتماد) بر اساس داده کوئری، نه حدس">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="5"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">برنامه اصلاح محتوا: اولویت‌بندی صفحات برای بومی‌سازی (زبان، پول، اعتماد) بر اساس داده کوئری، نه حدس</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel sec" id="sec-6" data-sec="6">
+        <header class="sec-head">
+          <span class="sec-num mono">۶</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۶ — سرعت پاسخ از خارج و بودجه خزش</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۵ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="اندازه‌گیری TTFB و زمان بارگذاری صفحات کلیدی از چند موقعیت خارجی (اروپا، آمریکای شمالی، حاشیه خلیج فارس) در برابر داخل ایران">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">اندازه‌گیری TTFB و زمان بارگذاری صفحات کلیدی از چند موقعیت خارجی (اروپا، آمریکای شمالی، حاشیه خلیج فارس) در برابر داخل ایران</span>
+            <div class="row-tags"><span class="tag p-mid">اثر تجمعی</span></div>
+          </li>
+          <li class="row" data-text="بررسی موقعیت سرور و CDN: آیا لبه CDN برای بازدید و خزش خارجی فعال است یا همه درخواست‌ها به سرور ایران برمی‌گردد">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">بررسی موقعیت سرور و CDN: آیا لبه CDN برای بازدید و خزش خارجی فعال است یا همه درخواست‌ها به سرور ایران برمی‌گردد</span>
+          </li>
+          <li class="row" data-text="گزارش Crawl Stats سرچ کنسول: میانگین زمان پاسخ سرور، تعداد درخواست‌های خزش و روند آن در ۹۰ روز گذشته">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">گزارش Crawl Stats سرچ کنسول: میانگین زمان پاسخ سرور، تعداد درخواست‌های خزش و روند آن در ۹۰ روز گذشته</span>
+          </li>
+          <li class="row" data-text="اثر تأخیر خارجی بر بودجه خزش: صفحات عمیق و کم‌اولویت که به دلیل کندی پاسخ از چرخه خزش جا می‌مانند">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">اثر تأخیر خارجی بر بودجه خزش: صفحات عمیق و کم‌اولویت که به دلیل کندی پاسخ از چرخه خزش جا می‌مانند</span>
+          </li>
+          <li class="row" data-text="اصلاحات سرعت سمت خارج: فعال‌سازی و تنظیم کش CDN برای گوگل‌بات و بازدید خارجی، کاهش TTFB و پایش مجدد از همان موقعیت‌ها">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="6"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">05</span>
+            <span class="row-text">اصلاحات سرعت سمت خارج: فعال‌سازی و تنظیم کش CDN برای گوگل‌بات و بازدید خارجی، کاهش TTFB و پایش مجدد از همان موقعیت‌ها</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel sec" id="sec-7" data-sec="7">
+        <header class="sec-head">
+          <span class="sec-num mono">۷</span>
+          <div class="sec-titles">
+            <h2>فرضیه ۷ — داده ساخت‌یافته و نمایش تجاری در هر کشور</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۴ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="بررسی اسکیماهای Product و Offer فعلی: کامل بودن قیمت، موجودی و واحد پول و خطاهای گزارش Enhancements سرچ کنسول">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="7"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">بررسی اسکیماهای Product و Offer فعلی: کامل بودن قیمت، موجودی و واحد پول و خطاهای گزارش Enhancements سرچ کنسول</span>
+          </li>
+          <li class="row" data-text="شرایط نمایش در نتایج تجاری گوگل (Merchant Listings): واجد شرایط بودن صفحات محصول و موانع نمایش قیمت و موجودی در کشورهای هدف">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="7"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">شرایط نمایش در نتایج تجاری گوگل (Merchant Listings): واجد شرایط بودن صفحات محصول و موانع نمایش قیمت و موجودی در کشورهای هدف</span>
+          </li>
+          <li class="row" data-text="بررسی اسکیماهای سازمان و فروشگاه و سیگنال‌های هویتی (نام، لوگو، پروفایل‌ها) و سازگاری آن‌ها با بازار هدف">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="7"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">بررسی اسکیماهای سازمان و فروشگاه و سیگنال‌های هویتی (نام، لوگو، پروفایل‌ها) و سازگاری آن‌ها با بازار هدف</span>
+          </li>
+          <li class="row" data-text="اصلاح داده‌های ساخت‌یافته و رفع خطاها، با راستی‌آزمایی Rich Results Test روی صفحات نمونه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="7"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">اصلاح داده‌های ساخت‌یافته و رفع خطاها، با راستی‌آزمایی Rich Results Test روی صفحات نمونه</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel sec" id="sec-8" data-sec="8">
+        <header class="sec-head">
+          <span class="sec-num mono">۸</span>
+          <div class="sec-titles">
+            <h2>تحویل‌دادنی‌ها و بازبینی نهایی</h2>
+            <p class="sec-count"><span class="done-count">۰</span> از ۴ اقدام انجام شده</p>
+          </div>
+          <div class="sec-prog"><div class="bar"><span class="bar-fill"></span></div><span class="bar-pct mono">0%</span></div>
+        </header>
+        <ul class="rows">
+          <li class="row" data-text="گزارش یافته‌ها با سند: علت(های) قطعی افت رتبه خارجی، شواهد هر علت و فهرست اصلاحات اولویت‌بندی‌شده بر اساس اثر در برابر سختی اجرا">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="8"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">01</span>
+            <span class="row-text">گزارش یافته‌ها با سند: علت(های) قطعی افت رتبه خارجی، شواهد هر علت و فهرست اصلاحات اولویت‌بندی‌شده بر اساس اثر در برابر سختی اجرا</span>
+            <div class="row-tags"><span class="tag p-high">خروجی اصلی</span></div>
+          </li>
+          <li class="row" data-text="اجرای اصلاحات تأییدشده داخل سایت و ثبت تاریخ و جزئیات هر تغییر در سند ردیابی پروژه">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="8"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">02</span>
+            <span class="row-text">اجرای اصلاحات تأییدشده داخل سایت و ثبت تاریخ و جزئیات هر تغییر در سند ردیابی پروژه</span>
+          </li>
+          <li class="row" data-text="بازبینی ۲ تا ۴ هفته پس از اصلاح: مقایسه قبل و بعد نمایش، کلیک و رتبه به تفکیک کشور در گزارش Performance سرچ کنسول">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="8"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">03</span>
+            <span class="row-text">بازبینی ۲ تا ۴ هفته پس از اصلاح: مقایسه قبل و بعد نمایش، کلیک و رتبه به تفکیک کشور در گزارش Performance سرچ کنسول</span>
+          </li>
+          <li class="row" data-text="گزارش پایانی و نقشه راه ادامه مسیر: موارد حل‌شده، موارد نیازمند زمان بیشتر و اولویت‌های فاز بعد">
+            <label class="row-check"><input type="checkbox" class="chk" data-sec="8"><span class="box" aria-hidden="true"></span></label>
+            <span class="row-idx mono">04</span>
+            <span class="row-text">گزارش پایانی و نقشه راه ادامه مسیر: موارد حل‌شده، موارد نیازمند زمان بیشتر و اولویت‌های فاز بعد</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="empty" id="emptyState" hidden>اقدامی با این عبارت پیدا نشد.</p>
+
+    <section class="panel success">
+      <header class="panel-head">
+        <div>
+          <h2>شاخص‌های موفقیت</h2>
+          <p class="panel-sub">معیار، داده سرچ کنسول خودتان است — نه نمره‌های نمایشی ابزارها</p>
+        </div>
+      </header>
+      <ul class="kpi-list">
+          <li>مشخص شدن علت(های) قطعی غیبت/افت خارجی، با سند قابل راستی‌آزمایی</li>
+          <li>بازگشت و رشد نمایش صفحات هدف در کشورهای هدف (Performance به تفکیک کشور)</li>
+          <li>رفع هرگونه مسدودی خزش گوگل از خارج کشور</li>
+          <li>ایندکس کامل و پایدار صفحات هدف فروشگاه</li>
+          <li>TTFB قابل قبول صفحات کلیدی از موقعیت‌های خارجی</li>
+          <li>گزارش قبل/بعد شفاف: همان اعداد خط مبنای روز اول، در بازبینی پایانی</li>
+      </ul>
+      <p class="sec-note">هیچ رتبه یا عددی از پیش قول داده نمی‌شود؛ آنچه تحویل می‌گیرید علتِ مستند، اصلاحِ اجراشده و سنجشِ شفاف نتیجه است.</p>
+      <div class="proof">
+        <h3>مبنای اثبات توانایی</h3>
+        <p>اپ‌وبینو (AppWebino) — استودیوی طراحی سایت و سئو؛ مدیریت جاری سئوی ۷ وب‌سایت فعال با چرخه روزانه سرچ کنسول ← اقدام ← بررسی نتیجه؛ از جمله رشد میانگین جایگاه فروشگاه تجهیزات صنعتی البرز سرمایش از ۱۹٫۲ به ۸٫۵ در داده سرچ کنسول، و وب‌سایت سارا لجستیک که در ۴ زبان با سئوی بین‌المللی فعال است — یعنی دقیقاً همین جنس مسئله، دیده‌شدن هم‌زمان در چند کشور.</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>این برنامه تعاملی، برنامه عیب‌یابی و آدیت سئوی بین‌المللی پیشنهادشده برای فروشگاه تجهیزات ورزشی کارفرماست (ضمیمه پیشنهاد اپ‌وبینو برای پروژه 764298 پونیشا) · تهیه‌شده توسط <strong>اپ‌وبینو (AppWebino)</strong></p>
+    </footer>
+  </main>
+</div>
+<img class="corner-logo" src="assets/logo-mark.png" alt="اپ‌وبینو" width="54" height="54">
+<script src="app.js"></script>
+</body>
+</html>
