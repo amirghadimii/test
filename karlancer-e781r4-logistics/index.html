@@ -229,6 +229,16 @@ footer .logo{color:#fff}
   .track-form{flex-direction:column}
   .track-form .btn{width:100%}
 }
+/* ==== mobile repair pass 2026-11-20: compact route table + demo-code tap targets ==== */
+body{overflow-x:clip}
+[data-demo-code]{min-height:40px;padding:8px 12px;cursor:pointer}
+@media(max-width:560px){
+  th{padding:10px 12px;font-size:.82rem}
+  td{padding:10px 12px;font-size:.86rem}
+  td:last-child{white-space:normal;min-width:170px}
+  .table-wrap{scrollbar-width:thin}
+  input,select,textarea{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -759,11 +769,11 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(en => {
     if (!en.isIntersecting) return;
     const el = en.target, target = +el.dataset.count, t0 = performance.now(), dur = 1400;
-    (function tick(t){
-      const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+    (function tick(){
+      const p = Math.min(Math.max((performance.now() - t0) / dur, 0), 1), eased = 1 - Math.pow(1 - p, 3);
       el.textContent = Math.round(target * eased).toLocaleString('fa-IR');
       if (p < 1) requestAnimationFrame(tick);
-    })(t0);
+    })();
     io.unobserve(el);
   });
 }, { threshold:.5 });
