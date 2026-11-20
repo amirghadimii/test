@@ -39,9 +39,15 @@ section{padding:84px 0}
 .topstrip .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .topstrip b{color:#fff;font-weight:600}
 header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:26px;padding:13px 0}
-.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.28rem;color:var(--navy)}
-.logo .mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--teal));display:grid;place-items:center;flex:none}
+.nav{display:flex;align-items:center;gap:26px;padding:13px 0;transition:padding .25s ease}
+header.site{transition:box-shadow .25s ease}
+header.site.scrolled{box-shadow:0 12px 30px -14px rgba(10,37,64,.28)}
+header.site.scrolled .nav{padding:6px 0}
+header.site.scrolled .logo{font-size:1.12rem}
+header.site.scrolled .logo .mark{width:34px;height:34px}
+header.site.scrolled .btn{padding:8px 20px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.28rem;color:var(--navy);transition:font-size .25s ease}
+.logo .mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--teal));display:grid;place-items:center;flex:none;transition:width .25s ease,height .25s ease}
 .logo small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);letter-spacing:.2px}
 .nav nav{display:flex;gap:24px;margin-inline-start:auto}
 .nav nav a{font-size:.94rem;font-weight:500;color:var(--ink2);transition:color .2s}
@@ -189,7 +195,7 @@ tbody tr:hover{background:var(--teal-soft)}
 .faq .a p{padding:0 21px 19px;color:var(--ink2);font-size:.93rem}
 /* ---------- footer ---------- */
 footer{background:var(--navy-deep);color:#a9c2d8;padding:52px 0 30px}
-footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px;margin-bottom:34px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px;margin-bottom:34px}
 footer h5{color:#fff;font-size:1rem;margin-bottom:13px}
 footer a{display:block;padding:4px 0;font-size:.9rem;transition:color .2s}
 footer a:hover{color:#3fd2de}
@@ -243,9 +249,9 @@ footer .logo{color:#fff}
       <span>پارس ترانزیت<small>PARSTRANSIT • INTERNATIONAL FREIGHT</small></span>
     </a>
     <nav>
-      <a href="#services">خدمات</a>
       <a href="#calc">محاسبه کرایه</a>
       <a href="#tracking">رهگیری بار</a>
+      <a href="#services">خدمات</a>
       <a href="#routes">مسیرها و زمان‌بندی</a>
       <a href="#faq">سوالات متداول</a>
     </nav>
@@ -255,9 +261,9 @@ footer .logo{color:#fff}
     </button>
   </div>
   <div class="wrap mobile-menu" id="mobileMenu">
-    <a href="#services">خدمات</a>
     <a href="#calc">محاسبه کرایه</a>
     <a href="#tracking">رهگیری بار</a>
+    <a href="#services">خدمات</a>
     <a href="#routes">مسیرها و زمان‌بندی</a>
     <a href="#faq">سوالات متداول</a>
     <a href="#quote">درخواست استعلام</a>
@@ -351,6 +357,34 @@ footer .logo{color:#fff}
   </div>
 </div>
 
+<!-- ================= TRACKING ================= -->
+<section class="track-sec" id="tracking">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">رهگیری آنلاین</span>
+      <h2>بارتان الان کجاست؟</h2>
+      <p>کد رهگیری روی بارنامه را وارد کنید تا آخرین وضعیت محموله را مرحله‌به‌مرحله ببینید.</p>
+    </div>
+    <div class="track-box">
+      <form class="track-form" id="trackForm">
+        <input id="trackInput" type="text" placeholder="کد رهگیری، مثال: PT-1001" autocomplete="off" dir="ltr" style="text-align:right">
+        <button class="btn" type="submit">رهگیری محموله</button>
+      </form>
+      <p class="track-hint">برای مشاهده نمونه، یکی از کدهای دمو را امتحان کنید: <button type="button" data-demo-code="PT-1001">PT-1001</button> (در مسیر) یا <button type="button" data-demo-code="PT-1002">PT-1002</button> (تحویل‌شده)</p>
+      <div class="track-error" id="trackError">کدی با این مشخصات یافت نشد. لطفاً کد روی بارنامه را دقیق وارد کنید.</div>
+      <div class="track-result" id="trackResult">
+        <div class="track-meta">
+          <span>مسیر: <b id="tkRoute">—</b></span>
+          <span>نوع حمل: <b id="tkMode">—</b></span>
+          <span>شرح بار: <b id="tkDesc">—</b></span>
+          <span>وضعیت فعلی: <b id="tkStatus">—</b></span>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= SERVICES ================= -->
 <section id="services">
   <div class="wrap">
@@ -408,34 +442,6 @@ footer .logo{color:#fff}
           <div class="chips"><span>تجمیع چند خرید</span><span>بسته‌بندی صادراتی</span><span>بیمه انبار</span></div>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TRACKING ================= -->
-<section class="track-sec" id="tracking">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="kicker">رهگیری آنلاین</span>
-      <h2>بارتان الان کجاست؟</h2>
-      <p>کد رهگیری روی بارنامه را وارد کنید تا آخرین وضعیت محموله را مرحله‌به‌مرحله ببینید.</p>
-    </div>
-    <div class="track-box">
-      <form class="track-form" id="trackForm">
-        <input id="trackInput" type="text" placeholder="کد رهگیری، مثال: PT-1001" autocomplete="off" dir="ltr" style="text-align:right">
-        <button class="btn" type="submit">رهگیری محموله</button>
-      </form>
-      <p class="track-hint">برای مشاهده نمونه، یکی از کدهای دمو را امتحان کنید: <button type="button" data-demo-code="PT-1001">PT-1001</button> (در مسیر) یا <button type="button" data-demo-code="PT-1002">PT-1002</button> (تحویل‌شده)</p>
-      <div class="track-error" id="trackError">کدی با این مشخصات یافت نشد. لطفاً کد روی بارنامه را دقیق وارد کنید.</div>
-      <div class="track-result" id="trackResult">
-        <div class="track-meta">
-          <span>مسیر: <b id="tkRoute">—</b></span>
-          <span>نوع حمل: <b id="tkMode">—</b></span>
-          <span>شرح بار: <b id="tkDesc">—</b></span>
-          <span>وضعیت فعلی: <b id="tkStatus">—</b></span>
-        </div>
-        <div class="timeline" id="timeline"></div>
-      </div>
     </div>
   </div>
 </section>
@@ -598,10 +604,17 @@ footer .logo{color:#fff}
         <a href="#services">ترخیص کالا و انبارداری</a>
       </div>
       <div>
-        <h5>دسترسی سریع</h5>
+        <h5>مسیرها</h5>
+        <a href="#routes">شانگهای ← بندرعباس — دریایی</a>
+        <a href="#routes">استانبول ← تبریز — زمینی</a>
+        <a href="#routes">شانگهای ← تهران — هوایی</a>
+        <a href="#routes">مسکو ← تهران — ریلی</a>
+        <a href="#routes">همه مسیرها و زمان‌بندی</a>
+      </div>
+      <div>
+        <h5>شرکت</h5>
         <a href="#calc">محاسبه برآورد کرایه</a>
         <a href="#tracking">رهگیری محموله</a>
-        <a href="#routes">مسیرها و زمان‌بندی</a>
         <a href="#quote">درخواست استعلام</a>
         <a href="#faq">سوالات متداول</a>
       </div>
@@ -784,6 +797,12 @@ document.querySelectorAll('.faq button.q').forEach(btn => {
     if (!open) { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
   });
 });
+/* ================= sticky compact header: shrink on scroll ================= */
+const siteHeader = document.querySelector('header.site');
+window.addEventListener('scroll', () => {
+  siteHeader.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive:true });
+
 $('#burger').addEventListener('click', () => $('#mobileMenu').classList.toggle('open'));
 document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => $('#mobileMenu').classList.remove('open')));
 </script>
