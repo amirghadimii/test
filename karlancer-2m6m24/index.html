@@ -225,6 +225,33 @@ button{font-family:inherit;cursor:pointer}
 footer.site{padding:8px 4px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
 footer.site strong{color:var(--ink-2)}
 
+
+/* ---------- H16 Letterhead + agenda strip ---------- */
+.letterhead{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px 22px 0;margin-bottom:18px;overflow:hidden}
+.lh-top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2.5px solid var(--navy)}
+.lh-brand{display:flex;align-items:center;gap:12px}
+.lh-brand .brand-mark{width:40px;height:40px;border-radius:11px}
+.lh-brand strong{display:block;font-size:16px;font-weight:900;color:var(--navy);line-height:1.5}
+.lh-brand span{display:block;font-size:12px;color:var(--muted)}
+.lh-meta{text-align:left;font-size:12px;color:var(--muted);line-height:1.8}
+.lh-meta b{color:var(--ink-2)}
+.agenda{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0 14px}
+.agenda .ag-label{font-size:12px;font-weight:800;color:var(--muted);margin-left:4px}
+.ag-chip{display:inline-flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--line);color:var(--ink-2);font-size:12.5px;font-weight:700;border-radius:999px;padding:5px 13px;transition:.15s}
+.ag-chip:hover{border-color:var(--green);color:#0b7a55;background:var(--green-soft)}
+.ag-chip i{font-style:normal;width:7px;height:7px;border-radius:50%;background:var(--green);flex:0 0 7px}
+.ag-chip:nth-child(3) i{background:var(--blue)}
+.ag-chip:nth-child(4) i{background:var(--violet)}
+/* ---------- F10 Split CTA footer ---------- */
+footer.site{display:block;padding:0}
+.cta-band{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:16px;padding:22px 24px;color:#dbe2f2;margin-bottom:12px}
+.cta-band h2{font-size:19px;font-weight:900;color:#fff;line-height:1.6}
+.cta-band p{font-size:13px;color:#b9c4e2;max-width:560px}
+.cta-btn{flex:0 0 auto;background:var(--green);color:#fff;border:0;border-radius:11px;padding:11px 22px;font-size:14px;font-weight:800;transition:.15s}
+.cta-btn:hover{background:#0b7a55}
+.cta-line{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12.5px;padding:2px 4px 0}
+.cta-line strong{color:var(--ink-2)}
+@media(max-width:640px){.lh-meta{text-align:right}.cta-band{padding:18px}}
 @media (max-width:1080px){
   .kpis{grid-template-columns:repeat(2,1fr)}
   .proof-grid,.report-grid{grid-template-columns:1fr}
@@ -291,6 +318,27 @@ footer.site strong{color:var(--ink-2)}
   </aside>
 
   <main class="main">
+    <header class="letterhead">
+      <div class="lh-top">
+        <div class="lh-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M4 20V10" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M10 20V4" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16 20v-8" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M21 20H3" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <strong>اپ‌وبینو — استودیو طراحی سایت و سئو</strong>
+            <span>سند پیشنهاد همکاری · برنامه همکاری ماهانه سئوی وردپرس</span>
+          </div>
+        </div>
+        <div class="lh-meta"><b>مدل همکاری:</b> ثابت ماهانه (ریتینر) · دورکاری<br><b>مخاطب سند:</b> پروژه «استخدام ماهانه سئوکار مسلط به وردپرس»</div>
+      </div>
+      <nav class="agenda" aria-label="دستور جلسه این سند">
+        <span class="ag-label">دستور جلسه:</span>
+        <a class="ag-chip" href="#cal-hero"><i></i>چرخه ماهانه</a>
+        <a class="ag-chip" href="#report"><i></i>گزارش پایان ماه</a>
+        <a class="ag-chip" href="#deliver"><i></i>جلسات و تحویل ماهانه</a>
+        <a class="ag-chip" href="#rhythm"><i></i>ریتم هفتگی ماه</a>
+      </nav>
+    </header>
     <section class="cal" id="cal-hero">
       <div class="cal-head">
         <div>
@@ -552,8 +600,17 @@ footer.site strong{color:var(--ink-2)}
     </section>
 
     <footer class="site">
-      <span><strong>برنامه پیشنهادی اپ‌وبینو</strong> — استودیو طراحی سایت و سئو</span>
-      <span>این برنامه برای پروژه «استخدام ماهانه سئوکار مسلط به وردپرس» در کارلنسر تهیه شده است.</span>
+      <div class="cta-band">
+        <div>
+          <h2>شروع همکاری از ماه آینده</h2>
+          <p>از هفته اول ماه آینده، چرخه کامل سئو با آدیت پایه و خط مبنای KPI شروع می‌شود و در پایان هر ماه، گزارش شفاف و عددی سرچ کنسول را تحویل می‌گیرید.</p>
+        </div>
+        <button class="cta-btn" type="button" onclick="window.print()">چاپ برنامه و شروع بررسی</button>
+      </div>
+      <div class="cta-line">
+        <span><strong>برنامه پیشنهادی اپ‌وبینو</strong> — استودیو طراحی سایت و سئو</span>
+        <span>این برنامه برای پروژه «استخدام ماهانه سئوکار مسلط به وردپرس» در کارلنسر تهیه شده است.</span>
+      </div>
     </footer>
   </main>
 </div>
