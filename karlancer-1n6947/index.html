@@ -298,6 +298,17 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
   footer .cols{grid-template-columns:1fr}
 }
 </style>
+<style>
+/* ===== MOBILEFIX 2026-11-20 batch-1: product-card add-to-cart button text clipped in 2-col grid; small tap targets ===== */
+.slider-dots button{position:relative}
+.slider-dots button::after{content:"";position:absolute;inset:-13px -3px}
+@media(max-width:680px){
+  .card .foot{flex-wrap:wrap}
+  .card .add-btn{flex:1 1 100%;min-height:44px;text-align:center}
+  .sec-head a.more{min-height:40px;display:inline-flex;align-items:center}
+  #nextSlide,#prevSlide{min-width:40px;min-height:40px}
+}
+</style>
 </head>
 <body>
 
