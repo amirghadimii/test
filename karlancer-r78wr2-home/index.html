@@ -211,6 +211,13 @@ input[type=range]{flex:1;accent-color:var(--accent);height:4px;cursor:pointer}
 
 /* ---------- فوتر ---------- */
 footer{background:var(--dark);color:#d9c6b2;margin-top:56px}
+footer .showroom-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:34px}
+.scard{display:flex;gap:13px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:17px 18px;transition:.2s}
+.scard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.scard .ic-wrap{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent-dark);display:grid;place-items:center;flex-shrink:0}
+.scard b{display:block;color:#fff;font-size:.98rem;line-height:1.5}
+.scard span{font-size:.8rem;color:#cbb59c;line-height:1.7;display:block}
+@media(max-width:860px){footer .showroom-cards{grid-template-columns:1fr}}
 footer .container{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;padding-top:42px;padding-bottom:30px}
 footer h4{color:#fff;margin:0 0 13px;font-size:1rem}
 footer p,footer li{font-size:.88rem;line-height:2}
@@ -396,6 +403,22 @@ footer .flogo strong{color:#fff;font-size:1.25rem;font-weight:900}
   </div>
 </section>
 
+<!-- بنر اقساط (اقساط اول — بالای خدمات) -->
+<div class="container">
+  <section class="inst-banner" id="installment">
+    <div>
+      <h2>خرید اقساطی، <em>بدون ضامن</em> و بدون مراجعه حضوری</h2>
+      <p>کل سبد خریدتان را تا ۲۴ ماه قسط‌بندی کنید؛ پیش‌پرداخت از ۲۰٪، اعتبارسنجی کاملاً آنلاین و ارسال کالا بلافاصله پس از تأیید اعتبار.</p>
+    </div>
+    <div class="inst-cards">
+      <div><b>۱۲ ماهه</b><span>بدون بهره برای کالاهای منتخب جشنواره</span></div>
+      <div><b>۲۴ ماهه</b><span>سود ماهانه ثابت و شفاف، بدون هزینه پنهان</span></div>
+      <div><b>۲۰٪ پیش‌پرداخت</b><span>حداقل پیش‌پرداخت برای شروع خرید اقساطی</span></div>
+      <div><b>۱۰ دقیقه</b><span>زمان تقریبی اعتبارسنجی و تأیید آنلاین</span></div>
+    </div>
+  </section>
+</div>
+
 <!-- خدمات -->
 <section class="services" id="services">
   <div class="container">
@@ -471,23 +494,24 @@ footer .flogo strong{color:#fff;font-size:1.25rem;font-weight:900}
     </div>
   </div>
 
-  <!-- بنر اقساط -->
-  <section class="inst-banner" id="installment">
-    <div>
-      <h2>خرید اقساطی، <em>بدون ضامن</em> و بدون مراجعه حضوری</h2>
-      <p>کل سبد خریدتان را تا ۲۴ ماه قسط‌بندی کنید؛ پیش‌پرداخت از ۲۰٪، اعتبارسنجی کاملاً آنلاین و ارسال کالا بلافاصله پس از تأیید اعتبار.</p>
-    </div>
-    <div class="inst-cards">
-      <div><b>۱۲ ماهه</b><span>بدون بهره برای کالاهای منتخب جشنواره</span></div>
-      <div><b>۲۴ ماهه</b><span>سود ماهانه ثابت و شفاف، بدون هزینه پنهان</span></div>
-      <div><b>۲۰٪ پیش‌پرداخت</b><span>حداقل پیش‌پرداخت برای شروع خرید اقساطی</span></div>
-      <div><b>۱۰ دقیقه</b><span>زمان تقریبی اعتبارسنجی و تأیید آنلاین</span></div>
-    </div>
-  </section>
 </div>
 
 <!-- فوتر -->
 <footer>
+  <div class="container showroom-cards">
+    <a class="scard" href="#shop">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
+      <span><b>بازدید حضوری</b><span>بیش از یک دهه تجربه فروش حضوری در تهران؛ کالای اصل را از نزدیک ببینید.</span></span>
+    </a>
+    <a class="scard" href="#shop">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18M16 3v18M3 8h5M3 16h5M16 8h5M16 16h5"/></svg></span>
+      <span><b>مشاوره خرید</b><span>مقایسه محصولات و انتخاب مدل مناسب خانه شما، با پشتیبانی واقعی و فارسی‌زبان.</span></span>
+    </a>
+    <a class="scard" href="#services">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span>
+      <span><b>خدمات پس از فروش</b><span>گارانتی معتبر شرکتی، ارسال و نصب رایگان در تهران و ۷ روز مهلت بازگشت کالا.</span></span>
+    </a>
+  </div>
   <div class="container">
     <div>
       <div class="flogo">
