@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none}
 .fa-num{font-variant-numeric:tabular-nums}
 
 /* نوار بالا */
-.topbar{background:var(--violet-dark);color:#e6defc;font-size:.82rem;padding:7px 0}
+.topbar{background:linear-gradient(90deg,#c2183f,#e11d48 55%,#f43f5e);color:#ffe4ea;font-size:.82rem;padding:7px 0}
 .topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .topbar b{color:var(--amber-2)}
 
@@ -38,12 +38,16 @@ a{color:inherit;text-decoration:none}
 header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .header-in{display:flex;align-items:center;gap:16px;padding:13px 0}
 .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.logo-mark{width:46px;height:46px;border-radius:15px;background:linear-gradient(140deg,var(--violet-3),var(--violet));display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.35rem;box-shadow:var(--sh)}
+.logo-mark{width:46px;height:46px;border-radius:15px;background:linear-gradient(140deg,#f43f5e,var(--red));display:grid;place-items:center;color:#fff;font-weight:900;font-size:1.35rem;box-shadow:0 10px 22px rgba(225,29,72,.28)}
 .logo-text{line-height:1.25}
-.logo-text strong{display:block;font-size:1.18rem;font-weight:900;color:var(--violet)}
+.logo-text strong{display:block;font-size:1.18rem;font-weight:900;color:var(--red)}
 .logo-text span{font-size:.73rem;color:var(--muted)}
-.searchbox{flex:1;display:flex;align-items:center;gap:8px;background:#f4f0fd;border:1.5px solid var(--line);border-radius:14px;padding:4px 6px 4px 14px;transition:.2s}
-.searchbox:focus-within{border-color:var(--violet-3);background:#fff;box-shadow:0 0 0 4px rgba(124,58,237,.10)}
+.search-col{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.searchbox{display:flex;align-items:center;gap:8px;background:#f0f0f1;border:1.5px solid transparent;border-radius:12px;padding:4px 6px 4px 14px;transition:.2s}
+.searchbox:focus-within{border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(225,29,72,.10)}
+.loc-line{display:flex;align-items:center;gap:5px;font-size:.76rem;color:var(--muted);padding-inline-start:4px}
+.loc-line b{color:var(--ink);font-weight:700}
+.loc-line .pin{color:var(--red)}
 .searchbox svg{flex-shrink:0;color:var(--muted)}
 .searchbox input{flex:1;border:none;outline:none;background:transparent;padding:8px 2px;color:var(--ink)}
 .searchbox input::placeholder{color:#a89cc4}
@@ -52,16 +56,26 @@ header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.93);ba
 .cart-count{position:absolute;top:-7px;inset-inline-start:-7px;background:var(--red);color:#fff;font-size:.72rem;font-weight:800;min-width:21px;height:21px;border-radius:99px;display:grid;place-items:center;padding-inline:5px}
 nav.main{display:flex;gap:4px;padding-bottom:11px;flex-wrap:wrap}
 nav.main a{padding:6px 13px;border-radius:99px;font-size:.92rem;font-weight:500;color:#4a3f66;transition:.2s}
-nav.main a:hover{background:#f1eafd;color:var(--violet)}
+nav.main a:hover{background:#fff1f3;color:var(--red)}
 .burger{display:none}
 .mobile-menu{display:none;border-top:1px solid var(--line);padding:10px 0 14px}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:9px 6px;font-weight:600;border-bottom:1px dashed var(--line)}
 .mobile-menu a:last-child{border-bottom:none}
 
-/* هیرو اسلایدر */
+/* هیرو اسلایدر + تایل‌های کناری */
 .hero{margin-top:22px}
-.slider{position:relative;border-radius:28px;overflow:hidden;box-shadow:var(--sh-lg);min-height:380px}
+.hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:stretch}
+.slider{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--sh-lg);min-height:380px;height:100%}
+.promo-tiles{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+.promo-tile{position:relative;border-radius:24px;overflow:hidden;display:block;box-shadow:var(--sh);min-height:170px}
+.promo-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.promo-tile:hover img{transform:scale(1.06)}
+.promo-tile .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(24,7,20,.82),rgba(24,7,20,.04) 60%)}
+.promo-tile .lbl{position:absolute;bottom:14px;inset-inline:16px;color:#fff;z-index:2}
+.promo-tile .lbl strong{display:block;font-size:1.05rem;font-weight:800;line-height:1.5}
+.promo-tile .lbl span{font-size:.78rem;color:#ffd7de}
+.promo-tile .go{position:absolute;top:12px;inset-inline-end:12px;z-index:2;background:var(--red);color:#fff;font-size:.74rem;font-weight:800;border-radius:99px;padding:4px 11px}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
 .slide.active{opacity:1;pointer-events:auto}
 .slide img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -251,8 +265,13 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
   .perks{grid-template-columns:repeat(2,1fr)}
   footer .cols{grid-template-columns:1fr 1fr}
 }
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .promo-tiles{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .promo-tile{min-height:150px}
+}
 @media(max-width:680px){
-  .searchbox{display:none}
+  .search-col{display:none}
   nav.main{display:none}
   .burger{display:grid}
   .slide .content{padding:28px 24px 52px}
@@ -294,10 +313,13 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
       <span class="logo-mark">ش</span>
       <span class="logo-text"><strong>شاپینو</strong><span>فروشگاه اینترنتی همه‌کاره</span></span>
     </a>
-    <label class="searchbox">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
-      <input id="searchInput" type="text" placeholder="جستجو در هزاران کالا… مثلاً هدفون، عطر، کفش">
-    </label>
+    <div class="search-col">
+      <label class="searchbox">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+        <input id="searchInput" type="text" placeholder="جستجو در شاپینو… مثلاً هدفون، عطر، کفش">
+      </label>
+      <span class="loc-line"><span class="pin">📍</span> ارسال به <b>تهران، تهران</b> — تحویل اکسپرس از امروز</span>
+    </div>
     <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">
       <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
       <span class="cart-count" id="cartCount">۰</span>
@@ -314,7 +336,7 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
 <main class="container">
 
   <!-- هیرو -->
-  <section class="hero"><div class="slider" id="slider">
+  <section class="hero"><div class="hero-grid"><div class="slider" id="slider">
     <article class="slide active">
       <img class="bg" src="assets/img/hero-shopping.jpg" alt="خرید اینترنتی">
       <div class="veil"></div>
@@ -350,6 +372,21 @@ html[dir="rtl"] .drawer{transform:translateX(-110%)}
       <button id="prevSlide" aria-label="قبلی">›</button>
       <button id="nextSlide" aria-label="بعدی">‹</button>
     </div>
+  </div>
+  <div class="promo-tiles">
+    <a class="promo-tile" href="#flash">
+      <img src="assets/img/p-perfume.jpg" alt="جشنواره زیبایی و عطر">
+      <span class="veil"></span>
+      <span class="go">تا ۳۰٪ تخفیف</span>
+      <span class="lbl"><strong>جشنواره زیبایی</strong><span>عطر، ادکلن و مراقبت پوست</span></span>
+    </a>
+    <a class="promo-tile" href="#cats">
+      <img src="assets/img/cat-fashion.jpg" alt="مد و پوشاک">
+      <span class="veil"></span>
+      <span class="go">کالکشن جدید</span>
+      <span class="lbl"><strong>مد و پوشاک پاییزه</strong><span>استایل تازه فصل، از برندهای منتخب</span></span>
+    </a>
+  </div>
   </div></section>
 
   <section class="perks">
