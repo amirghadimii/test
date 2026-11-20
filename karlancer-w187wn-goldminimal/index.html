@@ -78,7 +78,16 @@ nav a:hover{border-color:var(--ink)}
 .text-sec .body p+p{margin-top:1.4em}
 .text-sec .body .formula{font-size:13px;color:var(--mut);border-top:1px solid var(--line);margin-top:2.2em;padding-top:1.2em}
 
-footer{border-top:1px solid var(--line);padding:34px 5vw 44px;display:flex;justify-content:space-between;font-size:11px;color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:44px 5vw 56px;display:flex;justify-content:space-between;font-size:11px;color:var(--mut);letter-spacing:.12em}
+.micro{font-size:10px;color:var(--mut);letter-spacing:.45em;font-weight:500}
+.opening .micro{display:block;margin-bottom:3.5vh}
+.collection .micro{display:block;margin-bottom:14px}
+.text-sec>div:first-child{grid-column:1/4}
+.text-sec .micro{display:block;font-size:10px;color:var(--mut);letter-spacing:.45em;margin-bottom:10px}
+section + section{border-top:1px solid var(--line)}
+.opening{padding-top:19vh;padding-bottom:14vh}
+.collection{padding-top:8vh;padding-bottom:6vh}
+@media(max-width:900px){.text-sec .micro{grid-column:1/13}}
 
 /* ---------- product overlay ---------- */
 #overlay{position:fixed;inset:0;background:var(--bg);z-index:60;overflow:auto;opacity:0;pointer-events:none;transition:opacity .35s}
@@ -166,6 +175,7 @@ footer{border-top:1px solid var(--line);padding:34px 5vw 44px;display:flex;justi
 </div>
 
 <section class="opening">
+  <span class="micro">گالری آوا — مجموعه پاییز</span>
   <h1>طلا، <span>بدون هیچ اضافه‌ای.</span></h1>
   <figure>
     <div class="ph"><img src="assets/img/opening.jpg" alt="انگشترهای طلای مینیمال گالری آوا"></div>
@@ -174,6 +184,7 @@ footer{border-top:1px solid var(--line);padding:34px 5vw 44px;display:flex;justi
 </section>
 
 <section class="collection" id="collection">
+  <span class="micro">مجموعه</span>
   <div class="chead">
     <h2>مجموعه</h2>
     <span>طلای ۱۸ عیار — قیمت شفاف، محاسبه زنده</span>
@@ -182,7 +193,7 @@ footer{border-top:1px solid var(--line);padding:34px 5vw 44px;display:flex;justi
 </section>
 
 <section class="text-sec" id="philosophy">
-  <h2>فلسفه</h2>
+  <div><span class="micro">درباره آوا</span><h2>فلسفه</h2></div>
   <div class="body">
     <p>آوا گالری نیست که طلا بفروشد؛ گالری‌ای است که گاهی طلا هم در آن هست. هر قطعه یک فرم است: یک خط، یک دایره، یک سطح صاف. چیزی برای پنهان‌کردن نداریم، پس چیزی هم اضافه نمی‌کنیم.</p>
     <p>به همین دلیل قیمت‌ها را هم مثل فرم‌ها ساده کرده‌ایم: وزن ضربدر نرخ روز، به‌علاوه اجرت ساختِ اعلام‌شده. بدون چانه‌زنی، بدون عددِ پنهان.</p>
@@ -190,7 +201,7 @@ footer{border-top:1px solid var(--line);padding:34px 5vw 44px;display:flex;justi
 </section>
 
 <section class="text-sec" id="guide">
-  <h2>راهنمای قیمت</h2>
+  <div><span class="micro">قیمت شفاف</span><h2>راهنمای قیمت</h2></div>
   <div class="body">
     <p>قیمت نهایی هر قطعه در همین صفحه و جلوی چشم شما ساخته می‌شود. نرخ را از نوار بالای صفحه تغییر دهید؛ قیمت هر هشت قطعه همان لحظه از نو محاسبه می‌شود.</p>
     <p class="formula">قیمت = (وزن × نرخ هر گرم) + اجرت ساخت + سود گالری (۷٪) + مالیات بر ارزش افزوده (۱۰٪ از اجرت و سود)</p>
