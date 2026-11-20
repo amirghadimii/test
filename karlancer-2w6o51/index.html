@@ -223,6 +223,35 @@ footer .logo{color:#fff}
   section{padding:52px 0 6px}
   .sec-head h2{font-size:25px}.sec-num{font-size:40px}
 }
+
+/* H3 FLOATING PILL header (diversity rework) */
+body>header{background:transparent;border-bottom:0;backdrop-filter:none;top:12px}
+body>header .hbar{background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;box-shadow:0 18px 42px rgba(27,23,64,.15);padding:10px 22px;margin-top:12px}
+body>header .mnav{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 42px rgba(27,23,64,.15);margin-top:8px;padding:10px 20px 14px}
+@media(max-width:560px){body>header .hbar{border-radius:24px;padding:10px 14px}body>header .cart-btn{white-space:nowrap;padding:9px 12px;font-size:13px}}
+
+/* L10 SPLIT-SCREEN CHAPTERS + F3 NEWSLETTER-FIRST (diversity rework) */
+.chapter{display:grid;grid-template-columns:.85fr 1.4fr;gap:22px;align-items:start}
+.chapter-side{background:var(--indigo);color:#fff;border-radius:22px;padding:26px}
+.chapter-num{font-size:46px;font-weight:900;color:transparent;-webkit-text-stroke:2px var(--amber);line-height:1.1;display:block}
+.chapter-label{display:block;font-weight:900;font-size:19px;margin-top:6px;color:#fff}
+.chapter-side p{color:#CFCBE8;font-size:14.5px;margin:10px 0 0}
+.chapter-side img{border-radius:14px;margin-top:18px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.chapter-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.chapter-head .chapter-num{font-size:38px}
+.chapter-head .chapter-label{color:var(--indigo);margin-top:0}
+.chapter-img{width:100%;aspect-ratio:16/7;object-fit:cover;border-radius:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.news-band{display:flex;align-items:center;gap:24px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:28px;margin-bottom:34px}
+.news-band h4{margin-bottom:6px}
+.news-band p{margin:0;font-size:14px;max-width:34em}
+.news-form{display:flex;gap:10px;flex-wrap:wrap;margin-inline-start:auto}
+.news-form input{font-family:inherit;font-size:14.5px;padding:11px 15px;border:0;border-radius:11px;min-width:230px;background:#fff;color:var(--ink)}
+.news-ok{display:none;width:100%;background:rgba(245,163,1,.14);border:1px solid rgba(245,163,1,.5);color:var(--amber);border-radius:11px;padding:11px 15px;font-weight:700;font-size:14px}
+footer a{display:block}
+.news-band a{display:inline}
+@media(max-width:960px){.chapter{grid-template-columns:1fr}.news-form{margin-inline-start:0}}
+@media(max-width:560px){.grid-2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -322,7 +351,15 @@ footer .logo{color:#fff}
       <div><h2>آکادمی رادین</h2><p>دوره‌های ویدیویی با آزمون، گواهینامه و پنل دانشجو — روی هر دوره کلیک کنید.</p></div>
       <a class="more" href="#academy">همه دوره‌ها ←</a>
     </div>
-    <div class="grid grid-4" id="courseGrid"></div>
+    <div class="chapter">
+      <div class="chapter-side">
+        <span class="chapter-num">۰۱</span>
+        <span class="chapter-label">فصل اول — آکادمی</span>
+        <p>یادگیری ویدیویی، قدم‌به‌قدم و پروژه‌محور؛ با آزمون، گواهینامه پایان دوره و پنل اختصاصی دانشجو. روی هر دوره کلیک کنید تا سرفصل‌ها را ببینید و به سبد اضافه کنید.</p>
+        <img src="assets/img/course-learn.jpg" alt="یادگیری آنلاین در آکادمی رادین">
+      </div>
+      <div class="grid grid-2 chapter-main" id="courseGrid"></div>
+    </div>
   </div>
 </section>
 
@@ -345,6 +382,9 @@ footer .logo{color:#fff}
           <div class="track-res" id="trackRes"></div>
         </div>
       </div>
+      <div class="chapter-col">
+        <div class="chapter-head"><span class="chapter-num">۰۲</span><span class="chapter-label">فصل دوم — خدمات و رزرو</span></div>
+        <img class="chapter-img" src="assets/img/team.jpg" alt="تیم خدمات رادین">
       <div class="form-card">
         <h3>فرم درخواست خدمت</h3>
         <p>فرم را تکمیل کنید؛ پس از ثبت، کد رهگیری نمایش داده می‌شود.</p>
@@ -363,6 +403,7 @@ footer .logo{color:#fff}
           <button class="btn btn-amber" type="submit" style="width:100%">ثبت درخواست و دریافت کد رهگیری</button>
         </form>
         <div class="form-ok" id="formOk"></div>
+      </div>
       </div>
     </div>
   </div>
@@ -400,6 +441,11 @@ footer .logo{color:#fff}
 
 <footer>
   <div class="wrap">
+    <div class="news-band">
+      <div><h4>خبرنامه آکادمی رادین</h4><p>هر هفته یک نکته عملی برای فروشگاه، آموزش آنلاین و خدمات — اول از همه برای اعضای خبرنامه آکادمی.</p></div>
+      <form class="news-form" id="newsForm"><input type="email" id="newsMail" placeholder="ایمیل شما" aria-label="ایمیل شما"><button class="btn btn-amber btn-sm" type="submit">عضویت در خبرنامه</button></form>
+      <div class="news-ok" id="newsOk">عضویت شما در خبرنامه آکادمی رادین ثبت شد. 🎓</div>
+    </div>
     <div class="f-grid">
       <div>
         <a class="logo" href="#"><span class="logo-mark">ر</span><span>رادین<small style="color:var(--amber)">RADIN PLATFORM</small></span></a>
@@ -616,5 +662,6 @@ document.getElementById('burger').addEventListener('click', () => mnav.classList
 mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
 document.addEventListener('keydown', e => { if(e.key === 'Escape'){ closeCart(); closeCourse(); } });
 </script>
+<script>document.getElementById('newsForm').addEventListener('submit',function(e){e.preventDefault();var m=document.getElementById('newsMail');if(m.value&&m.value.indexOf('@')>0){document.getElementById('newsOk').style.display='block';m.value='';}});</script>
 </body>
 </html>
