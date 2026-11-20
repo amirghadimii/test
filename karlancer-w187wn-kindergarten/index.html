@@ -215,8 +215,17 @@ form textarea{resize:vertical;min-height:56px;line-height:1.8}
 .role li{font-size:.88rem;font-weight:600;line-height:2.15;padding-inline-start:20px;position:relative;color:#4c4666}
 .role li::before{content:'✿';position:absolute;inset-inline-start:0;color:var(--coral-d);font-size:.75rem}
 .role.r1{background:var(--coral-soft)} .role.r2{background:var(--lilac-soft)} .role.r3{background:var(--mint-soft)}
-footer{max-width:1240px;margin:30px auto 0;padding:26px 24px 40px;text-align:center;color:var(--ink-2);font-weight:600;font-size:.85rem;line-height:2}
-footer .f-logo{font-weight:900;color:var(--ink);font-size:1rem}
+.foot-wave{display:block;width:100%;line-height:0;margin-top:44px}
+.foot-wave svg{display:block;width:100%;height:64px}
+footer{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--sun-soft),var(--coral-soft) 55%,var(--lilac-soft));padding:6px 24px 52px;text-align:center;color:var(--ink-2);font-weight:600;font-size:.85rem;line-height:2}
+footer .f-in{position:relative;z-index:2;max-width:820px;margin:0 auto}
+footer .f-logo{display:inline-block;font-weight:900;color:var(--ink);font-size:1.12rem;transform:rotate(-2deg);background:#fff;border:2px dashed var(--sun);border-radius:999px;padding:4px 22px 6px;box-shadow:0 10px 22px -12px rgba(62,54,84,.35);margin-bottom:14px}
+footer .f-note{margin-top:10px;font-size:.78rem;color:var(--ink-2)}
+footer .blob{position:absolute;border-radius:58% 42% 55% 45%/48% 55% 45% 52%;opacity:.55;z-index:1}
+footer .b1{width:130px;height:110px;background:var(--mint-soft);top:18px;right:6%;transform:rotate(18deg)}
+footer .b2{width:84px;height:84px;background:#fff;bottom:16px;left:9%;transform:rotate(-14deg)}
+footer .b3{width:52px;height:52px;background:var(--sky-soft);top:44px;left:22%;border-radius:50%}
+@media(max-width:640px){footer .b3{display:none}footer .b1{right:-30px}}
 
 /* lightbox + toast */
 .lb{position:fixed;inset:0;background:rgba(34,30,51,.82);display:none;place-items:center;z-index:50;padding:20px}
@@ -484,10 +493,14 @@ footer .f-logo{font-weight:900;color:var(--ink);font-size:1rem}
   </div>
 </section>
 
+<div class="foot-wave" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,52 C180,14 340,84 560,58 C780,32 920,78 1140,50 C1280,32 1380,52 1440,38 L1440,90 L0,90 Z" fill="#FFF3D6"/><path d="M0,66 C220,36 420,88 680,64 C920,42 1120,80 1440,56 L1440,90 L0,90 Z" fill="#FFE9E4" opacity=".75"/></svg></div>
 <footer>
-  <div class="f-logo">کودک‌یار 🌸</div>
-  دموی تعاملی اپلیکیشن جامع مدیریت کودکستان — اپ والدین و پنل مربی به‌صورت زنده به هم متصل‌اند.<br>
-  همه نام‌ها و اطلاعات این دمو فرضی است.
+  <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span><span class="blob b3" aria-hidden="true"></span>
+  <div class="f-in">
+    <div class="f-logo">کودک‌یار 🌸</div>
+    <div>دموی تعاملی اپلیکیشن جامع مدیریت کودکستان — اپ والدین و پنل مربی به‌صورت زنده به هم متصل‌اند.</div>
+    <div class="f-note">همه نام‌ها و اطلاعات این دمو فرضی است.</div>
+  </div>
 </footer>
 
 <div class="lb" id="lightbox"><figure style="text-align:center"><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure></div>
