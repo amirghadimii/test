@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامه سئو و تولید محتوای وب‌سایت مهاجرتی | اپ‌وبینو</title>
+<meta name="description" content="برنامه اجرایی اپ‌وبینو برای پروژه «سئو، تولید محتوا و بهینه‌سازی وب‌سایت مهاجرتی»: آدیت فنی و محتوایی، تحقیق کلمات کلیدی مهاجرتی بر اساس خوشه‌های روش و کشور، معماری محتوا و تقویم تولید، سئوی داخلی و لینک‌سازی اصولی و گزارش‌دهی ماهانه شفاف — در ۳۰ روز.">
+<style>
+@font-face{
+  font-family:"Vazirmatn";
+  src:url("assets/Vazirmatn.woff2") format("woff2");
+  font-weight:100 900;
+  font-display:swap;
+}
+:root{
+  --ink:#17203a;
+  --ink-2:#3d4767;
+  --muted:#6b7490;
+  --line:#e3e7f0;
+  --bg:#f4f6fa;
+  --card:#ffffff;
+  --navy:#16213a;
+  --navy-2:#1f2c4e;
+  --green:#0e9f6e;
+  --green-soft:#e5f6ef;
+  --amber:#d9930d;
+  --amber-soft:#fdf3e0;
+  --violet:#6c4fd8;
+  --violet-soft:#efeafd;
+  --blue:#2470d8;
+  --blue-soft:#e8f1fd;
+  --teal:#0e7c86;
+  --teal-soft:#e4f3f5;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(23,32,58,.05),0 8px 24px -12px rgba(23,32,58,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Vazirmatn",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.shell{display:flex;max-width:1440px;margin:0 auto;min-height:100vh}
+
+/* ---------- Sidebar ---------- */
+.sidebar{
+  width:300px;flex:0 0 300px;position:sticky;top:0;height:100vh;overflow:auto;
+  background:var(--navy);color:#dbe2f2;padding:26px 20px 30px;
+  display:flex;flex-direction:column;gap:26px;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.brand-mark{
+  width:44px;height:44px;border-radius:12px;flex:0 0 44px;
+  background:linear-gradient(135deg,var(--teal),#0a5a63);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.brand-text strong{display:block;font-size:15.5px;font-weight:800;color:#fff;line-height:1.5}
+.brand-text span{display:block;font-size:12px;color:#93a1c4}
+.nav-caption{font-size:11.5px;color:#7f8cb0;letter-spacing:.02em;margin-bottom:10px;font-weight:600}
+.nav-item{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:11px;
+  color:#c6cfe6;font-size:13.5px;font-weight:600;margin-bottom:4px;
+  border:1px solid transparent;transition:.15s;
+}
+.nav-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav-item.active{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.14);color:#fff}
+.nav-num{
+  width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;
+}
+.nav-name{flex:1}
+.nav-count{font-size:12px;color:#8fa0c6}
+.ring-card{
+  margin-top:auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);padding:16px;display:flex;gap:14px;align-items:center;
+}
+.ring-wrap{position:relative;width:76px;height:76px;flex:0 0 76px}
+.ring{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:8;stroke-linecap:round}
+.ring-bg{stroke:rgba(255,255,255,.14)}
+.ring-fg{stroke:var(--teal);stroke-dasharray:226.2;stroke-dashoffset:226.2;transition:stroke-dashoffset .4s}
+.ring-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
+.ring-meta strong{display:block;color:#fff;font-size:13.5px}
+.ring-meta span{font-size:12px;color:#93a1c4}
+.btn-print{
+  background:var(--teal);color:#fff;border:0;border-radius:10px;
+  padding:9px 16px;font-size:13px;font-weight:700;transition:.15s;
+}
+.btn-print:hover{background:#0a5a63}
+.btn-print.side{width:100%;margin-top:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.btn-print.side:hover{background:rgba(255,255,255,.18)}
+
+/* ---------- Main ---------- */
+.main{flex:1;min-width:0;padding:30px 34px 60px}
+.topbar{display:flex;gap:20px;align-items:flex-start;justify-content:space-between;margin-bottom:22px}
+.topbar h1{font-size:25px;font-weight:800;line-height:1.5}
+.topbar-sub{color:var(--ink-2);font-size:14px;max-width:760px;margin-top:6px}
+.topbar-tools{display:flex;gap:10px;flex:0 0 auto;padding-top:6px}
+
+.notice{
+  display:flex;gap:14px;background:var(--amber-soft);border:1px solid #f0dcae;
+  border-radius:var(--radius);padding:16px 18px;margin-bottom:24px;
+}
+.notice .n-ic{
+  width:40px;height:40px;flex:0 0 40px;border-radius:11px;background:#fff;
+  display:flex;align-items:center;justify-content:center;color:var(--amber);
+  border:1px solid #f0dcae;
+}
+.notice strong{font-weight:800}
+.notice p{font-size:13.5px;color:var(--ink-2)}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.kpi-chip{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.kpi-chip.green{background:var(--green-soft);color:var(--green)}
+.kpi-chip.navy{background:#e9edf6;color:var(--navy)}
+.kpi-chip.violet{background:var(--violet-soft);color:var(--violet)}
+.kpi-chip.teal{background:var(--teal-soft);color:var(--teal)}
+.kpi-label{font-size:12.5px;color:var(--muted);font-weight:600}
+.kpi-value{font-size:24px;font-weight:800;line-height:1.4}
+.kpi-delta{font-size:13px;color:var(--ink-2)}
+.kpi-note{font-size:12px;color:var(--muted);margin-top:4px}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:22px;overflow:hidden}
+.panel-head{
+  display:flex;gap:14px;align-items:flex-start;justify-content:space-between;
+  padding:20px 22px 14px;border-bottom:1px solid var(--line);
+}
+.panel-head h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:12px}
+.phase-num{
+  width:34px;height:34px;flex:0 0 34px;border-radius:10px;color:#fff;
+  display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;
+}
+.p1 .phase-num{background:var(--green)} .p2 .phase-num{background:var(--blue)}
+.p3 .phase-num{background:var(--violet)} .p4 .phase-num{background:var(--amber)}
+.p5 .phase-num{background:var(--teal)}
+.panel-sub{color:var(--muted);font-size:13px;margin-top:2px}
+.head-badge{
+  flex:0 0 auto;background:var(--bg);border:1px solid var(--line);color:var(--ink-2);
+  font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px;
+}
+.checklist{list-style:none;padding:10px 12px 14px}
+.checklist li{border-radius:11px}
+.checklist li:hover{background:#f8fafc}
+.check-item{display:flex;gap:12px;align-items:flex-start;padding:10px 10px;cursor:pointer}
+.check-item input{
+  appearance:none;width:21px;height:21px;flex:0 0 21px;margin-top:4px;border-radius:6px;
+  border:2px solid #c4cbdd;background:#fff;cursor:pointer;position:relative;transition:.15s;
+}
+.check-item input:checked{background:var(--teal);border-color:var(--teal)}
+.check-item input:checked::after{
+  content:"";position:absolute;inset:0;
+  background:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4.5 12.5 10 18 19.5 6.5' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.check-item .ci-text{flex:1}
+.check-item .ci-text strong{display:block;font-size:14.5px;font-weight:700}
+.check-item .ci-text span{display:block;font-size:12.8px;color:var(--muted);line-height:1.8}
+.check-item input:checked ~ .ci-text strong{color:var(--muted);text-decoration:line-through}
+
+/* ---------- Cluster map ---------- */
+.cluster-wrap{padding:20px 22px 8px}
+.cluster-title{font-size:13.5px;font-weight:800;margin-bottom:12px;color:var(--ink-2)}
+.cluster-map{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+.cluster-pillar{
+  grid-column:1 / -1;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;
+  border-radius:13px;padding:16px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.cluster-pillar .cp-tag{font-size:11px;font-weight:800;background:var(--violet);border-radius:999px;padding:3px 11px}
+.cluster-pillar strong{font-size:16px;font-weight:800}
+.cluster-pillar span.cp-sub{font-size:12.5px;color:#b9c4de}
+.cluster-card{border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:linear-gradient(180deg,#fff,#fbfcfe)}
+.cluster-card .cc-tag{display:inline-block;font-size:11px;font-weight:800;border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.cc-tag.t1{background:var(--blue-soft);color:var(--blue)}
+.cc-tag.t2{background:var(--green-soft);color:#0b7a55}
+.cc-tag.t3{background:var(--amber-soft);color:#9a6a06}
+.cc-tag.t4{background:var(--violet-soft);color:var(--violet)}
+.cc-tag.t5{background:var(--teal-soft);color:var(--teal)}
+.cc-tag.t6{background:#e9edf6;color:var(--navy)}
+.cluster-card b{display:block;font-size:13.5px;margin-bottom:3px}
+.cluster-card span{font-size:12px;color:var(--muted);line-height:1.8;display:block}
+.cluster-points{padding:6px 22px 20px;display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
+.cluster-points li{list-style:none;font-size:13px;color:var(--ink-2);display:flex;gap:8px}
+.cluster-points li::before{content:"✓";color:var(--teal);font-weight:800}
+
+/* ---------- Timeline ---------- */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:8px 22px 22px}
+.tl-step{padding:14px 16px;border-right:1px dashed var(--line)}
+.tl-step:last-child{border-right:0}
+.tl-week{display:inline-block;font-size:12px;font-weight:800;color:#fff;border-radius:999px;padding:3px 12px;margin-bottom:8px}
+.tl-step:nth-child(1) .tl-week{background:var(--green)}
+.tl-step:nth-child(2) .tl-week{background:var(--blue)}
+.tl-step:nth-child(3) .tl-week{background:var(--violet)}
+.tl-step:nth-child(4) .tl-week{background:var(--teal)}
+.tl-step h3{font-size:15px;font-weight:800;margin-bottom:6px}
+.tl-step ul{list-style:none}
+.tl-step li{font-size:13px;color:var(--ink-2);padding-right:16px;position:relative;line-height:1.85}
+.tl-step li::before{content:"";position:absolute;right:0;top:12px;width:6px;height:6px;border-radius:50%;background:#c4cbdd}
+
+/* ---------- Proof ---------- */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:20px 22px 22px}
+.proof{
+  border:1px solid var(--line);border-radius:13px;padding:18px;background:linear-gradient(180deg,#fff,#fbfcfe);
+}
+.proof .pf-value{font-size:27px;font-weight:800;color:var(--navy);line-height:1.4}
+.proof .pf-value em{font-style:normal;color:var(--teal)}
+.proof p{font-size:13px;color:var(--ink-2)}
+.proof .pf-tag{display:inline-block;font-size:11px;font-weight:700;background:var(--teal-soft);color:#0a5a63;border-radius:999px;padding:2px 10px;margin-bottom:10px}
+
+.deliverables{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;padding:14px 22px 20px}
+.deliverables li{list-style:none;display:flex;gap:10px;font-size:13.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px dashed var(--line)}
+.deliverables li b{color:var(--ink)}
+.deliverables .d-ic{color:var(--teal);font-weight:800}
+
+footer.site{padding:8px 4px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
+footer.site strong{color:var(--ink-2)}
+
+@media (max-width:1180px){
+  .timeline{grid-template-columns:repeat(2,1fr)}
+  .tl-step{border-bottom:1px dashed var(--line)}
+}
+@media (max-width:1080px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .proof-grid{grid-template-columns:1fr}
+  .cluster-map{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .shell{flex-direction:column}
+  .sidebar{position:static;width:100%;flex:none;height:auto}
+  .main{padding:22px 16px 44px}
+  .cluster-map,.cluster-points,.deliverables,.timeline{grid-template-columns:1fr}
+  .tl-step{border-right:0}
+  .topbar{flex-direction:column}
+}
+@media print{
+  .sidebar,.topbar-tools{display:none}
+  body{background:#fff}
+  .panel,.kpi{box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </span>
+      <div class="brand-text">
+        <strong>سئو و محتوای مهاجرتی</strong>
+        <span>برنامه اجرایی · اپ‌وبینو</span>
+      </div>
+    </div>
+
+    <nav class="side-nav" aria-label="بخش‌های برنامه">
+      <p class="nav-caption">بخش‌های برنامه</p>
+      <a class="nav-item" href="#sec-1"><span class="nav-num">۱</span><span class="nav-name">آدیت فنی و محتوایی</span><span class="nav-count"><span class="nav-done" data-done-for="1">۰</span>/<span data-total-for="1">۷</span></span></a>
+      <a class="nav-item" href="#sec-2"><span class="nav-num">۲</span><span class="nav-name">تحقیق کلمات کلیدی مهاجرتی</span><span class="nav-count"><span class="nav-done" data-done-for="2">۰</span>/<span data-total-for="2">۶</span></span></a>
+      <a class="nav-item" href="#sec-3"><span class="nav-num">۳</span><span class="nav-name">معماری و تقویم محتوا</span><span class="nav-count"><span class="nav-done" data-done-for="3">۰</span>/<span data-total-for="3">۶</span></span></a>
+      <a class="nav-item" href="#sec-4"><span class="nav-num">۴</span><span class="nav-name">سئوی داخلی و لینک‌سازی</span><span class="nav-count"><span class="nav-done" data-done-for="4">۰</span>/<span data-total-for="4">۶</span></span></a>
+      <a class="nav-item" href="#sec-5"><span class="nav-num">۵</span><span class="nav-name">گزارش‌دهی ماهانه</span><span class="nav-count"><span class="nav-done" data-done-for="5">۰</span>/<span data-total-for="5">۵</span></span></a>
+      <a class="nav-item" href="#timeline"><span class="nav-num">◷</span><span class="nav-name">زمان‌بندی ۳۰ روزه</span></a>
+      <a class="nav-item" href="#proof"><span class="nav-num">★</span><span class="nav-name">سوابق و نتایج واقعی</span></a>
+      <a class="nav-item" href="#deliver"><span class="nav-num">✓</span><span class="nav-name">تحویل‌دادنی‌ها</span></a>
+    </nav>
+
+    <div>
+      <div class="ring-card">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 84 84" width="76" height="76" aria-hidden="true">
+            <circle class="ring-bg" cx="42" cy="42" r="36"></circle>
+            <circle class="ring-fg" id="ringFg" cx="42" cy="42" r="36"></circle>
+          </svg>
+          <span class="ring-pct" id="ringPct">۰٪</span>
+        </div>
+        <div class="ring-meta">
+          <strong>پیشرفت برنامه</strong>
+          <span><span id="ringDone">۰</span> از <span id="ringTotal">۳۰</span> اقدام</span>
+        </div>
+      </div>
+      <button class="btn-print side" id="printBtnSide" type="button">چاپ برنامه</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>برنامه سئو و تولید محتوای وب‌سایت مهاجرتی — اپ‌وبینو</h1>
+        <p class="topbar-sub">پاسخ اجرایی اپ‌وبینو به پروژه «سئو، تولید محتوا و بهینه‌سازی وب‌سایت مهاجرتی»: نقشه راه کامل ۳۰ روزه ما — از آدیت فنی و محتوایی و تحقیق کلمات کلیدی مهاجرتی بر اساس روش و کشور، تا معماری محتوا، تقویم تولید، سئوی داخلی، لینک‌سازی اصولی و گزارش‌دهی ماهانه شفاف. هر فاز خروجی مشخص و قابل بررسی دارد.</p>
+      </div>
+      <div class="topbar-tools">
+        <button class="btn-print" id="printBtn" type="button">چاپ برنامه</button>
+      </div>
+    </header>
+
+    <div class="notice" role="note">
+      <span class="n-ic" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h1v4h1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div>
+        <strong>گام اول بعد از انتخاب ما: آدیت واقعی روی سایت خودتان</strong>
+        <p>در متن پروژه، نشانی وب‌سایت اعلام نشده است؛ به همین دلیل این صفحه «برنامه اجرایی» است، نه آدیت آماده. به محض شروع همکاری، نشانی سایت را از شما می‌گیریم و آدیت کامل فنی و محتوایی را روی همان سایت انجام می‌دهیم. همه اعداد و یافته‌های اختصاصی سایت شما در گزارش فاز اول می‌آید — هیچ عددی درباره سایت شما حدس زده یا ساخته نشده است.</p>
+      </div>
+    </div>
+
+    <section class="kpis" aria-label="چارچوب برنامه در یک نگاه">
+      <div class="kpi">
+        <span class="kpi-chip teal"><svg viewBox="0 0 24 24" width="19" height="19" fill="none"><path d="M4 19a9 9 0 1 1 3 6.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <p class="kpi-label">مدت اجرای برنامه</p>
+        <p class="kpi-value">۳۰ روز</p>
+        <p class="kpi-delta">۵ فاز اجرایی، هفته‌به‌هفته</p>
+        <p class="kpi-note">هر هفته خروجی مشخص و قابل بررسی دارد.</p>
+      </div>
+      <div class="kpi">
+        <span class="kpi-chip navy"><svg viewBox="0 0 24 24" width="19" height="19" fill="none"><path d="M9 11.5 11 14 15.5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3 5 5.8v5.4c0 4.6 3 7.9 7 9.3 4-1.4 7-4.7 7-9.3V5.8L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+        <p class="kpi-label">اقدام‌های برنامه</p>
+        <p class="kpi-value"><span id="kpiTotal">۳۰</span> اقدام</p>
+        <p class="kpi-delta"><span id="kpiDone">۰</span> اقدام انجام شده</p>
+        <p class="kpi-note">تیک هر اقدام پس از اجرا و راستی‌آزمایی زده می‌شود.</p>
+      </div>
+      <div class="kpi">
+        <span class="kpi-chip violet"><svg viewBox="0 0 24 24" width="19" height="19" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+        <p class="kpi-label">خوشه‌های محتوایی</p>
+        <p class="kpi-value">روش × کشور</p>
+        <p class="kpi-delta">تحصیلی، کاری، سرمایه‌گذاری، ویزا، اقامت</p>
+        <p class="kpi-note">هر خوشه یک صفحه ستون و مقالات پشتیبان دارد.</p>
+      </div>
+      <div class="kpi">
+        <span class="kpi-chip green"><svg viewBox="0 0 24 24" width="19" height="19" fill="none"><path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m7 15 4-5 3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <p class="kpi-label">گزارش‌دهی</p>
+        <p class="kpi-value">ماهانه و شفاف</p>
+        <p class="kpi-delta">با داده سرچ کنسول و ردیابی جایگاه</p>
+        <p class="kpi-note">هر ماه: چه شد، چه کردیم، قدم بعدی چیست.</p>
+      </div>
+    </section>
+
+    <!-- Phase 1 -->
+    <section class="panel p1" id="sec-1">
+      <div class="panel-head">
+        <div>
+          <h2><span class="phase-num">۱</span> فاز اول — آدیت فنی و محتوایی</h2>
+          <p class="panel-sub">نقطه شروع: شناخت دقیق وضعیت فعلی سایت شما؛ خروجی این فاز، گزارش آدیت با اولویت‌بندی اصلاحات و خط مبنای عددی برای سنجش پیشرفت است.</p>
+        </div>
+        <span class="head-badge">هفته ۱</span>
+      </div>
+      <ul class="checklist" data-phase="1">
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>آدیت فنی کامل</strong><span>بررسی ساختار URL، نقشه سایت، robots.txt، ریدایرکت‌ها، خطاهای خزش و سلامت کلی زیرساخت سئو.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>وضعیت ایندکس و پوشش صفحات</strong><span>بررسی Coverage در سرچ کنسول: صفحات ایندکس‌شده، حذف‌شده، تکراری و صفحات مهمی که دیده نمی‌شوند.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>سنجش سرعت و Core Web Vitals</strong><span>اندازه‌گیری LCP ،INP و CLS در موبایل و دسکتاپ؛ سرعت برای کاربر مهاجرتی که اغلب با موبایل جست‌وجو می‌کند حیاتی است.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>آدیت محتوای موجود</strong><span>ارزیابی مقالات و صفحات فعلی: کدام رتبه دارند، کدام نازک یا تکراری‌اند، کدام باید بازنویسی، ادغام یا حذف شوند.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>بازبینی داده ساخت‌یافته (اسکیما)</strong><span>کنترل اسکیماهای فعلی و خطاهایشان و مشخص‌کردن اسکیماهای لازم برای صفحات مهاجرتی (مقاله، FAQ، خدمات).</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>تحلیل رقبای مهاجرتی</strong><span>بررسی سایت‌های رقیب در نتایج گوگل: با چه صفحاتی رتبه گرفته‌اند، چه خوشه‌هایی را پوشش داده‌اند و شکاف شما کجاست.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>ثبت خط مبنای عددی</strong><span>ثبت وضعیت شروع — جایگاه کلمات، ترافیک ارگانیک، ایندکس و سرعت — تا پیشرفت ماهانه با عدد سنجیده شود، نه با حدس.</span></span></label></li>
+      </ul>
+    </section>
+
+    <!-- Phase 2 -->
+    <section class="panel p2" id="sec-2">
+      <div class="panel-head">
+        <div>
+          <h2><span class="phase-num">۲</span> فاز دوم — تحقیق کلمات کلیدی مهاجرتی</h2>
+          <p class="panel-sub">متقاضی مهاجرت با نیت مشخص جست‌وجو می‌کند: یک روش، یک کشور، یک سؤال. کلمات را دقیقاً بر همین منطق پیدا و دسته‌بندی می‌کنیم.</p>
+        </div>
+        <span class="head-badge">هفته ۲</span>
+      </div>
+      <ul class="checklist" data-phase="2">
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>استخراج کلمات هسته مهاجرتی</strong><span>کلمات اصلی حوزه — مهاجرت، اقامت، ویزا، پذیرش — بر اساس حجم جست‌وجو، سختی و ارزش تجاری هر عبارت.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>خوشه مهاجرت تحصیلی</strong><span>پذیرش و ویزای تحصیلی، دانشگاه و بورسیه، به تفکیک کشور و مقطع — پرتکرارترین نیت جست‌وجوی این حوزه.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>خوشه مهاجرت کاری</strong><span>جاب‌آفر، ویزای کاری، کاریابی و مهاجرت نیروی متخصص، به تفکیک کشور مقصد و حرفه.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>خوشه سرمایه‌گذاری و اقامت</strong><span>خرید ملک، ثبت شرکت، تمکن مالی و اقامت دائم و تابعیت — کلمات با نیت جدی و ارزش تبدیل بالا.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>خوشه ویزا و سؤالات پرتکرار</strong><span>کلمات دم‌دراز سؤالی: شرایط، مدارک، هزینه و زمان هر روش — همان جست‌وجوهایی که مستقیم به مشاوره می‌رسند.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>نقشه کلمه به صفحه بر اساس نیت کشوری</strong><span>برای هر کلمه، صفحه مقصد مشخص می‌شود: کاربرِ «مهاجرت به کانادا» نباید به صفحه استرالیا برسد.</span></span></label></li>
+      </ul>
+    </section>
+
+    <!-- Phase 3 -->
+    <section class="panel p3" id="sec-3">
+      <div class="panel-head">
+        <div>
+          <h2><span class="phase-num">۳</span> فاز سوم — معماری محتوا و تقویم تولید محتوا</h2>
+          <p class="panel-sub">کلمات کلیدی به ساختار تبدیل می‌شوند: صفحات ستون برای هر روش و کشور، مقالات راهنما در اطرافشان، و تقویم مشخص تولید برای ۳۰ روز.</p>
+        </div>
+        <span class="head-badge">هفته ۲ تا ۳</span>
+      </div>
+      <ul class="checklist" data-phase="3">
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>صفحات ستون (Pillar) روش و کشور</strong><span>برای هر ترکیب اصلی — مثلاً «مهاجرت تحصیلی به کانادا» — یک صفحه ستون کامل که مرجع آن موضوع می‌شود.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>مقالات راهنمای خوشه‌ای</strong><span>مقالات پشتیبان هر ستون: شرایط، مدارک، هزینه‌ها، مراحل و اشتباهات رایج — با لینک داخلی به صفحه ستون.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>صفحات FAQ و اسکیمای پرسش‌وپاسخ</strong><span>بخش پرسش‌های پرتکرار در صفحات کلیدی همراه با اسکیمای FAQ تا شانس نمایش غنی در نتایج گوگل بیشتر شود.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>دقت حقوقی و منابع رسمی</strong><span>محتوای مهاجرتی حساس است: شرایط و قوانین هر کشور از منابع رسمی بررسی و تاریخ به‌روزرسانی در محتوا مشخص می‌شود.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>بریف تولید هر محتوا</strong><span>برای هر مقاله: کلمه هدف، ساختار تیترها، سؤالات پوشش‌دادنی، منابع و اقدام هدف (رزرو مشاوره) از قبل مشخص است.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>تقویم تولید محتوای ۳۰ روزه</strong><span>برنامه انتشار مشخص هفته‌به‌هفته: کدام محتوا، برای کدام خوشه، با چه اولویتی منتشر می‌شود.</span></span></label></li>
+      </ul>
+
+      <div class="cluster-wrap" aria-label="نمونه معماری خوشه محتوایی">
+        <p class="cluster-title">نمونه معماری یک خوشه — صفحه ستون و مقالات پشتیبان آن:</p>
+        <div class="cluster-map">
+          <div class="cluster-pillar">
+            <span class="cp-tag">صفحه ستون</span>
+            <strong>مهاجرت به کانادا — راهنمای کامل همه روش‌ها</strong>
+            <span class="cp-sub">مرجع اصلی خوشه؛ همه مقالات زیر به این صفحه لینک می‌دهند.</span>
+          </div>
+          <div class="cluster-card"><span class="cc-tag t1">تحصیلی</span><b>ویزای تحصیلی کانادا</b><span>شرایط، مدارک، هزینه و مراحل پذیرش دانشگاه</span></div>
+          <div class="cluster-card"><span class="cc-tag t2">کاری</span><b>مهاجرت کاری و جاب‌آفر کانادا</b><span>اکسپرس انتری، برنامه‌های استانی و مشاغل پرتقاضا</span></div>
+          <div class="cluster-card"><span class="cc-tag t3">سرمایه‌گذاری</span><b>سرمایه‌گذاری و استارتاپ ویزا</b><span>حداقل سرمایه، شرایط و مسیر اقامت دائم</span></div>
+          <div class="cluster-card"><span class="cc-tag t4">ویزا</span><b>ویزای توریستی کانادا</b><span>مدارک، تمکن مالی و دلایل ریجکتی و رفع آن</span></div>
+          <div class="cluster-card"><span class="cc-tag t5">اقامت</span><b>اقامت دائم و شهروندی کانادا</b><span>شرایط اقامت، کارت PR و مسیر تابعیت</span></div>
+          <div class="cluster-card"><span class="cc-tag t6">سؤالات</span><b>هزینه زندگی در کانادا چقدر است؟</b><span>مقاله سؤالی دم‌دراز با اسکیمای FAQ</span></div>
+        </div>
+      </div>
+      <ul class="cluster-points">
+        <li>همین الگو برای هر کشور هدف شما تکرار می‌شود؛ هیچ محتوایی بی‌خوشه و بی‌مقصد تولید نمی‌شود</li>
+        <li>هر مقاله یک اقدام هدف دارد: خواننده در پایان می‌داند قدم بعدی‌اش رزرو مشاوره است</li>
+      </ul>
+    </section>
+
+    <!-- Phase 4 -->
+    <section class="panel p4" id="sec-4">
+      <div class="panel-head">
+        <div>
+          <h2><span class="phase-num">۴</span> فاز چهارم — سئوی داخلی و لینک‌سازی اصولی</h2>
+          <p class="panel-sub">صفحات برای رتبه‌گیری دقیق تنظیم و اعتبار سایت با لینک‌سازی تدریجی و طبیعی تقویت می‌شود — بدون هیچ روش اسپم یا پرریسک.</p>
+        </div>
+        <span class="head-badge">هفته ۳ تا ۴</span>
+      </div>
+      <ul class="checklist" data-phase="4">
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>بهینه‌سازی تایتل و متا دیسکریپشن</strong><span>بازنویسی عنوان و توضیحات صفحات مهم بر اساس نقشه کلمات کلیدی، با هدف نرخ کلیک بالاتر در نتایج.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>ساختار تیترها و بدنه صفحات</strong><span>تنظیم H1 تا H3، بهبود متن صفحات ستون و خدمات و رفع صفحات نازک (Thin Content).</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>لینک‌سازی داخلی خوشه‌ای</strong><span>اتصال مقالات هر خوشه به صفحه ستون و توزیع اعتبار داخلی به سمت صفحات مشاوره و خدمات.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>بهینه‌سازی تصاویر و رسانه</strong><span>فشرده‌سازی، فرمت نسل جدید، نام فایل و متن جایگزین درست برای تصاویر صفحات و مقالات.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>برنامه لینک‌سازی خارجی اصولی</strong><span>نقشه لینک‌سازی تدریجی: رپورتاژ در رسانه‌های مرتبط و حضور در منابع معتبر حوزه مهاجرت و آموزش — طبیعی، بدون خرید لینک انبوه و اسپم.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>اجرای اسکیماهای مهاجرتی</strong><span>پیاده‌سازی اسکیمای مقاله، FAQ و خدمات روی صفحات هدف طبق نقشه فاز اول و راستی‌آزمایی در ابزار تست گوگل.</span></span></label></li>
+      </ul>
+    </section>
+
+    <!-- Phase 5 -->
+    <section class="panel p5" id="sec-5">
+      <div class="panel-head">
+        <div>
+          <h2><span class="phase-num">۵</span> فاز پنجم — گزارش‌دهی ماهانه شفاف</h2>
+          <p class="panel-sub">سئو کار ماهانه است؛ پایان هر ماه دقیقاً می‌دانید چه اتفاقی افتاده، ما چه کرده‌ایم و قدم بعدی چیست.</p>
+        </div>
+        <span class="head-badge">ماهانه</span>
+      </div>
+      <ul class="checklist" data-phase="5">
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>داشبورد سرچ کنسول</strong><span>گزارش کلیک، ایمپرشن، CTR و میانگین جایگاه — مقایسه‌شده با ماه قبل و خط مبنای شروع پروژه.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>ردیابی جایگاه کلمات هدف</strong><span>پایش جایگاه کلمات هر خوشه (روش × کشور) و گزارش حرکت هر کلمه: بالا، پایین یا تازه‌وارد صفحه اول.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>گزارش عملکرد محتوا</strong><span>کدام مقالات و صفحات ستون ترافیک گرفته‌اند، کدام نیاز به به‌روزرسانی دارند و محتوای ماه بعد بر چه اساسی انتخاب شده است.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>فهرست اقدامات انجام‌شده</strong><span>همه کارهای فنی، محتوایی و لینک‌سازی آن ماه، موردبه‌مورد و قابل بررسی — بدون گزارش‌های کلی و مبهم.</span></span></label></li>
+        <li><label class="check-item"><input type="checkbox"><span class="ci-text"><strong>برنامه ماه بعد</strong><span>نقشه قدم‌های ماه آینده با اولویت مشخص، تا همکاری ماهانه همیشه مسیر روشن داشته باشد.</span></span></label></li>
+      </ul>
+    </section>
+
+    <!-- Timeline -->
+    <section class="panel" id="timeline">
+      <div class="panel-head">
+        <div>
+          <h2>زمان‌بندی اجرا — ۳۰ روز</h2>
+          <p class="panel-sub">هر هفته یک خروجی مشخص دارد؛ پایان هر هفته گزارش کوتاه پیشرفت برای شما ارسال می‌شود.</p>
+        </div>
+        <span class="head-badge">هفته ۱ تا ۴</span>
+      </div>
+      <div class="timeline">
+        <div class="tl-step">
+          <span class="tl-week">هفته ۱</span>
+          <h3>آدیت و خط مبنا</h3>
+          <ul>
+            <li>دریافت نشانی سایت و دسترسی سرچ کنسول</li>
+            <li>آدیت فنی و محتوایی کامل (فاز ۱)</li>
+            <li>تحلیل رقبای مهاجرتی</li>
+            <li>ثبت خط مبنای عددی شروع</li>
+          </ul>
+        </div>
+        <div class="tl-step">
+          <span class="tl-week">هفته ۲</span>
+          <h3>کلمات و معماری</h3>
+          <ul>
+            <li>تحقیق کلمات کلیدی و خوشه‌بندی (فاز ۲)</li>
+            <li>معماری محتوا: ستون‌ها و مقالات (فاز ۳)</li>
+            <li>تقویم تولید محتوای ۳۰ روزه</li>
+            <li>شروع اصلاحات فنی آدیت</li>
+          </ul>
+        </div>
+        <div class="tl-step">
+          <span class="tl-week">هفته ۳</span>
+          <h3>تولید و بهینه‌سازی</h3>
+          <ul>
+            <li>تولید محتواهای اولویت‌دار طبق تقویم</li>
+            <li>سئوی داخلی صفحات اصلی (فاز ۴)</li>
+            <li>لینک‌سازی داخلی خوشه‌ای</li>
+            <li>اجرای اسکیماهای FAQ و مقاله</li>
+          </ul>
+        </div>
+        <div class="tl-step">
+          <span class="tl-week">هفته ۴</span>
+          <h3>تقویت و گزارش</h3>
+          <ul>
+            <li>شروع لینک‌سازی خارجی اصولی</li>
+            <li>راه‌اندازی ردیابی جایگاه کلمات</li>
+            <li>گزارش ماه اول + برنامه ماه بعد (فاز ۵)</li>
+            <li>تحویل همه اسناد و چک‌لیست‌ها</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="panel" id="proof">
+      <div class="panel-head">
+        <div>
+          <h2>سوابق و نتایج واقعی اپ‌وبینو</h2>
+          <p class="panel-sub">این برنامه روی تجربه روزانه ما با سایت‌های زنده نوشته شده است — نه تئوری. اعداد زیر واقعی و قابل راستی‌آزمایی‌اند:</p>
+        </div>
+        <span class="head-badge">اثبات، نه ادعا</span>
+      </div>
+      <div class="proof-grid">
+        <div class="proof">
+          <span class="pf-tag">مدیریت جاری</span>
+          <p class="pf-value"><em>۷</em> سایت زنده</p>
+          <p>سئو و مدیریت فنی ۷ وب‌سایت زنده به‌صورت روزانه دست ماست؛ با چرخه ثابت پایش سرچ کنسول، رفع خطا و بهبود مستمر.</p>
+        </div>
+        <div class="proof">
+          <span class="pf-tag">نتیجه سرچ کنسول</span>
+          <p class="pf-value">از <em>۱۹٫۲</em> به <em>۸٫۵</em></p>
+          <p>میانگین جایگاه یک فروشگاه اینترنتی تحت مدیریت ما در گوگل، ظرف یک هفته از ۱۹٫۲ به ۸٫۵ رسید (داده Google Search Console).</p>
+        </div>
+        <div class="proof">
+          <span class="pf-tag">سئوی چندزبانه</span>
+          <p class="pf-value"><em>۴</em> زبان، یک سایت</p>
+          <p>یک سایت شرکتی با نسخه‌های فارسی، انگلیسی، ترکی و چینی و سئوی کامل چندزبانه (Hreflang و معماری زبان) توسط ما ساخته و مدیریت می‌شود — دقیقاً همان مهارتی که مخاطب بین‌المللی حوزه مهاجرت می‌طلبد.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section class="panel" id="deliver">
+      <div class="panel-head">
+        <div>
+          <h2>تحویل‌دادنی‌های پروژه</h2>
+          <p class="panel-sub">در پایان ۳۰ روز، این خروجی‌ها به‌صورت مکتوب و قابل بررسی تحویل شما می‌شود:</p>
+        </div>
+        <span class="head-badge">خروجی نهایی</span>
+      </div>
+      <ul class="deliverables">
+        <li><span class="d-ic">✓</span><span><b>گزارش آدیت فنی و محتوایی</b> — یافته‌های سایت شما با اولویت و راه‌حل هر مورد + خط مبنای عددی</span></li>
+        <li><span class="d-ic">✓</span><span><b>سند کلمات کلیدی مهاجرتی</b> — خوشه‌های روش × کشور و نقشه کلمه به صفحه</span></li>
+        <li><span class="d-ic">✓</span><span><b>معماری محتوا و تقویم تولید</b> — ساختار ستون/خوشه و برنامه انتشار ۳۰ روزه</span></li>
+        <li><span class="d-ic">✓</span><span><b>محتواهای تولید و بهینه‌شده</b> — طبق تقویم، با بریف، اسکیما و لینک‌سازی داخلی</span></li>
+        <li><span class="d-ic">✓</span><span><b>چک‌لیست سئوی داخلی و لینک‌سازی</b> — همه اقدامات اجراشده، موردبه‌مورد</span></li>
+        <li><span class="d-ic">✓</span><span><b>گزارش ماه اول</b> — داده سرچ کنسول، حرکت جایگاه کلمات و برنامه ماه بعد</span></li>
+      </ul>
+    </section>
+
+    <footer class="site">
+      <span><strong>برنامه پیشنهادی اپ‌وبینو</strong> — استودیو طراحی سایت و سئو</span>
+      <span>این برنامه برای پروژه «سئو، تولید محتوا و بهینه‌سازی وب‌سایت مهاجرتی» در کارلنسر تهیه شده است.</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var faDigits = ["۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"];
+  function fa(n){ return String(n).replace(/\d/g, function(d){ return faDigits[+d]; }); }
+  var lists = document.querySelectorAll(".checklist");
+  var total = 0, boxes = [];
+  lists.forEach(function(ul){
+    var items = ul.querySelectorAll('input[type="checkbox"]');
+    total += items.length;
+    items.forEach(function(b){ boxes.push(b); });
+  });
+  var ringFg = document.getElementById("ringFg");
+  var ringPct = document.getElementById("ringPct");
+  var ringDone = document.getElementById("ringDone");
+  var ringTotal = document.getElementById("ringTotal");
+  var kpiDone = document.getElementById("kpiDone");
+  var kpiTotal = document.getElementById("kpiTotal");
+  var CIRC = 226.2;
+  ringTotal.textContent = fa(total);
+  kpiTotal.textContent = fa(total);
+  function update(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    var pct = total ? Math.round(done / total * 100) : 0;
+    ringFg.style.strokeDashoffset = String(CIRC - CIRC * done / (total || 1));
+    ringPct.textContent = fa(pct) + "٪";
+    ringDone.textContent = fa(done);
+    kpiDone.textContent = fa(done);
+    lists.forEach(function(ul){
+      var phase = ul.getAttribute("data-phase");
+      var items = ul.querySelectorAll('input[type="checkbox"]');
+      var d = 0;
+      items.forEach(function(b){ if (b.checked) d++; });
+      var doneEl = document.querySelector('[data-done-for="' + phase + '"]');
+      var totEl = document.querySelector('[data-total-for="' + phase + '"]');
+      if (doneEl) doneEl.textContent = fa(d);
+      if (totEl) totEl.textContent = fa(items.length);
+    });
+  }
+  boxes.forEach(function(b){ b.addEventListener("change", update); });
+  update();
+  function printPage(){ window.print(); }
+  document.getElementById("printBtn").addEventListener("click", printPage);
+  document.getElementById("printBtnSide").addEventListener("click", printPage);
+  var navItems = document.querySelectorAll(".nav-item");
+  var sections = ["sec-1","sec-2","sec-3","sec-4","sec-5","timeline","proof","deliver"].map(function(id){ return document.getElementById(id); });
+  function onScroll(){
+    var pos = window.scrollY + 140, current = null;
+    sections.forEach(function(s){ if (s && s.offsetTop <= pos) current = s.id; });
+    navItems.forEach(function(a){
+      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
