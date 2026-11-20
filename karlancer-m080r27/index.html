@@ -27,45 +27,53 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1220px;margin:0 auto;padding:0 22px}
 ::selection{background:var(--org);color:#fff}
 /* ===== topbar ===== */
-.topbar{background:#0A0C0F;border-bottom:1px solid var(--line);font-size:13px;color:var(--mu)}
+.topbar{background:#EDF1F4;border-bottom:1px solid #DCE3E9;font-size:13px;color:#5D6C78}
 .topbar .wrap{display:flex;align-items:center;gap:18px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
 .topbar .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block;margin-inline-end:6px}
 .topbar .sp{flex:1}
 /* ===== header ===== */
-header.site{position:sticky;top:0;z-index:70;background:rgba(14,17,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid #DCE3E9;box-shadow:0 4px 24px rgba(18,26,34,.06)}
 header.site .wrap{display:flex;align-items:center;gap:24px;padding-top:13px;padding-bottom:13px}
-.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:20px;color:#141C24}
 .logo .mk{width:42px;height:42px;border-radius:10px;background:var(--org);display:flex;align-items:center;justify-content:center;flex:none}
-.logo small{display:block;font-size:11px;font-weight:500;color:var(--mu);line-height:1.3}
+.logo small{display:block;font-size:11px;font-weight:500;color:#71808D;line-height:1.3}
 nav.main{display:flex;gap:22px;margin-inline-start:6px}
-nav.main a{font-size:14.5px;color:#C9D3DB;font-weight:500}
+nav.main a{font-size:14.5px;color:#39454F;font-weight:500}
 nav.main a:hover{color:var(--org)}
 header.site .sp{flex:1}
-.langsw{display:flex;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}
-.langsw button{border:0;background:transparent;color:var(--mu);padding:6px 15px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:700}
+.langsw{display:flex;background:#EFF3F6;border:1px solid #D5DEE6;border-radius:10px;padding:3px;gap:3px}
+.langsw button{border:0;background:transparent;color:#5D6C78;padding:6px 15px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:700}
 .langsw button.on{background:var(--org);color:#fff}
+header.site .btn.cta{background:#fff;color:#141C24;border:1.5px solid #141C24}
+header.site .btn.cta:hover{border-color:var(--org);color:var(--org)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;border-radius:11px;padding:12px 24px;font-size:15px;font-weight:800;background:var(--org);color:#fff;transition:.15s}
 .btn:hover{background:var(--org-d)}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 .btn.ghost:hover{border-color:var(--org);color:var(--org)}
 .btn.sm{padding:9px 18px;font-size:14px}
-.burger{display:none;background:var(--panel2);border:1px solid var(--line);border-radius:10px;width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
-/* ===== hero ===== */
-.hero{position:relative;background:#0A0C0F;overflow:hidden}
-.hero .bgimg{position:absolute;inset:0;background:url('assets/img/hero.jpg') center/cover no-repeat;opacity:.34}
-.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,15,.55),rgba(14,17,20,.94) 88%)}
-[dir="ltr"] .hero .shade{background:linear-gradient(180deg,rgba(10,12,15,.55),rgba(14,17,20,.94) 88%)}
-.hero .wrap{position:relative;padding:86px 22px 0}
-.hero .tag{display:inline-flex;align-items:center;gap:8px;background:var(--org-soft);border:1px solid rgba(255,106,0,.45);color:#FFB27A;padding:6px 15px;border-radius:99px;font-size:13px;font-weight:700}
-.hero h1{font-size:46px;font-weight:900;line-height:1.3;max-width:760px;margin:22px 0 8px}
+.burger{display:none;background:#fff;border:1px solid #D5DEE6;border-radius:10px;width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
+.burger svg{stroke:#26313B}
+/* ===== hero (split شرکتی روشن) ===== */
+.hero{background:#F2F5F7;color:#141C24;border-bottom:1px solid #DCE3E9;overflow:visible}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center;padding-top:64px;padding-bottom:88px}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;background:var(--org-soft);border:1px solid rgba(255,106,0,.5);color:#C25400;padding:6px 15px;border-radius:99px;font-size:13px;font-weight:700}
+.hero h1{font-size:43px;font-weight:900;line-height:1.32;color:#10161D;margin:22px 0 10px}
 .hero h1 em{font-style:normal;color:var(--org)}
-.hero p.lead{color:#C4CED7;font-size:17.5px;max-width:640px}
+.hero p.lead{color:#4C5A66;font-size:16.5px;max-width:560px}
+.feats{list-style:none;margin-top:28px;display:grid;gap:0;border-top:1px solid #DCE3E9}
+.feats li{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #DCE3E9}
+.feats .fno{font-size:15px;font-weight:900;color:var(--org);border:1.5px solid rgba(255,106,0,.55);border-radius:9px;min-width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex:none;background:#fff}
+.feats b{display:block;font-size:15.5px;font-weight:800;color:#141C24;line-height:1.5}
+.feats span{font-size:13.5px;color:#687782;line-height:1.6}
 .hero .cta{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
-.hero .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-bottom:0;margin-top:56px}
-.hero .stats div{background:rgba(20,24,29,.96);padding:20px 22px}
-.hero .stats b{display:block;font-size:27px;font-weight:900;color:#fff;line-height:1.2}
-.hero .stats b i{font-style:normal;color:var(--org)}
-.hero .stats span{font-size:13px;color:var(--mu)}
+.hero .btn.ghost{color:#141C24;border-color:#B9C6D1}
+.hero .btn.ghost:hover{border-color:var(--org);color:var(--org)}
+.hero-media{position:relative}
+.hero-media>img{width:100%;height:500px;object-fit:cover;border-radius:20px;box-shadow:0 30px 60px rgba(16,24,32,.20)}
+.statcard{position:absolute;bottom:-36px;inset-inline-start:-34px;background:#fff;border:1px solid #E0E7ED;border-radius:16px;box-shadow:0 24px 50px rgba(16,24,32,.18);padding:18px 22px;display:grid;grid-template-columns:1fr 1fr;gap:14px 30px;min-width:320px}
+.statcard b{display:block;font-size:23px;font-weight:900;color:#10161D;line-height:1.25}
+.statcard b i{font-style:normal;color:var(--org)}
+.statcard>div>span{font-size:12.5px;color:#71808D}
 /* ===== brands ===== */
 .brands{border-bottom:1px solid var(--line);background:var(--bg2)}
 .brands .wrap{display:flex;align-items:center;gap:34px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap;justify-content:space-between}
@@ -161,16 +169,23 @@ footer .bar .sp{flex:1}
 .modal .x{position:absolute;top:14px;inset-inline-end:14px;background:var(--panel2);border:1px solid var(--line);width:36px;height:36px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 @media(max-width:1020px){.act{grid-template-columns:repeat(2,1fr)}.cat{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){
-  nav.main{display:none;position:absolute;top:100%;inset-inline:0;background:var(--bg2);border-bottom:1px solid var(--line);flex-direction:column;padding:16px 22px;gap:14px}
+  nav.main{display:none;position:absolute;top:100%;inset-inline:0;background:#fff;border-bottom:1px solid #DCE3E9;box-shadow:0 18px 30px rgba(18,26,34,.10);flex-direction:column;padding:16px 22px;gap:14px}
   nav.main.on{display:flex}
   .burger{display:flex}
   .about,.split{grid-template-columns:1fr}
-  .hero h1{font-size:33px}
-  .hero .stats{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:32px}
+  .hero-grid{grid-template-columns:1fr;gap:40px;padding-top:44px;padding-bottom:64px}
+  .hero-media>img{height:320px}
+  .statcard{inset-inline-start:14px;bottom:-28px;min-width:0;left:14px}
   footer .cols{grid-template-columns:1fr}
   header.site .btn.cta{display:none}
 }
-@media(max-width:560px){.act,.cat{grid-template-columns:1fr}section{padding:56px 0}.shead .no{font-size:40px}}
+@media(max-width:560px){.act,.cat{grid-template-columns:1fr}section{padding:56px 0}.shead .no{font-size:40px}
+  header.site .wrap{gap:9px}
+  .logo{font-size:15.5px;gap:9px}
+  .logo small{display:none}
+  .langsw button{padding:6px 10px}
+}
 </style>
 </head>
 <body>
@@ -204,20 +219,29 @@ footer .bar .sp{flex:1}
 </div></header>
 
 <div class="hero">
-  <div class="bgimg"></div><div class="shade"></div>
-  <div class="wrap">
-    <span class="tag" data-fa="بازرگانی بین‌المللی — واردات مستقیم از مبدأ" data-en="International Trading — Direct Import from Origin">بازرگانی بین‌المللی — واردات مستقیم از مبدأ</span>
-    <h1><span data-fa="واردات قطعات اصلی خودرو،" data-en="Genuine auto parts import,">واردات قطعات اصلی خودرو،</span> <em data-fa="بدون واسطه" data-en="without middlemen">بدون واسطه</em></h1>
-    <p class="lead" data-fa="پارت‌ایران تجارت با شبکه تأمین مستقیم در کره، ژاپن و اروپا، قطعات موتوری، بدنه و برقی خودروهای آسیایی و اروپایی را با ضمانت اصالت و زنجیره تأمین شفاف به بازار ایران می‌رساند." data-en="With a direct supply network in Korea, Japan and Europe, PartIran Trading delivers engine, body and electrical parts for Asian and European cars to the Iranian market — with authenticity guarantee and a transparent supply chain.">پارت‌ایران تجارت با شبکه تأمین مستقیم در کره، ژاپن و اروپا، قطعات موتوری، بدنه و برقی خودروهای آسیایی و اروپایی را با ضمانت اصالت و زنجیره تأمین شفاف به بازار ایران می‌رساند.</p>
-    <div class="cta">
-      <a class="btn" href="#order" data-fa="ثبت سفارش خدمات" data-en="Place a Service Order">ثبت سفارش خدمات</a>
-      <button class="btn ghost" onclick="openModal()" data-fa="درخواست مشاوره تخصصی" data-en="Request Expert Consultation">درخواست مشاوره تخصصی</button>
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <span class="tag" data-fa="بازرگانی بین‌المللی — واردات مستقیم از مبدأ" data-en="International Trading — Direct Import from Origin">بازرگانی بین‌المللی — واردات مستقیم از مبدأ</span>
+      <h1><span data-fa="واردات قطعات اصلی خودرو،" data-en="Genuine auto parts import,">واردات قطعات اصلی خودرو،</span> <em data-fa="بدون واسطه" data-en="without middlemen">بدون واسطه</em></h1>
+      <p class="lead" data-fa="پارت‌ایران تجارت با شبکه تأمین مستقیم در کره، ژاپن و اروپا، قطعات موتوری، بدنه و برقی خودروهای آسیایی و اروپایی را با ضمانت اصالت و زنجیره تأمین شفاف به بازار ایران می‌رساند." data-en="With a direct supply network in Korea, Japan and Europe, PartIran Trading delivers engine, body and electrical parts for Asian and European cars to the Iranian market — with authenticity guarantee and a transparent supply chain.">پارت‌ایران تجارت با شبکه تأمین مستقیم در کره، ژاپن و اروپا، قطعات موتوری، بدنه و برقی خودروهای آسیایی و اروپایی را با ضمانت اصالت و زنجیره تأمین شفاف به بازار ایران می‌رساند.</p>
+      <ul class="feats">
+        <li><span class="fno">01</span><div><b data-fa="خرید مستقیم از مبدأ" data-en="Direct sourcing from origin">خرید مستقیم از مبدأ</b><span data-fa="شبکه تأمین در کره، ژاپن و اروپا — بدون هیچ واسطه‌ای" data-en="Supply network in Korea, Japan and Europe — no middlemen at all">شبکه تأمین در کره، ژاپن و اروپا — بدون هیچ واسطه‌ای</span></div></li>
+        <li><span class="fno">02</span><div><b data-fa="ضمانت اصالت کالا" data-en="Authenticity guaranteed">ضمانت اصالت کالا</b><span data-fa="اصالت هر قطعه با کد رهگیری سازنده قابل استعلام است" data-en="Every part's authenticity is verifiable via the manufacturer's traceability code">اصالت هر قطعه با کد رهگیری سازنده قابل استعلام است</span></div></li>
+        <li><span class="fno">03</span><div><b data-fa="زنجیره تأمین شفاف" data-en="Transparent supply chain">زنجیره تأمین شفاف</b><span data-fa="از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران، با یک طرف حساب" data-en="From ordering at origin to delivery at our Tehran warehouse — one accountable partner">از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران، با یک طرف حساب</span></div></li>
+      </ul>
+      <div class="cta">
+        <a class="btn" href="#order" data-fa="ثبت سفارش خدمات" data-en="Place a Service Order">ثبت سفارش خدمات</a>
+        <button class="btn ghost" onclick="openModal()" data-fa="درخواست مشاوره تخصصی" data-en="Request Expert Consultation">درخواست مشاوره تخصصی</button>
+      </div>
     </div>
-    <div class="stats">
-      <div><b><i>+</i><span data-fa="۱۸" data-en="18">۱۸</span></b><span data-fa="سال تجربه بازرگانی" data-en="Years of trading experience">سال تجربه بازرگانی</span></div>
-      <div><b><span data-fa="۱۲" data-en="12">۱۲</span></b><span data-fa="برند تحت پوشش" data-en="Brands covered">برند تحت پوشش</span></div>
-      <div><b><i>+</i><span data-fa="۴٬۵۰۰" data-en="4,500">۴٬۵۰۰</span></b><span data-fa="سفارش انجام‌شده" data-en="Orders completed">سفارش انجام‌شده</span></div>
-      <div><b><span data-fa="۹۸٪" data-en="98%">۹۸٪</span></b><span data-fa="رضایت مشتریان سازمانی" data-en="Corporate client satisfaction">رضایت مشتریان سازمانی</span></div>
+    <div class="hero-media">
+      <img src="assets/img/hero.jpg" alt="PartIran Trading warehouse">
+      <div class="statcard">
+        <div><b><i>+</i><span data-fa="۱۸" data-en="18">۱۸</span></b><span data-fa="سال تجربه بازرگانی" data-en="Years of trading experience">سال تجربه بازرگانی</span></div>
+        <div><b><span data-fa="۱۲" data-en="12">۱۲</span></b><span data-fa="برند تحت پوشش" data-en="Brands covered">برند تحت پوشش</span></div>
+        <div><b><i>+</i><span data-fa="۴٬۵۰۰" data-en="4,500">۴٬۵۰۰</span></b><span data-fa="سفارش انجام‌شده" data-en="Orders completed">سفارش انجام‌شده</span></div>
+        <div><b><span data-fa="۹۸٪" data-en="98%">۹۸٪</span></b><span data-fa="رضایت مشتریان سازمانی" data-en="Corporate client satisfaction">رضایت مشتریان سازمانی</span></div>
+      </div>
     </div>
   </div>
 </div>
