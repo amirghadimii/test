@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ممیزی اولیه سرعت sim-power.ir و برنامه اصلاح — AppWebino</title>
+<meta name="description" content="یافته‌های اندازه‌گیری‌شده از سرعت صفحه اصلی sim-power.ir و برنامه اجرایی اصلاح — بهینه‌سازی تصاویر، پلاگین‌ها، CSS/JS، کش و Core Web Vitals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213d; --muted:#5b6b82; --line:#e3e9f2; --bg:#f6f8fb; --card:#ffffff;
+    --accent:#0e7c66; --accent-soft:#e6f4f0; --warn:#b3541e; --warn-soft:#fdf0e6;
+    --bad:#b3261e; --bad-soft:#fdecea; --ok:#0e7c66; --ok-soft:#e6f4f0;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{font-family:'Vazirmatn',Tahoma,sans-serif; background:var(--bg); color:var(--ink); line-height:1.9; font-size:16px}
+  .wrap{max-width:920px; margin:0 auto; padding:28px 18px 56px}
+  header.hero{background:linear-gradient(135deg,#0d2137,#10404f); color:#fff; border-radius:18px; padding:34px 30px 28px; margin-bottom:22px}
+  header.hero .kicker{font-size:13px; color:#9fd8c9; font-weight:700; letter-spacing:.2px; margin-bottom:8px}
+  header.hero h1{font-size:27px; font-weight:800; line-height:1.5; margin-bottom:8px}
+  header.hero h1 .ltr{direction:ltr; unicode-bidi:embed}
+  header.hero p{color:#cfdce8; font-size:15px; max-width:640px}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+  .meta span{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); color:#eaf2f8; font-size:13px; padding:3px 12px; border-radius:999px}
+  .chips{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:22px}
+  .chip{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px 14px; text-align:center}
+  .chip b{display:block; font-size:21px; font-weight:800; color:var(--bad); direction:ltr}
+  .chip small{color:var(--muted); font-size:12.5px; line-height:1.7; display:block}
+  .chip.good b{color:var(--ok)}
+  section{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:24px 26px; margin-bottom:18px}
+  h2{font-size:19px; font-weight:800; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid var(--accent-soft)}
+  h2 .no{color:var(--accent); margin-left:6px}
+  p.lead{color:#33475f; margin-bottom:10px}
+  .note{background:var(--accent-soft); border-radius:10px; padding:12px 16px; font-size:14px; color:#14532d; margin:12px 0}
+  .note.warn{background:var(--warn-soft); color:#7c2d12}
+  table{width:100%; border-collapse:collapse; font-size:14px; margin:10px 0 4px}
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:right; vertical-align:top}
+  th{background:#f0f4f9; font-weight:700; white-space:nowrap}
+  td.num{direction:ltr; text-align:left; font-weight:700; white-space:nowrap}
+  .tag{display:inline-block; font-size:12px; font-weight:700; padding:1px 10px; border-radius:999px}
+  .tag.bad{background:var(--bad-soft); color:var(--bad)}
+  .tag.warn{background:var(--warn-soft); color:var(--warn)}
+  .tag.ok{background:var(--ok-soft); color:var(--ok)}
+  ul{list-style:none}
+  ul li{padding:7px 0 7px 0; border-bottom:1px dashed var(--line); position:relative; padding-right:22px}
+  ul li:last-child{border-bottom:none}
+  ul li::before{content:""; position:absolute; right:2px; top:16px; width:8px; height:8px; border-radius:50%; background:var(--accent)}
+  ul li b{font-weight:700}
+  .ltr{direction:ltr; unicode-bidi:embed; font-weight:600}
+  ol.steps{list-style:none; counter-reset:step}
+  ol.steps li{counter-increment:step; position:relative; padding:10px 44px 10px 0; border-bottom:1px dashed var(--line)}
+  ol.steps li:last-child{border-bottom:none}
+  ol.steps li::before{content:counter(step); position:absolute; right:0; top:10px; width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center}
+  .proof{background:linear-gradient(135deg,#e6f4f0,#eef6ff); border:1px solid #cfe6dd}
+  footer{text-align:center; color:var(--muted); font-size:13px; margin-top:26px}
+  footer b{color:var(--ink)}
+  @media(max-width:720px){
+    .chips{grid-template-columns:repeat(2,1fr)}
+    header.hero h1{font-size:22px}
+    section{padding:18px 16px}
+    th,td{padding:6px 8px; font-size:13px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">پیشنهاد بهینه‌سازی سرعت — ممیزی اولیه از بیرون + برنامه اصلاح</div>
+    <h1>ممیزی سرعت <span class="ltr">sim-power.ir</span> و برنامه اجرایی اصلاح آن</h1>
+    <p>این صفحه گزارش حدس و حدس‌زدن نیست؛ هر عددی که می‌بینید از خود سایت، امروز اندازه‌گیری شده است. اول یافته‌های واقعی، بعد برنامه دقیق اصلاح — دقیقاً در همان محدوده‌ای که در بریف پروژه خواسته‌اید: پیاده‌سازی واقعی، نه فقط گزارش.</p>
+    <div class="meta">
+      <span>سایت: وردپرس + قالب Flatsome</span>
+      <span>تاریخ اندازه‌گیری: ۲۹ آبان ۱۴۰۵</span>
+      <span>تهیه‌کننده: AppWebino — اپ‌وبینو</span>
+    </div>
+  </header>
+
+  <div class="chips">
+    <div class="chip"><b>~2.9–6.9s</b><small>زمان پاسخ سرور (TTFB) صفحه اصلی در ۴ اندازه‌گیری</small></div>
+    <div class="chip"><b>5.6 MB</b><small>حجم مجموع فایل‌های تصویری ارجاع‌شده در صفحه اصلی</small></div>
+    <div class="chip"><b>71</b><small>فایل جانبی (۲۱ اسکریپت + ۱۸ استایل + ۳۲ تصویر) فقط برای صفحه اصلی</small></div>
+    <div class="chip good"><b>gzip ✓</b><small>فشرده‌سازی متن و کش ۳۰روزه فایل‌های استاتیک فعال است — این بخش سالم است</small></div>
+  </div>
+
+  <section>
+    <h2><span class="no">۱</span>روش اندازه‌گیری — شفاف، بدون عددسازی</h2>
+    <p class="lead">صفحه اصلی سایت با ابزار <span class="ltr">curl</span> از سرور ما دریافت و تحلیل شد: هدرهای پاسخ، حجم واقعی هر فایل (با درخواست HEAD و مقدار Content-Length)، شمارش فایل‌های CSS/JS/تصویر در کد صفحه و زمان پاسخ سرور در چهار نوبت. امتیازهای آزمایشگاهی PageSpeed Insights (مثل LCP و CLS عددی) در این مرحله از بیرون قابل اتکا نیستند و روی آن‌ها عددی ساخته نشده است؛ این شاخص‌ها در شروع اجرا، با دسترسی، به‌صورت «قبل و بعد» اندازه‌گیری و در گزارش تحویل داده می‌شوند.</p>
+    <div class="note warn">وضعیت شاخص‌های Core Web Vitals عددی (LCP / CLS / INP): <b>نیازمند دسترسی</b> — در فاز صفر پروژه با PageSpeed Insights و تست موبایل/دسکتاپ ثبت و مبنای مقایسه نهایی قرار می‌گیرند.</div>
+  </section>
+
+  <section>
+    <h2><span class="no">۲</span>یافته‌های اندازه‌گیری‌شده</h2>
+    <table>
+      <tr><th>شاخص</th><th>مقدار اندازه‌گیری‌شده</th><th>ارزیابی</th></tr>
+      <tr><td>وضعیت پاسخ صفحه اصلی</td><td class="num">HTTP 200</td><td><span class="tag ok">سالم</span></td></tr>
+      <tr><td>حجم سند HTML صفحه اصلی</td><td class="num">133,839 B (31,398 B با gzip)</td><td><span class="tag warn">سنگین</span></td></tr>
+      <tr><td>زمان پاسخ سرور (TTFB) — ۴ نوبت</td><td class="num">6.88 / 3.23 / 2.98 / 2.87 s</td><td><span class="tag bad">بحرانی</span></td></tr>
+      <tr><td>فایل‌های JavaScript صفحه اصلی</td><td class="num">21 files — ~353 KB</td><td><span class="tag warn">زیاد</span></td></tr>
+      <tr><td>فایل‌های CSS صفحه اصلی</td><td class="num">18 files — ~460 KB</td><td><span class="tag bad">زیاد</span></td></tr>
+      <tr><td>فایل‌های تصویری ارجاع‌شده (src و srcset)</td><td class="num">32 files — ~5.63 MB</td><td><span class="tag bad">بحرانی</span></td></tr>
+      <tr><td>تصویر اصلی (Hero) — نسخه ۱۰۲۴ پیکسلی</td><td class="num">1,268,476 B — PNG</td><td><span class="tag bad">بحرانی</span></td></tr>
+      <tr><td>تصویر اصلی — فایل اصلی</td><td class="num">2,773,096 B — PNG</td><td><span class="tag bad">بحرانی</span></td></tr>
+      <tr><td>سهم تصاویر WebP از کل تصاویر</td><td class="num">7 of 32</td><td><span class="tag bad">کم</span></td></tr>
+      <tr><td>اسکریپت‌های داخل &lt;head&gt;</td><td class="num">6 (فقط ۲ تا async/defer)</td><td><span class="tag warn">مسدودکننده رندر</span></td></tr>
+      <tr><td>بلوک‌های استایل/اسکریپت درون‌خطی (inline)</td><td class="num">75 style + 19 script</td><td><span class="tag warn">نشانه انباشت کد</span></td></tr>
+      <tr><td>کش مرورگر فایل‌های استاتیک</td><td class="num">max-age=2592000 (30d)</td><td><span class="tag ok">سالم</span></td></tr>
+      <tr><td>کش صفحه HTML</td><td class="num">private, must-revalidate + Pragma: no-cache</td><td><span class="tag warn">کش صفحه کامل دیده نشد</span></td></tr>
+      <tr><td>فشرده‌سازی gzip</td><td class="num">active</td><td><span class="tag ok">سالم</span></td></tr>
+    </table>
+    <p class="lead" style="margin-top:10px">ساختار فنی شناسایی‌شده از روی فایل‌های صفحه: وردپرس با قالب <span class="ltr">Flatsome 3.20.4</span> و چایلدتم، در کنار ووکامرس، <span class="ltr">Easy Digital Downloads</span>، سیستم آموزش <span class="ltr">LearnDash 4.25.4</span>، فرم تماس ۷ و چند افزونه جانبی — یعنی دو سیستم فروش و یک LMS هم‌زمان روی یک سایت.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">۳</span>مشکلات پیدا شده</h2>
+    <ul>
+      <li><b>تصویر اصلی صفحه یک عکس PNG است، نه WebP:</b> نسخه‌ای که مرورگر برای هیرو می‌گیرد حدود ۱٫۲۷ مگابایت و فایل اصلی ۲٫۷۷ مگابایت است؛ همین یک فایل به‌تنهایی از کل بودجه حجم یک صفحه سریع بیشتر است و مستقیم روی LCP اثر می‌گذارد.</li>
+      <li><b>فقط ۷ تصویر از ۳۲ تصویر WebP هستند:</b> بقیه PNG و JPG قدیمی‌اند؛ مجموع فایل‌های تصویری ارجاع‌شده در صفحه اصلی به حدود ۵٫۶ مگابایت می‌رسد.</li>
+      <li><b>پاسخ سرور کند است:</b> TTFB بین ۲٫۹ تا ۶٫۹ ثانیه اندازه‌گیری شد و در هدرها نشانه‌ای از کش صفحه کامل دیده نشد؛ یعنی تقریباً هر بازدید، صفحه از نو روی سرور ساخته می‌شود.</li>
+      <li><b>بار افزونه‌ها روی صفحه اصلی سنگین است:</b> استایل LearnDash به‌تنهایی ۱۶۷ کیلوبایت است و روی صفحه اصلی لود می‌شود؛ افزونه «اشتراک دیدگاه‌ها» هم یک Font Awesome جدا (۳۱ کیلوبایت) بارگذاری می‌کند. دو سیستم فروش (ووکامرس + EDD) و LMS هم‌زمان یعنی کوئری و اسکریپت بیشتر در همه صفحات.</li>
+      <li><b>۱۸ فایل CSS و ۲۱ فایل JS برای یک صفحه:</b> مجموعاً بیش از ۸۰۰ کیلوبایت کد، به‌علاوه ۷۵ بلوک استایل درون‌خطی؛ بخش قابل‌توجهی از این کد در صفحه اصلی اصلاً استفاده نمی‌شود.</li>
+      <li><b>رندر صفحه معطل می‌ماند:</b> از ۶ اسکریپت داخل head فقط ۲ تا async/defer دارند؛ بقیه تا لود نشوند نمایش صفحه شروع نمی‌شود.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="no">۴</span>برنامه اصلاح — نگاشت به بریف شما</h2>
+    <ul>
+      <li><b>بهینه‌سازی تصاویر و حجم صفحه:</b> تبدیل همه تصاویر عکسی (از جمله هیرو) به WebP با کیفیت کنترل‌شده، بازتولید سایزهای واکنش‌گرا به اندازه واقعی نمایش، فشرده‌سازی آرشیو آپلودها، lazy-load برای تصاویر پایین صفحه و preload برای تصویر اصلی.</li>
+      <li><b>سبک‌سازی افزونه‌ها و کدهای اضافی:</b> ممیزی تک‌تک افزونه‌ها؛ بارگذاری شرطی دارایی هر افزونه فقط در صفحات خودش (مثلاً فایل‌های LearnDash و EDD فقط در صفحات دوره و دانلود)، حذف کتابخانه‌های تکراری مثل Font Awesome دوم، و بررسی هم‌پوشی دو سیستم فروش.</li>
+      <li><b>بهینه‌سازی CSS و JS:</b> مینیفای و ادغام فایل‌ها، حذف CSS استفاده‌نشده در هر قالب صفحه، defer/async کردن اسکریپت‌های غیرحیاتی و انتقال آن‌ها به انتهای صفحه، و کاهش بلوک‌های درون‌خطی.</li>
+      <li><b>کش و پاسخ سرور:</b> راه‌اندازی کش صفحه کامل برای بازدیدکننده مهمان، کش آبجکت و بهینه‌سازی کوئری‌های سنگین دیتابیس، و بازبینی تنظیمات PHP/هاست تا TTFB به محدوده استاندارد برسد؛ کش استاتیک فعلی (که سالم است) دست نخورده می‌ماند.</li>
+      <li><b>Core Web Vitals:</b> تمرکز روی LCP (تصویر هیرو سبک + preload + TTFB)، CLS (ثبت ابعاد همه تصاویر و المان‌ها) و INP (کم‌کردن حجم و زمان اجرای JavaScript) — با اندازه‌گیری قبل و بعد برای هر سه شاخص.</li>
+      <li><b>موبایل و دسکتاپ جداگانه:</b> تست و اصلاح جدا برای هر دو حالت، روی صفحات کلیدی: صفحه اصلی، فروشگاه، محصول، دوره و تسویه‌حساب.</li>
+    </ul>
+    <div class="note">دامنه کار دقیقاً همان است که در بریف خواسته‌اید: پیاده‌سازی واقعی روی سایت زنده، با گزارش مقایسه‌ای — نه یک گزارش تئوری که دست شما بماند.</div>
+  </section>
+
+  <section>
+    <h2><span class="no">۵</span>ترتیب اجرا</h2>
+    <ol class="steps">
+      <li><b>بکاپ کامل اول از همه:</b> نسخه پشتیبان کامل از فایل‌ها و دیتابیس، قبل از هر تغییری؛ هیچ اصلاحی بدون بکاپ قابل بازگشت شروع نمی‌شود.</li>
+      <li><b>ثبت مبنای «قبل»:</b> اندازه‌گیری کامل PageSpeed Insights (موبایل و دسکتاپ) و حجم/TTFB صفحات کلیدی، برای مقایسه شفاف.</li>
+      <li><b>اصلاحات مرحله‌ای:</b> به‌ترتیب اثرگذاری — تصاویر، کش و TTFB، سبک‌سازی افزونه‌ها، CSS/JS و در پایان Core Web Vitals؛ بعد از هر مرحله تست سلامت فروشگاه و دوره‌ها.</li>
+      <li><b>گزارش مقایسه‌ای «قبل و بعد»:</b> تحویل گزارش عددی از همه شاخص‌ها (حجم صفحه، تعداد درخواست، TTFB، امتیازها و CWV) در کنار فهرست دقیق تغییرات اعمال‌شده.</li>
+      <li><b>تحویل و پایش:</b> بررسی نهایی روی موبایل و دسکتاپ و تحویل تمیز، بدون دست‌کاری در محتوا و ساختار فروش.</li>
+    </ol>
+  </section>
+
+  <section class="proof">
+    <h2><span class="no">۶</span>سابقه همین کار</h2>
+    <p class="lead">همین کار را قبلاً انجام داده‌ایم: پروژه بهینه‌سازی سرعت و LCP یک فروشگاه ووکامرس با قالب وودمارت — در همین پلتفرم پارس‌کدرز — با تمرکز روی حجم تصاویر، کش و زمان پاسخ سرور. روش ما در هر پروژه سرعت یکی است: اول اندازه‌گیری واقعی، بعد اصلاح، بعد گزارش عددی قبل و بعد.</p>
+    <p class="lead">این صفحه ممیزی اولیه از بیرون است و همه اعدادش قابل راستی‌آزمایی با یک درخواست ساده به سایت‌اند؛ ممیزی کامل داخلی (پیشخوان، هاست و دیتابیس) در فاز صفر اجرا انجام می‌شود.</p>
+  </section>
+
+  <footer>
+    تهیه‌شده توسط <b>AppWebino | اپ‌وبینو</b> — طراحی و بهینه‌سازی وب‌سایت‌های فروشگاهی و شرکتی<br>
+    این صفحه صرفاً برای همین پروژه تهیه شده و قیمت یا تعهد خارج از متن پیشنهاد در آن نیست.
+  </footer>
+
+</div>
+</body>
+</html>
