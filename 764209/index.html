@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تیکاردو | میز و صندلی کافه و رستوران — تولید سفارشی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Vazirmatn'}
+:root{--ink:#1A1712;--cream:#F7F4EF;--cream2:#F3EFE9;--accent:#B7793F;--accent2:#A85B1F;--muted:#6B7280;--border:#E8E2D9;--amber:#F0A832}
+body{color:var(--ink);background:#fff;overflow-x:hidden}img{max-width:100%;display:block}a{color:inherit;text-decoration:none;cursor:pointer}button{cursor:pointer;font-family:'Vazirmatn'}
+.wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px}
+/* header */
+header.site{position:fixed;top:0;left:0;right:0;z-index:60;height:72px;padding:20px 28px 0;display:flex;align-items:flex-start;justify-content:space-between;transition:.25s}
+header.site.solid{background:#fff;border-bottom:1px solid var(--border);height:64px;padding-top:12px}
+.logo{font-size:32px;font-weight:900;line-height:1}.logo small{display:block;font-size:11px;font-weight:500;letter-spacing:0;color:#8a7a63}
+nav.main{display:flex;gap:56px;padding-top:8px}nav.main a{font-size:18px;font-weight:500}nav.main a:hover{text-decoration:underline;text-underline-offset:4px}
+.h-end{display:flex;gap:16px;align-items:center}
+.phone-cta{background:#D32F2F;color:#fff;padding:8px 16px;border-radius:999px;font-size:14px;font-weight:700;border:none}
+.icon-btn{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid #eee;display:grid;place-items:center;font-size:18px;position:relative}
+.badge{position:absolute;top:-4px;left:-4px;background:var(--accent);color:#fff;width:18px;height:18px;border-radius:50%;font-size:11px;display:grid;place-items:center}
+.burger{display:none;width:44px;height:44px;background:#fff;border:1px solid #ddd;border-radius:8px;font-size:22px}
+.mobile-menu{display:none;position:fixed;inset:0;background:#fff;z-index:80;padding:24px}.mobile-menu.open{display:block}.mobile-menu a{display:block;font-size:20px;font-weight:700;padding:14px 0;border-bottom:1px solid #eee}
+/* hero */
+.hero{position:relative}.hero-media{height:calc(100vh - 90px);min-height:560px;position:relative;overflow:hidden;background:#ddd}
+.hero-media img.bg{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.28))}
+.hero-title{position:absolute;right:28px;bottom:150px;z-index:3;color:#fff}.hero-title h1{font-size:64px;font-weight:800;line-height:1.05;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.hero-title p{font-size:19px;margin-top:16px}.hero-cta{margin-top:48px;display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;color:#fff;background:none;border:none}.hero-cta i{width:10px;height:10px;border:2px solid #fff;border-radius:50%;display:block}
+.search-cap{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:4;width:480px;max-width:90%;height:52px;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.08);border-radius:999px;display:flex;align-items:center;padding:6px 6px 6px 20px;gap:8px}
+.search-cap input{flex:1;border:none;background:transparent;font-size:15px;outline:none;min-width:0}.search-cap button{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:18px;flex-shrink:0}
+.hotspot-card{position:absolute;left:12%;top:52%;z-index:4;width:150px;height:110px;background:rgba(30,40,50,.72);backdrop-filter:blur(8px);color:#fff;border-radius:12px;padding:12px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.hotspot-dot{position:absolute;left:22%;top:58%;z-index:4;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.35);display:grid;place-items:center;animation:pulse 2s infinite}.hotspot-dot i{width:8px;height:8px;background:#fff;border-radius:50%;display:block}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.hero-strip{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:#fff}
+.pager{display:flex;gap:28px;align-items:center;font-size:16px;font-weight:700}.pager button{background:none;border:none;font-size:16px;font-weight:700;padding:8px}.pager .act:after{content:"";display:inline-block;width:40px;height:1px;background:#111;vertical-align:middle;margin-right:10px}
+.scroll-cue{font-size:22px;animation:bob 2s infinite}@keyframes bob{50%{transform:translateY(6px)}}
+/* sections */
+.sec{padding:72px 0}.sec-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px}.sec-head h2{font-size:28px;font-weight:800}
+.cat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}.cat-card img{aspect-ratio:4/3;object-fit:cover;width:100%}.cat-card h3{font-size:16px;margin-top:12px}.cat-card span{font-size:13px;color:var(--muted)}
+.best{background:#FAFAF8;padding:80px 0 72px}.best h2{font-size:36px;text-align:center}.best .sub{text-align:center;color:var(--muted);max-width:560px;margin:12px auto 0}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.pcard{background:#fff;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:16px;position:relative;transition:.25s}.pcard:hover{transform:translateY(-4px)}
+.pcard .imgz{height:210px;background:var(--cream);display:grid;place-items:center;overflow:hidden}.pcard .imgz img{height:190px;object-fit:cover;width:100%}
+.eyebrow{font-size:11px;color:#9AA0A6;margin-top:16px}.pcard h3{font-size:15px;margin-top:4px}.stars{color:var(--amber);font-size:14px;margin-top:6px;letter-spacing:2px}
+.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.price{font-weight:700;font-size:15px}
+.add-btn{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;border:none;font-size:18px}.add-btn:hover{background:var(--accent)}
+.bdg{position:absolute;top:14px;right:14px;z-index:2;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:2px}.bdg.red{background:#C62828}.bdg.acc{background:var(--accent)}
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}.split img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.spec-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}.spec-strip b{color:var(--accent);font-size:12px;display:block}.spec-strip span{font-size:13px}
+.pill{background:var(--accent);color:#fff;border:none;padding:10px 24px;border-radius:999px;font-weight:700;font-size:14px;margin-top:24px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.tile{background:var(--cream);border-radius:8px;padding:20px;min-height:150px;display:flex;justify-content:space-between;gap:12px}.tile img{height:110px;width:110px;object-fit:cover}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:40px;text-align:center}.stats b{font-size:40px;color:var(--accent);display:block}.stats span{color:var(--muted);font-size:14px}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.proj-grid img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.b2b{background:var(--cream2);padding:56px 0;text-align:center}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}.trust .ic{font-size:32px;color:var(--accent)}
+footer{background:var(--ink);color:rgba(255,255,255,.85);padding:64px 28px 32px}.foot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;max-width:1280px;margin:0 auto}footer h4{color:#fff;font-size:15px;margin-bottom:12px}footer a{display:block;font-size:14px;color:rgba(255,255,255,.7);line-height:2.1}footer a:hover{color:#fff}
+.foot-bot{border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding-top:24px;font-size:13px;color:rgba(255,255,255,.6);max-width:1280px;margin-left:auto;margin-right:auto}
+/* views */
+.view{display:none}.view.active{display:block}
+.cat-head{padding-top:84px}.search-row{height:76px;padding:0 28px;border-bottom:1px solid #111;display:flex;align-items:center;justify-content:space-between;gap:16px}.search-row input{font-size:22px;font-weight:500;border:none;outline:none;flex:1;min-width:0}
+.tabs{display:flex;gap:56px;padding:20px 28px 8px;flex-wrap:wrap}.tabs button{background:none;border:none;font-size:17px;font-weight:700;padding:14px 30px}.tabs button.act{background:var(--cream2)}
+.sortbar{display:flex;justify-content:space-between;align-items:center;padding:0 28px;margin-top:24px;gap:12px;flex-wrap:wrap}select,input[type=text],input[type=number],input[type=tel],textarea{font-family:'Vazirmatn'}
+.sortbar select{height:44px;border:1px solid #D8D2C8;border-radius:4px;padding:0 12px}
+.cat-layout{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:32px 28px 80px;max-width:1440px;margin:0 auto}
+.sidebar .blk{border-top:1px solid var(--border);padding:20px 0}.sidebar h4{font-size:15px;font-weight:800;margin-bottom:14px}
+.frow{display:flex;align-items:center;gap:8px;height:36px;font-size:14px;cursor:pointer}.frow input{width:18px;height:18px;accent-color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.chip{background:var(--cream2);padding:6px 12px;border-radius:999px;font-size:13px;border:none}
+.tile-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px 54px}
+.ctile{background:var(--cream);padding:0 24px 20px;position:relative;cursor:pointer}.ctile:hover{background:#F1EBE1}.ctile .iz{aspect-ratio:1.59;display:grid;place-items:center;overflow:hidden}.ctile .iz img{max-height:78%;object-fit:cover;transition:.3s}.ctile:hover .iz img{transform:scale(1.03)}.ctile h3{font-size:17px;text-align:center;margin-top:4px}.ctile .code{text-align:center;font-size:15px}.ctile .pr{text-align:center;color:var(--accent2);font-weight:700;margin-top:6px}
+.ctile select{width:100%;height:40px;margin-top:10px;border:1px solid #D8D2C8;border-radius:4px;font-size:13px;padding:0 8px}
+/* product */
+.promo{background:var(--ink);color:#fff;text-align:center;height:36px;display:grid;place-items:center;font-size:12px}
+.crumb{padding:16px 24px 0;font-size:12px;color:var(--muted);max-width:1280px;margin:0 auto}
+.prod-split{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;padding:16px 24px 64px;max-width:1280px;margin:0 auto}
+.viewer-wrap{display:flex;gap:12px}.thumbs{display:flex;flex-direction:column;gap:12px}.thumbs img,.thumbs .th{width:72px;height:72px;object-fit:cover;border:2px solid transparent;border-radius:4px;cursor:pointer;background:var(--cream);display:grid;place-items:center;font-weight:800}.thumbs .act{border-color:var(--accent)}
+.stage{flex:1;aspect-ratio:1;background:var(--cream);position:relative;display:grid;place-items:center;overflow:hidden;cursor:grab;min-width:0}.stage img{width:82%;height:82%;object-fit:cover;transition:filter .3s;user-select:none;-webkit-user-drag:none}
+.stage .b360{position:absolute;top:12px;right:12px;background:#fff;padding:4px 10px;font-size:12px;font-weight:700;border-radius:4px}
+.stage .hint{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:6px 14px;border-radius:999px}
+.stage .arrows{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px}.stage .arrows button{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.85);border:none;box-shadow:0 2px 8px rgba(0,0,0,.15);font-size:18px}
+.swatches{display:flex;gap:10px;margin-top:8px}.sw{width:28px;height:28px;border-radius:50%;border:1px solid #D8D2C8;cursor:pointer}.sw.sel{outline:2px solid var(--ink);outline-offset:2px}
+.dim-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.dim-chips button{padding:10px 16px;border:1px solid #D8D2C8;background:#fff;border-radius:4px;font-size:14px}.dim-chips button.sel{background:var(--ink);color:#fff}
+.stepper{width:120px;height:48px;border:1px solid #D8D2C8;border-radius:4px;display:flex;align-items:center}.stepper button{width:40px;height:100%;background:none;border:none;font-size:20px}.stepper b{flex:1;text-align:center}
+.atc{flex:1;height:48px;background:var(--ink);color:#fff;border:none;border-radius:4px;font-weight:700;font-size:15px}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-top:20px;font-size:13px}
+.acc{border-top:1px solid var(--border);margin-top:24px}.acc-item{border-bottom:1px solid var(--border)}.acc-item>button{width:100%;background:none;border:none;display:flex;justify-content:space-between;padding:16px 0;font-size:15px;font-weight:700}.acc-body{display:none;padding-bottom:16px;font-size:14px;line-height:1.9;color:var(--muted)}.acc-item.open .acc-body{display:block}.acc-item.open .plus{transform:rotate(45deg)}
+/* cart/checkout/modal */
+.drawer{position:fixed;top:0;left:0;width:420px;max-width:calc(100vw - 24px);height:100%;background:#fff;z-index:90;box-shadow:-8px 0 32px rgba(0,0,0,.15);transform:translateX(-110%);transition:.3s;display:flex;flex-direction:column}.drawer.open{transform:none}
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:85;display:none}.backdrop.show{display:block}
+.cart-item{display:flex;gap:12px;padding:16px;border-bottom:1px solid #EEE9E0}.cart-item img{width:80px;height:80px;object-fit:cover;background:var(--cream);border-radius:4px}
+.field{margin-bottom:16px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}.field input,.field select,.field textarea{width:100%;height:48px;border:1px solid #D8D2C8;border-radius:4px;padding:0 14px;font-size:15px}.field textarea{height:auto;padding:12px 14px}.field .err{color:#C62828;font-size:12px;margin-top:4px;display:none}
+.modal{position:fixed;inset:0;z-index:95;display:none;place-items:center;background:rgba(0,0,0,.45);padding:16px}.modal.open{display:grid}.modal-box{background:#fff;max-width:520px;width:100%;border-radius:12px;padding:32px;max-height:90vh;overflow:auto}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;padding:14px 20px;border-radius:8px;z-index:120;display:none}
+@media(max-width:1024px){nav.main{display:none}.burger{display:block}.prod-grid{grid-template-columns:1fr 1fr}.cat-grid{grid-template-columns:repeat(3,1fr)}.cat-layout{grid-template-columns:1fr}.sidebar{display:none}.sidebar.open{display:block;position:fixed;inset:0 auto 0 0;width:320px;background:#fff;z-index:92;padding:20px;overflow:auto}.prod-split{grid-template-columns:1fr}.tiles{grid-template-columns:1fr}}
+@media(max-width:768px){.hero-title h1{font-size:44px}.hotspot-card{display:none}.trust,.stats{grid-template-columns:1fr 1fr}.foot-grid{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.hero-title h1{font-size:36px}.prod-grid{grid-template-columns:1fr 1fr;gap:16px}.cat-grid{grid-template-columns:1fr 1fr}.tile-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:375px){.hero-title h1{font-size:32px}.wrap{padding-left:16px;padding-right:16px}.foot-grid{grid-template-columns:1fr}}
+
+.ltr-num{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.ic-svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0}
+.buy-row{display:flex;gap:12px;margin-top:16px;flex-wrap:nowrap;align-items:stretch}
+.buy-row .atc{flex:1 1 auto;min-width:0;white-space:nowrap}
+.buy-row .stepper{flex:0 0 120px}
+.prod-split{align-items:start}
+.viewer-wrap{align-items:flex-start;min-width:0}
+.stage{align-self:flex-start;width:100%}
+#filterBtn{display:none}
+.drawer-close{display:none}
+.cat-card{display:block}
+.cat-card .ph,.proj-ph,.media-ph{overflow:hidden;background:var(--cream)}
+.media-ph{aspect-ratio:4/3}
+.media-ph img{width:100%;height:100%;object-fit:cover}
+@media(max-width:1280px){.hero-title h1{font-size:56px}nav.main{gap:40px}.prod-split{gap:40px}}
+@media(max-width:1024px){.hero-title h1{font-size:56px}}
+@media(max-width:1024px){#filterBtn{display:block}.drawer-close{display:block}}
+@media(max-width:375px){.hero-title h1{font-size:32px}}
+@media(max-width:768px){.phone-cta{display:none}header.site{padding:14px 16px 0}.logo{font-size:26px}.h-end{gap:8px}}
+@media(max-width:768px){.hero-title h1{font-size:44px}}
+@media(max-width:480px){.hero-title h1{font-size:36px}.buy-row{flex-wrap:wrap}.buy-row .stepper{flex:1 1 100%;width:100%}.buy-row .atc{flex:1 1 100%}}
+@media(max-width:375px){.hero-title h1{font-size:32px}}
+/* R3 repairs (verifier round 2) */
+.add-btn{flex-shrink:0}
+@media(max-width:1024px){#coGrid{grid-template-columns:1fr!important}#coGrid aside{order:-1}}
+@media(max-width:768px){.hero-title p{font-size:16px}}
+@media(max-width:480px){.stepper button{width:44px;flex-shrink:0}.add-btn{width:44px;height:44px}.pager button{min-height:44px;min-width:44px}}
+@media(max-width:375px){.sec{padding:48px 0}.best{padding:48px 0}.best h2{font-size:26px}.sec-head h2{font-size:26px}.search-cap{height:48px}.hero-title p{font-size:16px}}
+</style></head>
+<body>
+<header class="site" id="siteHeader">
+  <div><a class="logo" onclick="showView('home')">تیکاردو<small>TIKARDO • تولیدکننده مبلمان کافه</small></a></div>
+  <nav class="main"><a onclick="showView('catalogue')">محصولات</a><a onclick="showView('catalogue')">کاتالوگ</a><a href="#custom" onclick="showView('home');setTimeout(()=>document.getElementById('custom').scrollIntoView(),50)">ساخت سفارشی</a><a href="#projects" onclick="showView('home')">پروژه‌ها</a><a href="#footer">درباره ما</a></nav>
+  <div class="h-end"><a class="phone-cta" href="tel:+982191008800"><span class="ltr-num">۰۲۱-۹۱۰۰ ۸۸۰۰</span></a><button class="icon-btn" onclick="showView('catalogue')" aria-label="جستجو"><svg class="ic-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></button><button class="icon-btn" onclick="openCart()" aria-label="سبد"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg><span class="badge" id="cartBadge">۰</span></button><button class="burger" aria-label="منو" onclick="document.getElementById('mmenu').classList.add('open')"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+</header>
+<div class="mobile-menu" id="mmenu"><button onclick="document.getElementById('mmenu').classList.remove('open')" style="font-size:28px;background:none;border:none">×</button><a onclick="showView('catalogue');document.getElementById('mmenu').classList.remove('open')">محصولات</a><a onclick="showView('catalogue');document.getElementById('mmenu').classList.remove('open')">کاتالوگ</a><a onclick="openB2B()">استعلام تجهیز کافه</a><a class="phone-cta" style="display:inline-block;margin-top:16px" href="tel:+982191008800"><span class="ltr-num">۰۲۱-۹۱۰۰ ۸۸۰۰</span></a></div>
+
+<!-- HOME -->
+<main class="view active" id="view-home">
+  <section class="hero">
+    <div class="hero-media" id="heroMedia">
+      <img class="bg" id="heroImg" src="assets/hero1.svg" alt="">
+      <div class="hero-title"><h1 id="heroTitle">کالکشن آوا</h1><p id="heroCredit">طراحی و تولید تیکاردو — برای کافه‌های پررفت‌وآمد</p><button class="hero-cta" onclick="showView('catalogue')"><i></i> مشاهده</button></div>
+      <form class="search-cap" onsubmit="heroSearch(event)"><input id="heroQ" placeholder="جست‌وجوی میز، صندلی، نیمکت…"><button type="submit" aria-label="جستجو"><svg class="ic-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></button></form>
+      <div class="hotspot-dot"><i></i></div>
+      <div class="hotspot-card" onclick="openProduct(0)" style="cursor:pointer"><div style="display:flex;justify-content:space-between"><b id="hotName">صندلی آوا</b><span id="hotPrice">۴٬۸۵۰٬۰۰۰</span></div><hr style="border-color:rgba(255,255,255,.25);margin:8px 0"><div style="font-size:11px">رنگ <span style="display:inline-flex;gap:6px;vertical-align:middle"><i style="width:14px;height:14px;border-radius:50%;background:#B7793F;display:inline-block;outline:2px solid #fff"></i><i style="width:14px;height:14px;border-radius:50%;background:#2E4A3A;display:inline-block"></i><i style="width:14px;height:14px;border-radius:50%;background:#8B2E2E;display:inline-block"></i></span></div></div>
+    </div>
+    <div class="hero-strip"><span class="scroll-cue"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M12 4v14M6 13l6 6 6-6"/></svg></span><div class="pager" id="pager"></div></div>
+  </section>
+
+  <section class="sec"><div class="wrap"><div class="sec-head"><h2>دسته‌بندی‌ها</h2><a onclick="showView('catalogue')" style="font-weight:700;color:var(--accent)">مشاهده کاتالوگ ←</a></div><div class="cat-grid" id="catGrid"></div></div></section>
+
+  <section class="best"><div class="wrap"><h2>پرفروش‌ترین‌ها</h2><p class="sub">مدل‌هایی که کافه‌ها و رستوران‌ها بیشتر از همه سفارش می‌دهند؛ مستقیم از کارخانه تیکاردو.</p><div class="prod-grid" id="bestGrid"></div></div></section>
+
+  <section class="sec" id="custom"><div class="wrap"><div class="split"><img src="assets/workshop.svg" alt="کارگاه تیکاردو"><div><h2 style="font-size:30px">ساخت سفارشی تیکاردو</h2><p style="color:var(--muted);line-height:1.9;margin-top:12px">ابعاد میز را با فضای کافه‌تان تنظیم کنید، رنگ چوب و فلز را انتخاب کنید و پارچه را با هویت برندتان هماهنگ کنید. هر سفارش در کارگاه تهران ساخته و کنترل کیفی می‌شود.</p><p style="color:var(--muted);line-height:1.9;margin-top:8px">برای سفارش‌های پروژه‌ای، نقشه چیدمان و پیش‌فاکتور شفاف قبل از تولید ارائه می‌شود.</p><div class="spec-strip"><div><b>متریال‌ها</b><span>راش، ترموود، فلز رنگ کوره‌ای</span></div><div><b>ابعاد قابل سفارش</b><span>از ۵۰×۵۰ تا ۱۲۰×۲۴۰ سانتی‌متر</span></div><div><b>زمان ساخت</b><span>۷ تا ۱۴ روز کاری</span></div></div><button class="pill" onclick="openB2B()">شروع سفارش سفارشی</button></div></div></div></section>
+
+  <section style="padding:0 0 72px"><div class="wrap"><div class="tiles" id="tiles"></div></div></section>
+
+  <section class="sec" id="projects" style="padding-top:0"><div class="wrap"><h2 style="font-size:30px">پروژه‌های اجراشده</h2><p style="color:var(--muted);margin:8px 0 32px">کافه‌ها و رستوران‌هایی که با تیکاردو تجهیز شده‌اند</p><div class="stats"><div><b>۱۲۰+</b><span>کافه تجهیز‌شده</span></div><div><b>۸٬۴۰۰+</b><span>صندلی تحویل‌شده</span></div><div><b>۱۸</b><span>شهر تحت پوشش</span></div><div><b>۹</b><span>سال تولید</span></div></div><div class="proj-grid" id="projGrid"></div></div></section>
+
+  <section class="b2b"><div class="wrap"><h2 style="font-size:28px">تجهیز کامل کافه یا رستوران؟</h2><p style="color:var(--muted);margin-top:8px">استعلام قیمت پروژه‌ای بگیرید؛ کارشناسان تیکاردو برای چیدمان و تعداد بهینه راهنمایی‌تان می‌کنند.</p><button class="pill" onclick="openB2B()">استعلام قیمت تجهیز کافه/رستوران</button></div></section>
+
+  <section class="sec"><div class="wrap"><div class="trust">
+    <div><div class="ic"><svg class="ic-svg" style="width:32px;height:32px" viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></div><h3 style="font-size:15px;margin:8px 0">خرید مستقیم از تولیدکننده</h3><p style="font-size:13px;color:var(--muted)">بدون واسطه، قیمت کارخانه</p></div>
+    <div><div class="ic"><svg class="ic-svg" style="width:32px;height:32px" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></div><h3 style="font-size:15px;margin:8px 0">ضمانت ۲ ساله</h3><p style="font-size:13px;color:var(--muted)">اسکلت و اتصالات، کتبی</p></div>
+    <div><div class="ic"><svg class="ic-svg" style="width:32px;height:32px" viewBox="0 0 24 24"><path d="M3 8h11v9H3zM14 11h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></div><h3 style="font-size:15px;margin:8px 0">ارسال به سراسر کشور</h3><p style="font-size:13px;color:var(--muted)">بسته‌بندی ایمن پروژه‌ای</p></div>
+    <div><div class="ic"><svg class="ic-svg" style="width:32px;height:32px" viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 3V5Z"/><path d="M8 9h8M8 12h5"/></svg></div><h3 style="font-size:15px;margin:8px 0">مشاوره تجهیز کافه</h3><p style="font-size:13px;color:var(--muted)">چیدمان و انتخاب مدل رایگان</p></div>
+  </div></div></section>
+</main>
+
+<!-- CATALOGUE -->
+<main class="view" id="view-catalogue">
+  <div class="cat-head">
+    <div class="search-row"><input id="catQ" placeholder="جست‌وجو در محصولات…" oninput="renderCatalogue()"><span style="font-size:24px;display:inline-flex;gap:8px;align-items:center"><svg class="ic-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg> <a onclick="document.getElementById('catQ').value='';renderCatalogue()">×</a></span></div>
+    <div class="tabs" id="catTabs"></div>
+    <div class="sortbar"><span id="resultCount" style="color:var(--muted);font-size:14px"></span><span style="display:flex;gap:8px"><button onclick="document.querySelector('.sidebar').classList.add('open')" style="height:44px;padding:0 16px;border:1px solid #D8D2C8;background:#fff;border-radius:4px" id="filterBtn">فیلترها</button><select id="sortSel" onchange="renderCatalogue()"><option value="def">پیش‌فرض</option><option value="cheap">ارزان‌ترین</option><option value="exp">گران‌ترین</option><option value="new">جدیدترین</option></select></span></div>
+    <div class="cat-layout">
+      <aside class="sidebar" id="sidebar"><button class="drawer-close" onclick="document.querySelector('.sidebar').classList.remove('open')" style="background:none;border:none;font-size:24px">× بستن فیلترها</button><div id="filterBox"></div><button onclick="clearFilters()" style="color:var(--accent);background:none;border:none;font-size:13px;font-weight:700">حذف همه فیلترها</button></aside>
+      <div><div class="chips" id="chips"></div><div class="tile-grid" id="tileGrid"></div><div id="emptyState" style="display:none;text-align:center;padding:60px 0;color:var(--muted)"><p style="font-size:16px">محصولی با این فیلترها پیدا نشد.</p><button class="pill" onclick="clearFilters()">حذف فیلترها</button></div></div>
+    </div>
+  </div>
+</main>
+
+<!-- PRODUCT -->
+<main class="view" id="view-product">
+  <div class="promo" style="margin-top:64px">ارسال رایگان سفارش‌های پروژه‌ای بالای ۲۰ قلم — ضمانت ۲ ساله تیکاردو</div>
+  <div class="crumb">خانه / کاتالوگ / <span id="crumbCat">صندلی کافه</span> / <b id="crumbName" style="color:var(--ink)"></b></div>
+  <div class="prod-split">
+    <div class="viewer-wrap"><div class="thumbs" id="thumbs"></div><div class="stage" id="stage"><span class="b360">۳۶۰°</span><span id="frameLbl" style="position:absolute;top:12px;left:12px;background:#fff;padding:4px 10px;font-size:12px;font-weight:700;border-radius:4px">۰°</span><img id="stageImg" src="assets/frame0.svg" alt="محصول"><span class="hint" id="dragHint">برای چرخش بکشید ↔</span><div class="arrows"><button onclick="rotateStep(-1)">‹</button><button onclick="rotateStep(1)">›</button></div></div></div>
+    <div>
+      <div style="font-size:13px"><span class="stars">★★★★★</span> ۴٫۹ <a style="color:var(--muted)">(۶۷ نظر)</a></div>
+      <h1 id="pName" style="font-size:28px;margin-top:8px"></h1><p id="pDesc" style="font-size:14px;line-height:1.8;color:var(--muted);margin-top:8px"></p>
+      <div style="margin-top:16px"><span id="pPrice" style="font-size:24px;font-weight:800;color:var(--accent2)"></span> <s id="pOld" style="color:var(--muted)"></s></div>
+      <div id="finishBox"></div>
+      <div style="margin-top:20px"><b style="font-size:14px">ابعاد (سانتی‌متر)</b><div class="dim-chips" id="dimChips"></div><div id="customDim" style="display:none;gap:8px;margin-top:10px"><input type="number" id="cdL" placeholder="طول" style="height:44px;border:1px solid #D8D2C8;border-radius:4px;padding:0 10px;width:110px" oninput="calcPrice()"><input type="number" id="cdW" placeholder="عرض" style="height:44px;border:1px solid #D8D2C8;border-radius:4px;padding:0 10px;width:110px" oninput="calcPrice()"></div></div>
+      <p style="margin-top:16px;font-size:13px;display:flex;gap:8px;align-items:center"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M3 8h11v9H3zM14 11h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg> ارسال رایگان — تحویل بین ۵ تا ۷ روز کاری</p>
+      <div class="buy-row"><div class="stepper"><button onclick="qtyStep(-1)">−</button><b id="qtyVal">۱</b><button onclick="qtyStep(1)">+</button></div><button class="atc" onclick="addCurrentToCart()">افزودن به سبد خرید</button></div>
+      <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:10px">امکان پرداخت در ۴ قسط برای سفارش‌های پروژه‌ای — بدون بهره</p>
+      <button onclick="openB2B()" style="width:100%;margin-top:10px;height:44px;background:#fff;border:1px solid var(--ink);border-radius:4px;font-weight:700">خرید پروژه‌ای؟ استعلام بگیرید</button>
+      <div class="trust-grid"><span>✓ ضمانت اصالت و کیفیت</span><span>✓ ضمانت ۲ ساله</span><span>✓ ۷ روز بازگشت</span><span>✓ تحویل و مونتاژ</span></div>
+      <div class="acc" id="accBox"></div>
+    </div>
+  </div>
+  <section style="max-width:1280px;margin:0 auto;padding:0 24px 64px"><div class="split"><div><h2 style="font-size:28px">چرا این مدل؟</h2><ul style="list-style:none;margin-top:20px;display:grid;gap:12px;font-size:14px"><li>✓ اسکلت تقویت‌شده برای استفاده پرتکرار کافه</li><li>✓ نشیمن راحت برای نشستن طولانی مشتری</li><li>✓ رنگ کوره‌ای مقاوم در برابر خط‌وخش</li><li>✓ قابل ساخت در ابعاد و رنگ سفارشی</li></ul></div><img src="assets/cafe.svg" style="aspect-ratio:4/3;object-fit:cover;width:100%"></div></section>
+  <section style="max-width:1280px;margin:0 auto;padding:0 24px 64px;display:grid;gap:48px">
+    <div class="split"><img src="assets/workshop.svg" style="aspect-ratio:1;object-fit:cover"><div><h3 style="font-size:22px">اتصالات پنهان، پرداخت تمیز</h3><p style="color:var(--muted);line-height:1.9;margin-top:8px;max-width:420px">هیچ پیچ و برجستگی‌ای روی بدنه دیده نمی‌شود؛ اتصالات از داخل تقویت شده‌اند تا ظاهر مینیمال مدل در فضای کافه حفظ شود.</p></div></div>
+    <div class="split"><div><h3 style="font-size:22px">اسکلت محکم، ساخته‌شده برای ترافیک بالا</h3><p style="color:var(--muted);line-height:1.9;margin-top:8px;max-width:420px">فریم با جوش و رنگ کوره‌ای دقیق ساخته می‌شود و هر قلم قبل از ارسال، تست تحمل وزن و پایداری را می‌گذراند.</p></div><img src="assets/bench.svg" style="aspect-ratio:1;object-fit:cover"></div>
+  </section>
+  <section style="border-top:1px solid var(--border);max-width:1280px;margin:0 auto;padding:48px 24px 64px"><h2 style="font-size:26px">نظرات خریداران</h2><p style="margin-top:12px"><b style="font-size:32px">۶۷</b> نظر — میانگین <b>۴٫۹ ★★★★★</b></p><div id="reviews" style="display:grid;gap:20px;margin-top:24px"></div></section>
+  <section style="max-width:1280px;margin:0 auto;padding:0 24px 80px"><h2 style="font-size:26px;margin-bottom:8px">محصولات مرتبط</h2><div class="prod-grid" id="relatedGrid" style="margin-top:24px"></div></section>
+</main>
+
+<!-- CHECKOUT -->
+<main class="view" id="view-checkout">
+  <div style="max-width:1024px;margin:0 auto;padding:110px 24px 80px" id="checkoutWrap">
+    <h1 style="font-size:28px;margin-bottom:24px">تسویه حساب</h1>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px" id="coGrid">
+      <form id="coForm" onsubmit="submitOrder(event)" novalidate>
+        <div class="field"><label>نام و نام خانوادگی *</label><input id="fName"><div class="err">نام را کامل وارد کنید</div></div>
+        <div class="field"><label>موبایل *</label><input id="fMobile" inputmode="tel" placeholder="۰۹۱۲…"><div class="err" id="mobErr">شماره موبایل معتبر نیست (با ۰۹ شروع شود)</div></div>
+        <div class="field"><label>استان و شهر *</label><input id="fCity" placeholder="تهران، تهران"><div class="err">شهر را وارد کنید</div></div>
+        <div class="field"><label>نشانی کامل *</label><textarea id="fAddr" rows="3"></textarea><div class="err">نشانی را وارد کنید</div></div>
+        <div class="field"><label>کد پستی (اختیاری)</label><input id="fPost"></div>
+        <div class="field"><label>تاریخ تحویل (شمسی)</label><div style="display:flex;gap:8px"><select id="dDay" style="flex:1;height:48px;border:1px solid #D8D2C8;border-radius:4px"></select><select id="dMonth" style="flex:1;height:48px;border:1px solid #D8D2C8;border-radius:4px"><option>آذر</option><option>دی</option><option>بهمن</option></select><select id="dYear" style="flex:1;height:48px;border:1px solid #D8D2C8;border-radius:4px"><option>۱۴۰۵</option><option>۱۴۰۶</option></select></div></div>
+        <div class="field"><label>توضیحات</label><textarea id="fNote" rows="2"></textarea></div>
+        <button style="width:100%;height:48px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-weight:700;font-size:15px">ثبت سفارش</button>
+      </form>
+      <aside style="background:var(--cream);padding:24px;border-radius:8px;height:fit-content"><h3 style="margin-bottom:16px">خلاصه سفارش</h3><div id="coSummary"></div></aside>
+    </div>
+  </div>
+  <div id="successBox" style="display:none;text-align:center;padding:140px 24px 100px"><div style="width:64px;height:64px;border-radius:50%;background:#2E7D32;color:#fff;display:grid;place-items:center;font-size:32px;margin:0 auto">✓</div><h2 style="font-size:24px;margin-top:20px">سفارش شما ثبت شد</h2><p style="color:var(--muted);margin-top:10px" id="successDetail"></p><button class="pill" onclick="showView('home')">بازگشت به فروشگاه</button></div>
+</main>
+
+<footer id="footer"><div class="foot-grid"><div><div style="font-size:28px;font-weight:800;color:#fff">تیکاردو</div><p style="font-size:14px;line-height:1.9;margin-top:10px">تولیدکننده میز و صندلی کافه و رستوران با ساخت سفارشی در تهران.</p><p style="font-size:14px;margin-top:10px">تهران، شهرک صنعتی شمس‌آباد، بلوار بوستان، پلاک ۲۴</p></div><div><h4>دسته‌ها</h4><a onclick="filterCat('میز کافه')">میز کافه</a><a onclick="filterCat('صندلی کافه')">صندلی کافه</a><a onclick="filterCat('نیمکت')">نیمکت</a><a onclick="filterCat('ست کامل')">ست کامل</a><a onclick="filterCat('فضای باز')">میز و صندلی فضای باز</a></div><div><h4>خدمات</h4><a onclick="openB2B()">ساخت سفارشی</a><a onclick="openB2B()">تجهیز کافه</a><a onclick="openB2B()">استعلام پروژه</a><a>ارسال و نصب</a></div><div><h4>تماس</h4><a>تلفن: <span class="ltr-num">۰۲۱-۹۱۰۰۸۸۰۰</span></a><a>موبایل: <span class="ltr-num">۰۹۱۲۳۴۵۶۷۸۹</span></a><a>hello@tikardo.ir</a><a>شنبه تا پنجشنبه ۹ تا ۱۸</a></div></div><div class="foot-bot">© ۱۴۰۵ تیکاردو — ساخته‌شده در ایران | تمامی حقوق محفوظ است.</div></footer>
+
+<!-- CART -->
+<div class="backdrop" id="backdrop" onclick="closeAll()"></div>
+<aside class="drawer" id="cartDrawer"><div style="height:64px;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-bottom:1px solid #eee"><b id="cartTitle" style="font-size:17px">سبد خرید (۰)</b><button onclick="closeAll()" style="background:none;border:none;font-size:24px">×</button></div><div id="cartItems" style="flex:1;overflow:auto"></div><div style="padding:16px;border-top:1px solid #eee"><div id="cartTotals"></div><button onclick="closeAll();showView('checkout');renderCheckout()" style="width:100%;height:48px;background:var(--ink);color:#fff;border:none;border-radius:4px;font-weight:700;margin-top:12px">ادامه و تسویه</button><a onclick="closeAll()" style="display:block;text-align:center;margin-top:10px;font-size:13px">ادامه خرید</a></div></aside>
+
+<!-- B2B MODAL -->
+<div class="modal" id="b2bModal"><div class="modal-box"><div style="display:flex;justify-content:space-between"><h2 style="font-size:22px">استعلام قیمت تجهیز کافه/رستوران</h2><button onclick="closeAll()" style="background:none;border:none;font-size:24px">×</button></div><form id="b2bForm" onsubmit="submitB2B(event)" style="margin-top:20px">
+<div class="field"><label>نوع فضا *</label><select id="bType" style="width:100%;height:48px;border:1px solid #D8D2C8;border-radius:4px"><option>کافه</option><option>رستوران</option><option>فست‌فود</option><option>هتل</option><option>سایر</option></select></div>
+<div class="field"><label>تعداد تقریبی صندلی</label><select id="bChairs" style="width:100%;height:48px;border:1px solid #D8D2C8;border-radius:4px"><option>۲۰ تا ۴۰</option><option>۴۰ تا ۸۰</option><option>۸۰ تا ۱۵۰</option><option>بیش از ۱۵۰</option></select></div>
+<div class="field"><label>تعداد تقریبی میز</label><select id="bTables" style="width:100%;height:48px;border:1px solid #D8D2C8;border-radius:4px"><option>۱۰ تا ۲۰</option><option>۲۰ تا ۴۰</option><option>بیش از ۴۰</option></select></div>
+<div class="field"><label>شهر *</label><input id="bCity"><div class="err">شهر را وارد کنید</div></div>
+<div class="field"><label>موبایل *</label><input id="bMobile" placeholder="۰۹…"><div class="err">شماره موبایل معتبر نیست (با ۰۹ شروع شود)</div></div>
+<button style="width:100%;height:48px;background:var(--accent);color:#fff;border:none;border-radius:4px;font-weight:700">ثبت درخواست استعلام</button>
+<div id="b2bSuccess" style="display:none;background:#E8F5E9;padding:14px;border-radius:8px;margin-top:14px;font-size:14px"></div></form></div></div>
+<div class="toast" id="toast">به سبد خرید اضافه شد ✓</div>
+
+<script>
+const FA='۰۱۲۳۴۵۶۷۸۹'; const fa=n=>String(n).replace(/\d/g,d=>FA[d]); const faNum=n=>fa(Number(n).toLocaleString('en-US')).replace(/,/g,'٬'); const norm=s=>String(s||'').replace(/[۰-۹]/g,c=>FA.indexOf(c)).replace(/[٠-٩]/g,c=>'٠١٢٣٤٥٦٧٨٩'.indexOf(c));
+const IMG={chair:'assets/chair.svg',chair2:'assets/chair2.svg',table:'assets/table.svg',bench:'assets/bench.svg',set:'assets/set.svg',out:'assets/out.svg',cafe:'assets/hero1.svg',cafe2:'assets/hero2.svg',cafe3:'assets/hero3.svg'};
+const PRODUCTS=[
+{id:0,name:'صندلی کافه آوا',code:'TK-CH-101',cat:'صندلی کافه',mat:'ترکیبی',color:'قهوه‌ای',price:4850000,old:5600000,rating:5,badge:'پرفروش',img:IMG.chair,isNew:5,desc:'صندلی آوا با اسکلت فلزی رنگ کوره‌ای و نشیمن چوب راش؛ انتخاب اول کافه‌های شلوغ برای دوام و راحتی همزمان.'},
+{id:1,name:'میز کافه گرد مارس',code:'TK-TB-201',cat:'میز کافه',mat:'فلز',color:'مشکی',price:7200000,old:0,rating:5,badge:'جدید',img:IMG.table,isNew:9,desc:'میز گرد مارس با صفحه ترموود و پایه فلزی پایدار؛ مناسب چیدمان دونفره و چهارنفره کافه.'},
+{id:2,name:'صندلی باریستا نیل',code:'TK-CH-102',cat:'صندلی کافه',mat:'چوب',color:'طبیعی',price:3950000,old:0,rating:4,badge:'',img:IMG.chair2,isNew:3,desc:'صندلی نیل با پشتی ارگونومیک و چوب طبیعی پرداخت‌شده؛ سبک و مقاوم برای استفاده روزانه.'},
+{id:3,name:'نیمکت دونفره ساحل',code:'TK-BN-301',cat:'نیمکت',mat:'ترموود',color:'قهوه‌ای',price:9800000,old:11200000,rating:5,badge:'سفارشی',img:IMG.bench,isNew:7,desc:'نیمکت ساحل از ترموود مقاوم در برابر رطوبت؛ برای تراس و فضای باز کافه.'},
+{id:4,name:'ست کامل کافه لوتوس (۴ نفره)',code:'TK-ST-401',cat:'ست کامل',mat:'ترکیبی',color:'مشکی',price:24500000,old:0,rating:5,badge:'پرفروش',img:IMG.set,isNew:8,desc:'ست لوتوس شامل یک میز و چهار صندلی هماهنگ؛ راه‌حل آماده برای راه‌اندازی سریع کافه.'},
+{id:5,name:'میز فضای باز تراس',code:'TK-OT-501',cat:'فضای باز',mat:'ترموود',color:'طبیعی',price:6400000,old:0,rating:4,badge:'جدید',img:IMG.out,isNew:10,desc:'میز تراس با پوشش ضد UV و اسکلت ضدزنگ؛ ساخته‌شده برای آفتاب و باران.'},
+{id:6,name:'صندلی فلزی وینا',code:'TK-CH-103',cat:'صندلی کافه',mat:'فلز',color:'سبز',price:3400000,old:3900000,rating:4,badge:'',img:IMG.chair,isNew:2,desc:'صندلی وینا تمام‌فلزی با رنگ کوره‌ای سبز؛ قابل چیدمان روی هم برای انبار آسان.'},
+{id:7,name:'میز مستطیل کارگاه',code:'TK-TB-202',cat:'میز کافه',mat:'چوب',color:'قهوه‌ای',price:8900000,old:0,rating:5,badge:'سفارشی',img:IMG.table,isNew:6,desc:'میز کارگاه با صفحه چوب راش ضخیم؛ مناسب میزهای اشتراکی و دورهمی کافه.'},
+{id:8,name:'نیمکت سه‌نفره آریا',code:'TK-BN-302',cat:'نیمکت',mat:'چوب',color:'طبیعی',price:12400000,old:0,rating:5,badge:'',img:IMG.bench,isNew:4,desc:'نیمکت آریا برای دیوارهای انتظار و فضای ورودی رستوران؛ نشیمن عمیق و راحت.'},
+{id:9,name:'ست فضای باز باغ',code:'TK-ST-402',cat:'فضای باز',mat:'ترکیبی',color:'سفید',price:19800000,old:22500000,rating:4,badge:'پرفروش',img:IMG.out,isNew:1,desc:'ست باغ برای روف و حیاط رستوران؛ مقاوم، سبک و قابل شست‌وشو.'},
+{id:10,name:'صندلی پارچه‌ای موکا',code:'TK-CH-104',cat:'صندلی کافه',mat:'ترکیبی',color:'قهوه‌ای',price:5600000,old:0,rating:5,badge:'جدید',img:IMG.chair2,isNew:11,desc:'صندلی موکا با پارچه قابل شست‌وشو و فوم سرد؛ برای کافه‌هایی با نشستن طولانی.'},
+{id:11,name:'میز کانتر بار بلند',code:'TK-TB-203',cat:'میز کافه',mat:'فلز',color:'مشکی',price:10500000,old:0,rating:4,badge:'',img:IMG.table,isNew:0,desc:'میز بار بلند برای کانتر و پنجره کافه؛ ارتفاع استاندارد بار با جای پای فلزی.'}];
+let cart=[], current=PRODUCTS[0], qty=1, selDim='۷۰×۷۰', angle=0, finishes={wood:'#B7793F',metal:'#222',fabric:'#7A9B7E'};
+const slides=[{t:'کالکشن آوا',c:'طراحی و تولید تیکاردو — برای کافه‌های پررفت‌وآمد',img:IMG.cafe},{t:'کالکشن تراس',c:'طراحی و تولید تیکاردو — ترموود مقاوم فضای باز',img:IMG.cafe2},{t:'ست لوتوس',c:'طراحی و تولید تیکاردو — ست کامل آماده تجهیز',img:IMG.cafe3},{t:'ساخت سفارشی',c:'طراحی و تولید تیکاردو — ابعاد و رنگ به انتخاب شما',img:IMG.bench}];
+let slideIdx=0, slideTimer;
+function renderPager(){document.getElementById('pager').innerHTML=slides.map((_,i)=>`<button class="${i===slideIdx?'act':''}" onclick="goSlide(${i})">${fa(String(i+1).padStart(2,'0'))}</button>`).join('')}
+function goSlide(i){slideIdx=i;document.getElementById('heroImg').src=slides[i].img;document.getElementById('heroTitle').textContent=slides[i].t;document.getElementById('heroCredit').textContent=slides[i].c;renderPager()}
+renderPager(); slideTimer=setInterval(()=>goSlide((slideIdx+1)%4),6000); document.getElementById('heroMedia').addEventListener('mouseenter',()=>clearInterval(slideTimer));
+function stars(n){return '★'.repeat(n)+'☆'.repeat(5-n)}
+function pcard(p){return `<article class="pcard">${p.badge?`<span class="bdg ${p.badge==='جدید'?'red':p.badge==='سفارشی'?'acc':''}">${p.badge}</span>`:''}<div class="imgz" onclick="openProduct(${p.id})"><img src="${p.img}" alt="${p.name}"></div><div class="eyebrow">${p.cat}</div><h3>${p.name}</h3><div class="stars">${stars(p.rating)}</div><div class="price-row"><span class="price">${faNum(p.price)} تومان</span><button class="add-btn" onclick="addToCart(${p.id},1)" aria-label="افزودن">+</button></div></article>`}
+document.getElementById('bestGrid').innerHTML=PRODUCTS.slice(0,8).map(pcard).join('');
+document.getElementById('relatedGrid').innerHTML=PRODUCTS.slice(0,4).map(pcard).join('');
+const CATS=[['میز کافه',IMG.table,'۳ محصول'],['صندلی کافه',IMG.chair,'۴ محصول'],['نیمکت',IMG.bench,'۲ محصول'],['ست کامل',IMG.set,'۱ محصول'],['فضای باز',IMG.out,'۲ محصول']];
+document.getElementById('catGrid').innerHTML=CATS.map(c=>`<a class="cat-card" onclick="filterCat('${c[0]}')"><img src="${c[1]}"><h3>${c[0]}</h3><span>${c[2]}</span></a>`).join('');
+document.getElementById('tiles').innerHTML=[['پیشنهاد تجهیز پروژه‌ای','تا ۳۰٪ تخفیف ست کامل',IMG.set,'−۳۰٪'],['میزهای فضای باز','ترموود ضدآب',IMG.out,'−۲۵٪'],['صندلی‌های جدید آوا','رنگ سفارشی رایگان',IMG.chair,'−۱۵٪']].map(t=>`<div class="tile"><div><h3 style="font-size:15px">${t[0]}</h3><p style="font-size:13px;color:var(--muted);margin-top:6px">${t[1]}</p><p style="margin-top:18px"><b style="color:#C62828;font-size:16px">${t[3]}</b> &nbsp;<a onclick="showView('catalogue')" style="font-size:13px;font-weight:700">مشاهده ←</a></p></div><img src="${t[2]}"></div>`).join('');
+document.getElementById('projGrid').innerHTML=[['کافه راین','تهران — سعادت‌آباد • ۶۴ صندلی',IMG.cafe],['رستوران نارون','اصفهان • ۱۲۰ صندلی',IMG.cafe2],['کافه کتاب آوا','شیراز • ۴۸ صندلی',IMG.cafe3]].map(p=>`<div><img src="${p[2]}"><h3 style="font-size:16px;margin-top:12px">${p[0]}</h3><p style="font-size:13px;color:var(--muted)">${p[1]}</p></div>`).join('');
+document.getElementById('reviews').innerHTML=[['رضا محمدی','۱۲ آبان ۱۴۰۵','برای کافه‌مان ۴۰ صندلی آوا گرفتیم؛ بعد از شش ماه استفاده سنگین هنوز مثل روز اول محکم‌اند.'],['سارا کریمی','۲۸ مهر ۱۴۰۵','ابعاد سفارشی دقیقاً همان چیزی شد که برای فضای کوچک‌مان لازم داشتیم. تحویل سر وقت بود.'],['امیر حسینی','۵ مهر ۱۴۰۵','مشاوره چیدمان خیلی کمک کرد؛ تعداد میزها را بهینه کردند و هزینه‌مان کمتر شد.']].map(r=>`<div style="display:flex;gap:12px"><span style="width:40px;height:40px;border-radius:50%;background:var(--cream2);display:grid;place-items:center;font-weight:800;flex-shrink:0">${r[0][0]}</span><div><b style="font-size:14px">${r[0]}</b> <span class="stars" style="font-size:12px">★★★★★</span> <span style="font-size:12px;color:var(--muted)">${r[1]}</span><p style="font-size:14px;line-height:1.8;margin-top:4px">${r[2]}</p></div></div>`).join('');
+/* views */
+function showView(v){document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));document.getElementById('view-'+v).classList.add('active');window.scrollTo(0,0);document.getElementById('siteHeader').classList.toggle('solid',v!=='home');if(v==='catalogue')renderCatalogue()}
+window.addEventListener('scroll',()=>{if(document.getElementById('view-home').classList.contains('active'))document.getElementById('siteHeader').classList.toggle('solid',scrollY>window.innerHeight-120)});
+function heroSearch(e){e.preventDefault();showView('catalogue');document.getElementById('catQ').value=document.getElementById('heroQ').value;renderCatalogue()}
+function filterCat(c){showView('catalogue');document.querySelectorAll('input[data-fcat]').forEach(i=>i.checked=i.value===c);renderCatalogue()}
+/* catalogue */
+let activeTab='all';
+function buildFilters(){const cats=[...new Set(PRODUCTS.map(p=>p.cat))],mats=['چوب','فلز','ترموود','ترکیبی'],cols=['قهوه‌ای','مشکی','طبیعی','سبز','سفید'];
+document.getElementById('filterBox').innerHTML=`<div class="blk"><h4>دسته‌بندی</h4>${cats.map(c=>`<label class="frow"><input type="checkbox" data-fcat value="${c}" onchange="renderCatalogue()">${c}<span style="margin-right:auto;color:var(--muted);font-size:12px">${fa(PRODUCTS.filter(p=>p.cat===c).length)}</span></label>`).join('')}</div><div class="blk"><h4>متریال</h4>${mats.map(m=>`<label class="frow"><input type="checkbox" data-fmat value="${m}" onchange="renderCatalogue()">${m}</label>`).join('')}</div><div class="blk"><h4>رنگ</h4>${cols.map(c=>`<label class="frow"><input type="checkbox" data-fcol value="${c}" onchange="renderCatalogue()">${c}</label>`).join('')}</div><div class="blk"><h4>بازه قیمت (تومان)</h4><div style="display:flex;gap:8px"><input id="pMin" type="number" placeholder="از" style="width:50%;height:40px;border:1px solid #D8D2C8;border-radius:4px;padding:0 8px" oninput="renderCatalogue()"><input id="pMax" type="number" placeholder="تا" style="width:50%;height:40px;border:1px solid #D8D2C8;border-radius:4px;padding:0 8px" oninput="renderCatalogue()"></div></div>`}
+buildFilters();
+function renderTabs(n,list){const src=Array.isArray(list)?list:PRODUCTS;const tabs=[['all','محصولات',typeof n==='number'?n:src.length],['ست کامل','ست‌ها',src.filter(p=>p.cat==='ست کامل').length],['فضای باز','فضای باز',src.filter(p=>p.cat==='فضای باز').length]];document.getElementById('catTabs').innerHTML=tabs.map(t=>`<button class="${activeTab===t[0]?'act':''}" onclick="activeTab='${t[0]}';renderCatalogue()">${t[1]} — ${fa(t[2])}</button>`).join('')}
+function getFiltered(){let list=[...PRODUCTS];const q=norm(document.getElementById('catQ').value||'').toLowerCase();const rawQ=(document.getElementById('catQ').value||'').trim();if(rawQ)list=list.filter(p=>p.name.includes(rawQ)||p.code.toLowerCase().includes(rawQ.toLowerCase())||p.cat.includes(rawQ));
+if(activeTab!=='all')list=list.filter(p=>p.cat===activeTab);
+const fc=[...document.querySelectorAll('input[data-fcat]:checked')].map(i=>i.value);if(fc.length)list=list.filter(p=>fc.includes(p.cat));
+const fm=[...document.querySelectorAll('input[data-fmat]:checked')].map(i=>i.value);if(fm.length)list=list.filter(p=>fm.includes(p.mat));
+const fo=[...document.querySelectorAll('input[data-fcol]:checked')].map(i=>i.value);if(fo.length)list=list.filter(p=>fo.includes(p.color));
+const mn=+document.getElementById('pMin')?.value||0,mx=+document.getElementById('pMax')?.value||Infinity;list=list.filter(p=>p.price>=mn&&p.price<=mx);
+const s=document.getElementById('sortSel').value;if(s==='cheap')list.sort((a,b)=>a.price-b.price);if(s==='exp')list.sort((a,b)=>b.price-a.price);if(s==='new')list.sort((a,b)=>b.isNew-a.isNew);
+const chips=[...fc,...fm,...fo];document.getElementById('chips').innerHTML=chips.map(c=>`<button class="chip" onclick="uncheck('${c}')">${c} ×</button>`).join('');
+return list}
+function uncheck(v){document.querySelectorAll('.sidebar input').forEach(i=>{if(i.value===v)i.checked=false});renderCatalogue()}
+function clearFilters(){document.querySelectorAll('.sidebar input').forEach(i=>{if(i.type==='checkbox')i.checked=false;else i.value=''});document.getElementById('catQ').value='';activeTab='all';renderCatalogue()}
+function renderCatalogue(){if(!document.getElementById('tileGrid'))return;const list=getFiltered();renderTabs(list.length,list);document.getElementById('resultCount').textContent=`نمایش ${fa(list.length)} محصول`;document.getElementById('emptyState').style.display=list.length?'none':'block';document.getElementById('tileGrid').innerHTML=list.map(p=>`<article class="ctile" onclick="openProduct(${p.id})">${p.badge?`<span class="bdg">${p.badge}</span>`:''}<div class="iz"><img src="${p.img}"></div><h3>${p.name}</h3><div class="code">${p.code}</div><div class="pr">${faNum(p.price)} تومان</div><select onclick="event.stopPropagation()" onchange="if(this.value)openProduct(${p.id})"><option value="">یک گزینه را انتخاب کنید</option><option>ست کامل</option><option>صندلی تک</option><option>میز</option><option>تولید در ابعاد سفارشی</option></select></article>`).join('')}
+/* product */
+function openProduct(id){current=PRODUCTS[id];qty=1;angle=0;frameIdx=0;document.getElementById('qtyVal').textContent='۱';showView('product');document.getElementById('crumbCat').textContent=current.cat;document.getElementById('crumbName').textContent=current.name;document.getElementById('pName').textContent=current.name;document.getElementById('pDesc').textContent=current.desc;document.getElementById('stageImg').src=current.img;
+document.getElementById('thumbs').innerHTML=`<div class="th act" onclick="setThumb(this)">۳۶۰°</div>`+[current.img,IMG.cafe,IMG.bench].map(s=>`<img src="${s}" onclick="setThumb(this);document.getElementById('stageImg').src='${s}'">`).join('');
+document.getElementById('finishBox').innerHTML=[['رنگ چوب','wood',['#B7793F','#6B4226','#D9C7A7']],['رنگ فلز','metal',['#222222','#8B2E2E','#2E4A3A']],['پارچه','fabric',['#7A9B7E','#B7793F','#5B7A99']]].map(g=>`<div style="margin-top:20px"><b style="font-size:14px">${g[0]}</b><div class="swatches">${g[2].map((c,i)=>`<span class="sw ${i===0?'sel':''}" style="background:${c}" onclick="setFinish('${g[1]}','${c}',this)"></span>`).join('')}</div></div>`).join('');
+document.getElementById('dimChips').innerHTML=['۶۰×۶۰','۷۰×۷۰','۸۰×۱۲۰','ابعاد سفارشی'].map((d,i)=>`<button class="${i===1?'sel':''}" onclick="setDim('${d}',this)">${d}</button>`).join('');selDim='۷۰×۷۰';
+document.getElementById('accBox').innerHTML=[['مشخصات فنی',`متریال: ${current.mat} — رنگ کوره‌ای مقاوم، اتصالات تقویت‌شده، مناسب استفاده تجاری پرتکرار.`],['ابعاد و وزن','ابعاد انتخابی شما در پیش‌فاکتور ثبت می‌شود؛ وزن هر قلم بسته به ابعاد بین ۶ تا ۱۸ کیلوگرم است.'],['ارسال و گارانتی','ارسال به سراسر کشور با بسته‌بندی پروژه‌ای؛ ضمانت ۲ ساله اسکلت و اتصالات و ۷ روز مهلت بازگشت.']].map(a=>`<div class="acc-item"><button onclick="this.parentElement.classList.toggle('open');document.querySelectorAll('.acc-item').forEach(x=>{if(x!==this.parentElement)x.classList.remove('open')})">${a[0]}<span class="plus">+</span></button><div class="acc-body">${a[1]}</div></div>`).join('');
+calcPrice();applyFinish()}
+function setThumb(el){document.querySelectorAll('#thumbs .th,#thumbs img').forEach(t=>t.classList.remove('act'));el.classList.add('act')}
+function setFinish(k,c,el){finishes[k]=c;el.parentElement.querySelectorAll('.sw').forEach(s=>s.classList.remove('sel'));el.classList.add('sel');applyFinish();calcPrice()}
+const FRAMES=[0,1,2,3,4,5,6,7].map(i=>'assets/frame'+i+'.svg');
+let frameIdx=0;
+const WOODF={'#B7793F':'sepia(.25) saturate(1.1)','#6B4226':'sepia(.65) saturate(1.2) brightness(.85)','#D9C7A7':'sepia(.35) brightness(1.18)'};
+const METALF={'#222222':'contrast(1.05)','#8B2E2E':'hue-rotate(-28deg) saturate(1.35)','#2E4A3A':'hue-rotate(55deg) saturate(1.15)'};
+const FABF={'#7A9B7E':'','#B7793F':'saturate(1.45) hue-rotate(12deg)','#5B7A99':'hue-rotate(140deg) saturate(1.1)'};
+function applyFinish(){const img=document.getElementById('stageImg');img.style.transform='none';img.src=FRAMES[frameIdx];img.style.filter=[WOODF[finishes.wood]||'',METALF[finishes.metal]||'',FABF[finishes.fabric]||''].filter(Boolean).join(' ')||'none';const lbl=document.getElementById('frameLbl');if(lbl)lbl.textContent=fa(frameIdx*45)+'°'}
+function rotateStep(d){frameIdx=(frameIdx+d+8)%8;applyFinish();document.getElementById('dragHint').style.display='none'}
+let dragging=false,startX=0,startF=0;const stage=document.getElementById('stage');stage.addEventListener('pointerdown',e=>{dragging=true;startX=e.clientX;startF=frameIdx;stage.setPointerCapture(e.pointerId)});stage.addEventListener('pointermove',e=>{if(!dragging)return;const step=Math.round((startX-e.clientX)/36);const nf=(startF+step+16)%8;if(nf!==frameIdx){frameIdx=nf;applyFinish()}document.getElementById('dragHint').style.display='none'});stage.addEventListener('pointerup',()=>dragging=false);
+function setDim(d,el){selDim=d;document.querySelectorAll('#dimChips button').forEach(b=>b.classList.remove('sel'));el.classList.add('sel');document.getElementById('customDim').style.display=d==='ابعاد سفارشی'?'flex':'none';calcPrice()}
+function qtyStep(d){qty=Math.max(1,qty+d);document.getElementById('qtyVal').textContent=fa(qty);calcPrice()}
+function unitPrice(){let u=current.price;if(selDim==='۸۰×۱۲۰')u*=1.25;if(selDim==='ابعاد سفارشی')u*=1.4;const wm={'#B7793F':1,'#6B4226':1.08,'#D9C7A7':1.04},mm={'#222222':1,'#8B2E2E':1.05,'#2E4A3A':1.03},fm={'#7A9B7E':1,'#B7793F':1.06,'#5B7A99':1.02};u*= (wm[finishes.wood]||1)*(mm[finishes.metal]||1)*(fm[finishes.fabric]||1);return Math.round(u/1000)*1000}
+function calcPrice(){document.getElementById('pPrice').textContent=faNum(unitPrice()*qty)+' تومان';document.getElementById('pOld').textContent=current.old?faNum(current.old*qty)+' تومان':''}
+/* cart */
+function addToCart(id,q=1,variant=''){const p=PRODUCTS[id];const ex=cart.find(c=>c.id===id&&c.variant===variant);if(ex)ex.qty+=q;else cart.push({id,qty:q,variant,price:p.price});updateCart();toast()}
+function addCurrentToCart(){cart.push({id:current.id,qty, variant:`${selDim} — چوب ${finishes.wood}`,price:unitPrice()});updateCart();openCart()}
+function updateCart(){const n=cart.reduce((s,c)=>s+c.qty,0);document.getElementById('cartBadge').textContent=fa(n);document.getElementById('cartTitle').textContent=`سبد خرید (${fa(n)})`;
+document.getElementById('cartItems').innerHTML=cart.length?cart.map((c,i)=>{const p=PRODUCTS[c.id];return `<div class="cart-item"><img src="${p.img}"><div style="flex:1;min-width:0"><b style="font-size:14px">${p.name}</b><div style="font-size:12px;color:var(--muted)">${c.variant||p.code}</div><div style="font-size:14px;font-weight:700;margin-top:4px">${faNum(c.price*c.qty)} تومان</div><div style="display:flex;gap:10px;align-items:center;margin-top:6px"><button onclick="cartQty(${i},-1)" style="width:32px;height:32px">−</button><b>${fa(c.qty)}</b><button onclick="cartQty(${i},1)" style="width:32px;height:32px">+</button><a onclick="cart.splice(${i},1);updateCart()" style="color:#C62828;font-size:12px">حذف</a></div></div></div>`}).join(''):`<div style="text-align:center;padding:60px 16px;color:var(--muted)"><div style="display:grid;place-items:center;color:var(--muted)"><svg class="ic-svg" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M8.5 10V6.5a3.5 3.5 0 0 1 7 0V10"/></svg></div><p>سبد شما خالی است</p><button class="pill" onclick="closeAll();showView('catalogue')">مشاهده کاتالوگ</button></div>`;
+const total=cart.reduce((s,c)=>s+c.price*c.qty,0);document.getElementById('cartTotals').innerHTML=`<div style="display:flex;justify-content:space-between;font-size:14px"><span>جمع جزء</span><span>${faNum(total)} تومان</span></div><div style="display:flex;justify-content:space-between;font-weight:800;font-size:17px;margin-top:8px"><span>جمع کل</span><span>${faNum(total)} تومان</span></div><p style="font-size:12px;color:var(--muted);margin-top:6px">هزینه ارسال پروژه‌ای در پیش‌فاکتور نهایی اعلام می‌شود.</p>`}
+function cartQty(i,d){cart[i].qty=Math.max(1,cart[i].qty+d);updateCart()}
+function openCart(){document.getElementById('cartDrawer').classList.add('open');document.getElementById('backdrop').classList.add('show')}
+function closeAll(){document.getElementById('cartDrawer').classList.remove('open');document.getElementById('backdrop').classList.remove('show');document.getElementById('b2bModal').classList.remove('open');document.querySelector('.sidebar')?.classList.remove('open')}
+function toast(){const t=document.getElementById('toast');t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+updateCart();
+/* checkout */
+const daySel=document.getElementById('dDay');daySel.innerHTML=Array.from({length:30},(_,i)=>`<option>${fa(i+1)}</option>`).join('');
+function renderCheckout(){const total=cart.reduce((s,c)=>s+c.price*c.qty,0);document.getElementById('coSummary').innerHTML=(cart.map(c=>{const p=PRODUCTS[c.id];return `<div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px"><span>${p.name} × ${fa(c.qty)}</span><span>${faNum(c.price*c.qty)}</span></div>`}).join('')||'<p style="font-size:14px">سبد خالی است</p>')+`<div style="display:flex;justify-content:space-between;font-size:14px;margin-top:12px"><span>ارسال</span><span>پس‌کرایه / پروژه‌ای</span></div><div style="display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin-top:12px;border-top:1px solid #ddd;padding-top:12px"><span>جمع کل</span><span>${faNum(total)} تومان</span></div>`}
+function validMobile(v){return /^09\d{9}$/.test(norm(v).trim())}
+function submitOrder(e){e.preventDefault();let ok=true;const check=(id,valid)=>{const f=document.getElementById(id);const err=f.closest('.field').querySelector('.err');const good=valid(f.value);f.style.borderColor=good?'#D8D2C8':'#C62828';if(err)err.style.display=good?'none':'block';if(!good)ok=false};
+check('fName',v=>v.trim().length>3);check('fMobile',validMobile);check('fCity',v=>v.trim().length>2);check('fAddr',v=>v.trim().length>8);if(!ok)return;
+document.getElementById('checkoutWrap').style.display='none';const s=document.getElementById('successBox');s.style.display='block';document.getElementById('successDetail').textContent=`کد سفارش: ${fa('TK-'+Math.floor(100000+Math.random()*899999))} — برآورد تحویل: ${document.getElementById('dDay').value} ${document.getElementById('dMonth').value} ${document.getElementById('dYear').value} — کارشناسان تیکاردو برای هماهنگی تماس می‌گیرند.`;cart=[];updateCart()}
+/* B2B */
+function openB2B(){document.getElementById('b2bModal').classList.add('open')}
+function submitB2B(e){e.preventDefault();let ok=true;const city=document.getElementById('bCity'),mob=document.getElementById('bMobile');[[city,v=>v.trim().length>1],[mob,validMobile]].forEach(([f,fn])=>{const good=fn(f.value);f.style.borderColor=good?'#D8D2C8':'#C62828';f.closest('.field').querySelector('.err').style.display=good?'none':'block';if(!good)ok=false});if(!ok)return;const s=document.getElementById('b2bSuccess');s.style.display='block';s.textContent=`درخواست شما ثبت شد؛ کارشناسان تیکاردو تماس می‌گیرند. خلاصه: ${document.getElementById('bType').value} در ${city.value} — صندلی ${document.getElementById('bChairs').value}، میز ${document.getElementById('bTables').value}.`}
+renderCatalogue();
+</script>
+</body></html>
