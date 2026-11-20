@@ -151,6 +151,22 @@ section + section{border-top:1px solid var(--line)}
   .ov-in .ph img{max-height:52vh}
   nav{display:none}
 }
+
+/* === MOBILEFIX 2026-11-20: tap targets + fluid type + overflow guard === */
+img{max-width:100%}
+@media(max-width:768px){
+ html,body{overflow-x:hidden}
+ body{padding:0}
+ button,a,input,select,textarea{touch-action:manipulation}
+ button{min-height:40px}
+ input:not([type=checkbox]):not([type=radio]),select,textarea{min-height:44px;font-size:16px}
+}
+
+@media(max-width:640px){.ov-in{grid-template-columns:1fr;padding-top:9vh}.ov-in .ph img{max-height:44vh}}
+@media(max-width:768px){
+ .ov-close{min-height:40px!important;min-width:44px;padding:8px 10px}
+ input{min-height:44px!important}
+}
 </style>
 </head>
 <body>
