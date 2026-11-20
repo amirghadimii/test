@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوتیک لونا — کالکشن پاییزه</title>
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAF7F1;--ink:#17130C;--mut:#7A7264;--acc:#A0522D;--acc2:#C98A4B;--line:#E7DFD2;--card:#fff;--ok:#2E7D4F}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+/* campaign bar */
+.campaign{background:var(--ink);color:#F5EEDF;text-align:center;padding:9px 12px;font-size:13.5px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+.campaign b{color:var(--acc2)}
+.count{display:inline-flex;gap:5px;direction:ltr}
+.count span{background:#2A241A;border:1px solid #453B2A;border-radius:7px;padding:2px 7px;font-weight:700;min-width:36px;text-align:center}
+.count small{display:block;font-size:9px;color:#B9AC93;font-weight:400}
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(250,247,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1280px;margin:auto;display:flex;align-items:center;gap:22px;padding:14px 22px}
+.logo{font-size:27px;font-weight:800;letter-spacing:-.5px}
+.logo em{font-style:normal;color:var(--acc)}
+nav.main{display:flex;gap:24px;margin-inline-start:12px;font-size:15px;font-weight:500}
+nav.main a{opacity:.85}nav.main a:hover{opacity:1;color:var(--acc)}
+.hicons{margin-inline-start:auto;display:flex;gap:8px;align-items:center}
+.icobtn{position:relative;width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.2s}
+.icobtn:hover{border-color:var(--ink)}
+.icobtn .bdg{position:absolute;top:-5px;inset-inline-start:-5px;background:var(--acc);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:grid;place-items:center;padding:0 4px}
+/* hero */
+.hero{max-width:1280px;margin:auto;padding:38px 22px 10px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.hero .kick{color:var(--acc);font-weight:700;font-size:15px;letter-spacing:.5px}
+.hero h1{font-size:clamp(52px,8.5vw,118px);font-weight:800;line-height:1.04;letter-spacing:-2px;margin:10px 0 6px}
+.hero h1 .thin{display:block;font-weight:500;font-size:clamp(24px,3.4vw,44px);letter-spacing:-1px;color:var(--mut)}
+.hero p{color:var(--mut);font-size:16.5px;line-height:2;max-width:480px}
+.hero .cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{background:var(--ink);color:#fff;border:none;padding:14px 30px;border-radius:40px;font-size:15.5px;font-weight:700;transition:.2s}
+.btn:hover{background:var(--acc)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.heroimg{position:relative}
+.heroimg img{width:100%;height:560px;object-fit:cover;border-radius:200px 200px 14px 14px}
+.heroimg .tag{position:absolute;bottom:22px;inset-inline-start:-14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 18px;box-shadow:0 14px 34px rgba(23,19,12,.13);font-size:14px}
+.heroimg .tag b{display:block;font-size:17px}
+/* marquee */
+.marquee{margin-top:34px;background:var(--acc);color:#FFF6EA;overflow:hidden;padding:11px 0;transform:rotate(-1.1deg) scale(1.02)}
+.mq-track{display:flex;gap:0;width:max-content;animation:mq 26s linear infinite;font-weight:700;font-size:15.5px;white-space:nowrap}
+.mq-track span{padding:0 26px}
+@keyframes mq{to{transform:translateX(50%)}}
+/* sections */
+section.blk{max-width:1280px;margin:auto;padding:56px 22px 8px}
+.shead{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.shead h2{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-1px}
+.shead p{color:var(--mut);margin-top:4px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:30px;padding:8px 20px;font-size:14.5px;font-weight:600;transition:.15s}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(23,19,12,.12)}
+.pimg{position:relative;overflow:hidden;aspect-ratio:3/3.7;background:#EFE9DD}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.pcard:hover .pimg img{transform:scale(1.06)}
+.badge{position:absolute;top:12px;inset-inline-start:12px;background:var(--acc);color:#fff;font-size:12px;font-weight:700;padding:4px 11px;border-radius:20px;z-index:2}
+.badge.new{background:var(--ink)}
+.heart{position:absolute;top:10px;inset-inline-end:10px;width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.92);font-size:18px;display:grid;place-items:center;z-index:2;color:#B9AE9C;transition:.15s}
+.heart.on{color:#D43D5A;transform:scale(1.08)}
+.qv{position:absolute;bottom:12px;inset-inline:12px;background:rgba(23,19,12,.92);color:#fff;border:none;border-radius:11px;padding:11px;font-size:14.5px;font-weight:700;opacity:0;transform:translateY(8px);transition:.25s;z-index:2}
+.pcard:hover .qv{opacity:1;transform:none}
+.pinfo{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pinfo .cat{font-size:12px;color:var(--acc);font-weight:700}
+.pinfo h3{font-size:16.5px;font-weight:700}
+.pinfo .meta{font-size:12.5px;color:var(--mut)}
+.prow{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:6px}
+.price{font-weight:800;font-size:16.5px}
+.price small{font-size:11.5px;color:var(--mut);font-weight:500}
+.oldprice{display:block;font-size:12.5px;color:#B3543F;text-decoration:line-through;font-weight:500}
+.addbtn{background:var(--ink);color:#fff;border:none;border-radius:10px;padding:9px 15px;font-size:13.5px;font-weight:700}
+.addbtn:hover{background:var(--acc)}
+/* lookbook */
+.look{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.look figure{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4}
+.look figure:nth-child(2){margin-top:34px}
+.look figure:nth-child(4){margin-top:34px}
+.look img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.look figure:hover img{transform:scale(1.05)}
+.look figcaption{position:absolute;bottom:0;inset-inline:0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(10,8,4,.78));color:#fff;font-weight:700;font-size:15.5px}
+.look figcaption small{display:block;font-weight:400;font-size:12.5px;opacity:.85}
+/* perks */
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.perk{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.perk .pi{font-size:26px;margin-bottom:8px}
+.perk h3{font-size:16.5px;margin-bottom:5px}
+.perk p{color:var(--mut);font-size:14px;line-height:1.9}
+/* newsletter */
+.news{margin:56px auto 0;max-width:1280px;padding:0 22px}
+.news-in{background:var(--ink);border-radius:22px;color:#F7F1E3;padding:44px 34px;display:grid;grid-template-columns:1.1fr .9fr;gap:26px;align-items:center}
+.news h2{font-size:clamp(24px,3.4vw,36px);font-weight:800}
+.news p{color:#CFC4AC;margin-top:8px;line-height:1.9;font-size:15px}
+.nform{display:flex;gap:10px}
+.nform input{flex:1;border:1.5px solid #453B2A;background:#241E14;color:#fff;border-radius:12px;padding:14px 16px;font-family:inherit;font-size:15px;outline:none}
+.nform input:focus{border-color:var(--acc2)}
+.nform button{background:var(--acc);color:#fff;border:none;border-radius:12px;padding:14px 26px;font-weight:700;font-size:15px}
+.nok{color:#8FD6A8;font-weight:700;margin-top:10px;display:none}
+footer{max-width:1280px;margin:54px auto 0;padding:26px 22px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--mut);font-size:13.5px}
+footer .fl{display:flex;gap:20px;flex-wrap:wrap}
+/* drawer + modal */
+.overlay{position:fixed;inset:0;background:rgba(18,14,8,.55);opacity:0;pointer-events:none;transition:.25s;z-index:80}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(430px,94vw);background:#fff;z-index:90;transform:translateX(-105%);transition:.32s;display:flex;flex-direction:column;box-shadow:0 0 50px rgba(0,0,0,.25)}
+[dir=rtl] .drawer{transform:translateX(-105%)}
+.drawer.open{transform:none!important}
+.dhead{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dhead h3{font-size:18px;font-weight:800}
+.xbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:16px}
+.ditems{flex:1;overflow:auto;padding:14px 18px;display:flex;flex-direction:column;gap:13px}
+.citem{display:flex;gap:12px;border:1px solid var(--line);border-radius:13px;padding:10px}
+.citem img{width:66px;height:82px;object-fit:cover;border-radius:9px}
+.citem .ci{flex:1}
+.citem h4{font-size:14.5px}
+.citem .vr{font-size:12px;color:var(--mut);margin:2px 0 7px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.qty button{width:28px;height:28px;border:none;background:#F4EFE4;font-size:15px;font-weight:700}
+.qty b{min-width:30px;text-align:center;font-size:14px}
+.citem .cp{font-weight:800;font-size:14.5px;white-space:nowrap}
+.rm{border:none;background:none;color:#B3543F;font-size:12.5px;font-weight:700;margin-top:5px}
+.empty{text-align:center;color:var(--mut);padding:44px 10px;line-height:2}
+.dfoot{border-top:1px solid var(--line);padding:16px 20px}
+.shipbar{height:9px;background:#EFE8D9;border-radius:6px;overflow:hidden;margin:7px 0 4px}
+.shipbar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc2),var(--acc));width:0;transition:.4s}
+.shiptxt{font-size:13px;color:var(--mut)}
+.shiptxt b{color:var(--acc)}
+.trow{display:flex;justify-content:space-between;font-size:14.5px;margin-top:7px}
+.trow.grand{font-size:17px;font-weight:800;border-top:1px dashed var(--line);padding-top:10px}
+.wide{width:100%;margin-top:13px;padding:14px;font-size:16px}
+/* modal */
+.modal{position:fixed;inset:0;z-index:95;display:none;place-items:center;padding:16px}
+.modal .overlay{z-index:0}
+.modal.open{display:grid}
+.mbox{background:#fff;border-radius:20px;max-width:880px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:2}
+.mgal{padding:18px}
+.mgal .main{border-radius:14px;overflow:hidden;aspect-ratio:3/3.6;background:#EFE9DD}
+.mgal .main img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:9px;margin-top:10px}
+.thumbs img{width:70px;height:84px;object-fit:cover;border-radius:9px;cursor:pointer;border:2.5px solid transparent}
+.thumbs img.on{border-color:var(--acc)}
+.minfo{padding:24px 22px 22px 8px}
+.minfo .cat{color:var(--acc);font-weight:700;font-size:13px}
+.minfo h3{font-size:24px;font-weight:800;margin:5px 0}
+.minfo .desc{color:var(--mut);font-size:14.5px;line-height:2;margin:8px 0 14px}
+.opt-t{font-size:14px;font-weight:700;margin:13px 0 8px}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.size{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 15px;font-size:14px;font-weight:600}
+.size.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.size small{display:block;font-size:10.5px;font-weight:500;opacity:.75}
+.swatches{display:flex;gap:9px}
+.sw{width:34px;height:34px;border-radius:50%;border:2.5px solid transparent;outline:2px solid var(--line);outline-offset:2px;position:relative}
+.sw.on{outline-color:var(--acc)}
+.mprice{margin:18px 0 4px;font-size:23px;font-weight:800}
+.mprice small{font-size:13px;color:var(--mut);font-weight:500}
+.mclose{position:absolute;top:12px;inset-inline-end:12px;z-index:3}
+/* checkout */
+.ck{display:none}
+.ck.open{display:block}
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:13.5px;font-weight:700;margin-bottom:5px}
+.fld input,.fld textarea,.fld select{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;font-family:inherit;font-size:14.5px;outline:none;background:#FFFDF9}
+.fld input:focus,.fld textarea:focus{border-color:var(--acc)}
+.radio{display:flex;gap:9px;align-items:center;border:1.5px solid var(--line);border-radius:11px;padding:11px 14px;font-size:14.5px;margin-bottom:9px;cursor:pointer}
+.radio.on{border-color:var(--acc);background:#FBF3EA}
+.success{text-align:center;padding:26px 8px}
+.success .big{font-size:52px}
+.success h3{font-size:21px;margin:8px 0}
+.code{display:inline-block;background:#F4EFE4;border:1.5px dashed var(--acc);border-radius:11px;padding:9px 22px;font-weight:800;font-size:18px;letter-spacing:1px;margin:10px 0}
+.toast{position:fixed;bottom:22px;inset-inline-start:50%;transform:translate(50%,80px);background:var(--ink);color:#fff;padding:13px 24px;border-radius:30px;font-size:14.5px;font-weight:600;z-index:120;transition:.35s;box-shadow:0 14px 34px rgba(0,0,0,.3);white-space:nowrap}
+.toast.show{transform:translate(50%,0)}
+@media(max-width:1020px){.grid{grid-template-columns:repeat(3,1fr)}.look{grid-template-columns:repeat(2,1fr)}.heroimg img{height:460px}}
+@media(max-width:760px){
+ nav.main{display:none}
+ .hero{grid-template-columns:1fr;padding-top:24px}
+ .heroimg img{height:400px}
+ .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+ .perks{grid-template-columns:1fr}
+ .news-in{grid-template-columns:1fr}
+ .nform{flex-direction:column}
+ .mbox{grid-template-columns:1fr}
+ .minfo{padding:6px 20px 22px}
+ .look figure:nth-child(2),.look figure:nth-child(4){margin-top:0}
+}
+</style>
+</head>
+<body>
+
+<div class="campaign">
+  <span>🔥 <b>حراج پایان فصل لونا</b> — تا ۴۰٪ تخفیف روی کالکشن پاییزه</span>
+  <span class="count" id="countdown">
+    <span><b id="cd-d">۰۰</b><small>روز</small></span>
+    <span><b id="cd-h">۰۰</b><small>ساعت</small></span>
+    <span><b id="cd-m">۰۰</b><small>دقیقه</small></span>
+    <span><b id="cd-s">۰۰</b><small>ثانیه</small></span>
+  </span>
+</div>
+
+<header>
+  <div class="hwrap">
+    <a class="logo" href="#">بوتیک <em>لونا</em></a>
+    <nav class="main">
+      <a href="#shop">فروشگاه</a>
+      <a href="#lookbook">لوک‌بوک</a>
+      <a href="#perks">چرا لونا؟</a>
+      <a href="#news">باشگاه مشتریان</a>
+    </nav>
+    <div class="hicons">
+      <button class="icobtn" id="wishBtn" title="علاقه‌مندی‌ها">♥<span class="bdg" id="wishCount">۰</span></button>
+      <button class="icobtn" id="cartBtn" title="سبد خرید">🛍<span class="bdg" id="cartCount">۰</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div>
+    <div class="kick">کالکشن جدید — پاییز ۱۴۰۴</div>
+    <h1>استایلِ<span class="thin">که امضای توست،</span>لونا.</h1>
+    <p>دوخت اختصاصی، پارچه‌های منتخب و طراحی‌هایی که هر فصل محدود تولید می‌شوند. کالکشن پاییزه لونا با ۱۲ آیتم منتخب زنانه و مردانه، کیف و کفش — همین حالا قابل سفارش است.</p>
+    <div class="cta">
+      <a href="#shop"><button class="btn">مشاهده کالکشن</button></a>
+      <a href="#lookbook"><button class="btn ghost">لوک‌بوک فصل</button></a>
+    </div>
+  </div>
+  <div class="heroimg">
+    <img src="assets/img/hero.jpg" alt="کالکشن پاییزه بوتیک لونا">
+    <div class="tag"><b>پیراهن مجلسی «شب»</b>از ۴٬۸۵۰٬۰۰۰ تومان — آیتم منتخب فصل</div>
+  </div>
+</div>
+
+<div class="marquee"><div class="mq-track" id="mq"></div></div>
+
+<section class="blk" id="shop">
+  <div class="shead">
+    <div>
+      <h2>فروشگاه لونا</h2>
+      <p>۱۲ آیتم منتخب — برای مشاهده جزئیات، سایز و رنگ روی «مشاهده سریع» بزنید.</p>
+    </div>
+    <div class="chips" id="filters">
+      <button class="chip on" data-f="all">همه</button>
+      <button class="chip" data-f="women">زنانه</button>
+      <button class="chip" data-f="men">مردانه</button>
+      <button class="chip" data-f="bag">کیف</button>
+      <button class="chip" data-f="shoes">کفش</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="blk" id="lookbook">
+  <div class="shead">
+    <div>
+      <h2>لوک‌بوک پاییزه</h2>
+      <p>ترکیب‌های پیشنهادی استایلیست لونا برای این فصل.</p>
+    </div>
+  </div>
+  <div class="look">
+    <figure><img src="assets/img/look1.jpg" alt="لوک ۱"><figcaption>لوک ۰۱ — خرید روزانه<small>پیراهن گلدار + کیف کارامل</small></figcaption></figure>
+    <figure><img src="assets/img/look2.jpg" alt="لوک ۲"><figcaption>لوک ۰۲ — فضای بوتیک<small>کالکشن آویخته‌شده فصل</small></figcaption></figure>
+    <figure><img src="assets/img/look3.jpg" alt="لوک ۳"><figcaption>لوک ۰۳ — پشت صحنه<small>طراحی و دوخت در آتلیه لونا</small></figcaption></figure>
+    <figure><img src="assets/img/look4.jpg" alt="لوک ۴"><figcaption>لوک ۰۴ — ویترین<small>آیتم‌های منتخب ویترین پاییزه</small></figcaption></figure>
+  </div>
+</section>
+
+<section class="blk" id="perks">
+  <div class="shead"><div><h2>چرا لونا؟</h2></div></div>
+  <div class="perks">
+    <div class="perk"><div class="pi">🚚</div><h3>ارسال رایگان</h3><p>برای همه سفارش‌های بالای ۲٬۰۰۰٬۰۰۰ تومان ارسال رایگان است؛ سفارش‌های تهران تا ۲۴ ساعت تحویل داده می‌شوند.</p></div>
+    <div class="perk"><div class="pi">↩️</div><h3>۷ روز ضمانت بازگشت</h3><p>اگر سایز یا مدل انتخابی مناسب نبود، تا ۷ روز بدون قید و شرط امکان تعویض یا بازگشت دارید.</p></div>
+    <div class="perk"><div class="pi">✂️</div><h3>تولید محدود اختصاصی</h3><p>هر آیتم در تیراژ محدود و با پارچه منتخب تولید می‌شود؛ وقتی موجودی تمام شود، دوباره تولید نمی‌شود.</p></div>
+  </div>
+</section>
+
+<div class="news" id="news">
+  <div class="news-in">
+    <div>
+      <h2>از کالکشن بعدی زودتر از همه باخبر شوید</h2>
+      <p>عضو باشگاه لونا شوید؛ پیش‌فروش کالکشن زمستانه اول برای اعضای باشگاه باز می‌شود و کد تخفیف ۱۰٪ اولین خرید برایتان ارسال خواهد شد.</p>
+    </div>
+    <div>
+      <form class="nform" id="newsForm">
+        <input type="email" id="newsEmail" placeholder="ایمیل شما" required>
+        <button type="submit">عضویت</button>
+      </form>
+      <div class="nok" id="newsOk">✓ عضویت شما در باشگاه لونا ثبت شد؛ کد تخفیف به‌زودی ارسال می‌شود.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>© ۱۴۰۴ بوتیک لونا — نمونه فروشگاه اینترنتی طراحی‌شده به‌صورت اختصاصی (دمو)</div>
+  <div class="fl"><a href="#shop">فروشگاه</a><a href="#lookbook">لوک‌بوک</a><a href="#perks">چرا لونا؟</a><a href="#">راهنمای سایز</a><a href="#">پیگیری سفارش</a></div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="dhead"><h3>سبد خرید شما</h3><button class="xbtn" id="drawerClose">✕</button></div>
+  <div id="cartView" style="display:flex;flex-direction:column;flex:1;min-height:0">
+    <div class="ditems" id="cartItems"></div>
+    <div class="dfoot" id="cartFoot">
+      <div class="shiptxt" id="shipTxt"></div>
+      <div class="shipbar"><i id="shipFill"></i></div>
+      <div class="trow"><span>جمع اقلام</span><b class="num" id="subTotal">۰ تومان</b></div>
+      <div class="trow"><span>هزینه ارسال</span><b class="num" id="shipCost">۰ تومان</b></div>
+      <div class="trow grand"><span>مبلغ قابل پرداخت</span><b class="num" id="grandTotal">۰ تومان</b></div>
+      <button class="btn wide" id="toCheckout">ثبت سفارش و پرداخت ←</button>
+    </div>
+  </div>
+  <div class="ck" id="checkoutView" style="overflow:auto;padding:18px 20px">
+    <form id="ckForm">
+      <div class="fld"><label>نام و نام خانوادگی</label><input id="f-name" required placeholder="مثلاً سارا محمدی"></div>
+      <div class="fld"><label>شماره موبایل</label><input id="f-mobile" required inputmode="tel" placeholder="۰۹۱۲ ـــ ـــ ــ ــ"></div>
+      <div class="fld"><label>شهر</label>
+        <select id="f-city"><option>تهران</option><option>کرج</option><option>اصفهان</option><option>شیراز</option><option>مشهد</option><option>تبریز</option><option>سایر شهرها</option></select></div>
+      <div class="fld"><label>نشانی کامل</label><textarea id="f-addr" rows="2" required placeholder="خیابان، کوچه، پلاک، واحد"></textarea></div>
+      <div class="fld"><label>روش پرداخت</label>
+        <label class="radio on"><input type="radio" name="pay" checked> پرداخت آنلاین (درگاه بانکی)</label>
+        <label class="radio"><input type="radio" name="pay"> پرداخت در محل (فقط تهران)</label>
+      </div>
+      <div class="trow grand" style="margin-bottom:6px"><span>مبلغ نهایی سفارش</span><b class="num" id="ckTotal">۰ تومان</b></div>
+      <button class="btn wide" type="submit">پرداخت و نهایی‌کردن سفارش</button>
+      <button class="btn ghost wide" type="button" id="backToCart">← بازگشت به سبد</button>
+    </form>
+    <div class="success" id="ckSuccess" style="display:none">
+      <div class="big">🎉</div>
+      <h3>سفارش شما با موفقیت ثبت شد!</h3>
+      <p style="color:var(--mut);line-height:2">رسید سفارش پیامک می‌شود و سفارش طی ۲۴ تا ۴۸ ساعت آینده ارسال خواهد شد.</p>
+      <div class="code" id="orderCode">LUNA-۰۰۰۰۰۰</div>
+      <p class="num" id="orderSummary" style="font-weight:700"></p>
+      <button class="btn wide" id="successClose">ادامه خرید</button>
+    </div>
+  </div>
+</aside>
+
+<!-- QUICK VIEW MODAL -->
+<div class="modal" id="modal">
+  <div class="overlay show" id="modalOverlay" style="position:absolute"></div>
+  <div class="mbox">
+    <button class="xbtn mclose" id="modalClose">✕</button>
+    <div class="mgal">
+      <div class="main"><img id="mImg" src="" alt=""></div>
+      <div class="thumbs" id="mThumbs"></div>
+    </div>
+    <div class="minfo">
+      <div class="cat" id="mCat"></div>
+      <h3 id="mName"></h3>
+      <div class="desc" id="mDesc"></div>
+      <div class="opt-t">سایز / مدل</div>
+      <div class="sizes" id="mSizes"></div>
+      <div class="opt-t">رنگ</div>
+      <div class="swatches" id="mColors"></div>
+      <div class="mprice"><span class="num" id="mPrice"></span> <small>تومان</small> <span class="oldprice" id="mOld" style="display:inline-block"></span></div>
+      <button class="btn wide" id="mAdd">افزودن به سبد خرید 🛍</button>
+      <button class="btn ghost wide" id="mWish">♥ افزودن به علاقه‌مندی‌ها</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const FA=n=>Number(n).toLocaleString('fa-IR');
+const FREE_SHIP=2000000, SHIP=85000;
+const CATS={women:'پوشاک زنانه',men:'پوشاک مردانه',bag:'کیف',shoes:'کفش'};
+const PRODUCTS=[
+{id:1,name:'پیراهن مجلسی «شب»',cat:'women',price:4850000,old:6200000,badge:'٪۲۲ تخفیف',imgs:['p1-a.jpg','p1-b.jpg'],desc:'پیراهن مجلسی ساتن با برش اختصاصی آتلیه لونا؛ مناسب مهمانی و مراسم رسمی. دوخت تمیز، زیپ مخفی و آستر کامل.',sizes:[['۳۶',0],['۳۸',0],['۴۰',0],['۴۲',60000],['۴۴',120000]],colors:[['مشکی','#17130C',0],['قرمز','#A31621',90000]]},
+{id:2,name:'کت تک «آبی کلاسیک»',cat:'women',price:3690000,old:0,badge:'جدید',imgs:['p2-a.jpg','p2-b.jpg'],desc:'کت تک زنانه با یقه انگلیسی و دوخت ایتالیایی؛ قابل ست با شلوار پارچه‌ای یا دامن. پارچه کرپ مازراتی ضدچروک.',sizes:[['S',0],['M',0],['L',50000],['XL',90000]],colors:[['آبی','#2C4A73',0],['کرم','#D9C7A7',0]]},
+{id:3,name:'پیراهن گلدار «بهار»',cat:'women',price:2450000,old:0,badge:'',imgs:['p3-a.jpg','p3-b.jpg'],desc:'پیراهن نخی خنک با چاپ گل‌های بهاری؛ انتخابی سبک برای استایل روزمره و مهمانی‌های دوستانه.',sizes:[['S',0],['M',0],['L',40000],['XL',80000]],colors:[['گلدار صورتی','#D98CA6',0],['گلدار آبی','#7FA3C7',0]]},
+{id:4,name:'پیراهن «خورشید»',cat:'women',price:2890000,old:3600000,badge:'٪۲۰ تخفیف',imgs:['p4-a.jpg','p4-b.jpg'],desc:'پیراهن زرد پرانرژی با دامن کلوش؛ رنگ فصل پاییز لونا. پارچه لینن ترکیب‌شده با ویسکوز.',sizes:[['۳۶',0],['۳۸',0],['۴۰',50000],['۴۲',90000]],colors:[['زرد','#E3B505',0],['نارنجی','#D96C27',0]]},
+{id:5,name:'پیراهن مجلسی «جشن»',cat:'women',price:5400000,old:0,badge:'جدید',imgs:['p5-a.jpg','p5-b.jpg'],desc:'پیراهن مجلسی رنگی با دامن چندلایه؛ برای شب‌هایی که قرار است دیده شوید. تولید محدود ۳۰ عددی.',sizes:[['۳۶',0],['۳۸',0],['۴۰',70000],['۴۲',130000]],colors:[['چندرنگ','#8E44AD',0],['قرمز','#B03A2E',60000]]},
+{id:6,name:'کت چرم «راک»',cat:'men',price:7900000,old:9500000,badge:'٪۱۷ تخفیف',imgs:['p6-a.jpg','p6-b.jpg'],desc:'کت چرم طبیعی گاوی با آستر گرم؛ استایل ماندگار مردانه لونا. زیپ فلزی و دوخت تقویت‌شده.',sizes:[['M',0],['L',0],['XL',120000],['XXL',200000]],colors:[['مشکی','#17130C',0],['قهوه‌ای سوخته','#5C3317',150000]]},
+{id:7,name:'پیراهن مردانه «گلدار»',cat:'men',price:1980000,old:0,badge:'',imgs:['p7-a.jpg','p7-b.jpg'],desc:'پیراهن نخی مردانه با چاپ گل‌های ریز؛ فیت مدرن و مناسب استایل کژوال تابستانی و پاییزه.',sizes:[['M',0],['L',0],['XL',40000],['XXL',70000]],colors:[['سفید گلدار','#EDEAE2',0],['سرمه‌ای','#22304A',0]]},
+{id:8,name:'ست دنیم «شهری»',cat:'men',price:3350000,old:0,badge:'جدید',imgs:['p8-a.jpg','p8-b.jpg'],desc:'ست کت و شلوار دنیم (جین) با شست‌وشوی سنگی؛ ترکیب آماده برای استایل خیابانی. شلوار اسلیم فیت.',sizes:[['M',0],['L',60000],['XL',110000]],colors:[['آبی جین','#3D5A80',0],['زرد خردلی','#D9A404',80000]]},
+{id:9,name:'کیف چرم «کارامل»',cat:'bag',price:4200000,old:0,badge:'',imgs:['p9-a.jpg','p9-b.jpg'],desc:'کیف دستی چرم طبیعی با فضای داخلی جادار و بند دوشی قابل تنظیم؛ دست‌دوز آتلیه لونا.',sizes:[['متوسط',0],['بزرگ',350000]],colors:[['قهوه‌ای','#7B4B2A',0],['مشکی','#17130C',0]]},
+{id:10,name:'کیف مجلسی «شب مشکی»',cat:'bag',price:3750000,old:4600000,badge:'٪۱۸ تخفیف',imgs:['p10-a.jpg','p10-b.jpg'],desc:'کیف مجلسی مشکی با یراق طلایی؛ همراه همیشگی استایل‌های رسمی. دارای بند زنجیری جداشدنی.',sizes:[['کوچک',0],['متوسط',250000]],colors:[['مشکی','#17130C',0],['کرم','#D9C7A7',50000]]},
+{id:11,name:'کفش پاشنه‌دار «روژ»',cat:'shoes',price:2980000,old:0,badge:'جدید',imgs:['p11-a.jpg','p11-b.jpg'],desc:'کفش پاشنه‌دار ورنی قرمز با پاشنه ۹ سانتی‌متری پایدار؛ زیره ضدلغزش و کفی طبی نرم.',sizes:[['۳۷',0],['۳۸',0],['۳۹',0],['۴۰',40000],['۴۱',80000]],colors:[['قرمز','#C0272D',0],['مشکی','#17130C',0]]},
+{id:12,name:'کتانی «ایرفلکس»',cat:'shoes',price:3480000,old:0,badge:'',imgs:['p12-a.jpg','p12-b.jpg'],desc:'کتانی سبک با زیره ایرفلکس و رویه تنفس‌پذیر؛ برای پیاده‌روی روزانه و استایل اسپرت شهری.',sizes:[['۴۰',0],['۴۱',0],['۴۲',0],['۴۳',50000],['۴۴',90000],['۴۵',130000]],colors:[['چندرنگ','#8A93A6',0],['سفید','#F2F2F2',0]]}
+];
+let cart=[], wish=new Set(), curFilter='all';
+let cur=null, curSize=0, curColor=0;
+const $=s=>document.querySelector(s);
+function priceOf(p,si,ci){return p.price+(p.sizes[si]?p.sizes[si][1]:0)+(p.colors[ci]?p.colors[ci][2]:0)}
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400)}
+
+/* marquee */
+(function(){const items=['ارسال رایگان سفارش‌های بالای ۲ میلیون تومان','ضمانت بازگشت ۷ روزه','کالکشن پاییزه رسید','تولید محدود اختصاصی لونا','۷٪ تخفیف اولین خرید اعضای باشگاه'];const html=items.map(i=>'<span>✦ '+i+'</span>').join('');$('#mq').innerHTML=html+html+html+html;})();
+
+/* countdown: ends in 2 days 11:23 from first load */
+const CD_END=Date.now()+((2*24+11)*3600+23*60)*1000;
+function tick(){let d=Math.max(0,CD_END-Date.now());const days=Math.floor(d/86400000);d%=86400000;const h=Math.floor(d/3600000);d%=3600000;const m=Math.floor(d/60000);const s=Math.floor(d%60000/1000);const f=n=>Number(n).toLocaleString('fa-IR',{minimumIntegerDigits:2});$('#cd-d').textContent=f(days);$('#cd-h').textContent=f(h);$('#cd-m').textContent=f(m);$('#cd-s').textContent=f(s)}
+tick();setInterval(tick,1000);
+
+/* render products */
+function render(){
+  const g=$('#grid');g.innerHTML='';
+  PRODUCTS.filter(p=>curFilter==='all'||p.cat===curFilter).forEach(p=>{
+    const card=document.createElement('article');card.className='pcard';card.dataset.id=p.id;
+    card.innerHTML=`
+      <div class="pimg">
+        <img src="assets/img/${p.imgs[0]}" alt="${p.name}" loading="lazy">
+        ${p.badge?`<span class="badge ${p.badge==='جدید'?'new':''}">${p.badge}</span>`:''}
+        <button class="heart ${wish.has(p.id)?'on':''}" data-wish="${p.id}">♥</button>
+        <button class="qv" data-qv="${p.id}">مشاهده سریع و انتخاب سایز</button>
+      </div>
+      <div class="pinfo">
+        <span class="cat">${CATS[p.cat]}</span>
+        <h3>${p.name}</h3>
+        <span class="meta">${p.sizes.length} سایز · ${p.colors.length} رنگ</span>
+        <div class="prow">
+          <div>${p.old?`<span class="oldprice num">${FA(p.old)}</span>`:''}<span class="price num">${FA(p.price)} <small>تومان</small></span></div>
+          <button class="addbtn" data-add="${p.id}">+ افزودن</button>
+        </div>
+      </div>`;
+    g.appendChild(card);
+  });
+}
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');curFilter=b.dataset.f;render();});
+$('#grid').addEventListener('click',e=>{
+  const w=e.target.closest('[data-wish]');if(w){toggleWish(+w.dataset.wish);return}
+  const q=e.target.closest('[data-qv]');if(q){openModal(+q.dataset.qv);return}
+  const a=e.target.closest('[data-add]');if(a){addToCart(+a.dataset.add,0,0,1);return}
+});
+function toggleWish(id){wish.has(id)?wish.delete(id):wish.add(id);$('#wishCount').textContent=FA(wish.size);render();toast(wish.has(id)?'به علاقه‌مندی‌ها اضافه شد':'از علاقه‌مندی‌ها حذف شد')}
+
+/* modal */
+function openModal(id){cur=PRODUCTS.find(p=>p.id===id);curSize=0;curColor=0;drawModal();$('#modal').classList.add('open')}
+function drawModal(){
+  const p=cur;
+  $('#mCat').textContent=CATS[p.cat];$('#mName').textContent=p.name;$('#mDesc').textContent=p.desc;
+  $('#mImg').src='assets/img/'+p.imgs[0];
+  $('#mThumbs').innerHTML=p.imgs.map((im,i)=>`<img src="assets/img/${im}" data-th="${i}" class="${i===0?'on':''}">`).join('');
+  $('#mSizes').innerHTML=p.sizes.map((s,i)=>`<button class="size ${i===curSize?'on':''}" data-size="${i}">${s[0]}${s[1]?`<small>+ ${FA(s[1])} تومان</small>`:''}</button>`).join('');
+  $('#mColors').innerHTML=p.colors.map((c,i)=>`<button class="sw ${i===curColor?'on':''}" data-color="${i}" title="${c[0]}${c[2]?' (+'+FA(c[2])+')':''}" style="background:${c[1]}"></button>`).join('');
+  const pr=priceOf(p,curSize,curColor);
+  $('#mPrice').textContent=FA(pr);
+  $('#mOld').textContent=p.old?FA(Math.round(p.old+(p.sizes[curSize][1]+p.colors[curColor][2])))+' تومان':'';$('#mOld').style.display=p.old?'inline-block':'none';
+  $('#mWish').textContent=wish.has(p.id)?'♥ در علاقه‌مندی‌های شما':'♥ افزودن به علاقه‌مندی‌ها';
+}
+$('#mThumbs').addEventListener('click',e=>{const t=e.target.closest('[data-th]');if(!t)return;$('#mImg').src='assets/img/'+cur.imgs[+t.dataset.th];document.querySelectorAll('#mThumbs img').forEach(x=>x.classList.remove('on'));t.classList.add('on')});
+$('#mSizes').addEventListener('click',e=>{const b=e.target.closest('[data-size]');if(!b)return;curSize=+b.dataset.size;drawModal()});
+$('#mColors').addEventListener('click',e=>{const b=e.target.closest('[data-color]');if(!b)return;curColor=+b.dataset.color;drawModal()});
+$('#mAdd').addEventListener('click',()=>{addToCart(cur.id,curSize,curColor,1);$('#modal').classList.remove('open')});
+$('#mWish').addEventListener('click',()=>{toggleWish(cur.id);drawModal()});
+$('#modalClose').addEventListener('click',()=>$('#modal').classList.remove('open'));
+$('#modalOverlay').addEventListener('click',()=>$('#modal').classList.remove('open'));
+
+/* cart */
+function addToCart(id,si,ci,qty){
+  const key=id+'-'+si+'-'+ci;
+  const ex=cart.find(i=>i.key===key);
+  if(ex)ex.qty+=qty;else cart.push({key,id,si,ci,qty});
+  updateCart();toast('به سبد خرید اضافه شد 🛍');
+}
+function cartTotals(){let sub=0;cart.forEach(i=>{sub+=priceOf(PRODUCTS.find(p=>p.id===i.id),i.si,i.ci)*i.qty});const ship=sub===0?0:(sub>=FREE_SHIP?0:SHIP);return{sub,ship,grand:sub+ship}}
+function updateCart(){
+  const n=cart.reduce((a,i)=>a+i.qty,0);
+  $('#cartCount').textContent=FA(n);
+  const box=$('#cartItems');
+  if(!cart.length){box.innerHTML='<div class="empty">سبد خرید شما خالی است.<br>از کالکشن پاییزه دیدن کنید 🌙</div>'}
+  else box.innerHTML=cart.map(i=>{const p=PRODUCTS.find(x=>x.id===i.id);const pr=priceOf(p,i.si,i.ci);return `
+    <div class="citem" data-key="${i.key}">
+      <img src="assets/img/${p.imgs[0]}" alt="">
+      <div class="ci"><h4>${p.name}</h4><div class="vr">سایز: ${p.sizes[i.si][0]} · رنگ: ${p.colors[i.ci][0]}</div>
+      <span class="qty"><button data-q="-1">−</button><b>${FA(i.qty)}</b><button data-q="1">+</button></span>
+      <button class="rm" data-rm="1">حذف از سبد</button></div>
+      <div class="cp num">${FA(pr*i.qty)} تومان</div>
+    </div>`}).join('');
+  const t=cartTotals();
+  $('#subTotal').textContent=FA(t.sub)+' تومان';
+  $('#shipCost').textContent=t.ship===0?(t.sub>0?'رایگان':'۰ تومان'):FA(t.ship)+' تومان';
+  $('#grandTotal').textContent=FA(t.grand)+' تومان';
+  $('#ckTotal').textContent=FA(t.grand)+' تومان';
+  const pct=Math.min(100,Math.round(t.sub/FREE_SHIP*100));
+  $('#shipFill').style.width=pct+'%';
+  $('#shipTxt').innerHTML=t.sub>=FREE_SHIP?'🎉 <b>ارسال سفارش شما رایگان شد!</b>':`برای ارسال رایگان، <b>${FA(FREE_SHIP-t.sub)} تومان</b> دیگر خرید کنید.`;
+  $('#toCheckout').disabled=!cart.length;$('#toCheckout').style.opacity=cart.length?1:.45;
+}
+$('#cartItems').addEventListener('click',e=>{
+  const item=e.target.closest('.citem');if(!item)return;const key=item.dataset.key;const it=cart.find(i=>i.key===key);
+  if(e.target.closest('[data-rm]')){cart=cart.filter(i=>i.key!==key);updateCart();return}
+  const q=e.target.closest('[data-q]');if(q){it.qty+=+q.dataset.q;if(it.qty<1)cart=cart.filter(i=>i.key!==key);updateCart()}
+});
+function openDrawer(){$('#drawer').classList.add('open');$('#overlay').classList.add('show')}
+function closeDrawer(){$('#drawer').classList.remove('open');$('#overlay').classList.remove('show');$('#checkoutView').classList.remove('ck','open');$('#cartView').style.display='flex';$('#ckForm').style.display='block';$('#ckSuccess').style.display='none'}
+$('#cartBtn').addEventListener('click',openDrawer);
+$('#wishBtn').addEventListener('click',()=>toast(wish.size?`شما ${FA(wish.size)} آیتم در علاقه‌مندی‌ها دارید ♥`:'هنوز آیتمی به علاقه‌مندی‌ها اضافه نشده است'));
+$('#drawerClose').addEventListener('click',closeDrawer);
+$('#overlay').addEventListener('click',closeDrawer);
+$('#toCheckout').addEventListener('click',()=>{if(!cart.length)return;$('#cartView').style.display='none';const v=$('#checkoutView');v.classList.add('ck','open')});
+$('#backToCart').addEventListener('click',()=>{$('#checkoutView').classList.remove('ck','open');$('#cartView').style.display='flex'});
+document.querySelectorAll('.radio').forEach(r=>r.addEventListener('click',()=>{document.querySelectorAll('.radio').forEach(x=>x.classList.remove('on'));r.classList.add('on')}));
+$('#ckForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const t=cartTotals();const n=cart.reduce((a,i)=>a+i.qty,0);
+  const code='LUNA-'+Math.floor(100000+Math.random()*900000);
+  $('#orderCode').textContent=code.toLocaleString('fa-IR');
+  $('#orderSummary').textContent=`${FA(n)} قلم کالا — مبلغ پرداخت‌شده: ${FA(t.grand)} تومان`;
+  $('#ckForm').style.display='none';$('#ckSuccess').style.display='block';
+  cart=[];updateCart();
+});
+$('#successClose').addEventListener('click',closeDrawer);
+
+/* newsletter */
+$('#newsForm').addEventListener('submit',e=>{e.preventDefault();$('#newsOk').style.display='block';$('#newsEmail').value='';toast('عضویت در باشگاه لونا ثبت شد ✓')});
+
+render();updateCart();
+</script>
+</body>
+</html>
