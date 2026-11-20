@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ترشی‌خانه مادربزرگ | ترشی و شور خانگی با طعم اصیل</title>
+<meta name="description" content="ترشی‌خانه مادربزرگ؛ ترشی، شور و زیتون پرورده خانگی با دستور قدیمی خانواده. تازه، بدون مواد نگهدارنده، با ارسال به سراسر تهران.">
+<meta name="theme-color" content="#5c6b35">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --olive:#5c6b35; --olive-dark:#46531f; --olive-soft:#eef1e0;
+  --rust:#bc5227; --rust-dark:#9c3f1a; --rust-soft:#fbeee5;
+  --cream:#fdf8ee; --paper:#fffdf7; --ink:#33301f; --ink2:#5d5942; --muted:#97906f;
+  --line:#eadfc6; --ok:#4d7c0f; --err:#c2410c;
+  --radius:22px; --radius-s:14px;
+  --shadow:0 10px 28px rgba(92,80,30,.10);
+  --shadow-lg:0 24px 60px rgba(70,60,20,.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--cream);color:var(--ink);line-height:1.8;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea{font-family:inherit;font-size:1rem;color:inherit}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--olive);color:#fff}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.ic{width:24px;height:24px;flex:none}
+.ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(253,248,238,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.3rem;color:var(--olive-dark)}
+.logo .mark{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--olive),var(--olive-dark));color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px rgba(92,107,53,.3)}
+.logo small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);line-height:1.2}
+nav.mainnav{display:flex;gap:26px;margin-inline-start:18px}
+nav.mainnav a{font-weight:500;color:var(--ink2);font-size:.98rem;position:relative;padding:4px 0}
+nav.mainnav a:hover{color:var(--rust)}
+.hsp{flex:1}
+.cartbtn{position:relative;display:flex;align-items:center;gap:8px;background:var(--rust);color:#fff;font-weight:700;padding:10px 18px;border-radius:999px;box-shadow:0 8px 20px rgba(188,82,39,.35);transition:transform .15s,background .15s}
+.cartbtn:hover{background:var(--rust-dark);transform:translateY(-1px)}
+.cartbtn .cnt{position:absolute;top:-7px;inset-inline-start:-7px;background:var(--olive-dark);color:#fff;font-size:.75rem;font-weight:800;min-width:24px;height:24px;border-radius:999px;display:grid;place-items:center;padding:0 6px;border:2px solid var(--cream)}
+.cartbtn.pulse{animation:pulse .35s ease}
+@keyframes pulse{40%{transform:scale(1.08)}}
+
+/* ---------- hero ---------- */
+.hero{padding:52px 0 30px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.hero h1{font-size:2.6rem;font-weight:900;line-height:1.35;color:var(--ink)}
+.hero h1 .hl{color:var(--rust);position:relative;white-space:nowrap}
+.hero p.lead{margin:16px 0 26px;color:var(--ink2);font-size:1.08rem;max-width:34rem}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--olive);color:#fff;font-weight:800;font-size:1.02rem;padding:13px 28px;border-radius:999px;box-shadow:0 12px 26px rgba(92,107,53,.35);transition:transform .15s,background .15s}
+.btn:hover{background:var(--olive-dark);transform:translateY(-2px)}
+.hero .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hero .badges span{display:inline-flex;align-items:center;gap:7px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.86rem;font-weight:500;color:var(--ink2)}
+.hero .badges .dot{width:8px;height:8px;border-radius:50%;background:var(--rust)}
+.hero .photo{position:relative}
+.hero .photo img{width:100%;height:430px;object-fit:cover;border-radius:180px 180px var(--radius) var(--radius);box-shadow:var(--shadow-lg);border:6px solid var(--paper)}
+.hero .photo .tag{position:absolute;bottom:22px;inset-inline-start:-14px;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:10px 16px;font-weight:700;font-size:.9rem;color:var(--olive-dark);display:flex;align-items:center;gap:8px}
+
+/* ---------- sections ---------- */
+section{padding:44px 0}
+.sec-head{text-align:center;margin-bottom:30px}
+.sec-head h2{font-size:1.8rem;font-weight:900}
+.sec-head p{color:var(--muted);margin-top:4px}
+.sec-head .leaf{color:var(--rust);display:inline-block;margin-bottom:2px}
+
+/* ---------- products ---------- */
+.grid-products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 14px rgba(92,80,30,.05);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .ph{position:relative}
+.card .ph img{width:100%;height:180px;object-fit:cover}
+.card .spice{position:absolute;top:10px;inset-inline-start:10px;background:rgba(255,253,247,.94);border-radius:999px;padding:4px 10px;display:flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700;color:var(--ink2)}
+.dots{display:inline-flex;gap:3px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#e7dcc0;display:block}
+.dots i.on{background:#d92c1e;box-shadow:0 0 0 2px rgba(217,44,30,.15)}
+.card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:1.08rem;font-weight:800}
+.card .desc{font-size:.86rem;color:var(--muted);line-height:1.7;flex:1}
+.variants{display:flex;background:var(--olive-soft);border-radius:999px;padding:4px;gap:4px}
+.variants button{flex:1;border-radius:999px;padding:6px 4px;font-size:.84rem;font-weight:700;color:var(--ink2);transition:all .15s}
+.variants button.act{background:var(--olive);color:#fff;box-shadow:0 4px 10px rgba(92,107,53,.3)}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+.price{font-weight:900;font-size:1.06rem;color:var(--olive-dark)}
+.price small{font-size:.74rem;font-weight:500;color:var(--muted)}
+.addbtn{display:inline-flex;align-items:center;gap:6px;background:var(--rust);color:#fff;font-weight:700;font-size:.88rem;padding:9px 15px;border-radius:999px;transition:background .15s,transform .15s}
+.addbtn:hover{background:var(--rust-dark);transform:translateY(-1px)}
+.addbtn.added{background:var(--ok)}
+
+/* ---------- steps ---------- */
+.steps{background:var(--olive-soft);border-block:1px solid var(--line)}
+.grid-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;text-align:center}
+.step .num{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;background:var(--rust);color:#fff;font-weight:900;font-size:1.3rem;display:grid;place-items:center;box-shadow:0 8px 18px rgba(188,82,39,.3)}
+.step h3{font-weight:800;font-size:1.05rem;margin-bottom:4px}
+.step p{font-size:.9rem;color:var(--ink2)}
+
+/* ---------- about ---------- */
+.about .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:center}
+.about img{width:100%;height:360px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow);border:6px solid var(--paper)}
+.about h2{font-size:1.7rem;font-weight:900;margin-bottom:12px}
+.about p{color:var(--ink2);margin-bottom:12px}
+.about .sig{font-weight:800;color:var(--rust)}
+
+/* ---------- footer ---------- */
+footer{background:var(--olive-dark);color:#eef1e0;margin-top:20px}
+footer .fin{padding:34px 0 26px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+footer .flogo{font-weight:900;font-size:1.2rem;display:flex;align-items:center;gap:9px}
+footer p{font-size:.88rem;opacity:.85}
+footer .copy{border-top:1px solid rgba(255,255,255,.15);padding:14px 0;text-align:center;font-size:.82rem;opacity:.75}
+
+/* ---------- cart drawer ---------- */
+.overlay{position:fixed;inset:0;background:rgba(46,40,14,.5);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s;z-index:80}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(430px,94vw);background:var(--paper);z-index:90;transform:translateX(-110%);transition:transform .3s ease;box-shadow:var(--shadow-lg);display:flex;flex-direction:column}
+[dir="rtl"] .drawer{transform:translateX(-110%)}
+.drawer.open{transform:translateX(0)!important}
+.drawer .dhead{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer .dhead h3{font-size:1.15rem;font-weight:900;display:flex;gap:8px;align-items:center}
+.iconbtn{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--cream);border:1px solid var(--line)}
+.iconbtn:hover{background:var(--rust-soft)}
+.drawer .dbody{flex:1;overflow-y:auto;padding:16px 20px}
+.empty{text-align:center;color:var(--muted);padding:44px 10px}
+.empty .ic{width:52px;height:52px;margin:0 auto 10px;color:var(--line)}
+.citem{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.citem img{width:64px;height:64px;border-radius:14px;object-fit:cover;flex:none}
+.citem .inf{flex:1;min-width:0}
+.citem .nm{font-weight:800;font-size:.95rem}
+.citem .vr{font-size:.78rem;color:var(--muted)}
+.citem .lr{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.qty{display:inline-flex;align-items:center;gap:2px;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:2px}
+.qty button{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:var(--olive-dark)}
+.qty button:hover{background:var(--olive-soft)}
+.qty b{min-width:26px;text-align:center;font-size:.92rem}
+.citem .lt{font-weight:900;color:var(--olive-dark);font-size:.95rem}
+.citem .rm{color:var(--err);font-size:.78rem;font-weight:700}
+.dfoot{border-top:1px solid var(--line);padding:16px 20px;background:var(--cream)}
+.trow{display:flex;justify-content:space-between;font-size:.94rem;color:var(--ink2);padding:3px 0}
+.trow.total{font-size:1.1rem;font-weight:900;color:var(--ink);border-top:1px dashed var(--line);margin-top:8px;padding-top:10px}
+.wfull{width:100%;justify-content:center;margin-top:12px}
+.backlink{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--olive-dark);font-size:.9rem;margin-bottom:10px}
+
+/* ---------- checkout form ---------- */
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:5px}
+.field input,.field textarea{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:var(--radius-s);padding:11px 14px;transition:border-color .15s;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--olive)}
+.field.err input,.field.err textarea{border-color:var(--err);animation:shake .3s}
+.field .msg{display:none;color:var(--err);font-size:.78rem;margin-top:4px;font-weight:500}
+.field.err .msg{display:block}
+@keyframes shake{25%{transform:translateX(4px)}75%{transform:translateX(-4px)}}
+.success{text-align:center;padding:26px 6px}
+.success .okic{width:74px;height:74px;margin:0 auto 14px;border-radius:50%;background:var(--olive-soft);color:var(--ok);display:grid;place-items:center}
+.success .okic .ic{width:38px;height:38px}
+.success h3{font-size:1.25rem;font-weight:900;margin-bottom:6px}
+.success p{color:var(--ink2);font-size:.94rem}
+.success .code{display:inline-block;background:var(--rust-soft);border:1.5px dashed var(--rust);color:var(--rust-dark);font-weight:900;font-size:1.15rem;border-radius:14px;padding:8px 22px;margin:14px 0;letter-spacing:.5px}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;bottom:22px;inset-inline-start:50%;transform:translate(50%,80px);background:var(--olive-dark);color:#fff;font-weight:700;font-size:.92rem;padding:11px 22px;border-radius:999px;box-shadow:var(--shadow-lg);z-index:120;transition:transform .3s ease;display:flex;gap:8px;align-items:center}
+.toast.show{transform:translate(50%,0)}
+
+/* ---------- responsive ---------- */
+@media(max-width:960px){
+  .grid-products{grid-template-columns:repeat(2,1fr)}
+  .hero .grid,.about .grid{grid-template-columns:1fr}
+  .hero .photo img{height:320px}
+  .hero .photo .tag{inset-inline-start:10px}
+  .grid-steps{grid-template-columns:1fr}
+  nav.mainnav{display:none}
+}
+@media(max-width:480px){
+  .grid-products{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  .hero{padding-top:34px}
+  .cartbtn .lbl{display:none}
+  .cartbtn{padding:10px 13px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#top" aria-label="ترشی‌خانه مادربزرگ">
+      <span class="mark"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 3h8M10 3v3.2c0 .5-.2 1-.6 1.4C8.2 8.8 8 9.7 8 11v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8c0-1.3-.2-2.2-1.4-3.4-.4-.4-.6-.9-.6-1.4V3"/><path d="M8 14h8"/></svg></span></span>
+      <span>ترشی‌خانه مادربزرگ<small>ترشی خانگی، با دستور قدیمی</small></span>
+    </a>
+    <nav class="mainnav">
+      <a href="#products">محصولات</a>
+      <a href="#about">درباره ما</a>
+      <a href="#how">روش سفارش</a>
+    </nav>
+    <div class="hsp"></div>
+    <button class="cartbtn" id="cartOpen" aria-label="مشاهده سبد خرید">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h2l2.4 11.2a1.8 1.8 0 0 0 1.8 1.4h7.9a1.8 1.8 0 0 0 1.8-1.4L21.5 8H7"/><circle cx="10.5" cy="20.5" r="1.3"/><circle cx="17.5" cy="20.5" r="1.3"/></svg></span>
+      <span class="lbl">سبد خرید</span>
+      <span class="cnt" id="cartCount">۰</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- hero -->
+  <div class="hero">
+    <div class="wrap grid">
+      <div>
+        <h1>طعم <span class="hl">خاطره‌های خوب</span>،<br>توی هر شیشه ترشی</h1>
+        <p class="lead">ترشی و شورهای ما با سبزی تازه بازار، سرکه خانگی و دستور دست‌نویس مادربزرگ درست می‌شن؛ بدون هیچ ماده نگهدارنده‌ای. سفارش بده، فرداش سر سفره‌ته.</p>
+        <a class="btn" href="#products">مشاهده محصولات
+          <span class="ic" style="width:20px;height:20px"><svg viewBox="0 0 24 24"><path d="M12 4v16m0 0 6-6m-6 6-6-6"/></svg></span>
+        </a>
+        <div class="badges">
+          <span><i class="dot"></i>بدون مواد نگهدارنده</span>
+          <span><i class="dot"></i>تهیه تازه، هفته‌به‌هفته</span>
+          <span><i class="dot"></i>ارسال به سراسر تهران</span>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="assets/img/hero.jpg" alt="شیشه‌های ترشی خانگی رنگارنگ روی سفره چهارخانه">
+        <div class="tag"><span class="ic" style="width:20px;height:20px;color:var(--rust)"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1.1 5.5 3 2-1.9 3.5-3 5.5-3C21 5 23 8.5 22.5 12c-1 4.4-8.5 9-10.5 9Z"/></svg></span>دست‌پخت با عشق، از سال ۱۳۶۸</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- products -->
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="leaf ic" style="width:30px;height:30px"><svg viewBox="0 0 24 24"><path d="M5 19C5 9 13 4 20 4c0 8-3 15-12 15M5 19c3-6 7-9 11-11"/></svg></span>
+        <h2>محصولات ما</h2>
+        <p>هر محصول در دو اندازه نیم‌کیلویی و یک‌کیلویی — اندازه رو انتخاب کن و به سبد اضافه کن.</p>
+      </div>
+      <div class="grid-products" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- how -->
+  <section class="steps" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>چطور سفارش بدم؟</h2>
+        <p>فقط سه قدم ساده تا ترشی تازه برسه دم در خونه‌ت.</p>
+      </div>
+      <div class="grid-steps">
+        <div class="step"><div class="num">۱</div><h3>انتخاب کن</h3><p>ترشی موردعلاقه‌ت رو با اندازه دلخواه به سبد خرید اضافه کن.</p></div>
+        <div class="step"><div class="num">۲</div><h3>سفارش رو ثبت کن</h3><p>اسمت، شماره موبایل و آدرس رو بنویس و سفارش رو نهایی کن.</p></div>
+        <div class="step"><div class="num">۳</div><h3>تحویل بگیر</h3><p>باهات تماس می‌گیریم و سفارش رو با پیک می‌فرستیم دم در خونه‌ت.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section class="about" id="about">
+    <div class="wrap grid">
+      <img src="assets/img/about.jpg" alt="قفسه‌های پر از شیشه‌های ترشی و شور خانگی">
+      <div>
+        <h2>داستان ترشی‌خانه ما</h2>
+        <p>همه‌چیز از آشپزخانه کوچک مادربزرگ شروع شد؛ جایی که هر پاییز، بوی سرکه و سبزی معطر کل محله رو پر می‌کرد. همسایه‌ها اول برای چشیدن اومدن، بعد برای خریدن — و کم‌کم ترشی‌های مادربزرگ شد پای ثابت سفره‌های همه.</p>
+        <p>امروز ما، نوه‌ها، همون دستور قدیمی رو ادامه می‌دیم: سبزی تازه، نمک و سرکه به‌اندازه، و صبر. نه رنگ مصنوعی داریم، نه ماده نگهدارنده؛ فقط همون طعمی که سی ساله سر سفره‌ها جا خوش کرده.</p>
+        <p class="sig">— خانواده ترشی‌خانه مادربزرگ</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fin">
+      <div>
+        <div class="flogo"><span class="ic"><svg viewBox="0 0 24 24"><path d="M8 3h8M10 3v3.2c0 .5-.2 1-.6 1.4C8.2 8.8 8 9.7 8 11v8a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-8c0-1.3-.2-2.2-1.4-3.4-.4-.4-.6-.9-.6-1.4V3"/><path d="M8 14h8"/></svg></span>ترشی‌خانه مادربزرگ</div>
+        <p>ترشی و شور خانگی تهران — ساعت کاری: شنبه تا پنجشنبه، ۹ صبح تا ۶ عصر</p>
+      </div>
+      <p>پرداخت هنگام تحویل · ارسال با پیک در تهران</p>
+    </div>
+    <div class="copy">ترشی‌خانه مادربزرگ — طعم اصیل، مثل همیشه.</div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="سبد خرید">
+  <div class="dhead">
+    <h3><span class="ic" style="color:var(--rust)"><svg viewBox="0 0 24 24"><path d="M4 5h2l2.4 11.2a1.8 1.8 0 0 0 1.8 1.4h7.9a1.8 1.8 0 0 0 1.8-1.4L21.5 8H7"/><circle cx="10.5" cy="20.5" r="1.3"/><circle cx="17.5" cy="20.5" r="1.3"/></svg></span><span id="drawerTitle">سبد خرید شما</span></h3>
+    <button class="iconbtn" id="cartClose" aria-label="بستن"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span></button>
+  </div>
+
+  <!-- view: cart -->
+  <div class="dbody" id="cartView">
+    <div id="cartItems"></div>
+  </div>
+  <div class="dfoot" id="cartFoot">
+    <div class="trow"><span>جمع اقلام</span><span id="subTotal">۰ تومان</span></div>
+    <div class="trow"><span>هزینه ارسال</span><span id="shipCost">—</span></div>
+    <div class="trow total"><span>مبلغ قابل پرداخت</span><span id="grandTotal">۰ تومان</span></div>
+    <button class="btn wfull" id="toCheckout">ادامه و ثبت سفارش</button>
+  </div>
+
+  <!-- view: checkout -->
+  <div class="dbody" id="checkoutView" style="display:none">
+    <button class="backlink" id="backToCart"><span class="ic" style="width:18px;height:18px"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>بازگشت به سبد خرید</button>
+    <form id="checkoutForm" novalidate>
+      <div class="field" id="f-name">
+        <label for="inName">نام و نام خانوادگی</label>
+        <input id="inName" type="text" placeholder="مثلاً: سارا محمدی" autocomplete="name">
+        <div class="msg">لطفاً نام خود را کامل بنویسید.</div>
+      </div>
+      <div class="field" id="f-mobile">
+        <label for="inMobile">شماره موبایل</label>
+        <input id="inMobile" type="tel" inputmode="tel" placeholder="۰۹۱۲ ـــ ـــ ــ ــ" autocomplete="tel">
+        <div class="msg">شماره موبایل معتبر وارد کنید (با ۰۹ شروع شود و ۱۱ رقم باشد).</div>
+      </div>
+      <div class="field" id="f-address">
+        <label for="inAddress">آدرس تحویل</label>
+        <textarea id="inAddress" rows="3" placeholder="تهران، خیابان …، پلاک …، واحد …"></textarea>
+        <div class="msg">لطفاً آدرس کامل را بنویسید.</div>
+      </div>
+    </form>
+  </div>
+  <div class="dfoot" id="checkoutFoot" style="display:none">
+    <div class="trow total" style="border:none;margin:0;padding:0"><span>مبلغ قابل پرداخت (هنگام تحویل)</span><span id="coTotal">۰ تومان</span></div>
+    <button class="btn wfull" id="placeOrder">ثبت نهایی سفارش</button>
+  </div>
+
+  <!-- view: success -->
+  <div class="dbody" id="successView" style="display:none">
+    <div class="success">
+      <div class="okic"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span></div>
+      <h3>سفارش شما ثبت شد!</h3>
+      <p>ممنون از خریدتان. برای هماهنگی ارسال، به‌زودی با شما تماس می‌گیریم.</p>
+      <div class="code" id="orderCode">TM-۰۰۰۰</div>
+      <p>کد سفارش را نگه دارید؛ پرداخت هنگام تحویل انجام می‌شود.</p>
+      <button class="btn wfull" id="doneBtn" style="max-width:260px;margin:18px auto 0">بازگشت به فروشگاه</button>
+    </div>
+  </div>
+</aside>
+
+<div class="toast" id="toast"><span class="ic" style="width:19px;height:19px"><svg viewBox="0 0 24 24"><path d="M4 12.5 9.5 18 20 6.5"/></svg></span>به سبد خرید اضافه شد</div>
+
+<script>
+const PRODUCTS = [
+  {id:'liteh',    name:'ترشی لیته',        img:'assets/img/p-liteh.jpg',    desc:'مخلوط ریزشده بادمجان، هویج و سبزی معطر؛ پرادویه و خوش‌خوراک.',        spice:2, spiceLabel:'تندی متوسط', prices:{half:145000, full:270000}},
+  {id:'makhloot', name:'ترشی مخلوط',       img:'assets/img/p-makhloot.jpg', desc:'گل‌کلم، هویج، خیار و کرفس با سبزی تازه؛ ترشی کلاسیک سر هر سفره.',      spice:1, spiceLabel:'ملایم',       prices:{half:130000, full:245000}},
+  {id:'sir',      name:'سیرترشی هفت‌ساله', img:'assets/img/p-sir.jpg',      desc:'سیر کهنه و جاافتاده با سرکه انگور؛ نرم، شیرین و مجلسی.',              spice:0, spiceLabel:'بدون تندی',   prices:{half:290000, full:550000}},
+  {id:'felfel',   name:'ترشی فلفل',        img:'assets/img/p-felfel.jpg',   desc:'فلفل سبز تند در سرکه خانگی؛ برای عاشقان طعم آتشین.',                  spice:3, spiceLabel:'خیلی تند',    prices:{half:160000, full:300000}},
+  {id:'shoor',    name:'شور خیار',         img:'assets/img/p-shoor.jpg',    desc:'خیار قلمی ترد با شوید و ترخون؛ نه خیلی شور، نه بی‌نمک.',              spice:0, spiceLabel:'بدون تندی',   prices:{half:95000,  full:180000}},
+  {id:'zeytoon',  name:'زیتون پرورده',     img:'assets/img/p-zeytoon.jpg',  desc:'زیتون سبز با گردو، رب انار و سبزی محلی؛ به سبک شمال.',                 spice:1, spiceLabel:'ملایم',       prices:{half:240000, full:460000}},
+  {id:'anbeh',    name:'ترشی انبه',        img:'assets/img/p-anbeh.jpg',    desc:'انبه کال با ادویه جنوبی؛ ترش، تند و متفاوت برای مهمانی‌ها.',          spice:3, spiceLabel:'خیلی تند',    prices:{half:210000, full:395000}},
+  {id:'bademjan', name:'ترشی بادمجان شکم‌پر', img:'assets/img/p-bademjan.jpg', desc:'بادمجان پرشده با سبزی معطر و گردو؛ دستور مخصوص مادربزرگ.',          spice:2, spiceLabel:'تندی متوسط', prices:{half:175000, full:330000}},
+];
+const SHIP = 45000, FREE_SHIP_OVER = 500000;
+const VARIANT_LABEL = {half:'نیم‌کیلویی', full:'یک‌کیلویی'};
+const faNum = n => Number(n).toLocaleString('fa-IR');
+const money = n => faNum(n) + ' تومان';
+
+const selectedVariant = {}; PRODUCTS.forEach(p => selectedVariant[p.id] = 'half');
+const cart = new Map(); // key: id|variant -> qty
+
+const grid = document.getElementById('productGrid');
+function spiceDots(level){
+  let s = '<span class="dots" aria-hidden="true">';
+  for(let i=1;i<=3;i++) s += '<i class="' + (i<=level ? 'on' : '') + '"></i>';
+  return s + '</span>';
+}
+function renderProducts(){
+  grid.innerHTML = PRODUCTS.map(p => {
+    const v = selectedVariant[p.id];
+    return '<article class="card" data-id="' + p.id + '">' +
+      '<div class="ph"><img src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+      '<span class="spice">' + spiceDots(p.spice) + p.spiceLabel + '</span></div>' +
+      '<div class="body"><h3>' + p.name + '</h3><p class="desc">' + p.desc + '</p>' +
+      '<div class="variants" role="group" aria-label="انتخاب اندازه">' +
+        '<button type="button" data-var="half" class="' + (v==='half'?'act':'') + '">نیم‌کیلویی</button>' +
+        '<button type="button" data-var="full" class="' + (v==='full'?'act':'') + '">یک‌کیلویی</button>' +
+      '</div>' +
+      '<div class="row"><div class="price" data-price>' + money(p.prices[v]) + '</div>' +
+      '<button type="button" class="addbtn" data-add>افزودن به سبد</button></div>' +
+      '</div></article>';
+  }).join('');
+}
+renderProducts();
+
+grid.addEventListener('click', e => {
+  const card = e.target.closest('.card'); if(!card) return;
+  const id = card.dataset.id;
+  const p = PRODUCTS.find(x => x.id === id);
+  const varBtn = e.target.closest('[data-var]');
+  if(varBtn){
+    selectedVariant[id] = varBtn.dataset.var;
+    card.querySelectorAll('[data-var]').forEach(b => b.classList.toggle('act', b.dataset.var === selectedVariant[id]));
+    card.querySelector('[data-price]').textContent = money(p.prices[selectedVariant[id]]);
+    return;
+  }
+  if(e.target.closest('[data-add]')){
+    const v = selectedVariant[id];
+    const key = id + '|' + v;
+    cart.set(key, (cart.get(key) || 0) + 1);
+    updateCartUI();
+    const btn = e.target.closest('[data-add]');
+    btn.classList.add('added'); btn.textContent = 'اضافه شد ✓';
+    setTimeout(() => { btn.classList.remove('added'); btn.textContent = 'افزودن به سبد'; }, 1200);
+    const cb = document.getElementById('cartOpen');
+    cb.classList.remove('pulse'); void cb.offsetWidth; cb.classList.add('pulse');
+    showToast();
+  }
+});
+
+/* ---------- cart ---------- */
+const drawer = document.getElementById('drawer'), overlay = document.getElementById('overlay');
+const views = {cart:['cartView','cartFoot'], checkout:['checkoutView','checkoutFoot'], success:['successView',null]};
+function showView(name){
+  Object.entries(views).forEach(([k,[body,foot]]) => {
+    document.getElementById(body).style.display = k===name ? '' : 'none';
+    if(foot) document.getElementById(foot).style.display = k===name ? '' : 'none';
+  });
+  document.getElementById('drawerTitle').textContent =
+    name==='checkout' ? 'تکمیل سفارش' : name==='success' ? 'سفارش ثبت شد' : 'سبد خرید شما';
+  drawer.querySelector('.dbody:not([style*="none"])')?.scrollTo(0,0);
+}
+function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('cartOpen').addEventListener('click', () => { showView('cart'); openDrawer(); });
+document.getElementById('cartClose').addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeDrawer(); });
+
+function cartEntries(){
+  return [...cart.entries()].map(([key, qty]) => {
+    const [id, v] = key.split('|');
+    const p = PRODUCTS.find(x => x.id === id);
+    return {key, p, v, qty, line: p.prices[v] * qty};
+  }).filter(x => x.qty > 0);
+}
+function totals(){
+  const sub = cartEntries().reduce((s, x) => s + x.line, 0);
+  const ship = sub === 0 ? 0 : (sub >= FREE_SHIP_OVER ? 0 : SHIP);
+  return {sub, ship, total: sub + ship};
+}
+function updateCartUI(){
+  const items = cartEntries();
+  const count = items.reduce((s, x) => s + x.qty, 0);
+  document.getElementById('cartCount').textContent = faNum(count);
+  const box = document.getElementById('cartItems');
+  if(!items.length){
+    box.innerHTML = '<div class="empty"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h2l2.4 11.2a1.8 1.8 0 0 0 1.8 1.4h7.9a1.8 1.8 0 0 0 1.8-1.4L21.5 8H7"/><circle cx="10.5" cy="20.5" r="1.3"/><circle cx="17.5" cy="20.5" r="1.3"/></svg></span>سبد خرید شما خالی است.<br>از محصولات خوشمزه ما انتخاب کنید.</div>';
+  } else {
+    box.innerHTML = items.map(x =>
+      '<div class="citem" data-key="' + x.key + '">' +
+        '<img src="' + x.p.img + '" alt="' + x.p.name + '">' +
+        '<div class="inf"><div class="nm">' + x.p.name + '</div>' +
+        '<div class="vr">' + VARIANT_LABEL[x.v] + ' · ' + money(x.p.prices[x.v]) + '</div>' +
+        '<div class="lr"><span class="qty">' +
+          '<button type="button" data-act="inc" aria-label="بیشتر">+</button><b>' + faNum(x.qty) + '</b><button type="button" data-act="dec" aria-label="کمتر">−</button>' +
+        '</span><span class="lt">' + money(x.line) + '</span></div>' +
+        '<button type="button" class="rm" data-act="rm">حذف از سبد</button>' +
+        '</div></div>').join('');
+  }
+  const t = totals();
+  document.getElementById('subTotal').textContent = money(t.sub);
+  document.getElementById('shipCost').textContent = t.sub === 0 ? '—' : (t.ship === 0 ? 'رایگان' : money(t.ship));
+  document.getElementById('grandTotal').textContent = money(t.total);
+  document.getElementById('coTotal').textContent = money(t.total);
+  document.getElementById('toCheckout').disabled = !items.length;
+  document.getElementById('toCheckout').style.opacity = items.length ? '' : '.5';
+}
+document.getElementById('cartItems').addEventListener('click', e => {
+  const btn = e.target.closest('[data-act]'); if(!btn) return;
+  const key = e.target.closest('.citem').dataset.key;
+  const qty = cart.get(key) || 0;
+  if(btn.dataset.act === 'inc') cart.set(key, qty + 1);
+  if(btn.dataset.act === 'dec') qty <= 1 ? cart.delete(key) : cart.set(key, qty - 1);
+  if(btn.dataset.act === 'rm') cart.delete(key);
+  updateCartUI();
+});
+updateCartUI();
+
+/* ---------- checkout ---------- */
+document.getElementById('toCheckout').addEventListener('click', () => { if(cartEntries().length) showView('checkout'); });
+document.getElementById('backToCart').addEventListener('click', () => showView('cart'));
+
+function toEnglishDigits(s){ return s.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)); }
+function validate(){
+  let ok = true;
+  const name = document.getElementById('inName').value.trim();
+  const mobile = toEnglishDigits(document.getElementById('inMobile').value.trim()).replace(/[\s-]/g,'');
+  const address = document.getElementById('inAddress').value.trim();
+  const mark = (id, valid) => { document.getElementById(id).classList.toggle('err', !valid); if(!valid) ok = false; };
+  mark('f-name', name.length >= 3);
+  mark('f-mobile', /^09\d{9}$/.test(mobile));
+  mark('f-address', address.length >= 12);
+  return ok;
+}
+['inName','inMobile','inAddress'].forEach(id =>
+  document.getElementById(id).addEventListener('input', e => e.target.closest('.field').classList.remove('err')));
+
+document.getElementById('placeOrder').addEventListener('click', () => {
+  if(!validate()) return;
+  const code = 'TM-' + Math.floor(1000 + Math.random() * 9000);
+  document.getElementById('orderCode').textContent = code.replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+  cart.clear(); updateCartUI();
+  showView('success');
+});
+document.getElementById('doneBtn').addEventListener('click', () => { closeDrawer(); showView('cart'); });
+
+/* ---------- toast ---------- */
+let toastTimer;
+function showToast(){
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 1600);
+}
+</script>
+</body>
+</html>
