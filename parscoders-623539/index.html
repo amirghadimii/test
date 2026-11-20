@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برنامه افزایش فروش فایل‌های سیم‌پاور — ممیزی و نقشه اجرا | اپ‌وبینو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f3ee;--ink:#20242a;--mut:#68707a;--acc:#0d6e5f;--acc2:#e8f4f1;--warn:#b3540e;--card:#fff;--line:#e2ddd0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;font-size:15.5px}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+header.hero{background:#123f37;color:#eafaf5;padding:40px 0 34px}
+header.hero .kicker{font-size:13px;color:#9fd8c9;font-weight:700;margin-bottom:8px}
+header.hero h1{font-size:27px;font-weight:800;line-height:1.6}
+header.hero p{color:#c4e5db;margin-top:10px;font-size:15px}
+header.hero .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+header.hero .meta span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:3px 14px;font-size:13px}
+section{padding:30px 0 4px}
+h2{font-size:20px;font-weight:800;margin-bottom:12px}
+h2 i{font-style:normal;color:var(--acc)}
+p.lead{color:#3c434c}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:right;vertical-align:top}
+th{color:var(--mut);font-weight:500;font-size:13px}
+td b{font-weight:800}
+.bad{color:var(--warn);font-weight:700}
+ol.plan{margin:6px 0 0;padding-inline-start:22px}
+ol.plan li{margin-bottom:7px}
+ol.plan li b{font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}header.hero h1{font-size:22px}}
+.phase{display:flex;gap:14px;margin-bottom:12px}
+.phase .n{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:800}
+.phase h3{font-size:16px;font-weight:800}
+.phase p{color:#3c434c;font-size:14.5px}
+.note{background:var(--acc2);border:1px solid #bfe0d7;border-radius:12px;padding:16px 20px;font-size:14.5px}
+footer{padding:28px 0 40px;color:var(--mut);font-size:13.5px;text-align:center}
+a{color:var(--acc);font-weight:700}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="kicker">اپ‌وبینو — ممیزی و برنامه اجرایی</div>
+  <h1>برنامه افزایش فروش فایل‌های سایت سیم‌پاور (sim-power.ir)</h1>
+  <p>این برنامه بر اساس اندازه‌گیری واقعی همین سایت نوشته شده است، نه توصیه‌های کلی. اول گلوگاه‌هایی را که امروز جلوی خرید را می‌گیرند نشان می‌دهیم، بعد نقشه اجرای قدم‌به‌قدم را.</p>
+  <div class="meta"><span>سایت: sim-power.ir</span><span>تاریخ ممیزی: ۲۹ آبان ۱۴۰۵</span><span>حوزه: فروش فایل و محصولات دانلودی</span></div>
+</div></header>
+
+<section><div class="wrap">
+  <h2><i>۱ —</i> گلوگاه اول: سرعت، قبل از هر تبلیغی فروش را کم می‌کند</h2>
+  <p class="lead">در ممیزی فنی سیم‌پاور (گزارش کامل: <a href="https://amirghadimii.github.io/test/parscoders-623530/">صفحه ممیزی سرعت سیم‌پاور</a>) این اعداد با اندازه‌گیری مستقیم به دست آمد:</p>
+  <div class="card"><table>
+    <tr><th>شاخص</th><th>وضعیت فعلی</th><th>اثر روی فروش فایل</th></tr>
+    <tr><td>زمان پاسخ سرور (TTFB)</td><td><b>۲.۹ تا ۶.۹ ثانیه</b> <span class="bad">نوسانی و بالا</span></td><td>خریدار فایل معمولاً از جستجو می‌آید و صبر کمی دارد؛ هر ثانیه تأخیر یعنی خروج قبل از دیدن دکمه خرید</td></tr>
+    <tr><td>حجم عکس‌های صفحه</td><td><b>حدود ۵.۶ مگابایت</b> — عکس اصلی ۲.۷ مگابایت</td><td>صفحه محصول دیر کامل می‌شود؛ روی موبایل و اینترنت متوسط، بخشی از بازدیدها اصلاً به قیمت نمی‌رسند</td></tr>
+    <tr><td>فرمت عکس‌ها</td><td>فقط <b>۷ عکس از ۳۲ عکس</b> WebP است</td><td>حجم قابل کم‌شدن بدون افت کیفیت ظاهری</td></tr>
+    <tr><td>کش کامل صفحه</td><td><span class="bad">فعال نیست</span></td><td>بازدید تکراری و صفحات محصول هر بار از صفر بارگذاری می‌شوند</td></tr>
+  </table></div>
+  <p class="lead">نتیجه: قبل از هر کاری روی ترافیک یا تبلیغ، این گلوگاه باید بسته شود؛ چون مستقیم روی نرخ تبدیل بازدید به خرید اثر می‌گذارد.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2><i>۲ —</i> پنج اهرم فروش فایل (نقشه اجرا)</h2>
+  <div class="grid">
+    <div class="card"><h3>اهرم ۱ — صفحه محصول فایل</h3><ol class="plan">
+      <li><b>پیش‌نمایش واقعی:</b> برای هر فایل، نمونه یا بخشی از محتوا قابل مشاهده باشد تا خریدار بداند دقیقاً چه می‌خرد</li>
+      <li><b>مشخصات کامل فایل:</b> فرمت، حجم، تعداد صفحه/بخش، نسخه و سال به‌روزرسانی — در یک جدول ثابت بالای صفحه</li>
+      <li><b>فهرست محتوا:</b> سرفصل‌های داخل فایل، قبل از دکمه خرید</li>
+      <li><b>پرسش‌وپاسخ هر محصول:</b> پاسخ سه سؤال پرتکرار همان فایل، زیر توضیحات</li>
+    </ol></div>
+    <div class="card"><h3>اهرم ۲ — اعتماد برای کالای دانلودی</h3><ol class="plan">
+      <li><b>ضمانت بازگشت در صورت خرابی یا ناقص‌بودن فایل</b> — صریح و کنار دکمه خرید</li>
+      <li><b>نظرات خریداران تأییدشده</b> روی صفحات پرفروش و نمایش تعداد فروش واقعی</li>
+      <li><b>پشتیبانی بعد از خرید:</b> مسیر روشن برای مشکل دانلود یا باز نشدن فایل</li>
+      <li><b>تحویل آنی بعد از پرداخت</b> و نمایش همین وعده قبل از خرید</li>
+    </ol></div>
+    <div class="card"><h3>اهرم ۳ — قیمت و بسته‌بندی</h3><ol class="plan">
+      <li><b>باندل موضوعی:</b> فایل‌های مرتبط در یک بسته با قیمت کمتر از مجموع تکی</li>
+      <li><b>فروش مکمل در سبد:</b> پیشنهاد یک فایل مرتبط در صفحه تسویه</li>
+      <li><b>تخفیف سبدی پلکانی</b> برای خرید چند فایل هم‌زمان</li>
+    </ol></div>
+    <div class="card"><h3>اهرم ۴ — ورودی از جستجو</h3><ol class="plan">
+      <li>بازبینی <b>عنوان و توضیحات صفحات فایل</b> برای کوئری‌های «دانلود فایل…» و «خرید فایل…»</li>
+      <li><b>لینک‌سازی داخلی</b> از مقالات آموزشی سایت به فایل‌های مرتبط</li>
+      <li>صفحه‌های دسته‌بندی موضوعی با متن راهنمای خرید، نه فقط لیست فایل</li>
+    </ol></div>
+    <div class="card"><h3>اهرم ۵ — سبد رهاشده</h3><ol class="plan">
+      <li>کم‌کردن قدم‌های پرداخت تا حداقل ممکن و خرید مهمان</li>
+      <li><b>یادآوری پیامکی/ایمیلی سبد رهاشده</b> برای کاربران واردشده</li>
+      <li>گزارش هفتگی: بازدید صفحه محصول ← افزودن به سبد ← پرداخت موفق</li>
+    </ol></div>
+    <div class="card"><h3>قدم صفر — سنجش قبل از تغییر</h3><ol class="plan">
+      <li>اتصال و بررسی <b>گوگل آنالیتیکس و سرچ کنسول</b> و ثبت قیف فعلی فروش به‌عنوان خط مبنا</li>
+      <li>بدون این خط مبنا، هیچ تغییری قابل قضاوت نیست؛ اول اندازه می‌گیریم، بعد دست می‌زنیم</li>
+    </ol></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2><i>۳ —</i> برنامه اجرا</h2>
+  <div class="phase"><div class="n">۱</div><div><h3>روز ۱ تا ۲ — سنجش و سرعت</h3><p>ثبت خط مبنای فروش و ترافیک؛ اجرای اصلاحات سرعت ممیزی (کش، WebP، کم‌کردن حجم عکس‌ها و فایل‌های اضافی) و گزارش قبل/بعد اندازه‌گیری.</p></div></div>
+  <div class="phase"><div class="n">۲</div><div><h3>روز ۳ تا ۵ — صفحات محصول و اعتماد</h3><p>قالب ثابت مشخصات فایل، پیش‌نمایش، ضمانت بازگشت و نظرات خریداران روی صفحات پرفروش؛ ساده‌سازی مسیر پرداخت.</p></div></div>
+  <div class="phase"><div class="n">۳</div><div><h3>روز ۶ تا ۷ — بسته‌بندی و ورودی جستجو</h3><p>ساخت باندل‌های موضوعی، فروش مکمل در سبد، بازبینی عنوان/توضیحات صفحات فایل و لینک‌سازی داخلی از مقالات.</p></div></div>
+  <div class="note"><b>درباره نتیجه:</b> هیچ‌کس نمی‌تواند عدد فروش را تضمین کند و ما هم چنین قولی نمی‌دهیم. تعهد ما اجرای کامل همین نقشه، با سنجش قبل و بعد است؛ اگر اهرمی جواب نداد، عددش را شفاف می‌بینید و قدم بعدی بر اساس همان عدد برداشته می‌شود.</div>
+</div></section>
+
+<footer><div class="wrap">تهیه‌شده توسط اپ‌وبینو برای پروژه «افزایش فروش فایل‌های سایت سیم‌پاور» — پارس‌کدرز<br>گزارش ممیزی سرعت: amirghadimii.github.io/test/parscoders-623530</div></footer>
+</body>
+</html>
