@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نوا — دموی زنده اپلیکیشن موبایل | اپ‌وبینو</title>
+<meta name="description" content="دموی زنده اپلیکیشن موبایل نوا: ناوبری زنده، جستجو، صفحه جزئیات و پروفایل — نمونه کیفیت طراحی و توسعه اپلیکیشن موبایل اپ‌وبینو.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07070B; --bg2:#0C0C13; --panel:#12121B; --line:rgba(255,255,255,.08);
+  --txt:#F4F4F8; --mut:#9A9AB0; --acc:#7D6BFF; --acc2:#B4A8FF;
+  --rad:22px;
+}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--txt);overflow-x:clip;line-height:1.7}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--acc);color:#fff}
+
+/* ---------- ambient background ---------- */
+.ambient{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+   radial-gradient(720px 480px at 82% 8%, rgba(125,107,255,.20), transparent 62%),
+   radial-gradient(640px 520px at 8% 88%, rgba(125,107,255,.10), transparent 60%),
+   radial-gradient(420px 300px at 55% 55%, rgba(255,120,170,.05), transparent 70%);}
+.gridlines{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:radial-gradient(75% 65% at 50% 38%,#000 30%,transparent 100%);
+          mask-image:radial-gradient(75% 65% at 50% 38%,#000 30%,transparent 100%);}
+
+/* ---------- nav ---------- */
+header.site{position:relative;z-index:5;max-width:1280px;margin:0 auto;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.15rem;letter-spacing:-.01em}
+.brand .mark{width:38px;height:38px;border-radius:12px;background:var(--acc);display:grid;place-items:center;box-shadow:0 8px 24px rgba(125,107,255,.45)}
+.brand .mark svg{width:20px;height:20px}
+.brand small{display:block;font-weight:500;font-size:.68rem;color:var(--mut);letter-spacing:.14em}
+nav.links{display:flex;gap:30px;font-size:.92rem;color:var(--mut);font-weight:500}
+nav.links a{transition:color .25s}
+nav.links a:hover{color:#fff}
+.livechip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);padding:8px 16px;border-radius:999px;font-size:.82rem;font-weight:700}
+.livechip .dot{width:8px;height:8px;border-radius:50%;background:#34E39A;box-shadow:0 0 0 0 rgba(52,227,154,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,227,154,.45)}70%{box-shadow:0 0 0 9px rgba(52,227,154,0)}100%{box-shadow:0 0 0 0 rgba(52,227,154,0)}}
+
+/* ---------- hero layout ---------- */
+.hero{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:26px 32px 90px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:700;color:var(--acc2);border:1px solid rgba(125,107,255,.35);background:rgba(125,107,255,.08);padding:6px 14px;border-radius:999px;letter-spacing:.02em}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc)}
+h1{font-size:clamp(2.5rem,5.2vw,4.3rem);font-weight:900;line-height:1.28;letter-spacing:-.015em;margin:22px 0 8px}
+h1 .thin{display:block;font-weight:500;color:var(--mut);font-size:.52em;letter-spacing:.34em;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--acc);position:relative;white-space:nowrap}
+.lead{color:var(--mut);font-size:1.06rem;max-width:34rem;margin-top:14px}
+.lead b{color:#EDEDF4;font-weight:700}
+
+/* proof points */
+.proofs{margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:36rem}
+.proof{display:flex;gap:13px;padding:16px;border:1px solid var(--line);border-radius:var(--rad);background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.015));transition:border-color .3s,transform .3s}
+.proof:hover{border-color:rgba(125,107,255,.45);transform:translateY(-2px)}
+.proof .ic{flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:rgba(125,107,255,.14);display:grid;place-items:center}
+.proof .ic svg{width:21px;height:21px;stroke:var(--acc2)}
+.proof h3{font-size:.98rem;font-weight:800;line-height:1.5}
+.proof p{font-size:.8rem;color:var(--mut);line-height:1.65}
+
+/* tech strip */
+.tech{margin-top:30px}
+.tech .t{font-size:.74rem;letter-spacing:.22em;color:var(--mut);font-weight:700;margin-bottom:11px}
+.techrow{display:flex;flex-wrap:wrap;gap:9px}
+.techrow span{font-size:.84rem;font-weight:700;padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:var(--bg2)}
+.techrow span.hot{border-color:rgba(125,107,255,.5);color:var(--acc2);background:rgba(125,107,255,.09)}
+.hint{margin-top:26px;display:flex;align-items:center;gap:10px;color:var(--mut);font-size:.88rem}
+.hint .arr{color:var(--acc2);animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+
+/* ---------- phone stage ---------- */
+.stage{position:relative;display:flex;justify-content:center;padding:18px 0 8px}
+.stage::before{content:"";position:absolute;width:min(480px,94vw);height:min(480px,94vw);border-radius:50%;background:radial-gradient(circle,rgba(125,107,255,.32),transparent 65%);filter:blur(28px);top:46%;left:50%;transform:translate(-50%,-50%)}
+.phone{position:relative;width:min(372px,88vw);aspect-ratio:372/764;border-radius:56px;background:#101016;padding:11px;box-shadow:0 50px 110px rgba(0,0,0,.65),0 0 0 2px #26262f,0 0 90px rgba(125,107,255,.20);z-index:2}
+.phone::after{content:"";position:absolute;top:120px;left:-2.5px;width:3px;height:86px;border-radius:3px;background:#2c2c36;box-shadow:0 108px 0 #2c2c36}
+.screen{position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden;background:#F6F6F9;color:#14141C;display:flex;flex-direction:column}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:104px;height:27px;background:#0B0B10;border-radius:999px;z-index:60}
+
+/* floating chips around phone */
+.fchip{position:absolute;z-index:3;pointer-events:none;display:flex;align-items:center;gap:9px;background:rgba(16,16,24,.82);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:10px 14px;font-size:.8rem;font-weight:700;box-shadow:0 18px 40px rgba(0,0,0,.45);animation:float 6s ease-in-out infinite}
+.fchip small{display:block;font-weight:500;color:var(--mut);font-size:.68rem}
+.fchip .ic{width:32px;height:32px;border-radius:10px;background:rgba(125,107,255,.18);display:grid;place-items:center}
+.fchip .ic svg{width:17px;height:17px;stroke:var(--acc2)}
+.fchip.c1{top:64px;right:-8px}
+.fchip.c2{top:190px;left:-16px;animation-delay:-2s}
+.fchip.c3{bottom:26px;left:-14px;animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---------- app chrome ---------- */
+.statusbar{flex:0 0 auto;height:46px;padding:12px 22px 0;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;font-weight:700;position:relative;z-index:55;background:transparent}
+.statusbar .sicons{display:flex;align-items:center;gap:6px}
+.viewport{position:relative;flex:1;overflow:hidden}
+.screen-page{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;padding:6px 18px 96px;opacity:0;transform:translateX(-14px);pointer-events:none;transition:opacity .38s cubic-bezier(.22,.9,.3,1),transform .38s cubic-bezier(.22,.9,.3,1);scrollbar-width:none}
+.screen-page::-webkit-scrollbar{display:none}
+.screen-page.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.screen-page.exit{transform:translateX(14px)}
+
+/* app dark mode (toggled from profile) */
+.appwrap{display:flex;flex-direction:column;height:100%;transition:background .4s}
+.screen.dark{background:#101018;color:#F2F2F8}
+.screen.dark .card,.screen.dark .storyring,.screen.dark .chiprow .chip,.screen.dark .menurow,.screen.dark .searchbar,.screen.dark .statbox{background:#1B1B26;color:#F2F2F8;border-color:rgba(255,255,255,.07)}
+.screen.dark .sub,.screen.dark .mut{color:#9d9db2}
+.screen.dark .tabbar{background:rgba(16,16,24,.92);border-color:rgba(255,255,255,.08)}
+.screen.dark .detail{background:#14141E;color:#F2F2F8}
+.screen.dark input{color:#F2F2F8}
+.sub{color:#83839A}
+.mut{color:#83839A}
+
+/* home */
+.apphead{display:flex;align-items:center;justify-content:space-between;padding:8px 0 4px}
+.apphead .who{display:flex;align-items:center;gap:11px}
+.apphead .who img{width:44px;height:44px;border-radius:15px;object-fit:cover}
+.apphead .who .hi{font-size:.74rem;color:#83839A}
+.apphead .who .nm{font-weight:800;font-size:.98rem;line-height:1.3}
+.bell{position:relative;width:42px;height:42px;border-radius:14px;background:#fff;border:1px solid #ECECF2;display:grid;place-items:center}
+.bell svg{width:20px;height:20px;stroke:#14141C}
+.bell::after{content:"";position:absolute;top:10px;left:11px;width:8px;height:8px;border-radius:50%;background:#FF5470;border:2px solid #fff}
+.searchbar{margin-top:14px;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #ECECF2;border-radius:16px;padding:12px 14px;color:#83839A;font-size:.85rem}
+.searchbar svg{width:18px;height:18px;stroke:#83839A;flex:0 0 auto}
+.stories{display:flex;gap:14px;margin-top:18px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.story{flex:0 0 auto;text-align:center;width:64px}
+.storyring{width:60px;height:60px;border-radius:50%;padding:3px;background:conic-gradient(from 210deg,var(--acc),#FF7BAC,var(--acc));margin:0 auto}
+.storyring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2.5px solid #F6F6F9}
+.story span{display:block;font-size:.7rem;margin-top:6px;font-weight:600;color:#3C3C4E}
+.secthead{display:flex;align-items:center;justify-content:space-between;margin:22px 0 12px}
+.secthead h4{font-size:1.02rem;font-weight:800}
+.secthead a{font-size:.78rem;color:var(--acc);font-weight:700}
+.chiprow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chiprow::-webkit-scrollbar{display:none}
+.chiprow .chip{flex:0 0 auto;padding:8px 16px;border-radius:999px;background:#fff;border:1px solid #ECECF2;font-size:.8rem;font-weight:700;color:#3C3C4E;transition:.25s}
+.chiprow .chip.on{background:#14141C;color:#fff;border-color:#14141C}
+.herocard{position:relative;border-radius:26px;overflow:hidden;height:212px;margin-top:14px;cursor:pointer;box-shadow:0 18px 34px rgba(20,20,40,.18)}
+.herocard img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.herocard:hover img{transform:scale(1.05)}
+.herocard .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,16,.78) 8%,rgba(8,8,16,.05) 55%)}
+.herocard .info{position:absolute;bottom:0;right:0;left:0;padding:16px;color:#fff}
+.herocard .tag{display:inline-block;background:var(--acc);font-size:.68rem;font-weight:800;padding:4px 10px;border-radius:999px;margin-bottom:8px}
+.herocard h5{font-size:1.12rem;font-weight:800;line-height:1.45}
+.herocard .meta{display:flex;gap:14px;font-size:.74rem;color:#D9D9E6;margin-top:5px}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;border:1px solid #EFEFF5;border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(20,20,40,.10)}
+.card img{width:100%;height:104px;object-fit:cover}
+.card .cb{padding:11px 12px 13px}
+.card h6{font-size:.86rem;font-weight:800;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .row{display:flex;align-items:center;justify-content:space-between;margin-top:5px}
+.card .price{font-size:.8rem;font-weight:800;color:var(--acc)}
+.card .rate{font-size:.72rem;color:#83839A;display:flex;align-items:center;gap:3px}
+.card .rate svg{width:12px;height:12px;fill:#FFB020}
+
+/* explore */
+.searchin{margin-top:10px;display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid #ECECF2;border-radius:16px;padding:4px 14px;transition:border-color .25s}
+.searchin:focus-within{border-color:var(--acc)}
+.searchin svg{width:18px;height:18px;stroke:#83839A;flex:0 0 auto}
+.searchin input{flex:1;border:none;outline:none;background:none;font-family:inherit;font-size:.88rem;padding:10px 0;color:#14141C}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.empty{display:none;text-align:center;color:#83839A;font-size:.85rem;padding:34px 0}
+.empty.show{display:block}
+
+/* detail overlay */
+.detail{position:absolute;inset:0;background:#fff;z-index:60;transform:translateY(102%);transition:transform .5s cubic-bezier(.32,.9,.25,1);display:flex;flex-direction:column;color:#14141C}
+.detail.open{transform:translateY(0)}
+.detail .dscroll{flex:1;overflow-y:auto;scrollbar-width:none;padding-bottom:110px}
+.detail .dscroll::-webkit-scrollbar{display:none}
+.gallery{position:relative;height:308px;overflow:hidden}
+.gtrack{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+.gtrack::-webkit-scrollbar{display:none}
+.gtrack img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.gdots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5}
+.gdots i{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.55);transition:.3s}
+.gdots i.on{width:20px;background:#fff}
+.backbtn{position:absolute;top:52px;right:16px;z-index:6;width:38px;height:38px;border-radius:13px;background:rgba(255,255,255,.92);display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.backbtn svg{width:19px;height:19px;stroke:#14141C}
+.dbody{padding:20px 20px 0}
+.dbody h3{font-size:1.28rem;font-weight:900;line-height:1.5}
+.dmeta{display:flex;align-items:center;gap:14px;margin-top:8px;font-size:.8rem;color:#83839A;flex-wrap:wrap}
+.dmeta .r{display:flex;align-items:center;gap:4px;color:#14141C;font-weight:700}
+.dmeta .r svg{width:14px;height:14px;fill:#FFB020}
+.dprice{display:flex;align-items:baseline;gap:7px;margin-top:14px}
+.dprice b{font-size:1.25rem;font-weight:900;color:var(--acc)}
+.dprice span{font-size:.78rem;color:#83839A}
+.dbody p.desc{margin-top:12px;font-size:.88rem;color:#55556B;line-height:1.95}
+.feats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.feats span{font-size:.74rem;font-weight:700;background:#F1F0FF;color:#5A4BD1;padding:7px 12px;border-radius:999px}
+.actionbar{position:absolute;bottom:0;right:0;left:0;padding:14px 18px 26px;background:linear-gradient(to top,#fff 78%,transparent);display:flex;gap:11px;align-items:center}
+.screen.dark .actionbar{background:linear-gradient(to top,#14141E 78%,transparent)}
+.favbtn{width:52px;height:52px;flex:0 0 auto;border-radius:17px;border:1.5px solid #ECECF2;background:#fff;display:grid;place-items:center;transition:.25s}
+.favbtn svg{width:22px;height:22px;stroke:#14141C;fill:none;transition:.25s}
+.favbtn.liked{border-color:#FFD9E1;background:#FFF2F5}
+.favbtn.liked svg{fill:#FF5470;stroke:#FF5470}
+.bookbtn{flex:1;height:52px;border-radius:17px;background:var(--acc);color:#fff;font-size:.98rem;font-weight:800;box-shadow:0 14px 26px rgba(125,107,255,.35);transition:.25s;position:relative;overflow:hidden}
+.bookbtn:active{transform:scale(.98)}
+.bookbtn.done{background:#12B76A;box-shadow:0 14px 26px rgba(18,183,106,.3)}
+
+/* profile */
+.profhead{text-align:center;padding:14px 0 4px}
+.profhead img{width:88px;height:88px;border-radius:32px;object-fit:cover;margin:0 auto;box-shadow:0 14px 28px rgba(20,20,40,.16)}
+.profhead h4{font-size:1.08rem;font-weight:900;margin-top:12px}
+.profhead .sub{font-size:.78rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.statbox{background:#fff;border:1px solid #EFEFF5;border-radius:18px;padding:13px 6px;text-align:center}
+.statbox b{display:block;font-size:1.02rem;font-weight:900}
+.statbox span{font-size:.7rem;color:#83839A}
+.menulist{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+.menurow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #EFEFF5;border-radius:18px;padding:14px 15px;font-size:.88rem;font-weight:700}
+.menurow .ic{width:36px;height:36px;border-radius:12px;background:#F1F0FF;display:grid;place-items:center;flex:0 0 auto}
+.menurow .ic svg{width:18px;height:18px;stroke:#5A4BD1}
+.menurow .chev{margin-inline-start:auto;color:#B9B9C9}
+.menurow .chev svg{width:16px;height:16px;stroke:currentColor}
+.switch{margin-inline-start:auto;position:relative;width:46px;height:27px;flex:0 0 auto}
+.switch input{opacity:0;width:100%;height:100%;position:absolute;cursor:pointer;z-index:2;margin:0}
+.switch .tr{position:absolute;inset:0;background:#DDDDE8;border-radius:999px;transition:.3s}
+.switch .tr::after{content:"";position:absolute;top:3px;right:3px;width:21px;height:21px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:.3s cubic-bezier(.3,1.4,.5,1)}
+.switch input:checked + .tr{background:var(--acc)}
+.switch input:checked + .tr::after{transform:translateX(-19px)}
+
+/* tab bar */
+.tabbar{position:absolute;bottom:0;right:0;left:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid #EFEFF5;display:flex;padding:10px 12px 24px}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.68rem;font-weight:700;color:#A6A6B8;transition:color .3s;position:relative}
+.tab svg{width:23px;height:23px;stroke:currentColor;fill:none;transition:transform .3s}
+.tab.on{color:var(--acc)}
+.tab.on svg{transform:translateY(-2px)}
+.tab .pip{position:absolute;top:-11px;width:22px;height:3.5px;border-radius:99px;background:var(--acc);opacity:0;transform:scaleX(.4);transition:.3s}
+.tab.on .pip{opacity:1;transform:scaleX(1)}
+
+/* ---------- bottom band ---------- */
+.band{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 32px 70px}
+.band .inner{border:1px solid var(--line);border-radius:28px;background:linear-gradient(150deg,rgba(125,107,255,.10),rgba(255,255,255,.02) 55%);padding:34px 36px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.band h2{font-size:1.5rem;font-weight:900;line-height:1.5}
+.band p{color:var(--mut);font-size:.94rem;max-width:35rem;margin-top:6px}
+.band .nums{display:flex;gap:38px}
+.band .num b{display:block;font-size:1.7rem;font-weight:900;color:#fff}
+.band .num b i{font-style:normal;color:var(--acc)}
+.band .num span{font-size:.78rem;color:var(--mut)}
+footer.site{position:relative;z-index:2;border-top:1px solid var(--line);padding:22px 32px;text-align:center;color:var(--mut);font-size:.8rem}
+
+/* toast inside phone */
+.toast{position:absolute;bottom:104px;left:50%;transform:translate(-50%,16px);background:#14141C;color:#fff;font-size:.78rem;font-weight:700;padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:.35s;z-index:70;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:1020px){
+  .hero{grid-template-columns:1fr;padding-top:8px;gap:56px}
+  .lead,.proofs{max-width:none}
+  .fchip.c1{right:2px}.fchip.c2{left:0}
+  nav.links{display:none}
+}
+@media(max-width:560px){
+  header.site,.hero,.band{padding-left:18px;padding-right:18px}
+  .proofs{grid-template-columns:1fr}
+  .fchip{display:none}
+  .fchip.c2{display:flex;left:2px;bottom:auto;top:16px}
+  .band .inner{padding:26px 22px}
+  .band .nums{gap:24px}
+}
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+<div class="gridlines"></div>
+
+<header class="site">
+  <a class="brand" href="#">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 9 5l4 8 3-5 4 9"/></svg></span>
+    <span>اپ‌وبینو<small>APPWEBINO · MOBILE STUDIO</small></span>
+  </a>
+  <nav class="links">
+    <a href="#demo">دموی زنده</a>
+    <a href="#quality">استاندارد کیفیت</a>
+    <a href="#quality">فناوری</a>
+  </nav>
+  <span class="livechip"><span class="dot"></span>دموی تعاملی — همین حالا امتحان کنید</span>
+</header>
+
+<main class="hero">
+  <!-- copy -->
+  <section>
+    <span class="kicker">طراحی و توسعه اپلیکیشن موبایل</span>
+    <h1><span class="thin">NOVA · SUPER APP</span>اپلیکیشنی که کاربر<br>عاشق <em>حسِ کار کردن</em> با آن می‌شود.</h1>
+    <p class="lead">این یک تصویر ثابت نیست؛ <b>یک اپلیکیشن واقعی و زنده</b> است که همین حالا داخل گوشی روبه‌رو اجرا می‌شود. تب‌ها را عوض کنید، جستجو کنید، وارد جزئیات شوید و تنظیمات را تغییر دهید — دقیقاً همان کیفیتی که برای محصول شما می‌سازیم.</p>
+
+    <div class="proofs" id="quality">
+      <div class="proof">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span>
+        <div><h3>انیمیشن روان ۶۰ فریم</h3><p>ترنزیشن‌های نرم و فیزیک‌محور در هر تعامل؛ بدون لگ، بدون پرش.</p></div>
+      </div>
+      <div class="proof">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="4"/></svg></span>
+        <div><h3>سیستم طراحی یکپارچه</h3><p>توکن‌های رنگ، تایپوگرافی و کامپوننت‌های قابل استفاده مجدد در کل اپ.</p></div>
+      </div>
+      <div class="proof">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/><path d="M8.5 12.5 11 15l4.5-5.5"/></svg></span>
+        <div><h3>حالت آفلاین واقعی</h3><p>داده‌ها روی دستگاه کش می‌شوند؛ اپ بدون اینترنت هم سریع و کامل کار می‌کند.</p></div>
+      </div>
+      <div class="proof">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></span>
+        <div><h3>انتشار در مارکت‌ها</h3><p>خروجی نهایی آماده انتشار در کافه‌بازار و گوگل‌پلی، با آیکون و اسپلش اختصاصی.</p></div>
+      </div>
+    </div>
+
+    <div class="tech">
+      <div class="t">پشته فناوری</div>
+      <div class="techrow">
+        <span class="hot">React Native</span><span>TypeScript</span><span class="hot">PWA</span><span>آفلاین‌فرست</span><span>REST / GraphQL</span><span>پوش نوتیفیکیشن</span>
+      </div>
+    </div>
+
+    <p class="hint"><span class="arr">←</span> روی گوشی کلیک کنید؛ هر چهار بخش اپ زنده و قابل استفاده است.</p>
+  </section>
+
+  <!-- phone stage -->
+  <section class="stage" id="demo">
+    <span class="fchip c1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></span><span>۶۰ فریم بر ثانیه<small>انیمیشن نرم و بدون لگ</small></span></span>
+    <span class="fchip c2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5.5 5.5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></span><span>حالت آفلاین<small>کش کامل روی دستگاه</small></span></span>
+    <span class="fchip c3"><span class="ic"><svg viewBox="0 0 24 24" fill="#FFB020"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.7l-5.4 2.9 1.1-6L3.2 9.4l6.1-.8L12 3z"/></svg></span><span>۴٫۹ از ۵<small>رضایت کاربران نسخه آزمایشی</small></span></span>
+
+    <div class="phone">
+      <div class="screen" id="screen">
+        <div class="notch"></div>
+        <div class="appwrap">
+          <div class="statusbar">
+            <span id="clock">۹:۴۱</span>
+            <span class="sicons">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1" opacity=".35"/></svg>
+              <svg width="16" height="11" viewBox="0 0 16 12" fill="currentColor"><path d="M8 10.6 5.9 8.2a3.4 3.4 0 0 1 4.2 0L8 10.6zm-3-3L3.4 5.7a7 7 0 0 1 9.2 0L11 7.6a4.9 4.9 0 0 0-6 0zM1.6 3.1 0 1.4a11 11 0 0 1 16 0l-1.6 1.7a8.9 8.9 0 0 0-12.8 0z"/></svg>
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".5" y=".5" width="20" height="11" rx="3.5" stroke="currentColor" opacity=".4"/><rect x="2.5" y="2.5" width="13" height="7" rx="2" fill="currentColor"/><path d="M23 4v4a2.2 2.2 0 0 0 0-4z" fill="currentColor" opacity=".4"/></svg>
+            </span>
+          </div>
+
+          <div class="viewport">
+            <!-- ===== HOME ===== -->
+            <div class="screen-page active" id="page-home" data-page>
+              <div class="apphead">
+                <div class="who">
+                  <img src="assets/img/avatar-1.jpg" alt="سارا محمدی">
+                  <div><div class="hi">صبح بخیر 👋</div><div class="nm">سارا محمدی</div></div>
+                </div>
+                <button class="bell" aria-label="اعلان‌ها"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg></button>
+              </div>
+
+              <div class="searchbar"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg><span>جستجو در نوا…</span></div>
+
+              <div class="stories">
+                <div class="story"><div class="storyring"><img src="assets/img/villa.jpg" alt=""></div><span>سفر</span></div>
+                <div class="story"><div class="storyring"><img src="assets/img/cafe.jpg" alt=""></div><span>کافه‌گردی</span></div>
+                <div class="story"><div class="storyring"><img src="assets/img/beauty.jpg" alt=""></div><span>زیبایی</span></div>
+                <div class="story"><div class="storyring"><img src="assets/img/sneakers.jpg" alt=""></div><span>خرید</span></div>
+                <div class="story"><div class="storyring"><img src="assets/img/coffee.jpg" alt=""></div><span>قهوه</span></div>
+              </div>
+
+              <div class="herocard" data-open="0">
+                <img src="assets/img/villa.jpg" alt="ویلای استخردار لواسان">
+                <div class="grad"></div>
+                <div class="info">
+                  <span class="tag">پیشنهاد ویژه هفته</span>
+                  <h5>ویلای استخردار لواسان؛ غروب، استخر، سکوت</h5>
+                  <div class="meta"><span>★ ۴٫۹ (۲۱۴ نظر)</span><span>از شبی ۲٬۴۰۰٬۰۰۰ تومان</span></div>
+                </div>
+              </div>
+
+              <div class="secthead"><h4>پیشنهادهای امروز</h4><a href="#" data-goto="explore">مشاهده همه</a></div>
+              <div class="cards2" id="homeCards"></div>
+
+              <div class="secthead"><h4>تجربه‌های نزدیک شما</h4><a href="#" data-goto="explore">مشاهده همه</a></div>
+              <div class="herocard" style="height:168px" data-open="1">
+                <img src="assets/img/cafe.jpg" alt="کافه‌رستوران باغ فردوس">
+                <div class="grad"></div>
+                <div class="info">
+                  <span class="tag">غذا و کافه</span>
+                  <h5>کافه‌رستوران باغ فردوس؛ صبحانه در باغی سبز</h5>
+                  <div class="meta"><span>★ ۴٫۸ (۵۳۲ نظر)</span><span>فاصله: ۱٫۲ کیلومتر</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== EXPLORE ===== -->
+            <div class="screen-page" id="page-explore" data-page>
+              <div class="secthead" style="margin-top:10px"><h4>کاوش در نوا</h4></div>
+              <div class="searchin">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+                <input type="text" id="searchInput" placeholder="مثلاً: ویلا، قهوه، کفش…">
+              </div>
+              <div class="chiprow" id="catChips" style="margin-top:14px">
+                <button class="chip on" data-cat="all">همه</button>
+                <button class="chip" data-cat="travel">سفر و اقامت</button>
+                <button class="chip" data-cat="food">غذا و کافه</button>
+                <button class="chip" data-cat="shop">خرید</button>
+                <button class="chip" data-cat="life">سبک زندگی</button>
+              </div>
+              <div class="grid2" id="exploreGrid"></div>
+              <div class="empty" id="exploreEmpty">موردی پیدا نشد؛ عبارت دیگری امتحان کنید.</div>
+            </div>
+
+            <!-- ===== PROFILE ===== -->
+            <div class="screen-page" id="page-profile" data-page>
+              <div class="profhead">
+                <img src="assets/img/avatar-1.jpg" alt="سارا محمدی">
+                <h4>سارا محمدی</h4>
+                <div class="sub">کاربر طلایی نوا · عضو از ۱۴۰۲</div>
+              </div>
+              <div class="stats">
+                <div class="statbox"><b>۲۴</b><span>سفارش و رزرو</span></div>
+                <div class="statbox"><b>۴٫۹</b><span>میانگین امتیاز</span></div>
+                <div class="statbox"><b>۱٬۲۵۰</b><span>امتیاز باشگاه</span></div>
+              </div>
+              <div class="menulist">
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h15l-1.5 9h-12z"/><path d="M6 7 5 3H2"/><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/></svg></span>سفارش‌های من<span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m14 6-6 6 6 6"/></svg></span></div>
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 1 1 12 6.2a5 5 0 1 1 7.5 6.4z"/></svg></span>علاقه‌مندی‌ها<span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m14 6-6 6 6 6"/></svg></span></div>
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18"/></svg></span>کیف پول و پرداخت<span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m14 6-6 6 6 6"/></svg></span></div>
+              </div>
+              <div class="secthead"><h4>تنظیمات</h4></div>
+              <div class="menulist" style="margin-top:0">
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg></span>اعلان‌ها<label class="switch"><input type="checkbox" id="tgNotif" checked><span class="tr"></span></label></div>
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.3"/><path d="M21 3v6h-6"/></svg></span>حالت آفلاین<label class="switch"><input type="checkbox" id="tgOffline" checked><span class="tr"></span></label></div>
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a6.8 6.8 0 0 0 9.5 9.5z"/></svg></span>حالت تیره<label class="switch"><input type="checkbox" id="tgDark"><span class="tr"></span></label></div>
+                <div class="menurow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3A2.6 2.6 0 1 1 12 12.2V14"/><circle cx="12" cy="17.4" r=".6" fill="currentColor"/></svg></span>پشتیبانی و راهنما<span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m14 6-6 6 6 6"/></svg></span></div>
+              </div>
+            </div>
+
+            <!-- ===== DETAIL ===== -->
+            <div class="detail" id="detail">
+              <div class="dscroll">
+                <div class="gallery">
+                  <div class="gtrack" id="gtrack"></div>
+                  <div class="gdots" id="gdots"></div>
+                  <button class="backbtn" id="backBtn" aria-label="بازگشت"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+                </div>
+                <div class="dbody">
+                  <h3 id="dTitle"></h3>
+                  <div class="dmeta">
+                    <span class="r"><svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.7l-5.4 2.9 1.1-6L3.2 9.4l6.1-.8L12 3z"/></svg><span id="dRate"></span></span>
+                    <span id="dReviews"></span>
+                    <span id="dLoc"></span>
+                  </div>
+                  <div class="dprice"><b id="dPrice"></b><span id="dUnit"></span></div>
+                  <p class="desc" id="dDesc"></p>
+                  <div class="feats" id="dFeats"></div>
+                </div>
+              </div>
+              <div class="actionbar">
+                <button class="favbtn" id="favBtn" aria-label="علاقه‌مندی"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 1 1 12 6.2a5 5 0 1 1 7.5 6.4z"/></svg></button>
+                <button class="bookbtn" id="bookBtn">رزرو کن</button>
+              </div>
+            </div>
+
+            <div class="toast" id="toast"></div>
+          </div>
+
+          <!-- tab bar -->
+          <nav class="tabbar">
+            <button class="tab on" data-tab="home"><span class="pip"></span><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>خانه</button>
+            <button class="tab" data-tab="explore"><span class="pip"></span><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>کاوش</button>
+            <button class="tab" data-tab="profile"><span class="pip"></span><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg>پروفایل</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="band">
+  <div class="inner">
+    <div>
+      <h2>از ایده تا انتشار در مارکت — یک تیم، یک مسیر</h2>
+      <p>تحلیل محصول، طراحی UI/UX، توسعه نیتیو یا کراس‌پلتفرم، تست روی دستگاه‌های واقعی و انتشار در کافه‌بازار و گوگل‌پلی؛ با گزارش پیشرفت شفاف در تمام مسیر.</p>
+    </div>
+    <div class="nums">
+      <div class="num"><b>۶۰<i>fps</i></b><span>نرخ فریم انیمیشن‌ها</span></div>
+      <div class="num"><b>۱۰۰٪</b><span>کارکرد در حالت آفلاین</span></div>
+      <div class="num"><b>۲</b><span>مارکت انتشار هم‌زمان</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">دموی تعاملی «نوا» — نمونه‌ای از کیفیت طراحی و توسعه اپلیکیشن موبایل اپ‌وبینو · تمام بخش‌های این گوشی زنده و قابل استفاده‌اند.</footer>
+
+<script>
+const ITEMS = [
+  { id:0, title:'ویلای استخردار لواسان', cat:'travel', catFa:'سفر و اقامت', img:'assets/img/villa.jpg',
+    gallery:['assets/img/villa.jpg','assets/img/interior.jpg','assets/img/hotel.jpg'],
+    rate:'۴٫۹', reviews:'۲۱۴ نظر', loc:'لواسان، تهران', price:'۲٬۴۰۰٬۰۰۰ تومان', unit:'برای هر شب',
+    desc:'ویلایی مدرن با استخر روباز و چشم‌انداز کوهستان؛ جایی برای یک آخر هفته آرام و دور از شلوغی شهر. نور طبیعی فوق‌العاده، فضای نشیمن بزرگ و تراس رو به غروب، این اقامت را به تجربه‌ای فراموش‌نشدنی تبدیل می‌کند.',
+    feats:['استخر روباز','۴ خوابه','وای‌فای پرسرعت','پارکینگ','صبحانه محلی','حیوان خانگی مجاز'] },
+  { id:1, title:'کافه‌رستوران باغ فردوس', cat:'food', catFa:'غذا و کافه', img:'assets/img/cafe.jpg',
+    gallery:['assets/img/cafe.jpg','assets/img/coffee.jpg','assets/img/interior.jpg'],
+    rate:'۴٫۸', reviews:'۵۳۲ نظر', loc:'تجریش، تهران', price:'از ۱۸۵٬۰۰۰ تومان', unit:'برای هر نفر',
+    desc:'کافه‌ای سرسبز با سقف بلند و گیاهان آویز؛ منوی صبحانه کامل، قهوه تخصصی و فضای کاری آرام در قلب تجریش. میزهای کنار باغچه برای دورهمی‌های صبحگاهی بی‌نظیرند.',
+    feats:['صبحانه کامل','قهوه تخصصی','فضای باز','رزرو گروهی','موسیقی زنده جمعه‌ها'] },
+  { id:2, title:'هتل پنج‌ستاره اسپیناس', cat:'travel', catFa:'سفر و اقامت', img:'assets/img/hotel.jpg',
+    gallery:['assets/img/hotel.jpg','assets/img/interior.jpg','assets/img/villa.jpg'],
+    rate:'۴٫۷', reviews:'۱٬۰۴۸ نظر', loc:'بلوار کشاورز، تهران', price:'۳٬۹۰۰٬۰۰۰ تومان', unit:'برای هر شب',
+    desc:'اقامتی لوکس در مرکز شهر با دسترسی سریع به مراکز خرید و دیدنی‌ها. اتاق‌های رو به شهر، اسپا و رستوران گردان، استاندارد یک سفر کاری یا خانوادگی بی‌دغدغه است.',
+    feats:['اسپا و سونا','رستوران گردان','ترانسفر فرودگاهی','اتاق کنفرانس','پذیرش ۲۴ ساعته'] },
+  { id:3, title:'قهوه تخصصی اتیوپی', cat:'food', catFa:'غذا و کافه', img:'assets/img/coffee.jpg',
+    gallery:['assets/img/coffee.jpg','assets/img/cafe.jpg','assets/img/beauty.jpg'],
+    rate:'۴٫۹', reviews:'۸۷ نظر', loc:'ارسال به سراسر کشور', price:'۴۲۰٬۰۰۰ تومان', unit:'بسته ۲۵۰ گرمی',
+    desc:'دانه‌های تک‌خاستگاه اتیوپی با رست تازه و نت‌های میوه‌ای؛ برای کسانی که قهوه را جدی می‌گیرند. آسیاب در لحظه سفارش و ارسال سریع، تازگی هر فنجان را تضمین می‌کند.',
+    feats:['رست تازه','تک‌خاستگاه','آسیاب در لحظه','ارسال سریع'] },
+  { id:4, title:'ست مراقبت پوست ویتامین C', cat:'life', catFa:'سبک زندگی', img:'assets/img/beauty.jpg',
+    gallery:['assets/img/beauty.jpg','assets/img/coffee.jpg','assets/img/cafe.jpg'],
+    rate:'۴٫۶', reviews:'۳۱۹ نظر', loc:'فروشگاه نوا', price:'۸۹۰٬۰۰۰ تومان', unit:'ست کامل',
+    desc:'روتین کامل صبح و شب با سرم ویتامین C، مرطوب‌کننده سبک و ضدآفتاب نامرئی؛ فرمول ملایم و مناسب انواع پوست برای شفافیت و طراوت روزانه.',
+    feats:['مناسب انواع پوست','بدون پارابن','روتین صبح و شب','ضمانت اصالت'] },
+  { id:5, title:'کتانی رانینگ ایرفلکس', cat:'shop', catFa:'خرید', img:'assets/img/sneakers.jpg',
+    gallery:['assets/img/sneakers.jpg','assets/img/backpack.jpg','assets/img/watch.jpg'],
+    rate:'۴٫۸', reviews:'۴۵۶ نظر', loc:'فروشگاه نوا', price:'۲٬۷۵۰٬۰۰۰ تومان', unit:'جفت',
+    desc:'زیره فوم سبک و رویه تنفس‌پذیر؛ برای دویدن روزانه و استایل خیابانی. بازگشت انرژی در هر قدم و فیت دقیق، این کتانی را به انتخاب اول دونده‌ها تبدیل کرده است.',
+    feats:['زیره فوم سبک','رویه تنفس‌پذیر','سایز ۴۰ تا ۴۵','تعویض سایز رایگان'] },
+  { id:6, title:'کوله‌پشتی شهری مینیمال', cat:'shop', catFa:'خرید', img:'assets/img/backpack.jpg',
+    gallery:['assets/img/backpack.jpg','assets/img/sneakers.jpg','assets/img/watch.jpg'],
+    rate:'۴٫۷', reviews:'۲۰۳ نظر', loc:'فروشگاه نوا', price:'۱٬۴۸۰٬۰۰۰ تومان', unit:'',
+    desc:'طراحی مینیمال با جیب مخفی لپ‌تاپ ۱۵ اینچی و پارچه ضدآب؛ همراه هر روز شهر، دانشگاه و سفرهای کوتاه. بندهای ارگونومیک فشار روی شانه را به حداقل می‌رسانند.',
+    feats:['جیب لپ‌تاپ ۱۵ اینچ','ضدآب','بند ارگونومیک','وزن ۷۸۰ گرم'] },
+  { id:7, title:'ساعت هوشمند نوا واچ', cat:'shop', catFa:'خرید', img:'assets/img/watch.jpg',
+    gallery:['assets/img/watch.jpg','assets/img/sneakers.jpg','assets/img/backpack.jpg'],
+    rate:'۴٫۸', reviews:'۶۷۴ نظر', loc:'فروشگاه نوا', price:'۵٬۹۰۰٬۰۰۰ تومان', unit:'',
+    desc:'نمایشگر همیشه‌روشن، پایش خواب و ضربان قلب و باتری ۱۰ روزه؛ هم‌نشین هوشمند مچ شما برای ورزش و زندگی روزمره، با بندهای قابل تعویض در چند رنگ.',
+    feats:['باتری ۱۰ روزه','پایش خواب','ضدآب 5ATM','GPS داخلی','بند قابل تعویض'] },
+];
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const starSvg = '<svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.7l-5.4 2.9 1.1-6L3.2 9.4l6.1-.8L12 3z"/></svg>';
+
+function cardHTML(it){
+  return `<article class="card" data-open="${it.id}">
+    <img src="${it.img}" alt="${it.title}" loading="lazy">
+    <div class="cb"><h6>${it.title}</h6>
+    <div class="row"><span class="price">${it.price.split(' تومان')[0]} تومان</span>
+    <span class="rate">${starSvg}${it.rate}</span></div></div></article>`;
+}
+
+/* render home + explore */
+$('#homeCards').innerHTML = [ITEMS[3], ITEMS[5], ITEMS[7], ITEMS[4]].map(cardHTML).join('');
+$('#exploreGrid').innerHTML = ITEMS.map(cardHTML).join('');
+
+/* ---------- tabs ---------- */
+let currentTab = 'home';
+function goTab(name){
+  if(name === currentTab && !$('#detail').classList.contains('open')) return;
+  closeDetail();
+  $$('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === name));
+  $$('[data-page]').forEach(p => {
+    const on = p.id === 'page-' + name;
+    p.classList.toggle('active', on);
+    if(on) p.scrollTop = 0;
+  });
+  currentTab = name;
+}
+$$('.tab').forEach(t => t.addEventListener('click', () => goTab(t.dataset.tab)));
+$$('[data-goto]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); goTab(a.dataset.goto); }));
+
+/* ---------- explore filter ---------- */
+let activeCat = 'all';
+function applyFilter(){
+  const q = $('#searchInput').value.trim();
+  let visible = 0;
+  $$('#exploreGrid .card').forEach(card => {
+    const it = ITEMS[+card.dataset.open];
+    const okCat = activeCat === 'all' || it.cat === activeCat;
+    const okQ = !q || it.title.includes(q) || it.catFa.includes(q);
+    const show = okCat && okQ;
+    card.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  $('#exploreEmpty').classList.toggle('show', visible === 0);
+}
+$('#searchInput').addEventListener('input', applyFilter);
+$$('#catChips .chip').forEach(ch => ch.addEventListener('click', () => {
+  $$('#catChips .chip').forEach(c => c.classList.remove('on'));
+  ch.classList.add('on');
+  activeCat = ch.dataset.cat;
+  applyFilter();
+}));
+
+/* ---------- detail ---------- */
+let toastTimer;
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2100);
+}
+function openDetail(id){
+  const it = ITEMS[id];
+  $('#dTitle').textContent = it.title;
+  $('#dRate').textContent = it.rate;
+  $('#dReviews').textContent = it.reviews;
+  $('#dLoc').textContent = it.loc;
+  $('#dPrice').textContent = it.price;
+  $('#dUnit').textContent = it.unit;
+  $('#dDesc').textContent = it.desc;
+  $('#dFeats').innerHTML = it.feats.map(f => `<span>${f}</span>`).join('');
+  const track = $('#gtrack');
+  track.innerHTML = it.gallery.map(g => `<img src="${g}" alt="${it.title}">`).join('');
+  $('#gdots').innerHTML = it.gallery.map((_, i) => `<i class="${i===0?'on':''}"></i>`).join('');
+  track.scrollLeft = 0;
+  const bb = $('#bookBtn');
+  bb.classList.remove('done'); bb.textContent = 'رزرو کن';
+  $('#favBtn').classList.remove('liked');
+  $('#detail').classList.add('open');
+  $('#detail .dscroll').scrollTop = 0;
+}
+function closeDetail(){ $('#detail').classList.remove('open'); }
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-open]');
+  if(el) openDetail(+el.dataset.open);
+});
+$('#backBtn').addEventListener('click', closeDetail);
+$('#gtrack').addEventListener('scroll', e => {
+  const w = e.target.clientWidth;
+  const idx = Math.round(Math.abs(e.target.scrollLeft) / w);
+  $$('#gdots i').forEach((d, i) => d.classList.toggle('on', i === idx));
+});
+$('#favBtn').addEventListener('click', () => {
+  const liked = $('#favBtn').classList.toggle('liked');
+  toast(liked ? 'به علاقه‌مندی‌ها اضافه شد' : 'از علاقه‌مندی‌ها حذف شد');
+});
+$('#bookBtn').addEventListener('click', () => {
+  const bb = $('#bookBtn');
+  if(bb.classList.contains('done')) return;
+  bb.classList.add('done');
+  bb.textContent = 'رزرو شد ✓ منتظر تأیید میزبان';
+  toast('درخواست رزرو با موفقیت ثبت شد');
+});
+
+/* ---------- profile toggles ---------- */
+$('#tgDark').addEventListener('change', e => {
+  $('#screen').classList.toggle('dark', e.target.checked);
+  toast(e.target.checked ? 'حالت تیره فعال شد' : 'حالت روشن فعال شد');
+});
+$('#tgNotif').addEventListener('change', e => toast(e.target.checked ? 'اعلان‌ها روشن شد' : 'اعلان‌ها خاموش شد'));
+$('#tgOffline').addEventListener('change', e => toast(e.target.checked ? 'حالت آفلاین فعال شد' : 'حالت آفلاین خاموش شد'));
+
+/* ---------- live clock ---------- */
+function tick(){
+  try{
+    $('#clock').textContent = new Date().toLocaleTimeString('fa-IR', {hour:'2-digit', minute:'2-digit', hour12:false});
+  }catch(e){}
+}
+tick(); setInterval(tick, 20000);
+</script>
+</body>
+</html>
