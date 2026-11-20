@@ -270,6 +270,10 @@ tr.pending-row:hover{background:#fdf6dd}
 
 /* footer note */
 .foot-note{text-align:center;color:var(--muted);font-size:12px;font-weight:600;padding:6px 0 0}
+/* slim app footer (F4) — static, never fixed/sticky */
+.app-foot{flex:none;height:36px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 16px;border-top:1px solid var(--line);background:rgba(255,255,255,.65);color:var(--muted);font-size:11.5px;font-weight:600;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-foot b{color:var(--ink2);font-weight:800}
+.app-foot .sep{opacity:.5}
 
 /* responsive */
 @media(max-width:1180px){.kpis{grid-template-columns:repeat(2,1fr)}.grid-2,.grid-2b{grid-template-columns:1fr}}
@@ -460,6 +464,7 @@ tr.pending-row:hover{background:#fdf6dd}
       </section>
 
     </main>
+    <footer class="app-foot"><b>هاب فروش</b><span class="sep">·</span><span>دموی تعاملی پنل مدیریت یکپارچه اکانت‌های فروش — داده‌ها نمونه‌اند</span><span class="sep">·</span><span>نسخه نمایشی ۱٫۰</span></footer>
   </div>
 </div>
 
