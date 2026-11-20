@@ -198,6 +198,29 @@ footer{
 }
 footer .brand{font-weight:800;color:var(--navy);font-size:15px}
 @media print{nav.toc{display:none}body{background:#fff}section{box-shadow:none}}
+
+/* === H14 TICKET VARIANT: support-ticket masthead === */
+.ticket-mast{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:14px 26px 0}
+.ticket-no{font-weight:900;font-size:12.5px;background:var(--navy);color:#fff;border-radius:8px;padding:5px 13px;letter-spacing:.02em}
+.ticket-status{font-weight:800;font-size:12.5px;background:var(--red-soft);color:#8f1d14;border:1px solid #f6cfc9;border-radius:999px;padding:4px 13px;display:inline-flex;align-items:center;gap:7px}
+.ticket-status i{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
+.ticket-mast .tm-sp{flex:1}
+.ticket-mast .tm-meta{font-size:12.5px;color:var(--muted);font-weight:700}
+.ticket{border-top:4px solid var(--red)}
+@media(max-width:640px){.ticket-mast{padding:12px 20px 0}}
+
+/* === L9 PROCESS-TIMELINE: diagnosis as vertical numbered timeline === */
+#diag{counter-reset:diagstep}
+#diag .diag{position:relative;margin:0 0 0 0;padding:18px 52px 18px 18px;border:none;border-right:2px solid var(--line);border-radius:0;background:transparent}
+#diag .diag:last-of-type{border-right-color:transparent}
+#diag .diag::before{counter-increment:diagstep;content:counter(diagstep,decimal-leading-zero);position:absolute;right:-19px;top:14px;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line);z-index:1}
+#diag .diag::after{content:"";position:absolute;right:34px;top:22px;width:10px;height:10px;border-radius:50%;background:var(--amber)}
+#diag .diag h3{margin-bottom:6px}
+@media(max-width:640px){#diag .diag{padding-right:40px}#diag .diag::before{right:-16px;width:30px;height:30px;font-size:11px}}
+
+/* === F6 LIGHT AIRY footer === */
+footer{background:#fff;border-top:1px solid var(--line);border-radius:var(--radius);padding:34px 28px 30px;margin-top:6px;text-align:center;color:var(--muted);font-size:13.5px;box-shadow:var(--shadow);line-height:2}
+footer .brand{font-weight:800;color:var(--navy);font-size:16px;margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -212,6 +235,12 @@ footer .brand{font-weight:800;color:var(--navy);font-size:15px}
 
 <div class="wrap">
   <div class="ticket">
+    <div class="ticket-mast">
+      <span class="ticket-no">برگه تشخیص فنی</span>
+      <span class="ticket-status"><i></i>وضعیت پرونده: خطا شناسایی شد</span>
+      <span class="tm-sp"></span>
+      <span class="tm-meta">قالب اکسترا (راست‌چین) · تحویل: ۱ روز کاری</span>
+    </div>
     <div class="ticket-head">
       <span class="t-kicker">برگه تشخیص فنی — پرونده پشتیبانی نصب وردپرس</span>
       <h1>گزارش تشخیص و برنامه رفع خطای اتصال به پایگاه داده</h1>
