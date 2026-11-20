@@ -127,9 +127,9 @@ footer h4{font-size:15px;font-weight:700;margin-bottom:16px}footer .flinks a{dis
 <section class="tiles" id="tiles"></section>
 
 <section class="mosaic">
-  <div class="mtile large" onclick="scrollToId('catalogue')"><img src="https://images.pexels.com/photos/931162/pexels-photo-931162.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="دسته‌گل تازه هوشی"><div class="ov"><h2>گل‌ها ←</h2><p>دسته‌گل‌های دست‌چین و تازه، از بازار گل تهران، با ارسال امروز و کارت هدیه رایگان.</p><button class="cta" onclick="event.stopPropagation();scrollToId('catalogue')">مشاهده دسته‌گل‌ها</button></div></div>
-  <div class="mtile small" onclick="setOccasion('birthday')"><img src="https://images.pexels.com/photos/1457089/pexels-photo-1457089.jpeg?auto=compress&cs=tinysrgb&w=800" alt="گل‌های تولد"><div class="ov"><h3>گل‌های تولد ←</h3><p>شاد، رنگی و آماده‌ی سورپرایز</p></div></div>
-  <div class="mtile small" onclick="setCat('box')"><img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=800" alt="باکس‌های لوکس"><div class="ov"><h3>باکس‌های لوکس ←</h3><p>برای هدیه‌ای که فراموش نمی‌شود</p></div></div>
+  <div class="mtile large" onclick="scrollToId('catalogue')"><img src="assets/hero-931162.jpg" alt="دسته‌گل تازه هوشی"><div class="ov"><h2>گل‌ها ←</h2><p>دسته‌گل‌های دست‌چین و تازه، از بازار گل تهران، با ارسال امروز و کارت هدیه رایگان.</p><button class="cta" onclick="event.stopPropagation();scrollToId('catalogue')">مشاهده دسته‌گل‌ها</button></div></div>
+  <div class="mtile small" onclick="setOccasion('birthday')"><img src="assets/p-1457089.jpg" alt="گل‌های تولد"><div class="ov"><h3>گل‌های تولد ←</h3><p>شاد، رنگی و آماده‌ی سورپرایز</p></div></div>
+  <div class="mtile small" onclick="setCat('box')"><img src="assets/p-931177.jpg" alt="باکس‌های لوکس"><div class="ov"><h3>باکس‌های لوکس ←</h3><p>برای هدیه‌ای که فراموش نمی‌شود</p></div></div>
 </section>
 
 <section class="catintro" id="catalogue"><h1>گل برای هر لحظه</h1><p>از تبریک و تولد تا همدردی و یک «دوستت دارم» ساده؛ هر دسته‌گل هوشی همان روز، تازه از بازار گل چیده و با دست گل‌آرای ما بسته می‌شود.</p></section>
@@ -194,7 +194,7 @@ footer h4{font-size:15px;font-weight:700;margin-bottom:16px}footer .flinks a{dis
 <script>
 const FA='۰۱۲۳۴۵۶۷۸۹';const faNum=s=>String(s).replace(/\d/g,d=>FA[d]);const faPrice=n=>faNum(n.toLocaleString('en-US'));
 const normDigits=s=>String(s||'').replace(/[۰-۹]/g,d=>FA.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
-const IMG=id=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
+const IMG=id=>`assets/p-${id}.jpg`;
 const OCC={birthday:'تولد',wedding:'عروسی',condolence:'ترحیم و همدردی',romantic:'عاشقانه',congrats:'تبریک',apology:'عذرخواهی',thanks:'تشکر',newborn:'نوزاد'};
 const PRODUCTS=[
 {id:1,name:'دسته‌گل «طلوع»',comp:'رز هلندی، لیلیوم و آلسترومریا',price:850000,img:931162,badge:'پرفروش',occ:['birthday','congrats'],cat:'bouquet',desc:'دسته‌گلی پرنور با رزهای هلندی تازه که صبح همان روز از بازار گل رسیده‌اند؛ انتخابی شاد برای شروع یک روز خاص.',rate:'۴.۹',cnt:'۲۳۱'},
