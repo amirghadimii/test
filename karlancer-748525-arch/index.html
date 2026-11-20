@@ -126,6 +126,10 @@ header.site .sp{flex:1}
 .proj .poemline{color:var(--ink2);font-size:15px;margin-top:3px}
 .proj .tags{margin-top:9px;display:flex;gap:8px;flex-wrap:wrap}
 .proj .tags span{font-size:12px;font-weight:700;color:var(--mu);border:1px solid var(--line);padding:3px 11px;border-radius:99px}
+/* asymmetric caption offsets in works grid (polish) */
+.works .proj:nth-child(even) .pm,.works .proj:nth-child(even) .poemline,.works .proj:nth-child(even) .tags{margin-inline-start:26px}
+.works .proj:nth-child(3n) .pm,.works .proj:nth-child(3n) .poemline,.works .proj:nth-child(3n) .tags{margin-inline-start:12px}
+@media(max-width:560px){.works .proj .pm,.works .proj .poemline,.works .proj .tags{margin-inline-start:0}}
 /* ===== about ===== */
 .about .cols{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:start}
 .about .imgs{position:relative}
@@ -366,7 +370,7 @@ footer.site .base b{color:#D9B98A;font-weight:700}
   <div class="wrap">
     <div class="sechead reveal">
       <div class="label" data-fa="آثار منتخب" data-en="Selected Works">آثار منتخب</div>
-      <h2 class="sec" data-fa="پروژه‌هایی که با آن‌ها زندگی می‌کنیم" data-en="Projects we live by">پروژه‌هایی که با آن‌ها زندگی می‌کنیم</h2>
+      <h2 class="sec" data-fa="۰۱ — پروژه‌هایی که با آن‌ها زندگی می‌کنیم" data-en="01 — Projects we live by">۰۱ — پروژه‌هایی که با آن‌ها زندگی می‌کنیم</h2>
       <p class="secsub" data-fa="گزیده‌ای از کارهای اخیر استودیو؛ برای دیدن جزئیات هر پروژه، روی آن کلیک کنید." data-en="A selection of the studio's recent work — select any project to see its details.">گزیده‌ای از کارهای اخیر استودیو؛ برای دیدن جزئیات هر پروژه، روی آن کلیک کنید.</p>
     </div>
     <div class="filters reveal" id="filters">
@@ -530,7 +534,7 @@ footer.site .base b{color:#D9B98A;font-weight:700}
   <div class="wrap">
     <div class="sechead reveal">
       <div class="label" data-fa="مجله استودیو" data-en="Studio Journal">مجله استودیو</div>
-      <h2 class="sec" data-fa="یادداشت‌هایی درباره ساختن" data-en="Notes on building">یادداشت‌هایی درباره ساختن</h2>
+      <h2 class="sec" data-fa="۰۲ — یادداشت‌هایی درباره ساختن" data-en="02 — Notes on building">۰۲ — یادداشت‌هایی درباره ساختن</h2>
       <p class="secsub" data-fa="از مجله استودیو؛ جایی برای فکر کردن به معماری، مصالح و شهر." data-en="From the studio journal — a place to think about architecture, materials and the city.">از مجله استودیو؛ جایی برای فکر کردن به معماری، مصالح و شهر.</p>
     </div>
     <div class="posts">
