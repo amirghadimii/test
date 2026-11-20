@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گزارش تولید | ERPNext</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6f9;--card:#fff;--bd:#d8dee6;--tx:#1f272e;--mu:#6b7684;--ac:#2f6fb4;--ac2:#1f4e79;--gr:#2f9e5f;--or:#e08a1e;--rd:#d64545;--bl:#2f6fb4}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--tx);font-size:13.5px}
+/* topbar */
+.topbar{position:sticky;top:0;z-index:50;background:#24292f;color:#e8ecf1;display:flex;align-items:center;gap:14px;padding:0 16px;height:48px}
+.topbar .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15px;color:#fff;white-space:nowrap}
+.topbar .logo .mk{width:26px;height:26px;border-radius:6px;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:14px}
+.topbar .crumb{color:#9aa4b0;font-size:12.5px;white-space:nowrap}
+.topbar .sp{flex:1}
+.topbar .search{background:#33383f;border:1px solid #454b53;border-radius:6px;padding:6px 12px;color:#cfd6de;font-size:12.5px;min-width:0;width:220px}
+.topbar .ava{width:30px;height:30px;border-radius:50%;background:#7a5af8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.layout{display:flex;min-height:calc(100vh - 48px)}
+/* sidebar */
+aside{width:216px;flex-shrink:0;background:#fff;border-left:1px solid var(--bd);padding:14px 10px}
+aside h4{font-size:11px;color:var(--mu);font-weight:700;padding:8px 10px 4px}
+.mi{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:7px;color:#39434e;cursor:pointer;font-size:13px}
+.mi:hover{background:#f0f3f7}.mi.on{background:#e8f0fa;color:var(--ac2);font-weight:700}
+.mi .ic{width:17px;text-align:center;flex-shrink:0}
+main{flex:1;min-width:0;padding:20px 22px 46px}
+.page-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.page-head h1{font-size:20px;font-weight:800}
+.page-head .sub{color:var(--mu);font-size:12.5px;margin-top:3px}
+.btn{border:1px solid var(--bd);background:#fff;border-radius:7px;padding:8px 16px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;color:var(--tx)}
+.btn.pri{background:var(--ac);border-color:var(--ac);color:#fff}
+.btn.grn{background:var(--gr);border-color:var(--gr);color:#fff}
+.btn:hover{filter:brightness(.96)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:16px;margin-bottom:16px}
+.card h3{font-size:14.5px;font-weight:800;margin-bottom:12px}
+/* filters */
+.filters{display:flex;gap:12px;flex-wrap:wrap}
+.fld{display:flex;flex-direction:column;gap:5px;min-width:150px;flex:1}
+.fld label{font-size:12px;color:var(--mu);font-weight:700}
+.fld select,.fld input{font-family:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--bd);border-radius:7px;background:#fbfcfd;color:var(--tx);width:100%}
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:16px}
+.kpi .lb{color:var(--mu);font-size:12.5px;font-weight:700}
+.kpi .vl{font-size:26px;font-weight:800;margin-top:6px;color:var(--ac2)}
+.kpi .vl small{font-size:12px;color:var(--mu);font-weight:500}
+/* chart */
+.bars{display:flex;align-items:flex-end;gap:26px;height:170px;padding:8px 6px 0;border-bottom:1px solid var(--bd)}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.bcol .bar{width:min(54px,70%);background:linear-gradient(180deg,#5b93d6,var(--ac));border-radius:6px 6px 0 0;min-height:3px}
+.bcol .bv{font-weight:800;font-size:12.5px;margin-bottom:5px}
+.bcol .bl{font-size:12px;color:var(--mu);padding:8px 0 2px;text-align:center}
+/* table */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:760px}
+th{text-align:right;color:var(--mu);font-size:12px;font-weight:700;padding:9px 10px;border-bottom:2px solid var(--bd);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid #edf0f3;white-space:nowrap;font-size:13px}
+tr:hover td{background:#f7fafc}
+.wo{color:var(--ac2);font-weight:700}
+.prog{display:flex;align-items:center;gap:8px;min-width:130px}
+.prog .tr{flex:1;height:8px;background:#e6ebf0;border-radius:99px;overflow:hidden}
+.prog .fl{height:100%;background:var(--ac);border-radius:99px}
+.prog .fl.done{background:var(--gr)}.prog .fl.low{background:var(--or)}
+.bdg{display:inline-block;padding:3px 11px;border-radius:99px;font-size:11.5px;font-weight:700}
+.bdg.done{background:#e3f4ea;color:#1e7a46}.bdg.run{background:#e3edf9;color:#1f4e79}.bdg.plan{background:#eef1f4;color:#5a6572}.bdg.stop{background:#fbe7e7;color:#b33535}
+.empty{padding:28px;text-align:center;color:var(--mu)}
+.foot-note{color:var(--mu);font-size:12px;margin-top:8px}
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){
+  aside{display:none}
+  main{padding:14px 12px 40px}
+  .topbar .search{display:none}.topbar .crumb{display:none}
+}
+@media(max-width:480px){
+  .kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+  .kpi .vl{font-size:21px}
+  .bars{gap:12px;height:140px}
+  .fld{min-width:calc(50% - 6px)}
+  input,select{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo"><span class="mk">E</span> ERPNext</div>
+  <div class="crumb">تولید ‏/ گزارش تولید سفارشی</div>
+  <div class="sp"></div>
+  <input class="search" placeholder="جستجو…">
+  <div class="ava">م</div>
+</div>
+<div class="layout">
+  <aside>
+    <h4>ماژول‌ها</h4>
+    <div class="mi"><span class="ic">▦</span>داشبورد</div>
+    <div class="mi"><span class="ic">▤</span>حسابداری</div>
+    <div class="mi"><span class="ic">▣</span>انبار و موجودی</div>
+    <div class="mi"><span class="ic">▥</span>خرید</div>
+    <div class="mi"><span class="ic">▧</span>فروش</div>
+    <div class="mi on"><span class="ic">⚙</span>تولید</div>
+    <div class="mi"><span class="ic">▨</span>منابع انسانی</div>
+    <div class="mi"><span class="ic">▩</span>پروژه‌ها</div>
+    <h4>تولید</h4>
+    <div class="mi"><span class="ic">•</span>دستور تولید</div>
+    <div class="mi"><span class="ic">•</span>برنامه‌ریزی تولید</div>
+    <div class="mi"><span class="ic">•</span>صورت مواد (BOM)</div>
+    <div class="mi on"><span class="ic">•</span>گزارش تولید</div>
+    <div class="mi"><span class="ic">•</span>ایستگاه‌های کاری</div>
+  </aside>
+  <main>
+    <div class="page-head">
+      <div>
+        <h1>گزارش تولید</h1>
+        <div class="sub">گزارش سفارشی دستورات تولید — کارخانه نمونه «پارس صنعت» · داده‌ها به‌صورت زنده با فیلترها به‌روز می‌شوند</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn grn" id="btnCsv">⬇ خروجی Excel (CSV)</button>
+        <button class="btn" id="btnReset">پاک‌کردن فیلترها</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>فیلترها</h3>
+      <div class="filters">
+        <div class="fld"><label>از تاریخ (شروع)</label><input id="fFrom" value="1405/08/01"></div>
+        <div class="fld"><label>تا تاریخ (شروع)</label><input id="fTo" value="1405/08/30"></div>
+        <div class="fld"><label>خط تولید</label>
+          <select id="fLine"><option value="">همه خطوط</option><option>خط ۱ — تزریق پلاستیک</option><option>خط ۲ — مونتاژ</option><option>خط ۳ — بسته‌بندی</option></select></div>
+        <div class="fld"><label>محصول</label>
+          <select id="fProd"><option value="">همه محصولات</option></select></div>
+        <div class="fld"><label>وضعیت</label>
+          <select id="fStatus"><option value="">همه وضعیت‌ها</option><option>تکمیل‌شده</option><option>در حال تولید</option><option>برنامه‌ریزی‌شده</option><option>متوقف</option></select></div>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><div class="lb">کل دستورات تولید</div><div class="vl" id="kTotal">–</div></div>
+      <div class="kpi"><div class="lb">مجموع تولیدشده</div><div class="vl" id="kProduced">–</div></div>
+      <div class="kpi"><div class="lb">میانگین پیشرفت</div><div class="vl" id="kAvg">–</div></div>
+      <div class="kpi"><div class="lb">دستورات تکمیل‌شده</div><div class="vl" id="kDone">–</div></div>
+    </div>
+
+    <div class="card">
+      <h3>تولید به تفکیک خط تولید (واحد)</h3>
+      <div class="bars" id="chart"></div>
+      <div class="foot-note">نمودار بر اساس ردیف‌های فیلترشده محاسبه می‌شود.</div>
+    </div>
+
+    <div class="card">
+      <h3>دستورات تولید <span id="rowCount" style="color:var(--mu);font-size:12px;font-weight:500"></span></h3>
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>شماره دستور</th><th>محصول</th><th>برنامه‌ای</th><th>تولیدشده</th><th>پیشرفت</th><th>خط تولید</th><th>شروع</th><th>پایان</th><th>وضعیت</th>
+          </tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty" id="emptyMsg" style="display:none">دستوری با این فیلترها پیدا نشد.</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const FA = n => Number(n).toLocaleString('fa-IR');
+const faD = d => d.replace(/\d/g, c => '۰۱۲۳۴۵۶۷۸۹'[c]);
+// wo, product, planned, produced, line, start, end, status
+const DATA = [
+ ['WO-1405-0112','بدنه یخچال فریزر ۱۴ فوت',480,480,'خط ۱ — تزریق پلاستیک','1405/08/01','1405/08/06','تکمیل‌شده'],
+ ['WO-1405-0113','درب بطری نوشابه (بسته ۱۰۰۰ عددی)',120000,96500,'خط ۱ — تزریق پلاستیک','1405/08/03','1405/08/12','در حال تولید'],
+ ['WO-1405-0114','موتور فن کولر آبی',850,850,'خط ۲ — مونتاژ','1405/08/02','1405/08/09','تکمیل‌شده'],
+ ['WO-1405-0115','کارتن بسته‌بندی ۵ لایه',25000,25000,'خط ۳ — بسته‌بندی','1405/08/04','1405/08/08','تکمیل‌شده'],
+ ['WO-1405-0116','پروانه پمپ آب خانگی',3200,1480,'خط ۱ — تزریق پلاستیک','1405/08/07','1405/08/18','در حال تولید'],
+ ['WO-1405-0117','برد الکترونیکی کنترل دما',1500,0,'خط ۲ — مونتاژ','1405/08/15','1405/08/24','برنامه‌ریزی‌شده'],
+ ['WO-1405-0118','شیرآلات بهداشتی اهرمی',2600,2210,'خط ۲ — مونتاژ','1405/08/05','1405/08/14','در حال تولید'],
+ ['WO-1405-0119','لوله پلی‌اتیلن ۶۳ میلی‌متر (متر)',18000,18000,'خط ۱ — تزریق پلاستیک','1405/08/01','1405/08/10','تکمیل‌شده'],
+ ['WO-1405-0120','جعبه ابزار پلاستیکی متوسط',5400,1980,'خط ۳ — بسته‌بندی','1405/08/09','1405/08/20','متوقف'],
+ ['WO-1405-0121','قابلمه آلومینیومی سایز ۲۸',1750,1750,'خط ۲ — مونتاژ','1405/08/06','1405/08/13','تکمیل‌شده'],
+ ['WO-1405-0122','کیسه زباله رولی (بسته ۳۰ عددی)',42000,30100,'خط ۳ — بسته‌بندی','1405/08/08','1405/08/19','در حال تولید'],
+ ['WO-1405-0123','دستگیره درب کابینت',9800,0,'خط ۱ — تزریق پلاستیک','1405/08/18','1405/08/27','برنامه‌ریزی‌شده']
+];
+const $ = id => document.getElementById(id);
+const prodSel = $('fProd');
+[...new Set(DATA.map(r => r[1]))].forEach(p => { const o = document.createElement('option'); o.textContent = p; prodSel.appendChild(o); });
+
+function filtered(){
+  const from = $('fFrom').value.trim(), to = $('fTo').value.trim();
+  const line = $('fLine').value, prod = prodSel.value, st = $('fStatus').value;
+  return DATA.filter(r =>
+    (!from || r[5] >= from) && (!to || r[5] <= to) &&
+    (!line || r[4] === line) && (!prod || r[1] === prod) && (!st || r[7] === st));
+}
+const pct = r => r[2] ? Math.round(r[3] / r[2] * 100) : 0;
+const bdgCls = s => ({'تکمیل‌شده':'done','در حال تولید':'run','برنامه‌ریزی‌شده':'plan','متوقف':'stop'})[s];
+
+function render(){
+  const rows = filtered();
+  $('tbody').innerHTML = rows.map(r => {
+    const p = pct(r);
+    return `<tr><td class="wo">${r[0].replace(/\d/g,c=>'۰۱۲۳۴۵۶۷۸۹'[c])}</td><td>${r[1]}</td><td>${FA(r[2])}</td><td>${FA(r[3])}</td>
+    <td><div class="prog"><div class="tr"><div class="fl ${p===100?'done':p<50?'low':''}" style="width:${p}%"></div></div><span>${FA(p)}٪</span></div></td>
+    <td>${r[4]}</td><td>${faD(r[5])}</td><td>${faD(r[6])}</td><td><span class="bdg ${bdgCls(r[7])}">${r[7]}</span></td></tr>`;
+  }).join('');
+  $('emptyMsg').style.display = rows.length ? 'none' : 'block';
+  $('rowCount').textContent = '— ' + FA(rows.length) + ' دستور';
+  // KPIs
+  $('kTotal').innerHTML = FA(rows.length) + ' <small>دستور</small>';
+  $('kProduced').innerHTML = FA(rows.reduce((s,r) => s + r[3], 0)) + ' <small>واحد</small>';
+  $('kAvg').innerHTML = FA(rows.length ? Math.round(rows.reduce((s,r) => s + pct(r), 0) / rows.length) : 0) + ' <small>٪</small>';
+  $('kDone').innerHTML = FA(rows.filter(r => r[7] === 'تکمیل‌شده').length) + ' <small>دستور</small>';
+  // chart per line
+  const lines = ['خط ۱ — تزریق پلاستیک','خط ۲ — مونتاژ','خط ۳ — بسته‌بندی'];
+  const sums = lines.map(l => rows.filter(r => r[4] === l).reduce((s,r) => s + r[3], 0));
+  const max = Math.max(...sums, 1);
+  $('chart').innerHTML = lines.map((l,i) =>
+    `<div class="bcol"><div class="bv">${FA(sums[i])}</div><div class="bar" style="height:${Math.max(4, sums[i]/max*100)}%"></div><div class="bl">${l}</div></div>`).join('');
+}
+['fFrom','fTo','fLine','fProd','fStatus'].forEach(id => { $(id).addEventListener('input', render); $(id).addEventListener('change', render); });
+$('btnReset').onclick = () => { $('fFrom').value='1405/08/01'; $('fTo').value='1405/08/30'; $('fLine').value=''; prodSel.value=''; $('fStatus').value=''; render(); };
+$('btnCsv').onclick = () => {
+  const rows = filtered();
+  const head = ['شماره دستور تولید','محصول','مقدار برنامه‌ای','مقدار تولیدشده','درصد پیشرفت','خط تولید','تاریخ شروع','تاریخ پایان','وضعیت'];
+  const csv = [head, ...rows.map(r => [r[0], r[1], r[2], r[3], pct(r) + '%', r[4], r[5], r[6], r[7]])]
+    .map(row => row.map(c => '"' + String(c).replace(/"/g,'""') + '"').join(',')).join('\r\n');
+  const blob = new Blob(['\ufeff' + csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'gozaresh-tolid.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+render();
+</script>
+</body>
+</html>

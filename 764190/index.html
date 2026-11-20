@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بیس‌رو فارسی — نمونه بومی‌سازی Baserow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#0d5f59;
+  --accent-dark:#08463f;
+  --accent-soft:#e3f0ee;
+  --bg:#f4f6f8;
+  --panel:#ffffff;
+  --line:#e2e8f0;
+  --line-soft:#edf1f5;
+  --text:#1e293b;
+  --muted:#64748b;
+  --muted-2:#94a3b8;
+  --amber:#d97706;
+  --amber-bg:#fef3c7;
+  --green:#15803d;
+  --green-bg:#dcfce7;
+  --blue:#1d4ed8;
+  --blue-bg:#dbeafe;
+  --gray-bg:#e2e8f0;
+  --gray-tx:#475569;
+  --red:#b91c1c;
+  --red-bg:#fee2e2;
+  --shadow:0 12px 32px rgba(15,45,42,.16);
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:14px;
+  overflow-x:hidden;
+}
+button{font-family:inherit;cursor:pointer}
+input,select{font-family:inherit}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:#c3ccd6;border-radius:99px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ---------- layout ---------- */
+.app{display:flex;min-height:100vh}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+
+/* ---------- sidebar ---------- */
+.sidebar{
+  width:264px;flex:0 0 264px;
+  background:#0b3230;color:#d7e6e3;
+  display:flex;flex-direction:column;
+  position:sticky;top:0;height:100vh;z-index:40;
+}
+.brand{display:flex;align-items:center;gap:10px;padding:18px 18px 14px}
+.brand-mark{
+  width:38px;height:38px;border-radius:10px;flex:0 0 38px;
+  background:linear-gradient(135deg,#12a594,#0d5f59);
+  display:grid;place-items:center;color:#fff;
+}
+.brand b{font-size:16.5px;font-weight:800;color:#fff;display:block;line-height:1.2}
+.brand span{font-size:11.5px;color:#8fb3ae}
+.ws-switch{
+  margin:0 14px 14px;padding:9px 12px;border:1px solid rgba(255,255,255,.16);
+  border-radius:9px;display:flex;align-items:center;gap:8px;font-size:13px;color:#eef6f4;
+  background:rgba(255,255,255,.05);
+}
+.ws-switch .dot{width:8px;height:8px;border-radius:50%;background:#34d399;flex:0 0 8px}
+.ws-switch small{margin-inline-start:auto;color:#8fb3ae;font-size:11px}
+.side-scroll{flex:1;overflow-y:auto;padding:2px 10px 14px}
+.side-label{font-size:11px;color:#7fa8a2;padding:12px 8px 6px;font-weight:700;letter-spacing:.2px}
+.db{border-radius:9px;margin-bottom:2px}
+.db-head{
+  display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:9px;
+  font-size:13.5px;font-weight:600;color:#eef6f4;cursor:pointer;user-select:none;
+}
+.db-head:hover{background:rgba(255,255,255,.06)}
+.db-head .chev{transition:transform .18s;color:#8fb3ae;font-size:11px}
+.db.open .db-head .chev{transform:rotate(-90deg)}
+.db-head .cnt{margin-inline-start:auto;font-size:11px;color:#8fb3ae;background:rgba(255,255,255,.08);padding:1px 7px;border-radius:99px}
+.tables{display:none;padding:2px 0 6px}
+.db.open .tables{display:block}
+.tbl{
+  display:flex;align-items:center;gap:8px;padding:7px 10px 7px 9px;margin-inline-start:14px;
+  border-radius:8px;font-size:13px;color:#bcd4d0;cursor:pointer;border-inline-start:2px solid rgba(255,255,255,.10);
+}
+.tbl:hover{background:rgba(255,255,255,.06);color:#fff}
+.tbl.active{background:var(--accent);color:#fff;border-inline-start-color:#5eead4}
+.tbl .t-ico{font-size:12px;opacity:.85}
+.tbl .t-cnt{margin-inline-start:auto;font-size:11px;opacity:.75}
+.side-foot{padding:12px 16px;border-top:1px solid rgba(255,255,255,.10);font-size:12px;color:#8fb3ae}
+.side-foot b{color:#d7e6e3}
+.hamburger{display:none}
+
+/* ---------- topbar ---------- */
+.topbar{
+  background:var(--panel);border-bottom:1px solid var(--line);
+  padding:12px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:30;
+}
+.crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);min-width:0}
+.crumb b{color:var(--text);font-size:15px}
+.crumb .sep{color:var(--muted-2)}
+.top-actions{margin-inline-start:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.search-box{
+  display:flex;align-items:center;gap:7px;background:var(--bg);border:1px solid var(--line);
+  border-radius:8px;padding:6px 11px;min-width:180px;
+}
+.search-box input{border:0;background:transparent;outline:0;font-size:13px;width:100%;color:var(--text)}
+.btn{
+  border:1px solid var(--line);background:#fff;color:var(--text);
+  border-radius:8px;padding:7px 13px;font-size:13px;font-weight:600;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s;
+}
+.btn:hover{border-color:#cbd5e1;background:#f8fafc}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-dark)}
+.avatar-stack{display:flex;align-items:center}
+.av{
+  width:29px;height:29px;border-radius:50%;border:2px solid #fff;margin-inline-start:-8px;
+  display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;flex:0 0 29px;
+}
+.av:first-child{margin-inline-start:0}
+
+/* ---------- view tabs / toolbar ---------- */
+.toolbar{
+  background:var(--panel);border-bottom:1px solid var(--line);
+  padding:9px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.view-tabs{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:3px;gap:2px}
+.view-tab{
+  border:0;background:transparent;padding:6px 14px;border-radius:7px;font-size:13px;font-weight:600;color:var(--muted);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.view-tab.active{background:#fff;color:var(--accent-dark);box-shadow:0 1px 4px rgba(15,45,42,.12)}
+.tool-sep{width:1px;height:22px;background:var(--line)}
+.tool-btns{display:flex;gap:6px;flex-wrap:wrap}
+.tbtn{
+  border:1px solid transparent;background:transparent;color:var(--muted);
+  border-radius:8px;padding:6px 10px;font-size:12.5px;font-weight:600;display:inline-flex;gap:6px;align-items:center;
+}
+.tbtn:hover{background:var(--bg);color:var(--text)}
+.toolbar .hint{margin-inline-start:auto;font-size:12px;color:var(--muted-2)}
+
+/* ---------- content ---------- */
+.content{padding:18px 22px 30px;flex:1}
+.view{display:none}
+.view.active{display:block}
+
+/* grid table */
+.grid-wrap{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  overflow-x:auto;overflow-y:hidden;max-width:100%;
+}
+table.grid{border-collapse:separate;border-spacing:0;width:100%;min-width:860px}
+table.grid th,table.grid td{
+  border-bottom:1px solid var(--line-soft);border-inline-start:1px solid var(--line-soft);
+  padding:0;text-align:right;vertical-align:middle;background:#fff;
+}
+table.grid th{
+  background:#f8fafc;font-size:12.5px;color:var(--muted);font-weight:700;
+  padding:10px 12px;position:sticky;top:0;white-space:nowrap;
+}
+table.grid th:first-child,table.grid td:first-child{border-inline-start:0}
+table.grid tbody tr:hover td{background:#fbfdfd}
+table.grid td .cell{padding:9px 12px;min-height:38px;display:flex;align-items:center;gap:7px}
+td.rownum,th.rownum{width:46px;text-align:center;color:var(--muted-2);font-size:12px}
+td.rownum .cell{justify-content:center;padding:9px 4px}
+.cell-task{font-weight:600}
+.cell-person{display:flex;align-items:center;gap:7px}
+.mini-av{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff;flex:0 0 24px}
+.chip{
+  display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;
+  padding:3px 10px;border-radius:99px;white-space:nowrap;
+}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.8}
+.chip.done{background:var(--green-bg);color:var(--green)}
+.chip.doing{background:var(--blue-bg);color:var(--blue)}
+.chip.review{background:var(--amber-bg);color:var(--amber)}
+.chip.todo{background:var(--gray-bg);color:var(--gray-tx)}
+.chip.late{background:var(--red-bg);color:var(--red)}
+.progress{display:flex;align-items:center;gap:8px;min-width:120px}
+.progress .bar{flex:1;height:7px;border-radius:99px;background:var(--line-soft);overflow:hidden}
+.progress .fill{height:100%;border-radius:99px;background:var(--accent)}
+.progress .fill.mid{background:#2f9e8f}
+.progress .fill.low{background:#f59e0b}
+.progress span{font-size:12px;color:var(--muted);font-weight:700;min-width:32px}
+td.date-cell{cursor:pointer}
+td.date-cell .cell{border-radius:6px}
+td.date-cell:hover .cell{background:var(--accent-soft)}
+td.date-cell .cal-ico{color:var(--muted-2);font-size:13px}
+td.date-cell.overdue .cell{color:var(--red);font-weight:700}
+.add-row{
+  display:flex;align-items:center;gap:8px;padding:11px 14px;color:var(--muted);
+  font-size:13px;font-weight:600;cursor:pointer;background:#fff;border:0;width:100%;text-align:right;
+}
+.add-row:hover{color:var(--accent-dark);background:var(--accent-soft)}
+.grid-foot{
+  display:flex;gap:16px;flex-wrap:wrap;padding:11px 14px;background:#f8fafc;
+  border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);
+}
+.grid-foot b{color:var(--text)}
+
+/* ---------- date picker ---------- */
+.dp-backdrop{position:fixed;inset:0;z-index:80;display:none}
+.dp-backdrop.show{display:block}
+.datepicker{
+  position:fixed;z-index:90;width:292px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;box-shadow:var(--shadow);padding:14px;display:none;
+}
+.datepicker.show{display:block}
+.dp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dp-head b{font-size:14.5px}
+.dp-nav{display:flex;gap:4px}
+.dp-nav button{
+  width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:#fff;
+  color:var(--muted);font-size:15px;line-height:1;display:grid;place-items:center;
+}
+.dp-nav button:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.dp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px}
+.dp-week span{text-align:center;font-size:11px;color:var(--muted-2);font-weight:700;padding:3px 0}
+.dp-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.dp-day{
+  border:0;background:transparent;height:34px;border-radius:8px;font-size:13px;color:var(--text);
+  display:grid;place-items:center;position:relative;
+}
+.dp-day:hover{background:var(--accent-soft)}
+.dp-day.empty{visibility:hidden}
+.dp-day.today{font-weight:800;color:var(--accent-dark)}
+.dp-day.today::after{content:"";position:absolute;bottom:4px;width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.dp-day.selected{background:var(--accent);color:#fff;font-weight:800}
+.dp-day.selected::after{background:#fff}
+.dp-foot{display:flex;justify-content:space-between;align-items:center;margin-top:11px;padding-top:10px;border-top:1px solid var(--line-soft)}
+.dp-foot button{border:0;background:transparent;font-size:12.5px;font-weight:700;color:var(--accent-dark)}
+.dp-foot .dp-today-lbl{font-size:11.5px;color:var(--muted-2)}
+
+/* ---------- kanban ---------- */
+.kanban{
+  display:grid;grid-template-columns:repeat(4,minmax(230px,1fr));gap:14px;
+  overflow-x:auto;padding-bottom:6px;max-width:100%;
+}
+.kb-col{background:#eef2f5;border:1px solid var(--line);border-radius:12px;padding:11px;min-height:200px}
+.kb-head{display:flex;align-items:center;gap:8px;padding:2px 4px 11px}
+.kb-head .chip{font-size:12px}
+.kb-head .kb-cnt{margin-inline-start:auto;font-size:12px;color:var(--muted);font-weight:700}
+.kb-card{
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:9px;
+  box-shadow:0 1px 2px rgba(15,45,42,.05);
+}
+.kb-card h4{font-size:13.5px;font-weight:700;margin-bottom:8px;line-height:1.7}
+.kb-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.kb-meta .who{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+.kb-meta .due{margin-inline-start:auto;font-size:12px;color:var(--muted);display:flex;gap:4px;align-items:center}
+.kb-meta .due.late{color:var(--red);font-weight:700}
+.kb-card .progress{margin-top:10px;min-width:0}
+.kb-add{
+  width:100%;border:1.5px dashed #cbd5e1;background:transparent;color:var(--muted);
+  border-radius:9px;padding:8px;font-size:12.5px;font-weight:600;
+}
+.kb-add:hover{color:var(--accent-dark);border-color:var(--accent)}
+
+/* ---------- calendar ---------- */
+.cal-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cal-head{
+  display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap;
+}
+.cal-head h3{font-size:16px;font-weight:800}
+.cal-head .cal-nav{margin-inline-start:auto;display:flex;gap:6px;align-items:center}
+.cal-head .cal-nav button{
+  border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-size:12.5px;font-weight:700;color:var(--muted);
+}
+.cal-head .cal-nav button:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.cal-week{display:grid;grid-template-columns:repeat(7,1fr);background:#f8fafc;border-bottom:1px solid var(--line)}
+.cal-week span{text-align:center;font-size:12px;font-weight:700;color:var(--muted);padding:9px 4px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);min-width:0}
+.cal-cell{
+  min-height:104px;border-bottom:1px solid var(--line-soft);border-inline-start:1px solid var(--line-soft);
+  padding:7px;vertical-align:top;min-width:0;overflow:hidden;
+}
+.cal-cell:nth-child(7n+1){border-inline-start:0}
+.cal-cell .dnum{font-size:12.5px;font-weight:700;color:var(--muted);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%}
+.cal-cell.today .dnum{background:var(--accent);color:#fff}
+.cal-cell.holiday{background:#fdf7f7}
+.cal-cell.holiday .dnum{color:var(--red)}
+.cal-task{
+  margin-top:5px;font-size:11.5px;font-weight:600;border-radius:6px;padding:4px 7px;line-height:1.5;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;
+}
+.cal-task.done{background:var(--green-bg);color:var(--green)}
+.cal-task.doing{background:var(--blue-bg);color:var(--blue)}
+.cal-task.review{background:var(--amber-bg);color:var(--amber)}
+.cal-task.todo{background:var(--gray-bg);color:var(--gray-tx)}
+.cal-task.late{background:var(--red-bg);color:var(--red)}
+.cal-more{font-size:11px;color:var(--muted-2);margin-top:4px;font-weight:600}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;bottom:22px;inset-inline-start:50%;transform:translate(50%,16px);
+  background:#0b3230;color:#eef6f4;padding:11px 18px;border-radius:10px;font-size:13px;font-weight:600;
+  box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:120;max-width:92vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translate(50%,0)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .kanban{grid-template-columns:repeat(4,minmax(210px,1fr))}
+}
+@media (max-width:900px){
+  .sidebar{
+    position:fixed;inset-inline-start:0;top:0;transform:translateX(105%);
+    transition:transform .25s;box-shadow:var(--shadow);width:272px;flex-basis:272px;
+  }
+  .sidebar.open{transform:translateX(0)!important}
+  .hamburger{
+    display:inline-grid;place-items:center;width:36px;height:36px;border-radius:8px;
+    border:1px solid var(--line);background:#fff;color:var(--text);font-size:16px;
+  }
+  .scrim{position:fixed;inset:0;background:rgba(8,38,35,.45);z-index:35;display:none}
+  .scrim.show{display:block}
+  .content{padding:14px 14px 24px}
+  .topbar,.toolbar{padding-inline:14px}
+  .cal-cell{min-height:88px}
+}
+@media (max-width:560px){
+  .search-box{min-width:0;flex:1}
+  .top-actions{width:100%}
+  .cal-cell{min-height:74px;padding:5px}
+  .cal-task{font-size:10.5px;padding:3px 5px}
+  .cal-week span{font-size:11px}
+  .toolbar .hint{display:none}
+  .datepicker{width:min(292px,calc(100vw - 20px))}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- ============ SIDEBAR ============ -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+      </div>
+      <div>
+        <b>بیس‌رو فارسی</b>
+        <span>نسخه بومی‌سازی‌شده Baserow</span>
+      </div>
+    </div>
+
+    <div class="ws-switch">
+      <span class="dot"></span>
+      فضای کاری «اپ‌وبینو»
+      <small>تیم</small>
+    </div>
+
+    <div class="side-scroll">
+      <div class="side-label">پایگاه‌های داده</div>
+
+      <div class="db open">
+        <div class="db-head" onclick="toggleDb(this)">
+          <span>🗂️</span> مدیریت داخلی
+          <span class="cnt">۳ جدول</span>
+          <span class="chev">‹</span>
+        </div>
+        <div class="tables">
+          <div class="tbl active" data-table="projects"><span class="t-ico">▦</span> مدیریت پروژه‌ها <span class="t-cnt">۸</span></div>
+          <div class="tbl" data-table="tickets"><span class="t-ico">▦</span> تیکت‌های پشتیبانی <span class="t-cnt">۱۴</span></div>
+          <div class="tbl" data-table="content"><span class="t-ico">▦</span> تقویم محتوای اینستاگرام <span class="t-cnt">۲۱</span></div>
+        </div>
+      </div>
+
+      <div class="db open">
+        <div class="db-head" onclick="toggleDb(this)">
+          <span>🛒</span> فروش و مشتریان
+          <span class="cnt">۲ جدول</span>
+          <span class="chev">‹</span>
+        </div>
+        <div class="tables">
+          <div class="tbl" data-table="orders"><span class="t-ico">▦</span> سفارش‌های فروشگاه <span class="t-cnt">۳۶</span></div>
+          <div class="tbl" data-table="leads"><span class="t-ico">▦</span> سرنخ‌های فروش (CRM) <span class="t-cnt">۱۹</span></div>
+        </div>
+      </div>
+
+      <div class="db">
+        <div class="db-head" onclick="toggleDb(this)">
+          <span>📦</span> انبار و محصول
+          <span class="cnt">۲ جدول</span>
+          <span class="chev">‹</span>
+        </div>
+        <div class="tables">
+          <div class="tbl" data-table="stock"><span class="t-ico">▦</span> موجودی انبار <span class="t-cnt">۵۴</span></div>
+          <div class="tbl" data-table="suppliers"><span class="t-ico">▦</span> تأمین‌کنندگان <span class="t-cnt">۹</span></div>
+        </div>
+      </div>
+
+      <div class="side-label">دسترسی سریع</div>
+      <div class="tbl" style="margin-inline-start:0;border:0"><span class="t-ico">⭐</span> موردعلاقه‌ها</div>
+      <div class="tbl" style="margin-inline-start:0;border:0"><span class="t-ico">🕘</span> اخیراً باز شده</div>
+      <div class="tbl" style="margin-inline-start:0;border:0"><span class="t-ico">🗑️</span> سطل زباله</div>
+    </div>
+
+    <div class="side-foot">
+      کاربر: <b>امیرحسین قدیمی</b><br>
+      نقش: مدیر فضای کاری
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="منو">☰</button>
+      <nav class="crumb">
+        <span>مدیریت داخلی</span>
+        <span class="sep">/</span>
+        <b id="crumbTable">مدیریت پروژه‌ها</b>
+      </nav>
+      <div class="top-actions">
+        <label class="search-box">
+          <span style="color:var(--muted-2)">⌕</span>
+          <input id="searchInput" type="text" placeholder="جستجو در جدول…">
+        </label>
+        <div class="avatar-stack" title="اعضای آنلاین">
+          <span class="av" style="background:#0d5f59">ا ق</span>
+          <span class="av" style="background:#b45309">س ر</span>
+          <span class="av" style="background:#1d4ed8">م ح</span>
+          <span class="av" style="background:#e2e8f0;color:#475569">+۴</span>
+        </div>
+        <button class="btn" onclick="showToast('پیوند اشتراک‌گذاری نما کپی شد')">⤴ اشتراک‌گذاری</button>
+        <button class="btn primary" onclick="showToast('ردیف جدید به جدول اضافه شد')">＋ ردیف جدید</button>
+      </div>
+    </header>
+
+    <div class="toolbar">
+      <div class="view-tabs" role="tablist">
+        <button class="view-tab active" data-view="grid" onclick="switchView('grid',this)">▦ نمای جدولی</button>
+        <button class="view-tab" data-view="kanban" onclick="switchView('kanban',this)">▤ نمای کانبان</button>
+        <button class="view-tab" data-view="calendar" onclick="switchView('calendar',this)">▩ نمای تقویم</button>
+      </div>
+      <div class="tool-sep"></div>
+      <div class="tool-btns">
+        <button class="tbtn" onclick="showToast('پنل فیلتر: وضعیت = در حال انجام')">⧩ فیلتر</button>
+        <button class="tbtn" onclick="showToast('مرتب‌سازی: تاریخ سررسید، صعودی')">⇅ مرتب‌سازی</button>
+        <button class="tbtn" onclick="showToast('گروه‌بندی بر اساس فیلد «وضعیت» فعال شد')">▤ گروه‌بندی</button>
+        <button class="tbtn" onclick="showToast('خروجی CSV از ۸ ردیف گرفته شد')">⭳ خروجی</button>
+      </div>
+      <span class="hint">برای تغییر تاریخ شمسی، روی سلول تاریخ کلیک کنید</span>
+    </div>
+
+    <main class="content">
+      <!-- ===== GRID VIEW ===== -->
+      <section class="view active" id="view-grid">
+        <div class="grid-wrap">
+          <table class="grid" id="gridTable">
+            <thead>
+              <tr>
+                <th class="rownum">#</th>
+                <th style="min-width:240px">نام تسک</th>
+                <th style="min-width:150px">مسئول</th>
+                <th style="min-width:130px">وضعیت</th>
+                <th style="min-width:170px">پیشرفت</th>
+                <th style="min-width:160px">تاریخ سررسید (شمسی)</th>
+              </tr>
+            </thead>
+            <tbody id="gridBody"></tbody>
+            <tfoot>
+              <tr><td colspan="6" style="padding:0;border-bottom:0">
+                <button class="add-row" onclick="showToast('ردیف جدید به جدول اضافه شد')">＋ افزودن ردیف</button>
+              </td></tr>
+            </tfoot>
+          </table>
+          <div class="grid-foot" id="gridFoot"></div>
+        </div>
+      </section>
+
+      <!-- ===== KANBAN VIEW ===== -->
+      <section class="view" id="view-kanban">
+        <div class="kanban" id="kanbanBoard"></div>
+      </section>
+
+      <!-- ===== CALENDAR VIEW ===== -->
+      <section class="view" id="view-calendar">
+        <div class="cal-card">
+          <div class="cal-head">
+            <h3 id="calTitle">آبان ۱۴۰۵</h3>
+            <span style="font-size:12.5px;color:var(--muted)">نمایش تسک‌ها بر اساس تاریخ سررسید شمسی</span>
+            <div class="cal-nav">
+              <button onclick="calShift(-1)">‹ ماه قبل</button>
+              <button onclick="calToday()">امروز — ۲۸ آبان</button>
+              <button onclick="calShift(1)">ماه بعد ›</button>
+            </div>
+          </div>
+          <div class="cal-week">
+            <span>شنبه</span><span>یکشنبه</span><span>دوشنبه</span><span>سه‌شنبه</span><span>چهارشنبه</span><span>پنجشنبه</span><span>جمعه</span>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- ============ DATE PICKER ============ -->
+<div class="dp-backdrop" id="dpBackdrop"></div>
+<div class="datepicker" id="datepicker" role="dialog" aria-label="انتخاب تاریخ شمسی">
+  <div class="dp-head">
+    <b id="dpTitle">آبان ۱۴۰۵</b>
+    <div class="dp-nav">
+      <button id="dpPrev" title="ماه قبل">‹</button>
+      <button id="dpNext" title="ماه بعد">›</button>
+    </div>
+  </div>
+  <div class="dp-week">
+    <span>ش</span><span>ی</span><span>د</span><span>س</span><span>چ</span><span>پ</span><span>ج</span>
+  </div>
+  <div class="dp-days" id="dpDays"></div>
+  <div class="dp-foot">
+    <button id="dpTodayBtn">امروز: ۲۸ آبان ۱۴۰۵</button>
+    <span class="dp-today-lbl">تقویم جلالی</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= Jalali helpers ================= */
+const J_MONTHS = ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+const J_DAYS_IN_MONTH = [31,31,31,31,31,31,30,30,30,30,30,29]; /* ۱۴۰۵ */
+const FA_DIGITS = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+const faNum = n => String(n).replace(/\d/g, d => FA_DIGITS[d]);
+const TODAY = { y:1405, m:8, d:28 }; /* امروز نمونه: ۲۸ آبان ۱۴۰۵ */
+/* ۱ آبان ۱۴۰۵ = پنجشنبه → با شروع شنبه، آفست ۵ */
+function monthOffset(y, m){
+  let off = 5;
+  let cy = 1405, cm = 8;
+  while (cy < y || (cy === y && cm < m)){ off = (off + J_DAYS_IN_MONTH[cm-1]) % 7; cm++; if (cm > 12){ cm = 1; cy++; } }
+  while (cy > y || (cy === y && cm > m)){ cm--; if (cm < 1){ cm = 12; cy--; } off = ((off - J_DAYS_IN_MONTH[cm-1]) % 7 + 7) % 7; }
+  return off;
+}
+const fmtDate = dt => faNum(dt.d) + ' ' + J_MONTHS[dt.m-1] + ' ' + faNum(dt.y);
+const cmpDate = (a,b) => (a.y-b.y) || (a.m-b.m) || (a.d-b.d);
+
+/* ================= Seed data ================= */
+const PEOPLE = {
+  amir:  { name:'امیرحسین قدیمی', ini:'ا ق', color:'#0d5f59' },
+  sara:  { name:'سارا رضایی',     ini:'س ر', color:'#b45309' },
+  mohsen:{ name:'محسن حسینی',     ini:'م ح', color:'#1d4ed8' },
+  zahra: { name:'زهرا محمدی',     ini:'ز م', color:'#7c3aed' },
+};
+const STATUS = {
+  todo:   { label:'انجام نشده',  cls:'todo'   },
+  doing:  { label:'در حال انجام', cls:'doing'  },
+  review: { label:'در بازبینی',   cls:'review' },
+  done:   { label:'انجام شده',   cls:'done'   },
+};
+let tasks = [
+  { id:1, title:'بازطراحی صفحه اصلی اپ‌وبینو',        person:'amir',   status:'doing',  progress:65,  due:{y:1405,m:8,d:30} },
+  { id:2, title:'گزارش سئوی ماهانه البرز سرمایش',     person:'sara',   status:'done',   progress:100, due:{y:1405,m:8,d:12} },
+  { id:3, title:'تولید ریلز معرفی خدمات طراحی سایت',  person:'zahra',  status:'review', progress:80,  due:{y:1405,m:8,d:25} },
+  { id:4, title:'به‌روزرسانی افزونه‌های فروشگاه ووکامرس', person:'mohsen', status:'doing', progress:40, due:{y:1405,m:9,d:3} },
+  { id:5, title:'بررسی و پاسخ به تیکت‌های پشتیبانی',  person:'sara',   status:'todo',   progress:0,   due:{y:1405,m:8,d:20} },
+  { id:6, title:'آماده‌سازی پروپوزال پروژه بسته‌بندی', person:'amir',   status:'review', progress:90,  due:{y:1405,m:8,d:28} },
+  { id:7, title:'پشتیبان‌گیری هفتگی از سایت مشتریان', person:'mohsen', status:'done',   progress:100, due:{y:1405,m:8,d:22} },
+  { id:8, title:'طراحی تقویم محتوای آذر ماه',         person:'zahra',  status:'todo',   progress:10,  due:{y:1405,m:9,d:5} },
+];
+function displayStatus(t){
+  if (t.status !== 'done' && cmpDate(t.due, TODAY) < 0) return { label:'عقب‌افتاده', cls:'late' };
+  return STATUS[t.status];
+}
+
+/* ================= Grid view ================= */
+const gridBody = document.getElementById('gridBody');
+function renderGrid(filter=''){
+  const rows = tasks.filter(t => !filter || t.title.includes(filter) || PEOPLE[t.person].name.includes(filter));
+  gridBody.innerHTML = rows.map((t,i) => {
+    const p = PEOPLE[t.person], st = displayStatus(t);
+    const overdue = st.cls === 'late';
+    const fillCls = t.progress >= 70 ? '' : (t.progress >= 30 ? 'mid' : 'low');
+    return `<tr>
+      <td class="rownum"><div class="cell">${faNum(i+1)}</div></td>
+      <td><div class="cell cell-task">${t.title}</div></td>
+      <td><div class="cell cell-person"><span class="mini-av" style="background:${p.color}">${p.ini}</span>${p.name}</div></td>
+      <td><div class="cell"><span class="chip ${st.cls}">${st.label}</span></div></td>
+      <td><div class="cell"><div class="progress"><div class="bar"><div class="fill ${fillCls}" style="width:${t.progress}%"></div></div><span>${faNum(t.progress)}٪</span></div></div></td>
+      <td class="date-cell ${overdue ? 'overdue' : ''}" data-task="${t.id}"><div class="cell"><span class="cal-ico">▩</span>${fmtDate(t.due)}</div></td>
+    </tr>`;
+  }).join('');
+  const done = tasks.filter(t => t.status === 'done').length;
+  const avg = Math.round(tasks.reduce((s,t) => s + t.progress, 0) / tasks.length);
+  document.getElementById('gridFoot').innerHTML =
+    `<span>تعداد ردیف‌ها: <b>${faNum(tasks.length)}</b></span>
+     <span>انجام‌شده: <b>${faNum(done)}</b></span>
+     <span>میانگین پیشرفت: <b>${faNum(avg)}٪</b></span>
+     <span>سررسید بعدی: <b>۳۰ آبان ۱۴۰۵</b></span>`;
+  gridBody.querySelectorAll('td.date-cell').forEach(td => {
+    td.addEventListener('click', ev => { ev.stopPropagation(); openPicker(+td.dataset.task, td); });
+  });
+}
+document.getElementById('searchInput').addEventListener('input', e => renderGrid(e.target.value.trim()));
+
+/* ================= Jalali date picker ================= */
+const picker = document.getElementById('datepicker');
+const backdrop = document.getElementById('dpBackdrop');
+const dpDays = document.getElementById('dpDays');
+const dpTitle = document.getElementById('dpTitle');
+let dpTaskId = null;
+let dpView = { y:1405, m:8 };
+
+function renderPicker(){
+  dpTitle.textContent = J_MONTHS[dpView.m-1] + ' ' + faNum(dpView.y);
+  const off = monthOffset(dpView.y, dpView.m);
+  const days = J_DAYS_IN_MONTH[dpView.m-1];
+  const t = tasks.find(x => x.id === dpTaskId);
+  let html = '';
+  for (let i = 0; i < off; i++) html += '<button class="dp-day empty" tabindex="-1"></button>';
+  for (let d = 1; d <= days; d++){
+    const isToday = dpView.y === TODAY.y && dpView.m === TODAY.m && d === TODAY.d;
+    const isSel = t && t.due.y === dpView.y && t.due.m === dpView.m && t.due.d === d;
+    html += `<button class="dp-day ${isToday ? 'today' : ''} ${isSel ? 'selected' : ''}" data-day="${d}">${faNum(d)}</button>`;
+  }
+  dpDays.innerHTML = html;
+  dpDays.querySelectorAll('.dp-day[data-day]').forEach(b => {
+    b.addEventListener('click', () => pickDay(+b.dataset.day));
+  });
+}
+function openPicker(taskId, anchorTd){
+  dpTaskId = taskId;
+  const t = tasks.find(x => x.id === taskId);
+  dpView = { y:t.due.y, m:t.due.m };
+  renderPicker();
+  picker.classList.add('show');
+  backdrop.classList.add('show');
+  const r = anchorTd.getBoundingClientRect();
+  const pw = 292, ph = 348;
+  let top = r.bottom + 6;
+  if (top + ph > window.innerHeight) top = Math.max(8, r.top - ph - 6);
+  let left = r.left;
+  if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+  if (left < 8) left = 8;
+  picker.style.top = top + 'px';
+  picker.style.left = left + 'px';
+}
+function closePicker(){ picker.classList.remove('show'); backdrop.classList.remove('show'); dpTaskId = null; }
+function pickDay(d){
+  const t = tasks.find(x => x.id === dpTaskId);
+  if (!t) return closePicker();
+  t.due = { y:dpView.y, m:dpView.m, d };
+  closePicker();
+  renderGrid(document.getElementById('searchInput').value.trim());
+  renderKanban();
+  renderCalendar();
+  showToast('تاریخ سررسید «' + t.title + '» به ' + fmtDate(t.due) + ' تغییر کرد');
+}
+document.getElementById('dpPrev').addEventListener('click', () => { dpView.m--; if (dpView.m < 1){ dpView.m = 12; dpView.y--; } renderPicker(); });
+document.getElementById('dpNext').addEventListener('click', () => { dpView.m++; if (dpView.m > 12){ dpView.m = 1; dpView.y++; } renderPicker(); });
+document.getElementById('dpTodayBtn').addEventListener('click', () => { dpView = { y:TODAY.y, m:TODAY.m }; renderPicker(); });
+backdrop.addEventListener('click', closePicker);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePicker(); });
+
+/* ================= Kanban view ================= */
+const KB_COLS = [
+  { key:'todo',   label:'انجام نشده'   },
+  { key:'doing',  label:'در حال انجام' },
+  { key:'review', label:'در بازبینی'    },
+  { key:'done',   label:'انجام شده'    },
+];
+function renderKanban(){
+  const board = document.getElementById('kanbanBoard');
+  board.innerHTML = KB_COLS.map(col => {
+    const items = tasks.filter(t => t.status === col.key);
+    const cards = items.map(t => {
+      const p = PEOPLE[t.person], st = displayStatus(t);
+      const fillCls = t.progress >= 70 ? '' : (t.progress >= 30 ? 'mid' : 'low');
+      return `<div class="kb-card">
+        <h4>${t.title}</h4>
+        <div class="kb-meta">
+          <span class="who"><span class="mini-av" style="background:${p.color}">${p.ini}</span>${p.name}</span>
+          <span class="due ${st.cls === 'late' ? 'late' : ''}">▩ ${fmtDate(t.due)}</span>
+        </div>
+        <div class="progress"><div class="bar"><div class="fill ${fillCls}" style="width:${t.progress}%"></div></div><span>${faNum(t.progress)}٪</span></div>
+      </div>`;
+    }).join('');
+    return `<div class="kb-col">
+      <div class="kb-head"><span class="chip ${STATUS[col.key].cls}">${col.label}</span><span class="kb-cnt">${faNum(items.length)} تسک</span></div>
+      ${cards}
+      <button class="kb-add" onclick="showToast('کارت جدید به ستون «${col.label}» اضافه شد')">＋ افزودن کارت</button>
+    </div>`;
+  }).join('');
+}
+
+/* ================= Calendar view ================= */
+let calView = { y:1405, m:8 };
+function renderCalendar(){
+  document.getElementById('calTitle').textContent = J_MONTHS[calView.m-1] + ' ' + faNum(calView.y);
+  const off = monthOffset(calView.y, calView.m);
+  const days = J_DAYS_IN_MONTH[calView.m-1];
+  const prevDays = J_DAYS_IN_MONTH[(calView.m + 10) % 12];
+  let cells = [];
+  for (let i = off - 1; i >= 0; i--) cells.push({ d: prevDays - i, other:true });
+  for (let d = 1; d <= days; d++) cells.push({ d, other:false });
+  while (cells.length % 7 !== 0) cells.push({ d: cells.length - off - days + 1, other:true });
+  document.getElementById('calGrid').innerHTML = cells.map((c, idx) => {
+    const isFriday = idx % 7 === 6;
+    if (c.other) return `<div class="cal-cell" style="background:#fafbfc"><span class="dnum" style="color:var(--muted-2)">${faNum(c.d)}</span></div>`;
+    const dayTasks = tasks.filter(t => t.due.y === calView.y && t.due.m === calView.m && t.due.d === c.d);
+    const isToday = calView.y === TODAY.y && calView.m === TODAY.m && c.d === TODAY.d;
+    const shown = dayTasks.slice(0, 2).map(t => {
+      const st = displayStatus(t);
+      return `<div class="cal-task ${st.cls}" title="${t.title}" onclick="showToast('${t.title} — مسئول: ${PEOPLE[t.person].name}')">${t.title}</div>`;
+    }).join('');
+    const more = dayTasks.length > 2 ? `<div class="cal-more">+ ${faNum(dayTasks.length - 2)} مورد دیگر</div>` : '';
+    return `<div class="cal-cell ${isToday ? 'today' : ''} ${isFriday ? 'holiday' : ''}"><span class="dnum">${faNum(c.d)}</span>${shown}${more}</div>`;
+  }).join('');
+}
+function calShift(n){
+  calView.m += n;
+  if (calView.m > 12){ calView.m = 1; calView.y++; }
+  if (calView.m < 1){ calView.m = 12; calView.y--; }
+  renderCalendar();
+}
+function calToday(){ calView = { y:TODAY.y, m:TODAY.m }; renderCalendar(); }
+
+/* ================= Views / sidebar / misc ================= */
+function switchView(name, btn){
+  document.querySelectorAll('.view-tab').forEach(b => b.classList.toggle('active', b.dataset.view === name));
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + name));
+  if (name === 'kanban') renderKanban();
+  if (name === 'calendar') renderCalendar();
+}
+function toggleDb(head){ head.parentElement.classList.toggle('open'); }
+document.querySelectorAll('.tbl[data-table]').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.tbl[data-table]').forEach(x => x.classList.remove('active'));
+    el.classList.add('active');
+    const names = { projects:'مدیریت پروژه‌ها', tickets:'تیکت‌های پشتیبانی', content:'تقویم محتوای اینستاگرام', orders:'سفارش‌های فروشگاه', leads:'سرنخ‌های فروش (CRM)', stock:'موجودی انبار', suppliers:'تأمین‌کنندگان' };
+    document.getElementById('crumbTable').textContent = names[el.dataset.table] || el.textContent.trim();
+    if (el.dataset.table !== 'projects') showToast('دمو روی جدول «مدیریت پروژه‌ها» متمرکز است؛ جدول «' + (names[el.dataset.table] || '') + '» در نسخه نهایی فعال می‌شود');
+    closeSidebar();
+  });
+});
+const sidebar = document.getElementById('sidebar');
+const scrim = document.getElementById('scrim');
+function closeSidebar(){ sidebar.classList.remove('open'); scrim.classList.remove('show'); }
+document.getElementById('hamburger').addEventListener('click', () => { sidebar.classList.add('open'); scrim.classList.add('show'); });
+scrim.addEventListener('click', closeSidebar);
+
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ================= init ================= */
+renderGrid();
+renderKanban();
+renderCalendar();
+const startView = (location.hash || '').replace('#','');
+if (['grid','kanban','calendar'].includes(startView) && startView !== 'grid'){
+  switchView(startView, document.querySelector('.view-tab[data-view="' + startView + '"]'));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سامانه پایش سردخانه البرز — داشبورد مانیتورینگ دما و رطوبت</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1220; --bg2:#0e1628; --panel:#111c31; --panel2:#152238; --line:#1f2f4d;
+  --txt:#e6eefc; --mut:#8fa5c4; --dim:#5f7396;
+  --cyan:#22d3ee; --teal:#2dd4bf; --grn:#34d399; --amb:#fbbf24; --red:#f87171; --red2:#ef4444;
+  --rad:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:radial-gradient(1100px 500px at 85% -10%,#123052 0%,transparent 55%),radial-gradient(900px 480px at 0% 0%,#0d2b33 0%,transparent 50%),var(--bg);color:var(--txt);min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+::-webkit-scrollbar{width:9px;height:9px}::-webkit-scrollbar-thumb{background:#24365a;border-radius:8px}::-webkit-scrollbar-track{background:transparent}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1440px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;min-width:0}
+.logo .mk{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#0e7490,#155e75);border:1px solid #2b5878;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.logo h1{font-size:17px;font-weight:800;line-height:1.25}
+.logo small{display:block;font-size:11.5px;color:var(--mut);font-weight:400}
+.hstats{display:flex;gap:8px;flex-wrap:wrap;margin-inline-start:auto}
+.hchip{display:flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:12.5px;color:var(--mut)}
+.hchip b{color:var(--txt);font-size:13.5px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--grn);box-shadow:0 0 8px var(--grn);animation:pls 2s infinite}
+.dot.red{background:var(--red2);box-shadow:0 0 8px var(--red2)}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.45}}
+.clockchip{font-variant-numeric:tabular-nums}
+
+/* ---------- layout ---------- */
+main{max-width:1440px;margin:0 auto;padding:20px}
+.grid2{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+.grid2>*,.zgrid>*,.gw-wrap>*{min-width:0}
+section.panel{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);border-radius:var(--rad);padding:18px;margin-bottom:16px}
+.phead{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.phead h2{font-size:15.5px;font-weight:800}
+.phead .sub{font-size:12px;color:var(--mut)}
+.phead .sp{margin-inline-start:auto}
+.tag{font-size:11px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut);background:var(--panel2)}
+.tag.live{color:var(--teal);border-color:#134e4a}
+
+/* ---------- zone cards ---------- */
+.zgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.zone{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;transition:border-color .15s,transform .15s;position:relative;overflow:hidden;text-align:right;width:100%;color:var(--txt)}
+.zone:hover{border-color:#33507e;transform:translateY(-1px)}
+.zone.sel{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan),0 8px 24px -12px rgba(34,211,238,.45)}
+.zone::before{content:'';position:absolute;inset-inline-start:0;top:0;bottom:0;width:3px;background:var(--teal)}
+.zone.warn::before{background:var(--amb)}
+.zone.alarm{border-color:#7f1d1d;background:linear-gradient(180deg,#2a1420,#1d1220)}
+.zone.alarm::before{background:var(--red2)}
+.zone .zt{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.zone .zt .nm{font-weight:700;font-size:14px}
+.zone .zt .st{margin-inline-start:auto;font-size:10.5px;padding:2px 8px;border-radius:999px;background:#0c2b26;color:var(--teal);border:1px solid #134e4a;white-space:nowrap}
+.zone.warn .zt .st{background:#2e2307;color:var(--amb);border-color:#574508}
+.zone.alarm .zt .st{background:#3d0d0d;color:#fca5a5;border-color:#7f1d1d;animation:pls 1.2s infinite}
+.zone .big{display:flex;align-items:baseline;gap:5px}
+.zone .big .tv{font-size:31px;font-weight:900;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.zone .big .un{color:var(--mut);font-size:13px}
+.zone.alarm .big .tv{color:#fca5a5}
+.zone .thr{font-size:11px;color:var(--dim);margin-top:1px}
+.zone .mrow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:12px;padding-top:11px;border-top:1px dashed #24365a}
+.zone .mrow .m{text-align:center}
+.zone .mrow .m .v{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.zone .mrow .m .k{font-size:10.5px;color:var(--dim);margin-top:1px}
+.zone .upd{margin-top:9px;font-size:10.5px;color:var(--dim);display:flex;align-items:center;gap:5px}
+.sig{display:inline-flex;gap:2px;align-items:flex-end}
+.sig i{width:3.5px;background:#33507e;border-radius:2px;display:block}
+.sig i.on{background:var(--teal)}
+.sig i:nth-child(1){height:4px}.sig i:nth-child(2){height:7px}.sig i:nth-child(3){height:10px}.sig i:nth-child(4){height:13px}
+
+/* ---------- alerts ---------- */
+.alert{display:flex;gap:11px;padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--panel2);margin-bottom:9px}
+.alert .ic{width:34px;height:34px;border-radius:9px;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+.alert.crit{border-color:#7f1d1d}.alert.crit .ic{background:#3d0d0d;color:#fca5a5}
+.alert.warn{border-color:#574508}.alert.warn .ic{background:#2e2307;color:var(--amb)}
+.alert.info .ic{background:#0c2b26;color:var(--teal)}
+.alert .tt{font-size:13px;font-weight:700;line-height:1.5}
+.alert .ds{font-size:11.5px;color:var(--mut);line-height:1.6;margin-top:1px}
+.alert .tm{font-size:11px;color:var(--dim);margin-top:3px;font-variant-numeric:tabular-nums}
+.alert .ack{margin-inline-start:auto;align-self:flex-start;background:transparent;border:1px solid var(--line);color:var(--mut);border-radius:8px;font-size:11px;padding:4px 10px;white-space:nowrap}
+.alert .ack:hover{color:var(--txt);border-color:#33507e}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:12px;text-align:center}
+.kpi .v{font-size:23px;font-weight:900;font-variant-numeric:tabular-nums}
+.kpi .k{font-size:11px;color:var(--mut);margin-top:2px}
+
+/* ---------- chart ---------- */
+.chartbox{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px 10px 6px}
+.chartbox svg{width:100%;height:auto;display:block}
+.cmeta{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--mut)}
+.cmeta b{color:var(--txt);font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{background:transparent;border:0;color:var(--mut);font-size:12px;padding:6px 13px}
+.seg button.on{background:#155e75;color:#fff}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+th{text-align:right;color:var(--mut);font-weight:500;font-size:12px;padding:11px 14px;background:var(--panel2);border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid #182540;white-space:nowrap;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tbody tr:hover td{background:rgba(34,211,238,.03)}
+.pill{font-size:11px;padding:2.5px 10px;border-radius:999px;border:1px solid}
+.pill.on{color:var(--grn);border-color:#065f46;background:#06281e}
+.pill.off{color:#fca5a5;border-color:#7f1d1d;background:#2a0d0d}
+.pill.bkp{color:var(--amb);border-color:#574508;background:#241b05}
+.bbar{width:64px;height:6px;background:#1c2c4b;border-radius:4px;display:inline-block;vertical-align:middle;overflow:hidden}
+.bbar i{display:block;height:100%;background:var(--teal);border-radius:4px}
+.bbar.low i{background:var(--red2)}
+
+/* ---------- architecture ---------- */
+.arch{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.anode{flex:1 1 130px;min-width:0;background:var(--panel2);border:1px solid #2b4a73;border-radius:12px;padding:14px 10px;text-align:center}
+.anode .ai{width:40px;height:40px;margin:0 auto 8px;border-radius:10px;background:#0e2a3f;border:1px solid #1e4b66;display:flex;align-items:center;justify-content:center;color:var(--cyan)}
+.anode h3{font-size:13.5px;font-weight:800;margin-bottom:4px}
+.anode p{font-size:11px;color:var(--mut);line-height:1.7}
+.aarr{flex:0 0 30px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-size:17px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.chip{font-size:12px;background:#0c2233;border:1px solid #1e4b66;color:#a5f3fc;border-radius:999px;padding:6px 13px}
+.chip b{color:#fff}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:14px}
+.specs>*{min-width:0}
+.spec{background:var(--panel2);border:1px solid var(--line);border-radius:11px;padding:13px}
+.spec .k{font-size:11.5px;color:var(--dim)}
+.spec .v{font-size:15px;font-weight:800;margin-top:3px}
+.spec .d{font-size:11.5px;color:var(--mut);margin-top:3px;line-height:1.7}
+
+footer{border-top:1px solid var(--line);padding:18px 20px 26px;text-align:center;color:var(--dim);font-size:12px;line-height:2}
+.toast{position:fixed;bottom:20px;inset-inline-start:50%;transform:translate(50%,80px);background:#0f2c26;border:1px solid #134e4a;color:#99f6e4;padding:11px 20px;border-radius:11px;font-size:13px;z-index:99;transition:transform .3s;box-shadow:0 14px 34px -10px rgba(0,0,0,.6)}
+.toast.show{transform:translate(50%,0)}
+
+@media(max-width:1100px){.zgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){
+  .grid2{grid-template-columns:1fr}
+  .specs{grid-template-columns:1fr 1fr}
+  .aarr{transform:rotate(-90deg);flex-basis:100%;height:26px}
+  .anode{flex-basis:44%}
+}
+@media(max-width:640px){
+  .zgrid{grid-template-columns:1fr 1fr}
+  main{padding:14px 12px}
+  .zone .big .tv{font-size:25px}
+  .hchip{font-size:11.5px;padding:5px 10px}
+}
+@media(max-width:420px){
+  .zgrid{grid-template-columns:1fr}
+  .specs{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="logo">
+      <div class="mk">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M5 7l14 10M19 7L5 17M12 3l-2 2.4M12 3l2 2.4M12 21l-2-2.4M12 21l2-2.4M5 7l3.1.6M5 7l.6 3.1M19 17l-3.1-.6M19 17l-.6-3.1M19 7l-3.1.6M19 7l-.6 3.1M5 17l3.1-.6M5 17l.6-3.1"/></svg>
+      </div>
+      <h1>سامانه پایش سردخانه البرز<small>مانیتورینگ لحظه‌ای دما و رطوبت — شبکه LoRa و پنل ThingsBoard</small></h1>
+    </div>
+    <div class="hstats">
+      <span class="hchip"><span class="dot"></span> شبکه LoRa <b>متصل</b></span>
+      <span class="hchip">نودهای فعال <b>۲۴ از ۲۶</b></span>
+      <span class="hchip">گیت‌وی آنلاین <b>۹ از ۱۰</b></span>
+      <span class="hchip"><span class="dot red"></span> هشدار فعال <b id="hdrAlerts">۳</b></span>
+      <span class="hchip clockchip" id="clock">--:--:--</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="grid2">
+    <div>
+      <!-- ===== zones ===== -->
+      <section class="panel">
+        <div class="phead">
+          <h2>نودهای حسگر — سالن‌ها و زون‌ها</h2>
+          <span class="sub">برای مشاهده نمودار ۲۴ ساعته، روی هر زون کلیک کنید</span>
+          <span class="sp tag live">● به‌روزرسانی زنده — هر ۵ ثانیه</span>
+        </div>
+        <div class="zgrid" id="zones"></div>
+      </section>
+
+      <!-- ===== chart ===== -->
+      <section class="panel">
+        <div class="phead">
+          <h2 id="chartTitle">روند دمای ۲۴ ساعت گذشته</h2>
+          <span class="sp seg" id="seg">
+            <button class="on" data-m="temp">دما °C</button>
+            <button data-m="hum">رطوبت ٪</button>
+          </span>
+        </div>
+        <div class="chartbox"><div id="chart"></div></div>
+        <div class="cmeta" id="cmeta"></div>
+      </section>
+
+      <!-- ===== gateways ===== -->
+      <section class="panel">
+        <div class="phead"><h2>گیت‌وی‌های LoRa</h2><span class="sub">۱۰ گیت‌وی — پوشش کامل محوطه سردخانه و بارانداز</span></div>
+        <div class="tw">
+          <table>
+            <thead><tr><th>گیت‌وی</th><th>موقعیت</th><th>وضعیت</th><th>نودهای متصل</th><th>تغذیه</th><th>باتری پشتیبان</th><th>آخرین پیام</th></tr></thead>
+            <tbody id="gwBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== alerts column ===== -->
+    <div>
+      <section class="panel">
+        <div class="phead"><h2>مرکز هشدارها</h2><span class="sp tag" id="alertCount">۳ فعال</span></div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" style="color:#fca5a5">۱</div><div class="k">بحرانی (دما)</div></div>
+          <div class="kpi"><div class="v" style="color:var(--amb)">۲</div><div class="k">هشدار زیرساخت</div></div>
+          <div class="kpi"><div class="v">۲۴</div><div class="k">پیامک هشدار این ماه</div></div>
+          <div class="kpi"><div class="v" style="color:var(--teal)">۹۸٫۶٪</div><div class="k">آپتایم شبکه — ۳۰ روز</div></div>
+        </div>
+        <div id="alerts"></div>
+        <p style="font-size:11.5px;color:var(--dim);line-height:1.9;margin-top:6px">هشدارها هم‌زمان روی داشبورد، پیامک به نگهبانی و مدیر سردخانه، و تلگرام واحد فنی ارسال می‌شوند. هشدار قطع برق گیت‌وی از مدار باتری پشتیبان تغذیه می‌شود تا در خاموشی هم گزارش برسد.</p>
+      </section>
+
+      <section class="panel">
+        <div class="phead"><h2>وضعیت کلی شبکه</h2></div>
+        <div class="cmeta" style="margin-top:0;flex-direction:column;gap:9px;align-items:stretch">
+          <span>میانگین دمای سالن‌های نگهداری: <b id="avgT">—</b></span>
+          <span>سردترین زون: <b>تونل انجماد — ۳۲٫۱- °C</b></span>
+          <span>مصرف داده امروز: <b>۱۸٬۴۲۰ پیام MQTT</b></span>
+          <span>آخرین همگام‌سازی با ThingsBoard: <b id="syncT">هم‌اکنون</b></span>
+          <span>دوره نمونه‌برداری نودها: <b>هر ۵ دقیقه — Deep Sleep بین دو ارسال</b></span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===== architecture ===== -->
+  <section class="panel">
+    <div class="phead"><h2>معماری سیستم</h2><span class="sub">از حسگر داخل سالن تا داشبورد مدیر — بدون سیم‌کشی، بدون وابستگی به برق سالن</span></div>
+    <div class="arch">
+      <div class="anode">
+        <div class="ai"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 4a2 2 0 1 0-4 0c0 2.5-2 3.8-2 6.5a4.5 4.5 0 1 0 9 0C17 7.8 14 6.5 14 4z"/><path d="M12 9v7"/></svg></div>
+        <h3>نود حسگر</h3><p>سنسور دما و رطوبت با دقت ۱٪ — بدنه IP54، باتری لیتیوم تا ‎-۲۰°C، نصب مغناطیسی روی دیوار سالن</p>
+      </div>
+      <div class="aarr">←</div>
+      <div class="anode">
+        <div class="ai"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 18h.01M8.5 14.5a5 5 0 0 1 7 0M5.6 11.4a9.5 9.5 0 0 1 12.8 0M2.7 8.3a14 14 0 0 1 18.6 0"/></svg></div>
+        <h3>لینک LoRa</h3><p>ارتباط رادیویی P2P کم‌مصرف — برد کل محوطه با یک گیت‌وی، عبور از دیوارهای ساندویچ‌پنل سردخانه</p>
+      </div>
+      <div class="aarr">←</div>
+      <div class="anode">
+        <div class="ai"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M7 12h4M7 15.5h7M17.5 12h.01M12 8V4.5M9.5 4.5h5"/></svg></div>
+        <h3>گیت‌وی</h3><p>دریافت از نودها و تجمیع داده — باتری پشتیبان داخلی و هشدار فوری قطع برق از طریق آخرین پیام (Last Will)</p>
+      </div>
+      <div class="aarr">←</div>
+      <div class="anode">
+        <div class="ai"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.2 15.7a5.5 5.5 0 0 1 7.6 0M12 19h.01M2.5 9a15 15 0 0 1 19 0"/></svg></div>
+        <h3>Wi-Fi + MQTT</h3><p>ارسال امن به سرور با پروتکل MQTT — صف آفلاین روی گیت‌وی تا در قطعی اینترنت هیچ داده‌ای گم نشود</p>
+      </div>
+      <div class="aarr">←</div>
+      <div class="anode">
+        <div class="ai"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>ThingsBoard</h3><p>ذخیره‌سازی سری‌زمانی، موتور قوانین (Rule Engine) برای آستانه‌ها و زنجیره هشدار پیامک و تلگرام</p>
+      </div>
+      <div class="aarr">←</div>
+      <div class="anode">
+        <div class="ai"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M7 13.5l3-4 3 3 4-5.5M8 21h8"/></svg></div>
+        <h3>داشبورد و گزارش</h3><p>همین پنل — نمودار، گزارش‌گیری دوره‌ای برای ممیزی HACCP و خروجی اکسل از سوابق دما</p>
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip"><b>LoRa P2P</b> — بدون نیاز به اینترنت در سطح نود</span>
+      <span class="chip"><b>Deep Sleep</b> — عمر باتری چندساله</span>
+      <span class="chip"><b>IP54</b> — مقاوم در برابر رطوبت و میعان</span>
+      <span class="chip"><b>دقت ۱٪</b> — کالیبراسیون دوره‌ای</span>
+      <span class="chip"><b>باتری تا ‎-۲۰°C</b> — لیتیوم صنعتی</span>
+      <span class="chip"><b>هشدار قطع برق</b> — مستقل از شبکه برق</span>
+    </div>
+
+    <div class="specs">
+      <div class="spec"><div class="k">برد ارتباطی</div><div class="v">تا ۲ کیلومتر فضای باز</div><div class="d">در محوطه سردخانه با دیوارهای فلزی، هر گیت‌وی یک ساختمان کامل را پوشش می‌دهد.</div></div>
+      <div class="spec"><div class="k">بازه اندازه‌گیری</div><div class="v">‎-۴۰ تا ‎+۸۰ °C</div><div class="d">مناسب تونل انجماد تا بارانداز؛ رطوبت ۰ تا ۱۰۰٪ با جبران دمایی خودکار.</div></div>
+      <div class="spec"><div class="k">ثبت سوابق</div><div class="v">بدون سقف زمانی</div><div class="d">آرشیو کامل روی ThingsBoard برای ممیزی بهداشت و بیمه بار — خروجی PDF و اکسل.</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  نمونه پروتوتایپ داشبورد پایش سردخانه — داده‌های نمایشی با مقادیر واقعی‌نما؛ نسخه نهایی روی زیرساخت اختصاصی مجموعه و با کالیبراسیون حسگرهای نصب‌شده تحویل می‌شود.<br>
+  سردخانه البرز — کیلومتر ۱۲ جاده مخصوص کرج · واحد فنی: داخلی ۲۱۴
+</footer>
+
+<div class="toast" id="toast">هشدار تأیید و به واحد فنی ارجاع شد.</div>
+
+<script>
+const FA='۰۱۲۳۴۵۶۷۸۹';
+const faNum=(n,d=1)=>{let s=Number(n).toFixed(d);s=s.replace('-','‎-');return s.replace(/\d/g,c=>FA[c]).replace('.',',')};
+const faInt=n=>String(Math.round(n)).replace(/\d/g,c=>FA[c]);
+const pad=n=>String(n).padStart(2,'0');
+const faTime=d=>pad(d.getHours()).replace(/\d/g,c=>FA[c])+':'+pad(d.getMinutes()).replace(/\d/g,c=>FA[c])+':'+pad(d.getSeconds()).replace(/\d/g,c=>FA[c]);
+
+/* ---------- zones data ---------- */
+const ZONES=[
+ {id:'hall1', name:'سالن نگهداری ۱', node:'N-01', temp:-18.4, hum:86, batt:92, rssi:-61, thr:'حد مجاز: ‎-۱۶ تا ‎-۲۰ °C', min:-20, max:-16, base:-18.3, amp:.7, ago:38},
+ {id:'hall2', name:'سالن نگهداری ۲', node:'N-02', temp:-17.8, hum:84, batt:88, rssi:-58, thr:'حد مجاز: ‎-۱۶ تا ‎-۲۰ °C', min:-20, max:-16, base:-17.9, amp:.6, ago:41},
+ {id:'hall3', name:'سالن نگهداری ۳', node:'N-03', temp:-11.2, hum:91, batt:76, rssi:-66, thr:'حد مجاز: ‎-۱۶ تا ‎-۲۰ °C', min:-20, max:-16, base:-14.8, amp:1.6, ago:24, alarm:true},
+ {id:'tunnel', name:'تونل انجماد', node:'N-04', temp:-32.1, hum:78, batt:95, rssi:-54, thr:'حد مجاز: ‎-۲۸ تا ‎-۳۵ °C', min:-35, max:-28, base:-31.6, amp:1.1, ago:35},
+ {id:'precool', name:'پیش‌سردکن', node:'N-05', temp:-4.6, hum:88, batt:81, rssi:-63, thr:'حد مجاز: ‎-۲ تا ‎-۶ °C', min:-6, max:-2, base:-4.4, amp:.5, ago:52},
+ {id:'chill', name:'سالن بالای صفر', node:'N-06', temp:2.3, hum:79, batt:67, rssi:-71, thr:'حد مجاز: ۰ تا ‎+۴ °C', min:0, max:4, base:2.1, amp:.4, ago:47},
+ {id:'dock', name:'بارانداز و رمپ بارگیری', node:'N-07', temp:6.8, hum:72, batt:58, rssi:-78, thr:'حد مجاز: حداکثر ‎+۱۰ °C', min:-2, max:10, base:6.4, amp:1.3, ago:63, warn:true},
+ {id:'pack', name:'سالن بسته‌بندی', node:'N-08', temp:3.9, hum:74, batt:84, rssi:-69, thr:'حد مجاز: ‎+۲ تا ‎+۶ °C', min:2, max:6, base:3.8, amp:.4, ago:44},
+];
+let sel='hall1', mode='temp';
+
+/* 24h synthetic history per zone (deterministic) */
+function history(z){
+  const pts=[]; let seed=z.id.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+  const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+  for(let h=0;h<=24;h++){
+    const door=(h>=7&&h<=9)||(h>=13&&h<=15)? z.amp*1.4:0;   // door-open peaks
+    const t=z.base + Math.sin(h/24*Math.PI*2-1.2)*z.amp*.55 + door + (rnd()-.5)*z.amp*.5 + (z.alarm? Math.max(0,(h-17))*.55:0);
+    const hu=Math.min(97,Math.max(55, (z.hum) + Math.sin(h/24*Math.PI*2+.6)*4 + (rnd()-.5)*3 + (z.alarm? Math.max(0,(h-17))*.8:0)));
+    pts.push({h,t:+t.toFixed(1),hu:+hu.toFixed(0)});
+  }
+  return pts;
+}
+const HIST={}; ZONES.forEach(z=>HIST[z.id]=history(z));
+
+/* ---------- render zones ---------- */
+const zEl=document.getElementById('zones');
+function sigBars(rssi){
+  const on=rssi>-60?4:rssi>-70?3:rssi>-80?2:1;
+  return '<span class="sig">'+[1,2,3,4].map(i=>'<i class="'+(i<=on?'on':'')+'"></i>').join('')+'</span>';
+}
+function agoTxt(s){ return s<60? 'لحظاتی پیش' : faInt(s/60)+' دقیقه پیش'; }
+function renderZones(){
+  zEl.innerHTML=ZONES.map(z=>{
+    const st=z.alarm? 'هشدار دما' : z.warn? 'نزدیک سقف مجاز' : 'نرمال';
+    return '<button class="zone'+(z.alarm?' alarm':'')+(z.warn?' warn':'')+(sel===z.id?' sel':'')+'" data-z="'+z.id+'">'
+    +'<span class="zt"><span class="nm">'+z.name+'</span><span class="st">'+st+'</span></span>'
+    +'<span class="big"><span class="tv" dir="ltr">'+faNum(z.temp)+'</span><span class="un">°C</span></span>'
+    +'<div class="thr">'+z.thr+' · نود '+z.node+'</div>'
+    +'<div class="mrow">'
+    +'<div class="m"><div class="v">'+faNum(z.hum,0)+'٪</div><div class="k">رطوبت</div></div>'
+    +'<div class="m"><div class="v">'+faInt(z.batt)+'٪</div><div class="k">باتری</div></div>'
+    +'<div class="m"><div class="v" dir="ltr">'+z.rssi+'</div><div class="k">RSSI dBm</div></div>'
+    +'</div>'
+    +'<div class="upd">'+sigBars(z.rssi)+' آخرین به‌روزرسانی: <span data-ago="'+z.id+'">'+agoTxt(z.ago)+'</span></div>'
+    +'</button>';
+  }).join('');
+  zEl.querySelectorAll('.zone').forEach(b=>b.addEventListener('click',()=>{sel=b.dataset.z;renderZones();drawChart();}));
+  const act=ZONES.filter(z=>z.temp>=z.min&&z.temp<=z.max);
+  document.getElementById('avgT').textContent=faNum(act.reduce((a,z)=>a+z.temp,0)/act.length)+' °C';
+}
+
+/* ---------- chart ---------- */
+function drawChart(){
+  const z=ZONES.find(x=>x.id===sel), pts=HIST[sel];
+  const vals=pts.map(p=>mode==='temp'?p.t:p.hu);
+  let lo=Math.min(...vals), hi=Math.max(...vals); const padv=(hi-lo)*.25||1; lo-=padv; hi+=padv;
+  const W=860,H=250,PL=14,PR=52,PT=16,PB=30, iw=W-PL-PR, ih=H-PT-PB;
+  const X=i=>PL+iw*i/(pts.length-1), Y=v=>PT+ih-(v-lo)/(hi-lo)*ih;
+  const col=mode==='temp'?'#22d3ee':'#2dd4bf';
+  const path=pts.map((p,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(vals[i]).toFixed(1)).join(' ');
+  const area=path+' L'+X(pts.length-1)+' '+(PT+ih)+' L'+PL+' '+(PT+ih)+' Z';
+  let grid='',labels='';
+  for(let g=0;g<=4;g++){const v=lo+(hi-lo)*g/4, y=Y(v);
+    grid+='<line x1="'+PL+'" y1="'+y+'" x2="'+(W-PR)+'" y2="'+y+'" stroke="#1d2c49" stroke-width="1"/>';
+    labels+='<text x="'+(W-PR+8)+'" y="'+(y+4)+'" fill="#5f7396" font-size="11.5" font-family="Vazirmatn">'+faNum(v,mode==='temp'?1:0)+'</text>';}
+  let hours='';
+  for(let h=0;h<=24;h+=3){hours+='<text x="'+X(h)+'" y="'+(H-8)+'" fill="#5f7396" font-size="11" text-anchor="middle" font-family="Vazirmatn">'+faInt(h)+' : ۰۰</text>';}
+  let thrLine='';
+  if(mode==='temp'){
+    const yMax=Y(z.max), yMin=Y(z.min);
+    if(z.max<hi&&z.max>lo) thrLine+='<line x1="'+PL+'" y1="'+yMax+'" x2="'+(W-PR)+'" y2="'+yMax+'" stroke="#f87171" stroke-width="1.2" stroke-dasharray="6 5"/><text x="'+PL+'" y="'+(yMax-6)+'" fill="#f87171" font-size="11" font-family="Vazirmatn">سقف مجاز '+faNum(z.max,0)+'°</text>';
+    if(z.min<hi&&z.min>lo) thrLine+='<line x1="'+PL+'" y1="'+yMin+'" x2="'+(W-PR)+'" y2="'+yMin+'" stroke="#fbbf24" stroke-width="1" stroke-dasharray="6 5"/>';
+  }
+  const last=vals[vals.length-1];
+  document.getElementById('chart').innerHTML=
+   '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="نمودار ۲۴ ساعته">'
+   +'<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+col+'" stop-opacity=".28"/><stop offset="1" stop-color="'+col+'" stop-opacity="0"/></linearGradient></defs>'
+   +grid+thrLine+'<path d="'+area+'" fill="url(#ag)"/><path d="'+path+'" fill="none" stroke="'+col+'" stroke-width="2.4" stroke-linejoin="round"/>'
+   +'<circle cx="'+X(pts.length-1)+'" cy="'+Y(last)+'" r="4.5" fill="'+col+'" stroke="#0b1220" stroke-width="2"/>'
+   +labels+hours+'</svg>';
+  document.getElementById('chartTitle').textContent='روند '+(mode==='temp'?'دمای':'رطوبت')+' ۲۴ ساعت گذشته — '+z.name;
+  const mn=Math.min(...vals), mx=Math.max(...vals);
+  document.getElementById('cmeta').innerHTML=
+    '<span>کمینه: <b>'+faNum(mn,mode==='temp'?1:0)+(mode==='temp'?' °C':'٪')+'</b></span>'
+   +'<span>بیشینه: <b>'+faNum(mx,mode==='temp'?1:0)+(mode==='temp'?' °C':'٪')+'</b></span>'
+   +'<span>میانگین: <b>'+faNum(vals.reduce((a,b)=>a+b,0)/vals.length)+(mode==='temp'?' °C':'٪')+'</b></span>'
+   +'<span>نقاط داده: <b>'+faInt(288)+' نمونه (هر ۵ دقیقه)</b></span>'
+   +(z.alarm&&mode==='temp'?'<span style="color:#fca5a5">از ساعت ۱۷ روند صعودی دما ثبت شده و در ساعت ۱۹:۴۲ از سقف مجاز عبور کرده است.</span>':'');
+}
+document.getElementById('seg').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#seg button').forEach(x=>x.classList.toggle('on',x===b));
+  mode=b.dataset.m; drawChart();
+});
+
+/* ---------- gateways ---------- */
+const GW=[
+ ['GW-01','سقف سالن نگهداری ۱ و ۲','on',6,'برق شهر',94,'لحظاتی پیش'],
+ ['GW-02','سقف سالن نگهداری ۳','on',4,'برق شهر',89,'لحظاتی پیش'],
+ ['GW-03','تونل انجماد','on',3,'برق شهر',97,'۱ دقیقه پیش'],
+ ['GW-04','پیش‌سردکن','on',3,'برق شهر',91,'لحظاتی پیش'],
+ ['GW-05','بارانداز','bkp',3,'باتری پشتیبان',63,'لحظاتی پیش'],
+ ['GW-06','سالن بالای صفر','on',2,'برق شهر',86,'۲ دقیقه پیش'],
+ ['GW-07','سالن بسته‌بندی','on',2,'برق شهر',90,'۱ دقیقه پیش'],
+ ['GW-08','محوطه و پارکینگ یخچال‌دارها','on',1,'برق شهر',82,'۳ دقیقه پیش'],
+ ['GW-09','ساختمان اداری و نگهبانی','on',0,'برق شهر',95,'لحظاتی پیش'],
+ ['GW-10','انبار مواد اولیه','off',0,'—',41,'۴۷ دقیقه پیش'],
+];
+document.getElementById('gwBody').innerHTML=GW.map(g=>
+ '<tr><td><b>'+g[0]+'</b></td><td>'+g[1]+'</td>'
+ +'<td>'+(g[2]==='on'?'<span class="pill on">آنلاین</span>':g[2]==='bkp'?'<span class="pill bkp">روی باتری — قطع برق</span>':'<span class="pill off">آفلاین</span>')+'</td>'
+ +'<td>'+faInt(g[3])+' نود</td><td>'+g[4]+'</td>'
+ +'<td><span class="bbar'+(g[5]<50?' low':'')+'"><i style="width:'+g[5]+'%"></i></span> '+faInt(g[5])+'٪</td>'
+ +'<td>'+g[6]+'</td></tr>').join('');
+
+/* ---------- alerts ---------- */
+const ALERTS=[
+ {lvl:'crit',t:'دمای بالای حد مجاز — سالن نگهداری ۳',d:'دما به ‎-۱۱٫۲ °C رسیده و از سقف ‎-۱۶ °C عبور کرده است. احتمال خرابی کمپرسور یا باز ماندن درب سالن. پیامک به مدیر سردخانه و نگهبانی ارسال شد.',tm:'امروز — ۱۹:۴۲ · کد هشدار TMP-2214'},
+ {lvl:'warn',t:'قطع برق گیت‌وی GW-05 — بارانداز',d:'گیت‌وی روی باتری پشتیبان فعال است (۶۳٪). داده نودهای بارانداز همچنان می‌رسد؛ در صورت ادامه قطعی بیش از ۶ ساعت، هشدار دوم صادر می‌شود.',tm:'امروز — ۱۹:۰۵ · کد هشدار PWR-0871'},
+ {lvl:'warn',t:'گیت‌وی GW-10 آفلاین — انبار مواد اولیه',d:'آخرین پیام ۴۷ دقیقه پیش دریافت شده. نود این زون داده را روی حافظه داخلی ذخیره می‌کند و پس از اتصال، همگام می‌شود.',tm:'امروز — ۱۸:۵۸ · کد هشدار NET-0455'},
+ {lvl:'info',t:'باتری نود بارانداز رو به اتمام — ۵۸٪',d:'پیش‌بینی تعویض در ۴۰ روز آینده؛ در برنامه نگهداری ماه بعد ثبت شد.',tm:'امروز — ۰۹:۱۵ · کد هشدار BAT-1102'},
+];
+const IC={
+ crit:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3 2.5 20h19L12 3z"/><path d="M12 10v4M12 17.2h.01"/></svg>',
+ warn:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2 4.5 13.5H11L9.8 22 19 10h-6.5L13 2z"/></svg>',
+ info:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="14" height="8" rx="2"/><path d="M21 11v2M6 11.5v1"/></svg>'};
+function renderAlerts(){
+  document.getElementById('alerts').innerHTML=ALERTS.map((a,i)=>
+   '<div class="alert '+a.lvl+'"><div class="ic">'+IC[a.lvl]+'</div><div style="min-width:0"><div class="tt">'+a.t+'</div><div class="ds">'+a.d+'</div><div class="tm">'+a.tm+'</div></div>'
+   +(i===0?'<button class="ack" id="ackBtn">تأیید و ارجاع</button>':'')+'</div>').join('');
+  const b=document.getElementById('ackBtn');
+  if(b) b.addEventListener('click',()=>{
+    b.textContent='ارجاع شد ✓'; b.disabled=true;
+    const t=document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3200);
+  });
+}
+renderAlerts();
+
+/* ---------- live tick ---------- */
+function tick(){
+  ZONES.forEach(z=>{
+    const drift=(Math.random()-.5)*(z.alarm?.22:.12);
+    z.temp=+(z.temp+drift).toFixed(1);
+    z.hum=Math.max(50,Math.min(97,+(z.hum+(Math.random()-.5)*1.4).toFixed(0)));
+    if(Math.random()<.3) z.batt=Math.max(5,z.batt-(Math.random()<.5?0:1));
+    z.ago=Math.max(18,z.ago-5+Math.round(Math.random()*8));
+    HIST[z.id][HIST[z.id].length-1].t=z.temp;
+    HIST[z.id][HIST[z.id].length-1].hu=z.hum;
+  });
+  renderZones(); drawChart();
+}
+setInterval(tick,5000);
+
+/* ---------- clock ---------- */
+function clock(){
+  const d=new Date();
+  document.getElementById('clock').textContent=faTime(d);
+  document.getElementById('syncT').textContent=faTime(d);
+}
+setInterval(clock,1000); clock();
+
+renderZones(); drawChart();
+</script>
+</body>
+</html>

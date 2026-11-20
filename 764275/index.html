@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PACKPRO Industrial — Engineered Packaging Solutions for Global Export</title>
+<meta name="description" content="High-performance industrial packaging for B2B clients worldwide. Flexible packaging, cartons, films and custom printed packaging. ISO 9001 certified, export to 100+ countries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0D5F59; --teal-dark:#08423E; --teal-soft:#E6F2F0; --orange:#F47B20; --orange-soft:#FDF0E4;
+  --ink:#12211F; --mut:#5A6B68; --line:#E2EAE8; --bg:#F6F8F7; --card:#FFFFFF; --radius:18px;
+  --shadow:0 10px 30px rgba(13,95,89,.08);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.65}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;padding:13px 26px;border-radius:12px;transition:.2s}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal-dark)}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{filter:brightness(1.07)}
+.btn-ghost{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}.btn-ghost:hover{background:var(--teal-soft)}
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:26px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:19px;color:var(--teal-dark);letter-spacing:.2px}
+.logo small{display:block;font-size:10.5px;font-weight:700;color:var(--orange);letter-spacing:2.5px}
+.logo-mark{width:42px;height:42px;flex:0 0 auto}
+nav.main{display:flex;gap:24px;margin-inline-start:14px}
+nav.main a{font-size:14.5px;font-weight:500;color:var(--ink)}
+nav.main a:hover{color:var(--teal)}
+.hspace{flex:1}
+.lang{display:flex;align-items:center;gap:7px;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:7px 12px;cursor:pointer;font-family:inherit;font-weight:700;font-size:13.5px;color:var(--teal-dark)}
+.lang:hover{border-color:var(--teal)}
+.burger{display:none;border:0;background:none;cursor:pointer;padding:6px}
+.mnav{display:none;border-top:1px solid var(--line);padding:10px 0 14px}
+.mnav a{display:block;padding:9px 2px;font-weight:500}
+.mnav.open{display:block}
+/* hero */
+.hero{background:linear-gradient(180deg,#fff, var(--bg));padding:58px 0 46px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.kicker{display:inline-block;background:var(--orange-soft);color:#B45309;font-weight:800;font-size:12.5px;letter-spacing:1.6px;padding:6px 14px;border-radius:999px;text-transform:uppercase}
+.hero h1{font-size:47px;line-height:1.14;font-weight:900;margin:18px 0 16px;color:var(--teal-dark)}
+.hero h1 .accent{color:var(--orange)}
+.hero p.sub{font-size:17.5px;color:var(--mut);margin:0 0 28px;max-width:34em}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.chip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:600;box-shadow:var(--shadow)}
+.chip svg{flex:0 0 auto}
+.hero-visual{background:var(--teal-dark);border-radius:26px;padding:30px 28px;color:#fff;position:relative;overflow:hidden}
+.hero-visual::after{content:"";position:absolute;inset-inline-end:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:rgba(244,123,32,.25)}
+.hv-title{font-weight:800;font-size:17px;margin:0 0 4px}
+.hv-sub{color:#BCD8D4;font-size:13.5px;margin:0 0 20px}
+.hv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+.hv-cell{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px}
+.hv-cell b{display:block;font-size:23px;font-weight:900}
+.hv-cell span{font-size:12.5px;color:#BCD8D4}
+.hv-line{margin-top:18px;background:#fff;border-radius:14px;padding:12px 14px;color:var(--ink);display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.hv-line .track{flex:1;height:8px;background:var(--teal-soft);border-radius:99px;overflow:hidden}
+.hv-line .fill{height:100%;width:78%;background:var(--orange);border-radius:99px}
+.hv-line b{font-size:13px;color:var(--teal-dark);white-space:nowrap}
+/* sections */
+section{padding:56px 0}
+.sec-head{max-width:640px;margin:0 auto 34px;text-align:center}
+.sec-head h2{font-size:31px;font-weight:900;color:var(--teal-dark);margin:0 0 8px}
+.sec-head p{color:var(--mut);margin:0}
+.sec-tag{color:var(--orange);font-weight:800;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+/* categories + products */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px}
+.cat{background:var(--card);border:1.5px solid var(--line);border-radius:var(--radius);padding:20px;cursor:pointer;transition:.2s;text-align:start;font-family:inherit}
+.cat:hover{border-color:var(--teal);transform:translateY(-2px)}
+.cat.active{border-color:var(--teal);background:var(--teal-soft)}
+.cat .ic{width:48px;height:48px;border-radius:13px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.cat.active .ic{background:#fff}
+.cat h3{margin:0 0 4px;font-size:16.5px;font-weight:800}
+.cat p{margin:0;color:var(--mut);font-size:13px}
+.cat .cnt{color:var(--orange);font-weight:800;font-size:12.5px}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.2s;display:flex;flex-direction:column}
+.prod:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.prod .pv{height:138px;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#EFF6F4,#E0EEEA)}
+.prod .pb{padding:15px 16px 17px;display:flex;flex-direction:column;gap:5px;flex:1}
+.prod h4{margin:0;font-size:15.5px;font-weight:800}
+.prod .ps{color:var(--mut);font-size:12.8px;flex:1}
+.prod .pm{display:flex;justify-content:space-between;align-items:center;font-size:12.5px}
+.prod .pm b{color:var(--teal)}
+.prod .pm .moq{color:var(--mut)}
+/* capabilities */
+.cap{background:var(--teal-dark);color:#fff;border-radius:30px;padding:46px 40px}
+.cap h2{margin:0 0 6px;font-size:29px;font-weight:900}
+.cap .cap-sub{color:#BCD8D4;margin:0 0 30px}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cap-cell{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:22px}
+.cap-cell b{display:block;font-size:31px;font-weight:900;color:#fff}
+.cap-cell b em{font-style:normal;color:var(--orange)}
+.cap-cell span{color:#BCD8D4;font-size:13.5px}
+.certs{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.cert{border:1.5px solid rgba(255,255,255,.35);border-radius:10px;padding:7px 16px;font-weight:800;font-size:13.5px}
+.cert.hot{background:var(--orange);border-color:var(--orange)}
+/* inquiry */
+.inq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.inq-points{display:flex;flex-direction:column;gap:16px;margin-top:22px}
+.inq-point{display:flex;gap:13px;align-items:flex-start}
+.inq-point .n{width:34px;height:34px;flex:0 0 auto;border-radius:10px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px}
+.inq-point b{display:block;font-size:15.5px}
+.inq-point span{color:var(--mut);font-size:13.8px}
+form.inq{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+form.inq h3{margin:0 0 4px;font-size:19px;font-weight:900;color:var(--teal-dark)}
+form.inq .fs{color:var(--mut);font-size:13.5px;margin:0 0 20px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;font-family:inherit;font-size:15px;padding:11px 13px;border:1.5px solid var(--line);border-radius:11px;background:#FBFCFC;color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--teal);background:#fff}
+.form-ok{display:none;background:var(--teal-soft);border:1.5px solid var(--teal);color:var(--teal-dark);border-radius:14px;padding:16px 18px;font-weight:700}
+.form-ok.show{display:block}
+/* news */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.news{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.news .nv{height:120px;display:flex;align-items:center;justify-content:center}
+.news .nb{padding:18px}
+.news .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:6px;color:#fff;text-transform:uppercase}
+.news h4{margin:10px 0 6px;font-size:16px;font-weight:800;line-height:1.5}
+.news p{margin:0;color:var(--mut);font-size:13.3px}
+.news .meta{margin-top:12px;color:var(--mut);font-size:12.3px}
+/* footer */
+footer{background:#0A2E2B;color:#CFE3E0;margin-top:20px}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:30px;padding:48px 0 30px}
+footer h5{color:#fff;font-size:15.5px;margin:0 0 14px;font-weight:800}
+footer a{display:block;padding:4px 0;font-size:14px;color:#CFE3E0}
+footer a:hover{color:#fff}
+footer p{font-size:14px;margin:0}
+.f-bottom{border-top:1px solid rgba(255,255,255,.14);padding:16px 0;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(10,35,32,.55);display:none;align-items:center;justify-content:center;z-index:90;padding:18px}
+.modal.open{display:flex}
+.modal-box{background:#fff;border-radius:22px;max-width:640px;width:100%;max-height:88vh;overflow:auto;padding:30px}
+.modal-box h3{margin:0 0 2px;font-size:22px;font-weight:900;color:var(--teal-dark)}
+.modal-box .cat-l{color:var(--orange);font-weight:800;font-size:12.5px;letter-spacing:1.2px;text-transform:uppercase}
+.spec{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.3px}
+.spec td{padding:9px 12px;border-bottom:1px solid var(--line)}
+.spec td:first-child{color:var(--mut);width:42%}
+.spec td:last-child{font-weight:600}
+.moq-line{display:flex;gap:18px;flex-wrap:wrap;background:var(--bg);border-radius:12px;padding:13px 16px;font-size:13.8px;margin-bottom:18px}
+.moq-line b{color:var(--teal-dark)}
+.x{float:inline-end;border:0;background:var(--bg);width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:17px;font-family:inherit}
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .cat-grid,.prod-grid{grid-template-columns:repeat(2,1fr)}
+  .inq-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){ nav.main{display:none} .burger{display:block} }
+@media(max-width:560px){
+  .hero h1{font-size:33px}
+  .cat-grid,.prod-grid,.cap-grid,.news-grid{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  .cap{padding:32px 22px}
+  section{padding:42px 0}
+  input,select,textarea{font-size:16px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#top">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none"><path d="M24 3 43 13.5v21L24 45 5 34.5v-21L24 3Z" stroke="#0D5F59" stroke-width="3.4"/><path d="M24 3v21m0 0L5 13.5M24 24l19-10.5" stroke="#F47B20" stroke-width="3.4"/></svg>
+      <span>PACKPRO<small>INDUSTRIAL</small></span>
+    </a>
+    <nav class="main">
+      <a href="#products" data-i18n="nav_products">Products</a>
+      <a href="#capabilities" data-i18n="nav_cap">Capabilities</a>
+      <a href="#export" data-i18n="nav_export">Export &amp; B2B</a>
+      <a href="#news" data-i18n="nav_news">News</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="hspace"></div>
+    <button class="lang" id="langBtn" type="button">🌐 <span id="langLbl">FA</span></button>
+    <button class="burger" id="burger" type="button" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="2.2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="wrap mnav" id="mnav">
+    <a href="#products" data-i18n="nav_products">Products</a>
+    <a href="#capabilities" data-i18n="nav_cap">Capabilities</a>
+    <a href="#export" data-i18n="nav_export">Export &amp; B2B</a>
+    <a href="#news" data-i18n="nav_news">News</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker" data-i18n="hero_kicker">Knowledge-Based Manufacturer</span>
+        <h1 data-i18n="hero_h1">ENGINEERED <span class="accent">PACKAGING</span> SOLUTIONS FOR GLOBAL EXPORT</h1>
+        <p class="sub" data-i18n="hero_sub">High-performance industrial packaging for B2B clients worldwide — custom, durable and compliant with international standards.</p>
+        <div class="hero-cta">
+          <a class="btn btn-teal" href="#products" data-i18n="cta_products">Explore Products</a>
+          <a class="btn btn-ghost" href="#export" data-i18n="cta_quote">Get a Quote</a>
+        </div>
+        <div class="chips">
+          <span class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.4 2.4 4.6-5"/></svg><span data-i18n="chip_iso">ISO 9001 Certified</span></span>
+          <span class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.7 2.6 4 5.6 4 9s-1.3 6.4-4 9c-2.7-2.6-4-5.6-4-9s1.3-6.4 4-9Z"/></svg><span data-i18n="chip_exp">Export to 100+ Countries</span></span>
+          <span class="chip"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="2.2"><path d="M12 3l2.1 5.3L20 9l-4.2 3.9 1.2 5.8L12 15.7 7 18.7l1.2-5.8L4 9l5.9-.7L12 3Z"/></svg><span data-i18n="chip_design">Custom Design Support</span></span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <p class="hv-title" data-i18n="hv_title">Production Line — Hall A</p>
+        <p class="hv-sub" data-i18n="hv_sub">Live capacity overview, Q3 export program</p>
+        <div class="hv-grid">
+          <div class="hv-cell"><b>5</b><span data-i18n="hv_lines">Production lines</span></div>
+          <div class="hv-cell"><b>12,000+</b><span data-i18n="hv_units">Units / day capacity</span></div>
+          <div class="hv-cell"><b>20K+</b><span data-i18n="hv_tonnes">Tonnes monthly output</span></div>
+          <div class="hv-cell"><b>98.6%</b><span data-i18n="hv_qc">QC pass rate</span></div>
+        </div>
+        <div class="hv-line"><b data-i18n="hv_ship">Next export shipment</b><div class="track"><div class="fill"></div></div><b>78%</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag" data-i18n="prod_tag">Catalog</span>
+        <h2 data-i18n="prod_h2">Product Catalog</h2>
+        <p data-i18n="prod_sub">Browse our industrial packaging categories — every product is customizable to your specification.</p>
+      </div>
+      <div class="cat-grid" id="catGrid"></div>
+      <div class="prod-grid" id="prodGrid"></div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" style="padding-top:0">
+    <div class="wrap">
+      <div class="cap">
+        <span class="sec-tag" data-i18n="cap_tag">Capabilities</span>
+        <h2 data-i18n="cap_h2">Built for Scale, Quality and Compliance</h2>
+        <p class="cap-sub" data-i18n="cap_sub">Five production lines, in-house printing and a dedicated QC lab — audited annually by international bodies.</p>
+        <div class="cap-grid">
+          <div class="cap-cell"><b>5</b><span data-i18n="cap_lines">Production lines — 12,000+ units/day combined capacity</span></div>
+          <div class="cap-cell"><b>20<em>K+</em></b><span data-i18n="cap_tonnes">Tonnes of monthly capacity across film, carton and flexible lines</span></div>
+          <div class="cap-cell"><b>ISO <em>9001</em></b><span data-i18n="cap_iso">ISO 9001:2015 · ISO 22000 · BRCGS packaging materials</span></div>
+        </div>
+        <div class="certs">
+          <span class="cert">ISO 9001:2015</span><span class="cert">FSSC 22000</span><span class="cert hot">FDA Compliant</span><span class="cert">BRCGS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPORT / INQUIRY -->
+  <section id="export" style="padding-top:6px">
+    <div class="wrap">
+      <div class="sec-head" style="text-align:start;margin-inline:0">
+        <span class="sec-tag" data-i18n="exp_tag">Export &amp; B2B</span>
+        <h2 data-i18n="exp_h2">Export &amp; B2B Partnership</h2>
+        <p data-i18n="exp_sub">We serve distributors, retailers and industrial clients worldwide. Send an inquiry — we typically reply within 24 hours.</p>
+      </div>
+      <div class="inq-grid">
+        <div>
+          <div class="inq-points">
+            <div class="inq-point"><span class="n">1</span><div><b data-i18n="p1t">Tell us your requirement</b><span data-i18n="p1s">Product, volume, destination market and any compliance needs.</span></div></div>
+            <div class="inq-point"><span class="n">2</span><div><b data-i18n="p2t">Quotation &amp; samples in 48h</b><span data-i18n="p2s">Itemized EXW/FOB quotation with free physical samples for qualified buyers.</span></div></div>
+            <div class="inq-point"><span class="n">3</span><div><b data-i18n="p3t">Production &amp; export handling</b><span data-i18n="p3s">Full export documentation, palletized loading and insured freight to your port.</span></div></div>
+          </div>
+        </div>
+        <form class="inq" id="inqForm" novalidate>
+          <h3 data-i18n="form_h3">Partnership Inquiry Form</h3>
+          <p class="fs" data-i18n="form_sub">Fields marked * are required.</p>
+          <div class="frow">
+            <div class="field"><label data-i18n="f_company">Company Name *</label><input required id="fCompany" placeholder="e.g. Global Trade Co."></div>
+            <div class="field"><label data-i18n="f_email">Work Email *</label><input required type="email" id="fEmail" placeholder="contact@company.com"></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label data-i18n="f_country">Country</label>
+              <select id="fCountry"><option>United Arab Emirates</option><option>Iraq</option><option>Turkey</option><option>Russia</option><option>Germany</option><option>Other</option></select></div>
+            <div class="field"><label data-i18n="f_type">Inquiry Type</label>
+              <select id="fType"><option data-i18n="t_dist">Distributor Partnership</option><option data-i18n="t_bulk">Bulk Order</option><option data-i18n="t_oem">Private Label / OEM</option><option data-i18n="t_sample">Sample Request</option></select></div>
+          </div>
+          <div class="field"><label data-i18n="f_msg">Message</label><textarea id="fMsg" rows="3" placeholder="Tell us about your packaging requirements…"></textarea></div>
+          <button class="btn btn-teal" type="submit" style="width:100%;justify-content:center" data-i18n="f_send">Submit Inquiry</button>
+          <div class="form-ok" id="formOk" style="margin-top:14px"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" style="padding-top:6px">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag" data-i18n="news_tag">Insights</span>
+        <h2 data-i18n="news_h2">News &amp; Articles</h2>
+        <p data-i18n="news_sub">Latest updates, case studies and industry news from our team.</p>
+      </div>
+      <div class="news-grid">
+        <article class="news"><div class="nv" style="background:linear-gradient(140deg,#0D5F59,#08423E)"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="1.6"><path d="M3 21h18M5 21V8l5 3V8l5 3V5h4v16"/></svg></div><div class="nb"><span class="tag" style="background:#F47B20" data-i18n="n1tag">Case Study</span><h4 data-i18n="n1h">How We Reduced Costs 30% for an FMCG Exporter in the UAE</h4><p data-i18n="n1p">A barrier-film redesign cut material use and freight volume for a long-term Gulf client.</p><div class="meta">Oct 15, 2026 · 5 min read</div></div></article>
+        <article class="news"><div class="nv" style="background:linear-gradient(140deg,#12736B,#0D5F59)"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 21c-4 0-7-3-7-7 0-5 5-9 7-11 2 2 7 6 7 11 0 4-3 7-7 7Z"/><path d="M12 21v-8"/></svg></div><div class="nb"><span class="tag" style="background:#0D5F59" data-i18n="n2tag">Sustainability</span><h4 data-i18n="n2h">Sustainable Barrier Films: Trends to Watch in 2026</h4><p data-i18n="n2p">Mono-material structures are replacing multi-layer laminates across food packaging.</p><div class="meta">Sep 28, 2026 · 4 min read</div></div></article>
+        <article class="news"><div class="nv" style="background:linear-gradient(140deg,#F47B20,#D96207)"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M4 20V9l6 4V9l6 4V6h4v14H4Z"/></svg></div><div class="nb"><span class="tag" style="background:#B45309" data-i18n="n3tag">Company News</span><h4 data-i18n="n3h">New Production Line Now Operational in Facility East</h4><p data-i18n="n3p">Our fifth line adds 4,000 units/day of stand-up pouch capacity for export orders.</p><div class="meta">Sep 02, 2026 · 3 min read</div></div></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="logo" href="#top" style="color:#fff"><svg class="logo-mark" viewBox="0 0 48 48" fill="none"><path d="M24 3 43 13.5v21L24 45 5 34.5v-21L24 3Z" stroke="#fff" stroke-width="3.4"/><path d="M24 3v21m0 0L5 13.5M24 24l19-10.5" stroke="#F47B20" stroke-width="3.4"/></svg><span>PACKPRO<small>INDUSTRIAL</small></span></a>
+        <p style="margin-top:14px" data-i18n="f_about">Knowledge-based manufacturer of industrial packaging — engineered in Iran, exported to 100+ countries.</p>
+      </div>
+      <div><h5 data-i18n="f_prod">Products</h5><a href="#products" data-i18n="c_flex">Flexible Packaging</a><a href="#products" data-i18n="c_carton">Cartons</a><a href="#products" data-i18n="c_film">Films</a><a href="#products" data-i18n="c_custom">Custom Printed Packaging</a></div>
+      <div><h5 data-i18n="f_comp">Company</h5><a href="#capabilities" data-i18n="nav_cap">Capabilities</a><a href="#export" data-i18n="nav_export">Export &amp; B2B</a><a href="#news" data-i18n="nav_news">News</a></div>
+      <div><h5 data-i18n="nav_contact">Contact</h5><p data-i18n="f_addr">No. 14, 7th St., Eshtehard Industrial Zone, Alborz, Iran</p><p style="margin-top:8px">export@packpro.example · +98 26 3777 0000</p></div>
+    </div>
+    <div class="f-bottom"><span data-i18n="f_rights">© 2026 PACKPRO Industrial. All rights reserved.</span><span data-i18n="f_demo">Concept demo built by AppWebino — final version carries the client's own brand and content.</span></div>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="modal"><div class="modal-box" id="modalBox"></div></div>
+<script>
+const I18N = {
+en:{nav_products:"Products",nav_cap:"Capabilities",nav_export:"Export & B2B",nav_news:"News",nav_contact:"Contact",
+hero_kicker:"Knowledge-Based Manufacturer",hero_h1:'ENGINEERED <span class="accent">PACKAGING</span> SOLUTIONS FOR GLOBAL EXPORT',hero_sub:"High-performance industrial packaging for B2B clients worldwide — custom, durable and compliant with international standards.",cta_products:"Explore Products",cta_quote:"Get a Quote",chip_iso:"ISO 9001 Certified",chip_exp:"Export to 100+ Countries",chip_design:"Custom Design Support",
+hv_title:"Production Line — Hall A",hv_sub:"Live capacity overview, Q3 export program",hv_lines:"Production lines",hv_units:"Units / day capacity",hv_tonnes:"Tonnes monthly output",hv_qc:"QC pass rate",hv_ship:"Next export shipment",
+prod_tag:"Catalog",prod_h2:"Product Catalog",prod_sub:"Browse our industrial packaging categories — every product is customizable to your specification.",
+cap_tag:"Capabilities",cap_h2:"Built for Scale, Quality and Compliance",cap_sub:"Five production lines, in-house printing and a dedicated QC lab — audited annually by international bodies.",cap_lines:"Production lines — 12,000+ units/day combined capacity",cap_tonnes:"Tonnes of monthly capacity across film, carton and flexible lines",cap_iso:"ISO 9001:2015 · ISO 22000 · BRCGS packaging materials",
+exp_tag:"Export & B2B",exp_h2:"Export & B2B Partnership",exp_sub:"We serve distributors, retailers and industrial clients worldwide. Send an inquiry — we typically reply within 24 hours.",
+p1t:"Tell us your requirement",p1s:"Product, volume, destination market and any compliance needs.",p2t:"Quotation & samples in 48h",p2s:"Itemized EXW/FOB quotation with free physical samples for qualified buyers.",p3t:"Production & export handling",p3s:"Full export documentation, palletized loading and insured freight to your port.",
+form_h3:"Partnership Inquiry Form",form_sub:"Fields marked * are required.",f_company:"Company Name *",f_email:"Work Email *",f_country:"Country",f_type:"Inquiry Type",t_dist:"Distributor Partnership",t_bulk:"Bulk Order",t_oem:"Private Label / OEM",t_sample:"Sample Request",f_msg:"Message",f_send:"Submit Inquiry",
+news_tag:"Insights",news_h2:"News & Articles",news_sub:"Latest updates, case studies and industry news from our team.",
+n1tag:"Case Study",n1h:"How We Reduced Costs 30% for an FMCG Exporter in the UAE",n1p:"A barrier-film redesign cut material use and freight volume for a long-term Gulf client.",
+n2tag:"Sustainability",n2h:"Sustainable Barrier Films: Trends to Watch in 2026",n2p:"Mono-material structures are replacing multi-layer laminates across food packaging.",
+n3tag:"Company News",n3h:"New Production Line Now Operational in Facility East",n3p:"Our fifth line adds 4,000 units/day of stand-up pouch capacity for export orders.",
+f_about:"Knowledge-based manufacturer of industrial packaging — engineered in Iran, exported to 100+ countries.",f_prod:"Products",f_comp:"Company",f_addr:"No. 14, 7th St., Eshtehard Industrial Zone, Alborz, Iran",f_rights:"© 2026 PACKPRO Industrial. All rights reserved.",f_demo:"Concept demo built by AppWebino — final version carries the client's own brand and content.",
+c_flex:"Flexible Packaging",c_carton:"Cartons",c_film:"Films",c_custom:"Custom Printed Packaging",
+view:"View →",specs:"Specifications",moq:"MOQ",lead:"Lead time",days:"days",pcs:"pcs",dl:"Download Catalog PDF",inquire:"Send Inquiry for This Product",
+ok_msg:"Thank you — your inquiry was received. Our export team replies within 24 hours.",err_msg:"Please fill in the company name and a valid email."},
+fa:{nav_products:"محصولات",nav_cap:"توانمندی‌ها",nav_export:"صادرات و B2B",nav_news:"اخبار",nav_contact:"تماس",
+hero_kicker:"تولیدکننده دانش‌بنیان",hero_h1:'راهکارهای <span class="accent">بسته‌بندی</span> مهندسی‌شده برای صادرات جهانی',hero_sub:"بسته‌بندی صنعتی با کارایی بالا برای مشتریان B2B در سراسر جهان — سفارشی، بادوام و منطبق با استانداردهای بین‌المللی.",cta_products:"مشاهده محصولات",cta_quote:"دریافت پیش‌فاکتور",chip_iso:"دارای ISO 9001",chip_exp:"صادرات به بیش از ۱۰۰ کشور",chip_design:"پشتیبانی طراحی سفارشی",
+hv_title:"خط تولید — سالن A",hv_sub:"نمای زنده ظرفیت، برنامه صادرات فصل سوم",hv_lines:"خط تولید",hv_units:"ظرفیت واحد در روز",hv_tonnes:"خروجی ماهانه (تن)",hv_qc:"نرخ قبولی کنترل کیفیت",hv_ship:"محموله صادراتی بعدی",
+prod_tag:"کاتالوگ",prod_h2:"کاتالوگ محصولات",prod_sub:"دسته‌بندی‌های بسته‌بندی صنعتی ما را ببینید — همه محصولات طبق مشخصات شما قابل سفارشی‌سازی‌اند.",
+cap_tag:"توانمندی‌ها",cap_h2:"ساخته‌شده برای مقیاس، کیفیت و انطباق",cap_sub:"پنج خط تولید، چاپخانه داخلی و آزمایشگاه کنترل کیفیت اختصاصی — با ممیزی سالانه نهادهای بین‌المللی.",cap_lines:"خط تولید — ظرفیت ترکیبی بیش از ۱۲٬۰۰۰ واحد در روز",cap_tonnes:"تن ظرفیت ماهانه در خطوط فیلم، کارتن و فلکسیبل",cap_iso:"ISO 9001:2015 · ISO 22000 · BRCGS مواد بسته‌بندی",
+exp_tag:"صادرات و B2B",exp_h2:"همکاری صادراتی و B2B",exp_sub:"به توزیع‌کنندگان، خرده‌فروشان و مشتریان صنعتی در سراسر جهان خدمات می‌دهیم. استعلام بفرستید — معمولاً ظرف ۲۴ ساعت پاسخ می‌دهیم.",
+p1t:"نیازتان را بگویید",p1s:"محصول، حجم، بازار مقصد و هر الزام انطباقی.",p2t:"پیش‌فاکتور و نمونه در ۴۸ ساعت",p2s:"پیش‌فاکتور تفکیکی EXW/FOB همراه نمونه فیزیکی رایگان برای خریداران واجد شرایط.",p3t:"تولید و انجام صادرات",p3s:"اسناد کامل صادراتی، بارگیری پالتی و حمل بیمه‌شده تا بندر شما.",
+form_h3:"فرم استعلام همکاری",form_sub:"فیلدهای ستاره‌دار الزامی‌اند.",f_company:"نام شرکت *",f_email:"ایمیل کاری *",f_country:"کشور",f_type:"نوع استعلام",t_dist:"همکاری توزیع‌کنندگی",t_bulk:"سفارش عمده",t_oem:"برند اختصاصی / OEM",t_sample:"درخواست نمونه",f_msg:"پیام",f_send:"ثبت استعلام",
+news_tag:"بینش‌ها",news_h2:"اخبار و مقالات",news_sub:"آخرین به‌روزرسانی‌ها، مطالعات موردی و اخبار صنعت از تیم ما.",
+n1tag:"مطالعه موردی",n1h:"چطور هزینه یک صادرکننده FMCG در امارات را ۳۰٪ کم کردیم",n1p:"بازطراحی فیلم سدّی، مصرف مواد و حجم بار یک مشتری قدیمی خلیج فارس را کاهش داد.",
+n2tag:"پایداری",n2h:"فیلم‌های سدّی پایدار: روندهای ۲۰۲۶",n2p:"ساختارهای تک‌ماده‌ای در بسته‌بندی غذایی جای لمینت‌های چندلایه را می‌گیرند.",
+n3tag:"اخبار شرکت",n3h:"خط تولید جدید در سایت شرقی به بهره‌برداری رسید",n3p:"خط پنجم ما ۴٬۰۰۰ واحد در روز به ظرفیت پاکت ایستاده برای سفارش‌های صادراتی اضافه می‌کند.",
+f_about:"تولیدکننده دانش‌بنیان بسته‌بندی صنعتی — مهندسی‌شده در ایران، صادرشده به بیش از ۱۰۰ کشور.",f_prod:"محصولات",f_comp:"شرکت",f_addr:"ایران، البرز، شهرک صنعتی اشتهارد، خیابان هفتم، پلاک ۱۴",f_rights:"© ۲۰۲۶ پک‌پرو اینداستریال. همه حقوق محفوظ است.",f_demo:"دموی کانسپت ساخته اپ‌وبینو — نسخه نهایی با برند و محتوای خود مشتری منتشر می‌شود.",
+c_flex:"بسته‌بندی انعطاف‌پذیر",c_carton:"کارتن‌ها",c_film:"فیلم‌ها",c_custom:"بسته‌بندی چاپی سفارشی",
+view:"مشاهده ←",specs:"مشخصات فنی",moq:"حداقل سفارش",lead:"زمان تحویل",days:"روز",pcs:"عدد",dl:"دانلود کاتالوگ PDF",inquire:"ثبت استعلام برای این محصول",
+ok_msg:"سپاس — استعلام شما دریافت شد. تیم صادرات ما ظرف ۲۴ ساعت پاسخ می‌دهد.",err_msg:"لطفاً نام شرکت و یک ایمیل معتبر وارد کنید."}};
+
+const CATS=[
+ {id:"flex",ic:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.8"><path d="M7 3h10l-1 18H8L7 3Z"/><path d="M7 7h10"/></svg>',en:{n:"Flexible Packaging",s:"Pouches · Stand-up · Laminated Films"},fa:{n:"بسته‌بندی انعطاف‌پذیر",s:"پاکت · ایستاده · فیلم‌های لمینت"}},
+ {id:"carton",ic:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.8"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',en:{n:"Cartons",s:"Corrugated · Kraft · RSC · Die-cut"},fa:{n:"کارتن‌ها",s:"کنگره‌ای · کرافت · RSC · دایکات"}},
+ {id:"film",ic:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.8"><circle cx="9" cy="12" r="6"/><circle cx="9" cy="12" r="2"/><path d="M15 12h6M15 8h6"/></svg>',en:{n:"Films",s:"Shrink · Stretch · Barrier Films"},fa:{n:"فیلم‌ها",s:"شیرینک · استرچ · فیلم‌های سدّی"}},
+ {id:"custom",ic:'<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.8"><path d="M4 20V10l8-6 8 6v10H4Z"/><path d="M9 20v-6h6v6"/></svg>',en:{n:"Custom Printed Packaging",s:"Branded · Labels · Custom Size"},fa:{n:"بسته‌بندی چاپی سفارشی",s:"برنددار · لیبل · سایز سفارشی"}}];
+
+const PRODUCTS=[
+ {cat:"flex",art:"pouch",en:{n:"Stand-up Pouch 1L",s:"PET/AL/PE laminate, zipper seal, matte finish"},fa:{n:"پاکت ایستاده ۱ لیتری",s:"لمینت PET/AL/PE، زیپ‌دار، روکش مات"},moq:"5,000",lead:"14–21",specs:[["Material","ماده","PET/AL/PE Laminate"],["Volume","حجم","1L (1000ml)"],["Seal Type","نوع دوخت","Heat Seal / Zipper"],["Barrier","سدّیت","Oxygen & Moisture Barrier"],["Printing","چاپ","Up to 8-Color Custom Print"]]},
+ {cat:"flex",art:"pouch",en:{n:"Flat Bottom Pouch 500g",s:"Box-bottom coffee & dry-food pouch with valve"},fa:{n:"پاکت کف‌تخت ۵۰۰ گرمی",s:"پاکت کف‌جعبه‌ای قهوه و خشکبار با سوپاپ"},moq:"8,000",lead:"14–21",specs:[["Material","ماده","Kraft/PET/PE"],["Capacity","ظرفیت","500g"],["Valve","سوپاپ","One-way degassing"],["Barrier","سدّیت","High Barrier"],["Printing","چاپ","Up to 8-Color Custom Print"]]},
+ {cat:"carton",art:"box",en:{n:"RSC Shipping Carton — 5 Ply",s:"Double-wall corrugated, export grade"},fa:{n:"کارتن حمل RSC — پنج‌لایه",s:"کنگره‌ای دولایه، گرید صادراتی"},moq:"3,000",lead:"7–12",specs:[["Flute","فلوت","BC Double Wall"],["Strength","مقاومت","ECT 48"],["Load","تحمل بار","Up to 30 kg"],["Print","چاپ","Flexo up to 3 colors"],["Standard","استاندارد","ISTA 1A"]]},
+ {cat:"carton",art:"box",en:{n:"Die-Cut Retail Box",s:"Custom die-cut display & retail packaging"},fa:{n:"جعبه دایکات خرده‌فروشی",s:"جعبه نمایشی و خرده‌فروشی با برش سفارشی"},moq:"10,000",lead:"10–15",specs:[["Board","مقوا","350gsm Ivory Board"],["Cut","برش","Custom Die-Cut"],["Finish","پرداخت","Matte Lamination"],["Print","چاپ","Offset CMYK"],["Window","پنجره","Optional PET Window"]]},
+ {cat:"film",art:"roll",en:{n:"Shrink Film — POF 15µm",s:"Polyolefin shrink film for multi-packs"},fa:{n:"فیلم شیرینک POF — ۱۵ میکرون",s:"فیلم شیرینک پلی‌اولفین برای مولتی‌پک"},moq:"2,000",lead:"5–9",specs:[["Material","ماده","POF"],["Thickness","ضخامت","15 µm"],["Shrinkage","جمع‌شوندگی","Up to 70%"],["Width","عرض","Up to 800 mm"],["Core","هسته","3 inch"]]},
+ {cat:"film",art:"roll",en:{n:"Stretch Film — Machine Grade",s:"23µm machine stretch film, high clarity"},fa:{n:"فیلم استرچ ماشینی",s:"استرچ ماشینی ۲۳ میکرون، شفافیت بالا"},moq:"1,500",lead:"5–9",specs:[["Material","ماده","LLDPE"],["Thickness","ضخامت","23 µm"],["Stretch","کشش","Up to 300%"],["Width","عرض","500 mm"],["Roll","رول","16 kg Machine Roll"]]},
+ {cat:"custom",art:"box",en:{n:"Custom Printed Pouch — Private Label",s:"Your brand, our line: full-bleed rotogravure print"},fa:{n:"پاکت چاپی برند اختصاصی",s:"برند شما، خط ما: چاپ روتوگراور تمام‌صفحه"},moq:"15,000",lead:"18–25",specs:[["Print","چاپ","Rotogravure 8 Colors"],["Structure","ساختار","Per Product Spec"],["Design","طراحی","Free Design Support"],["MOQ/SKU","حداقل هر SKU","15,000 pcs"],["Proof","نمونه","Digital + Physical Proof"]]},
+ {cat:"custom",art:"pouch",en:{n:"Printed Labels — Roll Format",s:"BOPP labels for automatic applicators"},fa:{n:"لیبل چاپی رولی",s:"لیبل BOPP برای دستگاه‌های لیبل‌زن اتوماتیک"},moq:"20,000",lead:"7–12",specs:[["Material","ماده","BOPP / PE"],["Adhesive","چسب","Acrylic Permanent"],["Core","هسته","76 mm"],["Print","چاپ","Flexo 8 Colors"],["Finish","پرداخت","Gloss / Matte"]]}
+];
+const ART={
+ pouch:'<svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.4"><path d="M7 3h10l-1.2 18H8.2L7 3Z" fill="#FDF0E4"/><path d="M7 7.5h10" stroke="#F47B20"/><rect x="9.4" y="11" width="5.2" height="4.4" rx="1" fill="#0D5F59" opacity=".85"/></svg>',
+ box:'<svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.4"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8Z" fill="#FDF0E4"/><path d="M3 8l9 5 9-5M12 13v8" stroke="#F47B20"/></svg>',
+ roll:'<svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#0D5F59" stroke-width="1.4"><circle cx="9" cy="12" r="6.5" fill="#FDF0E4"/><circle cx="9" cy="12" r="2.2"/><path d="M15.5 12H21M15.5 7.5H21" stroke="#F47B20"/></svg>'};
+
+let lang="en", curCat="flex";
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+function t(k){return I18N[lang][k]||k}
+function renderCats(){
+  $("#catGrid").innerHTML=CATS.map(c=>{
+    const cnt=PRODUCTS.filter(p=>p.cat===c.id).length;
+    return `<button type="button" class="cat ${c.id===curCat?'active':''}" data-cat="${c.id}"><span class="ic">${c.ic}</span><h3>${c[lang].n}</h3><p>${c[lang].s}</p><span class="cnt">${cnt} ${lang==='fa'?'محصول':'Products'}</span></button>`}).join("");
+  $$("#catGrid .cat").forEach(b=>b.onclick=()=>{curCat=b.dataset.cat;renderCats();renderProds()});
+}
+function renderProds(){
+  $("#prodGrid").innerHTML=PRODUCTS.map((p,i)=>p.cat!==curCat?"":`
+   <article class="prod" data-i="${i}"><div class="pv">${ART[p.art]}</div><div class="pb">
+   <h4>${p[lang].n}</h4><p class="ps">${p[lang].s}</p>
+   <div class="pm"><b>${t("moq")}: ${p.moq}</b><span class="moq">${t("view")}</span></div></div></article>`).join("");
+  $$("#prodGrid .prod").forEach(el=>el.onclick=()=>openModal(+el.dataset.i));
+}
+function openModal(i){
+  const p=PRODUCTS[i], c=CATS.find(x=>x.id===p.cat);
+  const rows=p.specs.map(s=>`<tr><td>${lang==='fa'?s[1]:s[0]}</td><td>${s[2]}</td></tr>`).join("");
+  $("#modalBox").innerHTML=`<button class="x" id="mx" type="button">✕</button>
+   <span class="cat-l">${c[lang].n}</span><h3>${p[lang].n}</h3><p style="color:var(--mut);margin:2px 0 0">${p[lang].s}</p>
+   <div style="display:flex;justify-content:center;padding:16px 0 2px">${ART[p.art]}</div>
+   <h4 style="margin:8px 0 0;font-size:16px">${t("specs")}</h4><table class="spec">${rows}</table>
+   <div class="moq-line"><span><b>${t("moq")}:</b> ${p.moq} ${t("pcs")}</span><span><b>${t("lead")}:</b> ${p.lead} ${t("days")}</span></div>
+   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-teal" type="button" onclick="document.getElementById('modal').classList.remove('open');document.getElementById('export').scrollIntoView({behavior:'smooth'})">${t("inquire")}</button>
+   <button class="btn btn-ghost" type="button" id="dlBtn">⬇ ${t("dl")}</button></div>`;
+  $("#modal").classList.add("open");
+  $("#mx").onclick=()=>$("#modal").classList.remove("open");
+  $("#dlBtn").onclick=()=>{const w=window.open("","_blank");w.document.write(`<html><head><title>${p.en.n} — Datasheet</title><style>body{font-family:sans-serif;padding:30px}table{border-collapse:collapse}td{border:1px solid #ccc;padding:8px 14px}</style></head><body><h2>${p.en.n}</h2><p>${p.en.s}</p><table>${p.specs.map(s=>`<tr><td>${s[0]}</td><td>${s[2]}</td></tr>`).join("")}</table><p>MOQ: ${p.moq} pcs · Lead time: ${p.lead} days · PACKPRO Industrial (demo datasheet)</p></body></html>`);w.document.close();};
+}
+$("#modal").addEventListener("click",e=>{if(e.target.id==="modal")e.target.classList.remove("open")});
+$("#burger").onclick=()=>$("#mnav").classList.toggle("open");
+$$("#mnav a").forEach(a=>a.onclick=()=>$("#mnav").classList.remove("open"));
+$("#inqForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const ok=$("#fCompany").value.trim().length>1 && /.+@.+\..+/.test($("#fEmail").value);
+  const box=$("#formOk");
+  box.classList.add("show");
+  box.style.background=ok?"var(--teal-soft)":"#FDECEC"; box.style.borderColor=ok?"var(--teal)":"#D33";
+  box.textContent=ok?t("ok_msg"):t("err_msg");
+  if(ok)e.target.querySelectorAll("input,textarea").forEach(i=>i.value="");
+});
+function setLang(l){
+  lang=l; document.documentElement.lang=l; document.documentElement.dir=(l==="fa"?"rtl":"ltr");
+  document.title=l==="fa"?"پک‌پرو اینداستریال — راهکارهای بسته‌بندی مهندسی‌شده برای صادرات جهانی":"PACKPRO Industrial — Engineered Packaging Solutions for Global Export";
+  $("#langLbl").textContent=(l==="fa"?"EN":"FA");
+  $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n; if(I18N[l][k]!==undefined) el.innerHTML=I18N[l][k]});
+  $("#fCompany").placeholder=l==="fa"?"مثلاً شرکت تجارت جهانی":"e.g. Global Trade Co.";
+  $("#fEmail").placeholder="contact@company.com";
+  $("#fMsg").placeholder=l==="fa"?"درباره نیاز بسته‌بندی‌تان بنویسید…":"Tell us about your packaging requirements…";
+  renderCats(); renderProds();
+}
+$("#langBtn").onclick=()=>setLang(lang==="en"?"fa":"en");
+renderCats(); renderProds();
+</script>
+</body>
+</html>

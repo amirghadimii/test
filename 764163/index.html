@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>خودرویار — مرجع خدمات و اطلاعات خودرو در ایران</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1D4ED8; --blue-d:#1E40AF; --blue-l:#EFF6FF; --ink:#0F172A; --mu:#64748B;
+  --bd:#E2E8F0; --bg:#F8FAFC; --ok:#059669; --ok-bg:#ECFDF5; --bad:#DC2626; --bad-bg:#FEF2F2;
+  --warn:#D97706; --warn-bg:#FFFBEB; --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.8}
+button,input,select{font-family:inherit}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+/* ===== view toggle ===== */
+.viewbar{position:sticky;top:0;z-index:60;background:#0F172A;color:#fff}
+.viewbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.viewbar .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px}
+.viewbar .brand .mk{width:34px;height:34px;border-radius:10px;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.seg{display:flex;background:#1E293B;border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;color:#CBD5E1;padding:8px 20px;border-radius:9px;cursor:pointer;font-size:14px;font-weight:500}
+.seg button.on{background:var(--blue);color:#fff;font-weight:700}
+/* ===== landing header ===== */
+.lhead{background:#fff;border-bottom:1px solid var(--bd)}
+.lhead .wrap{display:flex;align-items:center;gap:26px;padding-top:14px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:21px;color:var(--ink)}
+.logo .mk{width:40px;height:40px;border-radius:12px;background:var(--blue);display:flex;align-items:center;justify-content:center}
+.logo small{display:block;font-size:11px;font-weight:400;color:var(--mu);line-height:1.3}
+.lnav{display:flex;gap:22px;margin-inline-start:8px}
+.lnav a{font-size:14.5px;color:#334155;font-weight:500}
+.lnav a:hover{color:var(--blue)}
+.lhead .sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;border-radius:12px;padding:11px 22px;font-size:14.5px;font-weight:700;background:var(--blue);color:#fff}
+.btn:hover{background:var(--blue-d)}
+.btn.ghost{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+.btn.sm{padding:8px 16px;font-size:13.5px;border-radius:10px}
+/* ===== hero ===== */
+.hero{background:linear-gradient(180deg,#EFF6FF 0%,#F8FAFC 100%);border-bottom:1px solid var(--bd);padding:56px 0 46px}
+.hero h1{font-size:38px;font-weight:900;line-height:1.35;max-width:640px}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{color:var(--mu);font-size:16.5px;max-width:560px;margin:14px 0 26px}
+.searchbox{background:#fff;border:1.5px solid var(--bd);border-radius:18px;padding:8px;display:flex;gap:8px;max-width:680px;box-shadow:0 12px 32px rgba(29,78,216,.08);flex-wrap:wrap}
+.searchbox .fld{flex:1;min-width:180px;display:flex;align-items:center;gap:8px;padding:0 12px}
+.searchbox input,.searchbox select{border:0;outline:0;font-size:15px;width:100%;background:transparent;color:var(--ink);padding:10px 0}
+.searchbox .div{width:1px;background:var(--bd)}
+.hero .tags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--mu);align-items:center}
+.hero .tags button{border:1px solid var(--bd);background:#fff;border-radius:99px;padding:5px 14px;cursor:pointer;font-size:13px;color:#334155}
+.hero .tags button:hover{border-color:var(--blue);color:var(--blue)}
+/* ===== sections ===== */
+section{padding:52px 0}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+.sec-h h2{font-size:25px;font-weight:800}
+.sec-h p{color:var(--mu);font-size:14.5px}
+.sec-h a{color:var(--blue);font-weight:700;font-size:14px;white-space:nowrap}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:22px 18px;cursor:pointer;transition:.15s;text-align:right;width:100%;font-size:15px}
+.cat:hover{border-color:var(--blue);box-shadow:0 10px 24px rgba(29,78,216,.10);transform:translateY(-2px)}
+.cat .ic{width:48px;height:48px;border-radius:14px;background:var(--blue-l);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.cat b{display:block;font-size:16px;font-weight:700}
+.cat span{color:var(--mu);font-size:13px}
+.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.shop{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.shop .top{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.shop .ava{width:52px;height:52px;border-radius:14px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px;color:#fff}
+.shop h3{font-size:16.5px;font-weight:800;line-height:1.5}
+.shop .meta{color:var(--mu);font-size:13px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 10px}
+.badge.v{background:var(--ok-bg);color:var(--ok)}
+.badge.c{background:var(--blue-l);color:var(--blue)}
+.stars{color:#F59E0B;font-size:13px;letter-spacing:1px}
+.shop .srv{display:flex;gap:6px;flex-wrap:wrap}
+.shop .srv i{font-style:normal;background:var(--bg);border:1px solid var(--bd);font-size:12px;border-radius:8px;padding:2px 9px;color:#475569}
+.shop .foot{margin-top:auto;padding-top:10px;border-top:1px dashed var(--bd);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.shop .foot .ph{font-weight:800;color:var(--blue);font-size:14.5px}
+.empty{display:none;background:#fff;border:1px dashed var(--bd);border-radius:var(--r);padding:30px;text-align:center;color:var(--mu)}
+/* how it works */
+.how{background:#fff;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border:1px solid var(--bd);border-radius:var(--r);padding:24px;background:var(--bg)}
+.step .n{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.step b{font-size:16.5px;display:block;margin-bottom:4px}
+.step p{color:var(--mu);font-size:14px}
+/* stats strip */
+.stats{background:var(--blue);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:34px;padding-bottom:34px;text-align:center}
+.stats b{font-size:30px;font-weight:900;display:block}
+.stats span{font-size:13.5px;opacity:.85}
+/* footer */
+footer{background:#0F172A;color:#CBD5E1;padding:44px 0 26px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:26px}
+footer h4{color:#fff;font-size:15.5px;margin-bottom:12px}
+footer li{list-style:none;font-size:14px;margin-bottom:8px}
+footer .about{font-size:14px;max-width:340px}
+.fbot{border-top:1px solid #1E293B;margin-top:30px;padding-top:18px;font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+/* ===== admin ===== */
+#adminView{display:none}
+.admin{display:flex;min-height:calc(100vh - 55px)}
+.aside{width:248px;flex:0 0 auto;background:#fff;border-inline-end:1px solid var(--bd);padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+.aside .who{display:flex;gap:10px;align-items:center;padding:6px 8px 16px;border-bottom:1px solid var(--bd);margin-bottom:14px}
+.aside .who .ava{width:42px;height:42px;border-radius:12px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900}
+.aside .who b{display:block;font-size:14.5px;line-height:1.4}
+.aside .who span{font-size:12px;color:var(--mu)}
+.anav button{display:flex;align-items:center;gap:10px;width:100%;text-align:right;border:0;background:transparent;padding:11px 12px;border-radius:11px;cursor:pointer;font-size:14.5px;color:#334155;font-weight:500}
+.anav button:hover{background:var(--bg)}
+.anav button.on{background:var(--blue-l);color:var(--blue);font-weight:700}
+.anav button .cnt{margin-inline-start:auto;background:var(--warn-bg);color:var(--warn);font-size:12px;font-weight:800;border-radius:99px;padding:0 9px}
+.amain{flex:1;min-width:0;padding:26px 28px 50px}
+.amain h1{font-size:23px;font-weight:800}
+.amain .sub{color:var(--mu);font-size:14px;margin-bottom:22px}
+.acards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.acard{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:18px;min-width:0}
+.acard span{color:var(--mu);font-size:13px;display:block}
+.acard b{font-size:26px;font-weight:900}
+.acard small{font-size:12.5px}
+.up{color:var(--ok)} .dn{color:var(--bad)}
+.panel{background:#fff;border:1px solid var(--bd);border-radius:var(--r);padding:22px;margin-bottom:22px;min-width:0}
+.panel h3{font-size:17px;font-weight:800;margin-bottom:4px}
+.panel .psub{color:var(--mu);font-size:13.5px;margin-bottom:16px}
+.tw{display:block;width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th{text-align:right;color:var(--mu);font-weight:500;font-size:12.5px;padding:10px 12px;border-bottom:1px solid var(--bd);white-space:nowrap}
+td{padding:12px;border-bottom:1px solid #F1F5F9;vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.doc{font-size:12px;border-radius:8px;padding:2px 9px;background:var(--bg);border:1px solid var(--bd);white-space:nowrap}
+.doc.ok{background:var(--ok-bg);border-color:#A7F3D0;color:var(--ok)}
+.doc.no{background:var(--bad-bg);border-color:#FECACA;color:var(--bad)}
+.st{font-size:12px;font-weight:700;border-radius:99px;padding:3px 12px;white-space:nowrap}
+.st.p{background:var(--warn-bg);color:var(--warn)}
+.st.a{background:var(--ok-bg);color:var(--ok)}
+.st.r{background:var(--bad-bg);color:var(--bad)}
+.act{display:flex;gap:6px}
+.act button{border:0;cursor:pointer;border-radius:9px;padding:6px 14px;font-size:13px;font-weight:700}
+.act .ok{background:var(--ok);color:#fff}
+.act .no{background:#fff;color:var(--bad);border:1.5px solid var(--bad)}
+.act button:disabled{opacity:.35;cursor:default}
+.chart{display:flex;align-items:flex-end;gap:14px;height:190px;padding-top:8px}
+.chart .col{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:8px}
+.chart .bar{width:100%;max-width:56px;background:var(--blue);border-radius:9px 9px 0 0;min-height:6px}
+.chart .col:nth-child(even) .bar{background:#93C5FD}
+.chart b{font-size:13px}
+.chart span{font-size:12.5px;color:var(--mu);white-space:nowrap}
+.toast{position:fixed;bottom:22px;inset-inline-start:50%;transform:translate(50%,20px);background:#0F172A;color:#fff;padding:12px 22px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:99}
+.toast.show{opacity:1;transform:translate(50%,0)}
+/* ===== responsive ===== */
+@media(max-width:1000px){
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .shops{grid-template-columns:repeat(2,1fr)}
+  .acards{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .admin{flex-direction:column}
+  .aside{width:100%;border-inline-end:0;border-bottom:1px solid var(--bd)}
+  .anav{display:flex;overflow-x:auto;gap:6px;padding-bottom:4px}
+  .anav button{white-space:nowrap;width:auto}
+  .aside .who{border-bottom:0;margin-bottom:6px;padding-bottom:6px}
+  .amain{padding:20px 16px 40px}
+}
+@media(max-width:640px){
+  .lnav{display:none}
+  .hero{padding:38px 0 34px}
+  .hero h1{font-size:28px}
+  .searchbox .div{display:none}
+  .shops,.steps{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:1fr}
+  .seg button{padding:8px 13px;font-size:13px}
+}
+@media(max-width:420px){
+  .cats{grid-template-columns:1fr 1fr;gap:10px}
+  .acards{grid-template-columns:1fr 1fr;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- ======== VIEW TOGGLE ======== -->
+<div class="viewbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mk"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6.5 17l1.6-5.2A2 2 0 0 1 10 10.5h4a2 2 0 0 1 1.9 1.3L17.5 17M7 20v-3m10 3v-3"/><circle cx="7.5" cy="17.5" r="0.5"/><circle cx="16.5" cy="17.5" r="0.5"/></svg></span>
+      خودرویار <span style="font-weight:400;font-size:12.5px;color:#94A3B8">دموی فاز اول</span>
+    </div>
+    <div class="seg" role="tablist">
+      <button id="segPublic" class="on" onclick="showView('public')">نمای عمومی</button>
+      <button id="segAdmin" onclick="showView('admin')">پنل مدیریت</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======== PUBLIC VIEW ======== -->
+<div id="publicView">
+  <header class="lhead">
+    <div class="wrap">
+      <a class="logo" href="#">
+        <span class="mk"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M6.5 17l1.6-5.2A2 2 0 0 1 10 10.5h4a2 2 0 0 1 1.9 1.3L17.5 17M7 20v-3m10 3v-3"/></svg></span>
+        <span>خودرویار<small>مرجع خدمات و اطلاعات خودرو</small></span>
+      </a>
+      <nav class="lnav">
+        <a href="#cats">خدمات</a><a href="#shops">فروشگاه‌ها</a><a href="#how">چطور کار می‌کند؟</a><a href="#footer">تماس</a>
+      </nav>
+      <div class="sp"></div>
+      <button class="btn ghost sm" onclick="toast('در نسخه نهایی: ورود با پیامک')">ورود</button>
+      <button class="btn sm" onclick="toast('در نسخه نهایی: فرم ثبت فروشگاه')">ثبت فروشگاه</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <h1>هر خدمتی برای خودروت، <em>از یه جای مطمئن</em> پیدا کن</h1>
+      <p>خودرویار فروشگاه‌ها و تعمیرگاه‌های تأییدشده سراسر ایران را یکجا جمع کرده؛ با امتیاز واقعی مشتری‌ها، اطلاعات تماس مستقیم و مدارک بررسی‌شده. از تعمیرگاه تخصصی دنا تا باتری‌سازی شبانه‌روزی.</p>
+      <form class="searchbox" onsubmit="return doSearch(event)">
+        <div class="fld">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="text" placeholder="جستجوی فروشگاه یا خدمت… مثلاً تعمیرگاه، باتری، کارواش">
+        </div>
+        <div class="div"></div>
+        <div class="fld" style="flex:0 1 170px;min-width:130px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <select id="citySel">
+            <option value="">همه شهرها</option><option>تهران</option><option>مشهد</option><option>اصفهان</option>
+            <option>شیراز</option><option>تبریز</option><option>کرج</option><option>قم</option><option>اهواز</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">جستجو</button>
+      </form>
+      <div class="tags">جستجوهای پرتکرار:
+        <button onclick="quickSearch('تعمیرگاه')">تعمیرگاه</button>
+        <button onclick="quickSearch('لوازم یدکی')">لوازم یدکی</button>
+        <button onclick="quickSearch('باتری')">باتری‌سازی</button>
+        <button onclick="quickSearch('کارواش')">کارواش</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="cats">
+    <div class="wrap">
+      <div class="sec-h">
+        <div><h2>دسته‌بندی خدمات</h2><p>روی هر دسته بزن تا فروشگاه‌های همان خدمت را ببینی</p></div>
+        <a href="#shops" onclick="filterCat('')">مشاهده همه فروشگاه‌ها</a>
+      </div>
+      <div class="cats" id="catGrid"></div>
+    </div>
+  </section>
+
+  <section id="shops" style="padding-top:6px">
+    <div class="wrap">
+      <div class="sec-h">
+        <div><h2 id="shopTitle">فروشگاه‌های منتخب و تأییدشده</h2><p id="shopCount"></p></div>
+        <a href="#" onclick="filterCat('');return false">حذف فیلترها</a>
+      </div>
+      <div class="shops" id="shopGrid"></div>
+      <div class="empty" id="shopEmpty">برای این جستجو فروشگاهی پیدا نشد؛ فیلترها را حذف کن یا کلمه دیگری امتحان کن.</div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="sec-h"><div><h2>چطور کار می‌کند؟</h2><p>سه قدم تا رسیدن به خدمت درست</p></div></div>
+      <div class="steps">
+        <div class="step"><span class="n">۱</span><b>جستجو و مقایسه</b><p>خدمت و شهرت را انتخاب کن؛ فروشگاه‌ها را بر اساس امتیاز مشتری‌ها، فاصله و تخصص خودروی خودت مقایسه کن.</p></div>
+        <div class="step"><span class="n">۲</span><b>بررسی اعتماد</b><p>فروشگاه‌های دارای نشان «تأییدشده» جواز کسب و مدارک‌شان توسط تیم خودرویار بررسی شده است؛ با خیال راحت انتخاب کن.</p></div>
+        <div class="step"><span class="n">۳</span><b>تماس مستقیم</b><p>بدون واسطه با فروشگاه تماس بگیر، قیمت و زمان را هماهنگ کن و بعد از دریافت خدمت، امتیازت را ثبت کن.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div><b>۲٬۴۸۰+</b><span>فروشگاه و تعمیرگاه ثبت‌شده</span></div>
+      <div><b>۱٬۹۳۰</b><span>فروشگاه تأییدشده با مدارک کامل</span></div>
+      <div><b>۸۶٬۰۰۰+</b><span>جستجوی ماهانه کاربران</span></div>
+      <div><b>۳۱</b><span>استان تحت پوشش</span></div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="wrap">
+      <div class="fgrid">
+        <div>
+          <h4>خودرویار</h4>
+          <p class="about">مرجع خدمات و اطلاعات خودرو در ایران؛ فاز اول پلتفرم با تمرکز بر معرفی و راستی‌آزمایی فروشگاه‌ها و مراکز خدماتی خودرو در سراسر کشور.</p>
+        </div>
+        <div><h4>دسترسی سریع</h4><ul><li>جستجوی فروشگاه</li><li>ثبت فروشگاه</li><li>راستی‌آزمایی فروشگاه‌ها</li><li>مجله خودرویار</li></ul></div>
+        <div><h4>خدمات</h4><ul><li>تعمیرگاه</li><li>لوازم یدکی</li><li>کارواش و دیتیلینگ</li><li>باتری‌سازی</li></ul></div>
+        <div><h4>تماس</h4><ul><li>تهران، خیابان آزادی، مرکز نوآوری خودرو</li><li>۰۲۱ − ۹۱۰۰ ۴۴۵۵</li><li>support@khodroyar.ir</li></ul></div>
+      </div>
+      <div class="fbot"><span>© ۱۴۰۵ خودرویار — نمونه نمایشی فاز اول</span><span>حریم خصوصی · شرایط استفاده</span></div>
+    </div>
+  </footer>
+</div>
+
+<!-- ======== ADMIN VIEW ======== -->
+<div id="adminView">
+  <div class="admin">
+    <aside class="aside">
+      <div class="who">
+        <span class="ava">س</span>
+        <div><b>سارا محمدی</b><span>مدیر راستی‌آزمایی</span></div>
+      </div>
+      <nav class="anav" id="anav">
+        <button class="on" data-sec="dash"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>داشبورد</button>
+        <button data-sec="shops"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7 5.5 3h13L20 7M4 7h16M4 7v13h16V7M9.5 20v-6h5v6"/></svg>فروشگاه‌ها</button>
+        <button data-sec="verify"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>راستی‌آزمایی<span class="cnt" id="queueCnt">۵</span></button>
+        <button data-sec="users"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M3.5 20c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M16 5.5a3.5 3.5 0 0 1 0 6.5M17.5 15.3c1.7.7 2.7 2.2 3 4.7"/></svg>کاربران</button>
+        <button data-sec="reports"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10m6 10V4m6 16v-8m4 8H2" transform="translate(0,-1)"/></svg>گزارش‌ها</button>
+      </nav>
+      <div style="margin-top:auto;background:var(--blue-l);border-radius:12px;padding:14px;font-size:13px;color:#334155">
+        <b style="color:var(--blue)">هدف امروز:</b> صف راستی‌آزمایی را به زیر ۳ مورد برسان.
+      </div>
+    </aside>
+
+    <main class="amain">
+      <h1>داشبورد مدیریت</h1>
+      <p class="sub">پنج‌شنبه ۲۹ آبان ۱۴۰۵ · نمای کلی عملکرد فاز اول خودرویار</p>
+
+      <div class="acards">
+        <div class="acard"><span>کل فروشگاه‌های ثبت‌شده</span><b>۲٬۴۸۰</b><br><small class="up">▲ ۱۲٫۴٪ نسبت به ماه قبل</small></div>
+        <div class="acard"><span>در انتظار راستی‌آزمایی</span><b id="statPending">۵</b><br><small class="dn">نیازمند بررسی امروز</small></div>
+        <div class="acard"><span>کاربران ثبت‌نامی</span><b>۱۸٬۳۴۰</b><br><small class="up">▲ ۸٫۱٪ نسبت به ماه قبل</small></div>
+        <div class="acard"><span>جستجوهای امروز</span><b>۳٬۹۱۲</b><br><small class="up">▲ ۵٫۶٪ نسبت به دیروز</small></div>
+      </div>
+
+      <div class="panel" id="verifyPanel">
+        <h3>صف راستی‌آزمایی فروشگاه‌ها</h3>
+        <p class="psub">مدارک هر فروشگاه را بررسی و تأیید یا رد کن؛ وضعیت ردیف بلافاصله به‌روز می‌شود.</p>
+        <div class="tw">
+          <table>
+            <thead><tr>
+              <th>فروشگاه</th><th>شهر</th><th>خدمت اصلی</th><th>جواز کسب</th><th>سند مکان</th><th>کارت ملی مالک</th><th>وضعیت</th><th>اقدام</th>
+            </tr></thead>
+            <tbody id="qBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>ثبت‌نام فروشگاه‌ها به تفکیک شهر</h3>
+        <p class="psub">تعداد ثبت‌نام‌های تأییدشده در ۳۰ روز گذشته</p>
+        <div class="chart" id="cityChart"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ data ============ */
+const CATS = [
+  {k:'تعمیرگاه', t:'تعمیرگاه', s:'موتور، گیربکس و جلوبندی', n:412, c:'#1D4ED8', ic:'<path d="M14.5 6.5a4 4 0 0 1 5.6-3.9l-2.8 2.8.7 2.4 2.4.7 2.8-2.8a4 4 0 0 1-5.4 5.2L8 20.7a2 2 0 0 1-2.8 0l-1.4-1.4a2 2 0 0 1 0-2.8Z"/>'},
+  {k:'لوازم یدکی', t:'لوازم یدکی', s:'قطعات اصلی و شرکتی', n:386, c:'#0F766E', ic:'<circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1"/>'},
+  {k:'کارواش', t:'کارواش و دیتیلینگ', s:'شست‌وشو، واکس و سرامیک', n:298, c:'#0284C7', ic:'<path d="M12 3c3.5 4 6 7.2 6 10.2A6 6 0 0 1 6 13.2C6 10.2 8.5 7 12 3Z"/>'},
+  {k:'باتری', t:'باتری‌سازی', s:'تست، شارژ و تعویض در محل', n:174, c:'#D97706', ic:'<path d="M13 2 4.5 13.5H11L9.8 22 19 9.5h-6.5Z"/>'},
+  {k:'صافکاری', t:'صافکاری و نقاشی', s:'PDR و رنگ کوره‌ای', n:231, c:'#7C3AED', ic:'<path d="M4 20 19.5 4.5a2.1 2.1 0 0 0-3-3L2 16v4Z"/><path d="m13.5 6.5 3 3"/>'},
+  {k:'تعویض روغن', t:'تعویض روغن', s:'روغن، فیلتر و سرویس دوره‌ای', n:264, c:'#059669', ic:'<path d="M7 3h8l4 5v13H7Z"/><path d="M7 8h12M11 3v5"/>'},
+  {k:'لاستیک', t:'لاستیک و رینگ', s:'فروش، بالانس و تنظیم فرمان', n:187, c:'#334155', ic:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3v5.6M12 15.4V21M3 12h5.6M15.4 12H21"/>'},
+  {k:'برق خودرو', t:'برق و انژکتور', s:'دیاگ، ECU و سیستم برق', n:203, c:'#DC2626', ic:'<rect x="3" y="5" width="18" height="13" rx="2"/><path d="M7 12h3l1.5-3 2 5L15 12h2"/>'}
+];
+const SHOPS = [
+  {n:'تعمیرگاه تخصصی پیشگامان', cat:'تعمیرگاه', city:'تهران', area:'ستارخان', rate:'۴٫۹', rev:412, ph:'۰۲۱ − ۶۶۵۵ ۲۳۱۰', init:'پ', col:'#1D4ED8', srv:['دنا پلاس','شاهین','تارا'], yrs:'۱۵ سال سابقه'},
+  {n:'لوازم یدکی مرکزی سایپا', cat:'لوازم یدکی', city:'تهران', area:'چراغ‌برق', rate:'۴٫۸', rev:986, ph:'۰۲۱ − ۳۳۹۲ ۸۷۴۵', init:'س', col:'#0F766E', srv:['پراید','تیبا','کوییک','ساینا'], yrs:'نمایندگی رسمی'},
+  {n:'کارواش نانو آبی', cat:'کارواش', city:'مشهد', area:'بلوار سجاد', rate:'۴٫۷', rev:268, ph:'۰۵۱ − ۳۷۶۵ ۹۰۲۱', init:'ن', col:'#0284C7', srv:['دیتیلینگ','سرامیک بدنه'], yrs:'رزرو آنلاین'},
+  {n:'باتری‌سرای ایران', cat:'باتری', city:'اصفهان', area:'خیابان جی', rate:'۴٫۸', rev:531, ph:'۰۳۱ − ۳۲۲۸ ۴۵۶۷', init:'ا', col:'#D97706', srv:['امداد شبانه‌روزی','تعویض در محل'], yrs:'گارانتی ۱۸ ماهه'},
+  {n:'صافکاری مدرن تبریز', cat:'صافکاری', city:'تبریز', area:'ولیعصر', rate:'۴٫۹', rev:197, ph:'۰۴۱ − ۳۳۳۱ ۷۸۹۰', init:'م', col:'#7C3AED', srv:['PDR بدون رنگ','رنگ کوره‌ای'], yrs:'۱۲ سال سابقه'},
+  {n:'سرویس‌کار شیراز (تعویض روغن و فیلتر)', cat:'تعویض روغن', city:'شیراز', area:'قصرالدشت', rate:'۴٫۶', rev:354, ph:'۰۷۱ − ۳۶۲۷ ۱۱۳۴', init:'ش', col:'#059669', srv:['پژو ۲۰۷','سمند سورن','آریسان'], yrs:'سرویس در ۲۰ دقیقه'}
+];
+let QUEUE = [
+  {n:'تعمیرگاه آریا موتور', city:'کرج', cat:'تعمیرگاه', lic:'ok', place:'ok', nid:'ok', st:'p'},
+  {n:'لوازم یدکی پارت‌لند', city:'تهران', cat:'لوازم یدکی', lic:'ok', place:'wait', nid:'ok', st:'p'},
+  {n:'کارواش VIP سعادت‌آباد', city:'تهران', cat:'کارواش', lic:'ok', place:'ok', nid:'no', st:'p'},
+  {n:'باتری‌فروشی توان‌باتری', city:'قم', cat:'باتری', lic:'wait', place:'ok', nid:'ok', st:'p'},
+  {n:'صافکاری و نقاشی رنگین', city:'اهواز', cat:'صافکاری', lic:'ok', place:'ok', nid:'ok', st:'p'},
+  {n:'تعویض روغنی فوری‌کار', city:'مشهد', cat:'تعویض روغن', lic:'ok', place:'ok', nid:'ok', st:'a'}
+];
+const CITYREG = [
+  {c:'تهران', v:842}, {c:'مشهد', v:386}, {c:'اصفهان', v:342}, {c:'شیراز', v:268},
+  {c:'تبریز', v:214}, {c:'کرج', v:196}, {c:'قم', v:121}, {c:'اهواز', v:111}
+];
+
+/* ============ helpers ============ */
+const $ = s => document.querySelector(s);
+let toastT;
+function toast(m){ const t=$('#toast'); t.textContent=m; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2600); }
+function showView(v){
+  $('#publicView').style.display = v==='public' ? 'block' : 'none';
+  $('#adminView').style.display  = v==='admin'  ? 'block' : 'none';
+  $('#segPublic').classList.toggle('on', v==='public');
+  $('#segAdmin').classList.toggle('on', v==='admin');
+  window.scrollTo({top:0});
+}
+
+/* ============ landing ============ */
+$('#catGrid').innerHTML = CATS.map(c=>`
+  <button class="cat" onclick="filterCat('${c.k}')">
+    <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${c.c}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${c.ic}</svg></span>
+    <b>${c.t}</b><span>${c.s} · ${c.n.toLocaleString('fa-IR')} فروشگاه</span>
+  </button>`).join('');
+
+let curCat='', curCity='', curQ='';
+function renderShops(){
+  const list = SHOPS.filter(s =>
+    (!curCat || s.cat===curCat) &&
+    (!curCity || s.city===curCity) &&
+    (!curQ || (s.n+' '+s.cat+' '+s.srv.join(' ')).includes(curQ))
+  );
+  $('#shopGrid').innerHTML = list.map(s=>`
+    <article class="shop">
+      <div class="top">
+        <span class="ava" style="background:${s.col}">${s.init}</span>
+        <div style="min-width:0">
+          <h3>${s.n}</h3>
+          <div class="meta"><span>${s.city} · ${s.area}</span><span class="badge v">✓ تأییدشده</span></div>
+        </div>
+      </div>
+      <div class="meta"><span class="stars">★★★★★</span><b style="color:var(--ink)">${s.rate}</b><span>(${s.rev.toLocaleString('fa-IR')} نظر)</span><span>·</span><span>${s.yrs}</span></div>
+      <div class="srv">${s.srv.map(x=>`<i>${x}</i>`).join('')}</div>
+      <div class="foot"><span class="ph">${s.ph}</span><button class="btn sm" onclick="toast('پروفایل کامل «${s.n}» در نسخه نهایی باز می‌شود')">مشاهده پروفایل</button></div>
+    </article>`).join('');
+  $('#shopEmpty').style.display = list.length ? 'none' : 'block';
+  $('#shopTitle').textContent = curCat ? `فروشگاه‌های «${curCat}»` : 'فروشگاه‌های منتخب و تأییدشده';
+  $('#shopCount').textContent = list.length ? `${list.length} فروشگاه در این نما` : '';
+}
+function filterCat(k){ curCat=k; renderShops(); document.getElementById('shops').scrollIntoView({behavior:'smooth'}); }
+function doSearch(e){ e.preventDefault(); curQ=$('#q').value.trim(); curCity=$('#citySel').value; curCat=''; renderShops(); document.getElementById('shops').scrollIntoView({behavior:'smooth'}); return false; }
+function quickSearch(k){ $('#q').value=k; curQ=k; curCat=''; renderShops(); document.getElementById('shops').scrollIntoView({behavior:'smooth'}); }
+renderShops();
+
+/* ============ admin ============ */
+document.querySelectorAll('#anav button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#anav button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  if(b.dataset.sec==='verify'){ document.getElementById('verifyPanel').scrollIntoView({behavior:'smooth'}); }
+  else if(b.dataset.sec!=='dash'){ toast('این بخش در نمونه نمایشی پنل خلاصه شده است'); }
+}));
+const DOC = {ok:'<span class="doc ok">بارگذاری شده</span>', wait:'<span class="doc">در حال بررسی</span>', no:'<span class="doc no">ناقص / ناخوانا</span>'};
+const ST = {p:'<span class="st p">در انتظار بررسی</span>', a:'<span class="st a">تأیید شده</span>', r:'<span class="st r">رد شده</span>'};
+function renderQueue(){
+  $('#qBody').innerHTML = QUEUE.map((q,i)=>`
+    <tr>
+      <td><b>${q.n}</b></td><td>${q.city}</td><td>${q.cat}</td>
+      <td>${DOC[q.lic]}</td><td>${DOC[q.place]}</td><td>${DOC[q.nid]}</td>
+      <td>${ST[q.st]}</td>
+      <td><div class="act">
+        <button class="ok" ${q.st!=='p'?'disabled':''} onclick="decide(${i},'a')">تأیید</button>
+        <button class="no" ${q.st!=='p'?'disabled':''} onclick="decide(${i},'r')">رد</button>
+      </div></td>
+    </tr>`).join('');
+  const p = QUEUE.filter(q=>q.st==='p').length;
+  $('#queueCnt').textContent = p.toLocaleString('fa-IR');
+  $('#statPending').textContent = p.toLocaleString('fa-IR');
+}
+function decide(i, d){
+  QUEUE[i].st = d; renderQueue();
+  toast(d==='a' ? `«${QUEUE[i].n}» تأیید و در سایت منتشر شد` : `«${QUEUE[i].n}» رد شد؛ پیام اصلاح مدارک برای فروشگاه ارسال می‌شود`);
+}
+renderQueue();
+
+const maxV = Math.max(...CITYREG.map(x=>x.v));
+$('#cityChart').innerHTML = CITYREG.map(x=>`
+  <div class="col"><b>${x.v.toLocaleString('fa-IR')}</b><div class="bar" style="height:${Math.round(x.v/maxV*120)}px"></div><span>${x.c}</span></div>`).join('');
+</script>
+</body>
+</html>

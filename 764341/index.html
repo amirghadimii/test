@@ -1,0 +1,3421 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کلینیک دندانپزشکی لبخند | مرکز تخصصی دندانپزشکی و زیبایی سعادت‌آباد تهران</title>
+  <meta name="description" content="کلینیک دندانپزشکی لبخند سعادت‌آباد تهران؛ ارائه خدمات ایمپلنت دیجیتال، لمینت سرامیکی، ارتودنسی، درمان ریشه، پروتز ثابت و متحرک، جرم‌گیری و بلیچینگ با تعرفه شفاف و نوبت‌دهی آنلاین ۶ مرحله‌ای.">
+  <meta name="keywords" content="کلینیک دندانپزشکی لبخند, دندانپزشکی سعادت آباد, ایمپلنت دیجیتال, لمینت سرامیکی, پروتز ثابت و متحرک, جرم گیری دندان, نوبت دهی آنلاین دندانپزشکی">
+
+  <!-- Vazirmatn Font CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "کلینیک دندانپزشکی لبخند",
+    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&auto=format&fit=crop&q=80",
+    "telephone": "+982122145890",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "بالاتر از میدان کاج، نبش کوچه یازدهم، ساختمان پزشکان سلامت، طبقه سوم",
+      "addressLocality": "تهران",
+      "addressRegion": "تهران (سعادت‌آباد)",
+      "postalCode": "1998765432",
+      "addressCountry": "IR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.7865,
+      "longitude": 51.3789
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Thursday",
+        "opens": "09:00",
+        "closes": "16:00"
+      }
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       دیزاین سیستم و متغیرها: کلینیک دندانپزشکی لبخند (سفید / فیروزه‌ای ملایم Dribbble)
+       ========================================================================== */
+    :root {
+      --primary: #0d9488;          /* فیروزه‌ای متوازن درمانی */
+      --primary-light: #14b8a6;    /* فیروزه‌ای درخشان اکشن */
+      --primary-soft: #f0fdfa;     /* پس‌زمینه بسیار ملایم فیروزه‌ای */
+      --primary-hover: #0f766e;    /* هاور تعاملی */
+      --primary-tint: #ccfbf1;     /* رنگ هایلایت کارت‌ها */
+      
+      --accent: #0284c7;           /* آبی ملایم مکمل */
+      --accent-soft: #f0f9ff;
+      
+      --surface: #ffffff;          /* سفید خالص سطوح */
+      --surface-subtle: #f8fafc;   /* پس‌زمینه لطیف سکشن‌ها */
+      --surface-border: #e2e8f0;   /* خطوط کادرها */
+      --surface-border-subtle: #f1f5f9;
+
+      --text-main: #0f172a;        /* متن اصلی خاکستری تیره */
+      --text-muted: #64748b;       /* متن‌های فرعی */
+      --text-light: #94a3b8;       /* متن‌های کم‌رنگ */
+      
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 6px 20px -4px rgba(13, 148, 136, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+      --shadow-lg: 0 15px 35px -5px rgba(13, 148, 136, 0.12), 0 8px 12px -3px rgba(15, 23, 42, 0.04);
+
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-family);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--surface);
+      color: var(--text-main);
+      line-height: 1.7;
+      direction: rtl;
+      text-align: right;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+      font-family: inherit;
+      transition: var(--transition-fast);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* تایپوگرافی عمومی */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid var(--primary-tint);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition-normal);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+      box-shadow: 0 6px 18px rgba(13, 148, 136, 0.38);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: #ffffff;
+      color: var(--primary);
+      border: 1.5px solid var(--primary-tint);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--surface-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-border-subtle);
+      border-color: var(--text-light);
+    }
+
+    /* ==========================================================================
+       نوار اعلان و هدر ناوبری چسبان
+       ========================================================================== */
+    .top-bar {
+      background: var(--surface-subtle);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 0.45rem 0;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .top-bar-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--primary);
+    }
+
+    .main-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--surface-border);
+      transition: var(--transition-normal);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 78px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--primary-soft) 0%, var(--primary-tint) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      border: 1px solid rgba(13, 148, 136, 0.15);
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.12);
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 500;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-main);
+      position: relative;
+      padding: 0.3rem 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      direction: ltr;
+    }
+
+    .nav-phone-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--text-main);
+      padding: 0.4rem;
+    }
+
+    /* منوی موبایل کشویی */
+    .mobile-menu {
+      display: none;
+    }
+
+    /* ==========================================================================
+       بخش هیرو (Hero Section)
+       ========================================================================== */
+    .hero-section {
+      padding: 4.5rem 0 5rem;
+      background: radial-gradient(circle at 10% 20%, #f0fdfa 0%, #ffffff 50%, #f8fafc 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: -100px;
+      right: -80px;
+      width: 450px;
+      height: 450px;
+      background: rgba(20, 184, 166, 0.08);
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -100px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: rgba(2, 132, 199, 0.06);
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 2.7rem;
+      font-weight: 900;
+      line-height: 1.35;
+      color: var(--text-main);
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-content h2 span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 2.2rem;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .metric-item h4 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .metric-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-main-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--surface-border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-img-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3.2;
+      background: #e2e8f0;
+    }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      background: #ffffff;
+      padding: 0.9rem 1.4rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border: 1px solid var(--primary-tint);
+    }
+
+    .floating-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+
+    .floating-info h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .floating-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       بخش خدمات دندانپزشکی (۱۰ خدمت کامل و واقعی)
+       ========================================================================== */
+    .services-section {
+      padding: 6rem 0;
+      background: var(--surface);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.6rem;
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .service-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-5px);
+    }
+
+    .service-icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-md);
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      transition: var(--transition-fast);
+      border: 1px solid var(--primary-tint);
+    }
+
+    .service-card:hover .service-icon-box {
+      background: var(--primary);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+      flex-grow: 1;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--surface-border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .service-reserve-btn {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.8rem;
+    }
+
+    .service-reserve-btn:hover {
+      color: var(--primary-hover);
+      gap: 0.55rem;
+    }
+
+    /* ==========================================================================
+       بخش جدول تعرفه خدمات دندانپزشکی (ارقام فارسی و تومان)
+       ========================================================================== */
+    .pricing-section {
+      padding: 6rem 0;
+      background: var(--surface-subtle);
+    }
+
+    .pricing-table-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+    }
+
+    .pricing-table th {
+      background: var(--primary-soft);
+      color: var(--text-main);
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 1.2rem 1.4rem;
+      border-bottom: 2px solid var(--primary-tint);
+      white-space: nowrap;
+    }
+
+    .pricing-table td {
+      padding: 1.15rem 1.4rem;
+      border-bottom: 1px solid var(--surface-border);
+      font-size: 0.9rem;
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+
+    .pricing-table tr:hover {
+      background: #fafcfb;
+    }
+
+    .price-tag {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .table-btn {
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid var(--primary-tint);
+      white-space: nowrap;
+    }
+
+    .table-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .pricing-note {
+      padding: 1.2rem 1.5rem;
+      background: #ffffff;
+      border-top: 1px solid var(--surface-border);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ==========================================================================
+       بخش پزشکان متخصص (۴ پزشک)
+       ========================================================================== */
+    .doctors-section {
+      padding: 6rem 0;
+      background: var(--surface);
+    }
+
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.8rem;
+    }
+
+    .doctor-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doctor-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-6px);
+      border-color: var(--primary-tint);
+    }
+
+    .doctor-img-wrap {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+      background: var(--primary-soft);
+    }
+
+    .doctor-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-normal);
+    }
+
+    .doctor-card:hover .doctor-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .doctor-badge-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doctor-body {
+      padding: 1.6rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doctor-name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .doctor-specialty {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .doctor-bio {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .doctor-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--surface-border-subtle);
+    }
+
+    .med-code {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    .select-doc-btn {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-sm);
+      background: var(--primary-soft);
+    }
+
+    .select-doc-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       بخش سیستم نوبت‌دهی آنلاین ۶ مرحله‌ای
+       ========================================================================== */
+    .booking-section {
+      padding: 6rem 0;
+      background: radial-gradient(circle at 80% 20%, #f0fdfa 0%, #ffffff 60%, #f8fafc 100%);
+      position: relative;
+    }
+
+    .booking-wrapper {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-lg);
+      padding: 3rem;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .steps-progress {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-bottom: 3.5rem;
+    }
+
+    .steps-progress-line {
+      position: absolute;
+      top: 22px;
+      left: 30px;
+      right: 30px;
+      height: 4px;
+      background: var(--surface-border);
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    .steps-progress-active-line {
+      position: absolute;
+      top: 22px;
+      right: 30px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+      z-index: 2;
+      border-radius: 4px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    .step-node {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0 0.5rem;
+    }
+
+    .step-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-light);
+      transition: var(--transition-normal);
+    }
+
+    .step-node.active .step-circle {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 0 5px var(--primary-tint);
+    }
+
+    .step-node.completed .step-circle {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .step-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+
+    .step-node.active .step-label {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .wizard-step {
+      display: none;
+      animation: fadeInStep 0.35s ease-out forwards;
+    }
+
+    .wizard-step.active {
+      display: block;
+    }
+
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-header-box {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .step-header-box h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-header-box p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* گام ۱: شبکه انتخاب ۱۰ خدمت */
+    .service-select-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-option-card {
+      border: 2px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      background: #ffffff;
+    }
+
+    .service-option-card:hover {
+      border-color: var(--primary-light);
+      background: var(--primary-soft);
+    }
+
+    .service-option-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.15);
+    }
+
+    .service-option-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .service-option-card span {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* گام ۲: انتخاب پزشک */
+    .doctor-select-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .doctor-option-card {
+      border: 2px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .doctor-option-card:hover {
+      border-color: var(--primary-light);
+      background: var(--primary-soft);
+    }
+
+    .doctor-option-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.15);
+    }
+
+    .doc-opt-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 0.75rem;
+      overflow: hidden;
+      border: 2px solid var(--primary-tint);
+    }
+
+    .doc-opt-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .doctor-option-card h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .doctor-option-card p {
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* گام ۳: روزهای شمسی */
+    .days-select-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .day-option-card {
+      border: 2px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      background: #ffffff;
+      transition: var(--transition-fast);
+    }
+
+    .day-option-card:hover:not(.disabled) {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .day-option-card.selected {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .day-option-card.selected .day-weekday,
+    .day-option-card.selected .day-date,
+    .day-option-card.selected .day-status {
+      color: #ffffff;
+    }
+
+    .day-option-card.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      background: var(--surface-subtle);
+      border-color: var(--surface-border);
+    }
+
+    .day-weekday {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.35rem;
+    }
+
+    .day-date {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .day-status {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* گام ۴: ساعت‌ها (اسلات‌های تکمیل و آزاد) */
+    .time-slot-container {
+      margin-bottom: 2rem;
+    }
+
+    .slot-group-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .slots-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .slot-card {
+      border: 2px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      background: #ffffff;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .slot-card:hover:not(.booked) {
+      border-color: var(--primary-light);
+      background: var(--primary-soft);
+    }
+
+    .slot-card.selected {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      box-shadow: 0 2px 10px rgba(13, 148, 136, 0.18);
+    }
+
+    .slot-card.booked {
+      background: #f1f5f9;
+      border-color: #e2e8f0;
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .slot-time {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      direction: ltr;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .slot-card.booked .slot-time {
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
+    .slot-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .slot-card.booked .slot-badge {
+      color: var(--danger);
+    }
+
+    /* گام ۵: فرم بیمار با اعتبارسنجی ۰۹ */
+    .patient-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .form-group label span.req {
+      color: var(--danger);
+      margin-right: 0.2rem;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background: #ffffff;
+      outline: none;
+      transition: var(--transition-fast);
+      font-family: inherit;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-tint);
+    }
+
+    .form-error-msg {
+      font-size: 0.78rem;
+      color: var(--danger);
+      display: none;
+      font-weight: 600;
+    }
+
+    .form-hint {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* گام ۶: تأیید نهایی، خلاصه نوبت و کارت دیجیتال */
+    .confirmation-card {
+      background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+      border: 2px solid var(--primary-tint);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .confirm-header-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: var(--primary);
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+    }
+
+    .tracking-code-banner {
+      background: #ffffff;
+      border: 1.5px dashed var(--primary);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      margin-bottom: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tracking-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .tracking-val {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: 2px;
+      direction: ltr;
+    }
+
+    .summary-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-border-subtle);
+    }
+
+    .summary-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .summary-item .s-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .summary-item .s-value {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .clinic-location-note {
+      margin-top: 1.4rem;
+      padding: 0.9rem 1.2rem;
+      background: var(--surface-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      border-right: 3px solid var(--primary);
+    }
+
+    .wizard-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--surface-border);
+      margin-top: 1.5rem;
+    }
+
+    .btn-prev {
+      visibility: hidden;
+    }
+
+    /* ==========================================================================
+       بخش مزایا و امکانات کلینیک لبخند سعادت‌آباد
+       ========================================================================== */
+    .features-section {
+      padding: 5.5rem 0;
+      background: var(--surface);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .feature-card {
+      padding: 2.2rem;
+      border-radius: var(--radius-lg);
+      background: var(--surface-subtle);
+      border: 1px solid var(--surface-border);
+      transition: var(--transition-normal);
+    }
+
+    .feature-card:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-tint);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       بخش نظرات مراجعین (Testimonials)
+       ========================================================================== */
+    .testimonials-section {
+      padding: 5.5rem 0;
+      background: var(--surface-subtle);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-stars {
+      color: #f59e0b;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 0.2rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--surface-border-subtle);
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .author-info h5 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .author-info span {
+      font-size: 0.78rem;
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       بخش سؤالات متداول (حداقل ۶ سؤال آکاردئونی کامل)
+       ========================================================================== */
+    .faq-section {
+      padding: 6rem 0;
+      background: var(--surface);
+    }
+
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border: 1.5px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      overflow: hidden;
+      transition: var(--transition-fast);
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary-tint);
+    }
+
+    .faq-item.open {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      user-select: none;
+    }
+
+    .faq-item.open .faq-question {
+      color: var(--primary);
+    }
+
+    .faq-toggle-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: var(--transition-fast);
+    }
+
+    .faq-item.open .faq-toggle-icon {
+      transform: rotate(180deg);
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 1.6rem 1.4rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      border-top: 1px solid var(--surface-border-subtle);
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* ==========================================================================
+       بخش تماس و فرم تماس با کلینیک لبخند (سعادت‌آباد)
+       ========================================================================== */
+    .contact-section {
+      padding: 5.5rem 0;
+      background: var(--surface-subtle);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .contact-info-card, .contact-form-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin-top: 1.8rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+
+    .contact-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: var(--radius-md);
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-detail-text p, .contact-detail-text a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .map-preview-small {
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, #e0f2fe 0%, #f0fdfa 100%);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      border: 1px dashed var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-form-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .form-success-box {
+      display: none;
+      background: var(--primary-soft);
+      border: 1px solid var(--primary-tint);
+      color: var(--primary);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    /* ==========================================================================
+       فوتر و دکمه شناور تماس
+       ========================================================================== */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 4.5rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand .brand-logo .logo-text h1 {
+      color: #ffffff;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      margin-top: 1rem;
+      color: #94a3b8;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      padding-right: 4px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      font-size: 0.82rem;
+    }
+
+    .floating-booking-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 99;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #ffffff;
+      padding: 0.9rem 1.6rem;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 24px rgba(13, 148, 136, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: var(--transition-normal);
+    }
+
+    .floating-booking-btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(13, 148, 136, 0.5);
+    }
+
+    /* ==========================================================================
+       ریسپانسیو و موبایل
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-content h2 {
+        font-size: 2.3rem;
+      }
+      .hero-description {
+        margin: 0 auto 2rem;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-metrics {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .doctors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .service-select-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .doctor-select-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .days-select-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .features-grid, .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        display: none;
+      }
+      .nav-links, .nav-phone {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .mobile-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 78px;
+        right: 0;
+        left: 0;
+        background: #ffffff;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-lg);
+        border-bottom: 1px solid var(--surface-border);
+        gap: 1rem;
+      }
+      .services-grid, .doctors-grid, .features-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .service-select-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .doctor-select-grid {
+        grid-template-columns: 1fr;
+      }
+      .days-select-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .slots-grid {
+        grid-template-columns: 1fr;
+      }
+      .patient-form-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .booking-wrapper {
+        padding: 1.8rem 1.2rem;
+      }
+      .steps-progress {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+      }
+      .steps-progress-line, .steps-progress-active-line {
+        display: none;
+      }
+      .step-node {
+        padding: 0 0.3rem;
+      }
+      .step-circle {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+      }
+      .step-label {
+        font-size: 0.72rem;
+      }
+      .summary-details-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h2 {
+        font-size: 1.85rem;
+      }
+      .section-title {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- نوار بالای سایت (اطلاعات و تماس) -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>تهران، سعادت‌آباد، بالاتر از میدان کاج، ساختمان پزشکان سلامت، طبقه سوم</span>
+      </div>
+      <div class="top-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>ساعات کاری: شنبه تا چهارشنبه ۹ الی ۲۱ | پنجشنبه ۹ الی ۱۶</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- هدر ناوبری چسبان (Sticky Header) -->
+  <header class="main-nav" id="mainHeader">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="logo-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.5 2 7 4 7 7c0 4 1 8.5 2 12 0.5 1.5 2 3 3 3s2.5-1.5 3-3c1-3.5 2-8 2-12 0-3-1.5-5-5-5z"/>
+            <path d="M9 10c1.5 1 4.5 1 6 0"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>کلینیک دندانپزشکی لبخند</h1>
+          <span>مرکز تخصصی و فوق‌تخصصی سعادت‌آباد</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">صفحه اصلی</a></li>
+          <li><a href="#services">خدمات درمانی</a></li>
+          <li><a href="#pricing">جدول تعرفه‌ها</a></li>
+          <li><a href="#doctors">پزشکان متخصص</a></li>
+          <li><a href="#booking">رزرو نوبت</a></li>
+          <li><a href="#features">امکانات کلینیک</a></li>
+          <li><a href="#testimonials">نظرات مراجعین</a></li>
+          <li><a href="#faq">سؤالات متداول</a></li>
+          <li><a href="#contact">تماس و آدرس</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:02122145890" class="nav-phone">
+          <div class="nav-phone-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <span>۰۲۱-۲۲۱۴۵۸۹۰</span>
+        </a>
+        <a href="#booking" class="btn btn-primary">رزرو آنلاین نوبت</a>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="منوی موبایل">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- منوی کشویی موبایل -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero">صفحه اصلی</a>
+      <a href="#services">خدمات درمانی</a>
+      <a href="#pricing">جدول تعرفه‌ها</a>
+      <a href="#doctors">پزشکان متخصص</a>
+      <a href="#booking">رزرو نوبت</a>
+      <a href="#features">امکانات کلینیک</a>
+      <a href="#testimonials">نظرات مراجعین</a>
+      <a href="#faq">سؤالات متداول</a>
+      <a href="#contact">تماس و آدرس</a>
+      <a href="tel:02122145890" style="color: var(--primary); font-weight: 700;">تماس مستقیم: ۰۲۱-۲۲۱۴۵۸۹۰</a>
+    </div>
+  </header>
+
+  <!-- بخش اصلی هیرو (Hero) همراه با اتصال صریح CTA به بخش رزرو -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          پیشرفته‌ترین مرکز دندانپزشکی دیجیتال سعادت‌آباد
+        </span>
+        <h2>
+          تجربه درمان آرام، بدون درد و <span>لبخندی درخشان</span>
+        </h2>
+        <p class="hero-description">
+          در کلینیک دندانپزشکی لبخند، تیمی از برترین متخصصان و اساتید دندانپزشکی با به‌کارگیری دقیق‌ترین اسکنرهای سه‌بعدی و استانداردهای روز دنیا، زیبایی و سلامت دندان‌های شما را تضمین می‌کنند.
+        </p>
+
+        <!-- اتصال صریح CTA هیرو به رزرو نوبت -->
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-primary" id="heroCtaBooking">
+            <span>شروع رزرو آنلاین نوبت (۶ گام)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+          <a href="#pricing" class="btn btn-outline">مشاهده جدول تعرفه‌ها</a>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <h4>+۱۲,۰۰۰</h4>
+            <p>لبخند و درمان موفق</p>
+          </div>
+          <div class="metric-item">
+            <h4>۱۰+ سال</h4>
+            <p>سابقه در سعادت‌آباد</p>
+          </div>
+          <div class="metric-item">
+            <h4>۴ متخصص</h4>
+            <p>هیئت علمی و بورد تخصصی</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-main-card">
+          <div class="hero-img-wrap">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&auto=format&fit=crop&q=80" alt="کلینیک دندانپزشکی لبخند سعادت آباد" loading="lazy">
+          </div>
+          <div class="hero-floating-badge">
+            <div class="floating-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="floating-info">
+              <h5>رضایت ۹۹.۴٪ مراجعین</h5>
+              <span>کیفیت درمان و پروتکل‌های بدون درد</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش خدمات درمانی (۱۰ خدمت کامل و واقعی شامل پروتز ثابت و متحرک + جرم‌گیری مستقل) -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">خدمات تخصصی</span>
+        <h2 class="section-title">خدمات جامع دندانپزشکی کلینیک لبخند</h2>
+        <p class="section-desc">کلیه خدمات با مجهزترین یونیت‌های روز، مواد اولیه دارای تاییدیه CE اروپا و FDA آمریکا، و با رویکرد درمانی کم‌تهاجمی ارائه می‌گردند.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- خدمت ۱ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="service-title">ایمپلنت دیجیتال و فوری</h3>
+          <p class="service-desc">کاشت دندان با گاید جراحی ۳ بعدی بدون جراحی وسیع، با معتبرترین برندهای سوئیسی و کره‌ای و ضمانت مادام‌العمر کتبی.</p>
+          <div class="service-meta">
+            <span>مدت جلسه: ۴۵ دقیقه</span>
+            <span>گارانتی مادام‌العمر</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('ایمپلنت دیجیتال و فوری')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۲ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="service-title">لمینت سرامیکی و اصلاح لبخند</h3>
+          <p class="service-desc">پوسته‌های سرامیکی فوق‌نازک E-max با تطابق نوری کامل با دندان طبیعی، مقاومت بسیار بالا در برابر تغییر رنگ و سایش.</p>
+          <div class="service-meta">
+            <span>طول درمان: ۲ الی ۳ جلسه</span>
+            <span>ماندگاری +۱۵ سال</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('لمینت سرامیکی و اصلاح لبخند')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۳ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="service-title">کامپوزیت ونیر زیبایی</h3>
+          <p class="service-desc">طراحی لبخند در یک جلسه با نانوکامپوزیت‌های باکیفیت آلمانی، ژاپنی و سوئیسی با حداقل تراش و پالیش فوق‌درخشان.</p>
+          <div class="service-meta">
+            <span>طول درمان: ۱ جلسه</span>
+            <span>بدون تراش مینا</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('کامپوزیت ونیر زیبایی')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۴ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 12h10M12 7v10"/></svg>
+          </div>
+          <h3 class="service-title">ارتودنسی تخصصی (ثابت و نامرئی)</h3>
+          <p class="service-desc">مرتب‌سازی اصولی دندان‌ها و اصلاح روابط فکی با پلاک‌های نامرئی (الاینر شفاف)، براکت‌های سرامیکی و سیستم دیمون.</p>
+          <div class="service-meta">
+            <span>ویزیت و قالب‌گیری دیجیتال</span>
+            <span>اقساط همگام درمان</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('ارتودنسی تخصصی (ثابت و نامرئی)')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۵ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="service-title">درمان ریشه (عصب‌کشی تخصصی)</h3>
+          <p class="service-desc">نجات دندان‌های آسیب‌دیده با دستگاه روتاری مدرن، اپکس فایندر دیجیتال و بی‌حسی کاملاً عمیق بدون کمترین احساس درد.</p>
+          <div class="service-meta">
+            <span>طول درمان: ۱ جلسه</span>
+            <span>توسط اندودنتیست</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('درمان ریشه (عصب‌کشی تخصصی)')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۶: پروتز ثابت و متحرک (اضافه‌شده طبق چک‌لیست) -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M7 15h10M7 9h4"/></svg>
+          </div>
+          <h3 class="service-title">پروتز ثابت و متحرک</h3>
+          <p class="service-desc">بازسازی کامل توانایی جویدن و تکلم با ساخت روکش‌های تمام‌سرامیک زیرکونیا، بریج دندانی، دست‌دندان کامل (فول‌دنچر) و پلاک‌های پارسیل ژله‌ای منعطف کروم‌کبالت.</p>
+          <div class="service-meta">
+            <span>روکش زیرکونیا و دست دندان</span>
+            <span>گارانتی ۵ ساله لابراتواری</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('پروتز ثابت و متحرک')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۷: جرم‌گیری و بروساژ دندان (اضافه‌شده طبق چک‌لیست) -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12A10 10 0 0 1 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="service-title">جرم‌گیری و بروساژ دندان</h3>
+          <p class="service-desc">حذف کامل پلاک‌های میکروبی و جرم‌های کلسیفیه شده زیر و بالای لثه با قلم‌های اولتراسونیک پیه‌زوالکتریک و پولیش نهایی ایرفلو جهت رفع بوی بد دهان و سلامت لثه.</p>
+          <div class="service-meta">
+            <span>مدت جلسه: ۳۰ الی ۴۰ دقیقه</span>
+            <span>بدون تراش و درد</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('جرم‌گیری و بروساژ دندان')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۸: بلیچینگ دندان با لیزر -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3 class="service-title">بلیچینگ دندان با لیزر در مطب</h3>
+          <p class="service-desc">سفید کردن سریع دندان‌ها تا چند درجه در یک جلسه با فعال‌سازی لیزری ژل هیدروژن‌پراکسید ویژه، بدون ایجاد حساسیت حرارتی و تحریک پالپ دندان.</p>
+          <div class="service-meta">
+            <span>طول درمان: ۱ ساعت</span>
+            <span>سفیدی فوری و درخشان</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('بلیچینگ دندان با لیزر در مطب')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۹ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/></svg>
+          </div>
+          <h3 class="service-title">جراحی دندان عقل و لثه</h3>
+          <p class="service-desc">خارج‌سازی دندان‌های عقل نهفته و نیمه‌نهفته مجاور عصب با حداقل تهاجم بافتی، کنترل ورم پس از جراحی و لیزرتراپی لثه.</p>
+          <div class="service-meta">
+            <span>مدت جراحی: ۲۰ الی ۳۰ دقیقه</span>
+            <span>توسط جراح فک و صورت</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('جراحی دندان عقل و لثه')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+
+        <!-- خدمت ۱۰ -->
+        <div class="service-card">
+          <div class="service-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="service-title">دندانپزشکی تخصصی اطفال و کودکان</h3>
+          <p class="service-desc">محیطی شاد و دوستانه ویژه کودکان با امکانات فلورایدتراپی، شیاربندی دندان (فیشورسیلنت)، روکش شیری و کنترل اضطراب کودک.</p>
+          <div class="service-meta">
+            <span>اتاق بازی اختصاصی</span>
+            <span>بدون ترس و استرس</span>
+          </div>
+          <a href="#booking" class="service-reserve-btn" onclick="preselectService('دندانپزشکی تخصصی اطفال و کودکان')">
+            <span>رزرو نوبت این خدمت</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش جدول تعرفه‌ها (با قیمت تومان و ارقام فارسی - شامل کلیه خدمات جدید) -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">تعرفه شفاف و مصوب</span>
+        <h2 class="section-title">جدول تعرفه خدمات دندانپزشکی کلینیک لبخند</h2>
+        <p class="section-desc">کلیه قیمت‌ها بر اساس آخرین مصوبات نظام پزشکی، به تومان و با بالاترین کیفیت متریال‌های دارای استاندارد بین‌المللی تنظیم شده است.</p>
+      </div>
+
+      <div class="pricing-table-card">
+        <div class="table-responsive">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>عنوان خدمت درمانی / زیبایی</th>
+                <th>متریال و تکنولوژی به کار رفته</th>
+                <th>تعرفه مصوب (تومان)</th>
+                <th>طول درمان و گارانتی</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>۱</strong></td>
+                <td><strong>ایمپلنت دیجیتال و فوری</strong></td>
+                <td>فیکسچر سوئیسی / کره‌ای + گاید جراحی ۳ بعدی</td>
+                <td><span class="price-tag">از ۱۲,۵۰۰,۰۰۰ تومان</span></td>
+                <td>۱ جلسه جراحی + گارانتی مادام‌العمر</td>
+                <td><button class="table-btn" onclick="preselectService('ایمپلنت دیجیتال و فوری')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۲</strong></td>
+                <td><strong>لمینت سرامیکی و اصلاح لبخند</strong></td>
+                <td>سرامیک فشرده IPS E-max آلمان</td>
+                <td><span class="price-tag">از ۶,۸۰۰,۰۰۰ تومان</span> (هر واحد)</td>
+                <td>۲ الی ۳ جلسه + گارانتی ۱۵ ساله</td>
+                <td><button class="table-btn" onclick="preselectService('لمینت سرامیکی و اصلاح لبخند')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۳</strong></td>
+                <td><strong>کامپوزیت ونیر زیبایی</strong></td>
+                <td>نانوسرامیک توکویاما ژاپن / گرادیا</td>
+                <td><span class="price-tag">از ۳,۲۰۰,۰۰۰ تومان</span> (هر واحد)</td>
+                <td>۱ جلسه + بدون تراش مینا</td>
+                <td><button class="table-btn" onclick="preselectService('کامپوزیت ونیر زیبایی')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۴</strong></td>
+                <td><strong>پروتز ثابت و متحرک</strong></td>
+                <td>روکش زیرکونیا کادکام / دنچر کامل و پارسیل</td>
+                <td><span class="price-tag">از ۴,۹۰۰,۰۰۰ تومان</span></td>
+                <td>۲ جلسه + ضمانت لابراتواری</td>
+                <td><button class="table-btn" onclick="preselectService('پروتز ثابت و متحرک')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۵</strong></td>
+                <td><strong>جرم‌گیری و بروساژ دندان</strong></td>
+                <td>اولتراسونیک پیه‌زو + ایرفلو و خمیر پولیش فرانسه</td>
+                <td><span class="price-tag">از ۱,۴۵۰,۰۰۰ تومان</span> (هر دو فک)</td>
+                <td>۱ جلسه (۴۰ دقیقه)</td>
+                <td><button class="table-btn" onclick="preselectService('جرم‌گیری و بروساژ دندان')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۶</strong></td>
+                <td><strong>بلیچینگ دندان با لیزر در مطب</strong></td>
+                <td>ژل اکتیو لیزر Ultradent آمریکا (آفیس)</td>
+                <td><span class="price-tag">از ۳,۸۰۰,۰۰۰ تومان</span> (دو فک)</td>
+                <td>۱ جلسه فوری (۶۰ دقیقه)</td>
+                <td><button class="table-btn" onclick="preselectService('بلیچینگ دندان با لیزر در مطب')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۷</strong></td>
+                <td><strong>درمان ریشه (عصب‌کشی تخصصی)</strong></td>
+                <td>روتاری مایکرو دیجیتال + آبچوریشن ۳D</td>
+                <td><span class="price-tag">از ۲,۷۰۰,۰۰۰ تومان</span></td>
+                <td>۱ الی ۲ جلسه بدون درد</td>
+                <td><button class="table-btn" onclick="preselectService('درمان ریشه (عصب‌کشی تخصصی)')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۸</strong></td>
+                <td><strong>ارتودنسی تخصصی (ثابت و نامرئی)</strong></td>
+                <td>الاینر شفاف نامرئی / براکت سرامیکی دیمون</td>
+                <td><span class="price-tag">از ۱۸,۰۰۰,۰۰۰ تومان</span> (پیش‌پرداخت)</td>
+                <td>امکان پرداخت اقساطی ماهانه</td>
+                <td><button class="table-btn" onclick="preselectService('ارتودنسی تخصصی (ثابت و نامرئی)')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۹</strong></td>
+                <td><strong>جراحی دندان عقل و لثه</strong></td>
+                <td>جراحی کم‌تهاجم + پیه‌زوسرجری و بخیه نایلون</td>
+                <td><span class="price-tag">از ۲,۲۰۰,۰۰۰ تومان</span></td>
+                <td>۱ جلسه تخصصی فک و صورت</td>
+                <td><button class="table-btn" onclick="preselectService('جراحی دندان عقل و لثه')">رزرو نوبت</button></td>
+              </tr>
+              <tr>
+                <td><strong>۱۰</strong></td>
+                <td><strong>دندانپزشکی تخصصی اطفال و کودکان</strong></td>
+                <td>فیشورسیلنت + فلورایدتراپی و روکش اس‌اس‌سی</td>
+                <td><span class="price-tag">از ۹۵۰,۰۰۰ تومان</span></td>
+                <td>اتاق بازی اختصاصی کودک</td>
+                <td><button class="table-btn" onclick="preselectService('دندانپزشکی تخصصی اطفال و کودکان')">رزرو نوبت</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pricing-note">
+          <div>
+            <strong>نکته مهم:</strong> برای تمامی خدمات فوق، فاکتور رسمی بیمه تکمیلی ممهور به مهر دندانپزشک متخصص صادر می‌گردد.
+          </div>
+          <div>
+            امکان پرداخت اقساطی برای درمان‌های ارتودنسی، ایمپلنت و طرح لبخند فراهم است.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش پزشکان متخصص کلینیک (۴ پزشک با کد نظام پزشکی) -->
+  <section class="doctors-section" id="doctors">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">کادر پزشکی متخصص</span>
+        <h2 class="section-title">پزشکان و جراحان کلینیک لبخند</h2>
+        <p class="section-desc">پزشکان کلینیک لبخند سعادت‌آباد همگی دارای بورد تخصصی، مدارک بین‌المللی و سوابق درخشان درمانی و دانشگاهی هستند.</p>
+      </div>
+
+      <div class="doctors-grid">
+        <!-- پزشک ۱ -->
+        <div class="doctor-card">
+          <div class="doctor-img-wrap">
+            <img src="https://images.unsplash.com/photo-1594824813583-09b93223126f?w=600&auto=format&fit=crop&q=80" alt="دکتر سارا رضوانی" loading="lazy">
+            <span class="doctor-badge-tag">ترمیمی و زیبایی</span>
+          </div>
+          <div class="doctor-body">
+            <h3 class="doctor-name">دکتر سارا رضوانی</h3>
+            <span class="doctor-specialty">جراح و متخصص دندانپزشکی ترمیمی و زیبایی</span>
+            <p class="doctor-bio">فارغ‌التحصیل دانشگاه تهران، عضو آکادمی دندانپزشکان زیبایی و طراح بیش از ۵,۰۰۰ لبخند سرامیکی و کامپوزیتی موفق.</p>
+            <div class="doctor-footer">
+              <span class="med-code">نظام پزشکی: ۱۲۴۵۸۹</span>
+              <button class="select-doc-btn" onclick="preselectDoctor('دکتر سارا رضوانی')">انتخاب برای نوبت</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- پزشک ۲ -->
+        <div class="doctor-card">
+          <div class="doctor-img-wrap">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80" alt="دکتر امیرحسین کاظمی" loading="lazy">
+            <span class="doctor-badge-tag">فک، صورت و ایمپلنت</span>
+          </div>
+          <div class="doctor-body">
+            <h3 class="doctor-name">دکتر امیرحسین کاظمی</h3>
+            <span class="doctor-specialty">متخصص جراحی دهان، فک و صورت و ایمپلنتولوژیست</span>
+            <p class="doctor-bio">دارای فلوشیپ ایمپلنت پیشرفته از سوئیس و سابقه بیش از ۱۲ سال کاشت ایمپلنت‌های پیچیده، سینوس لیفت و پیوند استخوان.</p>
+            <div class="doctor-footer">
+              <span class="med-code">نظام پزشکی: ۹۸۷۴۲</span>
+              <button class="select-doc-btn" onclick="preselectDoctor('دکتر امیرحسین کاظمی')">انتخاب برای نوبت</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- پزشک ۳ -->
+        <div class="doctor-card">
+          <div class="doctor-img-wrap">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&auto=format&fit=crop&q=80" alt="دکتر نیلوفر مهدوی" loading="lazy">
+            <span class="doctor-badge-tag">ارتودنسی تخصصی</span>
+          </div>
+          <div class="doctor-body">
+            <h3 class="doctor-name">دکتر نیلوفر مهدوی</h3>
+            <span class="doctor-specialty">متخصص ارتودنسی و ارتوپدی فک و صورت</span>
+            <p class="doctor-bio">عضو انجمن ارتودنتیست‌های ایران و متخصص درمان ناهنجاری‌های فک بدون جراحی و ارتودنسی نامرئی الاینر شفاف در کودکان و بزرگسالان.</p>
+            <div class="doctor-footer">
+              <span class="med-code">نظام پزشکی: ۱۱۵۴۶۳</span>
+              <button class="select-doc-btn" onclick="preselectDoctor('دکتر نیلوفر مهدوی')">انتخاب برای نوبت</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- پزشک ۴ -->
+        <div class="doctor-card">
+          <div class="doctor-img-wrap">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&auto=format&fit=crop&q=80" alt="دکتر علیرضا فرهمند" loading="lazy">
+            <span class="doctor-badge-tag">درمان ریشه (اندو)</span>
+          </div>
+          <div class="doctor-body">
+            <h3 class="doctor-name">دکتر علیرضا فرهمند</h3>
+            <span class="doctor-specialty">متخصص درمان ریشه دندان (اندودنتیست)</span>
+            <p class="doctor-bio">دارای بورد تخصصی کشوری، متخصص عصب‌کشی‌های مجدد پیچیده با میکروسکوپ جراحی و درمان‌های قطعی بدون درد ریشه دندان.</p>
+            <div class="doctor-footer">
+              <span class="med-code">نظام پزشکی: ۱۰۳۲۱۴</span>
+              <button class="select-doc-btn" onclick="preselectDoctor('دکتر علیرضا فرهمند')">انتخاب برای نوبت</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش اصلی رزرو آنلاین نوبت (دقیقاً ۶ مرحله کامل با نوار پیشرفت و ۱۰ خدمت) -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">سامانه هوشمند</span>
+        <h2 class="section-title">رزرو آنلاین نوبت در ۶ گام ساده</h2>
+        <p class="section-desc">بدون نیاز به تماس تلفنی و معطلی، روز، ساعت و دندانپزشک خود را انتخاب کرده و کارت نوبت دیجیتال دریافت کنید.</p>
+      </div>
+
+      <div class="booking-wrapper">
+        <!-- نوار پیشرفت ۶ مرحله‌ای -->
+        <div class="steps-progress">
+          <div class="steps-progress-line"></div>
+          <div class="steps-progress-active-line" id="progressLine"></div>
+
+          <!-- گام ۱ -->
+          <div class="step-node active" id="stepNode1">
+            <div class="step-circle">۱</div>
+            <span class="step-label">انتخاب خدمت</span>
+          </div>
+          <!-- گام ۲ -->
+          <div class="step-node" id="stepNode2">
+            <div class="step-circle">۲</div>
+            <span class="step-label">انتخاب پزشک</span>
+          </div>
+          <!-- گام ۳ -->
+          <div class="step-node" id="stepNode3">
+            <div class="step-circle">۳</div>
+            <span class="step-label">روز شمسی</span>
+          </div>
+          <!-- گام ۴ -->
+          <div class="step-node" id="stepNode4">
+            <div class="step-circle">۴</div>
+            <span class="step-label">انتخاب ساعت</span>
+          </div>
+          <!-- گام ۵ -->
+          <div class="step-node" id="stepNode5">
+            <div class="step-circle">۵</div>
+            <span class="step-label">اطلاعات بیمار</span>
+          </div>
+          <!-- گام ۶ -->
+          <div class="step-node" id="stepNode6">
+            <div class="step-circle">۶</div>
+            <span class="step-label">تأیید نهایی</span>
+          </div>
+        </div>
+
+        <!-- محتوای گام‌های ۶ گانه -->
+        <div class="wizard-container">
+          
+          <!-- گام ۱: انتخاب خدمت (۱۰ خدمت کامل شامل پروتز و جرم‌گیری) -->
+          <div class="wizard-step active" id="step1">
+            <div class="step-header-box">
+              <h3>گام اول: خدمت درمانی یا زیبایی مورد نظر خود را انتخاب کنید</h3>
+              <p>لطفاً یکی از خدمات تخصصی زیر را انتخاب نمایید تا متخصص و زمان‌های مرتبط نمایش داده شود.</p>
+            </div>
+            <div class="service-select-grid" id="serviceOptions">
+              <div class="service-option-card selected" data-value="ایمپلنت دیجیتال و فوری">
+                <h4>ایمپلنت دیجیتال</h4>
+                <span>کاشت دندان با گاید ۳ بعدی</span>
+              </div>
+              <div class="service-option-card" data-value="لمینت سرامیکی و اصلاح لبخند">
+                <h4>لمینت سرامیکی</h4>
+                <span>اصلاح لبخند E-max</span>
+              </div>
+              <div class="service-option-card" data-value="کامپوزیت ونیر زیبایی">
+                <h4>کامپوزیت ونیر</h4>
+                <span>زیبایی در یک جلسه</span>
+              </div>
+              <div class="service-option-card" data-value="پروتز ثابت و متحرک">
+                <h4>پروتز ثابت و متحرک</h4>
+                <span>روکش زیرکونیا و دست دندان</span>
+              </div>
+              <div class="service-option-card" data-value="جرم‌گیری و بروساژ دندان">
+                <h4>جرم‌گیری و بروساژ</h4>
+                <span>اولتراسونیک و ایرفلو</span>
+              </div>
+              <div class="service-option-card" data-value="بلیچینگ دندان با لیزر در مطب">
+                <h4>بلیچینگ با لیزر</h4>
+                <span>سفیدکردن فوری در مطب</span>
+              </div>
+              <div class="service-option-card" data-value="درمان ریشه (عصب‌کشی تخصصی)">
+                <h4>درمان ریشه (عصب‌کشی)</h4>
+                <span>روتاری دیجیتال بدون درد</span>
+              </div>
+              <div class="service-option-card" data-value="ارتودنسی تخصصی (ثابت و نامرئی)">
+                <h4>ارتودنسی تخصصی</h4>
+                <span>مرتب‌سازی و الاینر شفاف</span>
+              </div>
+              <div class="service-option-card" data-value="جراحی دندان عقل و لثه">
+                <h4>جراحی دندان عقل</h4>
+                <span>جراحی کم‌تهاجم فک</span>
+              </div>
+              <div class="service-option-card" data-value="دندانپزشکی تخصصی اطفال و کودکان">
+                <h4>دندانپزشکی اطفال</h4>
+                <span>فلورایدتراپی و اتاق بازی</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- گام ۲: انتخاب پزشک -->
+          <div class="wizard-step" id="step2">
+            <div class="step-header-box">
+              <h3>گام دوم: دندانپزشک متخصص مورد نظر خود را انتخاب کنید</h3>
+              <p>شما می‌توانید پزشک معتمد خود را مشخص کنید یا نوبت را بر اساس اولین زمان خالی رزرو نمایید.</p>
+            </div>
+            <div class="doctor-select-grid" id="doctorOptions">
+              <div class="doctor-option-card selected" data-value="دکتر سارا رضوانی">
+                <div class="doc-opt-avatar">
+                  <img src="https://images.unsplash.com/photo-1594824813583-09b93223126f?w=200&auto=format&fit=crop&q=80" alt="دکتر سارا رضوانی">
+                </div>
+                <h4>دکتر سارا رضوانی</h4>
+                <p>متخصص ترمیمی و زیبایی</p>
+                <small style="color: var(--text-light); font-size: 0.75rem;">نظام: ۱۲۴۵۸۹</small>
+              </div>
+
+              <div class="doctor-option-card" data-value="دکتر امیرحسین کاظمی">
+                <div class="doc-opt-avatar">
+                  <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&auto=format&fit=crop&q=80" alt="دکتر امیرحسین کاظمی">
+                </div>
+                <h4>دکتر امیرحسین کاظمی</h4>
+                <p>جراح فک و ایمپلنتولوژیست</p>
+                <small style="color: var(--text-light); font-size: 0.75rem;">نظام: ۹۸۷۴۲</small>
+              </div>
+
+              <div class="doctor-option-card" data-value="دکتر نیلوفر مهدوی">
+                <div class="doc-opt-avatar">
+                  <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&auto=format&fit=crop&q=80" alt="دکتر نیلوفر مهدوی">
+                </div>
+                <h4>دکتر نیلوفر مهدوی</h4>
+                <p>متخصص ارتودنسی فک و صورت</p>
+                <small style="color: var(--text-light); font-size: 0.75rem;">نظام: ۱۱۵۴۶۳</small>
+              </div>
+
+              <div class="doctor-option-card" data-value="دکتر علیرضا فرهمند">
+                <div class="doc-opt-avatar">
+                  <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&auto=format&fit=crop&q=80" alt="دکتر علیرضا فرهمند">
+                </div>
+                <h4>دکتر علیرضا فرهمند</h4>
+                <p>متخصص درمان ریشه (اندو)</p>
+                <small style="color: var(--text-light); font-size: 0.75rem;">نظام: ۱۰۳۲۱۴</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- گام ۳: انتخاب روز شمسی -->
+          <div class="wizard-step" id="step3">
+            <div class="step-header-box">
+              <h3>گام سوم: روز ویزیت را از تقویم شمسی انتخاب نمایید</h3>
+              <p>روزهای کاری کلینیک از شنبه تا پنجشنبه فعال هستند (جمعه‌ها کلینیک تعطیل است).</p>
+            </div>
+            <div class="days-select-grid" id="dayOptions">
+              <div class="day-option-card selected" data-value="شنبه ۲۴ آبان">
+                <div class="day-weekday">شنبه</div>
+                <div class="day-date">۲۴ آبان</div>
+                <div class="day-status">نوبت‌های فعال</div>
+              </div>
+              <div class="day-option-card" data-value="یکشنبه ۲۵ آبان">
+                <div class="day-weekday">یکشنبه</div>
+                <div class="day-date">۲۵ آبان</div>
+                <div class="day-status">نوبت‌های فعال</div>
+              </div>
+              <div class="day-option-card" data-value="دوشنبه ۲۶ آبان">
+                <div class="day-weekday">دوشنبه</div>
+                <div class="day-date">۲۶ آبان</div>
+                <div class="day-status">نوبت‌های فعال</div>
+              </div>
+              <div class="day-option-card" data-value="سه‌شنبه ۲۷ آبان">
+                <div class="day-weekday">سه‌شنبه</div>
+                <div class="day-date">۲۷ آبان</div>
+                <div class="day-status">نوبت‌های فعال</div>
+              </div>
+              <div class="day-option-card" data-value="چهارشنبه ۲۸ آبان">
+                <div class="day-weekday">چهارشنبه</div>
+                <div class="day-date">۲۸ آبان</div>
+                <div class="day-status">نوبت‌های فعال</div>
+              </div>
+              <div class="day-option-card disabled" data-value="پنجشنبه ۲۹ آبان (تکمیل)">
+                <div class="day-weekday">پنجشنبه</div>
+                <div class="day-date">۲۹ آبان</div>
+                <div class="day-status">ظرفیت تکمیل</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- گام ۴: انتخاب ساعت (اسلات‌ها با سانس‌های تکمیل) -->
+          <div class="wizard-step" id="step4">
+            <div class="step-header-box">
+              <h3>گام چهارم: سانس زمانی مناسب خود را انتخاب کنید</h3>
+              <p>سانس‌های خاکستری به دلیل تکمیل ظرفیت غیرفعال هستند و امکان انتخاب ندارند.</p>
+            </div>
+            <div class="time-slot-container">
+              <div class="slot-group-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg>
+                <span>سانس‌های شیفت صبح (۱۰:۰۰ الی ۱۳:۰۰)</span>
+              </div>
+              <div class="slots-grid" id="morningSlots">
+                <div class="slot-card selected" data-value="۱۰:۰۰ صبح">
+                  <span class="slot-time">10:00</span>
+                  <span class="slot-badge">آزاد و در دسترس</span>
+                </div>
+                <div class="slot-card booked" data-value="۱۰:۴۵ صبح (رزرو شده)">
+                  <span class="slot-time">10:45</span>
+                  <span class="slot-badge">تکمیل ظرفیت</span>
+                </div>
+                <div class="slot-card" data-value="۱۱:۳۰ صبح">
+                  <span class="slot-time">11:30</span>
+                  <span class="slot-badge">آزاد و در دسترس</span>
+                </div>
+                <div class="slot-card booked" data-value="۱۲:۱۵ ظهر (رزرو شده)">
+                  <span class="slot-time">12:15</span>
+                  <span class="slot-badge">تکمیل ظرفیت</span>
+                </div>
+              </div>
+
+              <div class="slot-group-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <span>سانس‌های شیفت عصر (۱۶:۰۰ الی ۲۰:۰۰)</span>
+              </div>
+              <div class="slots-grid" id="eveningSlots">
+                <div class="slot-card" data-value="۱۶:۰۰ عصر">
+                  <span class="slot-time">16:00</span>
+                  <span class="slot-badge">آزاد و در دسترس</span>
+                </div>
+                <div class="slot-card" data-value="۱۷:۰۰ عصر">
+                  <span class="slot-time">17:00</span>
+                  <span class="slot-badge">آزاد و در دسترس</span>
+                </div>
+                <div class="slot-card booked" data-value="۱۸:۰۰ عصر (رزرو شده)">
+                  <span class="slot-time">18:00</span>
+                  <span class="slot-badge">تکمیل ظرفیت</span>
+                </div>
+                <div class="slot-card" data-value="۱۹:۱۵ شب">
+                  <span class="slot-time">19:15</span>
+                  <span class="slot-badge">آزاد و در دسترس</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- گام ۵: فرم مشخصات بیمار با اعتبارسنجی ۰۹ -->
+          <div class="wizard-step" id="step5">
+            <div class="step-header-box">
+              <h3>گام پنجم: اطلاعات بیمار و مشخصات تماس را وارد نمایید</h3>
+              <p>شماره همراه برای ارسال پیامک تأیید نوبت و یادآوری ویزیت استفاده می‌شود.</p>
+            </div>
+            
+            <form id="patientForm" onsubmit="return false;">
+              <div class="patient-form-grid">
+                <!-- نام و نام خانوادگی -->
+                <div class="form-group">
+                  <label for="fullName">نام و نام خانوادگی بیمار <span class="req">*</span></label>
+                  <input type="text" id="fullName" class="form-input" placeholder="مثال: مریم احمدی" required>
+                  <span class="form-error-msg" id="nameError">لطفاً نام و نام خانوادگی را وارد نمایید.</span>
+                </div>
+
+                <!-- شماره موبایل با اعتبارسنجی 09 -->
+                <div class="form-group">
+                  <label for="mobile">شماره تلفن همراه (جهت پیامک نوبت) <span class="req">*</span></label>
+                  <input type="tel" id="mobile" class="form-input" placeholder="۰۹۱۲۳۴۵۶۷۸۹ (۱۱ رقم با ۰۹)" maxlength="11" dir="ltr" required>
+                  <span class="form-error-msg" id="mobileError">شماره موبایل نامعتبر است! باید با ۰۹ شروع شده و ۱۱ رقم باشد.</span>
+                  <span class="form-hint">الگوی مجاز: ۰۹xxxxxxxxx</span>
+                </div>
+
+                <!-- کدملی ۱۰ رقمی -->
+                <div class="form-group">
+                  <label for="nationalId">کد ملی بیمار <span class="req">*</span></label>
+                  <input type="text" id="nationalId" class="form-input" placeholder="کد ملی ۱۰ رقمی" maxlength="10" dir="ltr" required>
+                  <span class="form-error-msg" id="nationalIdError">لطفاً کد ملی ۱۰ رقمی را وارد کنید.</span>
+                </div>
+
+                <!-- سابقه مراجعه به کلینیک -->
+                <div class="form-group">
+                  <label for="patientType">سابقه مراجعه به کلینیک لبخند</label>
+                  <select id="patientType" class="form-select">
+                    <option value="بیمار جدید (نخستین بار)">بیمار جدید (نخستین بار)</option>
+                    <option value="دارای پرونده قبلی در کلینیک">دارای پرونده قبلی در کلینیک</option>
+                    <option value="بیمار تحت درمان دوره‌ای">بیمار تحت درمان دوره‌ای</option>
+                  </select>
+                </div>
+
+                <!-- توضیحات تکمیلی -->
+                <div class="form-group full-width">
+                  <label for="notes">شرح مشکل، درد یا توضیحات اختیاری</label>
+                  <textarea id="notes" class="form-textarea" rows="3" placeholder="در صورت داشتن دندان‌درد، حساسیت دارویی یا درخواست خاص، یادداشت نمایید..."></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- گام ۶: تأیید نهایی، خلاصه نوبت و کارت دیجیتال -->
+          <div class="wizard-step" id="step6">
+            <div class="step-header-box">
+              <h3>گام ششم: نوبت شما با موفقیت در سیستم ثبت گردید</h3>
+              <p>کارت نوبت دیجیتال زیر به همراه پیامک تأیید برای شما صادر شده است.</p>
+            </div>
+
+            <div class="confirmation-card" id="digitalPass">
+              <div class="confirm-header-badge">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>تأییدیه رزرو آنلاین نوبت — کلینیک دندانپزشکی لبخند</span>
+              </div>
+
+              <div class="tracking-code-banner">
+                <div class="tracking-label">کد رهگیری اختصاصی نوبت:</div>
+                <div class="tracking-val" id="finalTrackingCode">LK-764341-8921</div>
+              </div>
+
+              <div class="summary-details-grid">
+                <div class="summary-item">
+                  <span class="s-label">نام و نام خانوادگی بیمار:</span>
+                  <span class="s-value" id="sumPatientName">—</span>
+                </div>
+                <div class="summary-item">
+                  <span class="s-label">شماره تلفن همراه:</span>
+                  <span class="s-value" id="sumMobile" dir="ltr">—</span>
+                </div>
+                <div class="summary-item">
+                  <span class="s-label">خدمت درمانی انتخابی:</span>
+                  <span class="s-value" id="sumService">—</span>
+                </div>
+                <div class="summary-item">
+                  <span class="s-label">دندانپزشک معالج:</span>
+                  <span class="s-value" id="sumDoctor">—</span>
+                </div>
+                <div class="summary-item">
+                  <span class="s-label">روز و تاریخ شمسی نوبت:</span>
+                  <span class="s-value" id="sumDay">—</span>
+                </div>
+                <div class="summary-item">
+                  <span class="s-label">ساعت دقیق پذیرش:</span>
+                  <span class="s-value" id="sumTime">—</span>
+                </div>
+              </div>
+
+              <div class="clinic-location-note">
+                <strong>نشانی کلینیک لبخند:</strong> تهران، سعادت‌آباد، بالاتر از میدان کاج، نبش کوچه یازدهم، ساختمان پزشکان سلامت، طبقه ۳، واحد ۹ — تلفن: ۰۲۱-۲۲۱۴۵۸۹۰<br>
+                <em>توصیه: لطفاً ۱۵ دقیقه قبل از زمان مقرر جهت تشکیل پرونده و ویزیت در کلینیک حضور داشته باشید.</em>
+              </div>
+            </div>
+
+            <!-- دکمه‌های اکشن پایان کار -->
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <button class="btn btn-primary" onclick="window.print()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span>چاپ فیش نوبت / ذخیره PDF</span>
+              </button>
+              <button class="btn btn-outline" onclick="resetWizard()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                <span>ثبت نوبت جدید</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- فوتر کنترل‌های ناوبری ویزارد (قبلی / بعدی) -->
+        <div class="wizard-footer" id="wizardFooter">
+          <button class="btn btn-secondary btn-prev" id="btnPrev" onclick="navigateStep(-1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>گام قبلی</span>
+          </button>
+
+          <button class="btn btn-primary btn-next" id="btnNext" onclick="navigateStep(1)">
+            <span id="nextBtnText">مرحله بعدی</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش امکانات و استانداردهای کلینیک لبخند -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">چرا کلینیک لبخند؟</span>
+        <h2 class="section-title">استانداردهای مراقبتی و تجهیزات پیشرفته</h2>
+        <p class="section-desc">آرامش، عدم احساس درد و استانداردهای بیمارستانی در تمام مراحل درمان اولویت نخست ماست.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>استریلیزاسیون کلاس B بیمارستانی</h4>
+          <p>استفاده از اتوکلاوهای مدرن کلاس B اروپایی و پک‌های استریل یک‌بار مصرف برای اطمینان ۱۰۰٪ از بهداشت و سلامت مراجعین.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>تجهیزات تصویربرداری و اسکنر ۳D</h4>
+          <p>اسکن داخل دهانی دیجیتال بدون نیاز به خمیرهای ناخوشایند قالب‌گیری و کاهش خطای طراحی پروتز و روکش به کمتر از ۵ میکرون.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4>بی‌حسی کامپیوتری بدون درد</h4>
+          <p>تزریق بسیار آرام و با کنترل دیجیتال برای بیمارانی که از سوزن یا درد دندانپزشکی اضطراب دارند، تا درمانی کاملاً راحت را تجربه کنند.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4>طرف قرارداد با بیمه‌های تکمیلی</h4>
+          <p>صدور فاکتور و مدارک درمانی رسمی نظام پزشکی جهت دریافت حداکثر سقف خسارت از کلیه بیمه‌های تکمیلی معتبر کشور.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>مشاوره تخصصی و پرونده الکترونیک</h4>
+          <p>ثبت دیجیتال تصاویر رادیوگرافی و برنامه درمانی بیمار در پرونده ابری با قابلیت پیگیری و دسترسی سریع در مراجعات بعدی.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h4>موقعیت عالی و پارکینگ سعادت‌آباد</h4>
+          <p>دسترسی بسیار راحت از بزرگراه‌های یادگار امام، چمران و نیایش در سعادت‌آباد، با امکان پارک آسان و محیط آرام لابی.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش نظرات مراجعین کلینیک -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">تجربه بیماران</span>
+        <h2 class="section-title">نظرات مراجعین کلینیک لبخند</h2>
+        <p class="section-desc">رضایت و لبخند رضایت‌بخش شما، افتخار بزرگ کادر درمانی کلینیک دندانپزشکی لبخند است.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- نظر ۱ -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">«من برای کاشت ۴ واحد ایمپلنت به دکتر کاظمی مراجعه کردم. از روش دیجیتال استفاده کردن و بعد از جراحی حتی نیاز به مسکن قوی هم پیدا نکردم. نظم و بهداشت کلینیک در سعادت‌آباد بی‌نظیره.»</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">م.ر</div>
+            <div class="author-info">
+              <h5>مهندس مهدی رادمنش</h5>
+              <span>درمان ایمپلنت دیجیتال</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- نظر ۲ -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">«طراحی لبخندم رو با کامپوزیت پیش دکتر سارا رضوانی انجام دادم. رنگ و فرم دندان‌ها به شدت طبیعی شد و هیچ‌کس متوجه نمیشه که کامپوزیته. اخلاق و دقت کاری دکتر فوق‌العاده است.»</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">ن.ک</div>
+            <div class="author-info">
+              <h5>نگار کریمیان</h5>
+              <span>اصلاح طرح لبخند و کامپوزیت</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- نظر ۳ -->
+        <div class="testimonial-card">
+          <div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">«همیشه از عصب‌کشی وحشت داشتم ولی دکتر فرهمند با دستگاه روتاری ظرف کمتر از ۴۵ دقیقه بدون هیچ دردی دندان آسیاب من رو نجات دادن. سیستم نوبت‌دهی آنلاین سایت هم خیلی کار رو راحت کرده.»</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">س.م</div>
+            <div class="author-info">
+              <h5>سینا محمدی</h5>
+              <span>درمان ریشه (عصب‌کشی)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش سؤالات متداول (حداقل ۶ سؤال آکاردئونی) -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">پاسخ به ابهامات</span>
+        <h2 class="section-title">سؤالات متداول بیماران</h2>
+        <p class="section-desc">پاسخ تخصصی به پرتکرارترین پرسش‌های مراجعین محترم کلینیک دندانپزشکی لبخند</p>
+      </div>
+
+      <div class="faq-list">
+        <!-- سؤال ۱ -->
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>۱. آیا کاشت ایمپلنت دیجیتال درد دارد و چه تفاوتی با روش سنتی دارد؟</span>
+            <div class="faq-toggle-icon">▼</div>
+          </div>
+          <div class="faq-answer">
+            در روش ایمپلنت دیجیتال، پیش از جراحی با استفاده از اسکن سه‌بعدی و نرم‌افزار، محل دقیق کاشت فیکسچر شبیه‌سازی شده و شابلون جراحی (Surgical Guide) ساخته می‌شود. به همین دلیل لثه شکافته نشده و نیازی به بخیه‌های وسیع نیست؛ در نتیجه درد، خونریزی و تورم پس از عمل تقریباً به صفر می‌رسد و طول دوره بهبود بسیار کوتاه‌تر است.
+          </div>
+        </div>
+
+        <!-- سؤال ۲ -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>۲. تفاوت لمینت سرامیکی با کامپوزیت ونیر چیست و کدام ماندگارتر است؟</span>
+            <div class="faq-toggle-icon">▼</div>
+          </div>
+          <div class="faq-answer">
+            لمینت‌های سرامیکی در لابراتوار از سرامیک فشرده ساخته شده و به دندان متصل می‌شوند؛ این لمینت‌ها درخشندگی نوری طبیعی‌تر داشته، هرگز رنگ نمی‌گیرند و ماندگاری بیش از ۱۵ سال دارند. کامپوزیت ونیر مستقیماً در مطب طی یک جلسه کار می‌شود، هزینه اقتصادی‌تری دارد اما نیازمند پولیش دوره‌ای هر چند ماه یک‌بار است.
+          </div>
+        </div>
+
+        <!-- سؤال ۳ -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>۳. شرایط پذیرش بیمه‌های تکمیلی در کلینیک دندانپزشکی لبخند چگونه است؟</span>
+            <div class="faq-toggle-icon">▼</div>
+          </div>
+          <div class="faq-answer">
+            کلینیک دندانپزشکی لبخند برای تمامی مراجعین، صورت‌حساب رسمی ممهور به مهر دندانپزشک متخصص، شرح خدمات تشخیصی و کدهای استاندارد نظام پزشکی به همراه گرافی‌های قبل و بعد را صادر می‌نماید که برای تمامی بیمه‌های تکمیلی (دانا، ایران، آسیا، البرز، پارسیان و ...) قابل ارائه و دریافت کامل خسارت درمان است.
+          </div>
+        </div>
+
+        <!-- سؤال ۴ -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>۴. طول دوره درمان ارتودنسی نامرئی چقدر است و آیا برای بزرگسالان هم پاسخگوست؟</span>
+            <div class="faq-toggle-icon">▼</div>
+          </div>
+          <div class="faq-answer">
+            بله، ارتودنسی نامرئی (الاینرهای شفاف) امروزه بهترین گزینه برای افراد شاغل و بزرگسالان است که تمایلی به سیم‌های فلزی ندارند. طول درمان بسته به میزان شلوغی و فاصله دندان‌ها معمولاً بین ۶ تا ۱۸ ماه متغیر است و هر دو هفته یک‌بار پلاک‌ها تعویض می‌شوند.
+          </div>
+        </div>
+
+        <!-- سؤال ۵ -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>۵. اولین ویزیت دندانپزشکی کودکان باید در چه سنی انجام شود؟</span>
+            <div class="faq-toggle-icon">▼</div>
+          </div>
+          <div class="faq-answer">
+            توصیه انجمن دندانپزشکی کودکان این است که با رویش اولین دندان شیری یا نهایتاً در سن ۱ سالگی، اولین معاینه صورت گیرد تا روند رشد فک، عادات مکیدن و آموزش بهداشت بررسی شده و از پوسیدگی‌های شایع دندان شیری پیشگیری گردد.
+          </div>
+        </div>
+
+        <!-- سؤال ۶ -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>۶. ماندگاری بلیچینگ با لیزر چقدر است و آیا به مینای دندان آسیب می‌زند؟</span>
+            <div class="faq-toggle-icon">▼</div>
+          </div>
+          <div class="faq-answer">
+            بلیچینگ تخصصی در کلینیک تحت نظارت پزشک هیچ‌گونه آسیبی به مینای دندان وارد نمی‌کند زیرا ژل بلیچینگ فقط رنگدانه‌های نفوذکرده در خلل و فرج مینا را اکسید می‌کند. ماندگاری آن معمولاً بین ۱ تا ۲ سال است که با رعایت بهداشت و مصرف کمتر دخانیات و چای پررنگ طولانی‌تر خواهد بود.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش تماس، موقعیت سعادت‌آباد و فرم تماس آنلاین -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-grid">
+      <!-- اطلاعات تماس و موقعیت -->
+      <div class="contact-info-card">
+        <span class="badge">راه‌های ارتباطی</span>
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-top: 0.8rem; color: var(--text-main);">پذیرش و مراجعه به کلینیک لبخند</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">کادر پذیرش و مشاوران کلینیک آماده پاسخگویی به سؤالات و راهنمایی شما در روزهای کاری هستند.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-detail-item">
+            <div class="contact-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>نشانی کلینیک (سعادت‌آباد):</h4>
+              <p>تهران، سعادت‌آباد، بالاتر از میدان کاج، نبش کوچه یازدهم، ساختمان پزشکان سلامت، طبقه سوم، واحد ۹</p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>شماره‌های تماس پذیرش:</h4>
+              <p dir="ltr"><a href="tel:02122145890">021 - 2214 5890</a> &nbsp;|&nbsp; <a href="tel:02122145891">021 - 2214 5891</a></p>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="contact-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>مشاوره آنلاین واتساپ و ایتا:</h4>
+              <p dir="ltr"><a href="https://wa.me/989123456789" target="_blank" style="color: var(--primary); font-weight: 700;">0912 345 6789</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-preview-small">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <div>
+            <strong style="color: var(--text-main); font-size: 0.92rem;">مسیریابی هوشمند کلینیک لبخند</strong>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">دسترسی آسان با مترو میدان صنعت و پارکینگ اختصاصی</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- فرم تماس آنلاین -->
+      <div class="contact-form-card">
+        <h3>فرم تماس و پیام به مدیریت کلینیک</h3>
+        <p>در صورت داشتن انتقاد، پیشنهاد یا درخواست همکاری، پیام خود را ارسال فرمایید.</p>
+        
+        <div class="form-success-box" id="contactSuccess">
+          پیام شما با موفقیت ثبت شد؛ کارشناسان پذیرش به زودی با شما تماس خواهند گرفت.
+        </div>
+
+        <form id="directContactForm" onsubmit="handleContactSubmit(event)">
+          <div class="contact-form-fields">
+            <div class="form-group">
+              <label for="cName">نام و نام خانوادگی <span class="req">*</span></label>
+              <input type="text" id="cName" class="form-input" placeholder="مثال: علی رضایی" required>
+            </div>
+
+            <div class="form-group">
+              <label for="cPhone">شماره تلفن همراه <span class="req">*</span></label>
+              <input type="tel" id="cPhone" class="form-input" placeholder="۰۹xxxxxxxxx" maxlength="11" dir="ltr" required>
+              <span class="form-error-msg" id="cPhoneError">شماره موبایل باید ۱۱ رقم با ۰۹ باشد.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="cSubject">موضوع پیام</label>
+              <select id="cSubject" class="form-select">
+                <option value="استعلام هزینه و خدمات">استعلام هزینه و خدمات</option>
+                <option value="مشاوره با پزشک معالج">مشاوره با پزشک معالج</option>
+                <option value="پیگیری امور بیمه تکمیلی">پیگیری امور بیمه تکمیلی</option>
+                <option value="انتقادات و پیشنهادات">انتقادات و پیشنهادات</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cMessage">متن پیام <span class="req">*</span></label>
+              <textarea id="cMessage" class="form-textarea" rows="4" placeholder="متن پیام خود را بنویسید..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <span>ارسال پیام به کلینیک</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر سایت -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-icon" style="background: rgba(20, 184, 166, 0.15);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2.2"><path d="M12 2C8.5 2 7 4 7 7c0 4 1 8.5 2 12 0.5 1.5 2 3 3 3s2.5-1.5 3-3c1-3.5 2-8 2-12 0-3-1.5-5-5-5z"/></svg>
+          </div>
+          <div class="logo-text">
+            <h1>کلینیک دندانپزشکی لبخند</h1>
+            <span style="color: #14b8a6;">سعادت‌آباد، تهران</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          کلینیک دندانپزشکی لبخند با فراهم آوردن فضایی آرامش‌بخش، استفاده از دقیق‌ترین تجهیزات دیجیتال دندانپزشکی و کادر مجرب دانشگاهی، بالاترین سطح مراقبت‌های دهان و دندان را به مراجعین گرامی ارائه می‌دهد.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>خدمات اصلی</h4>
+        <ul class="footer-links">
+          <li><a href="#services">ایمپلنت دیجیتال فوری</a></li>
+          <li><a href="#services">لمینت سرامیکی و ونیر</a></li>
+          <li><a href="#services">پروتز ثابت و متحرک</a></li>
+          <li><a href="#services">جرم‌گیری و بروساژ</a></li>
+          <li><a href="#services">بلیچینگ دندان با لیزر</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>دسترسی سریع</h4>
+        <ul class="footer-links">
+          <li><a href="#booking">رزرو آنلاین نوبت</a></li>
+          <li><a href="#pricing">جدول تعرفه‌ها</a></li>
+          <li><a href="#doctors">پزشکان متخصص</a></li>
+          <li><a href="#features">امکانات و تجهیزات</a></li>
+          <li><a href="#testimonials">نظرات مراجعین</a></li>
+          <li><a href="#faq">سؤالات متداول</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>تماس با کلینیک</h4>
+        <p style="font-size: 0.88rem; line-height: 1.8; color: #94a3b8; margin-bottom: 0.75rem;">
+          تهران، سعادت‌آباد، بالاتر از میدان کاج، ساختمان پزشکان سلامت، ط ۳
+        </p>
+        <p style="font-size: 0.95rem; font-weight: 700; color: #ffffff; direction: ltr; text-align: right;">
+          ۰۲۱-۲۲۱۴۵۸۹۰
+        </p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>تمامی حقوق محفوظ و متعلق به «کلینیک دندانپزشکی لبخند» است.</div>
+      <div>طراحی و راه‌اندازی وب‌سایت اختصاصی کلینیک دندانپزشکی (پونیشا ۷۶۴۳۴۱)</div>
+    </div>
+  </footer>
+
+  <!-- دکمه شناور رزرو سریع در پایین صفحه -->
+  <a href="#booking" class="floating-booking-btn" id="floatingBookBtn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>رزرو آنلاین نوبت</span>
+  </a>
+
+  <!-- ==========================================================================
+       کدهای جاوااسکریپت تعاملی توکار (سیستم نوبت‌دهی ۶ مرحله‌ای و اکشن‌ها)
+       ========================================================================== -->
+  <script>
+    // متغیرهای وضعیت رزرو نوبت
+    const bookingState = {
+      currentStep: 1,
+      totalSteps: 6,
+      selectedService: 'ایمپلنت دیجیتال و فوری',
+      selectedDoctor: 'دکتر سارا رضوانی',
+      selectedDay: 'شنبه ۲۴ آبان',
+      selectedTime: '۱۰:۰۰ صبح',
+      patientName: '',
+      patientMobile: '',
+      patientNationalId: '',
+      patientType: '',
+      patientNotes: '',
+      trackingCode: ''
+    };
+
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    const nextBtnText = document.getElementById('nextBtnText');
+    const wizardFooter = document.getElementById('wizardFooter');
+    const progressLine = document.getElementById('progressLine');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // مدیریت منوی موبایل
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+        });
+      });
+    }
+
+    // به‌روزرسانی نوار پیشرفت ۶ مرحله‌ای
+    function updateProgress() {
+      const percentage = ((bookingState.currentStep - 1) / (bookingState.totalSteps - 1)) * 100;
+      if (progressLine) {
+        progressLine.style.width = percentage + '%';
+      }
+
+      for (let i = 1; i <= bookingState.totalSteps; i++) {
+        const node = document.getElementById('stepNode' + i);
+        if (node) {
+          if (i === bookingState.currentStep) {
+            node.className = 'step-node active';
+          } else if (i < bookingState.currentStep) {
+            node.className = 'step-node completed';
+          } else {
+            node.className = 'step-node';
+          }
+        }
+      }
+
+      if (btnPrev) {
+        btnPrev.style.visibility = (bookingState.currentStep > 1 && bookingState.currentStep < 6) ? 'visible' : 'hidden';
+      }
+
+      if (bookingState.currentStep === 5) {
+        nextBtnText.textContent = 'تأیید و دریافت فیش نوبت';
+      } else {
+        nextBtnText.textContent = 'مرحله بعدی';
+      }
+
+      if (wizardFooter) {
+        wizardFooter.style.display = (bookingState.currentStep === 6) ? 'none' : 'flex';
+      }
+    }
+
+    // پیمایش بین گام‌ها
+    function navigateStep(direction) {
+      if (direction === 1 && bookingState.currentStep === 5) {
+        if (!validatePatientForm()) {
+          return;
+        }
+        generateTrackingPass();
+      }
+
+      const nextStep = bookingState.currentStep + direction;
+      if (nextStep >= 1 && nextStep <= bookingState.totalSteps) {
+        const currentElem = document.getElementById('step' + bookingState.currentStep);
+        if (currentElem) currentElem.classList.remove('active');
+
+        bookingState.currentStep = nextStep;
+        const nextElem = document.getElementById('step' + bookingState.currentStep);
+        if (nextElem) nextElem.classList.add('active');
+
+        updateProgress();
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // اعتبارسنجی فرم با الزام موبایل ۰۹
+    function validatePatientForm() {
+      const nameInput = document.getElementById('fullName');
+      const mobileInput = document.getElementById('mobile');
+      const nationalIdInput = document.getElementById('nationalId');
+      const nameError = document.getElementById('nameError');
+      const mobileError = document.getElementById('mobileError');
+      const nationalIdError = document.getElementById('nationalIdError');
+
+      let isValid = true;
+
+      if (!nameInput.value.trim()) {
+        nameError.style.display = 'block';
+        nameInput.focus();
+        isValid = false;
+      } else {
+        nameError.style.display = 'none';
+      }
+
+      const mobileVal = mobileInput.value.trim();
+      const mobileRegex = /^09\d{9}$/;
+      if (!mobileRegex.test(mobileVal)) {
+        mobileError.style.display = 'block';
+        if (isValid) mobileInput.focus();
+        isValid = false;
+      } else {
+        mobileError.style.display = 'none';
+      }
+
+      const nidVal = nationalIdInput.value.trim();
+      if (!/^\d{10}$/.test(nidVal)) {
+        nationalIdError.style.display = 'block';
+        if (isValid) nationalIdInput.focus();
+        isValid = false;
+      } else {
+        nationalIdError.style.display = 'none';
+      }
+
+      if (isValid) {
+        bookingState.patientName = nameInput.value.trim();
+        bookingState.patientMobile = mobileVal;
+        bookingState.patientNationalId = nidVal;
+        bookingState.patientType = document.getElementById('patientType').value;
+        bookingState.patientNotes = document.getElementById('notes').value.trim();
+      }
+
+      return isValid;
+    }
+
+    // صدور کارت دیجیتال و کد رهگیری در گام ۶
+    function generateTrackingPass() {
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      bookingState.trackingCode = `LK-764341-${randomNum}`;
+
+      document.getElementById('finalTrackingCode').textContent = bookingState.trackingCode;
+      document.getElementById('sumPatientName').textContent = bookingState.patientName;
+      document.getElementById('sumMobile').textContent = bookingState.patientMobile;
+      document.getElementById('sumService').textContent = bookingState.selectedService;
+      document.getElementById('sumDoctor').textContent = bookingState.selectedDoctor;
+      document.getElementById('sumDay').textContent = bookingState.selectedDay;
+      document.getElementById('sumTime').textContent = bookingState.selectedTime;
+    }
+
+    // ریست ویزارد
+    function resetWizard() {
+      document.getElementById('step' + bookingState.currentStep).classList.remove('active');
+      bookingState.currentStep = 1;
+      document.getElementById('step1').classList.add('active');
+      document.getElementById('patientForm').reset();
+      updateProgress();
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // کلیک روی کارت‌های خدمات در ویزارد
+    document.querySelectorAll('#serviceOptions .service-option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('#serviceOptions .service-option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        bookingState.selectedService = card.getAttribute('data-value');
+      });
+    });
+
+    // کلیک روی کارت‌های پزشک در ویزارد
+    document.querySelectorAll('#doctorOptions .doctor-option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('#doctorOptions .doctor-option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        bookingState.selectedDoctor = card.getAttribute('data-value');
+      });
+    });
+
+    // کلیک روی کارت‌های روز در ویزارد
+    document.querySelectorAll('#dayOptions .day-option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('disabled')) return;
+        document.querySelectorAll('#dayOptions .day-option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        bookingState.selectedDay = card.getAttribute('data-value');
+      });
+    });
+
+    // کلیک روی سانس‌های زمانی
+    document.querySelectorAll('.slots-grid .slot-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (card.classList.contains('booked')) return;
+        document.querySelectorAll('.slots-grid .slot-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        bookingState.selectedTime = card.getAttribute('data-value');
+      });
+    });
+
+    // پیش‌انتخاب خدمت از دکمه‌های بیرونی و جدول تعرفه
+    function preselectService(serviceName) {
+      bookingState.selectedService = serviceName;
+      document.querySelectorAll('#serviceOptions .service-option-card').forEach(card => {
+        if (card.getAttribute('data-value') === serviceName) {
+          card.classList.add('selected');
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+      if (bookingState.currentStep !== 1) {
+        document.getElementById('step' + bookingState.currentStep).classList.remove('active');
+        bookingState.currentStep = 1;
+        document.getElementById('step1').classList.add('active');
+        updateProgress();
+      }
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // پیش‌انتخاب پزشک از دکمه‌های بیرونی
+    function preselectDoctor(doctorName) {
+      bookingState.selectedDoctor = doctorName;
+      document.querySelectorAll('#doctorOptions .doctor-option-card').forEach(card => {
+        if (card.getAttribute('data-value') === doctorName) {
+          card.classList.add('selected');
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+      document.getElementById('step' + bookingState.currentStep).classList.remove('active');
+      bookingState.currentStep = 2;
+      document.getElementById('step2').classList.add('active');
+      updateProgress();
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // آکاردئون سؤالات متداول
+    function toggleFaq(element) {
+      const parent = element.parentElement;
+      const isOpen = parent.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('open');
+      });
+      if (!isOpen) {
+        parent.classList.add('open');
+      }
+    }
+
+    // ارسال فرم تماس
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const phoneInput = document.getElementById('cPhone');
+      const phoneError = document.getElementById('cPhoneError');
+      const successBox = document.getElementById('contactSuccess');
+      const val = phoneInput.value.trim();
+
+      if (!/^09\d{9}$/.test(val)) {
+        phoneError.style.display = 'block';
+        phoneInput.focus();
+        return;
+      }
+      phoneError.style.display = 'none';
+      successBox.style.display = 'block';
+      document.getElementById('directContactForm').reset();
+      setTimeout(() => {
+        successBox.style.display = 'none';
+      }, 5000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateProgress();
+    });
+  </script>
+</body>
+</html>
