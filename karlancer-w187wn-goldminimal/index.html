@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>گالری آوا — طلای مینیمال</title>
+<meta name="description" content="گالری آوا؛ مجموعه‌ای مینیمال از طلای ۱۸ عیار با قیمت شفاف و محاسبه زنده بر اساس نرخ روز.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAFAF8'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23191917' stroke-width='1.5'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+:root{
+  --bg:#FAFAF8; --ink:#191917; --mut:#8f8d86; --faint:#c9c6bd;
+  --line:#e7e5de; --paper:#f2f0ea;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);font-weight:400;line-height:1.9;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
+img{display:block;max-width:100%}
+::selection{background:#191917;color:#FAFAF8}
+
+/* ---------- header : almost invisible ---------- */
+header{display:flex;align-items:baseline;justify-content:space-between;padding:30px 5vw 26px}
+.brand{font-size:19px;font-weight:500;letter-spacing:.02em}
+.brand small{display:block;font-size:10px;color:var(--mut);font-weight:400;letter-spacing:.35em;margin-top:2px}
+nav{display:flex;gap:38px;font-size:13px;color:#4c4a44}
+nav a{padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .25s}
+nav a:hover{border-color:var(--ink)}
+#cartBtn{font-size:13px;color:#4c4a44;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .25s}
+#cartBtn:hover{border-color:var(--ink)}
+
+/* ---------- rate line ---------- */
+.rate{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 5vw;display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline;font-size:12px;color:var(--mut)}
+.rate b{color:var(--ink);font-weight:500}
+.rate .set{margin-inline-start:auto;display:flex;align-items:baseline;gap:8px}
+.rate input{font-family:inherit;font-size:12px;color:var(--ink);background:transparent;border:none;border-bottom:1px solid var(--faint);width:104px;text-align:center;padding:1px 2px;outline:none}
+.rate input:focus{border-color:var(--ink)}
+
+/* ---------- opening : one line, one piece ---------- */
+.opening{padding:17vh 5vw 12vh;text-align:center}
+.opening h1{font-size:clamp(21px,3.4vw,34px);font-weight:400;letter-spacing:.01em}
+.opening h1 span{color:var(--mut)}
+.opening figure{margin:9vh auto 0;width:min(400px,74vw)}
+.opening figure .ph{background:var(--paper)}
+.opening figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.opening figcaption{margin-top:16px;font-size:11px;color:var(--mut);letter-spacing:.06em}
+
+/* ---------- collection : a gallery wall ---------- */
+.collection{padding:6vh 5vw 4vh;border-top:1px solid var(--line)}
+.chead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8vh}
+.chead h2{font-size:13px;font-weight:500;letter-spacing:.3em}
+.chead span{font-size:11px;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:3.5vw;row-gap:0}
+.piece{cursor:pointer;background:none;text-align:right;width:100%}
+.piece .ph{background:var(--paper);overflow:hidden}
+.piece img{width:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.19,1,.22,1)}
+.piece:hover img{transform:scale(1.035)}
+.piece .meta{padding-top:14px}
+.piece .nm{font-size:14px;font-weight:500}
+.piece .wt{font-size:11px;color:var(--mut)}
+.piece .pr{font-size:13px;margin-top:2px}
+.r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}.r34{aspect-ratio:3/4}
+.p1{grid-column:1/6}
+.p2{grid-column:8/12;margin-top:16vh}
+.p3{grid-column:2/5;margin-top:10vh}
+.p4{grid-column:7/13;margin-top:14vh}
+.p5{grid-column:1/4;margin-top:12vh}
+.p6{grid-column:6/11;margin-top:16vh}
+.p7{grid-column:2/6;margin-top:10vh}
+.p8{grid-column:8/12;margin-top:14vh}
+
+/* ---------- philosophy / guide ---------- */
+.text-sec{padding:14vh 5vw;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(12,1fr);column-gap:3.5vw}
+.text-sec h2{grid-column:1/4;font-size:13px;font-weight:500;letter-spacing:.3em}
+.text-sec .body{grid-column:5/11;font-size:15px;color:#3d3b35;max-width:56ch}
+.text-sec .body p+p{margin-top:1.4em}
+.text-sec .body .formula{font-size:13px;color:var(--mut);border-top:1px solid var(--line);margin-top:2.2em;padding-top:1.2em}
+
+footer{border-top:1px solid var(--line);padding:34px 5vw 44px;display:flex;justify-content:space-between;font-size:11px;color:var(--mut)}
+
+/* ---------- product overlay ---------- */
+#overlay{position:fixed;inset:0;background:var(--bg);z-index:60;overflow:auto;opacity:0;pointer-events:none;transition:opacity .35s}
+#overlay.open{opacity:1;pointer-events:auto}
+.ov-in{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;padding:11vh 6vw 8vh;max-width:1240px;margin:0 auto}
+.ov-in .ph{background:var(--paper)}
+.ov-in .ph img{width:100%;height:100%;max-height:76vh;object-fit:cover}
+.ov-close{position:absolute;top:26px;inset-inline-start:5vw;font-size:13px;color:#4c4a44;border-bottom:1px solid transparent}
+.ov-close:hover{border-color:var(--ink)}
+.ov-det{align-self:center}
+.ov-det .cat{font-size:11px;color:var(--mut);letter-spacing:.25em}
+.ov-det h3{font-size:clamp(24px,3vw,34px);font-weight:400;margin:10px 0 4vh}
+.spec{border-top:1px solid var(--line)}
+.spec div{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+.spec div span:first-child{color:var(--mut)}
+.brk{margin-top:4vh}
+.brk div{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;color:#4c4a44}
+.brk div span:first-child{color:var(--mut)}
+.brk .tot{border-top:1px solid var(--ink);margin-top:10px;padding-top:12px;color:var(--ink);font-size:15px}
+.brk .tot span:first-child{color:var(--ink)}
+#addBtn{margin-top:4.5vh;font-size:14px;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:4px;transition:opacity .2s}
+#addBtn:hover{opacity:.55}
+
+/* ---------- cart drawer ---------- */
+#scrim{position:fixed;inset:0;background:rgba(25,25,23,.22);z-index:70;opacity:0;pointer-events:none;transition:opacity .3s}
+#scrim.open{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:0;bottom:0;left:0;width:min(400px,94vw);background:var(--bg);z-index:71;transform:translateX(-106%);transition:transform .45s cubic-bezier(.19,1,.22,1);display:flex;flex-direction:column;border-inline-end:1px solid var(--line)}
+#drawer.open{transform:translateX(0)}
+.dr-head{display:flex;justify-content:space-between;align-items:baseline;padding:26px 26px 18px;border-bottom:1px solid var(--line)}
+.dr-head h3{font-size:14px;font-weight:500;letter-spacing:.15em}
+.dr-body{flex:1;overflow:auto;padding:8px 26px}
+.dr-empty{padding:8vh 0;text-align:center;color:var(--mut);font-size:13px}
+.citem{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.citem img{width:56px;height:68px;object-fit:cover;background:var(--paper)}
+.citem .inf{flex:1}
+.citem .nm{font-size:13px;font-weight:500}
+.citem .wt{font-size:11px;color:var(--mut)}
+.citem .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:6px}
+.qty{display:flex;gap:12px;align-items:baseline;font-size:13px}
+.qty button{font-size:15px;color:#4c4a44;padding:0 2px}
+.qty button:hover{color:var(--ink)}
+.rm{font-size:11px;color:var(--mut);border-bottom:1px solid transparent}
+.rm:hover{color:var(--ink);border-color:var(--ink)}
+.dr-foot{border-top:1px solid var(--line);padding:18px 26px 26px}
+.dr-foot .brk{margin-top:0}
+#checkoutBtn{margin-top:18px;width:100%;font-size:14px;font-weight:500;border:1px solid var(--ink);padding:12px 0;transition:background .25s,color .25s}
+#checkoutBtn:hover{background:var(--ink);color:var(--bg)}
+.dr-success{text-align:center;padding:9vh 26px}
+.dr-success .code{font-size:22px;font-weight:500;letter-spacing:.08em;margin:14px 0 6px}
+.dr-success p{font-size:13px;color:#4c4a44}
+.dr-success button{margin-top:4vh;font-size:13px;border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr);column-gap:5vw}
+  .piece{grid-column:auto!important;margin-top:0}
+  .grid .piece:nth-child(even){margin-top:7vh}
+  .grid .piece:nth-child(odd){margin-top:0}
+  .text-sec h2{grid-column:1/13;margin-bottom:3vh}
+  .text-sec .body{grid-column:1/13}
+  .ov-in{grid-template-columns:1fr;padding-top:9vh}
+  .ov-in .ph img{max-height:52vh}
+  nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#">گالری آوا<small>AVA&nbsp;GALLERY</small></a>
+  <nav>
+    <a href="#collection">مجموعه</a>
+    <a href="#philosophy">فلسفه</a>
+    <a href="#guide">راهنمای قیمت</a>
+  </nav>
+  <button id="cartBtn" type="button">سبد (۰)</button>
+</header>
+
+<div class="rate">
+  <span>نرخ لحظه‌ای هر گرم طلای ۱۸ عیار: <b id="rateText">۴٬۸۰۰٬۰۰۰ تومان</b></span>
+  <span>قیمت همه قطعه‌ها زنده از همین نرخ محاسبه می‌شود.</span>
+  <span class="set">
+    <label for="rateInput">نرخ نمونه دمو (تومان):</label>
+    <input id="rateInput" type="text" inputmode="numeric" value="۴٬۸۰۰٬۰۰۰">
+  </span>
+</div>
+
+<section class="opening">
+  <h1>طلا، <span>بدون هیچ اضافه‌ای.</span></h1>
+  <figure>
+    <div class="ph"><img src="assets/img/opening.jpg" alt="انگشترهای طلای مینیمال گالری آوا"></div>
+    <figcaption>از مجموعه پاییز — هشت قطعه، نه بیشتر</figcaption>
+  </figure>
+</section>
+
+<section class="collection" id="collection">
+  <div class="chead">
+    <h2>مجموعه</h2>
+    <span>طلای ۱۸ عیار — قیمت شفاف، محاسبه زنده</span>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="text-sec" id="philosophy">
+  <h2>فلسفه</h2>
+  <div class="body">
+    <p>آوا گالری نیست که طلا بفروشد؛ گالری‌ای است که گاهی طلا هم در آن هست. هر قطعه یک فرم است: یک خط، یک دایره، یک سطح صاف. چیزی برای پنهان‌کردن نداریم، پس چیزی هم اضافه نمی‌کنیم.</p>
+    <p>به همین دلیل قیمت‌ها را هم مثل فرم‌ها ساده کرده‌ایم: وزن ضربدر نرخ روز، به‌علاوه اجرت ساختِ اعلام‌شده. بدون چانه‌زنی، بدون عددِ پنهان.</p>
+  </div>
+</section>
+
+<section class="text-sec" id="guide">
+  <h2>راهنمای قیمت</h2>
+  <div class="body">
+    <p>قیمت نهایی هر قطعه در همین صفحه و جلوی چشم شما ساخته می‌شود. نرخ را از نوار بالای صفحه تغییر دهید؛ قیمت هر هشت قطعه همان لحظه از نو محاسبه می‌شود.</p>
+    <p class="formula">قیمت = (وزن × نرخ هر گرم) + اجرت ساخت + سود گالری (۷٪) + مالیات بر ارزش افزوده (۱۰٪ از اجرت و سود)</p>
+  </div>
+</section>
+
+<footer>
+  <span>گالری آوا — تهران</span>
+  <span>دموی فروشگاه مینیمال طلا</span>
+</footer>
+
+<!-- product overlay -->
+<div id="overlay" role="dialog" aria-modal="true">
+  <button class="ov-close" id="ovClose" type="button">بستن ×</button>
+  <div class="ov-in">
+    <div class="ph"><img id="ovImg" src="" alt=""></div>
+    <div class="ov-det">
+      <div class="cat" id="ovCat"></div>
+      <h3 id="ovName"></h3>
+      <div class="spec">
+        <div><span>وزن</span><span id="ovWeight"></span></div>
+        <div><span>عیار</span><span>۱۸ — ۷۵۰</span></div>
+        <div><span>اجرت ساخت</span><span id="ovLabor"></span></div>
+      </div>
+      <div class="brk" id="ovBrk"></div>
+      <button id="addBtn" type="button">افزودن به سبد</button>
+    </div>
+  </div>
+</div>
+
+<!-- cart -->
+<div id="scrim"></div>
+<aside id="drawer" aria-label="سبد خرید">
+  <div class="dr-head">
+    <h3>سبد خرید</h3>
+    <button id="drClose" type="button" style="font-size:13px;color:#4c4a44">بستن ×</button>
+  </div>
+  <div id="drMain" style="display:flex;flex-direction:column;flex:1;min-height:0">
+    <div class="dr-body" id="drBody"></div>
+    <div class="dr-foot" id="drFoot">
+      <div class="brk" id="cartBrk"></div>
+      <button id="checkoutBtn" type="button">ثبت سفارش</button>
+    </div>
+  </div>
+  <div id="drSuccess" class="dr-success" style="display:none">
+    <div style="font-size:12px;color:var(--mut);letter-spacing:.25em">سفارش ثبت شد</div>
+    <div class="code" id="orderCode"></div>
+    <p>رسید و فاکتور رسمی به‌زودی برای شما ارسال می‌شود.<br>از انتخاب آوا سپاسگزاریم.</p>
+    <button id="againBtn" type="button">ادامه خرید</button>
+  </div>
+</aside>
+
+<script>
+var RATE_DEFAULT = 4800000;
+var PROFIT_PCT = 7;      /* سود گالری */
+var VAT_PCT = 10;        /* مالیات — فقط روی اجرت و سود */
+
+var PRODUCTS = [
+  {id:1, name:'گردنبند موج',   cat:'گردنبند', weight:8.42,  labor:18, img:'assets/img/necklace.jpg', ratio:'r45', cls:'p1'},
+  {id:2, name:'دستبند خط',     cat:'دستبند',  weight:6.15,  labor:15, img:'assets/img/bracelet.jpg', ratio:'r34', cls:'p2'},
+  {id:3, name:'انگشتر نقطه',   cat:'انگشتر',  weight:3.28,  labor:20, img:'assets/img/ring.jpg',     ratio:'r11', cls:'p3'},
+  {id:4, name:'گوشواره قطره',  cat:'گوشواره', weight:2.94,  labor:22, img:'assets/img/earring.jpg',  ratio:'r45', cls:'p4'},
+  {id:5, name:'پابند رشته',    cat:'پابند',   weight:2.10,  labor:12, img:'assets/img/anklet.jpg',   ratio:'r34', cls:'p5'},
+  {id:6, name:'نیم‌ست برگ',    cat:'نیم‌ست',  weight:11.65, labor:18, img:'assets/img/halfset.jpg',  ratio:'r45', cls:'p6'},
+  {id:7, name:'آویز گل',       cat:'آویز',    weight:1.86,  labor:25, img:'assets/img/pendant.jpg',  ratio:'r11', cls:'p7'},
+  {id:8, name:'زنجیر سکوت',    cat:'زنجیر',   weight:5.40,  labor:10, img:'assets/img/chain.jpg',    ratio:'r45', cls:'p8'}
+];
+
+var rate = RATE_DEFAULT;
+var cart = {};           /* id -> qty */
+var currentId = null;
+
+function r100(x){ return Math.round(x/100)*100; }
+function faNum(n){ return Math.round(n).toLocaleString('fa-IR'); }
+function faDec(n){ return n.toLocaleString('fa-IR',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+/* قیمت یک قطعه: تفکیک شفاف */
+function priceOf(p){
+  var base   = r100(p.weight * rate);
+  var labor  = r100(base * p.labor / 100);
+  var profit = r100((base + labor) * PROFIT_PCT / 100);
+  var vat    = r100((labor + profit) * VAT_PCT / 100);
+  return { base:base, labor:labor, profit:profit, vat:vat, total: base+labor+profit+vat };
+}
+function byId(id){ for(var i=0;i<PRODUCTS.length;i++) if(PRODUCTS[i].id===id) return PRODUCTS[i]; return null; }
+
+/* ---------- grid ---------- */
+function renderGrid(){
+  var g = document.getElementById('grid');
+  g.innerHTML = '';
+  PRODUCTS.forEach(function(p){
+    var pr = priceOf(p);
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'piece ' + p.cls;
+    b.setAttribute('data-id', p.id);
+    b.innerHTML =
+      '<span class="ph" style="display:block"><img class="'+p.ratio+'" src="'+p.img+'" alt="'+p.name+'"></span>' +
+      '<span class="meta" style="display:block">' +
+        '<span class="nm" style="display:block">'+p.name+'</span>' +
+        '<span class="wt" style="display:block">'+faDec(p.weight)+' گرم — طلای ۱۸ عیار</span>' +
+        '<span class="pr" style="display:block" data-price>'+faNum(pr.total)+' تومان</span>' +
+      '</span>';
+    b.addEventListener('click', function(){ openOverlay(p.id); });
+    g.appendChild(b);
+  });
+}
+
+/* ---------- overlay ---------- */
+function brkHTML(t, withTotal){
+  var h =
+    '<div><span>ارزش طلای خام</span><span>'+faNum(t.base)+' تومان</span></div>' +
+    '<div><span>اجرت ساخت</span><span>'+faNum(t.labor)+' تومان</span></div>' +
+    '<div><span>سود گالری (۷٪)</span><span>'+faNum(t.profit)+' تومان</span></div>' +
+    '<div><span>مالیات بر ارزش افزوده</span><span>'+faNum(t.vat)+' تومان</span></div>';
+  if(withTotal) h += '<div class="tot"><span>جمع</span><span>'+faNum(t.total)+' تومان</span></div>';
+  return h;
+}
+function openOverlay(id){
+  var p = byId(id); if(!p) return;
+  currentId = id;
+  document.getElementById('ovImg').src = p.img;
+  document.getElementById('ovImg').alt = p.name;
+  document.getElementById('ovCat').textContent = p.cat;
+  document.getElementById('ovName').textContent = p.name;
+  document.getElementById('ovWeight').textContent = faDec(p.weight) + ' گرم';
+  document.getElementById('ovLabor').textContent = faNum(p.labor) + '٪ از ارزش طلا';
+  document.getElementById('ovBrk').innerHTML = brkHTML(priceOf(p), true);
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOverlay(){
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  currentId = null;
+}
+document.getElementById('ovClose').addEventListener('click', closeOverlay);
+document.getElementById('addBtn').addEventListener('click', function(){
+  if(currentId == null) return;
+  cart[currentId] = (cart[currentId]||0) + 1;
+  closeOverlay();
+  renderCart();
+  openDrawer();
+});
+
+/* ---------- cart ---------- */
+function cartCount(){ var n=0; for(var k in cart) n += cart[k]; return n; }
+function cartTotals(){
+  var t = {base:0, labor:0, profit:0, vat:0, total:0};
+  for(var k in cart){
+    var p = byId(parseInt(k,10)); if(!p) continue;
+    var pr = priceOf(p);
+    t.base += pr.base*cart[k]; t.labor += pr.labor*cart[k];
+    t.profit += pr.profit*cart[k]; t.vat += pr.vat*cart[k]; t.total += pr.total*cart[k];
+  }
+  return t;
+}
+function renderCart(){
+  document.getElementById('cartBtn').textContent = 'سبد (' + faNum(cartCount()) + ')';
+  var body = document.getElementById('drBody');
+  var foot = document.getElementById('drFoot');
+  if(cartCount() === 0){
+    body.innerHTML = '<div class="dr-empty">سبد خالی است.</div>';
+    foot.style.display = 'none';
+    return;
+  }
+  foot.style.display = '';
+  body.innerHTML = '';
+  for(var k in cart){
+    var p = byId(parseInt(k,10)); if(!p) continue;
+    var pr = priceOf(p);
+    var row = document.createElement('div');
+    row.className = 'citem';
+    row.innerHTML =
+      '<img src="'+p.img+'" alt="'+p.name+'">' +
+      '<div class="inf">' +
+        '<div class="nm">'+p.name+'</div>' +
+        '<div class="wt">'+faDec(p.weight)+' گرم</div>' +
+        '<div class="row">' +
+          '<span class="qty"><button type="button" data-act="dec" data-id="'+p.id+'">−</button><span>'+faNum(cart[k])+'</span><button type="button" data-act="inc" data-id="'+p.id+'">+</button></span>' +
+          '<span style="font-size:13px">'+faNum(pr.total*cart[k])+' تومان</span>' +
+        '</div>' +
+        '<button type="button" class="rm" data-act="rm" data-id="'+p.id+'">حذف</button>' +
+      '</div>';
+    body.appendChild(row);
+  }
+  document.getElementById('cartBrk').innerHTML = brkHTML(cartTotals(), true);
+}
+document.getElementById('drBody').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-act]'); if(!b) return;
+  var id = parseInt(b.getAttribute('data-id'),10), act = b.getAttribute('data-act');
+  if(act==='inc') cart[id]++;
+  if(act==='dec'){ cart[id]--; if(cart[id]<=0) delete cart[id]; }
+  if(act==='rm') delete cart[id];
+  renderCart();
+});
+function openDrawer(){
+  document.getElementById('drMain').style.display = 'flex';
+  document.getElementById('drSuccess').style.display = 'none';
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('scrim').classList.add('open');
+}
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('scrim').classList.remove('open');
+}
+document.getElementById('cartBtn').addEventListener('click', openDrawer);
+document.getElementById('drClose').addEventListener('click', closeDrawer);
+document.getElementById('scrim').addEventListener('click', closeDrawer);
+document.getElementById('checkoutBtn').addEventListener('click', function(){
+  if(cartCount() === 0) return;
+  var code = 'AVA-' + Math.floor(100000 + Math.random()*900000);
+  document.getElementById('orderCode').textContent = code.replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[d]; }).replace('AVA', 'AVA');
+  cart = {};
+  renderCart();
+  document.getElementById('drMain').style.display = 'none';
+  document.getElementById('drSuccess').style.display = '';
+});
+document.getElementById('againBtn').addEventListener('click', closeDrawer);
+
+/* ---------- live rate ---------- */
+function toEnDigits(s){
+  return s.replace(/[۰-۹]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d); })
+          .replace(/[٠-٩]/g, function(d){ return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); });
+}
+document.getElementById('rateInput').addEventListener('input', function(e){
+  var v = parseInt(toEnDigits(e.target.value).replace(/[^0-9]/g,''), 10);
+  if(!v || v <= 0) return;
+  rate = v;
+  document.getElementById('rateText').textContent = faNum(rate) + ' تومان';
+  renderGrid();
+  renderCart();
+  if(currentId != null) openOverlay(currentId);
+});
+document.getElementById('rateInput').addEventListener('blur', function(e){
+  e.target.value = faNum(rate);
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){ closeOverlay(); closeDrawer(); }
+});
+
+renderGrid();
+renderCart();
+</script>
+</body>
+</html>
