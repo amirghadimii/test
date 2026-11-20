@@ -463,6 +463,31 @@ html[dir="rtl"] .drawer{transform:translateX(110%)}
   .sec-title h2{font-size:1.4rem}
   .quote-form{padding:24px 20px}
 }
+
+/* === H10 SIDE-RAIL (desktop) / compact topbar (mobile) === */
+@media (min-width:861px){
+  body{padding-right:230px}
+  header.site{position:fixed;top:0;right:0;bottom:0;width:230px;height:100vh;z-index:80;border-bottom:none;border-left:1px solid var(--line);background:var(--paper);overflow-y:auto}
+  header.site .container{padding-inline:18px;height:100%}
+  .header-in{flex-direction:column;align-items:stretch;gap:24px;padding:28px 0 24px;min-height:100%}
+  .logo{padding-bottom:20px;border-bottom:1px solid var(--line-2)}
+  nav.main{display:flex;flex-direction:column;gap:3px;margin-inline-start:0}
+  nav.main a{display:block;padding:11px 13px;font-size:.95rem;border-radius:var(--radius)}
+  .header-actions{margin-top:auto;padding-top:18px;border-top:1px solid var(--line-2)}
+  .cart-btn{width:100%;justify-content:center}
+  .burger{display:none}
+  .mobile-nav{display:none!important}
+}
+/* === F6 LIGHT AIRY footer (concrete/paper tone) === */
+footer.site{background:var(--paper);color:var(--ink-2);border-top:1px solid var(--line);margin-top:96px}
+.foot-grid{gap:44px;padding:64px 0 46px}
+footer.site h4{color:var(--ink)}
+footer.site p{color:var(--ink-2)}
+footer.site li a:hover{color:var(--accent-dark)}
+.foot-logo strong{color:var(--ink)!important}
+.foot-logo .logo-mark{background:#fff;border:1px solid var(--line)}
+.foot-bottom{border-top:1px solid var(--line);padding:22px 0;color:var(--muted)}
+.foot-bottom b{color:var(--ink-2)}
 </style>
 </head>
 <body>
@@ -562,37 +587,12 @@ html[dir="rtl"] .drawer{transform:translateX(110%)}
   </div>
 </section>
 
-<!-- محصولات -->
-<section class="block" id="products">
-  <div class="container">
-    <div class="sec-head">
-      <div class="sec-title">
-        <span class="sec-num">۰۲</span>
-        <div>
-          <h2>محصولات منتخب</h2>
-          <p>قیمت‌ها به تومان و به‌روز است؛ برای خرید متراژی و پروژه‌ای، استعلام بگیرید تا قیمت همکاری اعمال شود.</p>
-        </div>
-      </div>
-    </div>
-    <div class="filters" id="filters"></div>
-    <div class="grid" id="productGrid"></div>
-  </div>
-</section>
-
-<!-- برندها -->
-<div class="brands">
-  <div class="container">
-    <span class="lbl">برندهای موجود در فروشگاه:</span>
-    <span>کاشی سینا</span><span>پارس سرامیک</span><span>شودر</span><span>راسان</span><span>KWC</span><span>ساروج شیمی</span><span>رونیکس</span><span>آروا</span>
-  </div>
-</div>
-
 <!-- پروژه‌ها -->
 <section class="block" id="projects">
   <div class="container">
     <div class="sec-head">
       <div class="sec-title">
-        <span class="sec-num">۰۳</span>
+        <span class="sec-num">۰۲</span>
         <div>
           <h2>پروژه‌های اجراشده با متریال سنگچین</h2>
           <p>از اسلب لابی هتل تا سنگ نمای ویلا؛ تأمین یکجا یعنی تحویل سرِ وقت و بدون کسری.</p>
@@ -642,6 +642,31 @@ html[dir="rtl"] .drawer{transform:translateX(110%)}
     </div>
   </div>
 </section>
+
+<!-- محصولات -->
+<section class="block" id="products">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-title">
+        <span class="sec-num">۰۳</span>
+        <div>
+          <h2>محصولات منتخب</h2>
+          <p>قیمت‌ها به تومان و به‌روز است؛ برای خرید متراژی و پروژه‌ای، استعلام بگیرید تا قیمت همکاری اعمال شود.</p>
+        </div>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- برندها -->
+<div class="brands">
+  <div class="container">
+    <span class="lbl">برندهای موجود در فروشگاه:</span>
+    <span>کاشی سینا</span><span>پارس سرامیک</span><span>شودر</span><span>راسان</span><span>KWC</span><span>ساروج شیمی</span><span>رونیکس</span><span>آروا</span>
+  </div>
+</div>
 
 <!-- استعلام پروژه‌ای -->
 <section class="block" id="quote">
