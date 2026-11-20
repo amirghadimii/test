@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نشر سه‌کتاب — سه‌گانه‌ی نیما رستگار</title>
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900}
+:root{
+  --paper:#f7f2e9; --paper2:#efe7d8; --ink:#2b2620; --ink2:#6d6355;
+  --line:#ddd2bf; --gold:#b98a2f; --teal:#175e54; --rust:#a04a2a; --olive:#5d6b35;
+  --card:#fffdf8; --shadow:0 18px 40px rgba(60,45,20,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--paper);color:var(--ink);line-height:1.9;overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:40;background:rgba(247,242,233,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:1.25rem;letter-spacing:-.5px}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:26px;font-size:.92rem;color:var(--ink2);font-weight:500}
+nav a:hover{color:var(--ink)}
+.cart-btn{background:var(--ink);color:#fff;border:none;border-radius:999px;padding:8px 18px;font-size:.9rem;font-weight:600;display:flex;gap:8px;align-items:center}
+.cart-btn b{background:var(--gold);border-radius:999px;min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;padding:0 6px}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 60px;text-align:center;background:
+  radial-gradient(700px 320px at 50% -60px,rgba(185,138,47,.14),transparent 70%),var(--paper)}
+.hero .kicker{color:var(--gold);font-weight:700;font-size:.95rem;letter-spacing:.5px}
+.hero h1{font-size:clamp(2rem,5.4vw,3.4rem);font-weight:900;line-height:1.35;margin:10px 0 8px}
+.hero .author{color:var(--ink2);font-size:1.08rem;max-width:640px;margin:0 auto}
+.hero .author b{color:var(--ink)}
+.books-stage{display:flex;justify-content:center;align-items:flex-end;gap:clamp(18px,5vw,56px);margin:52px 0 40px;perspective:1200px;flex-wrap:wrap}
+.book-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.book-cap{font-size:.88rem;color:var(--ink2);font-weight:600}
+.book-cap b{color:var(--ink);display:block;font-size:1rem}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;transition:.2s}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{filter:brightness(1.08);transform:translateY(-2px)}
+
+/* ---------- CSS 3D book ---------- */
+.book3d{position:relative;width:190px;height:272px;transform-style:preserve-3d;transform:rotateY(24deg) rotateX(4deg);transition:transform .5s cubic-bezier(.2,.8,.3,1)}
+.book3d.sm{width:150px;height:216px}
+.book-wrap:hover .book3d,.book3d.tilt{transform:rotateY(8deg) rotateX(2deg)}
+.b-face{position:absolute;inset:0;border-radius:4px 10px 10px 4px;overflow:hidden}
+.b-front{transform:translateZ(22px);display:flex;flex-direction:column;justify-content:space-between;padding:20px 16px;color:#fdf8ec;box-shadow:inset 4px 0 10px rgba(255,255,255,.15)}
+.b-front::before{content:'';position:absolute;top:0;bottom:0;right:10px;width:2px;background:rgba(0,0,0,.22)}
+.b-front::after{content:'';position:absolute;inset:10px;border:1px solid rgba(253,248,236,.4);border-radius:3px 7px 7px 3px;pointer-events:none}
+.b-back{transform:translateZ(-22px) rotateY(180deg);border-radius:10px 4px 4px 10px}
+.b-spine{position:absolute;top:0;bottom:0;right:-2px;width:44px;transform:rotateY(90deg) translateZ(0);transform-origin:center;display:flex;align-items:center;justify-content:center}
+.b-spine span{writing-mode:vertical-rl;font-size:.72rem;color:#fdf8ec;letter-spacing:1px;white-space:nowrap}
+.b-pages{position:absolute;top:3px;bottom:3px;left:-2px;width:42px;transform:rotateY(-90deg);background:repeating-linear-gradient(to left,#f3ead6 0 2px,#e2d7c0 2px 4px);border-radius:2px}
+.b-author{font-size:.78rem;opacity:.85;font-weight:500;position:relative;z-index:1}
+.b-title{font-size:1.55rem;font-weight:900;line-height:1.5;position:relative;z-index:1}
+.book3d.sm .b-title{font-size:1.2rem}
+.b-sub{font-size:.8rem;opacity:.85;position:relative;z-index:1;margin-top:4px}
+.b-pub{font-size:.72rem;opacity:.75;position:relative;z-index:1}
+.c-teal{background:linear-gradient(150deg,#1d7263,#0f4239)}
+.c-rust{background:linear-gradient(150deg,#b55736,#7e3418)}
+.c-olive{background:linear-gradient(150deg,#71803f,#44511f)}
+.book-shadow{width:170px;height:22px;background:radial-gradient(ellipse at center,rgba(50,35,10,.35),transparent 70%);margin-top:-6px;filter:blur(2px)}
+
+/* ---------- book sections ---------- */
+.book-sec{padding:76px 0;border-top:1px solid var(--line)}
+.book-sec.alt{background:var(--paper2)}
+.book-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+.book-side{position:sticky;top:96px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.price-box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 22px;text-align:center;box-shadow:var(--shadow);width:100%}
+.price-box .p{font-size:1.5rem;font-weight:900}
+.price-box .p small{font-size:.85rem;font-weight:600;color:var(--ink2)}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;padding:3px 12px;border-radius:999px;color:#fff}
+.book-info h2{font-size:2rem;font-weight:900;line-height:1.4}
+.book-info h3{color:var(--gold);font-weight:700;font-size:1.02rem;margin-bottom:12px}
+.book-info p.desc{color:#453c30;margin-bottom:20px;text-align:justify}
+.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+.spec div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
+.spec b{display:block;font-size:.95rem}
+.spec span{font-size:.75rem;color:var(--ink2)}
+.acc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);margin-bottom:22px}
+.acc-item+.acc-item{border-top:1px solid var(--line)}
+.acc-head{width:100%;background:none;border:none;text-align:right;padding:14px 18px;font-size:.98rem;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.acc-head .arr{transition:.3s;color:var(--gold);font-size:1.1rem}
+.acc-item.open .acc-head .arr{transform:rotate(180deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.acc-item.open .acc-body{max-height:300px}
+.acc-body ul{padding:0 20px 16px 14px;color:var(--ink2);font-size:.92rem}
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.review{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.review .stars{color:var(--gold);letter-spacing:2px;font-size:.9rem}
+.review p{font-size:.92rem;color:#453c30;margin:6px 0}
+.review .who{font-size:.8rem;color:var(--ink2);font-weight:600}
+.book-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.link-btn{background:none;border:none;color:var(--teal);font-weight:700;font-size:.95rem;text-decoration:underline;text-underline-offset:5px}
+
+/* ---------- bundle ---------- */
+.bundle{background:var(--ink);color:#f3ecdc;padding:64px 0}
+.bundle .wrap{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
+.bundle h2{font-size:1.8rem;font-weight:900;margin-bottom:8px}
+.bundle h2 em{color:var(--gold);font-style:normal}
+.bundle p{color:#cfc4ab;max-width:520px}
+.bundle-card{background:#38312a;border:1px solid #57493a;border-radius:18px;padding:24px 28px;text-align:center;min-width:280px}
+.bundle-card .old{color:#a99c83;text-decoration:line-through;font-size:1rem}
+.bundle-card .new{font-size:2rem;font-weight:900;color:#fff}
+.bundle-card .save{color:#e9c46a;font-weight:700;font-size:.9rem;margin-bottom:14px}
+
+/* ---------- sticky bar ---------- */
+#stickyBar{position:fixed;bottom:0;right:0;left:0;z-index:50;background:var(--ink);color:#fff;transform:translateY(110%);transition:transform .35s;box-shadow:0 -8px 30px rgba(0,0,0,.25)}
+#stickyBar.show{transform:translateY(0)}
+#stickyBar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+#stickyBar .info{font-size:.95rem}
+#stickyBar .info b{color:#e9c46a}
+#stickyBar .btn{padding:9px 24px;font-size:.92rem}
+
+/* ---------- order ---------- */
+.order-sec{padding:76px 0}
+.order-sec h2{font-size:1.9rem;font-weight:900;text-align:center;margin-bottom:6px}
+.order-sec .sub{text-align:center;color:var(--ink2);margin-bottom:36px}
+.order-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+.panel h3{font-size:1.15rem;font-weight:800;margin-bottom:16px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.cart-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #eee5d2}
+.cart-row:last-of-type{border-bottom:none}
+.cart-row .thumb{width:38px;height:54px;border-radius:3px 6px 6px 3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fdf8ec;font-size:.55rem;font-weight:700;text-align:center;padding:4px;line-height:1.5}
+.cart-row .nm{flex:1}
+.cart-row .nm b{display:block;font-size:.95rem}
+.cart-row .nm span{font-size:.8rem;color:var(--ink2)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--paper);font-size:1rem;font-weight:700;line-height:1}
+.qty b{min-width:18px;text-align:center}
+.cart-row .amt{font-weight:800;min-width:104px;text-align:left;font-size:.95rem}
+.empty-cart{text-align:center;color:var(--ink2);padding:26px 0}
+.totals{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px;font-size:.95rem}
+.totals .row{display:flex;justify-content:space-between;padding:4px 0}
+.totals .row.disc{color:var(--teal);font-weight:700}
+.totals .row.grand{font-size:1.2rem;font-weight:900;border-top:1px solid var(--line);margin-top:8px;padding-top:12px}
+label.fl{display:block;font-size:.88rem;font-weight:700;margin:14px 0 6px}
+input.fi,textarea.fi{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;font-family:inherit;font-size:.95rem;background:#fff;outline:none}
+input.fi:focus,textarea.fi:focus{border-color:var(--gold)}
+.ship-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ship-opt{border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;cursor:pointer;background:#fff;transition:.15s}
+.ship-opt.sel{border-color:var(--gold);background:#fdf6e3;box-shadow:0 4px 14px rgba(185,138,47,.15)}
+.ship-opt b{display:block;font-size:.95rem}
+.ship-opt span{font-size:.82rem;color:var(--ink2)}
+.ship-opt .cost{font-weight:800;color:var(--ink);font-size:.9rem}
+.err{color:#b3261e;font-size:.82rem;margin-top:5px;display:none}
+.success{display:none;text-align:center;padding:34px 10px}
+.success .tick{width:74px;height:74px;border-radius:50%;background:var(--teal);color:#fff;font-size:2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.success h3{border:none;padding:0;font-size:1.4rem}
+.success .code{font-size:1.6rem;font-weight:900;color:var(--gold);letter-spacing:1px}
+.success p{color:var(--ink2);font-size:.93rem}
+
+/* ---------- modal ---------- */
+.modal-bg{position:fixed;inset:0;background:rgba(30,22,10,.6);z-index:80;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-bg.open{display:flex}
+.modal{background:var(--paper);border-radius:20px;max-width:620px;width:100%;max-height:88vh;overflow:auto;padding:34px 38px;position:relative;box-shadow:var(--shadow)}
+.modal .x{position:absolute;top:14px;left:14px;background:var(--paper2);border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem}
+.modal h3{font-size:1.3rem;font-weight:900}
+.modal .m-sub{color:var(--ink2);font-size:.88rem;margin-bottom:16px}
+.page-text{background:#fffdf8;border:1px solid var(--line);border-radius:12px;padding:24px 26px;text-align:justify;font-size:1rem;line-height:2.2;min-height:280px;box-shadow:inset 0 0 40px rgba(185,138,47,.06)}
+.page-text p+p{margin-top:12px;text-indent:1.6em}
+.modal-nav{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+.modal-nav button{background:var(--ink);color:#fff;border:none;border-radius:999px;padding:8px 20px;font-weight:700;font-size:.9rem}
+.modal-nav button:disabled{opacity:.35;cursor:default}
+.modal-nav .pg{color:var(--ink2);font-size:.88rem;font-weight:600}
+
+footer{border-top:1px solid var(--line);padding:30px 0 96px;text-align:center;color:var(--ink2);font-size:.88rem}
+.toast{position:fixed;top:78px;right:50%;transform:translateX(50%) translateY(-16px);background:var(--teal);color:#fff;padding:11px 24px;border-radius:999px;font-weight:700;font-size:.92rem;z-index:90;opacity:0;pointer-events:none;transition:.3s;box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:translateX(50%) translateY(0)}
+
+@media(max-width:900px){
+  .book-grid{grid-template-columns:1fr}
+  .book-side{position:static}
+  .order-grid{grid-template-columns:1fr}
+  .bundle .wrap{grid-template-columns:1fr}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .reviews{grid-template-columns:1fr}
+  nav{display:none}
+  .book3d{width:150px;height:216px}
+  .book3d.sm{width:120px;height:174px}
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">به سبد خرید اضافه شد</div>
+
+<header>
+  <div class="wrap">
+    <div class="logo">نشر <span>سه‌کتاب</span></div>
+    <nav>
+      <a href="#book1">شهر خاموش</a>
+      <a href="#book2">نامه‌هایی به هیچ‌کس</a>
+      <a href="#book3">در ستایش سکوت</a>
+      <a href="#order">ثبت سفارش</a>
+    </nav>
+    <button class="cart-btn" onclick="goOrder()">سبد خرید <b id="cartCount">۰</b></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="kicker">سه‌گانه‌ی ادبی — چاپ اول</div>
+    <h1>سه کتاب، یک جهان</h1>
+    <p class="author">سه اثر تازه از <b>نیما رستگار</b>؛ نویسنده‌ای که در سکوتِ شهرهای کوچک، بلندترین حرف‌ها را پیدا می‌کند. هر سه کتاب را این‌جا، مستقیم از نشر سه‌کتاب تهیه کنید.</p>
+
+    <div class="books-stage">
+      <div class="book-wrap">
+        <div class="book3d" data-tilt>
+          <div class="b-face b-back c-teal"></div><div class="b-pages"></div>
+          <div class="b-spine c-teal"><span>شهر خاموش — نیما رستگار</span></div>
+          <div class="b-face b-front c-teal">
+            <div><div class="b-author">نیما رستگار</div><div class="b-title">شهر<br>خاموش</div><div class="b-sub">رمانی درباره‌ی بازگشت</div></div>
+            <div class="b-pub">نشر سه‌کتاب</div>
+          </div>
+        </div>
+        <div class="book-shadow"></div>
+        <div class="book-cap"><b>شهر خاموش</b>رمان — ۲۸۵٬۰۰۰ تومان</div>
+      </div>
+
+      <div class="book-wrap">
+        <div class="book3d" data-tilt>
+          <div class="b-face b-back c-rust"></div><div class="b-pages"></div>
+          <div class="b-spine c-rust"><span>نامه‌هایی به هیچ‌کس — نیما رستگار</span></div>
+          <div class="b-face b-front c-rust">
+            <div><div class="b-author">نیما رستگار</div><div class="b-title">نامه‌هایی<br>به هیچ‌کس</div><div class="b-sub">دوازده داستان کوتاه</div></div>
+            <div class="b-pub">نشر سه‌کتاب</div>
+          </div>
+        </div>
+        <div class="book-shadow"></div>
+        <div class="book-cap"><b>نامه‌هایی به هیچ‌کس</b>داستان کوتاه — ۲۳۰٬۰۰۰ تومان</div>
+      </div>
+
+      <div class="book-wrap">
+        <div class="book3d" data-tilt>
+          <div class="b-face b-back c-olive"></div><div class="b-pages"></div>
+          <div class="b-spine c-olive"><span>در ستایش سکوت — نیما رستگار</span></div>
+          <div class="b-face b-front c-olive">
+            <div><div class="b-author">نیما رستگار</div><div class="b-title">در ستایش<br>سکوت</div><div class="b-sub">جستارهایی در باب آرامش</div></div>
+            <div class="b-pub">نشر سه‌کتاب</div>
+          </div>
+        </div>
+        <div class="book-shadow"></div>
+        <div class="book-cap"><b>در ستایش سکوت</b>جستار — ۱۹۵٬۰۰۰ تومان</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <button class="btn btn-dark" onclick="goOrder()">ثبت سفارش</button>
+      <button class="btn btn-ghost" onclick="addBundle()">هر سه کتاب با ۱۵٪ تخفیف</button>
+    </div>
+  </div>
+</section>
+
+<!-- book sections rendered from data -->
+<div id="bookSections"></div>
+
+<!-- ================= BUNDLE ================= -->
+<section class="bundle">
+  <div class="wrap">
+    <div>
+      <h2>هر سه کتاب با هم، <em>۱۵٪ ارزان‌تر</em></h2>
+      <p>سه‌گانه را کامل بخوانید. با خرید هر سه کتاب در یک سفارش، ۱۵٪ تخفیف بسته روی مجموع قیمت کتاب‌ها اعمال می‌شود؛ کافی است دکمه‌ی روبه‌رو را بزنید تا هر سه به سبد اضافه شوند.</p>
+    </div>
+    <div class="bundle-card">
+      <div class="old" id="bundleOld">—</div>
+      <div class="new" id="bundleNew">—</div>
+      <div class="save" id="bundleSave">—</div>
+      <button class="btn btn-gold" onclick="addBundle()">افزودن هر سه کتاب به سبد</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ORDER ================= -->
+<section class="order-sec" id="order">
+  <div class="wrap">
+    <h2>ثبت سفارش</h2>
+    <p class="sub">سفارش شما مستقیم از نشر سه‌کتاب ارسال می‌شود؛ بدون واسطه.</p>
+    <div class="order-grid">
+      <div class="panel" id="cartPanel">
+        <h3>سبد خرید شما</h3>
+        <div id="cartRows"></div>
+        <div class="totals" id="totalsBox">
+          <div class="row"><span>جمع کتاب‌ها</span><span id="tSub">۰ تومان</span></div>
+          <div class="row disc" id="tDiscRow" style="display:none"><span>تخفیف بسته‌ی سه‌کتاب (۱۵٪)</span><span id="tDisc">۰ تومان</span></div>
+          <div class="row"><span>هزینه‌ی ارسال</span><span id="tShip">—</span></div>
+          <div class="row grand"><span>مبلغ قابل پرداخت</span><span id="tGrand">۰ تومان</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div id="formBox">
+          <h3>مشخصات گیرنده</h3>
+          <label class="fl" for="fName">نام و نام خانوادگی</label>
+          <input class="fi" id="fName" placeholder="مثلاً سارا محمدی">
+          <div class="err" id="eName">نام گیرنده را وارد کنید.</div>
+          <label class="fl" for="fPhone">شماره موبایل</label>
+          <input class="fi" id="fPhone" inputmode="numeric" placeholder="۰۹۱۲ ··· ····">
+          <div class="err" id="ePhone">شماره موبایل معتبر (۱۱ رقم) وارد کنید.</div>
+          <label class="fl" for="fAddr">نشانی کامل</label>
+          <textarea class="fi" id="fAddr" rows="3" placeholder="شهر، خیابان، کوچه، پلاک، واحد"></textarea>
+          <div class="err" id="eAddr">نشانی را کامل وارد کنید.</div>
+          <label class="fl">روش ارسال</label>
+          <div class="ship-opts">
+            <div class="ship-opt sel" id="shipPost" onclick="setShip('post')">
+              <b>پست پیشتاز</b><span>ارسال به سراسر کشور — ۲ تا ۴ روز کاری</span>
+              <div class="cost">۳۵٬۰۰۰ تومان</div>
+            </div>
+            <div class="ship-opt" id="shipCourier" onclick="setShip('courier')">
+              <b>پیک تهران</b><span>فقط تهران — تحویل همان روز</span>
+              <div class="cost">۶۵٬۰۰۰ تومان</div>
+            </div>
+          </div>
+          <button class="btn btn-dark" style="width:100%;margin-top:22px" onclick="submitOrder()">ثبت نهایی سفارش</button>
+        </div>
+        <div class="success" id="successBox">
+          <div class="tick">✓</div>
+          <h3>سفارش شما ثبت شد</h3>
+          <p>کد پیگیری سفارش:</p>
+          <div class="code" id="orderCode">—</div>
+          <p id="orderSummary" style="margin-top:12px"></p>
+          <p>رسید سفارش و جزئیات پرداخت به شماره موبایل شما پیامک می‌شود. از خواندن‌تان سپاسگزاریم.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">نشر سه‌کتاب — صفحه‌ی رسمی فروش آثار نیما رستگار · این صفحه یک نمونه‌ی نمایشی (دمو) است.</div>
+</footer>
+
+<!-- sticky mini order bar -->
+<div id="stickyBar">
+  <div class="wrap">
+    <div class="info" id="stickyInfo">سبد شما خالی است</div>
+    <button class="btn btn-gold" onclick="goOrder()">مشاهده و ثبت سفارش</button>
+  </div>
+</div>
+
+<!-- sample modal -->
+<div class="modal-bg" id="sampleModal">
+  <div class="modal">
+    <button class="x" onclick="closeSample()">✕</button>
+    <h3 id="sampleTitle">—</h3>
+    <div class="m-sub">مطالعه‌ی چند صفحه‌ی اول — نمونه‌ی رایگان</div>
+    <div class="page-text" id="sampleText"></div>
+    <div class="modal-nav">
+      <button id="pgPrev" onclick="turnPage(-1)">صفحه‌ی قبل</button>
+      <span class="pg" id="pgInfo">صفحه‌ی ۱ از ۲</span>
+      <button id="pgNext" onclick="turnPage(1)">صفحه‌ی بعد</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const BOOKS = [
+ { id:'b1', title:'شهر خاموش', sub:'رمانی درباره‌ی بازگشت', genre:'رمان', color:'c-teal', price:285000,
+   desc:'«شهر خاموش» داستان مردی است که پس از هفده سال به زادگاهش برمی‌گردد؛ شهری که دیگر هیچ‌کس در آن منتظرش نیست، اما هر کوچه‌اش هنوز نام او را به خاطر دارد. رستگار در این رمان، با نثری آرام و تصویری، از حافظه، گناه و امکانِ بخشیدن می‌نویسد؛ از این‌که بعضی سکوت‌ها از هزار فریاد بلندترند.',
+   chapters:[['بخش یکم — بازگشت','فصل ۱: ایستگاه آخر','فصل ۲: خانه‌ی پدری','فصل ۳: مردی که نبود'],['بخش دوم — شهر','فصل ۴: بازار قدیم','فصل ۵: نامه‌ی ناتمام','فصل ۶: چراغ‌های خاموش'],['بخش سوم — بخشش','فصل ۷: گفت‌وگوی ناتمام','فصل ۸: برف اول','فصل ۹: شهر خاموش']],
+   specs:{pages:'۲۴۸ صفحه',size:'رقعی',isbn:'978-622-000-101-4',cover:'شومیز'}, rating:'۴٫۸',
+   reviews:[['«از آن رمان‌هایی است که بعد از تمام‌شدن، تا روزها رهایتان نمی‌کند. فصل آخر را سه بار خواندم.»','مریم ک. — تهران'],['«نثر شاعرانه و قصه‌ای که آرام‌آرام زیر پوست می‌رود. بهترین رمان فارسی امسالِ من.»','امیررضا ت. — اصفهان']],
+   sample:[['قطار، ساعت پنج و چهل دقیقه‌ی صبح به ایستگاه رسید؛ وقتی هنوز شهر خواب بود و فقط بوی نان تازه از نانواییِ سرِ میدان می‌آمد. هفده سال گذشته بود و من با یک چمدان و هزار حرفِ نزده برگشته بودم. پیرمرد بلیط‌فروش، که حالا موهایش یک‌دست سفید شده بود، نگاهی به صورتم انداخت و گفت: «پسرِ حاج‌مراد؟» و من فهمیدم در این شهر، هیچ‌کس واقعاً فراموش نمی‌شود؛ فقط همه وانمود می‌کنند.','از پنجره‌ی واگن، کوه‌های دور پیدا بود؛ همان کوه‌هایی که بچگی فکر می‌کردم آخرِ دنیاست. حالا می‌دانستم دنیا خیلی بزرگ‌تر از این حرف‌هاست، اما عجیب بود که قلبم هنوز برای همین تکه‌ی کوچک از آن می‌تپید.'],['خانه‌ی پدری سر جایش بود؛ با همان درِ آبیِ رنگ‌ورو رفته و حیاطی که درخت انارش خشک شده بود. کلید را که در قفل چرخاندم، صدای آشنای قدیمی بلند شد؛ انگار خانه نفس راحتی کشید. روی طاقچه، عکس پدر بود؛ جوان، خندان، با دستی روی شانه‌ی منِ نه‌ساله. زیر عکس، با خط خودش نوشته بود: «آدم از هر جا برود، یک روز به خودش برمی‌گردد.»','آن شب تا صبح بیدار ماندم. صدای شهر از پنجره می‌آمد: موتورِ دوردست، سگی که پارس می‌کرد، و سکوتی که از همه بلندتر بود. فهمیدم برای چه برگشته‌ام؛ برای شنیدن همین سکوت.']]},
+ { id:'b2', title:'نامه‌هایی به هیچ‌کس', sub:'دوازده داستان کوتاه', genre:'داستان کوتاه', color:'c-rust', price:230000,
+   desc:'دوازده نامه که هرگز به دست کسی نرسید؛ نامه‌هایی از مادری به پسرِ رفته‌اش، از سربازی به معشوقِ کودکی، از پیرمردی به جوانیِ خودش. «نامه‌هایی به هیچ‌کس» مجموعه‌ای است از داستان‌هایی کوتاه و فشرده که هر یک، جهانی کامل‌اند؛ جهانی از حرف‌های نگفته و آدم‌هایی که نوشتن، تنها راهِ ماندن‌شان بود.',
+   chapters:[['نامه‌های یکم تا چهارم','نامه‌ی اول: به پسرم که رفتی','نامه‌ی دوم: از جبهه‌ی جنوب','نامه‌ی سوم: به جوانیِ خودم','نامه‌ی چهارم: صندوق پستی ۱۴'],['نامه‌های پنجم تا هشتم','نامه‌ی پنجم: همسایه‌ی طبقه‌ی بالا','نامه‌ی ششم: به معلم اول دبستان','نامه‌ی هفتم: آخرین نامه','نامه‌ی هشتم: بی‌نشانی'],['نامه‌های نهم تا دوازدهم','نامه‌ی نهم: به شهر قدیمی','نامه‌ی دهم: برای تو که نمی‌خوانی','نامه‌ی یازدهم: پستچی بازنشسته','نامه‌ی دوازدهم: به هیچ‌کس']],
+   specs:{pages:'۱۹۶ صفحه',size:'رقعی',isbn:'978-622-000-102-1',cover:'شومیز'}, rating:'۴٫۹',
+   reviews:[['«داستان "پستچی بازنشسته" را که خواندم، بی‌اختیار گریه کردم. هر داستان یک ضربه‌ی آرام و دقیق است.»','زهرا م. — شیراز'],['«کتابی برای هدیه‌دادن. کوتاه، عمیق و پر از جمله‌هایی که زیرشان خط می‌کشید.»','کیان ر. — مشهد']],
+   sample:[['«پسرم، این نامه را هم مثل یازده‌تای قبلی به نشانیِ قدیمی‌ات می‌فرستم؛ همان خانه‌ای که حالا خانواده‌ی دیگری در آن زندگی می‌کنند و شاید زنِ خانه، نامه‌هایم را نگه می‌دارد و شب‌ها برای شوهرش می‌خواند. مهم نیست. من این‌ها را برای تو نمی‌نویسم؛ برای خودم می‌نویسم که یادم نرود صدایت چه شکلی بود.»','«امسال هم درخت گلابیِ حیاط بار داد. یادت هست می‌گفتی گلابی‌های این درخت، مزه‌ی تابستان می‌دهد؟ یکی را چیدم و گذاشتم روی میزت. تا شب، عطرش همه‌ی خانه را گرفته بود.»'],['«پستچی محله‌مان بازنشسته شد. دیروز آمد خداحافظی کند؛ سی‌ودو سال است که نامه‌های این کوچه را می‌رساند و می‌گوید سنگین‌ترین‌شان، نامه‌هایی بود که هیچ‌وقت جواب نداشت. از او پرسیدم با نامه‌های بی‌جواب چه می‌کند. گفت: "نگه‌شان می‌دارم. شاید یک روز، کسی برای خواندن‌شان برگردد."»','«این آخرین نامه‌ی من است؛ نه چون حرفی ندارم، چون بالاخره فهمیدم بعضی حرف‌ها را باید به جای نوشتن، زندگی کرد. فردا صبح می‌آیم دمِ درِ همان خانه. اگر بودی، چای تازه دم است.»']]},
+ { id:'b3', title:'در ستایش سکوت', sub:'جستارهایی در باب آرامش', genre:'جستار', color:'c-olive', price:195000,
+   desc:'در جهانی که هر لحظه‌اش با صدایی تازه پر می‌شود، «در ستایش سکوت» دعوتی است به مکث‌کردن. نه جستاری خشک و دانشگاهی، که گفت‌وگویی صمیمی درباره‌ی تنهاییِ انتخابی، شنیدنِ خود و زیباییِ کم‌گفتن. کتابی برای خواندنِ آهسته؛ هر جستار، یک فنجان چای و ده دقیقه سکوت.',
+   chapters:[['بخش یکم — شنیدن','جستار ۱: هنرِ گوش‌دادن','جستار ۲: سکوتِ میان دو نت','جستار ۳: اتاقی برای خودت'],['بخش دوم — زیستن','جستار ۴: آهستگی','جستار ۵: پیاده‌رویِ بی‌مقصد','جستار ۶: صبح‌های خاموش'],['بخش سوم — بودن','جستار ۷: تنهاییِ انتخابی','جستار ۸: حرف‌های نزده','جستار ۹: در ستایش سکوت']],
+   specs:{pages:'۱۶۰ صفحه',size:'پالتویی',isbn:'978-622-000-103-8',cover:'شومیز'}, rating:'۴٫۷',
+   reviews:[['«هر شب قبل از خواب یک جستار می‌خوانم. این کتاب، ریتم زندگی‌ام را آرام‌تر کرده است.»','نیما ش. — تبریز'],['«ساده، صادق و عمیق. از آن کتاب‌هایی که مدام به دیگران پیشنهادش می‌کنم.»','الهام د. — کرج']],
+   sample:[['«سکوت، خالی‌بودن نیست؛ پر است از همه‌ی چیزهایی که در شلوغی نمی‌شنویم. وقتی صبح، پیش از روشن‌کردن تلفن همراه، پنج دقیقه کنار پنجره می‌ایستم، صدای واقعی روز را می‌شنوم: گنجشک‌ها، دورشدنِ یک اتوبوس، و فکرهای خودم که بالاخره فرصت حرف‌زدن پیدا کرده‌اند.»','«ما از سکوت نمی‌ترسیم؛ از چیزی می‌ترسیم که در سکوت می‌شنویم. برای همین است که به محض تنها شدن، چیزی را روشن می‌کنیم: رادیو، تلویزیون، هر صدایی که میان ما و خودمان دیوار بکشد.»'],['«آهستگی، تنبلی نیست. نانوا را دیده‌اید که چطور خمیر را ورز می‌دهد؟ نه عجله‌ای دارد و نه مکثی بی‌دلیل. زندگی هم همین‌طور است؛ هر کاری ریتم خودش را دارد و ما فقط وقتی خسته می‌شویم که با ریتمِ دیگران زندگی کنیم.»','«امروز تصمیم بگیرید ده دقیقه هیچ کاری نکنید. نه کتابی، نه صفحه‌ای، نه حرفی. فقط بنشینید و بگذارید جهان، بدون شما هم بچرخد. می‌چرخد؛ و این، عجیب‌ترین آرامش دنیاست.»']]}
+];
+const SHIP = { post:{name:'پست پیشتاز', cost:35000}, courier:{name:'پیک تهران', cost:65000} };
+let cart = {};           // id -> qty
+let shipMethod = 'post';
+let sampleBook = null, samplePage = 0;
+
+const fa = n => n.toLocaleString('fa-IR');
+const money = n => fa(n) + ' تومان';
+const byId = id => BOOKS.find(b=>b.id===id);
+
+/* ---------- render book sections ---------- */
+function bookHTML(b, i){
+  const chapters = b.chapters.map(g=>`
+    <div class="acc-item">
+      <button class="acc-head" onclick="toggleAcc(this)">${g[0]}<span class="arr">▾</span></button>
+      <div class="acc-body"><ul>${g.slice(1).map(c=>`<li>${c}</li>`).join('')}</ul></div>
+    </div>`).join('');
+  const reviews = b.reviews.map(r=>`
+    <div class="review"><div class="stars">★★★★★</div><p>${r[0]}</p><div class="who">${r[1]}</div></div>`).join('');
+  return `
+  <section class="book-sec ${i%2? 'alt':''}" id="${b.id.replace('b','book')}">
+    <div class="wrap"><div class="book-grid">
+      <div class="book-side">
+        <div class="book3d" data-tilt>
+          <div class="b-face b-back ${b.color}"></div><div class="b-pages"></div>
+          <div class="b-spine ${b.color}"><span>${b.title} — نیما رستگار</span></div>
+          <div class="b-face b-front ${b.color}">
+            <div><div class="b-author">نیما رستگار</div><div class="b-title">${b.title}</div><div class="b-sub">${b.sub}</div></div>
+            <div class="b-pub">نشر سه‌کتاب</div>
+          </div>
+        </div>
+        <div class="book-shadow"></div>
+        <div class="price-box">
+          <div class="p">${money(b.price)}</div>
+          <div style="color:var(--ink2);font-size:.85rem">امتیاز خوانندگان: ${b.rating} از ۵</div>
+        </div>
+      </div>
+      <div class="book-info">
+        <span class="tag ${b.color}">${b.genre}</span>
+        <h2>${b.title}</h2><h3>${b.sub}</h3>
+        <p class="desc">${b.desc}</p>
+        <div class="acc">${chapters}</div>
+        <div class="spec">
+          <div><b>${b.specs.pages}</b><span>تعداد صفحه</span></div>
+          <div><b>${b.specs.size}</b><span>قطع</span></div>
+          <div><b>${b.specs.cover}</b><span>نوع جلد</span></div>
+          <div><b style="font-size:.78rem">${b.specs.isbn}</b><span>شابک</span></div>
+        </div>
+        <div class="reviews">${reviews}</div>
+        <div class="book-actions">
+          <button class="btn btn-dark" onclick="addToCart('${b.id}')">افزودن به سبد خرید</button>
+          <button class="link-btn" onclick="openSample('${b.id}')">مطالعه‌ی چند صفحه‌ی اول</button>
+        </div>
+      </div>
+    </div></div>
+  </section>`;
+}
+document.getElementById('bookSections').innerHTML = BOOKS.map(bookHTML).join('');
+
+function toggleAcc(btn){
+  const item = btn.parentElement, wasOpen = item.classList.contains('open');
+  item.parentElement.querySelectorAll('.acc-item').forEach(x=>x.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+/* ---------- bundle ---------- */
+const bundleSum = BOOKS.reduce((s,b)=>s+b.price,0);
+const bundlePrice = Math.round(bundleSum * 0.85);
+document.getElementById('bundleOld').textContent = money(bundleSum);
+document.getElementById('bundleNew').textContent = money(bundlePrice);
+document.getElementById('bundleSave').textContent = 'صرفه‌جویی شما: ' + money(bundleSum - bundlePrice);
+function addBundle(){ BOOKS.forEach(b=>{ cart[b.id]=(cart[b.id]||0)+1; }); renderCart(); toast('هر سه کتاب به سبد اضافه شد'); goOrder(); }
+
+/* ---------- cart ---------- */
+function addToCart(id){ cart[id]=(cart[id]||0)+1; renderCart(); toast('«'+byId(id).title+'» به سبد اضافه شد'); }
+function setQty(id, d){ cart[id]=(cart[id]||0)+d; if(cart[id]<=0) delete cart[id]; renderCart(); }
+function subtotal(){ return Object.entries(cart).reduce((s,[id,q])=>s+byId(id).price*q,0); }
+function hasAll(){ return BOOKS.every(b=>cart[b.id]>0); }
+function discount(){ return hasAll()? Math.round(subtotal()*0.15) : 0; }
+function shipCost(){ return Object.keys(cart).length? SHIP[shipMethod].cost : 0; }
+function grandTotal(){ return subtotal() - discount() + shipCost(); }
+function cartCount(){ return Object.values(cart).reduce((s,q)=>s+q,0); }
+
+function renderCart(){
+  const box = document.getElementById('cartRows');
+  const ids = Object.keys(cart);
+  if(!ids.length){
+    box.innerHTML = '<div class="empty-cart">سبد شما خالی است؛ از بخش کتاب‌ها، اثر موردنظرتان را اضافه کنید.</div>';
+  } else {
+    box.innerHTML = ids.map(id=>{ const b=byId(id); return `
+      <div class="cart-row">
+        <div class="thumb ${b.color}">${b.title}</div>
+        <div class="nm"><b>${b.title}</b><span>${money(b.price)}</span></div>
+        <div class="qty"><button onclick="setQty('${id}',1)">+</button><b>${fa(cart[id])}</b><button onclick="setQty('${id}',-1)">−</button></div>
+        <div class="amt">${money(b.price*cart[id])}</div>
+      </div>`;}).join('');
+  }
+  document.getElementById('tSub').textContent = money(subtotal());
+  const d = discount();
+  document.getElementById('tDiscRow').style.display = d? 'flex':'none';
+  document.getElementById('tDisc').textContent = '− ' + money(d);
+  document.getElementById('tShip').textContent = ids.length? money(shipCost()) : '—';
+  document.getElementById('tGrand').textContent = money(grandTotal());
+  document.getElementById('cartCount').textContent = fa(cartCount());
+  document.getElementById('stickyInfo').innerHTML = ids.length
+    ? `سبد خرید: <b>${fa(cartCount())} کتاب</b> — مجموع: <b>${money(grandTotal())}</b>`
+    : 'سبد شما خالی است';
+}
+function setShip(m){
+  shipMethod = m;
+  document.getElementById('shipPost').classList.toggle('sel', m==='post');
+  document.getElementById('shipCourier').classList.toggle('sel', m==='courier');
+  renderCart();
+}
+function goOrder(){ document.getElementById('order').scrollIntoView({behavior:'smooth'}); }
+
+/* ---------- order submit ---------- */
+function submitOrder(){
+  if(!Object.keys(cart).length){ toast('سبد خرید خالی است'); return; }
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.replace(/[۰-۹]/g, c=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)).replace(/\D/g,'');
+  const addr = document.getElementById('fAddr').value.trim();
+  let ok = true;
+  const mark = (e, bad)=>{ document.getElementById(e).style.display = bad? 'block':'none'; if(bad) ok=false; };
+  mark('eName', name.length<3); mark('ePhone', !/^09\d{9}$/.test(phone)); mark('eAddr', addr.length<10);
+  if(!ok) return;
+  const code = 'SK-' + Math.floor(100000 + Math.random()*900000);
+  const items = Object.entries(cart).map(([id,q])=>`«${byId(id).title}» × ${fa(q)}`).join('، ');
+  document.getElementById('orderCode').textContent = code.replace(/\d/g, c=>'۰۱۲۳۴۵۶۷۸۹'[c]);
+  document.getElementById('orderSummary').textContent =
+    `${name} عزیز، سفارش شما شامل ${items} با روش ارسال «${SHIP[shipMethod].name}» و مبلغ نهایی ${money(grandTotal())} ثبت شد.`;
+  document.getElementById('formBox').style.display = 'none';
+  document.getElementById('successBox').style.display = 'block';
+  cart = {}; renderCart();
+}
+
+/* ---------- sample modal ---------- */
+function openSample(id){
+  sampleBook = byId(id); samplePage = 0;
+  document.getElementById('sampleTitle').textContent = sampleBook.title;
+  renderSamplePage();
+  document.getElementById('sampleModal').classList.add('open');
+}
+function renderSamplePage(){
+  document.getElementById('sampleText').innerHTML =
+    sampleBook.sample[samplePage].map(p=>`<p>${p}</p>`).join('');
+  document.getElementById('pgInfo').textContent = `صفحه‌ی ${fa(samplePage+1)} از ${fa(sampleBook.sample.length)}`;
+  document.getElementById('pgPrev').disabled = samplePage===0;
+  document.getElementById('pgNext').disabled = samplePage===sampleBook.sample.length-1;
+}
+function turnPage(d){ samplePage += d; renderSamplePage(); }
+function closeSample(){ document.getElementById('sampleModal').classList.remove('open'); }
+document.getElementById('sampleModal').addEventListener('click', e=>{ if(e.target.id==='sampleModal') closeSample(); });
+
+/* ---------- toast + sticky bar + tilt ---------- */
+let toastT;
+function toast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove('show'), 2200);
+}
+const heroEl = document.getElementById('hero'), bar = document.getElementById('stickyBar');
+window.addEventListener('scroll', ()=>{
+  bar.classList.toggle('show', window.scrollY > heroEl.offsetTop + heroEl.offsetHeight - 80);
+}, {passive:true});
+document.querySelectorAll('[data-tilt]').forEach(el=>{
+  el.addEventListener('mousemove', e=>{
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
+    el.style.transform = `rotateY(${10 + x*22}deg) rotateX(${2 - y*16}deg)`;
+  });
+  el.addEventListener('mouseleave', ()=>{ el.style.transform=''; });
+});
+
+renderCart();
+</script>
+</body>
+</html>
