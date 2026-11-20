@@ -28,8 +28,16 @@ input,select,textarea{font-family:inherit;font-size:1rem}
 ::selection{background:var(--green);color:#fff}
 
 /* ---------- header ---------- */
-header{position:fixed;inset:0 0 auto 0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
-header.scrolled{box-shadow:0 10px 30px rgba(14,66,48,.10)}
+header{position:fixed;inset:0 0 auto 0;z-index:200;background:transparent;border-bottom:1px solid transparent;transition:background .35s,box-shadow .3s,border-color .35s}
+header .logo{color:#fff}
+header .logo small{color:#d6e4d9}
+header#siteHeader .main-nav a{color:#eef4ef}
+header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom-color:var(--line);box-shadow:0 10px 30px rgba(14,66,48,.10)}
+header.scrolled .logo{color:var(--green-deep)}
+header.scrolled .logo small{color:var(--muted)}
+header#siteHeader.scrolled .main-nav a{color:var(--ink)}
+header .burger span{background:#fff}
+header.scrolled .burger span{background:var(--green-deep)}
 .header-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
 .logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:1.35rem;color:var(--green-deep)}
 .logo .leaf-badge{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--green),var(--green-deep));display:grid;place-items:center;flex:none}
@@ -236,7 +244,14 @@ section{padding:96px 0}
 .form-ok.show{display:block}
 
 /* footer */
-footer{background:var(--green-deep);color:#cfded2;padding:70px 0 0;margin-top:0}
+footer{background:var(--green-deep);color:#cfded2;padding:56px 0 0;margin-top:0}
+.foot-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:48px}
+.foot-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:22px 24px}
+.foot-card h4{color:#fff;font-size:1.02rem;font-weight:800;margin-bottom:8px}
+.foot-card p{font-size:.9rem;line-height:1.95}
+.foot-card a{display:inline-block;margin-top:10px;background:var(--red);color:#fff;font-weight:800;font-size:.88rem;padding:9px 20px;border-radius:999px}
+.foot-card a:hover{color:#fff;padding-right:20px;background:var(--red-deep)}
+@media(max-width:860px){.foot-cards{grid-template-columns:1fr}}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;padding-bottom:48px}
 footer h4{color:#fff;font-size:1.08rem;font-weight:800;margin-bottom:16px}
 footer a{display:block;padding:5px 0;font-size:.94rem;transition:.2s}
@@ -768,6 +783,23 @@ footer p{font-size:.94rem}
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
+    <div class="foot-cards">
+      <div class="foot-card">
+        <h4>رزرو اقامت</h4>
+        <p>برای دیدن ظرفیت و قیمت ویلاها و ثبت رزرو آنلاین، از فرم رزرو استفاده کنید.</p>
+        <a href="#booking">رزرو آنلاین</a>
+      </div>
+      <div class="foot-card">
+        <h4>مسیریابی و آدرس</h4>
+        <p>موقعیت: در دل جنگل‌های هیرکانی؛ مسیر دسترسی پس از قطعی شدن رزرو برای مهمان ارسال می‌شود.</p>
+        <a href="#contact">تماس با ما</a>
+      </div>
+      <div class="foot-card">
+        <h4>ساعت پاسخگویی</h4>
+        <p>ساعات پاسخ‌گویی: هر روز ۸ صبح تا ۱۰ شب — پاسخ پیام‌های فرم تماس حداکثر تا ۲ ساعت در ساعات پاسخ‌گویی.</p>
+        <a href="#contact">ارسال پیام</a>
+      </div>
+    </div>
     <div class="footer-grid">
       <div>
         <div class="footer-logo">
