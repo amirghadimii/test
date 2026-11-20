@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پارس خودرو تجارت | واردات و صادرات خودرو — خرید، ترخیص و تحویل</title>
+<meta name="description" content="دموی وب‌سایت شرکت واردات و صادرات خودرو «پارس خودرو تجارت» — کاتالوگ خودروهای وارداتی از امارات، کره، چین و آلمان، ماشین‌حساب برآورد هزینه واردات، ترخیص گمرکی و شماره‌گذاری تا تحویل.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --bg:#08090c;
+  --bg-2:#0d0f14;
+  --paper:#12141b;
+  --paper-2:#171a23;
+  --ink:#f2ede3;
+  --ink-2:#c8c2b4;
+  --muted:#8d8778;
+  --line:#23252f;
+  --line-2:#2d2f3b;
+  --gold:#c9a45c;
+  --gold-2:#e6c886;
+  --gold-dark:#a07f38;
+  --gold-grad:linear-gradient(120deg,#e6c886,#c9a45c 55%,#a07f38);
+  --green:#3fae6a;
+  --red:#d95f4b;
+  --radius:18px;
+  --shadow:0 14px 40px rgba(0,0,0,.45);
+  --shadow-lg:0 34px 80px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;font-family:'Vazirmatn',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.85}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:inherit}
+a{color:inherit;text-decoration:none}
+.container{max-width:1320px;margin-inline:auto;padding-inline:22px}
+::selection{background:var(--gold);color:#14100a}
+svg.ic{width:22px;height:22px;flex-shrink:0}
+.num{font-variant-numeric:tabular-nums}
+.ltr{direction:ltr;unicode-bidi:embed}
+
+/* ---------- نوار بالا ---------- */
+.topbar{background:#05060a;color:#b7b0a0;font-size:.8rem;padding:7px 0;border-bottom:1px solid var(--line)}
+.topbar .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.topbar b{color:var(--gold-2);font-weight:700}
+.topbar nav{display:flex;gap:18px}
+.topbar nav a{opacity:.85}
+.topbar nav a:hover{opacity:1;color:var(--gold-2)}
+
+/* ---------- هدر ---------- */
+header.site{position:sticky;top:0;z-index:90;background:rgba(8,9,12,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;gap:26px;padding:13px 0}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{width:46px;height:46px;border-radius:13px;background:var(--gold-grad);display:grid;place-items:center;color:#171205;box-shadow:0 8px 22px rgba(201,164,92,.35)}
+.logo-mark svg{width:27px;height:27px}
+.logo-text{line-height:1.25}
+.logo-text b{font-size:1.12rem;font-weight:800;display:block}
+.logo-text span{font-size:.74rem;color:var(--muted)}
+nav.main{display:flex;gap:24px;margin-inline-start:auto}
+nav.main a{font-size:.94rem;color:var(--ink-2);font-weight:500;position:relative;padding:4px 0}
+nav.main a:hover{color:var(--gold-2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:13px;padding:12px 24px;font-weight:700;font-size:.97rem;transition:.22s;border:1px solid transparent;white-space:nowrap}
+.btn-gold{background:var(--gold-grad);color:#171205;box-shadow:0 10px 26px rgba(201,164,92,.3)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(201,164,92,.4)}
+.btn-ghost{border-color:var(--line-2);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn-sm{padding:9px 17px;font-size:.88rem;border-radius:11px}
+.header-cta{flex-shrink:0}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line-2);border-radius:12px;place-items:center;margin-inline-start:auto}
+.mobile-nav{display:none;border-top:1px solid var(--line);padding:12px 22px 18px;flex-direction:column;gap:4px}
+.mobile-nav a{padding:9px 6px;color:var(--ink-2);border-bottom:1px dashed var(--line)}
+.mobile-nav.open{display:flex}
+
+/* ---------- هیرو ---------- */
+.hero{position:relative;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,9,12,.72) 0%,rgba(8,9,12,.55) 42%,rgba(8,9,12,.94) 88%,var(--bg) 100%)}
+.hero-in{padding:96px 0 84px;max-width:780px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,164,92,.13);border:1px solid rgba(201,164,92,.45);color:var(--gold-2);border-radius:999px;padding:6px 16px;font-size:.83rem;font-weight:600}
+.hero-badge i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
+.hero h1{font-size:2.9rem;line-height:1.3;font-weight:900;margin:22px 0 14px}
+.hero h1 em{font-style:normal;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--ink-2);font-size:1.1rem;margin:0 0 30px;max-width:620px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;margin-top:52px;border:1px solid rgba(255,255,255,.13);border-radius:16px;background:rgba(10,11,16,.55);backdrop-filter:blur(8px);overflow:hidden;max-width:760px}
+.hero-stats div{flex:1 1 150px;padding:16px 20px;border-inline-end:1px solid rgba(255,255,255,.09)}
+.hero-stats div:last-child{border-inline-end:none}
+.hero-stats b{display:block;font-size:1.35rem;font-weight:800;color:var(--gold-2)}
+.hero-stats span{font-size:.8rem;color:var(--ink-2)}
+
+/* ---------- سکشن‌ها ---------- */
+section.blk{padding:78px 0}
+section.blk.alt{background:var(--bg-2);border-block:1px solid var(--line)}
+.sec-head{max-width:720px;margin-bottom:38px}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-tag{display:inline-block;color:var(--gold);font-weight:700;font-size:.85rem;border:1px solid rgba(201,164,92,.4);background:rgba(201,164,92,.08);padding:4px 14px;border-radius:999px;margin-bottom:14px}
+.sec-head h2{font-size:2rem;font-weight:800;margin:0 0 10px;line-height:1.4}
+.sec-head p{color:var(--ink-2);margin:0}
+.disclaimer{display:flex;gap:10px;align-items:flex-start;background:rgba(201,164,92,.07);border:1px dashed rgba(201,164,92,.45);color:#d9c491;border-radius:13px;padding:12px 16px;font-size:.86rem;margin-top:26px}
+.disclaimer svg{width:19px;height:19px;flex-shrink:0;margin-top:3px;color:var(--gold)}
+
+/* ---------- فیلترها ---------- */
+.filters{display:flex;flex-direction:column;gap:14px;margin-bottom:30px}
+.filter-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filter-row .flabel{font-size:.86rem;color:var(--muted);font-weight:600;min-width:74px}
+.chip{border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);border-radius:999px;padding:7px 18px;font-size:.9rem;font-weight:600;transition:.18s}
+.chip:hover{border-color:var(--gold);color:var(--gold-2)}
+.chip.on{background:var(--gold-grad);color:#171205;border-color:transparent}
+.result-count{color:var(--muted);font-size:.88rem;margin:0 0 18px}
+.result-count b{color:var(--gold-2)}
+
+/* ---------- کارت خودرو ---------- */
+.cars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.car-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.car-card:hover{transform:translateY(-5px);border-color:rgba(201,164,92,.55);box-shadow:var(--shadow)}
+.car-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.car-media img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.car-card:hover .car-media img{transform:scale(1.06)}
+.car-badges{position:absolute;top:12px;inset-inline-start:12px;display:flex;gap:7px}
+.bdg{font-size:.72rem;font-weight:700;border-radius:999px;padding:3px 11px;background:rgba(8,9,12,.78);color:var(--gold-2);border:1px solid rgba(201,164,92,.4);backdrop-filter:blur(4px)}
+.bdg.fuel-ev{background:rgba(24,80,46,.85);color:#9fe8bb;border-color:rgba(63,174,106,.5)}
+.bdg.fuel-hy{background:rgba(21,58,84,.85);color:#a8d8f8;border-color:rgba(90,160,220,.45)}
+.car-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.car-body h3{margin:0;font-size:1.08rem;font-weight:800;line-height:1.5}
+.car-body h3 span{display:block;font-size:.78rem;color:var(--muted);font-weight:500}
+.spec-row{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.82rem;color:var(--ink-2)}
+.spec-row span{display:inline-flex;align-items:center;gap:5px}
+.spec-row svg{width:15px;height:15px;color:var(--gold)}
+.price-box{margin-top:auto;border-top:1px dashed var(--line-2);padding-top:13px;display:flex;flex-direction:column;gap:4px}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.86rem;color:var(--muted)}
+.price-row b{color:var(--ink);font-weight:700}
+.price-row.total b{color:var(--gold-2);font-size:1.14rem;font-weight:800}
+.price-row .usd{color:var(--ink);font-weight:700}
+.car-actions{display:flex;gap:9px;margin-top:6px}
+.car-actions .btn{flex:1}
+.empty-msg{display:none;text-align:center;color:var(--muted);border:1px dashed var(--line-2);border-radius:var(--radius);padding:44px 20px;font-size:1rem}
+.empty-msg.show{display:block}
+</style>
+</head>
+<body>
+<style>
+/* ---------- ماشین‌حساب ---------- */
+.calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.calc-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.calc-card h3{margin:0 0 6px;font-size:1.2rem;font-weight:800}
+.calc-card .sub{color:var(--muted);font-size:.88rem;margin:0 0 22px}
+.fgroup{margin-bottom:17px}
+.fgroup label{display:block;font-size:.88rem;font-weight:600;margin-bottom:7px;color:var(--ink-2)}
+.fgroup label b{color:var(--gold-2)}
+.fgroup input,.fgroup select,.fgroup textarea{width:100%;background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:12px 14px;outline:none;transition:.18s;color:var(--ink)}
+.fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,164,92,.16)}
+.fgroup .hint{font-size:.76rem;color:var(--muted);margin-top:5px}
+.fgroup select option{background:var(--paper);color:var(--ink)}
+.breakdown{display:flex;flex-direction:column}
+.bd-row{display:flex;justify-content:space-between;align-items:baseline;gap:6px 12px;padding:13px 2px;border-bottom:1px dashed var(--line-2);font-size:.95rem;flex-wrap:wrap}
+.bd-row span{color:var(--ink-2)}
+.bd-row span small{display:block;color:var(--muted);font-size:.76rem}
+.bd-row b{font-weight:700;white-space:normal;text-align:left}
+.bd-row.hl{background:rgba(201,164,92,.06);border-radius:10px;padding-inline:10px}
+.bd-total{margin-top:16px;background:var(--gold-grad);color:#171205;border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:8px 14px;flex-wrap:wrap}
+.bd-total span{font-weight:700;font-size:.95rem}
+.bd-total b{font-size:1.42rem;font-weight:900;white-space:nowrap}
+.calc-note{font-size:.8rem;color:var(--muted);margin-top:14px}
+
+/* ---------- تایم‌لاین مراحل ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative}
+.steps::before{content:'';position:absolute;top:31px;inset-inline:8%;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dark),var(--gold),var(--gold-dark),transparent);opacity:.5}
+.step{text-align:center;padding:0 6px;position:relative}
+.step .dot{width:62px;height:62px;margin:0 auto 14px;border-radius:50%;background:var(--paper);border:1px solid rgba(201,164,92,.5);display:grid;place-items:center;color:var(--gold);position:relative;z-index:1}
+.step .dot svg{width:27px;height:27px}
+.step .snum{position:absolute;top:-7px;inset-inline-end:calc(50% - 38px);background:var(--gold-grad);color:#171205;font-size:.7rem;font-weight:800;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;z-index:2}
+.step h3{font-size:1rem;font-weight:800;margin:0 0 6px}
+.step p{font-size:.83rem;color:var(--muted);margin:0;line-height:1.7}
+.step .dur{display:inline-block;margin-top:9px;font-size:.74rem;color:var(--gold-2);border:1px solid rgba(201,164,92,.35);border-radius:999px;padding:2px 11px}
+
+/* ---------- صادرات ---------- */
+.export-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.exp-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.22s}
+.exp-card:hover{border-color:rgba(201,164,92,.5);transform:translateY(-4px)}
+.exp-card .eic{width:54px;height:54px;border-radius:15px;background:rgba(201,164,92,.12);border:1px solid rgba(201,164,92,.35);display:grid;place-items:center;color:var(--gold);margin-bottom:16px}
+.exp-card .eic svg{width:27px;height:27px}
+.exp-card h3{margin:0 0 8px;font-size:1.08rem;font-weight:800}
+.exp-card p{margin:0;color:var(--ink-2);font-size:.92rem}
+.exp-card ul{margin:13px 0 0;padding:0;list-style:none}
+.exp-card li{font-size:.87rem;color:var(--ink-2);padding:5px 0;display:flex;gap:8px;align-items:flex-start}
+.exp-card li svg{width:16px;height:16px;color:var(--gold);margin-top:5px}
+.routes{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+.routes span{border:1px solid var(--line-2);background:var(--bg-2);border-radius:999px;padding:6px 16px;font-size:.85rem;color:var(--ink-2)}
+.routes span b{color:var(--gold-2);font-weight:700}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:860px;margin-inline:auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--paper);border:1px solid var(--line);border-radius:15px;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:start;padding:17px 20px;font-weight:700;font-size:.99rem}
+.faq-q svg{width:20px;height:20px;color:var(--gold);transition:.25s;flex-shrink:0}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{margin:0;padding:0 20px 18px;color:var(--ink-2);font-size:.93rem}
+
+/* ---------- CTA ---------- */
+.cta-band{background:linear-gradient(120deg,#181a21,#101116);border:1px solid rgba(201,164,92,.35);border-radius:24px;padding:44px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.cta-band h2{margin:0 0 8px;font-size:1.6rem;font-weight:800}
+.cta-band p{margin:0;color:var(--ink-2)}
+.cta-band .btn{margin-inline-start:auto}
+
+/* ---------- فوتر ---------- */
+footer{background:#05060a;border-top:1px solid var(--line);padding:52px 0 30px;margin-top:0}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;margin-bottom:36px}
+.foot-grid h4{margin:0 0 14px;font-size:1rem;font-weight:800;color:var(--ink)}
+.foot-grid p,.foot-grid a{color:var(--muted);font-size:.9rem}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.foot-grid a:hover{color:var(--gold-2)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.82rem}
+
+/* ---------- مودال استعلام ---------- */
+.modal-back{position:fixed;inset:0;background:rgba(3,4,6,.78);backdrop-filter:blur(5px);z-index:200;display:none;align-items:center;justify-content:center;padding:18px}
+.modal-back.open{display:flex}
+.modal{background:var(--paper-2);border:1px solid var(--line-2);border-radius:22px;max-width:520px;width:100%;max-height:92vh;overflow:auto;box-shadow:var(--shadow-lg);animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.96) translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.modal-head{display:flex;gap:15px;padding:20px 22px;border-bottom:1px solid var(--line);align-items:center}
+.modal-head img{width:104px;height:70px;object-fit:cover;border-radius:11px}
+.modal-head h3{margin:0;font-size:1.08rem;font-weight:800;line-height:1.5}
+.modal-head p{margin:2px 0 0;color:var(--muted);font-size:.83rem}
+.modal-x{margin-inline-start:auto;width:38px;height:38px;border-radius:11px;border:1px solid var(--line-2);display:grid;place-items:center;flex-shrink:0}
+.modal-x svg{width:18px;height:18px}
+.modal-body{padding:22px}
+.modal-body textarea{resize:vertical;min-height:74px}
+.form-err{display:none;background:rgba(217,95,75,.12);border:1px solid rgba(217,95,75,.5);color:#f0a294;border-radius:11px;padding:10px 14px;font-size:.86rem;margin-bottom:15px}
+.form-err.show{display:block}
+.success-box{display:none;text-align:center;padding:10px 4px 4px}
+.success-box.show{display:block}
+.success-box .sic{width:70px;height:70px;margin:0 auto 16px;border-radius:50%;background:rgba(63,174,106,.14);border:1px solid rgba(63,174,106,.5);display:grid;place-items:center;color:var(--green)}
+.success-box .sic svg{width:34px;height:34px}
+.success-box h3{margin:0 0 8px;font-size:1.2rem;font-weight:800}
+.success-box p{color:var(--ink-2);font-size:.92rem;margin:0 0 16px}
+.code-box{background:var(--bg-2);border:1px dashed rgba(201,164,92,.55);border-radius:13px;padding:13px;font-size:1.05rem}
+.code-box span{display:block;font-size:.76rem;color:var(--muted);margin-bottom:3px}
+.code-box b{color:var(--gold-2);letter-spacing:1px}
+
+/* ---------- ریسپانسیو ---------- */
+@media(max-width:1120px){
+  .cars-grid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr);gap:26px 14px}
+  .steps::before{display:none}
+  nav.main{display:none}
+  .burger{display:grid}
+  .header-cta{display:none}
+}
+@media(max-width:860px){
+  .cars-grid{grid-template-columns:repeat(2,1fr)}
+  .calc-wrap{grid-template-columns:1fr}
+  .export-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:2.2rem}
+  .hero-in{padding:64px 0 60px}
+  section.blk{padding:56px 0}
+  .cta-band{padding:32px 24px}
+  .cta-band .btn{margin-inline-start:0}
+}
+@media(max-width:560px){
+  .cars-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:20px}
+  .step{display:flex;text-align:start;gap:15px;align-items:flex-start}
+  .step .dot{margin:0;flex-shrink:0}
+  .step .snum{inset-inline-end:auto;inset-inline-start:44px;top:-6px}
+  .foot-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.85rem}
+  .hero-stats div{flex:1 1 44%}
+  .modal-head img{width:82px;height:56px}
+  .topbar nav{display:none}
+}
+</style>
+
+<div class="topbar">
+  <div class="container">
+    <div>نرخ دلار محاسباتی امروز: <b class="num">۶۵٬۰۰۰ تومان</b> — قابل ویرایش در ماشین‌حساب</div>
+    <nav>
+      <a href="#import">واردات خودرو</a>
+      <a href="#export">صادرات</a>
+      <a href="#faq">سوالات متداول</a>
+    </nav>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container header-in">
+    <a class="logo" href="#">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 5.2 7.9A2 2 0 0 1 7.1 6.5h9.8a2 2 0 0 1 1.9 1.4L21 13.5"/><path d="M3 13.5h18a1 1 0 0 1 1 1V17a1 1 0 0 1-1 1h-1.2"/><path d="M2 14.5V17a1 1 0 0 0 1 1h1.2"/><circle cx="7" cy="18" r="1.9"/><circle cx="17" cy="18" r="1.9"/><path d="M8.9 18h6.2"/></svg></span>
+      <span class="logo-text"><b>پارس خودرو تجارت</b><span>واردات و صادرات خودرو</span></span>
+    </a>
+    <nav class="main">
+      <a href="#import">خودروهای وارداتی</a>
+      <a href="#calc">ماشین‌حساب هزینه واردات</a>
+      <a href="#process">مراحل کار</a>
+      <a href="#export">صادرات</a>
+      <a href="#faq">سوالات متداول</a>
+    </nav>
+    <a class="btn btn-gold btn-sm header-cta" href="#calc">محاسبه هزینه واردات</a>
+    <button class="burger" id="burgerBtn" aria-label="منو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="22" height="22"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#import">خودروهای وارداتی</a>
+    <a href="#calc">ماشین‌حساب هزینه واردات</a>
+    <a href="#process">مراحل کار</a>
+    <a href="#export">صادرات</a>
+    <a href="#faq">سوالات متداول</a>
+  </div>
+</header>
+
+<!-- ================= هیرو ================= -->
+<div class="hero">
+  <div class="hero-bg"><img src="assets/img/hero.jpg" alt="مرسدس بنز S کلاس — خودروی لوکس وارداتی"></div>
+  <div class="hero-shade"></div>
+  <div class="container hero-in">
+    <span class="hero-badge"><i></i> واردات مستقیم از امارات، کره، چین و آلمان</span>
+    <h1>خودروی دلخواهتان را <em>مستقیم و بدون واسطه</em> وارد کنید</h1>
+    <p class="lead">از انتخاب و خرید در مبدا تا حمل، ترخیص گمرکی، شماره‌گذاری و تحویل در تهران؛ همه مراحل واردات خودرو زیر نظر یک تیم و با برآورد شفاف هزینه، قبل از امضای قرارداد.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#import">مشاهده خودروهای وارداتی</a>
+      <a class="btn btn-ghost" href="#calc">محاسبه هزینه واردات</a>
+    </div>
+    <div class="hero-stats">
+      <div><b class="num">۱۲+ سال</b><span>تجربه بازرگانی خودرو</span></div>
+      <div><b class="num">۴۵۰+ دستگاه</b><span>خودروی تحویل‌شده</span></div>
+      <div><b class="num">۴ کشور</b><span>مبدا خرید مستقیم</span></div>
+      <div><b class="num">۴۵ روز</b><span>میانگین زمان تحویل</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= واردات / کاتالوگ ================= -->
+<section class="blk" id="import">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">کاتالوگ واردات</span>
+      <h2>خودروهای قابل واردات</h2>
+      <p>قیمت مبدا به دلار و قیمت تمام‌شده تخمینی به تومان برای هر خودرو نمایش داده شده است. برای هر مدل می‌توانید درخواست استعلام ثبت کنید یا همان خودرو را مستقیم در ماشین‌حساب بررسی کنید.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-row" id="originFilters">
+        <span class="flabel">کشور مبدا:</span>
+        <button class="chip on" data-origin="all">همه</button>
+        <button class="chip" data-origin="امارات">امارات</button>
+        <button class="chip" data-origin="کره">کره</button>
+        <button class="chip" data-origin="چین">چین</button>
+        <button class="chip" data-origin="آلمان">آلمان</button>
+      </div>
+      <div class="filter-row" id="fuelFilters">
+        <span class="flabel">نوع سوخت:</span>
+        <button class="chip on" data-fuel="all">همه</button>
+        <button class="chip" data-fuel="بنزینی">بنزینی</button>
+        <button class="chip" data-fuel="هیبرید">هیبرید</button>
+        <button class="chip" data-fuel="برقی">برقی</button>
+      </div>
+    </div>
+
+    <p class="result-count" id="resultCount"></p>
+    <div class="cars-grid" id="carsGrid"></div>
+    <div class="empty-msg" id="emptyMsg">خودرویی با این فیلترها یافت نشد؛ فیلترها را تغییر دهید.</div>
+
+    <div class="disclaimer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+      <div>قیمت‌های تمام‌شده، <b>برآورد نمونه بر اساس تعرفه‌های تقریبی</b> و نرخ دلار محاسباتی ۶۵٬۰۰۰ تومان هستند و جنبه نمایشی دارند. مبلغ نهایی هر خودرو پس از استعلام رسمی از مبدا و گمرک اعلام می‌شود.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ماشین‌حساب ================= -->
+<section class="blk alt" id="calc">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">برآورد شفاف هزینه</span>
+      <h2>ماشین‌حساب هزینه واردات خودرو</h2>
+      <p>قیمت خودرو و نرخ دلار را وارد کنید تا ریز هزینه تمام‌شده — از عوارض گمرکی تا سود خدمات — به‌صورت زنده محاسبه شود.</p>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-card">
+        <h3>مشخصات خودرو</h3>
+        <p class="sub">با تغییر هر مقدار، نتیجه بلافاصله به‌روز می‌شود.</p>
+        <div class="fgroup">
+          <label for="calcUsd">قیمت خودرو در مبدا (دلار)</label>
+          <input type="number" id="calcUsd" value="30000" min="0" step="100" inputmode="numeric">
+        </div>
+        <div class="fgroup">
+          <label for="calcRate">نرخ دلار (تومان) — <b>قابل ویرایش</b></label>
+          <input type="number" id="calcRate" value="65000" min="0" step="500" inputmode="numeric">
+          <div class="hint">نرخ محاسباتی روز را می‌توانید مطابق نرخ بازار تغییر دهید.</div>
+        </div>
+        <div class="fgroup">
+          <label for="calcEngine">نوع قوای محرکه و حجم موتور</label>
+          <select id="calcEngine">
+            <option value="0.04">برقی — عوارض تقریبی ۴٪</option>
+            <option value="0.15">هیبرید — عوارض تقریبی ۱۵٪</option>
+            <option value="0.55">بنزینی تا ۱۵۰۰ سی‌سی — عوارض تقریبی ۵۵٪</option>
+            <option value="0.75" selected>بنزینی ۱۵۰۱ تا ۲۰۰۰ سی‌سی — عوارض تقریبی ۷۵٪</option>
+            <option value="0.95">بنزینی ۲۰۰۱ تا ۲۵۰۰ سی‌سی — عوارض تقریبی ۹۵٪</option>
+            <option value="1.15">بنزینی ۲۵۰۱ تا ۳۰۰۰ سی‌سی — عوارض تقریبی ۱۱۵٪</option>
+            <option value="1.35">بنزینی بالای ۳۰۰۰ سی‌سی — عوارض تقریبی ۱۳۵٪</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label for="calcShip">هزینه حمل و ترخیص (تومان)</label>
+          <input type="number" id="calcShip" value="180000000" min="0" step="1000000" inputmode="numeric">
+          <div class="hint">شامل حمل دریایی/زمینی، بیمه بار، انبارداری و کارمزد ترخیص‌کار.</div>
+        </div>
+      </div>
+      <div class="calc-card">
+        <h3>ریز هزینه تمام‌شده</h3>
+        <p class="sub">برآورد نمونه بر اساس تعرفه‌های تقریبی</p>
+        <div class="breakdown">
+          <div class="bd-row"><span>قیمت خودرو<small id="bdBaseDetail">—</small></span><b class="num" id="outBase">—</b></div>
+          <div class="bd-row"><span>عوارض و حقوق گمرکی<small id="outDutyPct">—</small></span><b class="num" id="outDuty">—</b></div>
+          <div class="bd-row"><span>حمل، بیمه و ترخیص</span><b class="num" id="outShip">—</b></div>
+          <div class="bd-row hl"><span>سود خدمات بازرگانی<small>۵٪ از مجموع قیمت و عوارض</small></span><b class="num" id="outService">—</b></div>
+        </div>
+        <div class="bd-total"><span>قیمت تمام‌شده تخمینی</span><b class="num" id="outTotal">—</b></div>
+        <p class="calc-note">این محاسبه صرفاً یک برآورد نمونه بر اساس تعرفه‌های تقریبی است؛ هزینه‌هایی مانند عوارض شماره‌گذاری، مالیات و هزینه‌های بندری ممکن است جداگانه اعمال شوند. برای عدد قطعی، درخواست استعلام ثبت کنید.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= مراحل ================= -->
+<section class="blk" id="process">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="sec-tag">مسیر واردات</span>
+      <h2>از انتخاب تا تحویل، در ۵ گام</h2>
+      <p>در تمام مراحل، وضعیت پرونده خودروی شما به‌صورت شفاف گزارش می‌شود.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="snum">۱</span>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg></div>
+        <h3>انتخاب و خرید</h3>
+        <p>انتخاب خودرو از کاتالوگ یا سفارش مدل خاص، بازرسی در مبدا و خرید با قرارداد رسمی.</p>
+        <span class="dur">۲ تا ۴ روز</span>
+      </div>
+      <div class="step">
+        <span class="snum">۲</span>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 4.5 21h15L21 17.5"/><path d="M2 17.5h20"/><path d="M12 17.5V8"/><path d="M12 8 6 12.5M12 8l6 4.5"/><path d="M8 5.5h8"/></svg></div>
+        <h3>حمل بین‌المللی</h3>
+        <p>حمل دریایی یا زمینی با بیمه بار کامل تا بنادر و گمرکات کشور.</p>
+        <span class="dur">۱۵ تا ۳۰ روز</span>
+      </div>
+      <div class="step">
+        <span class="snum">۳</span>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="m9.5 14.5 2 2 3.5-4"/></svg></div>
+        <h3>گمرک و ترخیص</h3>
+        <p>ثبت سفارش، اظهار و ترخیص خودرو با پرداخت عوارض و حقوق گمرکی.</p>
+        <span class="dur">۷ تا ۱۲ روز</span>
+      </div>
+      <div class="step">
+        <span class="snum">۴</span>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 12h4M14 10.5h3M14 13.5h3"/></svg></div>
+        <h3>شماره‌گذاری</h3>
+        <p>اخذ تأییدیه‌های استاندارد و محیط‌زیست و شماره‌گذاری با پلاک ملی.</p>
+        <span class="dur">۵ تا ۱۰ روز</span>
+      </div>
+      <div class="step">
+        <span class="snum">۵</span>
+        <div class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></svg></div>
+        <h3>تحویل</h3>
+        <p>تحویل خودرو با سند و مدارک کامل در تهران یا شهر مقصد شما.</p>
+        <span class="dur">۱ روز</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= صادرات ================= -->
+<section class="blk alt" id="export">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-tag">صادرات</span>
+      <h2>صادرات خودرو و قطعات به منطقه</h2>
+      <p>علاوه بر واردات، خدمات صادرات خودروهای داخلی و قطعات یدکی به بازارهای منطقه را با اسناد کامل گمرکی انجام می‌دهیم.</p>
+    </div>
+    <div class="export-grid">
+      <div class="exp-card">
+        <div class="eic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 5.2 7.9A2 2 0 0 1 7.1 6.5h9.8a2 2 0 0 1 1.9 1.4L21 13.5"/><path d="M3 13.5h18v3.5h-1.5"/><circle cx="7" cy="18" r="1.9"/><circle cx="17" cy="18" r="1.9"/></svg></div>
+        <h3>صادرات خودرو</h3>
+        <p>فروش و ارسال خودروهای داخلی و مونتاژی به بازارهای همسایه با بسته‌بندی و حمل ایمن.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m4 12.5 5 5L20 6.5"/></svg>اظهارنامه و اسناد صادراتی کامل</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m4 12.5 5 5L20 6.5"/></svg>حمل زمینی و دریایی بیمه‌شده</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="eic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1"/></svg></div>
+        <h3>صادرات قطعات یدکی</h3>
+        <p>تأمین و صادرات قطعات اصلی و مصرفی خودروهای داخلی برای توزیع‌کنندگان منطقه.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m4 12.5 5 5L20 6.5"/></svg>تجمیع بار و ارسال گروهی</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m4 12.5 5 5L20 6.5"/></svg>گواهی مبدا و بازرسی کیفیت</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="eic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg></div>
+        <h3>ترانزیت و لجستیک</h3>
+        <p>ترانزیت خودرو از مسیر ایران و مدیریت کامل زنجیره تأمین برای بازرگانان دو طرف.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m4 12.5 5 5L20 6.5"/></svg>رهگیری لحظه‌ای محموله</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m4 12.5 5 5L20 6.5"/></svg>انبارداری در مناطق آزاد</li>
+        </ul>
+      </div>
+    </div>
+    <div class="routes">
+      <span>مسیرهای فعال:</span>
+      <span><b>عراق</b> — اربیل و بغداد</span>
+      <span><b>امارات</b> — دبی و شارجه</span>
+      <span><b>عمان</b> — مسقط</span>
+      <span><b>قطر</b> — دوحه</span>
+      <span><b>روسیه</b> — آستاراخان</span>
+      <span><b>ارمنستان و گرجستان</b></span>
+      <span><b>افغانستان</b> — هرات</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="blk" id="faq">
+  <div class="container">
+    <div class="sec-head center">
+      <span class="sec-tag">پاسخ پرسش‌ها</span>
+      <h2>سوالات متداول</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">واردات یک خودرو چقدر طول می‌کشد؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>بسته به کشور مبدا، کل فرایند از خرید تا تحویل معمولاً بین ۳۵ تا ۵۵ روز کاری طول می‌کشد. خودروهای موجود در امارات سریع‌تر و سفارش‌های اروپا و کره معمولاً دیرتر به دست مشتری می‌رسند.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">آیا می‌توانم مدلی خارج از کاتالوگ سفارش دهم؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>بله؛ کافی است مدل، سال ساخت و تیپ موردنظرتان را در فرم استعلام بنویسید. امکان خرید از مزایده‌ها و نمایشگاه‌های امارات، کره، چین و آلمان بررسی و نتیجه همراه با برآورد هزینه اعلام می‌شود.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">هزینه‌های ماشین‌حساب چقدر دقیق است؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>ماشین‌حساب یک برآورد نمونه بر اساس تعرفه‌های تقریبی است تا دید کلی از هزینه تمام‌شده داشته باشید. مبلغ قطعی پس از استعلام رسمی قیمت مبدا، نرخ روز ارز و تعرفه گمرکی زمان ترخیص محاسبه و در پیش‌فاکتور درج می‌شود.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">پرداخت به چه صورت انجام می‌شود؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>پرداخت به‌صورت مرحله‌ای و مطابق پیشرفت کار انجام می‌شود: بخشی هنگام عقد قرارداد و خرید، بخشی پس از بارگیری و مابقی هنگام ترخیص و تحویل خودرو؛ همه پرداخت‌ها در برابر اسناد رسمی ثبت می‌شوند.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">خودروهای برقی و هیبرید هم وارد می‌کنید؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="faq-a"><p>بله؛ خودروهای هیبرید و برقی به‌دلیل تعرفه گمرکی پایین‌تر، از اقتصادی‌ترین گزینه‌های واردات هستند. در کاتالوگ می‌توانید با فیلتر «نوع سوخت» این مدل‌ها را جدا کنید و هزینه تمام‌شده آن‌ها را مقایسه کنید.</p></div>
+      </div>
+    </div>
+
+    <div class="cta-band" style="margin-top:52px">
+      <div>
+        <h2>مدل خاصی مدنظرتان است؟</h2>
+        <p>درخواست استعلام ثبت کنید تا قیمت و زمان تحویل دقیق آن را بررسی کنیم.</p>
+      </div>
+      <a class="btn btn-gold" href="#import">ثبت درخواست استعلام</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= فوتر ================= -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#" style="margin-bottom:16px">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.5 5.2 7.9A2 2 0 0 1 7.1 6.5h9.8a2 2 0 0 1 1.9 1.4L21 13.5"/><path d="M3 13.5h18a1 1 0 0 1 1 1V17a1 1 0 0 1-1 1h-1.2"/><path d="M2 14.5V17a1 1 0 0 0 1 1h1.2"/><circle cx="7" cy="18" r="1.9"/><circle cx="17" cy="18" r="1.9"/><path d="M8.9 18h6.2"/></svg></span>
+          <span class="logo-text"><b>پارس خودرو تجارت</b><span>واردات و صادرات خودرو</span></span>
+        </a>
+        <p>شرکت بازرگانی تخصصی واردات و صادرات خودرو؛ خرید مستقیم از امارات، کره، چین و آلمان، ترخیص و شماره‌گذاری تا تحویل نهایی.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#import">خودروهای وارداتی</a></li>
+          <li><a href="#calc">ماشین‌حساب هزینه واردات</a></li>
+          <li><a href="#process">مراحل واردات</a></li>
+          <li><a href="#export">خدمات صادرات</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>مبادی خرید</h4>
+        <ul>
+          <li><a href="#import">امارات — دبی و شارجه</a></li>
+          <li><a href="#import">کره جنوبی — اینچئون</a></li>
+          <li><a href="#import">چین — گوانگژو و شانگهای</a></li>
+          <li><a href="#import">آلمان — هامبورگ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© ۱۴۰۳ پارس خودرو تجارت — تمامی حقوق محفوظ است.</span>
+      <span>این صفحه یک دموی نمونه‌کار است و قیمت‌ها جنبه نمایشی دارند.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= مودال استعلام ================= -->
+<div class="modal-back" id="inquiryModal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-head">
+      <img id="inqImg" src="" alt="">
+      <div>
+        <h3 id="inqTitle">درخواست استعلام</h3>
+        <p id="inqSub">—</p>
+      </div>
+      <button class="modal-x" id="inqClose" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <form id="inqForm" novalidate>
+        <div class="form-err" id="inqErr"></div>
+        <div class="fgroup">
+          <label for="inqName">نام و نام خانوادگی</label>
+          <input type="text" id="inqName" placeholder="مثلاً علی رضایی" autocomplete="name">
+        </div>
+        <div class="fgroup">
+          <label for="inqMobile">شماره موبایل</label>
+          <input type="tel" id="inqMobile" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="fgroup">
+          <label for="inqMsg">توضیحات (اختیاری)</label>
+          <textarea id="inqMsg" placeholder="رنگ، تیپ یا شرایط خاص موردنظرتان را بنویسید…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%">ثبت درخواست استعلام</button>
+        <p class="calc-note" style="text-align:center">پاسخ استعلام معمولاً حداکثر ظرف یک روز کاری ارسال می‌شود.</p>
+      </form>
+      <div class="success-box" id="inqSuccess">
+        <div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></svg></div>
+        <h3>درخواست شما ثبت شد</h3>
+        <p>کارشناسان فروش پس از بررسی موجودی و قیمت روز مبدا، نتیجه استعلام را برایتان ارسال می‌کنند.</p>
+        <div class="code-box"><span>کد پیگیری درخواست</span><b class="ltr" id="inqCode">PKT-000000</b></div>
+        <button class="btn btn-ghost" id="inqDone" style="margin-top:18px;width:100%">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= داده خودروها ================= */
+const DEFAULT_RATE = 65000;
+const SERVICE_PCT = 0.05;
+const CARS = [
+  {id:'landcruiser', name:'تویوتا لندکروزر VXR', en:'Toyota Land Cruiser 300', year:2024, origin:'امارات', fuel:'بنزینی', engine:3500, usd:97500, ship:150000000, img:'assets/img/landcruiser.jpg'},
+  {id:'patrol', name:'نیسان پاترول پلاتینیوم', en:'Nissan Patrol Y63', year:2025, origin:'امارات', fuel:'بنزینی', engine:3500, usd:78500, ship:150000000, img:'assets/img/patrol.jpg'},
+  {id:'bmwx5', name:'ب‌ام‌و X5 xDrive40i', en:'BMW X5 G05', year:2024, origin:'آلمان', fuel:'بنزینی', engine:3000, usd:69500, ship:380000000, img:'assets/img/bmwx5.jpg'},
+  {id:'rav4', name:'تویوتا راو۴ هیبرید', en:'Toyota RAV4 Hybrid', year:2025, origin:'امارات', fuel:'هیبرید', engine:2500, usd:36800, ship:150000000, img:'assets/img/rav4.jpg'},
+  {id:'sorento', name:'کیا سورنتو هیبرید', en:'Kia Sorento Hybrid', year:2024, origin:'کره', fuel:'هیبرید', engine:1600, usd:39200, ship:260000000, img:'assets/img/sorento.jpg'},
+  {id:'tucson', name:'هیوندای توسان', en:'Hyundai Tucson NX4', year:2024, origin:'کره', fuel:'بنزینی', engine:2000, usd:28900, ship:260000000, img:'assets/img/tucson.jpg'},
+  {id:'bydhan', name:'بی‌وای‌دی هان EV', en:'BYD Han EV', year:2024, origin:'چین', fuel:'برقی', engine:0, usd:37900, ship:230000000, img:'assets/img/bydhan.jpg'},
+  {id:'unik', name:'چانگان UNI-K', en:'Changan UNI-K', year:2024, origin:'چین', fuel:'بنزینی', engine:2000, usd:23500, ship:230000000, img:'assets/img/unik.jpg'}
+];
+
+/* ================= ابزار قالب‌بندی ================= */
+const faNum = n => Math.round(n).toLocaleString('fa-IR');
+const faInt = n => n.toLocaleString('fa-IR');
+const usdNum = n => '$' + n.toLocaleString('en-US');
+
+function dutyRate(fuel, engine){
+  if(fuel === 'برقی') return 0.04;
+  if(fuel === 'هیبرید') return 0.15;
+  if(engine <= 1500) return 0.55;
+  if(engine <= 2000) return 0.75;
+  if(engine <= 2500) return 0.95;
+  if(engine <= 3000) return 1.15;
+  return 1.35;
+}
+function dutyBandValue(fuel, engine){
+  return String(dutyRate(fuel, engine));
+}
+function landedCost(usd, rate, duty, ship){
+  const base = usd * rate;
+  const dutyAmt = base * duty;
+  const service = (base + dutyAmt) * SERVICE_PCT;
+  return {base, dutyAmt, ship, service, total: base + dutyAmt + ship + service};
+}
+
+/* ================= رندر کاتالوگ ================= */
+const grid = document.getElementById('carsGrid');
+const specIco = {
+  year:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  origin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg>',
+  engine:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V6h6v3"/><path d="M5 9h14v9H5z"/><path d="M9 18v2M15 18v2M19 12h2M3 12h2"/></svg>',
+  fuel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v15"/><path d="M3 21h14"/><path d="M15 10h2a2 2 0 0 1 2 2v4a1.5 1.5 0 0 0 3 0V9.5L19.5 6"/><path d="M8 8h4"/></svg>'
+};
+function renderCars(){
+  grid.innerHTML = CARS.map(car => {
+    const d = dutyRate(car.fuel, car.engine);
+    const cost = landedCost(car.usd, DEFAULT_RATE, d, car.ship);
+    const fuelCls = car.fuel === 'برقی' ? ' fuel-ev' : (car.fuel === 'هیبرید' ? ' fuel-hy' : '');
+    const engTxt = car.fuel === 'برقی' ? 'تمام‌برقی' : faInt(car.engine) + ' سی‌سی';
+    return `<article class="car-card" data-origin="${car.origin}" data-fuel="${car.fuel}">
+      <div class="car-media">
+        <img src="${car.img}" alt="${car.name}" loading="lazy">
+        <div class="car-badges"><span class="bdg">${car.origin}</span><span class="bdg${fuelCls}">${car.fuel}</span></div>
+      </div>
+      <div class="car-body">
+        <h3>${car.name}<span class="ltr">${car.en}</span></h3>
+        <div class="spec-row">
+          <span>${specIco.year} مدل ${faInt(car.year)}</span>
+          <span>${specIco.origin} مبدا ${car.origin}</span>
+          <span>${specIco.engine} ${engTxt}</span>
+          <span>${specIco.fuel} ${car.fuel}</span>
+        </div>
+        <div class="price-box">
+          <div class="price-row"><span>قیمت مبدا</span><b class="usd ltr">${usdNum(car.usd)}</b></div>
+          <div class="price-row total"><span>تمام‌شده تخمینی</span><b class="num">${faNum(cost.total)} تومان</b></div>
+        </div>
+        <div class="car-actions">
+          <button class="btn btn-gold btn-sm" data-inquiry="${car.id}">درخواست استعلام</button>
+          <button class="btn btn-ghost btn-sm" data-calc="${car.id}">محاسبه هزینه</button>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+renderCars();
+
+/* ================= فیلترها ================= */
+let fOrigin = 'all', fFuel = 'all';
+function applyFilters(){
+  let visible = 0;
+  document.querySelectorAll('.car-card').forEach(card => {
+    const ok = (fOrigin === 'all' || card.dataset.origin === fOrigin) && (fFuel === 'all' || card.dataset.fuel === fFuel);
+    card.style.display = ok ? '' : 'none';
+    if(ok) visible++;
+  });
+  document.getElementById('resultCount').innerHTML = 'نمایش <b>' + faInt(visible) + '</b> خودرو از ' + faInt(CARS.length) + ' مدل قابل واردات';
+  document.getElementById('emptyMsg').classList.toggle('show', visible === 0);
+}
+function wireFilters(id, attr, set){
+  document.querySelectorAll('#' + id + ' .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#' + id + ' .chip').forEach(c => c.classList.remove('on'));
+      chip.classList.add('on');
+      set(chip.dataset[attr]);
+      applyFilters();
+    });
+  });
+}
+wireFilters('originFilters', 'origin', v => fOrigin = v);
+wireFilters('fuelFilters', 'fuel', v => fFuel = v);
+applyFilters();
+
+/* ================= ماشین‌حساب ================= */
+const $ = id => document.getElementById(id);
+function runCalc(){
+  const usd = parseFloat($('calcUsd').value) || 0;
+  const rate = parseFloat($('calcRate').value) || 0;
+  const duty = parseFloat($('calcEngine').value) || 0;
+  const ship = parseFloat($('calcShip').value) || 0;
+  const c = landedCost(usd, rate, duty, ship);
+  $('outBase').textContent = faNum(c.base) + ' تومان';
+  $('bdBaseDetail').textContent = usdNum(usd) + ' × ' + faNum(rate) + ' تومان';
+  $('outDuty').textContent = faNum(c.dutyAmt) + ' تومان';
+  $('outDutyPct').textContent = 'نرخ عوارض انتخاب‌شده: ' + faNum(duty * 100) + '٪ از قیمت خودرو';
+  $('outShip').textContent = faNum(c.ship) + ' تومان';
+  $('outService').textContent = faNum(c.service) + ' تومان';
+  $('outTotal').textContent = faNum(c.total) + ' تومان';
+}
+['calcUsd','calcRate','calcEngine','calcShip'].forEach(id => {
+  $(id).addEventListener('input', runCalc);
+  $(id).addEventListener('change', runCalc);
+});
+runCalc();
+
+/* دکمه «محاسبه هزینه» هر خودرو: پیش‌پر کردن ماشین‌حساب */
+document.querySelectorAll('[data-calc]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const car = CARS.find(c => c.id === btn.dataset.calc);
+    if(!car) return;
+    $('calcUsd').value = car.usd;
+    $('calcShip').value = car.ship;
+    const band = dutyBandValue(car.fuel, car.engine);
+    const sel = $('calcEngine');
+    for(let i = 0; i < sel.options.length; i++){
+      if(sel.options[i].value === band){ sel.selectedIndex = i; break; }
+    }
+    runCalc();
+    document.getElementById('calc').scrollIntoView({behavior:'smooth'});
+  });
+});
+
+/* ================= مودال استعلام ================= */
+const modal = $('inquiryModal');
+let currentCar = null;
+function openInquiry(car){
+  currentCar = car;
+  $('inqImg').src = car.img;
+  $('inqImg').alt = car.name;
+  $('inqTitle').textContent = 'استعلام ' + car.name;
+  $('inqSub').textContent = 'مدل ' + faInt(car.year) + ' — مبدا ' + car.origin + ' — قیمت مبدا ' + usdNum(car.usd);
+  $('inqForm').style.display = '';
+  $('inqSuccess').classList.remove('show');
+  $('inqErr').classList.remove('show');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInquiry(){
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('[data-inquiry]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const car = CARS.find(c => c.id === btn.dataset.inquiry);
+    if(car) openInquiry(car);
+  });
+});
+$('inqClose').addEventListener('click', closeInquiry);
+$('inqDone').addEventListener('click', closeInquiry);
+modal.addEventListener('click', e => { if(e.target === modal) closeInquiry(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeInquiry(); });
+
+function toEnDigits(s){
+  return s.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+}
+$('inqForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = $('inqName').value.trim();
+  const mobile = toEnDigits($('inqMobile').value.trim());
+  const err = $('inqErr');
+  if(name.length < 3){
+    err.textContent = 'لطفاً نام و نام خانوادگی را کامل وارد کنید.';
+    err.classList.add('show'); return;
+  }
+  if(!/^09\d{9}$/.test(mobile)){
+    err.textContent = 'شماره موبایل معتبر نیست؛ شماره باید ۱۱ رقمی و با ۰۹ شروع شود.';
+    err.classList.add('show'); return;
+  }
+  err.classList.remove('show');
+  const code = 'PKT-' + Math.floor(100000 + Math.random() * 900000);
+  $('inqCode').textContent = code;
+  $('inqForm').style.display = 'none';
+  $('inqSuccess').classList.add('show');
+  try{
+    const prev = JSON.parse(localStorage.getItem('pkt_inquiries') || '[]');
+    prev.push({code, car: currentCar ? currentCar.id : '', name, mobile, msg: $('inqMsg').value.trim(), at: Date.now()});
+    localStorage.setItem('pkt_inquiries', JSON.stringify(prev));
+  }catch(_){/* ذخیره‌سازی اختیاری است */}
+});
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = '0px';
+    });
+    if(!open){
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ================= منوی موبایل ================= */
+$('burgerBtn').addEventListener('click', () => $('mobileNav').classList.toggle('open'));
+document.querySelectorAll('#mobileNav a').forEach(a => a.addEventListener('click', () => $('mobileNav').classList.remove('open')));
+</script>
+</body>
+</html>
