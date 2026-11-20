@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رویان — فروشگاه تخصصی مراقبت پوست با امکانات سفارشی</title>
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAF6EF;--ink:#2E2226;--mut:#8A7B72;--acc:#A05244;--accD:#843E33;--sage:#75805E;--sageD:#5C6849;--gold:#C79A5B;--line:#EADFD2;--card:#fff;--soft:#F5E9E0;--ok:#2E7D4F;--err:#B3372B}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit}
+a{color:inherit;text-decoration:none}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1280px;margin:auto;padding:0 22px}
+/* top bar */
+.topbar{background:var(--sageD);color:#F2F0E4;text-align:center;padding:8px 12px;font-size:13px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.topbar b{color:#EFD9A7}
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(250,246,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hwrap{max-width:1280px;margin:auto;display:flex;align-items:center;gap:22px;padding:13px 22px}
+.logo{font-size:29px;font-weight:800;letter-spacing:-.5px}
+.logo em{font-style:normal;color:var(--acc)}
+.logo small{display:block;font-size:11px;font-weight:500;color:var(--mut);letter-spacing:.4px}
+nav.main{display:flex;gap:22px;margin-inline-start:8px;font-size:14.5px;font-weight:500}
+nav.main a{opacity:.85;padding:4px 2px;border-bottom:2px solid transparent}
+nav.main a:hover{opacity:1;color:var(--acc);border-color:var(--acc)}
+.hicons{margin-inline-start:auto;display:flex;gap:8px;align-items:center}
+.icobtn{position:relative;width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.2s}
+.icobtn:hover{border-color:var(--acc)}
+.icobtn .bdg{position:absolute;top:-5px;inset-inline-start:-5px;background:var(--acc);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:10px;display:grid;place-items:center;padding:0 4px}
+/* hero */
+.hero{max-width:1280px;margin:auto;padding:40px 22px 8px;display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.kick{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--accD);font-weight:700;font-size:13px;padding:6px 14px;border-radius:99px;border:1px solid #EBD5C6}
+.hero h1{font-size:clamp(30px,4.4vw,50px);font-weight:800;line-height:1.25;margin:16px 0 12px}
+.hero h1 span{color:var(--acc)}
+.hero p.lead{color:var(--mut);font-size:16.5px;line-height:2;max-width:540px}
+.ctaRow{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{border:none;border-radius:14px;padding:14px 26px;font-size:15.5px;font-weight:700;transition:.2s;display:inline-flex;align-items:center;gap:9px}
+.btnP{background:var(--acc);color:#fff}
+.btnP:hover{background:var(--accD)}
+.btnO{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
+.btnO:hover{background:var(--ink);color:#fff}
+.btnSage{background:var(--sage);color:#fff}
+.btnSage:hover{background:var(--sageD)}
+.stats{display:flex;gap:30px;margin-top:30px;flex-wrap:wrap}
+.stats div b{display:block;font-size:21px;font-weight:800}
+.stats div span{font-size:12.5px;color:var(--mut)}
+.heroImg{position:relative}
+.heroImg>img{width:100%;height:520px;object-fit:cover;border-radius:26px}
+.floatCard{position:absolute;background:#fff;border-radius:16px;box-shadow:0 18px 40px rgba(46,34,38,.16);padding:13px 16px;display:flex;gap:11px;align-items:center;font-size:13.5px}
+.floatCard b{display:block;font-size:14.5px}
+.floatCard .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:19px;flex:none}
+.fc1{bottom:26px;inset-inline-start:-16px}
+.fc2{top:22px;inset-inline-end:-10px}
+.fc1 .ic{background:#F3E3D3}.fc2 .ic{background:#E6ead9}
+/* module strip */
+.strip{max-width:1280px;margin:26px auto 0;padding:0 22px}
+.stripIn{background:#fff;border:1px solid var(--line);border-radius:18px;display:grid;grid-template-columns:repeat(4,1fr);padding:16px 8px}
+.stripIn div{text-align:center;font-size:13.5px;font-weight:600;padding:4px 6px}
+.stripIn div span{display:block;font-size:20px;margin-bottom:5px}
+.stripIn div+div{border-inline-start:1px solid var(--line)}
+/* sections */
+section{padding:56px 0 8px}
+.secHead{max-width:1280px;margin:auto;padding:0 22px;display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.secHead h2{font-size:clamp(23px,3vw,32px);font-weight:800}
+.secHead h2 span{color:var(--acc)}
+.secHead p{color:var(--mut);font-size:14.5px;margin-top:6px;line-height:1.9}
+.tagCustom{margin-inline-start:auto;background:var(--ink);color:#F5EEDF;font-size:12px;font-weight:700;padding:7px 14px;border-radius:99px}
+/* shop toolbar */
+.toolbar{max-width:1280px;margin:22px auto 0;padding:0 22px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:9px 18px;font-size:14px;font-weight:600;transition:.15s}
+.chip:hover{border-color:var(--acc)}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.searchBox{margin-inline-start:auto;display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:0 14px}
+.searchBox input{border:none;outline:none;padding:11px 0;font-size:14px;width:190px;background:transparent}
+/* grid */
+.grid{max-width:1280px;margin:22px auto 0;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(46,34,38,.10)}
+.pimg{position:relative;aspect-ratio:1/.82;overflow:hidden;background:#F1EAE0}
+.pimg img{width:100%;height:100%;object-fit:cover}
+.off{position:absolute;top:12px;inset-inline-start:12px;background:var(--acc);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:8px}
+.subBdg{position:absolute;bottom:12px;inset-inline-start:12px;background:rgba(46,34,38,.88);color:#F5D9A8;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:8px}
+.pbody{padding:16px 17px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.pcat{font-size:12px;color:var(--sageD);font-weight:700}
+.pname{font-size:16px;font-weight:700;line-height:1.7}
+.prate{font-size:12.5px;color:var(--mut)}
+.prate b{color:var(--gold)}
+.ptags{display:flex;gap:6px;flex-wrap:wrap}
+.ptag{font-size:11px;background:var(--soft);color:var(--accD);padding:3px 9px;border-radius:99px;font-weight:600}
+.pprice{margin-top:auto;padding-top:8px}
+.pprice .old{font-size:13px;color:var(--mut);text-decoration:line-through}
+.pprice .cur{font-size:18px;font-weight:800}
+.pprice .cur small{font-size:12px;font-weight:500;color:var(--mut)}
+.pacts{display:flex;gap:8px;margin-top:11px}
+.addBtn{flex:1;background:var(--ink);color:#fff;border:none;border-radius:11px;padding:11px 8px;font-size:13.5px;font-weight:700;transition:.15s}
+.addBtn:hover{background:var(--acc)}
+.detBtn{background:#fff;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:13.5px;font-weight:600}
+.detBtn:hover{border-color:var(--ink)}
+.cmpBtn{width:100%;margin-top:8px;background:transparent;border:1.5px dashed #D8C6B4;border-radius:11px;padding:9px;font-size:13px;font-weight:600;color:var(--mut);transition:.15s}
+.cmpBtn:hover{border-color:var(--sage);color:var(--sageD)}
+.cmpBtn.on{border-style:solid;background:#EDF0E4;border-color:var(--sage);color:var(--sageD)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:44px 0;font-size:15px}
+/* quiz */
+.quizWrap{max-width:980px;margin:24px auto 0;padding:0 22px}
+.quizCard{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr}
+.quizSide{background:linear-gradient(160deg,#F3E4D8,#E9EFE0);padding:30px 26px;display:flex;flex-direction:column;gap:14px}
+.quizSide h3{font-size:21px;font-weight:800;line-height:1.6}
+.quizSide p{font-size:13.5px;color:#5d5348;line-height:2}
+.quizSide img{border-radius:16px;height:190px;width:100%;object-fit:cover;margin-top:auto}
+.quizMain{padding:30px 28px}
+.qprog{display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--mut);font-weight:600}
+.qbar{flex:1;height:8px;background:#F0E7DB;border-radius:99px;overflow:hidden}
+.qbar i{display:block;height:100%;background:var(--acc);border-radius:99px;transition:width .35s}
+.qTitle{font-size:19px;font-weight:800;margin:18px 0 6px}
+.qSub{font-size:13px;color:var(--mut);margin-bottom:16px}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.qopt{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:15px 14px;text-align:start;font-size:14.5px;font-weight:600;transition:.15s;line-height:1.8}
+.qopt small{display:block;font-weight:400;color:var(--mut);font-size:12px}
+.qopt:hover{border-color:var(--acc)}
+.qopt.sel{border-color:var(--acc);background:#FBF0EA;box-shadow:0 0 0 1px var(--acc)}
+.qnav{display:flex;gap:10px;margin-top:22px}
+.qnav .btn{padding:12px 22px;font-size:14px}
+.btnGhost{background:transparent;border:1.5px solid var(--line);color:var(--mut)}
+.btnGhost:hover{border-color:var(--ink);color:var(--ink)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+/* routine result */
+.routine{display:none}
+.routine.show{display:block}
+.rGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.rcard{border:1.5px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.rcard img{height:130px;width:100%;object-fit:cover}
+.rcard .rb{padding:13px 14px}
+.stepBdg{display:inline-block;background:var(--sage);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;margin-bottom:7px}
+.rcard h4{font-size:14.5px;font-weight:700;line-height:1.8}
+.rcard .reason{font-size:12px;color:var(--mut);line-height:1.95;margin-top:5px}
+.rcard .rp{font-weight:800;margin-top:9px;font-size:15px}
+.rTotal{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;background:var(--soft);border-radius:14px;padding:14px 18px}
+.rTotal b{font-size:18px}
+.rTotal span{font-size:13px;color:var(--mut)}
+.rTotal .btn{margin-inline-start:auto;padding:12px 22px;font-size:14px}
+/* compare */
+.cmpWrap{max-width:980px;margin:24px auto 0;padding:0 22px}
+.cmpCard{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px 28px}
+.cmpPick{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end}
+.cmpPick label{font-size:13px;font-weight:700;display:block;margin-bottom:8px}
+.cmpPick select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:14px;background:#fff;outline:none}
+.vs{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;margin-bottom:2px}
+table.cmp{width:100%;border-collapse:collapse;margin-top:22px;font-size:13.5px}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:11px 13px;text-align:start;line-height:1.9;vertical-align:top}
+table.cmp thead th{background:var(--soft);font-size:14.5px}
+table.cmp thead th img{width:100%;height:110px;object-fit:cover;border-radius:10px;margin-bottom:9px}
+table.cmp td:first-child{font-weight:700;background:#FCF9F4;width:170px}
+td.diff{background:#FBF3E4}
+.yes{color:var(--ok);font-weight:700}.no{color:var(--err);font-weight:700}
+.cmpHint{font-size:12.5px;color:var(--mut);margin-top:12px}
+/* features */
+.featWrap{max-width:1280px;margin:24px auto 0;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 22px}
+.feat .ic{width:52px;height:52px;border-radius:15px;background:var(--soft);display:grid;place-items:center;font-size:24px;margin-bottom:14px}
+.feat h3{font-size:16.5px;font-weight:800;margin-bottom:7px}
+.feat p{font-size:13.5px;color:var(--mut);line-height:2}
+.feat .mod{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;background:#EDF0E4;color:var(--sageD);padding:4px 11px;border-radius:99px}
+.featNote{max-width:1280px;margin:18px auto 0;padding:0 22px}
+.featNote div{background:var(--ink);color:#EFE7DA;border-radius:18px;padding:20px 26px;font-size:14.5px;line-height:2;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.featNote b{color:#F5D9A8}
+/* footer */
+footer{margin-top:70px;background:#241B1E;color:#CBBDB4}
+.fwrap{max-width:1280px;margin:auto;padding:44px 22px 26px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h4{color:#fff;font-size:16px;margin-bottom:13px}
+footer p,footer a{font-size:13.5px;line-height:2.1;color:#CBBDB4}
+footer a{display:block}
+footer a:hover{color:#fff}
+.fbot{border-top:1px solid #3A2E33;text-align:center;padding:16px;font-size:12.5px;color:#9A8A82}
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(30,20,22,.55);backdrop-filter:blur(3px);z-index:90;display:none;align-items:center;justify-content:center;padding:18px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:24px;max-width:880px;width:100%;max-height:92vh;overflow:auto;position:relative}
+.mClose{position:absolute;top:14px;inset-inline-start:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:16px;z-index:3}
+.mGrid{display:grid;grid-template-columns:1fr 1fr}
+.mGrid>img{width:100%;height:100%;min-height:420px;object-fit:cover}
+.mBody{padding:30px 28px}
+.mBody h3{font-size:21px;font-weight:800;line-height:1.7;margin:6px 0 8px}
+.mBody .desc{font-size:14px;color:var(--mut);line-height:2.1}
+.mSec{font-size:13px;font-weight:800;margin:18px 0 9px}
+.ingChips{display:flex;gap:7px;flex-wrap:wrap}
+.ingChips span{font-size:12px;background:#EDF0E4;color:var(--sageD);padding:5px 11px;border-radius:99px;font-weight:600}
+.modeToggle{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.modeOpt{border:1.5px solid var(--line);border-radius:13px;padding:12px 13px;background:#fff;text-align:start;transition:.15s}
+.modeOpt b{display:block;font-size:14px}
+.modeOpt span{font-size:12px;color:var(--mut);line-height:1.8;display:block}
+.modeOpt .mp{font-weight:800;color:var(--ink);font-size:15px;margin-top:4px}
+.modeOpt.sel{border-color:var(--acc);background:#FBF0EA;box-shadow:0 0 0 1px var(--acc)}
+.modeOpt .save{color:var(--ok);font-weight:700}
+.qtyRow{display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap}
+.qty{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}
+.qty button{width:38px;height:42px;border:none;background:#fff;font-size:17px}
+.qty b{min-width:36px;text-align:center}
+.mAdd{flex:1;background:var(--acc);color:#fff;border:none;border-radius:12px;padding:13px;font-size:15px;font-weight:700}
+.mAdd:hover{background:var(--accD)}
+.mPrice{font-size:20px;font-weight:800}
+.mPrice small{font-size:12.5px;color:var(--mut);font-weight:500}
+/* cart drawer */
+.drawer{position:fixed;top:0;inset-inline-end:0;width:min(430px,94vw);height:100dvh;background:#fff;z-index:100;transform:translateX(-110%);transition:transform .3s;box-shadow:-14px 0 40px rgba(0,0,0,.15);display:flex;flex-direction:column}
+[dir="rtl"] .drawer{transform:translateX(-110%)}
+.drawer.open{transform:translateX(0)!important}
+.scrim{position:fixed;inset:0;background:rgba(30,20,22,.45);z-index:95;display:none}
+.scrim.open{display:block}
+.dHead{display:flex;align-items:center;gap:10px;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dHead h3{font-size:17px;font-weight:800}
+.dHead button{margin-inline-start:auto;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff}
+.dBody{flex:1;overflow:auto;padding:16px 20px}
+.cline{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid #F3EBE0}
+.cline img{width:66px;height:66px;border-radius:12px;object-fit:cover;flex:none}
+.cline .cn{font-size:13.5px;font-weight:700;line-height:1.8}
+.cline .cm{font-size:11.5px;color:var(--mut)}
+.modeBdg{display:inline-block;background:#F3E3D3;color:var(--accD);font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:99px;margin-top:3px}
+.cline .cp{font-size:13.5px;font-weight:800;margin-top:4px}
+.cQty{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:9px;margin-top:7px;width:max-content}
+.cQty button{width:26px;height:28px;border:none;background:#fff;font-size:14px}
+.cQty b{min-width:24px;text-align:center;font-size:13px}
+.delBtn{margin-inline-start:auto;background:none;border:none;color:var(--err);font-size:12.5px;align-self:flex-start}
+.discRow{display:flex;gap:8px;margin:16px 0 4px}
+.discRow input{flex:1;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:13.5px;outline:none;text-transform:uppercase}
+.discRow button{background:var(--ink);color:#fff;border:none;border-radius:11px;padding:0 18px;font-weight:700;font-size:13.5px}
+.discMsg{font-size:12px;min-height:18px}
+.discMsg.ok{color:var(--ok)}.discMsg.err{color:var(--err)}
+.totals{border-top:1px dashed var(--line);margin-top:10px;padding-top:13px;font-size:14px}
+.totals div{display:flex;justify-content:space-between;padding:4px 0;color:#55463F}
+.totals .grand{font-size:16.5px;font-weight:800;color:var(--ink);border-top:1px solid var(--line);margin-top:8px;padding-top:11px}
+.free{color:var(--ok);font-weight:700}
+.dFoot{padding:16px 20px;border-top:1px solid var(--line)}
+.dFoot .btn{width:100%;justify-content:center}
+/* checkout form */
+.fField{margin-bottom:13px}
+.fField label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.fField input,.fField textarea{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:14px;outline:none;background:#fff}
+.fField input:focus,.fField textarea:focus{border-color:var(--acc)}
+.payOpt{display:flex;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:11px;padding:12px 14px;margin-bottom:9px;font-size:14px;font-weight:600;cursor:pointer}
+.payOpt input{accent-color:var(--acc)}
+.successBox{text-align:center;padding:26px 6px}
+.successBox .okIc{width:76px;height:76px;border-radius:50%;background:#E4F0E4;display:grid;place-items:center;font-size:34px;margin:0 auto 16px}
+.successBox h4{font-size:19px;font-weight:800;margin-bottom:8px}
+.successBox p{font-size:13.5px;color:var(--mut);line-height:2}
+.orderCode{display:inline-block;background:var(--soft);border:1.5px dashed var(--acc);color:var(--accD);font-weight:800;font-size:18px;padding:9px 22px;border-radius:12px;margin:14px 0;letter-spacing:.5px}
+.emptyCart{text-align:center;color:var(--mut);padding:44px 0;font-size:14.5px;line-height:2.1}
+/* toast */
+.toast{position:fixed;bottom:24px;inset-inline-start:50%;transform:translate(50%,90px);background:var(--ink);color:#fff;padding:13px 24px;border-radius:13px;font-size:14px;font-weight:600;z-index:120;transition:transform .3s;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.toast.show{transform:translate(50%,0)}
+@media(max-width:1020px){
+ .grid{grid-template-columns:repeat(3,1fr)}
+ .featWrap{grid-template-columns:repeat(2,1fr)}
+ .hero{grid-template-columns:1fr}
+ .heroImg>img{height:380px}
+ nav.main{display:none}
+}
+@media(max-width:720px){
+ .grid{grid-template-columns:repeat(2,1fr);gap:13px}
+ .stripIn{grid-template-columns:repeat(2,1fr);gap:10px}
+ .stripIn div+div{border:none}
+ .quizCard{grid-template-columns:1fr}
+ .quizSide img{display:none}
+ .rGrid{grid-template-columns:1fr}
+ .cmpPick{grid-template-columns:1fr}
+ .vs{margin:0 auto}
+ .featWrap{grid-template-columns:1fr}
+ .mGrid{grid-template-columns:1fr}
+ .mGrid>img{min-height:250px;height:250px}
+ .fwrap{grid-template-columns:1fr}
+ .qopts{grid-template-columns:1fr}
+ .searchBox{margin-inline-start:0;width:100%}
+ .searchBox input{width:100%}
+ table.cmp td:first-child{width:105px}
+ .fc1{inset-inline-start:8px}.fc2{inset-inline-end:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><span>ارسال <b>رایگان</b> برای سفارش‌های بالای ۱٬۵۰۰٬۰۰۰ تومان</span><span>ضمانت اصالت کالا و بازگشت ۷ روزه</span></div>
+
+<header>
+  <div class="hwrap">
+    <a class="logo" href="#">رویان<em>.</em><small>ROYAN SKINCARE</small></a>
+    <nav class="main">
+      <a href="#shop">فروشگاه</a>
+      <a href="#quiz">کوییز روتین پوستی</a>
+      <a href="#compare">مقایسه ترکیبات</a>
+      <a href="#features">امکانات سفارشی</a>
+    </nav>
+    <div class="hicons">
+      <button class="icobtn" id="cartBtn" aria-label="سبد خرید">🛍️<span class="bdg num" id="cartCount">۰</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <span class="kick">✦ فروشگاه اختصاصی با ماژول‌های سفارشی</span>
+    <h1>مراقبت از پوست،<br>دقیقاً برای <span>پوست تو</span></h1>
+    <p class="lead">رویان فقط یک فروشگاه نیست؛ کوییز هوشمند ما در ۴ سؤال، روتین سه‌مرحله‌ای مخصوص نوع پوست و دغدغه‌ات را می‌سازد، ترکیبات محصولات را کنار هم مقایسه می‌کند و با اشتراک ماهانه، سرم محبوبت را همیشه به‌موقع به دستت می‌رساند.</p>
+    <div class="ctaRow">
+      <a class="btn btnP" href="#quiz">🧭 شروع کوییز روتین پوستی</a>
+      <a class="btn btnO" href="#shop">مشاهده محصولات</a>
+    </div>
+    <div class="stats">
+      <div><b class="num">+۱۲٬۰۰۰</b><span>روتین ساخته‌شده با کوییز</span></div>
+      <div><b class="num">۴٫۸ از ۵</b><span>رضایت مشتریان</span></div>
+      <div><b class="num">۱۵٪</b><span>تخفیف اشتراک ماهانه</span></div>
+    </div>
+  </div>
+  <div class="heroImg">
+    <img src="assets/img/hero.jpg" alt="مراقبت تخصصی پوست رویان">
+    <div class="floatCard fc1"><span class="ic">🧭</span><div><b>کوییز روتین پوستی</b>پیشنهاد شخصی‌سازی‌شده در ۱ دقیقه</div></div>
+    <div class="floatCard fc2"><span class="ic">🔁</span><div><b>اشتراک ماهانه</b>ارسال خودکار با ۱۵٪ تخفیف</div></div>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="stripIn">
+    <div><span>🚚</span>ارسال سریع به سراسر کشور</div>
+    <div><span>🛡️</span>ضمانت اصالت و تاریخ انقضا</div>
+    <div><span>💬</span>مشاوره رایگان پوست</div>
+    <div><span>↩️</span>بازگشت ۷ روزه بدون قید</div>
+  </div>
+</div>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="secHead">
+    <div>
+      <h2>فروشگاه <span>رویان</span></h2>
+      <p>هر محصول را می‌توانی با ابزار مقایسه ترکیبات کنار دیگری بگذاری و برای محصولات منتخب، خرید اشتراکی فعال کنی.</p>
+    </div>
+  </div>
+  <div class="toolbar">
+    <div class="chips" id="catChips">
+      <button class="chip on" data-cat="all">همه محصولات</button>
+      <button class="chip" data-cat="cleanser">شوینده</button>
+      <button class="chip" data-cat="treatment">سرم و درمان</button>
+      <button class="chip" data-cat="moisturizer">مرطوب‌کننده</button>
+      <button class="chip" data-cat="extra">ابزار و ست</button>
+    </div>
+    <div class="searchBox">🔎<input id="searchInp" type="text" placeholder="جست‌وجوی محصول یا ترکیب…"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="secHead">
+    <div>
+      <h2>ابزار انتخاب <span>روتین پوستی</span></h2>
+      <p>ماژول سفارشی رویان: به ۴ سؤال جواب بده تا روتین سه‌مرحله‌ای دقیقاً متناسب با پوستت ساخته شود.</p>
+    </div>
+    <span class="tagCustom">ماژول سفارشی ✦ Quiz Engine</span>
+  </div>
+  <div class="quizWrap">
+    <div class="quizCard">
+      <div class="quizSide">
+        <h3>روتین درست، از شناخت پوست شروع می‌شود</h3>
+        <p>الگوریتم رویان نوع پوست، دغدغه اصلی، حساسیت و بودجه‌ات را با فرمولاسیون همه محصولات تطبیق می‌دهد و برای هر مرحله، دلیل انتخاب را شفاف نشان می‌دهد.</p>
+        <img src="assets/img/features.jpg" alt="مشاوره تخصصی پوست">
+      </div>
+      <div class="quizMain">
+        <div id="quizFlow">
+          <div class="qprog"><span id="qStepLbl">سؤال ۱ از ۴</span><div class="qbar"><i id="qBar" style="width:25%"></i></div></div>
+          <div class="qTitle" id="qTitle"></div>
+          <div class="qSub" id="qSub"></div>
+          <div class="qopts" id="qOpts"></div>
+          <div class="qnav">
+            <button class="btn btnGhost" id="qBack">قبلی</button>
+            <button class="btn btnP" id="qNext" disabled>سؤال بعدی</button>
+          </div>
+        </div>
+        <div class="routine" id="routineBox">
+          <div class="qTitle" style="margin-top:0">روتین پیشنهادی تو آماده است 🎉</div>
+          <div class="qSub" id="routineMeta"></div>
+          <div class="rGrid" id="rGrid"></div>
+          <div class="rTotal">
+            <div><b class="num" id="rTotalPrice"></b><br><span id="rTotalNote"></span></div>
+            <button class="btn btnSage" id="restartQuiz">↺ شروع دوباره</button>
+            <button class="btn btnP" id="addRoutine">🛍️ افزودن همه به سبد</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="secHead">
+    <div>
+      <h2>مقایسه‌گر <span>ترکیبات</span></h2>
+      <p>دو محصول را انتخاب کن؛ ترکیبات فعال، درصدها و تناسبشان با پوستت را شانه‌به‌شانه ببین.</p>
+    </div>
+    <span class="tagCustom">ماژول سفارشی ✦ Ingredient Compare</span>
+  </div>
+  <div class="cmpWrap">
+    <div class="cmpCard">
+      <div class="cmpPick">
+        <div><label>محصول اول</label><select id="cmpA"></select></div>
+        <div class="vs">VS</div>
+        <div><label>محصول دوم</label><select id="cmpB"></select></div>
+      </div>
+      <div id="cmpTableBox"></div>
+      <p class="cmpHint">💡 روی هر کارت محصول هم دکمه «مقایسه» هست؛ دو محصول را انتخاب کن تا مستقیم به این جدول بیایی.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM FEATURES -->
+<section id="features">
+  <div class="secHead">
+    <div>
+      <h2>امکانات <span>سفارشی</span> این فروشگاه</h2>
+      <p>این فروشگاه روی قالب آماده ساخته نشده؛ هر ماژول زیر اختصاصی برای رویان طراحی و توسعه داده شده است.</p>
+    </div>
+    <span class="tagCustom">توسعه اختصاصی ✦ Custom Build</span>
+  </div>
+  <div class="featWrap">
+    <div class="feat"><div class="ic">🧭</div><h3>کوییز انتخاب روتین پوستی</h3><p>موتور پیشنهاددهی چهارمرحله‌ای که بر اساس نوع پوست، دغدغه، حساسیت و بودجه، روتین سه‌مرحله‌ای با دلیل شفاف برای هر انتخاب می‌سازد.</p><span class="mod">ماژول سفارشی</span></div>
+    <div class="feat"><div class="ic">🧪</div><h3>مقایسه‌گر ترکیبات (INCI)</h3><p>جدول مقایسه شانه‌به‌شانه ترکیبات فعال و درصد هر محصول، تا مشتری به‌جای تبلیغ، بر اساس فرمولاسیون تصمیم بگیرد.</p><span class="mod">ماژول سفارشی</span></div>
+    <div class="feat"><div class="ic">🔁</div><h3>اشتراک ماهانه و شارژ خودکار</h3><p>محصولات منتخب با مدل اشتراکی: ۱۵٪ تخفیف دائمی، ارسال خودکار هر ۳۰ روز و امکان توقف یا تغییر در هر زمان از پنل کاربر.</p><span class="mod">ماژول سفارشی</span></div>
+    <div class="feat"><div class="ic">⏰</div><h3>یادآور هوشمند اتمام محصول</h3><p>بر اساس حجم و میانگین مصرف، چند روز پیش از تمام‌شدن سرم یا کرم، یادآوری تمدید با پیامک و اعلان ارسال می‌شود.</p><span class="mod">ماژول سفارشی</span></div>
+    <div class="feat"><div class="ic">⭐</div><h3>باشگاه مشتریان و امتیاز روتین</h3><p>با هر خرید و تکمیل روتین امتیاز می‌گیری؛ امتیازها به کد تخفیف و هدیه تولد تبدیل می‌شوند و سطح عضويتت ارتقا پیدا می‌کند.</p><span class="mod">ماژول سفارشی</span></div>
+    <div class="feat"><div class="ic">📈</div><h3>دفترچه پیشرفت پوست</h3><p>عکس و وضعیت پوستت را ماه‌به‌ماه ثبت کن؛ نمودار پیشرفت و پیشنهاد به‌روزرسانی روتین در فصول مختلف را در پنل ببین.</p><span class="mod">ماژول سفارشی</span></div>
+  </div>
+  <div class="featNote"><div>🛠️ <span><b>چرا اختصاصی؟</b> قالب‌های آماده فروشگاهی کوییز روتین، مقایسه ترکیبات و اشتراک دوره‌ای ندارند؛ این سه ماژول قلب تجربه رویان‌اند و از صفر برای همین برند کدنویسی شده‌اند.</span></div></div>
+</section>
+
+<footer>
+  <div class="fwrap">
+    <div>
+      <h4>رویان — مراقبت پوستی هوشمند</h4>
+      <p>فروشگاه تخصصی مراقبت پوست با فرمولاسیون شفاف، پیشنهاد شخصی‌سازی‌شده و ماژول‌های سفارشی اختصاصی. این صفحه یک دموی نمونه‌کار است و فروش واقعی انجام نمی‌شود.</p>
+    </div>
+    <div>
+      <h4>دسترسی سریع</h4>
+      <a href="#shop">فروشگاه</a><a href="#quiz">کوییز روتین پوستی</a><a href="#compare">مقایسه ترکیبات</a><a href="#features">امکانات سفارشی</a>
+    </div>
+    <div>
+      <h4>راهنمای خرید</h4>
+      <a href="#quiz">روتین من چیست؟</a><a href="#compare">کدام سرم بهتر است؟</a><a href="#features">اشتراک ماهانه چطور کار می‌کند؟</a><a href="#shop">پرفروش‌ترین‌ها</a>
+    </div>
+  </div>
+  <div class="fbot">دموی فروشگاه اختصاصی «رویان» — ساخته‌شده برای نمایش امکانات سفارشی · بدون اطلاعات تماس واقعی</div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="pOverlay">
+  <div class="modal">
+    <button class="mClose" id="mClose">✕</button>
+    <div class="mGrid">
+      <img id="mImg" src="" alt="">
+      <div class="mBody">
+        <span class="pcat" id="mCat"></span>
+        <h3 id="mName"></h3>
+        <div class="prate" id="mRate"></div>
+        <p class="desc" id="mDesc"></p>
+        <div class="mSec">ترکیبات کلیدی</div>
+        <div class="ingChips" id="mIng"></div>
+        <div class="mSec">مناسب برای</div>
+        <div class="ptags" id="mTags"></div>
+        <div id="mModeBox">
+          <div class="mSec">نوع خرید</div>
+          <div class="modeToggle">
+            <button class="modeOpt sel" id="modeOnce"><b>خرید یک‌باره</b><span>پرداخت کامل همین سفارش</span><span class="mp num" id="priceOnce"></span></button>
+            <button class="modeOpt" id="modeSub"><b>اشتراک ماهانه 🔁</b><span>ارسال خودکار هر ۳۰ روز · لغو هر زمان</span><span class="mp num" id="priceSub"></span><span class="save" id="subSave"></span></button>
+          </div>
+        </div>
+        <div class="qtyRow">
+          <div class="qty"><button id="qMinus">−</button><b class="num" id="qVal">۱</b><button id="qPlus">+</button></div>
+          <div class="mPrice num" id="mTotal"></div>
+          <button class="mAdd" id="mAdd">افزودن به سبد 🛍️</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="dHead"><h3>سبد خرید تو 🛍️</h3><button id="dClose">✕</button></div>
+  <div class="dBody" id="dBody"></div>
+  <div class="dFoot" id="dFoot"></div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const PRODUCTS=[
+{id:'cleanser-aloe',name:'ژل شست‌وشوی ملایم آلوئه‌ورا',step:'cleanser',cat:'شوینده',price:385000,old:0,rating:4.8,vol:'۱۵۰ میل',img:'assets/img/cleanser-aloe.jpg',types:['all'],concerns:['hydration','acne'],sensitive:true,sub:false,desc:'شوینده روزانه با pH متعادل که آلودگی و ضدآفتاب را بدون خشکی و حس کشیدگی پاک می‌کند؛ مناسب شروع و پایان هر روتین.',why:'شست‌وشوی روزانه بدون خشکی و کشیدگی',ing:[['آلوئه‌ورا','۳۰٪ — تسکین و آبرسانی'],['پانتنول (B5)','۲٪ — ترمیم سد پوستی'],['گلیسیرین','آبرسان و نرم‌کننده'],['آلانتوئین','۰٫۵٪ — ضدالتهاب']]},
+{id:'cleanser-pan',name:'پن شست‌وشوی جامد زغال فعال',step:'cleanser',cat:'شوینده',price:245000,old:290000,rating:4.5,vol:'۱۰۰ گرم',img:'assets/img/cleanser-pan.jpg',types:['oily','comb'],concerns:['acne'],sensitive:false,sub:false,desc:'پن جامد اقتصادی و بدون پلاستیک با زغال فعال و روغن درخت چای؛ چربی اضافه و آلودگی منافذ را عمیق پاک می‌کند.',why:'کنترل چربی و پاکسازی عمیق منافذ',ing:[['زغال فعال','جذب چربی و سم‌زدایی'],['روغن درخت چای','۱٪ — ضدجوش و ضدباکتری'],['خاک رس کائولن','مات‌کننده و پاک‌کننده منافذ'],['روغن نارگیل','پایه شوینده ملایم']]},
+{id:'cleanser-vitc',name:'ژل شست‌وشوی روشن‌کننده ویتامین C',step:'cleanser',cat:'شوینده',price:420000,old:0,rating:4.6,vol:'۱۵۰ میل',img:'assets/img/cleanser-vitc.jpg',types:['normal','dry','comb'],concerns:['spots','hydration'],sensitive:true,sub:false,desc:'شوینده روشن‌کننده ملایم که از همان مرحله اول، کدری پوست را کم و رنگ پوست را یکدست‌تر می‌کند.',why:'شروع روتین روشن‌کنندگی از مرحله شست‌وشو',ing:[['ویتامین C (SAP)','۳٪ — روشن‌کننده و آنتی‌اکسیدان'],['نیاسینامید','۲٪ — یکدست‌کننده رنگ پوست'],['هیالورونیک اسید','جلوگیری از خشکی بعد از شست‌وشو']]},
+{id:'serum-ha',name:'سرم هیالورونیک اسید ۲٪ + B5',step:'treatment',cat:'سرم و درمان',price:690000,old:790000,rating:4.9,vol:'۳۰ میل',img:'assets/img/serum-ha.jpg',types:['dry','normal','comb'],concerns:['hydration'],sensitive:true,sub:true,desc:'سرم آبرسان چندلایه با سه وزن مولکولی هیالورونیک اسید؛ پوست کم‌آب را عمیق آبرسانی و خطوط ناشی از خشکی را محو می‌کند.',why:'آبرسانی چندلایه برای پوست کم‌آب',ing:[['هیالورونیک اسید','۲٪ — آبرسانی عمیق چندلایه'],['پانتنول (B5)','۵٪ — ترمیم و تسکین'],['گلیسیرین','حفظ رطوبت پوست']]},
+{id:'serum-nia',name:'سرم نیاسینامید ۱۰٪ + زینک',step:'treatment',cat:'سرم و درمان',price:580000,old:0,rating:4.7,vol:'۳۰ میل',img:'assets/img/serum-nia.jpg',types:['oily','comb','normal'],concerns:['acne','spots'],sensitive:true,sub:false,desc:'سرم پرفروش پوست‌های چرب و مستعد جوش؛ سبوم را متعادل، منافذ را جمع‌تر و جای جوش و لک‌های تازه را کمرنگ می‌کند.',why:'کنترل چربی، منافذ و جای جوش',ing:[['نیاسینامید','۱۰٪ — کنترل سبوم و یکدست‌کننده'],['زینک PCA','۱٪ — ضدالتهاب و مات‌کننده'],['پانتنول (B5)','۲٪ — کاهش تحریک']]},
+{id:'serum-retinol',name:'سرم رتینول ۰٫۵٪ شبانه',step:'treatment',cat:'سرم و درمان',price:890000,old:0,rating:4.8,vol:'۳۰ میل',img:'assets/img/serum-retinol.jpg',types:['normal','comb','dry'],concerns:['aging','spots'],sensitive:false,sub:false,desc:'درمان شبانه ضدپیری با رتینول پایدار؛ بازسازی سلولی را سرعت می‌دهد و به‌مرور خطوط ریز و لک‌های مقاوم را کاهش می‌دهد.',why:'بازسازی شبانه و کاهش خطوط ریز و لک',ing:[['رتینول','۰٫۵٪ — بازسازی سلولی و ضدچروک'],['اسکوالان','تغذیه و کاهش خشکی'],['ویتامین E','آنتی‌اکسیدان و محافظت']]},
+{id:'oil-rose',name:'روغن صورت گل رز و جوجوبا',step:'treatment',cat:'سرم و درمان',price:640000,old:0,rating:4.6,vol:'۳۰ میل',img:'assets/img/oil-rose.jpg',types:['dry','normal'],concerns:['hydration','aging'],sensitive:false,sub:false,desc:'روغن خشک و سبک صورت با عصاره گل رز دمشقی؛ تغذیه عمیق، درخشش طبیعی و حس مخملی بدون سنگینی.',why:'تغذیه عمیق و درخشش طبیعی پوست خشک',ing:[['روغن گل رز','روشن‌کننده و احیاکننده'],['روغن جوجوبا','متعادل‌کننده و مغذی'],['اسکوالان','نرمی بدون حس چربی'],['ویتامین E','آنتی‌اکسیدان']]},
+{id:'cream-ceramide',name:'کرم مرطوب‌کننده سرامید و پانتنول',step:'moisturizer',cat:'مرطوب‌کننده',price:720000,old:0,rating:4.9,vol:'۵۰ میل',img:'assets/img/cream-ceramide.jpg',types:['dry','normal','comb'],concerns:['hydration','aging'],sensitive:true,sub:true,desc:'کرم ترمیم‌کننده سد دفاعی پوست با کمپلکس سرامید؛ رطوبت را تا ۷۲ ساعت قفل می‌کند و قرمزی و حساسیت را آرام می‌کند.',why:'بازسازی سد دفاعی پوست و قفل رطوبت',ing:[['سرامید NP','۳٪ — ترمیم سد پوستی'],['پانتنول (B5)','۵٪ — تسکین و ترمیم'],['هیالورونیک اسید','آبرسانی لایه‌ای'],['شی‌باتر','تغذیه و نرمی']]},
+{id:'cream-gel',name:'کرم ژل آبرسان سبک',step:'moisturizer',cat:'مرطوب‌کننده',price:540000,old:620000,rating:4.5,vol:'۵۰ میل',img:'assets/img/cream-gel.jpg',types:['oily','comb'],concerns:['hydration','acne'],sensitive:true,sub:false,desc:'بافت ژل-کرم بدون چربی که سریع جذب می‌شود؛ آبرسانی کامل بدون برق و سنگینی، ایده‌آل زیر آرایش و ضدآفتاب.',why:'آبرسانی بدون چربی برای پوست چرب و مختلط',ing:[['هیالورونیک اسید','آبرسانی سبک'],['عصاره چای سبز','آنتی‌اکسیدان و ضدالتهاب'],['نیاسینامید','۲٪ — کنترل چربی'],['آلوئه‌ورا','خنک‌کننده و تسکین‌دهنده']]},
+{id:'balm-coconut',name:'بالم مرطوب‌کننده نارگیل و شی‌باتر',step:'moisturizer',cat:'مرطوب‌کننده',price:460000,old:0,rating:4.7,vol:'۱۰۰ میل',img:'assets/img/balm-coconut.jpg',types:['dry'],concerns:['hydration'],sensitive:true,sub:false,desc:'بالم غلیظ و مغذی برای خشکی‌های شدید و پوسته‌پوسته شدن؛ بهترین انتخاب برای مرحله آخر روتین شبانه پوست خشک.',why:'بالم غلیظ شبانه برای خشکی‌های شدید',ing:[['شی‌باتر','۲۰٪ — تغذیه عمیق'],['روغن نارگیل','نرمی و محافظت'],['موم زنبور','قفل رطوبت'],['ویتامین E','آنتی‌اکسیدان']]},
+{id:'jade-roller',name:'رولر یشم دوطرفه',step:'tool',cat:'ابزار و ست',price:290000,old:0,rating:4.4,vol:'سنگ یشم طبیعی',img:'assets/img/jade-roller.jpg',types:['all'],concerns:['aging'],sensitive:true,sub:false,desc:'رولر دوسر از سنگ یشم طبیعی برای ماساژ لنفاوی، کاهش پف صبحگاهی و جذب بهتر سرم‌ها؛ همراه با راهنمای ماساژ.',why:'ماساژ لنفاوی، کاهش پف و جذب بهتر سرم',ing:[['سنگ یشم طبیعی','خنک‌کنندگی و ماساژ لنفاوی']]},
+{id:'kit-routine',name:'ست روتین سه‌مرحله‌ای رویان',step:'kit',cat:'ابزار و ست',price:1850000,old:2130000,rating:4.9,vol:'ست ۳ عددی',img:'assets/img/kit-routine.jpg',types:['all'],concerns:['hydration','aging'],sensitive:true,sub:false,desc:'شروع کامل و اقتصادی روتین: سرم ضدپیری، کرم مرطوب‌کننده و کرم دور چشم در یک ست هدیه با جعبه اختصاصی رویان.',why:'شروع کامل روتین در یک ست اقتصادی',ing:[['سرم ضدپیری','۳۰ میل — بازسازی و آبرسانی'],['کرم مرطوب‌کننده','۵۰ میل — قفل رطوبت'],['کرم دور چشم','۱۵ میل — کاهش تیرگی و پف']]}
+];
+const TYPE_LABEL={dry:'خشک',oily:'چرب',comb:'مختلط',normal:'معمولی'};
+const CONCERN_LABEL={hydration:'کم‌آبی و خشکی',acne:'جوش و منافذ باز',spots:'لک و تیرگی',aging:'چروک و افتادگی پوست'};
+const STEP_LABEL={cleanser:'گام ۱ · شست‌وشو',treatment:'گام ۲ · درمان',moisturizer:'گام ۳ · مرطوب‌سازی'};
+const fmt=n=>Math.round(n).toLocaleString('fa-IR');
+const faD=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const byId=id=>PRODUCTS.find(p=>p.id===id);
+const subPrice=p=>Math.round(p.price*.85/100)*100;
+
+/* ---------- SHOP GRID ---------- */
+let curCat='all', curSearch='';
+const grid=document.getElementById('grid');
+function star(r){return '★'.repeat(Math.round(r));}
+function renderGrid(){
+  const list=PRODUCTS.filter(p=>{
+    const catOk=curCat==='all'||p.step===curCat||(curCat==='extra'&&(p.step==='tool'||p.step==='kit'));
+    const q=curSearch.trim();
+    const sOk=!q||p.name.includes(q)||p.cat.includes(q)||p.ing.some(i=>i[0].includes(q));
+    return catOk&&sOk;
+  });
+  grid.innerHTML=list.length?list.map(p=>`
+  <article class="pcard" data-card="${p.id}">
+    <div class="pimg"><img src="${p.img}" alt="${p.name}" loading="lazy">
+      ${p.old?`<span class="off num">٪${faD(Math.round((1-p.price/p.old)*100))} تخفیف</span>`:''}
+      ${p.sub?`<span class="subBdg">🔁 اشتراک ماهانه −۱۵٪</span>`:''}
+    </div>
+    <div class="pbody">
+      <span class="pcat">${p.cat} · <span class="num">${p.vol}</span></span>
+      <h3 class="pname">${p.name}</h3>
+      <div class="prate"><b>${star(p.rating)}</b> <span class="num">${p.rating.toLocaleString('fa-IR')}</span> از ۵</div>
+      <div class="ptags">${p.types.map(t=>`<span class="ptag">${t==='all'?'همه انواع پوست':'پوست '+TYPE_LABEL[t]}</span>`).join('')}${p.sensitive?'<span class="ptag">مناسب پوست حساس</span>':''}</div>
+      <div class="pprice">${p.old?`<span class="old num">${fmt(p.old)}</span><br>`:''}<span class="cur num">${fmt(p.price)} <small>تومان</small></span></div>
+      <div class="pacts">
+        <button class="addBtn" data-add="${p.id}">افزودن به سبد</button>
+        <button class="detBtn" data-det="${p.id}">جزئیات</button>
+      </div>
+      <button class="cmpBtn" data-cmp="${p.id}">⚖️ افزودن به مقایسه ترکیبات</button>
+    </div>
+  </article>`).join(''):'<div class="empty">محصولی با این جست‌وجو پیدا نشد؛ عبارت دیگری را امتحان کن. 🌿</div>';
+}
+document.getElementById('catChips').addEventListener('click',e=>{
+  const b=e.target.closest('[data-cat]'); if(!b)return;
+  document.querySelectorAll('#catChips .chip').forEach(c=>c.classList.remove('on'));
+  b.classList.add('on'); curCat=b.dataset.cat; renderGrid();
+});
+document.getElementById('searchInp').addEventListener('input',e=>{curSearch=e.target.value; renderGrid();});
+grid.addEventListener('click',e=>{
+  const add=e.target.closest('[data-add]'); if(add){addToCart(add.dataset.add,'once',1);return;}
+  const det=e.target.closest('[data-det]'); if(det){openModal(det.dataset.det);return;}
+  const cmp=e.target.closest('[data-cmp]'); if(cmp){toggleCompare(cmp.dataset.cmp,cmp);}
+});
+
+/* ---------- CART ---------- */
+let cart=[];
+try{cart=JSON.parse(localStorage.getItem('royan_cart')||'[]');}catch(e){cart=[];}
+let discount=0;
+const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim'), dBody=document.getElementById('dBody'), dFoot=document.getElementById('dFoot');
+function saveCart(){localStorage.setItem('royan_cart',JSON.stringify(cart));}
+function cartCount(){return cart.reduce((a,l)=>a+l.qty,0);}
+function linePrice(l){const p=byId(l.id);return (l.mode==='sub'?subPrice(p):p.price)*l.qty;}
+function addToCart(id,mode,qty){
+  const ex=cart.find(l=>l.id===id&&l.mode===mode);
+  if(ex) ex.qty+=qty; else cart.push({id,mode,qty});
+  saveCart(); renderCart(); toast(mode==='sub'?'اشتراک ماهانه فعال و به سبد اضافه شد 🔁':'به سبد خرید اضافه شد 🛍️');
+}
+function cartTotals(){
+  const sub=cart.reduce((a,l)=>a+linePrice(l),0);
+  const disc=discount?Math.round(sub*.10):0;
+  const ship=sub===0?0:((sub-disc)>=1500000?0:45000);
+  return {sub,disc,ship,grand:sub-disc+ship};
+}
+function renderCart(){
+  document.getElementById('cartCount').textContent=faD(cartCount());
+  if(!cart.length){
+    dBody.innerHTML='<div class="emptyCart">سبد خریدت خالی است 🌿<br>از کوییز روتین شروع کن تا دقیقاً همان چیزی را بخری که پوستت لازم دارد.</div>';
+    dFoot.innerHTML=''; return;
+  }
+  const t=cartTotals();
+  dBody.innerHTML=cart.map((l,i)=>{const p=byId(l.id);return `
+    <div class="cline">
+      <img src="${p.img}" alt="${p.name}">
+      <div>
+        <div class="cn">${p.name}</div>
+        <div class="cm num">${p.vol}${l.mode==='sub'?'':' · خرید یک‌باره'}</div>
+        ${l.mode==='sub'?'<span class="modeBdg">🔁 اشتراک ماهانه · ارسال خودکار هر ۳۰ روز</span>':''}
+        <div class="cp num">${fmt(linePrice(l))} تومان</div>
+        <div class="cQty"><button data-dec="${i}">−</button><b class="num">${faD(l.qty)}</b><button data-inc="${i}">+</button></div>
+      </div>
+      <button class="delBtn" data-del="${i}">حذف ✕</button>
+    </div>`;}).join('')+`
+    <div class="discRow"><input id="discInp" placeholder="کد تخفیف (ROYAN10)" value="${discount?'ROYAN10':''}"><button id="discBtn">اعمال</button></div>
+    <div class="discMsg ${discount?'ok':''}" id="discMsg">${discount?'✓ کد تخفیف ۱۰٪ اعمال شد':''}</div>
+    <div class="totals">
+      <div><span>جمع اقلام</span><b class="num">${fmt(t.sub)} تومان</b></div>
+      ${t.disc?`<div><span>تخفیف (ROYAN10)</span><b class="num" style="color:var(--ok)">− ${fmt(t.disc)} تومان</b></div>`:''}
+      <div><span>هزینه ارسال</span><b class="num">${t.ship===0?'<span class="free">رایگان</span>':fmt(t.ship)+' تومان'}</b></div>
+      <div class="grand"><span>مبلغ نهایی</span><span class="num">${fmt(t.grand)} تومان</span></div>
+    </div>`;
+  dFoot.innerHTML='<button class="btn btnP" id="goCheckout">ثبت سفارش و پرداخت ←</button>';
+  document.getElementById('goCheckout').onclick=renderCheckout;
+  document.getElementById('discBtn').onclick=applyDiscount;
+}
+function applyDiscount(){
+  const v=(document.getElementById('discInp').value||'').trim().toUpperCase();
+  const msg=document.getElementById('discMsg');
+  if(v==='ROYAN10'){discount=1; renderCart(); toast('کد تخفیف ۱۰٪ اعمال شد 🎉');}
+  else{discount=0; msg.textContent='کد تخفیف معتبر نیست؛ ROYAN10 را امتحان کن.'; msg.className='discMsg err';}
+}
+dBody.addEventListener('click',e=>{
+  const inc=e.target.closest('[data-inc]'), dec=e.target.closest('[data-dec]'), del=e.target.closest('[data-del]');
+  if(inc){cart[+inc.dataset.inc].qty++; }
+  else if(dec){const i=+dec.dataset.dec; cart[i].qty--; if(cart[i].qty<1) cart.splice(i,1);}
+  else if(del){cart.splice(+del.dataset.del,1);}
+  else return;
+  saveCart(); renderCart();
+});
+function renderCheckout(){
+  const t=cartTotals();
+  dBody.innerHTML=`
+    <h4 style="font-size:16px;font-weight:800;margin-bottom:14px">اطلاعات گیرنده و پرداخت</h4>
+    <div class="fField"><label>نام و نام خانوادگی</label><input id="coName" placeholder="مثلاً سارا محمدی"></div>
+    <div class="fField"><label>شماره موبایل</label><input id="coPhone" inputmode="tel" placeholder="۰۹۱۲ ··· ····"></div>
+    <div class="fField"><label>آدرس کامل</label><textarea id="coAddr" rows="2" placeholder="شهر، خیابان، پلاک و واحد"></textarea></div>
+    <div class="fField"><label>روش پرداخت</label>
+      <label class="payOpt"><input type="radio" name="pay" checked> 💳 پرداخت آنلاین (درگاه بانکی)</label>
+      <label class="payOpt"><input type="radio" name="pay"> 🚚 پرداخت در محل (فقط تهران)</label>
+    </div>
+    <div class="totals">
+      <div><span>جمع اقلام</span><b class="num">${fmt(t.sub)} تومان</b></div>
+      ${t.disc?`<div><span>تخفیف</span><b class="num" style="color:var(--ok)">− ${fmt(t.disc)} تومان</b></div>`:''}
+      <div><span>ارسال</span><b class="num">${t.ship===0?'رایگان':fmt(t.ship)+' تومان'}</b></div>
+      <div class="grand"><span>مبلغ نهایی</span><span class="num">${fmt(t.grand)} تومان</span></div>
+    </div>
+    <div class="discMsg err" id="coErr"></div>`;
+  dFoot.innerHTML='<button class="btn btnGhost" id="backCart" style="width:auto;margin-inline-end:8px">بازگشت</button><button class="btn btnP" id="payBtn" style="flex:1">پرداخت و ثبت نهایی ✓</button>';
+  document.getElementById('backCart').onclick=renderCart;
+  document.getElementById('payBtn').onclick=()=>{
+    const name=document.getElementById('coName').value.trim(), ph=document.getElementById('coPhone').value.trim(), ad=document.getElementById('coAddr').value.trim();
+    const err=document.getElementById('coErr');
+    if(name.length<3||ph.length<10||ad.length<8){err.textContent='لطفاً نام، موبایل و آدرس را کامل وارد کن.';return;}
+    const code='RY-'+faD(100000+Math.floor(Math.random()*900000));
+    const g=cartTotals().grand, n=cartCount();
+    cart=[]; discount=0; saveCart();
+    document.getElementById('cartCount').textContent='۰';
+    dBody.innerHTML=`<div class="successBox">
+      <div class="okIc">✓</div>
+      <h4>سفارشت با موفقیت ثبت شد 🎉</h4>
+      <p>${name} عزیز، سفارش تو با <b class="num">${faD(n)}</b> قلم به مبلغ <b class="num">${fmt(g)} تومان</b> ثبت شد و پیامک تأیید به شماره <span class="num">${ph}</span> ارسال می‌شود.</p>
+      <div class="orderCode num">${code}</div>
+      <p>کد رهگیری سفارش را نگه دار؛ وضعیت ارسال از پنل کاربری قابل پیگیری است.</p>
+    </div>`;
+    dFoot.innerHTML='<button class="btn btnP" id="contBtn">ادامه خرید</button>';
+    document.getElementById('contBtn').onclick=()=>{closeDrawer(); renderCart();};
+  };
+}
+function openDrawer(){renderCart(); drawer.classList.add('open'); scrim.classList.add('open');}
+function closeDrawer(){drawer.classList.remove('open'); scrim.classList.remove('open');}
+document.getElementById('cartBtn').onclick=openDrawer;
+document.getElementById('dClose').onclick=closeDrawer;
+scrim.onclick=closeDrawer;
+
+/* ---------- PRODUCT MODAL ---------- */
+const overlay=document.getElementById('pOverlay');
+let mId=null, mMode='once', mQty=1;
+function openModal(id){
+  const p=byId(id); mId=id; mMode='once'; mQty=1;
+  document.getElementById('mImg').src=p.img;
+  document.getElementById('mCat').textContent=p.cat+' · '+p.vol;
+  document.getElementById('mName').textContent=p.name;
+  document.getElementById('mRate').innerHTML=`<b>${star(p.rating)}</b> <span class="num">${p.rating.toLocaleString('fa-IR')}</span> از ۵ · ${p.sensitive?'مناسب پوست حساس ✓':'برای پوست حساس توصیه نمی‌شود'}`;
+  document.getElementById('mDesc').textContent=p.desc;
+  document.getElementById('mIng').innerHTML=p.ing.map(i=>`<span>${i[0]} · ${i[1]}</span>`).join('');
+  document.getElementById('mTags').innerHTML=p.types.map(t=>`<span class="ptag">${t==='all'?'همه انواع پوست':'پوست '+TYPE_LABEL[t]}</span>`).join('')+p.concerns.map(c=>`<span class="ptag">${CONCERN_LABEL[c]}</span>`).join('');
+  document.getElementById('mModeBox').style.display=p.sub?'block':'none';
+  if(p.sub){
+    document.getElementById('priceOnce').textContent=fmt(p.price)+' تومان';
+    document.getElementById('priceSub').textContent=fmt(subPrice(p))+' تومان / ماه';
+    document.getElementById('subSave').textContent='صرفه‌جویی '+fmt(p.price-subPrice(p))+' تومان در هر ارسال';
+  }
+  setMode('once'); updModalTotal();
+  overlay.classList.add('open');
+}
+function setMode(m){
+  mMode=m;
+  document.getElementById('modeOnce').classList.toggle('sel',m==='once');
+  document.getElementById('modeSub').classList.toggle('sel',m==='sub');
+  updModalTotal();
+}
+function updModalTotal(){
+  const p=byId(mId); if(!p)return;
+  const unit=mMode==='sub'?subPrice(p):p.price;
+  document.getElementById('qVal').textContent=faD(mQty);
+  document.getElementById('mTotal').innerHTML=fmt(unit*mQty)+' <small>تومان'+(mMode==='sub'?' · اشتراک ماهانه':'')+'</small>';
+}
+document.getElementById('modeOnce').onclick=()=>setMode('once');
+document.getElementById('modeSub').onclick=()=>setMode('sub');
+document.getElementById('qPlus').onclick=()=>{mQty=Math.min(9,mQty+1);updModalTotal();};
+document.getElementById('qMinus').onclick=()=>{mQty=Math.max(1,mQty-1);updModalTotal();};
+document.getElementById('mAdd').onclick=()=>{addToCart(mId,mMode,mQty); overlay.classList.remove('open');};
+document.getElementById('mClose').onclick=()=>overlay.classList.remove('open');
+overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('open');});
+
+/* ---------- COMPARE ---------- */
+const cmpA=document.getElementById('cmpA'), cmpB=document.getElementById('cmpB');
+PRODUCTS.forEach(p=>{cmpA.add(new Option(p.name,p.id)); cmpB.add(new Option(p.name,p.id));});
+cmpA.value='serum-ha'; cmpB.value='serum-retinol';
+let cmpSel=[];
+function ingVal(p,name){const f=p.ing.find(i=>i[0]===name); return f?f[1]:null;}
+function renderCompare(){
+  const a=byId(cmpA.value), b=byId(cmpB.value);
+  if(!a||!b||a.id===b.id){document.getElementById('cmpTableBox').innerHTML='<p class="cmpHint">برای مقایسه، دو محصول متفاوت انتخاب کن.</p>';return;}
+  const names=[...new Set([...a.ing.map(i=>i[0]),...b.ing.map(i=>i[0])])];
+  const row=(lbl,va,vb)=>`<tr><td>${lbl}</td><td class="${va!==vb?'diff':''}">${va}</td><td class="${va!==vb?'diff':''}">${vb}</td></tr>`;
+  const yn=v=>v?'<span class="yes">بله ✓</span>':'<span class="no">خیر</span>';
+  let h=`<table class="cmp" id="cmpTable"><thead><tr><th>مشخصه</th><th><img src="${a.img}" alt="">${a.name}</th><th><img src="${b.img}" alt="">${b.name}</th></tr></thead><tbody>`;
+  h+=row('قیمت',fmt(a.price)+' تومان',fmt(b.price)+' تومان');
+  h+=row('امتیاز مشتریان','<span class="num">'+a.rating.toLocaleString('fa-IR')+'</span> از ۵','<span class="num">'+b.rating.toLocaleString('fa-IR')+'</span> از ۵');
+  h+=row('حجم',a.vol,b.vol);
+  h+=row('نوع پوست مناسب',a.types.map(t=>t==='all'?'همه':TYPE_LABEL[t]).join('، '),b.types.map(t=>t==='all'?'همه':TYPE_LABEL[t]).join('، '));
+  h+=row('دغدغه‌های هدف',a.concerns.map(c=>CONCERN_LABEL[c]).join('، '),b.concerns.map(c=>CONCERN_LABEL[c]).join('، '));
+  h+=row('مناسب پوست حساس',yn(a.sensitive),yn(b.sensitive));
+  h+=row('اشتراک ماهانه (−۱۵٪)',a.sub?'<span class="yes">دارد ✓</span>':'ندارد',b.sub?'<span class="yes">دارد ✓</span>':'ندارد');
+  names.forEach(n=>{
+    const va=ingVal(a,n), vb=ingVal(b,n);
+    h+=row('ترکیب: '+n, va??'<span style="color:var(--mut)">— ندارد</span>', vb??'<span style="color:var(--mut)">— ندارد</span>');
+  });
+  h+='</tbody></table>';
+  document.getElementById('cmpTableBox').innerHTML=h;
+}
+cmpA.onchange=()=>{cmpSel=[cmpA.value,cmpB.value]; syncCmpBtns(); renderCompare();};
+cmpB.onchange=()=>{cmpSel=[cmpA.value,cmpB.value]; syncCmpBtns(); renderCompare();};
+function syncCmpBtns(){document.querySelectorAll('[data-cmp]').forEach(b=>b.classList.toggle('on',cmpSel.includes(b.dataset.cmp)));}
+function toggleCompare(id,btn){
+  if(cmpSel.includes(id)){cmpSel=cmpSel.filter(x=>x!==id);}
+  else{cmpSel.push(id); if(cmpSel.length>2)cmpSel.shift();}
+  if(cmpSel.length===2){cmpA.value=cmpSel[0]; cmpB.value=cmpSel[1]; renderCompare(); document.getElementById('compare').scrollIntoView({behavior:'smooth'}); toast('جدول مقایسه ترکیبات آماده شد ⚖️');}
+  else if(cmpSel.length===1){toast('یک محصول دیگر هم برای مقایسه انتخاب کن');}
+  syncCmpBtns();
+}
+cmpSel=[cmpA.value,cmpB.value];
+
+/* ---------- QUIZ ---------- */
+const QUESTIONS=[
+ {key:'type',title:'نوع پوستت کدام است؟',sub:'بعد از شست‌وشو و گذشت نیم ساعت، پوستت چه حسی دارد؟',opts:[
+   {v:'dry',t:'خشک',s:'حس کشیدگی و گاهی پوسته‌پوسته شدن'},
+   {v:'oily',t:'چرب',s:'برق و چربی در کل صورت، منافذ باز'},
+   {v:'comb',t:'مختلط',s:'پیشانی و بینی چرب، گونه‌ها خشک یا معمولی'},
+   {v:'normal',t:'معمولی',s:'نه خیلی چرب، نه خیلی خشک'}]},
+ {key:'concern',title:'مهم‌ترین دغدغه پوستت چیست؟',sub:'همان چیزی که بیشتر از همه دوست داری بهتر شود.',opts:[
+   {v:'hydration',t:'کم‌آبی و خشکی',s:'کدری، کشیدگی و خطوط ریز ناشی از خشکی'},
+   {v:'acne',t:'جوش و منافذ باز',s:'جوش‌های فعال، سرسیاه و برق پوست'},
+   {v:'spots',t:'لک و تیرگی',s:'لک آفتاب، جای جوش و ناهماهنگی رنگ'},
+   {v:'aging',t:'چروک و افتادگی',s:'خطوط ریز، کاهش سفتی و کشسانی'}]},
+ {key:'sensitive',title:'پوستت حساس است؟',sub:'به محصولات جدید زود واکنش نشان می‌دهی؟',opts:[
+   {v:'yes',t:'بله، حساس است',s:'زود قرمز می‌شود، می‌سوزد یا جوش می‌زند'},
+   {v:'no',t:'نه، معمولی است',s:'بیشتر محصولات را بدون مشکل تحمل می‌کند'}]},
+ {key:'budget',title:'برای کل روتین چقدر بودجه داری؟',sub:'مجموع هر سه مرحله: شوینده، سرم درمان و مرطوب‌کننده.',opts:[
+   {v:'eco',t:'اقتصادی',s:'تا ۱٬۵۰۰٬۰۰۰ تومان'},
+   {v:'mid',t:'متوسط',s:'تا ۲٬۲۰۰٬۰۰۰ تومان'},
+   {v:'premium',t:'کامل و بدون محدودیت',s:'بهترین گزینه ممکن، قیمت مهم نیست'}]}
+];
+let qStep=0; const answers={};
+const qTitle=document.getElementById('qTitle'), qSub=document.getElementById('qSub'), qOpts=document.getElementById('qOpts'),
+      qNext=document.getElementById('qNext'), qBack=document.getElementById('qBack'),
+      qBar=document.getElementById('qBar'), qStepLbl=document.getElementById('qStepLbl');
+function renderQ(){
+  const q=QUESTIONS[qStep];
+  qStepLbl.textContent='سؤال '+faD(qStep+1)+' از ۴';
+  qBar.style.width=((qStep+1)/4*100)+'%';
+  qTitle.textContent=q.title; qSub.textContent=q.sub;
+  qOpts.innerHTML=q.opts.map(o=>`<button class="qopt ${answers[q.key]===o.v?'sel':''}" data-qv="${o.v}">${o.t}<small>${o.s}</small></button>`).join('');
+  qBack.style.visibility=qStep===0?'hidden':'visible';
+  qNext.textContent=qStep===3?'مشاهده روتین من 🎉':'سؤال بعدی';
+  qNext.disabled=!answers[q.key];
+}
+qOpts.addEventListener('click',e=>{
+  const b=e.target.closest('[data-qv]'); if(!b)return;
+  answers[QUESTIONS[qStep].key]=b.dataset.qv;
+  qOpts.querySelectorAll('.qopt').forEach(x=>x.classList.remove('sel'));
+  b.classList.add('sel'); qNext.disabled=false;
+});
+qBack.onclick=()=>{if(qStep>0){qStep--; renderQ();}};
+qNext.onclick=()=>{if(qStep<3){qStep++; renderQ();} else showRoutine();};
+
+function scoreProduct(p,ans){
+  let s=0;
+  if(p.types.includes(ans.type)||p.types.includes('all')) s+=4;
+  if(p.concerns.includes(ans.concern)) s+=5;
+  if(ans.sensitive==='yes'){ s+= p.sensitive?4:-100; }
+  s+=p.rating*0.1;
+  if(ans.budget==='eco') s+=(1000000-p.price)/200000;
+  else if(ans.budget==='mid') s+=(1000000-p.price)/1000000;
+  return s;
+}
+function recommend(ans){
+  const steps=['cleanser','treatment','moisturizer'];
+  const caps={eco:1500000,mid:2200000,premium:Infinity};
+  const ranked=st=>PRODUCTS.filter(p=>p.step===st).map(p=>({p,s:scoreProduct(p,ans)})).sort((x,y)=>y.s-x.s||x.p.price-y.p.price);
+  const picks=steps.map(st=>ranked(st)[0].p);
+  let total=picks.reduce((a,p)=>a+p.price,0), guard=0;
+  while(total>caps[ans.budget]&&guard++<12){
+    let best=null;
+    steps.forEach((st,i)=>{
+      const r=ranked(st), idx=r.findIndex(x=>x.p.id===picks[i].id);
+      for(let j=idx+1;j<r.length;j++){
+        if(r[j].p.price<picks[i].price){const saving=picks[i].price-r[j].p.price; if(!best||saving>best.saving) best={i,p:r[j].p,saving}; break;}
+      }
+    });
+    if(!best) break;
+    total-=best.saving; picks[best.i]=best.p;
+  }
+  return {picks,total};
+}
+function reasonFor(p,ans){
+  const r=[];
+  if(p.types.includes(ans.type)) r.push('متناسب با پوست '+TYPE_LABEL[ans.type]+' تو');
+  else if(p.types.includes('all')) r.push('مناسب همه انواع پوست، از جمله پوست '+TYPE_LABEL[ans.type]);
+  if(p.concerns.includes(ans.concern)) r.push('هدف‌گیری مستقیم «'+CONCERN_LABEL[ans.concern]+'»');
+  if(ans.sensitive==='yes'&&p.sensitive) r.push('بدون ترکیبات محرک و امن برای پوست حساس');
+  r.push(p.why);
+  return r.join('؛ ')+'.';
+}
+let lastRoutine=null;
+function showRoutine(){
+  const {picks,total}=recommend(answers); lastRoutine=picks;
+  document.getElementById('quizFlow').style.display='none';
+  const box=document.getElementById('routineBox'); box.classList.add('show');
+  document.getElementById('routineMeta').textContent='بر اساس پاسخ‌های تو: پوست '+TYPE_LABEL[answers.type]+' · دغدغه: '+CONCERN_LABEL[answers.concern]+(answers.sensitive==='yes'?' · پوست حساس':'')+' · بودجه: '+({eco:'اقتصادی',mid:'متوسط',premium:'کامل'})[answers.budget];
+  document.getElementById('rGrid').innerHTML=picks.map(p=>`
+    <div class="rcard" data-pick="${p.id}">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="rb">
+        <span class="stepBdg">${STEP_LABEL[p.step]}</span>
+        <h4>${p.name}</h4>
+        <p class="reason">${reasonFor(p,answers)}</p>
+        <div class="rp num">${fmt(p.price)} تومان</div>
+      </div>
+    </div>`).join('');
+  document.getElementById('rTotalPrice').textContent=fmt(total)+' تومان';
+  document.getElementById('rTotalNote').textContent='جمع روتین سه‌مرحله‌ای · ارسال '+(total>=1500000?'رایگان 🎉':'۴۵٬۰۰۰ تومان');
+}
+document.getElementById('addRoutine').onclick=()=>{
+  if(!lastRoutine)return;
+  lastRoutine.forEach(p=>{const ex=cart.find(l=>l.id===p.id&&l.mode==='once'); if(ex)ex.qty++; else cart.push({id:p.id,mode:'once',qty:1});});
+  saveCart(); renderCart(); openDrawer(); toast('روتین کامل به سبد اضافه شد 🎉');
+};
+document.getElementById('restartQuiz').onclick=()=>{
+  qStep=0; Object.keys(answers).forEach(k=>delete answers[k]);
+  document.getElementById('routineBox').classList.remove('show');
+  document.getElementById('quizFlow').style.display='block';
+  renderQ();
+};
+
+/* ---------- TOAST / INIT ---------- */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),2400);
+}
+renderGrid(); renderCart(); renderQ(); renderCompare(); syncCmpBtns();
+window.__royan={PRODUCTS,recommend,cart:()=>cart,subPrice,fmt};
+</script>
+</body>
+</html>
