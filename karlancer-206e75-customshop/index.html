@@ -282,6 +282,16 @@ footer a:hover{color:#fff}
  table.cmp td:first-child{width:105px}
  .fc1{inset-inline-start:8px}.fc2{inset-inline-end:8px}
 }
+/* ==== mobile repair pass 2026-11-20: footer tap targets + compact compare table ==== */
+body{overflow-x:clip}
+footer a{padding:6px 0}
+.drawer{max-width:94vw}
+@media(max-width:720px){
+ .grid{gap:11px}
+ table.cmp{font-size:.8rem}
+ table.cmp td,table.cmp th{padding:7px 6px}
+ input,select,textarea{font-size:16px}
+}
 </style>
 </head>
 <body>
