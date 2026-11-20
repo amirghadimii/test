@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خانه‌کالا | فروشگاه لوازم خانگی — خرید نقد و اقساط با گارانتی شرکتی</title>
+<meta name="description" content="دموی فروشگاه اینترنتی لوازم خانگی خانه‌کالا — یخچال، لباسشویی، ظرفشویی، تلویزیون، جاروبرقی و کولر گازی از برندهای ال‌جی، سامسونگ، بوش، اسنوا، دوو و پارس‌خزر با ارسال و نصب رایگان در تهران.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --bg:#fdf9f4;
+  --paper:#ffffff;
+  --ink:#2b2118;
+  --ink-2:#5c4f42;
+  --muted:#9a8a76;
+  --line:#f0e4d3;
+  --line-2:#f7ecdc;
+  --accent:#f26d21;
+  --accent-dark:#d9530d;
+  --accent-soft:#fff1e6;
+  --accent-grad:linear-gradient(120deg,#ff8a3d,#f26d21 55%,#e85d0c);
+  --green:#1f9d55;
+  --green-dark:#14703c;
+  --dark:#33241a;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(90,50,10,.08);
+  --shadow-lg:0 30px 70px rgba(60,30,5,.25);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{margin:0;font-family:'Vazirmatn',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15.5px;line-height:1.85}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select{font-family:inherit;font-size:1rem;color:inherit}
+a{color:inherit;text-decoration:none}
+.container{max-width:1320px;margin-inline:auto;padding-inline:22px}
+::selection{background:var(--accent);color:#fff}
+svg.ic{width:22px;height:22px;flex-shrink:0}
+
+/* ---------- نوار بالا ---------- */
+.topbar{background:var(--dark);color:#f3e3d3;font-size:.8rem;padding:7px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.topbar b{color:#ffb27a;font-weight:700}
+.topbar nav{display:flex;gap:18px}
+.topbar nav a{opacity:.85}
+.topbar nav a:hover{opacity:1;color:#ffb27a}
+
+/* ---------- هدر سفید ---------- */
+header.site{position:sticky;top:0;z-index:80;background:#fff;border-bottom:1px solid var(--line)}
+.header-in{display:flex;align-items:center;gap:26px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{width:46px;height:46px;border-radius:13px;background:var(--accent-grad);display:grid;place-items:center;color:#fff;box-shadow:0 8px 18px rgba(242,109,33,.35)}
+.logo-mark svg{width:26px;height:26px}
+.logo-text{line-height:1.25}
+.logo-text strong{display:block;font-size:1.35rem;font-weight:900;letter-spacing:-.3px}
+.logo-text strong em{font-style:normal;color:var(--accent)}
+.logo-text span{font-size:.72rem;color:var(--muted);font-weight:500}
+.searchbox{flex:1;display:flex;align-items:center;gap:8px;max-width:560px;background:#fdf6ee;border:1.5px solid var(--line);border-radius:14px;padding:4px 8px 4px 16px;transition:.2s}
+.searchbox:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px rgba(242,109,33,.12);background:#fff}
+.searchbox svg{color:var(--muted)}
+.searchbox input{flex:1;border:none;outline:none;background:none;padding:8px 0}
+.searchbox input::placeholder{color:#bfae97}
+.head-actions{display:flex;align-items:center;gap:10px;margin-inline-start:auto}
+.hbtn{position:relative;display:flex;align-items:center;gap:8px;padding:10px 14px;border:1.5px solid var(--line);border-radius:13px;font-weight:600;font-size:.88rem;transition:.2s;background:#fff}
+.hbtn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.hbtn .bdg{position:absolute;top:-8px;inset-inline-start:-8px;min-width:21px;height:21px;padding:0 5px;border-radius:99px;background:var(--accent);color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;border:2px solid #fff}
+.hbtn.cart-btn{background:var(--accent-grad);color:#fff;border:none;box-shadow:0 8px 18px rgba(242,109,33,.3)}
+.hbtn.cart-btn:hover{color:#fff;filter:brightness(1.05)}
+.hbtn.cart-btn .bdg{background:var(--dark)}
+
+/* ---------- نوار برندها ---------- */
+.brandstrip{background:linear-gradient(180deg,#fff7ee,#ffedd9);border-bottom:1px solid var(--line)}
+.brandstrip .container{display:flex;align-items:center;gap:8px;padding-top:10px;padding-bottom:10px;overflow-x:auto;scrollbar-width:none}
+.brandstrip .container::-webkit-scrollbar{display:none}
+.brandstrip .lbl{font-size:.78rem;font-weight:700;color:var(--muted);white-space:nowrap}
+.brandchip{flex-shrink:0;display:flex;align-items:baseline;gap:7px;padding:6px 16px;background:#fff;border:1.5px solid var(--line);border-radius:99px;transition:.2s;white-space:nowrap}
+.brandchip:hover{border-color:var(--accent);transform:translateY(-1px)}
+.brandchip.on{border-color:var(--accent);background:var(--accent-soft)}
+.brandchip b{font-size:.92rem;font-weight:800}
+.brandchip span{font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.4px}
+.brandchip.on span{color:var(--accent-dark)}
+
+/* ---------- ناوبری دسته‌ها ---------- */
+nav.cats{background:#fff;border-bottom:1px solid var(--line-2)}
+nav.cats .container{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-top:4px;padding-bottom:4px}
+nav.cats .container::-webkit-scrollbar{display:none}
+nav.cats button{padding:9px 14px;font-size:.9rem;font-weight:600;color:var(--ink-2);border-radius:10px;white-space:nowrap;transition:.2s;flex-shrink:0}
+nav.cats button:hover{color:var(--accent-dark);background:var(--accent-soft)}
+
+/* ---------- هیرو ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(140deg,#fff4e6 0%,#ffe7cf 48%,#ffd9ae 100%)}
+.hero::after{content:"";position:absolute;inset-inline-start:-140px;bottom:-190px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55),transparent 65%)}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding-top:52px;padding-bottom:58px;position:relative;z-index:1}
+.hero-txt .kick{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--accent-dark);font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:99px;box-shadow:var(--shadow)}
+.hero-txt h1{font-size:2.55rem;font-weight:900;line-height:1.3;margin:18px 0 12px;letter-spacing:-.5px}
+.hero-txt h1 em{font-style:normal;color:var(--accent)}
+.hero-txt p{color:var(--ink-2);max-width:520px;margin:0 0 24px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:14px;font-weight:800;font-size:.98rem;transition:.2s}
+.btn-acc{background:var(--accent-grad);color:#fff;box-shadow:0 12px 24px rgba(242,109,33,.35)}
+.btn-acc:hover{transform:translateY(-2px);box-shadow:0 16px 30px rgba(242,109,33,.4)}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent-dark)}
+.hero-stats{display:flex;gap:34px;margin-top:32px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:1.3rem;font-weight:900;color:var(--dark)}
+.hero-stats div span{font-size:.8rem;color:var(--ink-2);font-weight:500}
+.hero-img{position:relative}
+.hero-img .frame{border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg);border:6px solid #fff;transform:rotate(-1.2deg)}
+.hero-img img{width:100%;height:400px;object-fit:cover}
+.hero-card{position:absolute;bottom:22px;inset-inline-start:-16px;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);padding:12px 18px;display:flex;align-items:center;gap:12px}
+.hero-card .ic-wrap{width:44px;height:44px;border-radius:12px;background:#e8f7ee;color:var(--green);display:grid;place-items:center}
+.hero-card b{display:block;font-size:.92rem;line-height:1.4}
+.hero-card span{font-size:.76rem;color:var(--muted)}
+
+/* ---------- نوار خدمات ---------- */
+.services{background:#fff;border-bottom:1px solid var(--line)}
+.services .container{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:22px;padding-bottom:22px}
+.svc{display:flex;gap:13px;align-items:flex-start}
+.svc .ic-wrap{width:50px;height:50px;border-radius:14px;background:var(--accent-soft);color:var(--accent-dark);display:grid;place-items:center;flex-shrink:0}
+.svc b{display:block;font-size:.95rem;line-height:1.5}
+.svc span{font-size:.8rem;color:var(--muted);line-height:1.6;display:block}
+
+/* ---------- کاشی دسته‌ها ---------- */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:44px 0 20px}
+.sec-head h2{font-size:1.55rem;font-weight:900;margin:0;letter-spacing:-.3px}
+.sec-head h2 em{font-style:normal;color:var(--accent)}
+.sec-head p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.cats-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.cat-tile{background:#fff;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;text-align:center;transition:.2s;padding:0 0 13px}
+.cat-tile:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow)}
+.cat-tile img{width:100%;height:92px;object-fit:cover;margin-bottom:10px}
+.cat-tile b{font-size:.88rem;font-weight:700;display:block;line-height:1.5}
+.cat-tile span{font-size:.74rem;color:var(--muted)}
+
+/* ---------- فروشگاه ---------- */
+.shop-wrap{display:grid;grid-template-columns:262px 1fr;gap:26px;align-items:start;padding-bottom:20px}
+.filters{background:#fff;border:1.5px solid var(--line);border-radius:var(--radius);padding:20px;position:sticky;top:132px}
+.filters h3{margin:0 0 6px;font-size:1.02rem;font-weight:800;display:flex;align-items:center;gap:8px}
+.fgroup{border-top:1px solid var(--line-2);padding:15px 0 4px;margin-top:13px}
+.fgroup h4{margin:0 0 11px;font-size:.9rem;font-weight:800}
+.check{display:flex;align-items:center;gap:9px;padding:5px 0;cursor:pointer;font-size:.9rem;color:var(--ink-2)}
+.check input{appearance:none;width:19px;height:19px;border:2px solid #e3d3bc;border-radius:6px;display:grid;place-items:center;cursor:pointer;transition:.15s;flex-shrink:0}
+.check input:checked{background:var(--accent);border-color:var(--accent)}
+.check input:checked::after{content:"";width:10px;height:6px;border:solid #fff;border-width:0 0 2.5px 2.5px;transform:rotate(-45deg) translateY(-1px)}
+.check .cnt{margin-inline-start:auto;font-size:.76rem;color:var(--muted)}
+.range-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.range-row label{font-size:.8rem;color:var(--muted);width:34px}
+.range-row output{font-size:.84rem;font-weight:700;color:var(--accent-dark);white-space:nowrap}
+input[type=range]{flex:1;accent-color:var(--accent);height:4px;cursor:pointer}
+.f-clear{width:100%;margin-top:16px;padding:10px;border:1.5px dashed #eccdb2;border-radius:12px;color:var(--accent-dark);font-weight:700;font-size:.88rem;transition:.2s}
+.f-clear:hover{background:var(--accent-soft)}
+.toolbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.chip{padding:8px 16px;border-radius:99px;background:#fff;border:1.5px solid var(--line);font-size:.86rem;font-weight:600;color:var(--ink-2);transition:.2s}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.sortbox{display:flex;align-items:center;gap:9px;font-size:.86rem;color:var(--ink-2)}
+.sortbox select{padding:9px 12px;border:1.5px solid var(--line);border-radius:11px;background:#fff;font-size:.88rem;font-weight:600;outline:none;cursor:pointer}
+.res-count{font-size:.86rem;color:var(--muted)}
+.res-count b{color:var(--accent-dark)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{background:#fff;border:1.5px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#f5cf9f}
+.pcard .pimg{position:relative;cursor:pointer}
+.pcard .pimg img{width:100%;height:218px;object-fit:cover}
+.energy{position:absolute;top:12px;inset-inline-start:12px;color:#fff;font-weight:800;font-size:.78rem;padding:3px 11px;border-radius:8px;box-shadow:0 6px 14px rgba(0,0,0,.18);letter-spacing:.3px}
+.energy.e3{background:var(--green-dark)}
+.energy.e2{background:var(--green)}
+.energy.e1{background:#7ab648}
+.energy.ea{background:#a9bd2f}
+.energy.eb{background:#e8a812}
+.off{position:absolute;top:12px;inset-inline-end:12px;background:#e63946;color:#fff;font-weight:800;font-size:.78rem;padding:3px 10px;border-radius:8px}
+.pbody{padding:15px 17px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
+.pbrand{font-size:.76rem;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+.pbrand .warr{color:var(--green-dark);background:#e8f7ee;padding:2px 9px;border-radius:99px;font-size:.72rem}
+.pname{font-size:.99rem;font-weight:700;line-height:1.65;cursor:pointer;margin:0}
+.pname:hover{color:var(--accent-dark)}
+.pmeta{font-size:.8rem;color:var(--muted)}
+.pprice{margin-top:auto;padding-top:9px;border-top:1px dashed var(--line)}
+.pprice .old{font-size:.8rem;color:#c3b198;text-decoration:line-through}
+.pprice .now{font-size:1.14rem;font-weight:900;color:var(--dark)}
+.pprice .now small{font-size:.76rem;font-weight:600;color:var(--muted)}
+.inst{font-size:.79rem;color:var(--accent-dark);font-weight:600;background:var(--accent-soft);border-radius:9px;padding:4px 10px;display:inline-block}
+.pactions{display:flex;gap:8px;margin-top:11px}
+.add-btn{flex:1;background:var(--accent-grad);color:#fff;font-weight:800;font-size:.9rem;padding:11px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px;transition:.2s;box-shadow:0 8px 16px rgba(242,109,33,.25)}
+.add-btn:hover{filter:brightness(1.06)}
+.qv-btn{width:44px;border:1.5px solid var(--line);border-radius:12px;display:grid;place-items:center;color:var(--ink-2);transition:.2s}
+.qv-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.cmp-row{display:flex;align-items:center;gap:8px;margin-top:11px;font-size:.83rem;color:var(--ink-2)}
+.cmp-row input{appearance:none;width:18px;height:18px;border:2px solid #e3d3bc;border-radius:5px;display:grid;place-items:center;cursor:pointer;transition:.15s}
+.cmp-row input:checked{background:var(--dark);border-color:var(--dark)}
+.cmp-row input:checked::after{content:"";width:9px;height:5px;border:solid #fff;border-width:0 0 2.5px 2.5px;transform:rotate(-45deg) translateY(-1px)}
+.empty{grid-column:1/-1;text-align:center;padding:56px 20px;background:#fff;border:1.5px dashed var(--line);border-radius:20px;color:var(--muted)}
+.empty b{display:block;font-size:1.05rem;color:var(--ink-2);margin-bottom:5px}
+
+/* ---------- بنر اقساط ---------- */
+.inst-banner{margin:46px 0 8px;background:linear-gradient(120deg,#33241a,#59371f);border-radius:24px;color:#fff;padding:34px 38px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;overflow:hidden;position:relative}
+.inst-banner h2{margin:0 0 8px;font-size:1.6rem;font-weight:900}
+.inst-banner h2 em{font-style:normal;color:#ffb27a}
+.inst-banner p{margin:0;color:#e8d5c0;max-width:480px}
+.inst-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inst-cards div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:15px;padding:14px 16px}
+.inst-cards b{display:block;font-size:1.12rem;color:#ffb27a}
+.inst-cards span{font-size:.8rem;color:#e8d5c0}
+
+/* ---------- فوتر ---------- */
+footer{background:var(--dark);color:#d9c6b2;margin-top:56px}
+footer .container{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;padding-top:42px;padding-bottom:30px}
+footer h4{color:#fff;margin:0 0 13px;font-size:1rem}
+footer p,footer li{font-size:.88rem;line-height:2}
+footer ul{list-style:none;margin:0;padding:0}
+footer .flogo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+footer .flogo strong{color:#fff;font-size:1.25rem;font-weight:900}
+.foot-bot{border-top:1px solid rgba(255,255,255,.12);padding:15px 0;font-size:.8rem;color:#b39d83}
+.foot-bot .container{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:0;padding-bottom:0}
+
+/* ---------- سبد خرید ---------- */
+.overlay{position:fixed;inset:0;background:rgba(43,28,16,.5);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.3s;z-index:90}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;inset-inline-end:0;width:min(430px,94vw);height:100dvh;background:#fff;z-index:95;transform:translateX(-110%);transition:transform .35s cubic-bezier(.3,.9,.3,1);display:flex;flex-direction:column;box-shadow:var(--shadow-lg)}
+[dir=rtl] .drawer{transform:translateX(-110%)}
+.drawer.open{transform:translateX(0)!important}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line)}
+.drawer-head h3{margin:0;font-size:1.1rem;font-weight:800}
+.x-btn{width:38px;height:38px;border-radius:11px;background:#fdf3e7;display:grid;place-items:center;font-size:1.05rem;transition:.2s}
+.x-btn:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.drawer-body{flex:1;overflow-y:auto;padding:16px 22px}
+.citem{display:flex;gap:13px;padding:13px 0;border-bottom:1px dashed var(--line-2)}
+.citem img{width:78px;height:78px;object-fit:cover;border-radius:13px;flex-shrink:0}
+.citem .ci-body{flex:1}
+.citem b{font-size:.88rem;line-height:1.6;display:block}
+.citem .ci-price{font-size:.86rem;color:var(--accent-dark);font-weight:700}
+.qty{display:inline-flex;align-items:center;gap:2px;border:1.5px solid var(--line);border-radius:10px;padding:2px;margin-top:6px}
+.qty button{width:27px;height:27px;display:grid;place-items:center;font-size:1rem;font-weight:800;color:var(--ink-2)}
+.qty span{min-width:26px;text-align:center;font-weight:800;font-size:.9rem}
+.ci-del{color:#e63946;font-size:.78rem;margin-top:6px;display:inline-block}
+.drawer-foot{border-top:1px solid var(--line);padding:18px 22px;background:#fffaf3}
+.trow{display:flex;justify-content:space-between;font-size:.9rem;padding:3px 0;color:var(--ink-2)}
+.trow.save{color:var(--green-dark);font-weight:700}
+.trow.grand{font-size:1.06rem;font-weight:900;color:var(--dark);border-top:1px dashed var(--line);margin-top:8px;padding-top:11px}
+.cart-inst{margin-top:10px;background:var(--accent-soft);border-radius:11px;padding:9px 13px;font-size:.83rem;color:var(--accent-dark);font-weight:600}
+.checkout-btn{width:100%;margin-top:14px;background:var(--accent-grad);color:#fff;font-weight:800;font-size:1rem;padding:14px;border-radius:13px;box-shadow:0 10px 20px rgba(242,109,33,.3)}
+.cart-empty{text-align:center;color:var(--muted);padding:52px 10px}
+.cart-empty b{display:block;color:var(--ink-2);font-size:1rem;margin-bottom:5px}
+
+/* ---------- مودال‌ها ---------- */
+.modal{position:fixed;inset:0;z-index:96;display:grid;place-items:center;padding:18px;opacity:0;pointer-events:none;transition:.25s}
+.modal.show{opacity:1;pointer-events:auto}
+.modal .mbox{background:#fff;border-radius:22px;max-width:880px;width:100%;max-height:92dvh;overflow-y:auto;box-shadow:var(--shadow-lg);transform:translateY(14px);transition:.25s}
+.modal.show .mbox{transform:none}
+.modal .mhead{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}
+.modal .mhead h3{margin:0;font-size:1.08rem;font-weight:800}
+.qv-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:24px}
+.qv-grid img{width:100%;height:320px;object-fit:cover;border-radius:16px}
+.spec-t{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:12px}
+.spec-t td{padding:8px 12px;border-bottom:1px solid var(--line-2)}
+.spec-t td:first-child{color:var(--muted);width:38%;font-weight:600}
+.spec-t td:last-child{font-weight:700}
+.qv-price{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
+.qv-price .now{font-size:1.4rem;font-weight:900}
+.qv-price .old{color:#c3b198;text-decoration:line-through}
+.cmp-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.cmp-table th,.cmp-table td{padding:11px 13px;border-bottom:1px solid var(--line-2);text-align:right;vertical-align:top}
+.cmp-table th{background:#fffaf3;font-weight:800}
+.cmp-table td:first-child{color:var(--muted);font-weight:600;width:130px}
+.cmp-table img{width:100%;height:110px;object-fit:cover;border-radius:11px;margin-bottom:7px}
+.cmp-table .best{color:var(--green-dark);font-weight:800}
+.cmp-wrap{padding:8px 24px 24px;overflow-x:auto}
+
+/* ---------- نوار مقایسه ---------- */
+.cmpbar{position:fixed;bottom:18px;inset-inline:0;margin-inline:auto;width:min(680px,94vw);background:var(--dark);color:#fff;border-radius:18px;box-shadow:var(--shadow-lg);padding:12px 18px;display:flex;align-items:center;gap:14px;z-index:85;transform:translateY(140%);transition:transform .35s cubic-bezier(.3,.9,.3,1)}
+.cmpbar.show{transform:none}
+.cmpbar .thumbs{display:flex;gap:8px}
+.cmpbar .thumbs img{width:46px;height:46px;object-fit:cover;border-radius:10px;border:2px solid rgba(255,255,255,.35)}
+.cmpbar .thumbs .slot{width:46px;height:46px;border-radius:10px;border:2px dashed rgba(255,255,255,.35);display:grid;place-items:center;font-size:.72rem;color:#cbb59c}
+.cmpbar p{margin:0;font-size:.86rem;flex:1;line-height:1.6}
+.cmpbar .go{background:var(--accent-grad);color:#fff;font-weight:800;padding:10px 20px;border-radius:11px;font-size:.9rem}
+.cmpbar .go:disabled{opacity:.45;cursor:not-allowed}
+.cmpbar .clr{color:#cbb59c;font-size:.82rem}
+.cmpbar .clr:hover{color:#fff}
+
+/* ---------- پیام ---------- */
+.toast{position:fixed;bottom:24px;inset-inline-start:24px;background:var(--dark);color:#fff;padding:13px 20px;border-radius:14px;font-size:.9rem;font-weight:600;box-shadow:var(--shadow-lg);z-index:120;opacity:0;transform:translateY(16px);transition:.3s;pointer-events:none;max-width:min(420px,90vw)}
+.toast.show{opacity:1;transform:none}
+.filters-toggle{display:none;width:100%;margin-bottom:14px;padding:12px;border:1.5px solid var(--line);background:#fff;border-radius:13px;font-weight:800;align-items:center;justify-content:center;gap:9px}
+
+@media(max-width:1080px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .cats-grid{grid-template-columns:repeat(4,1fr)}
+  .services .container{grid-template-columns:repeat(2,1fr)}
+  .hero-in{grid-template-columns:1fr;gap:30px}
+  .hero-img img{height:300px}
+}
+@media(max-width:860px){
+  .shop-wrap{grid-template-columns:1fr}
+  .filters{display:none;position:static}
+  .filters.open{display:block}
+  .filters-toggle{display:flex}
+  .inst-banner{grid-template-columns:1fr}
+  footer .container{grid-template-columns:1fr}
+  .hbtn .txt{display:none}
+  .hbtn{padding:10px 12px}
+  .searchbox{order:3;max-width:none;flex:1 1 100%}
+  .header-in{flex-wrap:wrap}
+}
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .cats-grid{grid-template-columns:repeat(2,1fr)}
+  .services .container{grid-template-columns:1fr}
+  .hero-txt h1{font-size:1.9rem}
+  .qv-grid{grid-template-columns:1fr}
+  .topbar nav{display:none}
+  .hero-card{inset-inline-start:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- نوار بالا -->
+<div class="topbar">
+  <div class="container">
+    <div>🚚 <b>ارسال و نصب رایگان در تهران</b> برای سفارش‌های بالای ۵ میلیون تومان</div>
+    <nav>
+      <a href="#shop">پیگیری سفارش</a>
+      <a href="#installment">فروش اقساطی</a>
+      <a href="#services">شرایط گارانتی</a>
+    </nav>
+  </div>
+</div>
+
+<!-- هدر -->
+<header class="site">
+  <div class="container header-in">
+    <a class="logo" href="#">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
+      <span class="logo-text"><strong>خانه<em>‌کالا</em></strong><span>فروشگاه تخصصی لوازم خانگی</span></span>
+    </a>
+    <div class="searchbox">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="text" placeholder="جستجو در لوازم خانگی؛ مثلاً لباسشویی بوش…">
+    </div>
+    <div class="head-actions">
+      <button class="hbtn" id="cmpHeadBtn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18M16 3v18M3 8h5M3 16h5M16 8h5M16 16h5"/></svg>
+        <span class="txt">مقایسه</span><span class="bdg" id="cmpCount">۰</span>
+      </button>
+      <button class="hbtn cart-btn" id="cartBtn">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+        <span class="txt">سبد خرید</span><span class="bdg" id="cartCount">۰</span>
+      </button>
+    </div>
+  </div>
+  <!-- نوار برندها -->
+  <div class="brandstrip">
+    <div class="container" id="brandStrip">
+      <span class="lbl">برندهای رسمی:</span>
+    </div>
+  </div>
+  <!-- ناوبری دسته‌ها -->
+  <nav class="cats">
+    <div class="container" id="catNav"></div>
+  </nav>
+</header>
+
+<!-- هیرو -->
+<section class="hero">
+  <div class="container hero-in">
+    <div class="hero-txt">
+      <span class="kick">✦ جشنواره پاییزه خانه‌کالا — تا ۱۸٪ تخفیف + اقساط ۱۲ ماهه</span>
+      <h1>خانه‌ای مجهز، با <em>لوازم خانگی اصل</em> و گارانتی شرکتی</h1>
+      <p>یخچال، لباسشویی، تلویزیون و همه لوازم خانه از نمایندگی رسمی برندها؛ با ارسال و نصب رایگان در تهران، امکان مقایسه تخصصی و خرید اقساطی بدون ضامن.</p>
+      <div class="hero-cta">
+        <a class="btn btn-acc" href="#shop">شروع خرید
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-7-7 7 7 7"/></svg></a>
+        <a class="btn btn-ghost" href="#installment">شرایط خرید اقساطی</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>+۱۲٬۴۰۰</b><span>کالای اصل در انبار</span></div>
+        <div><b>٪۹۸</b><span>رضایت مشتریان</span></div>
+        <div><b>۲۴ ساعته</b><span>تحویل در تهران</span></div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="frame"><img src="assets/img/hero.jpg" alt="آشپزخانه مجهز با لوازم خانگی خانه‌کالا"></div>
+      <div class="hero-card">
+        <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span>
+        <div><b>ضمانت اصالت کالا</b><span>کارت گارانتی شرکتی معتبر برای همه محصولات</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- خدمات -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="svc">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 7h12v10h-12zM13.5 10h4l3.5 3.5V17h-7.5z"/><circle cx="6" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></span>
+      <div><b>ارسال و نصب رایگان تهران</b><span>تحویل ۲۴ ساعته + نصب و راه‌اندازی توسط تکنسین مجاز</span></div>
+    </div>
+    <div class="svc">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span>
+      <div><b>گارانتی معتبر شرکتی</b><span>گلدیران، سام‌سرویس، بوش‌سرویس و انتخاب سرویس</span></div>
+    </div>
+    <div class="svc">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg></span>
+      <div><b>خرید اقساطی تا ۲۴ ماه</b><span>بدون ضامن، فقط با چک یا سفته؛ اعتبارسنجی آنلاین</span></div>
+    </div>
+    <div class="svc">
+      <span class="ic-wrap"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span>
+      <div><b>۷ روز مهلت بازگشت</b><span>بازگشت بی‌قیدوشرط کالای استفاده‌نشده تا یک هفته</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- دسته‌بندی‌ها -->
+<div class="container">
+  <div class="sec-head">
+    <div><h2>خرید بر اساس <em>دسته‌بندی</em></h2><p>هر دسته، منتخبی از پرفروش‌ترین مدل‌های بازار ایران</p></div>
+  </div>
+  <div class="cats-grid" id="catTiles"></div>
+</div>
+
+<!-- فروشگاه -->
+<div class="container" id="shop">
+  <div class="sec-head">
+    <div><h2>ویترین <em>خانه‌کالا</em></h2><p>قیمت‌ها به‌روز و همراه با گارانتی رسمی؛ قسط ماهانه هر کالا زیر قیمت آن درج شده است.</p></div>
+  </div>
+  <button class="filters-toggle" id="filtersToggle">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
+    فیلترها و مرتب‌سازی
+  </button>
+  <div class="shop-wrap">
+    <aside class="filters" id="filtersPanel">
+      <h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10m-7 6h4"/></svg> فیلترها</h3>
+      <div class="fgroup">
+        <h4>برند</h4>
+        <div id="brandFilters"></div>
+      </div>
+      <div class="fgroup">
+        <h4>محدوده قیمت (تومان)</h4>
+        <div class="range-row"><label>از</label><input type="range" id="priceMin" min="0" max="100000000" step="1000000" value="0"><output id="priceMinOut"></output></div>
+        <div class="range-row"><label>تا</label><input type="range" id="priceMax" min="0" max="100000000" step="1000000" value="100000000"><output id="priceMaxOut"></output></div>
+      </div>
+      <div class="fgroup">
+        <h4>رتبه انرژی</h4>
+        <div id="energyFilters"></div>
+      </div>
+      <button class="f-clear" id="clearFilters">حذف همه فیلترها</button>
+    </aside>
+    <div>
+      <div class="toolbar">
+        <div class="chips" id="catChips"></div>
+        <span class="res-count" id="resCount"></span>
+        <div class="sortbox">
+          <label for="sortSel">مرتب‌سازی:</label>
+          <select id="sortSel">
+            <option value="pop">محبوب‌ترین</option>
+            <option value="cheap">ارزان‌ترین</option>
+            <option value="exp">گران‌ترین</option>
+            <option value="off">بیشترین تخفیف</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+
+  <!-- بنر اقساط -->
+  <section class="inst-banner" id="installment">
+    <div>
+      <h2>خرید اقساطی، <em>بدون ضامن</em> و بدون مراجعه حضوری</h2>
+      <p>کل سبد خریدتان را تا ۲۴ ماه قسط‌بندی کنید؛ پیش‌پرداخت از ۲۰٪، اعتبارسنجی کاملاً آنلاین و ارسال کالا بلافاصله پس از تأیید اعتبار.</p>
+    </div>
+    <div class="inst-cards">
+      <div><b>۱۲ ماهه</b><span>بدون بهره برای کالاهای منتخب جشنواره</span></div>
+      <div><b>۲۴ ماهه</b><span>سود ماهانه ثابت و شفاف، بدون هزینه پنهان</span></div>
+      <div><b>۲۰٪ پیش‌پرداخت</b><span>حداقل پیش‌پرداخت برای شروع خرید اقساطی</span></div>
+      <div><b>۱۰ دقیقه</b><span>زمان تقریبی اعتبارسنجی و تأیید آنلاین</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- فوتر -->
+<footer>
+  <div class="container">
+    <div>
+      <div class="flogo">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
+        <strong>خانه‌کالا</strong>
+      </div>
+      <p>فروشگاه تخصصی لوازم خانگی با بیش از یک دهه تجربه فروش حضوری در تهران؛ حالا آنلاین، با همان اعتماد و گارانتی شرکتی معتبر برای سراسر کشور.</p>
+    </div>
+    <div>
+      <h4>دسترسی سریع</h4>
+      <ul>
+        <li><a href="#shop">ویترین فروشگاه</a></li>
+        <li><a href="#installment">شرایط خرید اقساطی</a></li>
+        <li><a href="#services">خدمات پس از فروش</a></li>
+        <li><a href="#shop">مقایسه محصولات</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>چرا خانه‌کالا؟</h4>
+      <ul>
+        <li>نمایندگی رسمی فروش برندهای معتبر</li>
+        <li>ارسال و نصب رایگان در تهران</li>
+        <li>۷ روز مهلت بازگشت کالا</li>
+        <li>پشتیبانی واقعی، پاسخ‌گو و فارسی‌زبان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <div class="container">
+      <span>© ۱۴۰۴ خانه‌کالا — دموی طراحی فروشگاه لوازم خانگی</span>
+      <span>تمامی قیمت‌ها به تومان و با احتساب گارانتی شرکتی است.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- سبد خرید -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>سبد خرید شما</h3>
+    <button class="x-btn" id="cartClose">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</aside>
+
+<!-- نمایش سریع -->
+<div class="modal" id="qvModal">
+  <div class="mbox">
+    <div class="mhead"><h3 id="qvTitle">مشخصات کالا</h3><button class="x-btn" data-close="qvModal">✕</button></div>
+    <div class="qv-grid" id="qvBody"></div>
+  </div>
+</div>
+
+<!-- مقایسه -->
+<div class="modal" id="cmpModal">
+  <div class="mbox" style="max-width:980px">
+    <div class="mhead"><h3>مقایسه محصولات</h3><button class="x-btn" data-close="cmpModal">✕</button></div>
+    <div class="cmp-wrap" id="cmpBody"></div>
+  </div>
+</div>
+
+<!-- نوار مقایسه -->
+<div class="cmpbar" id="cmpBar">
+  <div class="thumbs" id="cmpThumbs"></div>
+  <p id="cmpText">برای مقایسه، ۲ یا ۳ کالا را انتخاب کنید.</p>
+  <button class="clr" id="cmpClear">حذف همه</button>
+  <button class="go" id="cmpGo" disabled>مقایسه کن</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const CATS = [
+  {id:'all', fa:'همه محصولات', img:null},
+  {id:'fridge', fa:'یخچال و فریزر', img:'assets/img/fridge-lg.jpg'},
+  {id:'washer', fa:'لباسشویی', img:'assets/img/washer-samsung.jpg'},
+  {id:'dishwasher', fa:'ظرفشویی', img:'assets/img/dishwasher-lg.jpg'},
+  {id:'tv', fa:'تلویزیون', img:'assets/img/tv-lg.jpg'},
+  {id:'vacuum', fa:'جاروبرقی', img:'assets/img/vacuum-bosch.jpg'},
+  {id:'kitchen', fa:'لوازم آشپزخانه', img:'assets/img/coffee-bosch.jpg'},
+  {id:'air', fa:'کولر و تصفیه هوا', img:'assets/img/ac-lg.jpg'},
+];
+const BRANDS = [
+  {id:'lg', fa:'ال‌جی', en:'LG'},
+  {id:'samsung', fa:'سامسونگ', en:'SAMSUNG'},
+  {id:'bosch', fa:'بوش', en:'BOSCH'},
+  {id:'snowa', fa:'اسنوا', en:'SNOWA'},
+  {id:'daewoo', fa:'دوو', en:'DAEWOO'},
+  {id:'parskhazar', fa:'پارس‌خزر', en:'PARS KHAZAR'},
+];
+const PRODUCTS = [
+  {id:1, cat:'fridge', brand:'lg', name:'یخچال فریزر سایدبای‌ساید ال‌جی مدل X287 اینستاویو', price:98500000, old:112000000, energy:'A++', pop:98, img:'assets/img/fridge-lg.jpg',
+   specs:{cap:'۳۰ فوت (۶۷۴ لیتر)', dims:'۹۱ × ۱۷۹ × ۷۳ سانتی‌متر', warr:'۲۴ ماه گلدیران + ۱۰ سال موتور'}, extra:[['نوع','سایدبای‌ساید'],['آبسردکن و یخ‌ساز','دارد، خودکار'],['سیستم سرمایش','بدون برفک (نوفراست)'],['کمپرسور','اینورتر خطی']]},
+  {id:2, cat:'fridge', brand:'snowa', name:'یخچال فریزر اسنوا مدل SN8-2028 سری هارمونی', price:54700000, old:59800000, energy:'A+', pop:87, img:'assets/img/fridge-snowa.jpg',
+   specs:{cap:'۲۷ فوت (۵۲۰ لیتر)', dims:'۷۰ × ۱۸۵ × ۷۲ سانتی‌متر', warr:'۲۴ ماه انتخاب سرویس'}, extra:[['نوع','بالا یخچال / پایین فریزر'],['آبسردکن','دارد'],['سیستم سرمایش','بدون برفک (نوفراست)'],['نمایشگر','لمسی دیجیتال']]},
+  {id:3, cat:'washer', brand:'samsung', name:'ماشین لباسشویی سامسونگ ۹ کیلوگرم مدل WW90 اکوبابل', price:43900000, old:47500000, energy:'A+++', pop:95, img:'assets/img/washer-samsung.jpg',
+   specs:{cap:'۹ کیلوگرم', dims:'۶۰ × ۸۵ × ۶۰ سانتی‌متر', warr:'۲۴ ماه سام‌سرویس + ۱۰ سال موتور'}, extra:[['سرعت چرخش','۱۴۰۰ دور در دقیقه'],['موتور','اینورتر دیجیتال'],['برنامه‌ها','۱۵ برنامه شست‌وشو'],['بخارشوی','دارد (Hygiene Steam)']]},
+  {id:4, cat:'washer', brand:'bosch', name:'ماشین لباسشویی بوش سری ۸ مدل WGB244A0', price:62400000, old:null, energy:'A+++', pop:92, img:'assets/img/washer-bosch.jpg',
+   specs:{cap:'۹ کیلوگرم', dims:'۶۰ × ۸۵ × ۵۹ سانتی‌متر', warr:'۲۴ ماه بوش‌سرویس'}, extra:[['سرعت چرخش','۱۴۰۰ دور در دقیقه'],['موتور','EcoSilence Drive'],['برنامه‌ها','۱۴ برنامه + i-DOS دوز خودکار'],['کلاس صدا','۴۸ دسی‌بل (بی‌صدا)']]},
+  {id:5, cat:'washer', brand:'daewoo', name:'ماشین لباسشویی دوو ۸ کیلوگرم مدل LM-880 سری پریمو', price:32800000, old:36500000, energy:'A++', pop:84, img:'assets/img/washer-daewoo.jpg',
+   specs:{cap:'۸ کیلوگرم', dims:'۶۰ × ۸۵ × ۵۶ سانتی‌متر', warr:'۲۴ ماه انتخاب سرویس + ۵ سال موتور'}, extra:[['سرعت چرخش','۱۲۰۰ دور در دقیقه'],['موتور','دایرکت درایو'],['برنامه‌ها','۱۲ برنامه شست‌وشو'],['شست‌وشوی سریع','۱۵ دقیقه‌ای']]},
+  {id:6, cat:'dishwasher', brand:'lg', name:'ماشین ظرفشویی ال‌جی ۱۴ نفره مدل DFB512 بخارشوی', price:47600000, old:52900000, energy:'A++', pop:90, img:'assets/img/dishwasher-lg.jpg',
+   specs:{cap:'۱۴ نفره (۱۵۷ پارچه)', dims:'۶۰ × ۸۵ × ۶۰ سانتی‌متر', warr:'۲۴ ماه گلدیران'}, extra:[['موتور','اینورتر دایرکت درایو'],['بخارشوی','TrueSteam'],['برنامه‌ها','۱۰ برنامه شست‌وشو'],['مصرف آب','۹٫۹ لیتر در هر شست‌وشو']]},
+  {id:7, cat:'dishwasher', brand:'snowa', name:'ماشین ظرفشویی اسنوا ۱۳ نفره مدل SDW-F353200', price:31400000, old:null, energy:'A+', pop:81, img:'assets/img/dishwasher-snowa.jpg',
+   specs:{cap:'۱۳ نفره (۱۴۴ پارچه)', dims:'۶۰ × ۸۵ × ۶۰ سانتی‌متر', warr:'۲۴ ماه انتخاب سرویس'}, extra:[['سبد قاشق و چنگال','طبقه سوم مجزا'],['برنامه‌ها','۸ برنامه شست‌وشو'],['شست‌وشوی نیم‌بار','دارد'],['مصرف آب','۱۱ لیتر در هر شست‌وشو']]},
+  {id:8, cat:'tv', brand:'lg', name:'تلویزیون ال‌جی ۵۵ اینچ مدل UQ8000 هوشمند 4K', price:39700000, old:44200000, energy:'A', pop:93, img:'assets/img/tv-lg.jpg',
+   specs:{cap:'۵۵ اینچ، 4K UHD', dims:'۱۲۳ × ۷۷ × ۲۳ سانتی‌متر (با پایه)', warr:'۲۴ ماه گلدیران'}, extra:[['پنل','IPS با نور پس‌زمینه LED'],['سیستم‌عامل','webOS 23'],['پردازنده','α5 نسل ۵ با هوش مصنوعی'],['درگاه‌ها','۳ HDMI و ۲ USB']]},
+  {id:9, cat:'tv', brand:'samsung', name:'تلویزیون سامسونگ ۶۵ اینچ Crystal UHD مدل CU8000', price:57800000, old:null, energy:'A', pop:89, img:'assets/img/tv-samsung.jpg',
+   specs:{cap:'۶۵ اینچ، Crystal 4K', dims:'۱۴۵ × ۸۹ × ۲۹ سانتی‌متر (با پایه)', warr:'۲۴ ماه سام‌سرویس'}, extra:[['پنل','Crystal با PurColor'],['سیستم‌عامل','Tizen 7'],['قابلیت گیمینگ','Gaming Hub و ALLM'],['درگاه‌ها','۳ HDMI و ۲ USB']]},
+  {id:10, cat:'vacuum', brand:'bosch', name:'جاروبرقی بوش مدل BGS7POW2 بدون کیسه سری ProPower', price:11850000, old:13400000, energy:'A', pop:86, img:'assets/img/vacuum-bosch.jpg',
+   specs:{cap:'مخزن ۳ لیتر (بدون کیسه)', dims:'۳۲ × ۴۸ × ۳۰ سانتی‌متر', warr:'۲۴ ماه بوش‌سرویس'}, extra:[['قدرت مکش','۳۲۰ وات (موتور ۲۲۰۰ وات)'],['فیلتر','HEPA قابل شست‌وشو'],['شعاع عملکرد','۱۱ متر'],['صدا','۷۴ دسی‌بل']]},
+  {id:11, cat:'vacuum', brand:'parskhazar', name:'جاروبرقی پارس‌خزر مدل VC-2200W توربو', price:4650000, old:5200000, energy:'B', pop:78, img:'assets/img/vacuum-pars.jpg',
+   specs:{cap:'کیسه ۴٫۵ لیتر', dims:'۲۸ × ۴۲ × ۲۶ سانتی‌متر', warr:'۲۵ ماه پارس‌خزر'}, extra:[['قدرت موتور','۲۲۰۰ وات'],['فیلتر','HEPA 11'],['شعاع عملکرد','۹ متر'],['لوله','تلسکوپی استیل']]},
+  {id:12, cat:'kitchen', brand:'parskhazar', name:'چای‌ساز پارس‌خزر مدل TM-3500 گرم‌نگهدار', price:2980000, old:null, energy:'B', pop:74, img:'assets/img/kettle-pars.jpg',
+   specs:{cap:'کتری ۱٫۷ لیتر، قوری ۱ لیتر', dims:'۲۲ × ۳۸ × ۲۴ سانتی‌متر', warr:'۲۵ ماه پارس‌خزر'}, extra:[['توان','۲۲۰۰ وات'],['بدنه','استیل ضدزنگ'],['گرم‌نگهدار','خودکار'],['خاموشی خودکار','دارد']]},
+  {id:13, cat:'kitchen', brand:'bosch', name:'اسپرسوساز بوش مدل TIS30129 تمام‌خودکار VeroCup', price:18750000, old:21000000, energy:'A', pop:83, img:'assets/img/coffee-bosch.jpg',
+   specs:{cap:'مخزن آب ۱٫۴ لیتر', dims:'۲۵ × ۴۳ × ۳۸ سانتی‌متر', warr:'۲۴ ماه بوش‌سرویس'}, extra:[['فشار پمپ','۱۵ بار'],['آسیاب','سرامیکی داخلی'],['فوم شیر','MilkMagic Pro'],['نوشیدنی‌ها','اسپرسو، کاپوچینو، لاته']]},
+  {id:14, cat:'air', brand:'lg', name:'کولر گازی ال‌جی ۲۴۰۰۰ اینورتر مدل DualCool', price:51400000, old:56800000, energy:'A++', pop:91, img:'assets/img/ac-lg.jpg',
+   specs:{cap:'۲۴۰۰۰ BTU (تا ۴۵ مترمربع)', dims:'۱۰۰ × ۳۵ × ۲۷ سانتی‌متر (یونیت داخلی)', warr:'۲۴ ماه گلدیران + ۵ سال کمپرسور'}, extra:[['کمپرسور','Dual Inverter'],['گاز مبرد','R32'],['حالت خواب','دارد، فوق کم‌صدا'],['فیلتر','ضدباکتری و ضدآلرژی']]},
+  {id:15, cat:'air', brand:'samsung', name:'دستگاه تصفیه هوا سامسونگ مدل AX60R5080WD', price:13900000, old:null, energy:'A', pop:79, img:'assets/img/purifier-samsung.jpg',
+   specs:{cap:'پوشش تا ۶۰ مترمربع', dims:'۳۶ × ۷۸ × ۲۴ سانتی‌متر', warr:'۲۴ ماه سام‌سرویس'}, extra:[['فیلتر','HEPA چندلایه'],['حسگر','لیزری PM1.0 و گاز'],['نمایشگر','کیفیت هوا با نور رنگی'],['صدا','۲۱ دسی‌بل در حالت خواب']]},
+];
+const ENERGIES = ['A+++','A++','A+','A','B'];
+const faNum = n => Math.round(n).toLocaleString('fa-IR');
+const fmt = n => faNum(n) + ' تومان';
+const monthly = p => Math.ceil(p/12/1000)*1000;
+const brandOf = id => BRANDS.find(b=>b.id===id);
+const catOf = id => CATS.find(c=>c.id===id);
+const byId = id => PRODUCTS.find(p=>p.id===id);
+const energyCls = e => e==='A+++'?'e3':e==='A++'?'e2':e==='A+'?'e1':e==='A'?'ea':'eb';
+
+const state = { cat:'all', brands:new Set(), energies:new Set(), min:0, max:100000000, q:'', sort:'pop' };
+let cart = JSON.parse(localStorage.getItem('kh_cart')||'{}');
+let compare = new Set(JSON.parse(localStorage.getItem('kh_cmp')||'[]'));
+
+/* ---------- ساخت عناصر ثابت ---------- */
+const brandStrip = document.getElementById('brandStrip');
+BRANDS.forEach(b=>{
+  const el=document.createElement('button');
+  el.className='brandchip'; el.dataset.brand=b.id;
+  el.innerHTML=`<b>${b.fa}</b><span>${b.en}</span>`;
+  el.onclick=()=>{ state.brands.has(b.id)?state.brands.delete(b.id):state.brands.add(b.id); syncBrandUI(); render(); };
+  brandStrip.appendChild(el);
+});
+function syncBrandUI(){
+  document.querySelectorAll('.brandchip').forEach(c=>c.classList.toggle('on', state.brands.has(c.dataset.brand)));
+  document.querySelectorAll('#brandFilters input').forEach(i=>{ i.checked = state.brands.has(i.value); });
+}
+const catNav=document.getElementById('catNav');
+CATS.forEach(c=>{
+  const b=document.createElement('button'); b.textContent=c.fa;
+  b.onclick=()=>{ setCat(c.id); document.getElementById('shop').scrollIntoView({behavior:'smooth'}); };
+  catNav.appendChild(b);
+});
+const catTiles=document.getElementById('catTiles');
+CATS.filter(c=>c.id!=='all').forEach(c=>{
+  const n=PRODUCTS.filter(p=>p.cat===c.id).length;
+  const el=document.createElement('button'); el.className='cat-tile';
+  el.innerHTML=`<img src="${c.img}" alt="${c.fa}" loading="lazy"><b>${c.fa}</b><span>${faNum(n)} کالا</span>`;
+  el.onclick=()=>{ setCat(c.id); document.getElementById('shop').scrollIntoView({behavior:'smooth'}); };
+  catTiles.appendChild(el);
+});
+const chipsBox=document.getElementById('catChips');
+CATS.forEach(c=>{
+  const b=document.createElement('button'); b.className='chip'+(c.id==='all'?' on':''); b.dataset.cat=c.id; b.textContent=c.fa;
+  b.onclick=()=>setCat(c.id);
+  chipsBox.appendChild(b);
+});
+function setCat(id){
+  state.cat=id;
+  document.querySelectorAll('#catChips .chip').forEach(ch=>ch.classList.toggle('on', ch.dataset.cat===id));
+  render();
+}
+const bf=document.getElementById('brandFilters');
+BRANDS.forEach(b=>{
+  const n=PRODUCTS.filter(p=>p.brand===b.id).length;
+  const l=document.createElement('label'); l.className='check';
+  l.innerHTML=`<input type="checkbox" value="${b.id}"> ${b.fa} <span class="cnt">${faNum(n)} کالا</span>`;
+  l.querySelector('input').onchange=e=>{ e.target.checked?state.brands.add(b.id):state.brands.delete(b.id); syncBrandUI(); render(); };
+  bf.appendChild(l);
+});
+const ef=document.getElementById('energyFilters');
+ENERGIES.forEach(e=>{
+  const n=PRODUCTS.filter(p=>p.energy===e).length;
+  const l=document.createElement('label'); l.className='check';
+  l.innerHTML=`<input type="checkbox" value="${e}"> رتبه انرژی ${e} <span class="cnt">${faNum(n)} کالا</span>`;
+  l.querySelector('input').onchange=ev=>{ ev.target.checked?state.energies.add(e):state.energies.delete(e); render(); };
+  ef.appendChild(l);
+});
+const pMin=document.getElementById('priceMin'), pMax=document.getElementById('priceMax');
+function syncPriceOut(){
+  document.getElementById('priceMinOut').textContent = faNum(+pMin.value);
+  document.getElementById('priceMaxOut').textContent = faNum(+pMax.value);
+}
+pMin.oninput=()=>{ if(+pMin.value>+pMax.value) pMax.value=pMin.value; state.min=+pMin.value; state.max=+pMax.value; syncPriceOut(); render(); };
+pMax.oninput=()=>{ if(+pMax.value<+pMin.value) pMin.value=pMax.value; state.min=+pMin.value; state.max=+pMax.value; syncPriceOut(); render(); };
+syncPriceOut();
+document.getElementById('clearFilters').onclick=()=>{
+  state.brands.clear(); state.energies.clear(); state.min=0; state.max=100000000; state.q='';
+  pMin.value=0; pMax.value=100000000; syncPriceOut();
+  document.getElementById('searchInput').value='';
+  document.querySelectorAll('#energyFilters input').forEach(i=>i.checked=false);
+  syncBrandUI(); setCat('all');
+};
+document.getElementById('sortSel').onchange=e=>{ state.sort=e.target.value; render(); };
+document.getElementById('searchInput').oninput=e=>{ state.q=e.target.value.trim(); render(); };
+document.getElementById('filtersToggle').onclick=()=>document.getElementById('filtersPanel').classList.toggle('open');
+
+/* ---------- رندر محصولات ---------- */
+function filtered(){
+  let list=PRODUCTS.filter(p=>{
+    if(state.cat!=='all' && p.cat!==state.cat) return false;
+    if(state.brands.size && !state.brands.has(p.brand)) return false;
+    if(state.energies.size && !state.energies.has(p.energy)) return false;
+    if(p.price<state.min || p.price>state.max) return false;
+    if(state.q){ const q=state.q; if(!(p.name.includes(q)||brandOf(p.brand).fa.includes(q)||catOf(p.cat).fa.includes(q))) return false; }
+    return true;
+  });
+  if(state.sort==='cheap') list.sort((a,b)=>a.price-b.price);
+  else if(state.sort==='exp') list.sort((a,b)=>b.price-a.price);
+  else if(state.sort==='off') list.sort((a,b)=>((b.old?1-b.price/b.old:0)-(a.old?1-a.price/a.old:0)));
+  else list.sort((a,b)=>b.pop-a.pop);
+  return list;
+}
+const grid=document.getElementById('grid');
+function render(){
+  const list=filtered();
+  document.getElementById('resCount').innerHTML=`<b>${faNum(list.length)}</b> کالا یافت شد`;
+  if(!list.length){
+    grid.innerHTML=`<div class="empty"><b>کالایی با این فیلترها پیدا نشد</b>فیلترها را کمتر کنید یا محدوده قیمت را گسترش دهید.</div>`;
+    return;
+  }
+  grid.innerHTML=list.map(p=>{
+    const off=p.old?Math.round((1-p.price/p.old)*100):0;
+    return `<article class="pcard">
+      <div class="pimg" onclick="openQV(${p.id})">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <span class="energy ${energyCls(p.energy)}">${p.energy}</span>
+        ${off?`<span class="off">٪${faNum(off)} تخفیف</span>`:''}
+      </div>
+      <div class="pbody">
+        <div class="pbrand"><span>${brandOf(p.brand).fa} · ${catOf(p.cat).fa}</span><span class="warr">🛡 گارانتی شرکتی</span></div>
+        <h3 class="pname" onclick="openQV(${p.id})">${p.name}</h3>
+        <div class="pmeta">ظرفیت: ${p.specs.cap} · ${p.specs.warr}</div>
+        <div class="pprice">
+          ${p.old?`<div class="old">${fmt(p.old)}</div>`:''}
+          <div class="now">${faNum(p.price)} <small>تومان</small></div>
+          <span class="inst">قسط ماهانه از ${faNum(monthly(p.price))} تومان</span>
+        </div>
+        <div class="pactions">
+          <button class="add-btn" onclick="addToCart(${p.id})">
+            <svg class="ic" style="width:19px;height:19px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M2.5 3h2l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L21.5 7H6"/></svg>
+            افزودن به سبد</button>
+          <button class="qv-btn" title="نمایش سریع" onclick="openQV(${p.id})">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <label class="cmp-row"><input type="checkbox" ${compare.has(p.id)?'checked':''} onchange="toggleCompare(${p.id},this.checked)"> افزودن به مقایسه</label>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+/* ---------- سبد خرید ---------- */
+const drawer=document.getElementById('cartDrawer'), overlay=document.getElementById('overlay');
+function saveCart(){ localStorage.setItem('kh_cart', JSON.stringify(cart)); }
+function cartQty(){ return Object.values(cart).reduce((a,b)=>a+b,0); }
+function cartTotals(){
+  let total=0, oldTotal=0;
+  for(const [id,q] of Object.entries(cart)){ const p=byId(+id); if(!p) continue; total+=p.price*q; oldTotal+=(p.old||p.price)*q; }
+  return {total, oldTotal, save:oldTotal-total};
+}
+function addToCart(id, qty=1){
+  cart[id]=(cart[id]||0)+qty; saveCart(); renderCart();
+  toast(`«${byId(id).name}» به سبد خرید اضافه شد`);
+}
+function setQty(id,q){
+  if(q<=0) delete cart[id]; else cart[id]=q;
+  saveCart(); renderCart();
+}
+function renderCart(){
+  document.getElementById('cartCount').textContent=faNum(cartQty());
+  const body=document.getElementById('cartBody'), foot=document.getElementById('cartFoot');
+  const ids=Object.keys(cart);
+  if(!ids.length){
+    body.innerHTML=`<div class="cart-empty"><b>سبد خرید خالی است</b>هنوز کالایی به سبد اضافه نکرده‌اید.</div>`;
+    foot.innerHTML=''; return;
+  }
+  body.innerHTML=ids.map(id=>{
+    const p=byId(+id), q=cart[id];
+    return `<div class="citem">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="ci-body">
+        <b>${p.name}</b>
+        <span class="ci-price">${fmt(p.price*q)}</span>
+        <div>
+          <span class="qty"><button onclick="setQty(${p.id},${q-1})">−</button><span>${faNum(q)}</span><button onclick="setQty(${p.id},${q+1})">+</button></span>
+          <button class="ci-del" onclick="setQty(${p.id},0)">حذف از سبد</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  const t=cartTotals();
+  foot.innerHTML=`
+    ${t.save?`<div class="trow save"><span>سود شما از تخفیف‌ها</span><span>${fmt(t.save)}</span></div>`:''}
+    <div class="trow"><span>هزینه ارسال و نصب (تهران)</span><span>رایگان</span></div>
+    <div class="trow grand"><span>مبلغ قابل پرداخت</span><span>${fmt(t.total)}</span></div>
+    <div class="cart-inst">💳 یا اقساط ۱۲ ماهه: ماهانه ${fmt(monthly(t.total))} — بدون بهره در جشنواره پاییزه</div>
+    <button class="checkout-btn" onclick="checkout()">ثبت سفارش و پرداخت</button>`;
+}
+function checkout(){
+  toast('سفارش شما با موفقیت ثبت شد؛ کارشناسان فروش برای هماهنگی ارسال و نصب با شما تماس می‌گیرند. (دمو)');
+  cart={}; saveCart(); renderCart(); closeCart();
+}
+function openCart(){ drawer.classList.add('open'); overlay.classList.add('show'); }
+function closeCart(){ drawer.classList.remove('open'); overlay.classList.remove('show'); }
+document.getElementById('cartBtn').onclick=openCart;
+document.getElementById('cartClose').onclick=closeCart;
+overlay.onclick=()=>{ closeCart(); };
+
+/* ---------- نمایش سریع ---------- */
+function openQV(id){
+  const p=byId(id);
+  document.getElementById('qvTitle').textContent=p.name;
+  const rows=[['برند',brandOf(p.brand).fa],['دسته‌بندی',catOf(p.cat).fa],['ظرفیت / مشخصه اصلی',p.specs.cap],['رتبه انرژی',p.energy],['ابعاد',p.specs.dims],['گارانتی',p.specs.warr],...p.extra];
+  document.getElementById('qvBody').innerHTML=`
+    <div><img src="${p.img}" alt="${p.name}"></div>
+    <div>
+      <div class="pbrand"><span>${brandOf(p.brand).fa} · ${catOf(p.cat).fa}</span><span class="warr">🛡 گارانتی شرکتی</span></div>
+      <table class="spec-t">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>
+      <div class="qv-price">
+        ${p.old?`<span class="old">${fmt(p.old)}</span>`:''}
+        <span class="now">${fmt(p.price)}</span>
+        <span class="inst">قسط ماهانه از ${faNum(monthly(p.price))} تومان</span>
+      </div>
+      <div class="pactions" style="margin-top:16px">
+        <button class="add-btn" onclick="addToCart(${p.id});closeModal('qvModal')">افزودن به سبد خرید</button>
+        <button class="qv-btn" title="افزودن به مقایسه" onclick="toggleCompare(${p.id},!compare.has(${p.id}));closeModal('qvModal')">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v18M16 3v18M3 8h5M3 16h5M16 8h5M16 16h5"/></svg>
+        </button>
+      </div>
+      <p style="font-size:.83rem;color:var(--muted);margin:14px 0 0">ارسال و نصب رایگان در تهران · ۷ روز مهلت بازگشت · پرداخت نقدی یا اقساطی تا ۲۴ ماه</p>
+    </div>`;
+  showModal('qvModal');
+}
+function showModal(id){ document.getElementById(id).classList.add('show'); }
+function closeModal(id){ document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{ if(e.target===m) m.classList.remove('show'); }));
+
+/* ---------- مقایسه ---------- */
+function toggleCompare(id,on){
+  if(on){
+    if(compare.size>=3){ toast('حداکثر ۳ کالا را می‌توانید هم‌زمان مقایسه کنید'); render(); return; }
+    compare.add(id); toast('کالا به لیست مقایسه اضافه شد');
+  } else compare.delete(id);
+  localStorage.setItem('kh_cmp', JSON.stringify([...compare]));
+  render(); renderCmpBar();
+}
+function renderCmpBar(){
+  const bar=document.getElementById('cmpBar');
+  document.getElementById('cmpCount').textContent=faNum(compare.size);
+  bar.classList.toggle('show', compare.size>0);
+  const thumbs=document.getElementById('cmpThumbs');
+  let html=[...compare].map(id=>`<img src="${byId(id).img}" alt="">`).join('');
+  for(let i=compare.size;i<3;i++) html+=`<span class="slot">${faNum(i+1)}</span>`;
+  thumbs.innerHTML=html;
+  document.getElementById('cmpText').textContent = compare.size<2
+    ? `برای مقایسه، ${faNum(2-compare.size)} کالای دیگر انتخاب کنید (حداکثر ۳ کالا).`
+    : `${faNum(compare.size)} کالا آماده مقایسه است.`;
+  document.getElementById('cmpGo').disabled = compare.size<2;
+}
+document.getElementById('cmpClear').onclick=()=>{ compare.clear(); localStorage.setItem('kh_cmp','[]'); render(); renderCmpBar(); };
+document.getElementById('cmpHeadBtn').onclick=()=>{ if(compare.size>=2) openCompare(); else toast('ابتدا حداقل ۲ کالا را از روی کارت محصولات به مقایسه اضافه کنید'); };
+document.getElementById('cmpGo').onclick=openCompare;
+function openCompare(){
+  const items=[...compare].map(byId);
+  const minPrice=Math.min(...items.map(p=>p.price));
+  const row=(label,fn,bestFn)=>`<tr><td>${label}</td>${items.map(p=>`<td class="${bestFn&&bestFn(p)?'best':''}">${fn(p)}</td>`).join('')}</tr>`;
+  document.getElementById('cmpBody').innerHTML=`<table class="cmp-table">
+    <tr><td></td>${items.map(p=>`<th><img src="${p.img}" alt="">${p.name}<br><span style="color:var(--accent-dark)">${fmt(p.price)}</span></th>`).join('')}</tr>
+    ${row('برند',p=>brandOf(p.brand).fa)}
+    ${row('ظرفیت / مشخصه اصلی',p=>p.specs.cap)}
+    ${row('رتبه انرژی',p=>p.energy)}
+    ${row('ابعاد',p=>p.specs.dims)}
+    ${row('گارانتی',p=>p.specs.warr)}
+    ${row('قسط ماهانه (۱۲ ماهه)',p=>fmt(monthly(p.price)))}
+    ${row('قیمت',p=>fmt(p.price),p=>p.price===minPrice)}
+    <tr><td></td>${items.map(p=>`<td><button class="add-btn" style="width:100%" onclick="addToCart(${p.id});closeModal('cmpModal')">افزودن به سبد</button></td>`).join('')}</tr>
+  </table>
+  <p style="font-size:.82rem;color:var(--muted)">ارزان‌ترین گزینه با رنگ سبز مشخص شده است. همه کالاها دارای گارانتی شرکتی و ارسال و نصب رایگان در تهران هستند.</p>`;
+  showModal('cmpModal');
+}
+
+/* ---------- پیام و شروع ---------- */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),3400);
+}
+render(); renderCart(); renderCmpBar();
+</script>
+</body>
+</html>
