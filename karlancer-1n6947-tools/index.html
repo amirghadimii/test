@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ابزارینو | فروشگاه اینترنتی ابزارآلات صنعتی و خانگی</title>
+<meta name="description" content="ابزارینو — فروشگاه تخصصی ابزارآلات برقی، شارژی و دستی با گارانتی معتبر، ارسال سریع و ۷ روز ضمانت بازگشت.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --yellow:#FFC400; --yellow2:#FFD94D; --black:#131313; --dark:#1D1D1D; --dark2:#262626;
+  --ink:#1A1A1A; --gray:#6B7280; --line:#E7E5DF; --bg:#F6F5F1; --card:#FFFFFF;
+  --red:#E53935; --green:#1E9E62; --radius:14px;
+  --shadow:0 10px 30px rgba(19,19,19,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font-family:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+.hazard{height:10px;background:repeating-linear-gradient(45deg,var(--yellow) 0 18px,var(--black) 18px 36px)}
+/* ---------- Header ---------- */
+.topbar{background:var(--black);color:#D8D8D8;font-size:12.5px;padding:7px 0}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar b{color:var(--yellow)}
+header.main{position:sticky;top:0;z-index:60;background:var(--black);border-bottom:3px solid var(--yellow);box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.header-in{display:flex;align-items:center;gap:18px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900;font-size:27px;white-space:nowrap}
+.logo .mark{width:44px;height:44px;background:var(--yellow);border-radius:10px;display:grid;place-items:center;font-size:24px;color:var(--black);transform:rotate(-6deg)}
+.logo small{display:block;font-size:11px;font-weight:500;color:#BDBDBD;letter-spacing:.2px}
+.searchbox{flex:1;display:flex;background:#fff;border-radius:12px;overflow:hidden;min-width:180px}
+.searchbox input{flex:1;border:none;padding:11px 14px;font-size:14px;outline:none}
+.searchbox button{background:var(--yellow);padding:0 20px;font-weight:800;font-size:14px;color:var(--black)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.track-link{color:#EDEDED;font-size:13.5px;font-weight:600;padding:9px 6px;white-space:nowrap}
+.track-link:hover{color:var(--yellow)}
+.cart-btn{position:relative;background:var(--yellow);color:var(--black);font-weight:800;font-size:14.5px;padding:11px 18px;border-radius:12px;display:flex;gap:8px;align-items:center}
+.cart-btn .count{position:absolute;top:-8px;left:-8px;background:var(--red);color:#fff;min-width:22px;height:22px;border-radius:999px;font-size:12px;display:grid;place-items:center;padding:0 5px;border:2px solid var(--black)}
+nav.cats{background:var(--dark);border-top:1px solid #333}
+nav.cats .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px;scrollbar-width:none}
+nav.cats .wrap::-webkit-scrollbar{display:none}
+.cat-chip{color:#E8E8E8;font-size:13.5px;font-weight:600;padding:7px 16px;border-radius:999px;white-space:nowrap;border:1px solid #3A3A3A;transition:.2s}
+.cat-chip:hover{border-color:var(--yellow);color:var(--yellow)}
+.cat-chip.active{background:var(--yellow);color:var(--black);border-color:var(--yellow)}
+/* ---------- Hero ---------- */
+.hero{position:relative;color:#fff;background:#000}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42}
+.hero .wrap{position:relative;padding:64px 16px 74px}
+.hero .kicker{display:inline-block;background:var(--yellow);color:var(--black);font-weight:800;font-size:13px;padding:4px 14px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,4.6vw,50px);font-weight:900;line-height:1.35;max-width:640px}
+.hero h1 span{color:var(--yellow)}
+.hero p{max-width:560px;color:#E4E4E4;margin:14px 0 26px;font-size:16.5px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;padding:13px 26px;border-radius:12px;transition:.2s}
+.btn-y{background:var(--yellow);color:var(--black)}
+.btn-y:hover{background:var(--yellow2)}
+.btn-o{border:2px solid #fff;color:#fff}
+.btn-o:hover{border-color:var(--yellow);color:var(--yellow)}
+.hero-stats{display:flex;gap:34px;margin-top:38px;flex-wrap:wrap}
+.hero-stats div b{display:block;font-size:23px;font-weight:900;color:var(--yellow)}
+.hero-stats div span{font-size:13px;color:#CFCFCF}
+/* ---------- Sections ---------- */
+section{padding:52px 0 8px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:22px}
+.sec-head h2{font-size:24px;font-weight:900;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:'';width:9px;height:30px;background:var(--yellow);border-radius:4px;box-shadow:2px 2px 0 var(--black)}
+.sec-head p{color:var(--gray);font-size:14px;margin-top:2px}
+/* deal */
+.deal{background:linear-gradient(120deg,#191919,#262626);border-radius:20px;padding:26px;color:#fff;display:grid;grid-template-columns:1.1fr .9fr;gap:26px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
+.deal::after{content:'';position:absolute;inset:auto -40px -70px auto;width:280px;height:280px;background:radial-gradient(circle,rgba(255,196,0,.28),transparent 65%)}
+.deal .tag{display:inline-block;background:var(--red);font-weight:800;font-size:13px;padding:3px 13px;border-radius:999px}
+.deal h3{font-size:26px;font-weight:900;margin:12px 0 6px}
+.deal .desc{color:#C9C9C9;font-size:14.5px;max-width:420px}
+.countdown{display:flex;gap:10px;margin:20px 0}
+.countdown .cell{background:#000;border:1px solid #3d3d3d;border-bottom:3px solid var(--yellow);border-radius:12px;min-width:70px;text-align:center;padding:8px 4px}
+.countdown .cell b{display:block;font-size:25px;font-weight:900;color:var(--yellow);line-height:1.3;font-variant-numeric:tabular-nums}
+.countdown .cell span{font-size:11.5px;color:#A9A9A9}
+.deal .price-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.deal .old{color:#9a9a9a;text-decoration:line-through;font-size:16px}
+.deal .new{font-size:29px;font-weight:900;color:var(--yellow)}
+.deal .off{background:var(--yellow);color:#000;font-weight:900;font-size:13px;border-radius:8px;padding:2px 10px}
+.deal .media{position:relative;z-index:1}
+.deal .media img{border-radius:16px;height:100%;min-height:250px;object-fit:cover;border:3px solid var(--yellow)}
+/* product cards */
+.strip{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 18px;scroll-snap-type:x mandatory}
+.strip::-webkit-scrollbar{height:6px}
+.strip::-webkit-scrollbar-thumb{background:#CFCBC0;border-radius:99px}
+.strip .card{min-width:238px;max-width:238px;scroll-snap-align:start}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:18px;padding-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.22s;position:relative}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D9D4C3}
+.card .thumb{position:relative;aspect-ratio:4/3;background:#EFEDE7;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.card:hover .thumb img{transform:scale(1.06)}
+.badge{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:12px;font-weight:800;padding:2px 10px;border-radius:999px;z-index:2}
+.badge.best{background:var(--black);color:var(--yellow)}
+.card .body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .brand{font-size:12px;color:var(--gray);font-weight:600}
+.card h3{font-size:15.5px;font-weight:800;line-height:1.7;min-height:52px}
+.card .rate{font-size:12.5px;color:var(--gray)}
+.card .rate b{color:#E8A100}
+.card .price{margin-top:auto}
+.card .price .old{color:#A6A29A;text-decoration:line-through;font-size:13px}
+.card .price .new{font-size:19px;font-weight:900}
+.card .price .new small{font-size:12px;font-weight:600;color:var(--gray)}
+.card .add{margin-top:10px;background:var(--black);color:#fff;font-weight:800;font-size:14px;padding:11px;border-radius:10px;transition:.2s;width:100%}
+.card .add:hover{background:var(--yellow);color:var(--black)}
+/* filters */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:20px}
+.filters label{font-size:13px;font-weight:700;color:var(--gray)}
+.filters select,.filters input{border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;font-size:14px;background:#FBFAF7;outline:none}
+.filters select:focus,.filters input:focus{border-color:var(--yellow)}
+.filters input{flex:1;min-width:170px}
+.filters .fchips{display:flex;gap:6px;flex-wrap:wrap}
+.fchip{border:1.5px solid var(--line);background:#fff;font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px}
+.fchip.active{background:var(--black);color:var(--yellow);border-color:var(--black)}
+.empty{grid-column:1/-1;text-align:center;color:var(--gray);padding:44px 10px;font-size:15px}
+/* features */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;padding:20px 0 6px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:13px;align-items:flex-start}
+.feature .ic{width:46px;height:46px;flex:none;background:var(--yellow);border-radius:12px;display:grid;place-items:center;font-size:22px}
+.feature b{display:block;font-size:15px}
+.feature span{font-size:13px;color:var(--gray);line-height:1.7}
+/* blog */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;padding-bottom:12px}
+.post{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.2s}
+.post:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.post img{height:180px;width:100%;object-fit:cover}
+.post .pbody{padding:16px 18px 18px}
+.post .meta{font-size:12px;color:var(--gray)}
+.post h3{font-size:16.5px;font-weight:800;margin:6px 0}
+.post p{font-size:13.5px;color:var(--gray)}
+.post .more{color:#B8860B;font-weight:800;font-size:13.5px;margin-top:8px;display:inline-block}
+/* two col: faq + tracking */
+.twocol{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:start;padding-bottom:14px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.panel h3{font-size:18.5px;font-weight:900;margin-bottom:14px;display:flex;gap:9px;align-items:center}
+.faq-item{border:1.5px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:right;padding:13px 16px;font-weight:800;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;background:#FBFAF7}
+.faq-q .arr{transition:.25s;color:#B8860B}
+.faq-item.open .faq-q .arr{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:13px 16px;font-size:14px;color:#444;border-top:1px dashed var(--line)}
+.track-form{display:flex;gap:9px}
+.track-form input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-size:14.5px;outline:none;min-width:0}
+.track-form input:focus{border-color:var(--yellow)}
+.track-form button{background:var(--black);color:var(--yellow);font-weight:800;padding:0 20px;border-radius:10px;font-size:14.5px}
+.track-err{display:none;color:var(--red);font-size:13.5px;margin-top:10px;font-weight:700}
+.track-result{display:none;margin-top:18px}
+.track-result .ord-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#FBF7E8;border:1px solid #F0E3B2;border-radius:10px;padding:10px 14px;font-size:13.5px}
+.timeline{margin-top:20px;position:relative;padding-right:22px}
+.timeline::before{content:'';position:absolute;right:8px;top:8px;bottom:8px;width:3px;background:#ECE9E0;border-radius:9px}
+.tstep{position:relative;padding:0 8px 20px 0}
+.tstep:last-child{padding-bottom:2px}
+.tstep .dot{position:absolute;right:-22px;top:3px;width:19px;height:19px;border-radius:50%;background:#fff;border:3.5px solid #D8D4C8;z-index:1}
+.tstep.done .dot{background:var(--yellow);border-color:var(--black)}
+.tstep.current .dot{background:var(--green);border-color:var(--green);box-shadow:0 0 0 5px rgba(30,158,98,.18)}
+.tstep b{font-size:14.5px;display:block}
+.tstep span{font-size:12.5px;color:var(--gray)}
+.tstep.pending{opacity:.5}
+/* footer */
+footer{background:var(--black);color:#CFCFCF;margin-top:56px}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:26px;padding:44px 0 30px}
+footer h4{color:#fff;font-size:16px;margin-bottom:12px}
+footer li{list-style:none;font-size:13.5px;margin-bottom:8px}
+footer li a:hover{color:var(--yellow)}
+footer .about{font-size:13.5px;max-width:340px}
+footer .brand{color:#fff;font-size:24px;font-weight:900;margin-bottom:8px}
+footer .brand span{color:var(--yellow)}
+.copyright{border-top:1px solid #2C2C2C;padding:16px 0;font-size:12.5px;text-align:center;color:#8d8d8d}
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(10,10,10,.62);z-index:90;display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.overlay.show{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:920px;width:100%;max-height:92vh;overflow:auto;position:relative;animation:pop .22s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.modal .close{position:absolute;top:12px;left:12px;width:36px;height:36px;border-radius:50%;background:var(--black);color:#fff;font-size:17px;z-index:5;display:grid;place-items:center}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.gallery{padding:22px;background:#FAF8F2}
+.gallery .main-img{border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:#fff}
+.gallery .main-img img{width:100%;height:100%;object-fit:cover}
+.thumbs{display:flex;gap:10px;margin-top:12px}
+.thumbs button{width:76px;height:60px;border-radius:10px;overflow:hidden;border:2.5px solid transparent;padding:0;background:#fff}
+.thumbs button.active{border-color:var(--yellow);box-shadow:0 0 0 1.5px var(--black)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.m-info{padding:26px 24px}
+.m-info .brand{font-size:12.5px;color:var(--gray);font-weight:700}
+.m-info h3{font-size:21px;font-weight:900;line-height:1.6;margin:4px 0 8px}
+.m-info .rate{font-size:13px;color:var(--gray);margin-bottom:14px}
+.var-label{font-weight:800;font-size:14px;margin:14px 0 8px}
+.var-opts{display:flex;gap:8px;flex-wrap:wrap}
+.var-opt{border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;font-size:13.5px;font-weight:700;background:#fff}
+.var-opt small{display:block;font-weight:600;color:var(--gray);font-size:11.5px}
+.var-opt.active{border-color:var(--black);background:#FFF7DB;box-shadow:inset 0 0 0 1px var(--yellow)}
+.qty-row{display:flex;align-items:center;gap:14px;margin-top:18px;flex-wrap:wrap}
+.stepper{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:11px;overflow:hidden}
+.stepper button{width:40px;height:42px;font-size:19px;font-weight:900;background:#FBFAF7}
+.stepper button:hover{background:var(--yellow)}
+.stepper .qv{min-width:44px;text-align:center;font-weight:900;font-size:16px}
+.maxnote{font-size:12.5px;color:#B8860B;font-weight:700;background:#FFF7DB;border:1px dashed #E5C65B;border-radius:8px;padding:4px 10px}
+.m-price{display:flex;align-items:center;gap:12px;margin-top:18px}
+.m-price .old{color:#A6A29A;text-decoration:line-through}
+.m-price .new{font-size:25px;font-weight:900}
+.m-price .new small{font-size:13px;color:var(--gray);font-weight:600}
+.m-add{width:100%;margin-top:14px;background:var(--yellow);color:var(--black);font-weight:900;font-size:16px;padding:14px;border-radius:12px;border:2px solid var(--black);box-shadow:3px 3px 0 var(--black);transition:.15s}
+.m-add:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--black)}
+.specs{margin-top:22px}
+.specs h4{font-size:15.5px;font-weight:900;margin-bottom:10px}
+.specs table{width:100%;border-collapse:collapse;font-size:13.5px}
+.specs td{padding:8px 12px;border:1px solid var(--line)}
+.specs td:first-child{background:#FBF7E8;font-weight:700;width:38%;white-space:nowrap}
+.specs tr:nth-child(even) td:last-child{background:#FCFBF7}
+/* ---------- Cart drawer ---------- */
+.drawer-wrap{position:fixed;inset:0;z-index:95;display:none}
+.drawer-wrap.show{display:block}
+.drawer-wrap .scrim{position:absolute;inset:0;background:rgba(10,10,10,.55)}
+.drawer{position:absolute;top:0;left:0;height:100%;width:min(430px,94vw);background:#fff;display:flex;flex-direction:column;animation:slidein .25s ease;box-shadow:6px 0 30px rgba(0,0,0,.25)}
+@keyframes slidein{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.drawer header{padding:17px 20px;border-bottom:2px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.drawer header b{font-size:17.5px}
+.drawer header button{font-size:19px}
+.drawer .items{flex:1;overflow:auto;padding:14px 18px}
+.citem{display:flex;gap:11px;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:11px}
+.citem img{width:74px;height:64px;object-fit:cover;border-radius:9px;flex:none}
+.citem .ci-body{flex:1;min-width:0}
+.citem h4{font-size:13.5px;font-weight:800;line-height:1.6}
+.citem .ci-var{font-size:12px;color:var(--gray)}
+.citem .ci-row{display:flex;justify-content:space-between;align-items:center;margin-top:7px}
+.citem .ci-price{font-weight:900;font-size:14.5px}
+.stepper.sm button{width:29px;height:30px;font-size:15px}
+.stepper.sm .qv{min-width:32px;font-size:14px}
+.ci-remove{color:var(--red);font-size:12.5px;font-weight:700}
+.drawer .foot{border-top:2px solid var(--line);padding:16px 20px;background:#FCFBF6}
+.coupon{display:flex;gap:8px;margin-bottom:13px}
+.coupon input{flex:1;border:1.5px dashed #C9C4B2;border-radius:10px;padding:9px 12px;font-size:14px;outline:none;text-transform:uppercase;min-width:0}
+.coupon button{background:var(--black);color:var(--yellow);font-weight:800;padding:0 16px;border-radius:10px;font-size:13.5px}
+.coupon-msg{font-size:12.5px;font-weight:700;margin:-6px 0 10px;display:none}
+.coupon-msg.ok{color:var(--green);display:block}
+.coupon-msg.err{color:var(--red);display:block}
+.totals{font-size:14px}
+.totals .row{display:flex;justify-content:space-between;padding:3px 0;color:#444}
+.totals .row.disc{color:var(--green);font-weight:700}
+.totals .row.grand{border-top:1.5px dashed #D8D4C8;margin-top:8px;padding-top:10px;font-size:16.5px;font-weight:900;color:var(--black)}
+.checkout-btn{width:100%;background:var(--yellow);border:2px solid var(--black);box-shadow:3px 3px 0 var(--black);font-weight:900;font-size:16px;padding:13px;border-radius:12px;margin-top:13px}
+.empty-cart{text-align:center;color:var(--gray);padding:38px 8px;font-size:14.5px}
+/* checkout form inside drawer */
+.co-form{display:none}
+.co-form.show{display:block}
+.co-form label{font-size:13px;font-weight:800;display:block;margin:11px 0 5px}
+.co-form input,.co-form textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px;outline:none}
+.co-form input:focus,.co-form textarea:focus{border-color:var(--yellow)}
+.success-box{display:none;text-align:center;padding:26px 8px}
+.success-box.show{display:block}
+.success-box .tick{width:74px;height:74px;background:#E7F6EE;border:2px solid var(--green);color:var(--green);border-radius:50%;display:grid;place-items:center;font-size:34px;margin:0 auto 14px}
+.success-box .code{font-size:21px;font-weight:900;background:#FFF7DB;border:1.5px dashed #D9B83B;border-radius:10px;padding:8px;margin:12px 0;letter-spacing:1px}
+/* ---------- Chat ---------- */
+.chat-fab{position:fixed;bottom:22px;right:22px;z-index:80;width:60px;height:60px;border-radius:50%;background:var(--yellow);border:2.5px solid var(--black);box-shadow:3px 3px 0 var(--black);font-size:26px;display:grid;place-items:center}
+.chat-fab .ping{position:absolute;top:-3px;left:-3px;width:15px;height:15px;background:var(--green);border:2px solid #fff;border-radius:50%}
+.chat-box{position:fixed;bottom:94px;right:22px;z-index:81;width:min(360px,92vw);background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.28);display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line)}
+.chat-box.show{display:flex;animation:pop .2s ease}
+.chat-head{background:var(--black);color:#fff;padding:14px 17px;display:flex;gap:11px;align-items:center}
+.chat-head .av{width:40px;height:40px;background:var(--yellow);border-radius:50%;display:grid;place-items:center;font-size:19px}
+.chat-head b{font-size:14.5px;display:block}
+.chat-head span{font-size:11.5px;color:#9BE7C4}
+.chat-head .demo-tag{margin-right:auto;background:#333;color:var(--yellow2);font-size:10.5px;font-weight:800;border-radius:99px;padding:2px 9px}
+.chat-msgs{height:300px;overflow:auto;padding:14px;background:#FAF8F2;display:flex;flex-direction:column;gap:9px}
+.msg{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13.5px;line-height:1.75;animation:pop .18s ease}
+.msg.bot{background:#fff;border:1px solid var(--line);border-bottom-right-radius:4px;align-self:flex-start}
+.msg.me{background:var(--black);color:#fff;border-bottom-left-radius:4px;align-self:flex-end}
+.chat-chips{display:flex;gap:6px;flex-wrap:wrap;padding:9px 12px 2px;background:#FAF8F2}
+.chat-chips button{font-size:12px;font-weight:700;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px}
+.chat-chips button:hover{border-color:var(--yellow);background:#FFF7DB}
+.chat-input{display:flex;border-top:1.5px solid var(--line)}
+.chat-input input{flex:1;border:none;padding:13px 14px;font-size:14px;outline:none;min-width:0}
+.chat-input button{background:var(--yellow);font-weight:900;padding:0 20px;font-size:14px}
+/* toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,90px);background:var(--black);color:#fff;font-size:14px;font-weight:700;padding:12px 22px;border-radius:12px;z-index:120;transition:.3s;border-bottom:3px solid var(--yellow);max-width:92vw;text-align:center}
+.toast.show{transform:translate(-50%,0)}
+/* responsive */
+@media(max-width:900px){
+  .deal{grid-template-columns:1fr}
+  .twocol{grid-template-columns:1fr}
+  footer .cols{grid-template-columns:1fr 1fr}
+  .modal-grid{grid-template-columns:1fr}
+  .track-link{display:none}
+}
+@media(max-width:560px){
+  .header-in{flex-wrap:wrap}
+  .searchbox{order:3;flex-basis:100%}
+  footer .cols{grid-template-columns:1fr}
+  .countdown .cell{min-width:60px}
+  .hero .wrap{padding:44px 16px 54px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span>📦 ارسال سفارش‌های بالای <b>۵ میلیون تومان</b> رایگان است</span>
+  <span>گارانتی معتبر شرکتی برای همه ابزارهای برقی و شارژی</span>
+</div></div>
+
+<header class="main">
+  <div class="wrap header-in">
+    <a class="logo" href="#"><span class="mark">🔧</span><span>ابزارینو<small>ABZARINO TOOL STORE</small></span></a>
+    <div class="searchbox">
+      <input id="topSearch" type="text" placeholder="جستجوی ابزار… مثلاً دریل شارژی، تراز لیزری">
+      <button id="topSearchBtn">جستجو</button>
+    </div>
+    <div class="header-actions">
+      <a class="track-link" href="#tracking">پیگیری سفارش</a>
+      <button class="cart-btn" id="openCart">🛒 سبد خرید <span class="count" id="cartCount">۰</span></button>
+    </div>
+  </div>
+  <nav class="cats"><div class="wrap" id="catNav"></div></nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="bg" src="assets/img/workshop.jpg" alt="کارگاه ابزارینو">
+  <div class="wrap">
+    <span class="kicker">فروشگاه تخصصی ابزارآلات</span>
+    <h1>ابزار حرفه‌ای برای <span>کار حرفه‌ای</span></h1>
+    <p>از دریل و فرز تا تراز لیزری و کمپرسور؛ همه با مشخصات فنی کامل، گارانتی معتبر، قیمت شفاف و امکان مقایسه مدل‌ها. قبل از خرید، جدول مشخصات را ببینید و با خیال راحت انتخاب کنید.</p>
+    <div class="cta">
+      <a class="btn btn-y" href="#products">مشاهده محصولات</a>
+      <a class="btn btn-o" href="#deal">پیشنهاد شگفت‌انگیز امروز</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>+۱۴٬۰۰۰</b><span>کالای آماده ارسال</span></div>
+      <div><b>۱۲۰+</b><span>برند و مدل فعال</span></div>
+      <div><b>۷ روز</b><span>ضمانت بازگشت کالا</span></div>
+      <div><b>۲۴ ساعته</b><span>ارسال در تهران</span></div>
+    </div>
+  </div>
+</div>
+<div class="hazard"></div>
+
+<!-- DEAL OF THE DAY -->
+<section id="deal"><div class="wrap">
+  <div class="sec-head"><div><h2>پیشنهاد شگفت‌انگیز</h2><p>تخفیف زمان‌دار امروز؛ وقتی شمارش معکوس تمام شود، قیمت به حالت عادی برمی‌گردد.</p></div></div>
+  <div class="deal" id="dealBox"></div>
+</div></section>
+
+<!-- BESTSELLERS -->
+<section><div class="wrap">
+  <div class="sec-head"><div><h2>پرفروش‌ترین‌ها</h2><p>ابزارهایی که استادکارها بیشتر از همه خریده‌اند.</p></div></div>
+  <div class="strip" id="bestStrip"></div>
+</div></section>
+
+<!-- PRODUCTS -->
+<section id="products"><div class="wrap">
+  <div class="sec-head"><div><h2>همه محصولات</h2><p>برای مشاهده گالری تصاویر، جدول مشخصات فنی و انتخاب مدل (رنگ/اندازه)، روی هر کالا کلیک کنید.</p></div></div>
+  <div class="filters">
+    <div class="fchips" id="filterCats"></div>
+    <label for="brandSel">برند:</label>
+    <select id="brandSel"><option value="all">همه برندها</option></select>
+    <input id="filterSearch" type="text" placeholder="جستجو در محصولات…">
+  </div>
+  <div class="grid" id="productGrid"></div>
+</div></section>
+
+<!-- SPECIAL OFFERS -->
+<section><div class="wrap">
+  <div class="sec-head"><div><h2>پیشنهادهای ویژه</h2><p>کالاهای دارای تخفیف فعال همین حالا.</p></div></div>
+  <div class="strip" id="offerStrip"></div>
+</div></section>
+
+<!-- FEATURES -->
+<div class="wrap"><div class="features">
+  <div class="feature"><span class="ic">🛡️</span><div><b>گارانتی معتبر شرکتی</b><span>همه ابزارهای برقی و شارژی با کارت گارانتی رسمی و خدمات پس از فروش عرضه می‌شوند.</span></div></div>
+  <div class="feature"><span class="ic">🚚</span><div><b>ارسال سریع سراسری</b><span>ارسال ۲۴ ساعته در تهران و ۲ تا ۴ روز کاری به شهرستان‌ها؛ بالای ۵ میلیون تومان رایگان.</span></div></div>
+  <div class="feature"><span class="ic">↩️</span><div><b>۷ روز ضمانت بازگشت</b><span>اگر کالا ایراد فنی داشت یا با مشخصات مغایرت داشت، بدون قید و شرط پس می‌گیریم.</span></div></div>
+  <div class="feature"><span class="ic">💳</span><div><b>پرداخت امن</b><span>پرداخت آنلاین از درگاه بانکی و امکان پرداخت در محل برای سفارش‌های تهران.</span></div></div>
+</div></div>
+
+<!-- BLOG -->
+<section><div class="wrap">
+  <div class="sec-head"><div><h2>مجله ابزارینو</h2><p>راهنمای خرید و نگهداری ابزار؛ قبل از خرید بخوانید.</p></div></div>
+  <div class="blog-grid">
+    <article class="post"><img src="assets/img/blog-1.jpg" alt="راهنمای بازسازی"><div class="pbody"><span class="meta">راهنمای خرید — ۱۲ آبان ۱۴۰۵</span><h3>برای بازسازی خانه چه ابزارهایی واقعاً لازم دارید؟</h3><p>از دریل شارژی تا تراز لیزری؛ فهرست حداقلی ابزارهایی که برای یک بازسازی کامل آپارتمان نیاز دارید و چطور بین مدل‌ها انتخاب کنید.</p><a class="more" href="#" onclick="return false">ادامه مطلب ←</a></div></article>
+    <article class="post"><img src="assets/img/blog-2.jpg" alt="نگهداری ابزار برقی"><div class="pbody"><span class="meta">نگهداری و تعمیر — ۲۸ مهر ۱۴۰۵</span><h3>۵ اشتباه رایج که عمر ابزار برقی شما را نصف می‌کند</h3><p>گرم‌کردن بیش از حد موتور، شارژ اشتباه باتری و استفاده از صفحه نامتناسب؛ اشتباهاتی که هر روز در تعمیرگاه‌ها می‌بینیم.</p><a class="more" href="#" onclick="return false">ادامه مطلب ←</a></div></article>
+    <article class="post"><img src="assets/img/blog-3.jpg" alt="ایمنی کارگاه"><div class="pbody"><span class="meta">ایمنی کار — ۱۵ مهر ۱۴۰۵</span><h3>چک‌لیست ایمنی کارگاه خانگی؛ قبل از روشن‌کردن فرز</h3><p>عینک، دستکش، محافظ صفحه و تهویه مناسب؛ نکات ساده‌ای که از بیشتر حوادث کار با ابزار جلوگیری می‌کند.</p><a class="more" href="#" onclick="return false">ادامه مطلب ←</a></div></article>
+  </div>
+</div></section>
+
+<!-- FAQ + TRACKING -->
+<section id="tracking"><div class="wrap">
+  <div class="twocol">
+    <div class="panel">
+      <h3>❓ پرسش‌های پرتکرار</h3>
+      <div id="faqList"></div>
+    </div>
+    <div class="panel">
+      <h3>🔎 پیگیری سفارش</h3>
+      <p style="font-size:13.5px;color:var(--gray);margin-bottom:12px">کد رهگیری که بعد از ثبت سفارش دریافت کردید را وارد کنید تا وضعیت مرسوله را لحظه‌ای ببینید.</p>
+      <div class="track-form">
+        <input id="trackInput" type="text" placeholder="مثلاً ABZ-123456" dir="ltr" style="text-align:left">
+        <button id="trackBtn">پیگیری</button>
+      </div>
+      <div class="track-err" id="trackErr">⚠️ سفارشی با این کد پیدا نشد. کد را دقیق وارد کنید.</div>
+      <div class="track-result" id="trackResult"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap cols">
+    <div>
+      <div class="brand">ابزار<span>ینو</span></div>
+      <p class="about">ابزارینو فروشگاه تخصصی ابزارآلات صنعتی و خانگی است؛ با تمرکز بر مشخصات فنی شفاف، گالری واقعی محصول، گارانتی معتبر و پشتیبانی واقعی قبل و بعد از خرید.</p>
+    </div>
+    <div><h4>دسترسی سریع</h4><ul>
+      <li><a href="#products">همه محصولات</a></li>
+      <li><a href="#deal">پیشنهاد شگفت‌انگیز</a></li>
+      <li><a href="#tracking">پیگیری سفارش</a></li>
+      <li><a href="#" onclick="return false">راهنمای خرید</a></li>
+    </ul></div>
+    <div><h4>خدمات مشتریان</h4><ul>
+      <li><a href="#" onclick="return false">شرایط بازگشت کالا</a></li>
+      <li><a href="#" onclick="return false">حریم خصوصی</a></li>
+      <li><a href="#" onclick="return false">شرایط گارانتی</a></li>
+      <li><a href="#" onclick="return false">پاسخ به پرسش‌های متداول</a></li>
+    </ul></div>
+    <div><h4>ساعات پاسخ‌گویی</h4><ul>
+      <li>شنبه تا پنجشنبه: ۹ تا ۲۱</li>
+      <li>جمعه: ۱۰ تا ۱۴</li>
+      <li>چت آنلاین: هر روز ۸ تا ۲۴</li>
+      <li>ارسال: همه روزهای کاری</li>
+    </ul></div>
+  </div>
+  <div class="copyright">© ۱۴۰۵ ابزارینو — نسخه نمایشی فروشگاه (دمو)؛ قیمت‌ها و موجودی صرفاً برای نمایش هستند.</div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="productOverlay">
+  <div class="modal">
+    <button class="close" id="modalClose">✕</button>
+    <div class="modal-grid" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="drawer-wrap" id="cartWrap">
+  <div class="scrim" id="cartScrim"></div>
+  <aside class="drawer">
+    <header><b>🛒 سبد خرید شما</b><button id="cartClose">✕</button></header>
+    <div class="items" id="cartItems"></div>
+    <div class="foot" id="cartFoot"></div>
+  </aside>
+</div>
+
+<!-- CHAT -->
+<button class="chat-fab" id="chatFab" aria-label="چت پشتیبانی">💬<span class="ping"></span></button>
+<div class="chat-box" id="chatBox">
+  <div class="chat-head">
+    <span class="av">🔧</span>
+    <div><b>پشتیبانی ابزارینو</b><span>● آنلاین — معمولاً فوری پاسخ می‌دهیم</span></div>
+    <span class="demo-tag">ربات نمایشی</span>
+  </div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <div class="chat-input">
+    <input id="chatText" type="text" placeholder="سؤالتان را بنویسید…">
+    <button id="chatSend">ارسال</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= DATA ================= */
+const IMG='assets/img/';
+const PRODUCTS=[
+{id:1,name:'دریل شارژی براشلس ۲۰ ولت',brand:'رونیکس',cat:'power',price:4850000,old:5900000,max:5,rating:4.8,sold:1240,best:true,
+ imgs:['drill-1.jpg','drill-2.jpg','drill-3.jpg'],
+ variants:[{label:'فقط دستگاه',delta:0},{label:'همراه باتری اضافه و کیف حمل',delta:900000}],
+ specs:[['برند','رونیکس'],['ولتاژ','۲۰ ولت'],['نوع موتور','براشلس (بدون ذغال)'],['حداکثر گشتاور','۶۰ نیوتن‌متر'],['سرعت آزاد','۰ تا ۱۸۰۰ دور بر دقیقه'],['ظرفیت سه‌نظام','۱۳ میلی‌متر فلزی'],['نوع باتری','لیتیوم‌یون ۲ آمپرساعت'],['وزن','۱٫۳ کیلوگرم'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:2,name:'مینی‌فرز ۱۲۰۰ وات دسته‌بلند',brand:'آروا',cat:'power',price:2390000,old:2950000,max:4,rating:4.6,sold:860,deal:true,dealPrice:1990000,
+ imgs:['grinder-1.jpg','grinder-2.jpg','grinder-3.jpg'],
+ variants:[{label:'دسته کوتاه',delta:0},{label:'دسته بلند ضدلرزش',delta:150000}],
+ specs:[['برند','آروا'],['توان','۱۲۰۰ وات'],['قطر صفحه','۱۱۵ میلی‌متر'],['سرعت آزاد','۱۱٬۰۰۰ دور بر دقیقه'],['قطر شفت','M14'],['وزن','۲٫۴ کیلوگرم'],['اقلام همراه','محافظ صفحه، دسته کمکی، آچار'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:3,name:'اره گردبر ۱۸۵ میلی‌متری ۱۴۰۰ وات',brand:'توسن',cat:'power',price:5670000,old:null,max:3,rating:4.5,sold:390,
+ imgs:['saw-1.jpg','saw-2.jpg','workshop.jpg'],
+ variants:[{label:'تیغه معمولی',delta:0},{label:'همراه تیغه الماسه اضافه',delta:380000}],
+ specs:[['برند','توسن'],['توان','۱۴۰۰ وات'],['قطر تیغه','۱۸۵ میلی‌متر'],['حداکثر عمق برش','۶۵ میلی‌متر'],['سرعت آزاد','۵٬۵۰۰ دور بر دقیقه'],['زاویه برش اریب','۰ تا ۴۵ درجه'],['وزن','۴٫۱ کیلوگرم'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:4,name:'تراز لیزری خطی سبز ۱۲ خط (۳۶۰×۳)',brand:'کنزاکس',cat:'measure',price:3980000,old:4700000,max:6,rating:4.9,sold:1520,best:true,
+ imgs:['laserlevel-1.jpg','laserlevel-3.jpg','laserlevel-2.jpg'],
+ variants:[{label:'بدون سه‌پایه',delta:0},{label:'همراه سه‌پایه آلومینیومی',delta:450000}],
+ specs:[['برند','کنزاکس'],['رنگ نور','سبز (قابل مشاهده در نور روز)'],['تعداد خط','۱۲ خط — سه صفحه ۳۶۰ درجه'],['برد کاری','۳۰ متر'],['دقت','±۲ میلی‌متر در ۱۰ متر'],['نوع باتری','لیتیومی قابل شارژ USB'],['درجه حفاظت','IP54 ضد گردوغبار و پاشش آب'],['گارانتی','۱۸ ماه گارانتی شرکتی']]},
+{id:5,name:'متر لیزری ۸۰ متری',brand:'بوش',cat:'measure',price:4250000,old:null,max:8,rating:4.7,sold:640,
+ imgs:['lasermeter-2.jpg','lasermeter-3.jpg','lasermeter-1.jpg'],
+ variants:[{label:'مدل ۴۰ متری',delta:-650000},{label:'مدل ۸۰ متری',delta:0}],
+ specs:[['برند','بوش'],['برد اندازه‌گیری','۰٫۰۵ تا ۸۰ متر'],['دقت','±۱٫۵ میلی‌متر'],['واحدهای اندازه‌گیری','متر، فوت، اینچ'],['توابع','مساحت، حجم، فیثاغورث، اندازه‌گیری پیوسته'],['حافظه','۲۰ اندازه‌گیری آخر'],['منبع تغذیه','۲ عدد باتری AAA'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:6,name:'جعبه ابزار فلزی ۵ کشو',brand:'رونیکس',cat:'hand',price:1890000,old:2300000,max:5,rating:4.6,sold:980,
+ imgs:['toolbox-1.jpg','toolbox-2.jpg','toolbox-3.jpg'],
+ variants:[{label:'رنگ قرمز',delta:0},{label:'رنگ زرد',delta:0},{label:'رنگ مشکی',delta:0}],
+ specs:[['برند','رونیکس'],['جنس بدنه','ورق فولادی ۰٫۸ میلی‌متر'],['تعداد کشو','۵ کشو با ریل ساچمه‌ای'],['ابعاد','۵۴ × ۲۲ × ۲۴ سانتی‌متر'],['تحمل وزن','۲۵ کیلوگرم'],['نوع رنگ','کوره‌ای الکترواستاتیک'],['قفل','قفل مرکزی با قابلیت نصب قفل آویز'],['گارانتی','۶ ماه گارانتی شرکتی']]},
+{id:7,name:'کمپرسور باد سایلنت ۲۴ لیتری',brand:'آروا',cat:'workshop',price:9750000,old:null,max:2,rating:4.4,sold:210,
+ imgs:['compressor-1.jpg','compressor-2.jpg','blog-2.jpg'],
+ variants:[{label:'مخزن ۲۴ لیتری',delta:0},{label:'مخزن ۵۰ لیتری',delta:3200000}],
+ specs:[['برند','آروا'],['حجم مخزن','۲۴ لیتر'],['توان موتور','۲ اسب بخار'],['حداکثر فشار','۸ بار'],['نوع موتور','سایلنت بدون روغن (اویل‌فری)'],['دبی هوا','۱۲۰ لیتر بر دقیقه'],['میزان صدا','۶۵ دسی‌بل'],['وزن','۲۲ کیلوگرم'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:8,name:'ست آچار تخت و رینگی ۱۴ پارچه',brand:'توسن',cat:'hand',price:1450000,old:null,max:10,rating:4.7,sold:1730,best:true,
+ imgs:['wrench-1.jpg','workshop.jpg','hammer-1.jpg'],
+ variants:[{label:'ست ۱۴ پارچه',delta:0},{label:'ست ۱۹ پارچه',delta:420000}],
+ specs:[['برند','توسن'],['تعداد','۱۴ پارچه'],['سایزها','۶ تا ۲۴ میلی‌متر'],['جنس','فولاد کروم وانادیوم'],['روکش','نیکل‌کروم براق'],['استاندارد','DIN 3113'],['بسته‌بندی','کیف برزنتی رولی'],['گارانتی','گارانتی مادام‌العمر تعویض (شکستگی)']]},
+{id:9,name:'چکش میخ‌کش دسته فایبر ۵۰۰ گرمی',brand:'کنزاکس',cat:'hand',price:385000,old:460000,max:20,rating:4.5,sold:2210,
+ imgs:['hammer-1.jpg','hammer-2.jpg','workshop.jpg'],
+ variants:[{label:'۵۰۰ گرمی',delta:0},{label:'۸۰۰ گرمی',delta:90000}],
+ specs:[['برند','کنزاکس'],['وزن سر','۵۰۰ گرم'],['جنس سر','فولاد کربنی سخت‌کاری‌شده'],['جنس دسته','فایبرگلاس با روکش ضدلغزش'],['طول','۳۳ سانتی‌متر'],['کاربرد','میخ‌کشی، نجاری و کارهای عمومی'],['گارانتی','۶ ماه گارانتی شرکتی']]},
+{id:10,name:'ست پیچ‌گوشتی عایق برق ۱۲ پارچه VDE',brand:'رونیکس',cat:'hand',price:980000,old:null,max:12,rating:4.8,sold:1345,best:true,
+ imgs:['screwdriver-1.jpg','screwdriver-2.jpg','screwdriver-3.jpg'],
+ variants:[{label:'ست ۱۲ پارچه',delta:0},{label:'ست ۱۸ پارچه عایق',delta:350000}],
+ specs:[['برند','رونیکس'],['تعداد','۱۲ پارچه (دوسو، چهارسو، ستاره‌ای)'],['عایق','۱۰۰۰ ولت — استاندارد VDE'],['جنس تیغه','فولاد کروم وانادیوم'],['نوک','مغناطیسی سخت‌کاری‌شده'],['بسته‌بندی','کیف برزنتی زیپ‌دار'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:11,name:'اره عمودبر شارژی ۱۸ ولت',brand:'ماکیتا',cat:'power',price:6980000,old:7900000,max:3,rating:4.9,sold:720,best:true,
+ imgs:['jigsaw-1.jpg','jigsaw-2.jpg','jigsaw-3.jpg'],
+ variants:[{label:'فقط دستگاه (بدون باتری)',delta:0},{label:'همراه باتری و شارژر',delta:1750000}],
+ specs:[['برند','ماکیتا'],['ولتاژ','۱۸ ولت'],['سرعت ضربه','۰ تا ۲٬۶۰۰ ضربه بر دقیقه'],['ظرفیت برش چوب','۱۳۵ میلی‌متر'],['ظرفیت برش فلز','۱۰ میلی‌متر'],['زاویه برش','۰ تا ۴۵ درجه'],['حرکت پاندولی','۴ مرحله‌ای'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:12,name:'سنباده لرزان گرد ۳۰۰ وات',brand:'آروا',cat:'power',price:2150000,old:null,max:6,rating:4.3,sold:455,
+ imgs:['sander-1.jpg','sander-2.jpg','sander-3.jpg'],
+ variants:[{label:'مدل ۳۰۰ وات',delta:0},{label:'مدل ۴۵۰ وات',delta:520000}],
+ specs:[['برند','آروا'],['توان','۳۰۰ وات'],['قطر صفحه','۱۲۵ میلی‌متر'],['سرعت لرزش','۱۲٬۰۰۰ لرزش بر دقیقه'],['تنظیم سرعت','دارد — ۶ حالته'],['جمع‌آوری غبار','کیسه غبار و خروجی جاروبرقی'],['وزن','۱٫۴ کیلوگرم'],['گارانتی','۱۲ ماه گارانتی شرکتی']]},
+{id:13,name:'ست انبر، سیم‌چین و دم‌باریک ۳ پارچه',brand:'توسن',cat:'hand',price:765000,old:null,max:15,rating:4.6,sold:890,
+ imgs:['pliers-1.jpg','pliers-2.jpg','pliers-3.jpg'],
+ variants:[{label:'ست ۳ پارچه',delta:0},{label:'ست ۵ پارچه',delta:290000}],
+ specs:[['برند','توسن'],['محتویات','انبردست ۸ اینچ، سیم‌چین ۶ اینچ، دم‌باریک ۶ اینچ'],['جنس','فولاد کروم وانادیوم'],['سختی لبه برش','۵۸ تا ۶۲ راکول'],['روکش دسته','PVC ضدلغزش'],['گارانتی','۶ ماه گارانتی شرکتی']]},
+{id:14,name:'متر نواری ۵ متری قفل‌خودکار',brand:'کنزاکس',cat:'measure',price:245000,old:310000,max:30,rating:4.4,sold:3120,
+ imgs:['tape-1.jpg','tape-2.jpg','tape-3.jpg'],
+ variants:[{label:'۳ متری',delta:-60000},{label:'۵ متری',delta:0},{label:'۷٫۵ متری',delta:85000}],
+ specs:[['برند','کنزاکس'],['طول تیغه','۵ متر'],['عرض تیغه','۱۹ میلی‌متر'],['قفل','خودکار با دکمه رهاسازی'],['بدنه','ABS نشکن با روکش لاستیکی'],['گیره','گیره کمری فلزی و بند مچی'],['گارانتی','۶ ماه گارانتی شرکتی']]}
+];
+const CATS={all:'همه محصولات',power:'برقی و شارژی',hand:'ابزار دستی',measure:'ابزار اندازه‌گیری',workshop:'تجهیزات کارگاهی'};
+const FAQS=[
+['هزینه و زمان ارسال سفارش چقدر است؟','سفارش‌های بالای ۵ میلیون تومان به‌صورت رایگان ارسال می‌شوند؛ برای مبالغ کمتر، هزینه ارسال ۸۵ هزار تومان است. سفارش‌های تهران ظرف ۲۴ ساعت و شهرستان‌ها ظرف ۲ تا ۴ روز کاری تحویل داده می‌شوند.'],
+['محصولات گارانتی دارند؟','بله؛ همه ابزارهای برقی و شارژی ابزارینو با کارت گارانتی رسمی شرکتی (۱۲ تا ۱۸ ماه) عرضه می‌شوند و در صورت بروز ایراد فنی، از طریق مراکز خدمات پس از فروش سراسر کشور پشتیبانی می‌شوند.'],
+['اگر کالا را پسند نکردم یا ایراد داشت چه؟','تا ۷ روز پس از تحویل، در صورت ایراد فنی یا مغایرت با مشخصات اعلام‌شده، کالا بدون قید و شرط پس گرفته می‌شود و مبلغ به‌صورت کامل بازگردانده خواهد شد.'],
+['تفاوت مدل‌های یک کالا (زیرمحصول) چیست؟','بعضی کالاها در چند مدل، رنگ یا اندازه عرضه می‌شوند؛ در صفحه هر محصول می‌توانید مدل را انتخاب کنید تا قیمت نهایی همان لحظه به‌روز شود. مشخصات کامل هر مدل در جدول مشخصات فنی همان صفحه آمده است.'],
+['چطور وضعیت سفارشم را پیگیری کنم؟','بعد از ثبت سفارش یک کد رهگیری (مثل ABZ-123456) دریافت می‌کنید. کافی است آن را در بخش «پیگیری سفارش» همین صفحه وارد کنید تا وضعیت لحظه‌ای مرسوله — از ثبت تا تحویل — نمایش داده شود.'],
+['کد تخفیف اولین خرید چیست؟','برای اولین خرید می‌توانید از کد تخفیف TOOL10 استفاده کنید تا ۱۰٪ تخفیف روی مبلغ کالاها بگیرید. کد را در سبد خرید وارد و روی «اعمال» کلیک کنید.']
+];
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s);
+const faNum=n=>Number(n).toLocaleString('fa-IR');
+const faDigit=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600)}
+function effPrice(p){return p.deal? p.dealPrice : p.price}
+function offPct(p){const base=p.price, eff=effPrice(p); if(p.old&&p.old>base) return Math.round((1-eff/p.old)*100); if(eff<base) return Math.round((1-eff/base)*100); return 0}
+/* ================= STATE ================= */
+let cart=JSON.parse(localStorage.getItem('abz_cart')||'[]');
+let coupon=JSON.parse(localStorage.getItem('abz_coupon')||'false');
+let curCat='all', curBrand='all', curSearch='';
+function saveCart(){localStorage.setItem('abz_cart',JSON.stringify(cart));localStorage.setItem('abz_coupon',JSON.stringify(coupon))}
+function cartQty(){return cart.reduce((a,i)=>a+i.qty,0)}
+function cartSubtotal(){return cart.reduce((a,i)=>{const p=PRODUCTS.find(x=>x.id===i.pid);return a+(effPrice(p)+i.delta)*i.qty},0)}
+/* ================= RENDER: CATS / FILTERS ================= */
+function renderCats(){
+  $('#catNav').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="cat-chip ${k===curCat?'active':''}" data-cat="${k}">${v}</button>`).join('');
+  $('#filterCats').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="fchip ${k===curCat?'active':''}" data-cat="${k}">${v}</button>`).join('');
+  document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{curCat=b.dataset.cat;renderCats();renderGrid()});
+  const bs=$('#brandSel'); const brands=['all',...new Set(PRODUCTS.map(p=>p.brand))];
+  bs.innerHTML=brands.map(b=>`<option value="${b}" ${b===curBrand?'selected':''}>${b==='all'?'همه برندها':b}</option>`).join('');
+}
+/* ================= RENDER: CARDS ================= */
+function cardHTML(p){
+  const eff=effPrice(p), off=offPct(p);
+  return `<article class="card" onclick="openProduct(${p.id})">
+    <div class="thumb" style="cursor:pointer" onclick="openProduct(${p.id})"><img src="${IMG}${p.imgs[0]}" alt="${p.name}" loading="lazy">
+    ${off?`<span class="badge">٪${faDigit(off)} تخفیف</span>`:''}${p.best?`<span class="badge best" style="top:${off?'38px':'10px'}">پرفروش</span>`:''}</div>
+    <div class="body">
+      <span class="brand">${p.brand} — ${CATS[p.cat]}</span>
+      <h3 style="cursor:pointer" onclick="openProduct(${p.id})">${p.name}</h3>
+      <span class="rate">⭐ <b>${faDigit(p.rating)}</b> | فروش: ${faNum(p.sold)} عدد</span>
+      <div class="price">${p.old?`<div class="old">${faNum(p.old)} تومان</div>`:''}<div class="new">${faNum(eff)} <small>تومان</small></div></div>
+      <button class="add" onclick="openProduct(${p.id})">مشاهده و خرید</button>
+    </div></article>`;
+}
+function renderGrid(){
+  const list=PRODUCTS.filter(p=>(curCat==='all'||p.cat===curCat)&&(curBrand==='all'||p.brand===curBrand)&&(!curSearch||p.name.includes(curSearch)||p.brand.includes(curSearch)));
+  $('#productGrid').innerHTML=list.length? list.map(cardHTML).join('') : `<div class="empty">🔍 محصولی با این فیلتر پیدا نشد؛ فیلترها را تغییر دهید.</div>`;
+}
+function renderStrips(){
+  $('#bestStrip').innerHTML=PRODUCTS.filter(p=>p.best).map(cardHTML).join('');
+  $('#offerStrip').innerHTML=PRODUCTS.filter(p=>p.old||p.deal).map(cardHTML).join('');
+}
+/* ================= DEAL + COUNTDOWN ================= */
+function renderDeal(){
+  const p=PRODUCTS.find(x=>x.deal); const off=offPct(p);
+  $('#dealBox').innerHTML=`
+    <div>
+      <span class="tag">⏰ تخفیف زمان‌دار — فقط امروز</span>
+      <h3>${p.name} ${p.brand}</h3>
+      <p class="desc">فرز همه‌کاره کارگاه و خانه با موتور پرقدرت، دسته ضدلرزش و گارانتی شرکتی. این قیمت فقط تا پایان امروز معتبر است.</p>
+      <div class="countdown">
+        <div class="cell"><b id="cdH">۰۰</b><span>ساعت</span></div>
+        <div class="cell"><b id="cdM">۰۰</b><span>دقیقه</span></div>
+        <div class="cell"><b id="cdS">۰۰</b><span>ثانیه</span></div>
+      </div>
+      <div class="price-row">
+        <span class="old">${faNum(p.old)} تومان</span>
+        <span class="new">${faNum(p.dealPrice)} تومان</span>
+        <span class="off">٪${faDigit(off)} تخفیف</span>
+      </div>
+      <button class="btn btn-y" style="margin-top:18px" onclick="openProduct(${p.id})">خرید با قیمت امروز</button>
+    </div>
+    <div class="media"><img src="${IMG}${p.imgs[0]}" alt="${p.name}"></div>`;
+}
+function tickCountdown(){
+  const now=new Date(); const end=new Date(now); end.setHours(23,59,59,999);
+  let d=Math.max(0,Math.floor((end-now)/1000));
+  const h=Math.floor(d/3600), m=Math.floor(d%3600/60), s=d%60;
+  const pad=n=>faDigit(String(n).padStart(2,'0'));
+  const H=$('#cdH'),M=$('#cdM'),S=$('#cdS'); if(!H) return;
+  H.textContent=pad(h); M.textContent=pad(m); S.textContent=pad(s);
+}
+/* ================= PRODUCT MODAL ================= */
+let mPid=null,mVar=0,mQty=1,mImg=0;
+function openProduct(id){
+  const p=PRODUCTS.find(x=>x.id===id); mPid=id; mVar=0; mQty=1; mImg=0;
+  renderModal(); $('#productOverlay').classList.add('show'); document.body.style.overflow='hidden';
+}
+function closeProduct(){$('#productOverlay').classList.remove('show');document.body.style.overflow=''}
+function renderModal(){
+  const p=PRODUCTS.find(x=>x.id===mPid); const v=p.variants[mVar];
+  const unit=effPrice(p)+v.delta;
+  $('#modalContent').innerHTML=`
+  <div class="gallery">
+    <div class="main-img"><img id="mMainImg" src="${IMG}${p.imgs[mImg]}" alt="${p.name}"></div>
+    <div class="thumbs">${p.imgs.map((im,i)=>`<button class="${i===mImg?'active':''}" onclick="setImg(${i})"><img src="${IMG}${im}" alt="تصویر ${i+1} ${p.name}"></button>`).join('')}</div>
+  </div>
+  <div class="m-info">
+    <span class="brand">${p.brand} — ${CATS[p.cat]}</span>
+    <h3>${p.name}</h3>
+    <div class="rate">⭐ امتیاز <b>${faDigit(p.rating)}</b> از ۵ &nbsp;|&nbsp; ${faNum(p.sold)} عدد فروخته شده &nbsp;|&nbsp; ✅ موجود در انبار</div>
+    <div class="var-label">انتخاب مدل / رنگ:</div>
+    <div class="var-opts">${p.variants.map((vv,i)=>`<button class="var-opt ${i===mVar?'active':''}" onclick="setVar(${i})">${vv.label}<small>${vv.delta===0?'بدون تغییر قیمت':(vv.delta>0?'+ ':'− ')+faNum(Math.abs(vv.delta))+' تومان'}</small></button>`).join('')}</div>
+    <div class="qty-row">
+      <div class="stepper">
+        <button onclick="chgQty(1)" aria-label="افزایش">+</button>
+        <span class="qv" id="mQtyVal">${faDigit(mQty)}</span>
+        <button onclick="chgQty(-1)" aria-label="کاهش">−</button>
+      </div>
+      <span class="maxnote">حداکثر خرید: ${faDigit(p.max)} عدد</span>
+    </div>
+    <div class="m-price">${p.old?`<span class="old">${faNum(p.old+v.delta)} تومان</span>`:''}<span class="new">${faNum(unit)} <small>تومان</small></span></div>
+    <button class="m-add" onclick="addToCart()">🛒 افزودن به سبد خرید</button>
+    <div class="specs"><h4>📋 جدول مشخصات فنی</h4>
+      <table>${p.specs.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('')}</table>
+    </div>
+  </div>`;
+}
+function setImg(i){mImg=i;renderModal()}
+function setVar(i){mVar=i;renderModal()}
+function chgQty(d){
+  const p=PRODUCTS.find(x=>x.id===mPid);
+  const n=mQty+d;
+  if(n>p.max){toast(`⚠️ حداکثر تعداد خرید این کالا ${faDigit(p.max)} عدد است`);return}
+  if(n<1){toast('حداقل تعداد خرید ۱ عدد است');return}
+  mQty=n; $('#mQtyVal').textContent=faDigit(mQty);
+}
+function addToCart(){
+  const p=PRODUCTS.find(x=>x.id===mPid); const v=p.variants[mVar];
+  const key=mPid+'|'+v.label;
+  const ex=cart.find(i=>i.key===key);
+  const inCart=ex? ex.qty:0;
+  if(inCart+mQty>p.max){toast(`⚠️ حداکثر خرید این کالا ${faDigit(p.max)} عدد است؛ ${faDigit(inCart)} عدد در سبد دارید`);return}
+  if(ex) ex.qty+=mQty; else cart.push({key,pid:mPid,varLabel:v.label,delta:v.delta,qty:mQty});
+  saveCart(); renderCart(); closeProduct(); toast(`✅ «${p.name}» به سبد خرید اضافه شد`); openCart();
+}
+/* ================= CART ================= */
+function openCart(){$('#cartWrap').classList.add('show');document.body.style.overflow='hidden';renderCart()}
+function closeCart(){$('#cartWrap').classList.remove('show');document.body.style.overflow='';const f=$('#coForm');if(f)f.classList.remove('show');const s=$('#successBox');if(s)s.classList.remove('show')}
+function cartTotals(){
+  const sub=cartSubtotal(); const disc=coupon? Math.round(sub*0.10):0;
+  const ship=(sub-disc)>=5000000||sub===0?0:85000;
+  return {sub,disc,ship,total:sub-disc+ship};
+}
+function renderCart(){
+  $('#cartCount').textContent=faDigit(cartQty());
+  const box=$('#cartItems'), foot=$('#cartFoot');
+  if(!cart.length){
+    box.innerHTML=`<div class="empty-cart">🛒 سبد خرید شما خالی است.<br>از بخش محصولات، ابزار موردنظرتان را انتخاب کنید.</div>`;
+    foot.innerHTML=''; return;
+  }
+  box.innerHTML=cart.map((i,idx)=>{const p=PRODUCTS.find(x=>x.id===i.pid);const unit=effPrice(p)+i.delta;
+    return `<div class="citem"><img src="${IMG}${p.imgs[0]}" alt="${p.name}">
+    <div class="ci-body"><h4>${p.name}</h4><div class="ci-var">مدل: ${i.varLabel} — برند ${p.brand}</div>
+    <div class="ci-row">
+      <div class="stepper sm"><button onclick="cQty(${idx},1)">+</button><span class="qv">${faDigit(i.qty)}</span><button onclick="cQty(${idx},-1)">−</button></div>
+      <span class="ci-price">${faNum(unit*i.qty)} تومان</span>
+    </div>
+    <button class="ci-remove" onclick="cRemove(${idx})">🗑 حذف از سبد</button>
+    </div></div>`}).join('') + `
+    <div class="success-box" id="successBox"></div>
+    <form class="co-form" id="coForm" onsubmit="return placeOrder(event)">
+      <label>نام و نام خانوادگی</label><input required id="coName" placeholder="مثلاً علی رضایی">
+      <label>شماره موبایل</label><input required id="coMobile" inputmode="numeric" placeholder="۰۹۱۲ ـــ ـــ ــ ــ">
+      <label>نشانی تحویل</label><textarea required id="coAddr" rows="2" placeholder="شهر، خیابان، پلاک…"></textarea>
+    </form>`;
+  const t=cartTotals();
+  foot.innerHTML=`
+    <div class="coupon">
+      <input id="couponInput" placeholder="کد تخفیف (TOOL10)" dir="ltr" style="text-align:left">
+      <button onclick="applyCoupon()">اعمال کد</button>
+    </div>
+    <div class="coupon-msg" id="couponMsg"></div>
+    <div class="totals">
+      <div class="row"><span>جمع کالاها</span><span>${faNum(t.sub)} تومان</span></div>
+      ${t.disc?`<div class="row disc"><span>تخفیف کد TOOL10 (۱۰٪)</span><span>− ${faNum(t.disc)} تومان</span></div>`:''}
+      <div class="row"><span>هزینه ارسال</span><span>${t.ship===0?'رایگان':faNum(t.ship)+' تومان'}</span></div>
+      <div class="row grand"><span>مبلغ قابل پرداخت</span><span>${faNum(t.total)} تومان</span></div>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn" onclick="startCheckout()">ثبت سفارش و پرداخت</button>`;
+  if(coupon){const m=$('#couponMsg');m.className='coupon-msg ok';m.textContent='✅ کد تخفیف TOOL10 فعال است؛ ۱۰٪ تخفیف اعمال شد.'}
+}
+function cQty(idx,d){
+  const i=cart[idx]; const p=PRODUCTS.find(x=>x.id===i.pid); const n=i.qty+d;
+  if(n>p.max){toast(`⚠️ حداکثر تعداد خرید «${p.name}» ${faDigit(p.max)} عدد است`);return}
+  if(n<1){cart.splice(idx,1)} else i.qty=n;
+  saveCart(); renderCart();
+}
+function cRemove(idx){cart.splice(idx,1);saveCart();renderCart();toast('کالا از سبد حذف شد')}
+function applyCoupon(){
+  const val=($('#couponInput').value||'').trim().toUpperCase(); const m=$('#couponMsg');
+  if(val==='TOOL10'){coupon=true;saveCart();renderCart();toast('✅ کد تخفیف اعمال شد؛ ۱۰٪ تخفیف گرفتید')}
+  else{m.className='coupon-msg err';m.textContent='❌ این کد تخفیف معتبر نیست. (راهنما: کد اولین خرید TOOL10 است)'}
+}
+function startCheckout(){
+  const f=$('#coForm'); const btn=$('#checkoutBtn');
+  if(!f.classList.contains('show')){f.classList.add('show');btn.textContent='✅ تأیید و ثبت نهایی سفارش';f.scrollIntoView({behavior:'smooth',block:'center'});$('#coName').focus();return}
+  f.requestSubmit();
+}
+function placeOrder(e){
+  e.preventDefault();
+  const name=$('#coName').value.trim(), mobile=$('#coMobile').value.trim(), addr=$('#coAddr').value.trim();
+  if(!name||!mobile||!addr){toast('لطفاً همه فیلدهای تحویل را کامل کنید');return false}
+  const code='ABZ-'+Math.floor(100000+Math.random()*900000);
+  const t=cartTotals();
+  const orders=JSON.parse(localStorage.getItem('abz_orders')||'[]');
+  orders.push({code,name,mobile,addr,total:t.total,items:cart.map(i=>({pid:i.pid,varLabel:i.varLabel,qty:i.qty})),status:1,date:new Date().toLocaleDateString('fa-IR')});
+  localStorage.setItem('abz_orders',JSON.stringify(orders));
+  cart=[]; coupon=false; saveCart();
+  $('#cartItems').innerHTML=`<div class="success-box show">
+    <div class="tick">✓</div>
+    <h3 style="font-size:19px;font-weight:900">سفارش شما با موفقیت ثبت شد 🎉</h3>
+    <p style="font-size:14px;color:var(--gray)">آقای/خانم ${name}، سفارش شما در حال آماده‌سازی است.<br>کد رهگیری سفارش:</p>
+    <div class="code" dir="ltr">${code}</div>
+    <p style="font-size:13px;color:var(--gray)">این کد را نگه دارید؛ در بخش «پیگیری سفارش» می‌توانید وضعیت مرسوله را ببینید.</p>
+    <button class="checkout-btn" onclick="closeCart();document.getElementById('tracking').scrollIntoView({behavior:'smooth'})">پیگیری همین سفارش</button>
+  </div>`;
+  $('#cartFoot').innerHTML=''; $('#cartCount').textContent='۰';
+  $('#trackInput').value=code;
+  return false;
+}
+/* ================= TRACKING ================= */
+const STEPS=[['ثبت سفارش','سفارش شما با موفقیت ثبت و تأیید شد'],['در حال آماده‌سازی','کالاها در انبار در حال بسته‌بندی هستند'],['ارسال شده','مرسوله تحویل پست / پیک شده است'],['تحویل داده شد','سفارش به دست شما رسیده است']];
+function doTrack(){
+  const code=($('#trackInput').value||'').trim().toUpperCase();
+  const orders=JSON.parse(localStorage.getItem('abz_orders')||'[]');
+  const o=orders.find(x=>x.code===code);
+  const err=$('#trackErr'), res=$('#trackResult');
+  if(!o){err.style.display='block';res.style.display='none';return}
+  err.style.display='none'; res.style.display='block';
+  const itemsTxt=o.items.map(i=>{const p=PRODUCTS.find(x=>x.id===i.pid);return `${p.name} (${i.varLabel}) × ${faDigit(i.qty)}`}).join('، ');
+  res.innerHTML=`
+    <div class="ord-head"><span>کد رهگیری: <b dir="ltr">${o.code}</b></span><span>گیرنده: ${o.name}</span><span>مبلغ: ${faNum(o.total)} تومان</span></div>
+    <p style="font-size:12.5px;color:var(--gray);margin-top:10px">${itemsTxt}</p>
+    <div class="timeline">${STEPS.map((s,i)=>`<div class="tstep ${i<o.status?'done':''} ${i===o.status?'current':''} ${i>o.status?'pending':''}"><span class="dot"></span><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>`;
+}
+/* ================= FAQ ================= */
+function renderFaq(){
+  $('#faqList').innerHTML=FAQS.map((f,i)=>`<div class="faq-item ${i===0?'open':''}">
+    <button class="faq-q" onclick="toggleFaq(this)">${f[0]}<span class="arr">▾</span></button>
+    <div class="faq-a"><p>${f[1]}</p></div></div>`).join('');
+  document.querySelectorAll('.faq-item.open .faq-a').forEach(a=>a.style.maxHeight=a.scrollHeight+'px');
+}
+function toggleFaq(btn){
+  const item=btn.parentElement, a=item.querySelector('.faq-a'), open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(it=>{it.classList.remove('open');it.querySelector('.faq-a').style.maxHeight='0'});
+  if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+}
+/* ================= CHAT ================= */
+const CHAT_RULES=[
+{keys:['پیگیری','رهگیری','سفارشم'],reply:'برای پیگیری، کد رهگیری سفارش (مثل ABZ-123456) را در بخش «پیگیری سفارش» همین صفحه وارد کنید تا وضعیت لحظه‌ای مرسوله را ببینید. 🔎'},
+{keys:['ارسال','پست','تحویل','چند روز','پیک'],reply:'ارسال در تهران ۲۴ ساعته و در شهرستان‌ها ۲ تا ۴ روز کاری است. سفارش‌های بالای ۵ میلیون تومان رایگان ارسال می‌شوند و بقیه سفارش‌ها ۸۵ هزار تومان هزینه پست دارند. 🚚'},
+{keys:['مرجوع','بازگشت','تعویض','پس دادن','برگرد'],reply:'تا ۷ روز بعد از تحویل، اگر کالا ایراد فنی داشته باشد یا با مشخصات سایت مغایرت داشته باشد، بدون قید و شرط پس گرفته می‌شود و کل مبلغ برگردانده می‌شود. ↩️'},
+{keys:['گارانتی','ضمانت','خدمات پس از فروش'],reply:'همه ابزارهای برقی و شارژی ما کارت گارانتی رسمی شرکتی دارند (معمولاً ۱۲ تا ۱۸ ماه) و مدت گارانتی هر کالا در جدول مشخصات فنی صفحه همان محصول نوشته شده است. 🛡️'},
+{keys:['قیمت','هزینه','چنده','قیمتش'],reply:'قیمت همه کالاها در صفحه هر محصول به‌روز درج شده و با انتخاب مدل (رنگ/اندازه) همان لحظه تغییر می‌کند. برای اولین خرید هم می‌توانید از کد تخفیف TOOL10 استفاده کنید و ۱۰٪ کمتر بپردازید. 💰'},
+{keys:['موجود','انبار','دارید'],reply:'موجودی کالاها لحظه‌ای است؛ اگر دکمه «مشاهده و خرید» فعال باشد یعنی کالا موجود است. حداکثر تعداد قابل خرید هر کالا هم در صفحه محصول مشخص شده است. ✅'},
+{keys:['تخفیف','کد','آف','ارزان'],reply:'در حال حاضر یک «پیشنهاد شگفت‌انگیز» روزانه با شمارش معکوس داریم و برای اولین خرید هم کد تخفیف TOOL10 با ۱۰٪ تخفیف فعال است. 🎁'},
+{keys:['سلام','درود','وقت بخیر'],reply:'سلام و وقت بخیر 🌹 به پشتیبانی ابزارینو خوش آمدید. درباره قیمت، ارسال، گارانتی یا مرجوعی سؤال دارید؟ بپرسید تا راهنمایی‌تان کنم.'},
+{keys:['ممنون','مرسی','تشکر','خداحافظ'],reply:'خواهش می‌کنم 🌹 اگر سؤال دیگری درباره ابزارها داشتید در خدمتم. خرید خوبی داشته باشید!'}
+];
+const CHAT_FALLBACK='متوجه سؤالتان نشدم؛ اما می‌توانم درباره «قیمت و تخفیف»، «زمان و هزینه ارسال»، «گارانتی» و «شرایط مرجوعی» راهنمایی کنم. یکی از دکمه‌های زیر را بزنید یا سؤالتان را ساده‌تر بنویسید. (این چت نسخه نمایشی است)';
+let chatOpened=false;
+function addMsg(text,who){
+  const d=document.createElement('div'); d.className='msg '+who; d.textContent=text;
+  $('#chatMsgs').appendChild(d); $('#chatMsgs').scrollTop=$('#chatMsgs').scrollHeight;
+}
+function botReply(q){
+  const t=q.replace(/\s/g,'');
+  for(const r of CHAT_RULES){ if(r.keys.some(k=>t.includes(k))) return r.reply }
+  return CHAT_FALLBACK;
+}
+function sendChat(text){
+  const q=(text||$('#chatText').value||'').trim(); if(!q) return;
+  addMsg(q,'me'); $('#chatText').value='';
+  setTimeout(()=>addMsg(botReply(q),'bot'),450);
+}
+function toggleChat(force){
+  const box=$('#chatBox'); const show=force!==undefined?force:!box.classList.contains('show');
+  box.classList.toggle('show',show);
+  if(show&&!chatOpened){chatOpened=true;setTimeout(()=>addMsg('سلام 👋 به فروشگاه ابزارینو خوش آمدید. من دستیار پشتیبانی هستم؛ درباره قیمت، ارسال، گارانتی یا پیگیری سفارش سؤالی دارید؟','bot'),250)}
+}
+/* ================= EVENTS / INIT ================= */
+$('#brandSel').addEventListener('change',e=>{curBrand=e.target.value;renderGrid()});
+$('#filterSearch').addEventListener('input',e=>{curSearch=e.target.value.trim();$('#topSearch').value=curSearch;renderGrid()});
+$('#topSearch').addEventListener('input',e=>{curSearch=e.target.value.trim();$('#filterSearch').value=curSearch;renderGrid()});
+$('#topSearchBtn').addEventListener('click',()=>{$('#products').scrollIntoView({behavior:'smooth'})});
+$('#openCart').addEventListener('click',openCart);
+$('#cartClose').addEventListener('click',closeCart);
+$('#cartScrim').addEventListener('click',closeCart);
+$('#modalClose').addEventListener('click',closeProduct);
+$('#productOverlay').addEventListener('click',e=>{if(e.target.id==='productOverlay')closeProduct()});
+$('#trackBtn').addEventListener('click',doTrack);
+$('#trackInput').addEventListener('keydown',e=>{if(e.key==='Enter')doTrack()});
+$('#chatFab').addEventListener('click',()=>toggleChat());
+$('#chatSend').addEventListener('click',()=>sendChat());
+$('#chatText').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat()});
+$('#chatChips').innerHTML=['💰 قیمت و تخفیف','🚚 زمان ارسال','🛡️ گارانتی','↩️ مرجوعی کالا'].map(c=>`<button onclick="sendChat('${c.replace(/^[^\s]+\s/,'')}')">${c}</button>`).join('');
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeProduct();closeCart();toggleChat(false)}});
+renderCats(); renderGrid(); renderStrips(); renderDeal(); renderFaq(); renderCart();
+tickCountdown(); setInterval(tickCountdown,1000);
+</script>
+</body>
+</html>
