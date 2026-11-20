@@ -329,6 +329,18 @@ footer.app{padding:20px 28px 30px;color:var(--faint);font-size:12.3px;text-align
   .toolbar .search{max-width:none}
 }
 </style>
+
+<style data-mobilefix="2026-11-20">
+/* MOBILE REPAIR PASS 2026-11-20 — tap targets + hero-preview row wrap at 360px; design/content unchanged */
+@media(max-width:768px){
+  .lf-links a{display:inline-flex;align-items:center;min-height:40px}
+  .pg{min-width:40px;height:40px}
+}
+@media(max-width:480px){
+  .pv-row{flex-wrap:wrap;gap:6px;row-gap:3px;padding:8px 9px}
+  .pv-row .pv-amt{margin-inline-start:auto}
+}
+</style>
 </head>
 <body>
 
