@@ -58,6 +58,26 @@ nav.main a:hover,nav.main a.on{color:var(--gold-deep);border-color:var(--gold)}
 .icon-btn:hover{border-color:var(--gold);background:var(--paper)}
 .cart-count{position:absolute;top:-5px;left:-5px;background:var(--gold);color:#141414;font-size:.7rem;font-weight:800;min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;padding:0 5px}
 .burger{display:none}
+/* header — H7 magazine masthead */
+header.masthead{position:relative;top:auto;z-index:60;background:var(--ivory);border-top:5px double var(--char);border-bottom:5px double var(--char);margin-top:8px;backdrop-filter:none}
+.masthead>.wrap{display:block;height:auto}
+.mast-brandrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;padding:18px 0 14px}
+.mast-side{font-size:.74rem;font-weight:600;letter-spacing:.05em;color:var(--ink-soft)}
+.mast-logo{flex-direction:column;gap:2px;text-align:center;line-height:1.25}
+.mast-logo .mark{width:30px;height:30px}
+.mast-logo .mark svg{width:30px;height:30px}
+.mast-name{font-size:clamp(2.3rem,6.5vw,3.6rem);font-weight:800;color:var(--char);line-height:1.2}
+.mast-logo small{font-size:.78rem;letter-spacing:.28em;color:var(--gold-deep);font-weight:600}
+.mast-actions{justify-self:end}
+.masthead .ratebar{border-top:1px solid var(--line)}
+.mast-navrow{border-top:1px solid var(--line);display:flex;justify-content:center;padding:10px 0 12px}
+@media(max-width:820px){
+  .mast-side{display:none}
+  .mast-brandrow{grid-template-columns:auto 1fr auto;padding:14px 0 10px}
+  .mast-logo{flex-direction:row;text-align:right}
+  .mast-name{font-size:1.9rem}
+  .masthead nav.main{top:100%}
+}
 /* hero — editorial magazine cover */
 .hero{position:relative;background:var(--ivory);color:var(--ink);border-bottom:1px solid var(--line)}
 .hero .wrap{max-width:1060px;padding-top:30px;padding-bottom:42px;text-align:center}
@@ -294,28 +314,34 @@ footer .bar{border-top:1px solid #2c2820;padding:18px 0;font-size:.8rem;display:
 </head>
 <body>
 
-<div class="ratebar">
+<header class="masthead">
   <div class="wrap">
-    <span><span class="dot"></span>نرخ لحظه‌ای هر گرم طلای ۱۸ عیار: <b id="rateTxt">۴٬۸۰۰٬۰۰۰ تومان</b></span>
-    <span class="hide-s">قیمت همه محصولات بر اساس نرخ روز محاسبه و با فاکتور رسمی صادر می‌شود</span>
+    <div class="mast-brandrow">
+      <span class="mast-side">گالری طلا و جواهر · تهران</span>
+      <a class="logo mast-logo" href="#" data-nav="home">
+        <span class="mark"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4 L28 16 L16 28 L4 16 Z" stroke="#c6a15b" stroke-width="2"/><path d="M16 10 L22 16 L16 22 L10 16 Z" fill="#c6a15b"/></svg></span>
+        <span class="mast-name">درخشان<small>گالری طلا و جواهر</small></span>
+      </a>
+      <div class="head-actions mast-actions">
+        <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">🛍<span class="cart-count" id="cartCount">۰</span></button>
+        <button class="icon-btn burger" id="burger" aria-label="منو">☰</button>
+      </div>
+    </div>
   </div>
-</div>
-
-<header>
+  <div class="ratebar">
+    <div class="wrap">
+      <span><span class="dot"></span>نرخ لحظه‌ای هر گرم طلای ۱۸ عیار: <b id="rateTxt">۴٬۸۰۰٬۰۰۰ تومان</b></span>
+      <span class="hide-s">قیمت همه محصولات بر اساس نرخ روز محاسبه و با فاکتور رسمی صادر می‌شود</span>
+    </div>
+  </div>
   <div class="wrap">
-    <a class="logo" href="#" data-nav="home">
-      <span class="mark"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4 L28 16 L16 28 L4 16 Z" stroke="#c6a15b" stroke-width="2"/><path d="M16 10 L22 16 L16 22 L10 16 Z" fill="#c6a15b"/></svg></span>
-      <span>درخشان<small>گالری طلا و جواهر</small></span>
-    </a>
-    <nav class="main" id="mainNav">
-      <a href="#" data-nav="home" class="on">خانه</a>
-      <a href="#" data-nav="shop">فروشگاه</a>
-      <a href="#" data-nav="about">درباره ما</a>
-      <a href="#" data-nav="contact">تماس با ما</a>
-    </nav>
-    <div class="head-actions">
-      <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">🛍<span class="cart-count" id="cartCount">۰</span></button>
-      <button class="icon-btn burger" id="burger" aria-label="منو">☰</button>
+    <div class="mast-navrow">
+      <nav class="main" id="mainNav">
+        <a href="#" data-nav="home" class="on">خانه</a>
+        <a href="#" data-nav="shop">فروشگاه</a>
+        <a href="#" data-nav="about">درباره ما</a>
+        <a href="#" data-nav="contact">تماس با ما</a>
+      </nav>
     </div>
   </div>
 </header>
@@ -364,6 +390,20 @@ footer .bar{border-top:1px solid #2c2820;padding:18px 0;font-size:.8rem;display:
       <div class="t"><span class="ic">🚚</span><div><b>ارسال بیمه‌شده</b><span>به سراسر کشور، کاملاً امن</span></div></div>
     </div>
   </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">مجله درخشان</span>
+        <h2>پیش از خرید، آگاهانه انتخاب کنید</h2>
+      </div>
+      <div class="blog">
+        <article class="post"><img src="assets/img/boutique-rings.jpg" alt="ویترین انگشترهای طلا" loading="lazy"><div class="pb2"><span class="cat-l">راهنمای خرید</span><h3>اجرت طلا چیست و چطور محاسبه می‌شود؟</h3><p>اجرت، دستمزد ساخت طلاست و از قطعه‌ای به قطعه دیگر فرق می‌کند. در این راهنما یاد می‌گیرید چطور قیمت نهایی را خودتان بررسی کنید.</p></div></article>
+        <article class="post"><img src="assets/img/p-coin-c.jpg" alt="سکه‌های طلا" loading="lazy"><div class="pb2"><span class="cat-l">سرمایه‌گذاری</span><h3>سکه بخریم یا طلای ساخته‌شده؟</h3><p>اگر هدفتان سرمایه‌گذاری است، نبودِ اجرت در سکه مزیت بزرگی است؛ اما طلای زینتی هم لذت استفاده دارد و هم ارزش. مقایسه کامل اینجاست.</p></div></article>
+        <article class="post"><img src="assets/img/p-bracelet-box-a.jpg" alt="دستبند طلا در جعبه هدیه" loading="lazy"><div class="pb2"><span class="cat-l">نگهداری</span><h3>چطور از طلای خود نگهداری کنیم؟</h3><p>چند عادت ساده باعث می‌شود درخشش طلای شما سال‌ها مثل روز اول بماند؛ از نگهداری جداگانه تا شست‌وشوی درست در خانه.</p></div></article>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="wrap">
@@ -427,19 +467,6 @@ footer .bar{border-top:1px solid #2c2820;padding:18px 0;font-size:.8rem;display:
     </div>
   </section>
 
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="label">مجله درخشان</span>
-        <h2>پیش از خرید، آگاهانه انتخاب کنید</h2>
-      </div>
-      <div class="blog">
-        <article class="post"><img src="assets/img/boutique-rings.jpg" alt="ویترین انگشترهای طلا" loading="lazy"><div class="pb2"><span class="cat-l">راهنمای خرید</span><h3>اجرت طلا چیست و چطور محاسبه می‌شود؟</h3><p>اجرت، دستمزد ساخت طلاست و از قطعه‌ای به قطعه دیگر فرق می‌کند. در این راهنما یاد می‌گیرید چطور قیمت نهایی را خودتان بررسی کنید.</p></div></article>
-        <article class="post"><img src="assets/img/p-coin-c.jpg" alt="سکه‌های طلا" loading="lazy"><div class="pb2"><span class="cat-l">سرمایه‌گذاری</span><h3>سکه بخریم یا طلای ساخته‌شده؟</h3><p>اگر هدفتان سرمایه‌گذاری است، نبودِ اجرت در سکه مزیت بزرگی است؛ اما طلای زینتی هم لذت استفاده دارد و هم ارزش. مقایسه کامل اینجاست.</p></div></article>
-        <article class="post"><img src="assets/img/p-bracelet-box-a.jpg" alt="دستبند طلا در جعبه هدیه" loading="lazy"><div class="pb2"><span class="cat-l">نگهداری</span><h3>چطور از طلای خود نگهداری کنیم؟</h3><p>چند عادت ساده باعث می‌شود درخشش طلای شما سال‌ها مثل روز اول بماند؛ از نگهداری جداگانه تا شست‌وشوی درست در خانه.</p></div></article>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- ============ SHOP ============ -->
