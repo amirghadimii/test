@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.hbar{display:flex;align-items:center;gap:14px;height:68px}
+.hbar{display:flex;align-items:center;gap:14px;height:62px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;color:var(--brand-dark)}
 .logo .mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px rgba(13,110,93,.35)}
 .logo .mark .ic{width:24px;height:24px}
@@ -63,16 +63,18 @@ nav.main-nav a:hover{color:var(--brand)}
 .badge.hide{display:none}
 
 /* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#e9f5f1 0%,var(--bg) 100%)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:52px 0 60px}
-.hero h1{font-size:2.6rem;font-weight:900;line-height:1.35;color:var(--ink)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(640px 300px at 12% -40px,rgba(13,110,93,.14),transparent 65%),radial-gradient(640px 300px at 88% -40px,rgba(242,106,27,.10),transparent 65%),linear-gradient(180deg,#dcf0e9 0%,#e9f5f1 55%,var(--bg) 100%)}
+.hero-inner{position:relative;padding:60px 0 70px}
+.hero-center{position:relative;z-index:6;max-width:780px;margin:0 auto;text-align:center}
+.hero h1{font-size:2.65rem;font-weight:900;line-height:1.35;color:var(--ink)}
 .hero h1 .hl{color:var(--brand);position:relative;white-space:nowrap}
 .hero h1 .hl::after{content:"";position:absolute;right:0;left:0;bottom:4px;height:10px;background:var(--accent-soft);z-index:-1;border-radius:4px}
-.hero p.sub{color:var(--ink2);font-size:1.08rem;margin:16px 0 26px;max-width:34rem}
-.search-box{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:8px;display:flex;gap:8px;border:1.5px solid #fff;position:relative;z-index:5}
+.hero p.sub{color:var(--ink2);font-size:1.08rem;margin:16px auto 28px;max-width:36rem}
+.search-box{background:#fff;border-radius:26px;box-shadow:0 22px 48px rgba(10,50,42,.18);padding:10px;display:flex;gap:8px;border:1.5px solid #fff;position:relative;z-index:5;max-width:720px;margin:0 auto;text-align:right}
 .search-box:focus-within{border-color:var(--brand)}
-.search-box .ic{align-self:center;width:22px;height:22px;color:var(--muted);margin-inline-start:8px}
-.search-box input{flex:1;border:none;outline:none;font-size:1rem;background:transparent;min-width:0}
+.search-box .ic{align-self:center;width:24px;height:24px;color:var(--muted);margin-inline-start:10px}
+.search-box input{flex:1;border:none;outline:none;font-size:1.06rem;background:transparent;min-width:0}
+.search-box .btn{padding:14px 30px;font-size:1rem;border-radius:18px}
 .search-results{position:absolute;top:calc(100% + 8px);right:0;left:0;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);border:1px solid var(--line);overflow:hidden;display:none;max-height:320px;overflow-y:auto}
 .search-results.open{display:block}
 .search-results button{display:flex;width:100%;align-items:center;gap:10px;padding:12px 16px;text-align:right;font-size:.95rem}
@@ -80,21 +82,26 @@ nav.main-nav a:hover{color:var(--brand)}
 .search-results button .ic{width:19px;height:19px;color:var(--brand);margin:0}
 .search-results button small{color:var(--muted);margin-inline-start:auto;font-size:.78rem}
 .search-results .no-res{padding:14px 16px;color:var(--muted);font-size:.92rem}
-.hero-points{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px}
+.pop-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;margin-top:20px}
+.pop-lbl{color:var(--muted);font-size:.88rem;font-weight:600}
+.pop-chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 17px;font-weight:700;font-size:.88rem;color:var(--ink2);transition:.15s;box-shadow:0 4px 12px rgba(13,60,50,.05)}
+.pop-chip:hover{border-color:var(--brand);color:var(--brand-dark);transform:translateY(-1px)}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:24px;justify-content:center}
 .hero-points span{display:inline-flex;align-items:center;gap:7px;font-size:.9rem;color:var(--ink2);font-weight:500}
 .hero-points .ic{width:18px;height:18px;color:var(--ok)}
-.hero-visual{position:relative}
-.hero-visual .photo{border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/4.4;max-height:520px;width:100%}
-.hero-visual .photo img{width:100%;height:100%;object-fit:cover}
-.float-card{position:absolute;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);padding:14px 16px;display:flex;gap:12px;align-items:center}
-.float-card .fic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex:none}
-.float-card b{display:block;font-size:.92rem;line-height:1.5}
-.float-card small{color:var(--muted);font-size:.78rem}
-.fc1{bottom:26px;right:-14px}
-.fc1 .fic{background:var(--brand-soft);color:var(--brand)}
-.fc2{top:22px;left:-12px}
-.fc2 .fic{background:var(--accent-soft);color:var(--accent)}
-.stars{color:#f5a623;font-size:.8rem;letter-spacing:2px}
+.hero-floats{position:absolute;inset:0;z-index:3;pointer-events:none}
+.mini-card{position:absolute;width:178px;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);padding:10px;display:flex;gap:10px;align-items:center;text-align:right}
+.mini-card img{width:54px;height:54px;border-radius:12px;object-fit:cover;flex:none}
+.mini-card b{display:block;font-size:.86rem;line-height:1.45}
+.mini-card small{color:var(--brand-dark);font-weight:800;font-size:.74rem;white-space:nowrap}
+.mc1{top:26px;right:2px;transform:rotate(2deg)}
+.mc2{top:26px;left:2px;transform:rotate(-2deg)}
+.mc3{bottom:52px;right:30px;transform:rotate(-2deg)}
+.mc4{bottom:52px;left:30px;transform:rotate(2deg)}
+@media(max-width:1080px){
+  .hero-floats{position:static;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px;pointer-events:auto}
+  .mini-card{position:static;transform:none;width:172px}
+}
 
 /* ---------- stats / trust ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-6px 0 8px}
@@ -246,11 +253,9 @@ textarea.f-input{resize:vertical;min-height:88px}
 }
 @media(max-width:768px){
   nav.main-nav{display:none}
-  .hero-grid{grid-template-columns:1fr;padding:34px 0 44px;gap:28px}
-  .hero h1{font-size:2rem}
-  .hero-visual .photo{aspect-ratio:16/10;max-height:300px}
-  .fc1{right:8px;bottom:10px}
-  .fc2{left:8px;top:10px}
+  .hero-inner{padding:38px 0 48px}
+  .hero h1{font-size:1.95rem}
+  .search-box .btn{padding:12px 20px}
   .how{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
   .city-chip{display:none}
@@ -296,15 +301,24 @@ textarea.f-input{resize:vertical;min-height:88px}
 <main>
   <!-- HERO -->
   <div class="hero">
-    <div class="wrap hero-grid">
-      <div>
+    <div class="wrap hero-inner">
+      <div class="hero-center">
         <h1>برای هر کاری در خانه،<br>یک <span class="hl">متخصص مطمئن</span> هست</h1>
-        <p class="sub">از لوله‌بازکنی و تخلیه چاه تا نظافت، تعمیر پکیج و بازسازی؛ خدمت را انتخاب کنید، سفارش را در کمتر از دو دقیقه ثبت کنید و خیالتان از بابت کیفیت و ضمانت راحت باشد.</p>
+        <p class="sub">از لوله‌بازکنی و تخلیه چاه تا نظافت، تعمیر پکیج و بازسازی؛ خدمت را جستجو کنید و سفارش را در کمتر از دو دقیقه ثبت کنید.</p>
         <div class="search-box">
           <span class="ic" data-icon="search"></span>
           <input id="searchInput" type="text" placeholder="دنبال چه خدمتی هستید؟ مثلاً: لوله‌بازکنی، قالیشویی، سرویس کولر…" autocomplete="off">
           <button class="btn btn-primary" id="searchBtn" type="button">جستجو</button>
           <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="pop-chips">
+          <span class="pop-lbl">جستجوهای پرطرفدار:</span>
+          <button type="button" class="pop-chip" data-q="لوله‌بازکنی">لوله‌بازکنی</button>
+          <button type="button" class="pop-chip" data-q="قالیشویی">قالیشویی</button>
+          <button type="button" class="pop-chip" data-q="نظافت منزل">نظافت منزل</button>
+          <button type="button" class="pop-chip" data-q="کولر گازی">سرویس کولر گازی</button>
+          <button type="button" class="pop-chip" data-q="تخلیه چاه">تخلیه چاه</button>
+          <button type="button" class="pop-chip" data-q="سم‌پاشی">سم‌پاشی</button>
         </div>
         <div class="hero-points">
           <span><span class="ic" data-icon="shield"></span>متخصص احراز هویت‌شده</span>
@@ -312,16 +326,11 @@ textarea.f-input{resize:vertical;min-height:88px}
           <span><span class="ic" data-icon="sms"></span>اطلاع‌رسانی پیامکی لحظه‌ای</span>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="photo"><img src="assets/img/hero.jpg" alt="تیم متخصصان منزل‌یار در حال ارائه خدمات نظافت منزل"></div>
-        <div class="float-card fc1">
-          <span class="fic"><span class="ic" data-icon="sms"></span></span>
-          <span><b>پیامک سفارش ارسال شد</b><small>مدیریت بلافاصله از سفارش شما باخبر می‌شود</small></span>
-        </div>
-        <div class="float-card fc2">
-          <span class="fic"><span class="ic" data-icon="star"></span></span>
-          <span><b>امتیاز متخصصان ۴.۸ از ۵</b><small><span class="stars">★★★★★</span> بر اساس نظر مشتریان</small></span>
-        </div>
+      <div class="hero-floats">
+        <div class="mini-card mc1"><img src="assets/img/carpet.jpg" alt="قالیشویی"><span><b>قالیشویی</b><small>از ۳۹۰,۰۰۰ تومان</small></span></div>
+        <div class="mini-card mc2"><img src="assets/img/g-cleaning.jpg" alt="نظافت منزل"><span><b>نظافت منزل</b><small>از ۵۵۰,۰۰۰ تومان</small></span></div>
+        <div class="mini-card mc3"><img src="assets/img/pest.jpg" alt="سم‌پاشی"><span><b>سم‌پاشی</b><small>از ۶۰۰,۰۰۰ تومان</small></span></div>
+        <div class="mini-card mc4"><img src="assets/img/g-sewage.jpg" alt="لوله‌بازکنی"><span><b>لوله‌بازکنی</b><small>از ۴۵۰,۰۰۰ تومان</small></span></div>
       </div>
     </div>
   </div>
@@ -627,6 +636,16 @@ document.getElementById('searchBtn').addEventListener('click', function(){
 });
 document.addEventListener('click', function(e){
   if(!e.target.closest('.search-box')) searchResults.classList.remove('open');
+});
+
+/* ============ popular chips: fill + trigger the same search ============ */
+document.querySelectorAll('.pop-chip').forEach(function(chip){
+  chip.addEventListener('click', function(e){
+    e.stopPropagation();
+    searchInput.value = chip.getAttribute('data-q');
+    searchInput.dispatchEvent(new Event('input', {bubbles:true}));
+    searchInput.focus();
+  });
 });
 
 /* ============ order flow ============ */
