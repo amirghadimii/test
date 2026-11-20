@@ -256,6 +256,16 @@ footer .logo small{color:#8fa0b3}
   .sec-num{font-size:1.5rem}
   .sec-head h2{font-size:1.35rem}
 }
+/* ==== mobile repair pass 2026-11-20: carousel dot tap area + footer links + reveal safety ==== */
+body{overflow-x:clip}
+.dots{gap:4px;align-items:center}
+.dots button{width:28px;height:28px;background:none;display:grid;place-items:center;cursor:pointer}
+.dots button::after{content:"";width:10px;height:10px;border-radius:99px;background:var(--line2);transition:.3s}
+.dots button.act{width:40px;background:none}
+.dots button.act::after{width:26px;background:var(--red)}
+footer a{display:inline-flex;align-items:center;min-height:36px}
+.mnav a{min-height:44px;display:flex;align-items:center}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -842,6 +852,21 @@ form.addEventListener("submit", function(e){
 document.getElementById("againBtn").addEventListener("click", function(){
   form.reset(); successBox.hidden = true; form.hidden = false; showLast();
 });
+})();
+</script>
+<script>
+/* mobile repair pass: reveal fallback — page content must never stay invisible if the observer misses an element */
+(function(){
+  function sweep(){
+    document.querySelectorAll(".rv:not(.in)").forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight * 0.98) el.classList.add("in");
+    });
+  }
+  window.addEventListener("scroll", sweep, {passive:true});
+  window.addEventListener("resize", sweep);
+  setInterval(sweep, 700);
+  setTimeout(function(){ document.querySelectorAll(".rv").forEach(function(el){ el.classList.add("in"); }); }, 9000);
 })();
 </script>
 </body>
