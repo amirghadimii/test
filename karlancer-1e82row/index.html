@@ -46,31 +46,37 @@ body{
 a{color:var(--blue);text-decoration:none}
 .wrap{max-width:920px;margin:0 auto;padding:0 20px 64px}
 
-/* ---------- header ---------- */
-header{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
-  color:#fff;
-  padding:44px 0 36px;
-  margin-bottom:28px;
+/* ---------- incident ticket header ---------- */
+.status-banner{background:var(--red);color:#fff;margin-bottom:26px}
+.status-banner .sb-in{max-width:920px;margin:0 auto;padding:13px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:15px}
+.status-banner b{font-weight:900}
+.status-banner .sb-sub{font-size:13px;color:#ffd9d4}
+.pulse{width:11px;height:11px;flex:none;border-radius:50%;background:#fff;animation:pulse 1.6s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.55)}70%{box-shadow:0 0 0 10px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+.ticket{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+.ticket-head{padding:24px 26px 4px}
+.t-kicker{display:inline-block;background:var(--red-soft);color:#8f1d14;border:1px solid #f6cfc9;border-radius:999px;padding:3px 14px;font-size:12.5px;font-weight:800}
+.ticket-head h1{font-size:25px;font-weight:900;line-height:1.5;margin:14px 0 8px}
+.ticket-head p{color:var(--ink-2);font-size:14.5px;max-width:700px}
+.ticket-meta{width:calc(100% - 52px);margin:16px 26px 0;border-collapse:collapse;font-size:14px}
+.ticket-meta th{text-align:right;width:172px;background:var(--chip);color:var(--navy);font-weight:800;border:1px solid var(--line);padding:9px 14px;vertical-align:top;white-space:nowrap}
+.ticket-meta td{border:1px solid var(--line);padding:9px 14px;color:var(--ink-2)}
+.chip{display:inline-block;border-radius:999px;padding:1px 12px;font-size:12.5px;font-weight:800}
+.chip.green{background:var(--green-soft);color:#0b6e4a}
+.chip.blue{background:var(--blue-soft);color:var(--blue)}
+.severity{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 26px 22px}
+.sev-label{font-weight:800;font-size:14px}
+.sev-track{display:flex;gap:6px;flex-wrap:wrap}
+.sev{border:1px solid var(--line);background:#fbfcfe;color:var(--muted);border-radius:9px;padding:4px 16px;font-size:13px;font-weight:700}
+.sev.on{background:var(--red);border-color:var(--red);color:#fff}
+.sev-note{font-size:13px;color:var(--muted)}
+@media(max-width:640px){
+  .ticket-head{padding:20px 20px 4px}
+  .ticket-meta{width:calc(100% - 40px);margin:14px 20px 0}
+  .ticket-meta th,.ticket-meta td{display:block;width:100%}
+  .ticket-meta th{border-bottom:none;white-space:normal}
+  .severity{padding:16px 20px 20px}
 }
-header .wrap{padding-bottom:0}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:999px;padding:3px 14px;
-  font-size:13px;color:#c9d4ee;
-}
-.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px rgba(217,45,32,.22)}
-header h1{font-size:27px;font-weight:800;line-height:1.5;margin:16px 0 8px}
-header p{color:#b9c4de;font-size:15px;max-width:640px}
-.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.meta-chip{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
-  border-radius:10px;padding:6px 14px;font-size:13px;color:#dbe3f5;
-}
-.meta-chip b{color:#fff;font-weight:700}
-.meta-chip.warn b{color:#ffb4ab}
 
 /* ---------- nav ---------- */
 nav.toc{
@@ -196,21 +202,37 @@ footer .brand{font-weight:800;color:var(--navy);font-size:15px}
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <span class="eyebrow"><span class="dot"></span> گزارش فنی — تشخیص خطا و برنامه رفع</span>
-    <h1>گزارش تشخیص و برنامه رفع خطای اتصال به پایگاه داده</h1>
-    <p>بررسی خطای <span class="code">Error Establishing a Database Connection</span> در نصب وردپرس و راه‌اندازی قالب «اکسترا» خریداری‌شده از راست‌چین — علت ریشه‌ای، مسیر دقیق رفع و خروجی نهایی، پیش از شروع کار.</p>
-    <div class="meta-row">
-      <span class="meta-chip">وضعیت فعلی: <b>سایت از دسترس خارج است</b></span>
-      <span class="meta-chip">قالب: <b>اکسترا (راست‌چین)</b></span>
-      <span class="meta-chip">روش رفع: <b>نصب تمیز + بسته نصبی Duplicator</b></span>
-      <span class="meta-chip warn">زمان تحویل: <b>۱ روز کاری</b></span>
-    </div>
+<div class="status-banner" role="alert">
+  <div class="sb-in">
+    <span class="pulse" aria-hidden="true"></span>
+    <span>وضعیت پرونده: <b>خطا شناسایی شد</b></span>
+    <span class="sb-sub">سایت در حال حاضر از دسترس خارج است — علت مشخص است و برنامه رفع آماده اجراست.</span>
   </div>
-</header>
+</div>
 
 <div class="wrap">
+  <div class="ticket">
+    <div class="ticket-head">
+      <span class="t-kicker">برگه تشخیص فنی — پرونده پشتیبانی نصب وردپرس</span>
+      <h1>گزارش تشخیص و برنامه رفع خطای اتصال به پایگاه داده</h1>
+      <p>بررسی خطای <span class="code">Error Establishing a Database Connection</span> در نصب وردپرس و راه‌اندازی قالب «اکسترا» خریداری‌شده از راست‌چین — علت ریشه‌ای، مسیر دقیق رفع و خروجی نهایی، پیش از شروع کار.</p>
+    </div>
+    <table class="ticket-meta">
+      <tr><th>موضوع پرونده</th><td>خطای اتصال به پایگاه داده — <span class="code">Error Establishing a Database Connection</span></td></tr>
+      <tr><th>قالب و منبع خرید</th><td>اکسترا (راست‌چین)</td></tr>
+      <tr><th>یافته پشتیبانی هاست</th><td>نصب ناقص وردپرس؛ جدول <span class="code">options</span> فاقد داده‌های هسته</td></tr>
+      <tr><th>روش رفع</th><td>نصب تمیز وردپرس + اجرای بسته نصبی با Duplicator</td></tr>
+      <tr><th>زمان تحویل</th><td><span class="chip green">۱ روز کاری</span></td></tr>
+      <tr><th>ریسک داده‌ها</th><td><span class="chip blue">بدون ریسک</span> گام اول برنامه، بکاپ کامل از فایل‌ها و دیتابیس است</td></tr>
+    </table>
+    <div class="severity">
+      <span class="sev-label">شدت خطا:</span>
+      <div class="sev-track" aria-label="شدت خطا: بالا">
+        <span class="sev">کم</span><span class="sev">متوسط</span><span class="sev on">بالا</span><span class="sev">بحرانی</span>
+      </div>
+      <span class="sev-note">سایت کامل از دسترس خارج است، اما مسیر رفع مشخص و یک‌روزه است.</span>
+    </div>
+  </div>
 
   <nav class="toc">
     <a href="#symptom">نشانه خطا</a>
