@@ -49,30 +49,46 @@ header.site{position:sticky;top:0;z-index:70;background:rgba(251,247,239,.92);ba
 .main-nav{display:flex;gap:4px;margin-inline-start:8px}
 .main-nav a{padding:9px 12px;border-radius:999px;font-weight:700;font-size:.92rem;color:var(--ink2)}
 .main-nav a:hover{background:#fff;color:var(--teal)}
-.header-search{flex:1;display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 7px 5px 16px;box-shadow:0 6px 18px rgba(23,33,31,.05)}
-.header-search svg{width:20px;height:20px;color:var(--muted);flex:0 0 auto}
-.header-search input{border:0;outline:0;background:transparent;width:100%;padding:8px;font-size:.92rem;color:var(--ink)}
+.header-search{flex:1.7;display:flex;align-items:center;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:6px 7px 6px 8px;box-shadow:0 8px 22px rgba(23,33,31,.07)}
+.header-search svg{width:21px;height:21px;color:var(--muted);flex:0 0 auto;margin-inline-start:10px}
+.header-search input{border:0;outline:0;background:transparent;width:100%;padding:9px 8px;font-size:.98rem;color:var(--ink)}
+.search-go{background:var(--orange);color:#fff;border-radius:999px;padding:9px 20px;font-weight:900;font-size:.9rem;flex:0 0 auto;box-shadow:0 8px 18px rgba(255,107,53,.3)}
 .header-actions{display:flex;align-items:center;gap:9px}
+.cart-pill{display:inline-flex;align-items:center;gap:9px;background:var(--deep);color:#fff;border:0;border-radius:999px;padding:12px 20px;font-weight:900;font-size:.95rem;position:relative;box-shadow:0 12px 24px rgba(16,35,31,.22);transition:.2s}
+.cart-pill:hover{background:var(--teal)}
+.cart-pill svg{width:21px;height:21px}
+.cart-pill .cart-count{top:-8px;left:-8px;border-color:var(--paper)}
 .menu-btn{display:none}
-/* Hero */
-.hero{padding:52px 0 34px;position:relative}
-.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:42px;align-items:center}
+/* Category mega-row */
+.mega-row{display:flex;align-items:center;gap:7px;padding:9px 0 12px;border-top:1px dashed var(--line);overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.mega-row::-webkit-scrollbar{display:none}
+.mega-cat{border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:999px;padding:8px 15px;font-weight:800;font-size:.87rem;transition:.18s;flex:0 0 auto}
+.mega-cat:hover{background:var(--deep);color:#fff;border-color:var(--deep)}
+.mega-row a{font-weight:700;font-size:.87rem;color:var(--muted);padding:8px 10px;border-radius:999px;flex:0 0 auto}
+.mega-row a:hover{color:var(--teal);background:#fff}
+.mega-sep{width:1px;height:22px;background:var(--line);flex:0 0 auto;margin:0 4px}
+/* Hero — promo mosaic */
+.hero{padding:34px 0 30px;position:relative}
 .kicker{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:800;color:var(--teal)}
 .kicker i{width:8px;height:8px;background:var(--orange);border-radius:50%;display:block}
-.hero h1{font-size:clamp(2.25rem,5vw,4.35rem);line-height:1.18;font-weight:900;margin:18px 0 16px;letter-spacing:-.8px}
-.hero h1 .hl{color:var(--teal);box-shadow:inset 0 -18px 0 var(--lime);padding:0 4px}
-.hero p.lead{font-size:1.08rem;color:#4d5a56;max-width:660px;margin:0}
-.hero-cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:26px}
-.hero-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px;max-width:680px}
+.kicker.on-dark{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(4px)}
+.promo-mosaic{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+.promo-wide{position:relative;border-radius:30px;overflow:hidden;min-height:430px;display:block;box-shadow:var(--shadow-lg)}
+.promo-wide img,.promo-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.promo-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,26,23,.88) 22%,rgba(13,26,23,.35) 55%,rgba(13,26,23,.05))}
+.promo-content{position:absolute;inset-inline:0;bottom:0;padding:30px 32px;color:#fff}
+.promo-content h1{font-size:clamp(1.75rem,3.6vw,2.9rem);line-height:1.3;font-weight:900;margin:14px 0 10px;letter-spacing:-.5px}
+.promo-content h1 .hl{color:var(--lime)}
+.promo-content p{font-size:1rem;color:#dde7dc;max-width:560px;margin:0 0 20px}
+.promo-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+.promo-tile{position:relative;border-radius:24px;overflow:hidden;display:block;box-shadow:var(--shadow);min-height:180px}
+.promo-tile-txt{position:absolute;inset-inline:0;bottom:0;padding:18px 20px;color:#fff}
+.promo-tile-txt b{display:block;font-size:1.12rem;line-height:1.5}
+.promo-tile-txt span{font-size:.84rem;color:#d5e0d3}
+.hero-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
 .hero-points div{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:17px;padding:13px}
 .hero-points b{display:block;font-size:1.18rem;line-height:1.3;color:var(--deep)}
 .hero-points span{font-size:.8rem;color:var(--muted);font-weight:600}
-.hero-visual{position:relative}
-.hero-card{background:var(--deep);border-radius:34px;padding:14px;box-shadow:var(--shadow-lg);transform:rotate(1.2deg)}
-.hero-card img{height:510px;width:100%;object-fit:cover;border-radius:25px}
-.hero-badge{position:absolute;bottom:34px;right:-18px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:14px 16px;max-width:290px}
-.hero-badge b{display:block;line-height:1.5}.hero-badge span{font-size:.82rem;color:var(--muted)}
-.mini-tag{position:absolute;top:28px;left:-12px;background:var(--lime);color:var(--deep);border-radius:999px;padding:9px 14px;font-weight:900;box-shadow:var(--shadow);transform:rotate(-3deg)}
 /* Trust */
 .trust{margin:18px 0 8px}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -213,7 +229,7 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
 }
 @media(max-width:760px){
   .container{width:min(100% - 28px,1280px)}
-  .hero{padding-top:32px}.hero-grid{grid-template-columns:1fr}.hero-card img{height:340px}.hero-badge{right:8px;bottom:10px}.mini-tag{left:8px}
+  .hero{padding-top:22px}.promo-mosaic{grid-template-columns:1fr}.promo-wide{min-height:445px}.promo-content{padding:22px 20px}.promo-content h1{font-size:1.65rem}.promo-content p{font-size:.93rem}.promo-side{grid-template-rows:none;grid-template-columns:1fr 1fr}.promo-tile{min-height:150px}.promo-tile-txt{padding:13px 14px}.promo-tile-txt b{font-size:.98rem}.promo-tile-txt span{font-size:.76rem}
   .hero-points{grid-template-columns:1fr 1fr 1fr;gap:7px}.hero-points div{padding:10px}.hero-points b{font-size:.98rem}.hero-points span{font-size:.7rem}
   .shop-shell{padding:14px}.shop-tools{grid-template-columns:1fr}.product-grid{grid-template-columns:repeat(2,1fr)}
   .feature-grid,.faq-grid,.migration-bottom{grid-template-columns:1fr}
@@ -224,6 +240,7 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
 }
 @media(max-width:480px){
   .product-grid,.cat-grid,.trust-grid{grid-template-columns:1fr}
+  .promo-side{grid-template-columns:1fr}
   .hero-points{grid-template-columns:1fr}
   .product-body p{min-height:auto}
   .logo-text>span{display:none}.btn{padding:11px 16px}
@@ -246,38 +263,61 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
     </nav>
     <label class="header-search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="headerSearch" type="search" placeholder="جستجو در کالاها…">
+      <input id="headerSearch" type="search" placeholder="جستجو در هزاران کالا… مثلاً هدفون، کفش، عطر">
+      <span class="search-go">جستجو</span>
     </label>
     <div class="header-actions">
-      <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">
+      <button class="cart-pill" id="cartBtn" aria-label="سبد خرید">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg>
+        سبد خرید
         <span class="cart-count" id="cartCount">۰</span>
       </button>
     </div>
+  </div>
+  <div class="container mega-row" aria-label="دسته‌بندی‌های فروشگاه">
+    <button class="mega-cat" data-cat-link="all">🛍️ همه محصولات</button>
+    <button class="mega-cat" data-cat-link="digital">کالای دیجیتال</button>
+    <button class="mega-cat" data-cat-link="home">خانه و آشپزخانه</button>
+    <button class="mega-cat" data-cat-link="fashion">مد و سبک زندگی</button>
+    <button class="mega-cat" data-cat-link="beauty">زیبایی و سلامت</button>
+    <span class="mega-sep"></span>
+    <a href="#migration">انتقال از سایت قبلی</a>
+    <a href="#features">امکانات فروشگاه</a>
+    <a href="#faq">پرسش‌های متداول</a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="kicker"><i></i> ووکامرس کامل؛ بدون از دست رفتن سایت قبلی</span>
-        <h1>فروشگاه تازه،<br><span class="hl">با همه محصولات قبلی</span><br>روی همان دامنه.</h1>
-        <p class="lead">کالاچین نمونه‌ای از فروشگاه کامل وردپرسی است که کاتالوگ، تصاویر، دسته‌بندی و مسیرهای مهم سایت قبلی را منتقل می‌کند؛ با اینماد فعال، درگاه امن و سبد خرید واقعی.</p>
-        <div class="hero-cta">
-          <a class="btn btn-orange" href="#shop">مشاهده محصولات</a>
-          <a class="btn btn-light" href="#migration">دیدن نقشه انتقال</a>
-        </div>
-        <div class="hero-points">
-          <div><b>۱۰۰٪</b><span>انتقال محصولات و تصاویر</span></div>
-          <div><b>۳۰۱</b><span>ریدایرکت برای حفظ سئو</span></div>
-          <div><b>۷ روز</b><span>ضمانت بازگشت کالا</span></div>
+    <div class="container">
+      <div class="promo-mosaic">
+        <a class="promo-wide" href="#shop">
+          <img src="assets/img/hero-headphones.jpg" alt="هدفون مدرن روی پس‌زمینه مینیمال">
+          <span class="promo-shade"></span>
+          <span class="promo-content">
+            <span class="kicker on-dark"><i></i> ووکامرس کامل؛ بدون از دست رفتن سایت قبلی</span>
+            <h1>فروشگاه تازه، <span class="hl">با همه محصولات قبلی</span> روی همان دامنه.</h1>
+            <p>کالاچین کاتالوگ، تصاویر، دسته‌بندی و مسیرهای مهم سایت قبلی را منتقل می‌کند؛ با اینماد فعال، درگاه امن و سبد خرید واقعی.</p>
+            <span class="btn btn-orange">مشاهده محصولات</span>
+          </span>
+        </a>
+        <div class="promo-side">
+          <a class="promo-tile" href="#migration">
+            <img src="assets/img/coffee-maker.jpg" alt="لوازم خانه و آشپزخانه">
+            <span class="promo-shade"></span>
+            <span class="promo-tile-txt"><b>انتقال کامل از سایت قبلی</b><span>دامنه، محصولات و اینماد — بدون توقف فروش</span></span>
+          </a>
+          <a class="promo-tile" href="#shop">
+            <img src="assets/img/sneakers.jpg" alt="پیشنهادهای روز فروشگاه">
+            <span class="promo-shade"></span>
+            <span class="promo-tile-txt"><b>پیشنهادهای امروز</b><span>منتخب کالاها با قیمت ویژه این هفته</span></span>
+          </a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="mini-tag">کاتالوگ آماده فروش</div>
-        <div class="hero-card"><img src="assets/img/hero-headphones.jpg" alt="هدفون مدرن روی پس‌زمینه مینیمال"></div>
-        <div class="hero-badge"><b>مهاجرت بدون توقف فروش</b><span>اول نسخه جدید ساخته و تست می‌شود؛ بعد دامنه در زمان‌بندی مشخص جابه‌جا می‌شود.</span></div>
+      <div class="hero-points">
+        <div><b>۱۰۰٪</b><span>انتقال محصولات و تصاویر</span></div>
+        <div><b>۳۰۱</b><span>ریدایرکت برای حفظ سئو</span></div>
+        <div><b>۷ روز</b><span>ضمانت بازگشت کالا</span></div>
       </div>
     </div>
   </section>
