@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>منزل‌یار | خدمات منزل در محل — لوله‌بازکنی، نظافت، تعمیرات و بازسازی</title>
+<meta name="description" content="منزل‌یار؛ سفارش آنلاین خدمات منزل: لوله‌بازکنی و تخلیه چاه، لوله‌کشی، نظافت و قالیشویی، تعمیر پکیج و کولر، بازسازی ساختمان و خدمات جانبی. متخصص احراز هویت‌شده با ضمانت خدمت.">
+<meta name="theme-color" content="#0d6e5d">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --brand:#0d6e5d; --brand-dark:#0a574a; --brand-soft:#e6f4f0;
+  --accent:#f26a1b; --accent-dark:#d9550d; --accent-soft:#fff1e7;
+  --ink:#16211d; --ink2:#43554f; --muted:#7b8b86;
+  --bg:#f4f7f6; --card:#ffffff; --line:#e2eae7;
+  --ok:#12805c; --err:#d64545;
+  --radius:18px; --radius-s:12px;
+  --shadow:0 10px 30px rgba(13,60,50,.10);
+  --shadow-lg:0 24px 60px rgba(10,50,42,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:inherit;font-size:1rem;color:inherit}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--brand);color:#fff}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.ic{width:24px;height:24px;flex:none}
+.ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:14px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;color:var(--brand-dark)}
+.logo .mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px rgba(13,110,93,.35)}
+.logo .mark .ic{width:24px;height:24px}
+.logo small{display:block;font-size:.68rem;font-weight:500;color:var(--muted);line-height:1.2;white-space:nowrap}
+.orders-btn{white-space:nowrap}
+.city-chip{display:flex;align-items:center;gap:6px;background:var(--brand-soft);color:var(--brand-dark);font-weight:700;font-size:.85rem;padding:7px 13px;border-radius:999px}
+.city-chip .ic{width:16px;height:16px}
+nav.main-nav{display:flex;gap:26px;margin-inline-start:18px}
+nav.main-nav a{font-weight:500;color:var(--ink2);font-size:.95rem;position:relative;padding:4px 0}
+nav.main-nav a:hover{color:var(--brand)}
+.hspacer{flex:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;border-radius:14px;padding:11px 22px;font-size:.95rem;transition:.2s;border:1.5px solid transparent}
+.btn .ic{width:19px;height:19px}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 22px rgba(242,106,27,.35)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-brand:hover{background:var(--brand-dark)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand)}
+.btn-block{width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important}
+.orders-btn{position:relative}
+.badge{position:absolute;top:-7px;inset-inline-start:-7px;background:var(--accent);color:#fff;font-size:.72rem;font-weight:800;min-width:21px;height:21px;border-radius:999px;display:grid;place-items:center;padding:0 5px;border:2px solid #fff}
+.badge.hide{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#e9f5f1 0%,var(--bg) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;padding:52px 0 60px}
+.hero h1{font-size:2.6rem;font-weight:900;line-height:1.35;color:var(--ink)}
+.hero h1 .hl{color:var(--brand);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;right:0;left:0;bottom:4px;height:10px;background:var(--accent-soft);z-index:-1;border-radius:4px}
+.hero p.sub{color:var(--ink2);font-size:1.08rem;margin:16px 0 26px;max-width:34rem}
+.search-box{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:8px;display:flex;gap:8px;border:1.5px solid #fff;position:relative;z-index:5}
+.search-box:focus-within{border-color:var(--brand)}
+.search-box .ic{align-self:center;width:22px;height:22px;color:var(--muted);margin-inline-start:8px}
+.search-box input{flex:1;border:none;outline:none;font-size:1rem;background:transparent;min-width:0}
+.search-results{position:absolute;top:calc(100% + 8px);right:0;left:0;background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);border:1px solid var(--line);overflow:hidden;display:none;max-height:320px;overflow-y:auto}
+.search-results.open{display:block}
+.search-results button{display:flex;width:100%;align-items:center;gap:10px;padding:12px 16px;text-align:right;font-size:.95rem}
+.search-results button:hover{background:var(--brand-soft)}
+.search-results button .ic{width:19px;height:19px;color:var(--brand);margin:0}
+.search-results button small{color:var(--muted);margin-inline-start:auto;font-size:.78rem}
+.search-results .no-res{padding:14px 16px;color:var(--muted);font-size:.92rem}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px}
+.hero-points span{display:inline-flex;align-items:center;gap:7px;font-size:.9rem;color:var(--ink2);font-weight:500}
+.hero-points .ic{width:18px;height:18px;color:var(--ok)}
+.hero-visual{position:relative}
+.hero-visual .photo{border-radius:28px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/4.4;max-height:520px;width:100%}
+.hero-visual .photo img{width:100%;height:100%;object-fit:cover}
+.float-card{position:absolute;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);padding:14px 16px;display:flex;gap:12px;align-items:center}
+.float-card .fic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;flex:none}
+.float-card b{display:block;font-size:.92rem;line-height:1.5}
+.float-card small{color:var(--muted);font-size:.78rem}
+.fc1{bottom:26px;right:-14px}
+.fc1 .fic{background:var(--brand-soft);color:var(--brand)}
+.fc2{top:22px;left:-12px}
+.fc2 .fic{background:var(--accent-soft);color:var(--accent)}
+.stars{color:#f5a623;font-size:.8rem;letter-spacing:2px}
+
+/* ---------- stats / trust ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-6px 0 8px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}
+.stat b{font-size:1.45rem;font-weight:900;color:var(--brand-dark);display:block;line-height:1.4}
+.stat span{color:var(--muted);font-size:.85rem}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px}
+.trust-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;gap:13px;align-items:flex-start}
+.trust-item .fic{width:46px;height:46px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;flex:none}
+.trust-item b{display:block;font-size:.97rem}
+.trust-item p{color:var(--muted);font-size:.83rem;line-height:1.7}
+
+/* ---------- sections ---------- */
+section.blk{padding:44px 0 6px}
+.sec-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:20px}
+.sec-head h2{font-size:1.55rem;font-weight:900}
+.sec-head p{color:var(--muted);font-size:.93rem;margin-top:2px}
+.pop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pop-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-align:right;transition:.2s;display:flex;flex-direction:column}
+.pop-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pop-card .ph{height:150px;overflow:hidden}
+.pop-card .ph img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.pop-card:hover .ph img{transform:scale(1.06)}
+.pop-card .pb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.pop-card b{font-size:1.02rem}
+.pop-card small{color:var(--muted);font-size:.82rem;flex:1}
+.pop-card .prow{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.price{color:var(--brand-dark);font-weight:800;font-size:.9rem}
+.price small{font-weight:500;color:var(--muted)}
+.mini-btn{background:var(--accent-soft);color:var(--accent-dark);font-weight:800;font-size:.85rem;padding:8px 16px;border-radius:10px;transition:.2s}
+.mini-btn:hover{background:var(--accent);color:#fff}
+
+/* ---------- category groups ---------- */
+.group{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin-bottom:18px}
+.group-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.group-head .gph{width:86px;height:64px;border-radius:14px;overflow:hidden;flex:none}
+.group-head .gph img{width:100%;height:100%;object-fit:cover}
+.group-head h3{font-size:1.22rem;font-weight:800}
+.group-head p{color:var(--muted);font-size:.86rem}
+.group-head .cnt{margin-inline-start:auto;background:var(--brand-soft);color:var(--brand-dark);font-weight:800;font-size:.8rem;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.svc{border:1.5px solid var(--line);border-radius:16px;padding:15px;display:flex;flex-direction:column;gap:5px;transition:.2s;background:#fff;text-align:right;width:100%}
+.svc:hover{border-color:var(--brand);box-shadow:var(--shadow)}
+.svc .top{display:flex;align-items:center;gap:10px}
+.svc .sic{width:42px;height:42px;border-radius:12px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;flex:none}
+.svc .sic .ic{width:22px;height:22px}
+.svc b{font-size:.99rem;line-height:1.5}
+.svc p{color:var(--muted);font-size:.82rem;line-height:1.7;flex:1}
+.svc .srow{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.svc.hidden,.group.hidden{display:none}
+.no-match{display:none;background:var(--card);border:1.5px dashed var(--line);border-radius:var(--radius);padding:26px;text-align:center;color:var(--muted)}
+.no-match.show{display:block}
+
+/* ---------- how ---------- */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative}
+.step-card .num{position:absolute;top:16px;left:18px;font-size:2.2rem;font-weight:900;color:var(--brand-soft);line-height:1}
+.step-card .fic{width:50px;height:50px;border-radius:15px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:12px}
+.step-card b{font-size:1.05rem;display:block;margin-bottom:4px}
+.step-card p{color:var(--muted);font-size:.88rem}
+.sms-banner{margin-top:16px;background:linear-gradient(120deg,var(--brand-dark),var(--brand));color:#fff;border-radius:var(--radius);padding:20px 24px;display:flex;gap:16px;align-items:center}
+.sms-banner .fic{width:52px;height:52px;border-radius:15px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
+.sms-banner b{font-size:1.05rem}
+.sms-banner p{opacity:.88;font-size:.9rem}
+
+/* ---------- orders ---------- */
+.orders-empty{background:var(--card);border:1.5px dashed var(--line);border-radius:var(--radius);padding:34px;text-align:center;color:var(--muted)}
+.orders-empty .ic{width:44px;height:44px;color:var(--line);margin:0 auto 8px}
+.order-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;display:flex;gap:16px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.order-item .oic{width:50px;height:50px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;flex:none}
+.order-item .oinfo{flex:1;min-width:200px}
+.order-item b{font-size:1.02rem}
+.order-item .ometa{color:var(--muted);font-size:.83rem}
+.status-chip{background:#fff7e8;color:#a86e00;border:1px solid #f3ddab;font-size:.8rem;font-weight:700;padding:6px 13px;border-radius:999px;white-space:nowrap}
+.code-chip{background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:6px 13px;font-weight:800;font-size:.88rem;white-space:nowrap}
+.code-chip small{display:block;font-weight:500;color:var(--muted);font-size:.7rem}
+
+/* ---------- footer ---------- */
+footer{margin-top:56px;background:#10201b;color:#cfe0da}
+.foot{padding:38px 0 26px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+.foot .logo{color:#fff}
+.foot p{font-size:.88rem;opacity:.75;margin-top:10px;max-width:26rem}
+.foot h4{color:#fff;font-size:1rem;margin-bottom:12px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:7px;font-size:.88rem;opacity:.8}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:16px 0 22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.83rem;opacity:.75}
+.demo-tag{background:var(--accent);color:#fff;font-weight:800;padding:4px 12px;border-radius:999px;font-size:.78rem;opacity:1}
+
+/* ---------- order modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(10,25,21,.55);backdrop-filter:blur(3px);z-index:100;display:none;align-items:flex-end;justify-content:center}
+.overlay.open{display:flex}
+.sheet{background:#fff;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;border-radius:26px 26px 0 0;padding:0 0 26px;animation:up .3s ease}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+@media(min-width:640px){.overlay{align-items:center}.sheet{border-radius:26px}}
+.sheet-head{position:sticky;top:0;background:#fff;padding:20px 24px 12px;border-bottom:1px solid var(--line);z-index:2;border-radius:26px 26px 0 0}
+.sheet-head .row{display:flex;align-items:center;gap:12px}
+.sheet-head .sic{width:46px;height:46px;border-radius:13px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.sheet-head h3{font-size:1.15rem;font-weight:800;line-height:1.5}
+.sheet-head small{color:var(--muted)}
+.x-btn{margin-inline-start:auto;width:38px;height:38px;border-radius:11px;background:var(--bg);display:grid;place-items:center;color:var(--ink2)}
+.x-btn:hover{background:#fdecec;color:var(--err)}
+.progress{display:flex;gap:6px;margin-top:14px}
+.progress i{flex:1;height:5px;border-radius:99px;background:var(--line);transition:.3s}
+.progress i.on{background:var(--brand)}
+.steps-label{font-size:.8rem;color:var(--muted);margin-top:8px;font-weight:600}
+.sheet-body{padding:20px 24px 4px}
+.f-label{display:block;font-weight:700;font-size:.92rem;margin:16px 0 8px}
+.f-label:first-child{margin-top:0}
+.f-label .req{color:var(--err)}
+.f-input{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:12px 14px;outline:none;transition:.2s;background:#fff}
+.f-input:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+.f-input.err-b{border-color:var(--err);box-shadow:0 0 0 4px #fdecec}
+textarea.f-input{resize:vertical;min-height:88px}
+.f-err{display:none;color:var(--err);font-size:.8rem;margin-top:5px;font-weight:600}
+.f-err.show{display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 17px;font-weight:600;font-size:.9rem;transition:.15s}
+.chip:hover{border-color:var(--brand)}
+.chip.sel{background:var(--brand);border-color:var(--brand);color:#fff}
+.chip small{display:block;font-size:.72rem;font-weight:500;opacity:.75}
+.review-box{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.review-box .rrow{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
+.review-box .rrow:last-child{border-bottom:none}
+.review-box .rrow span{color:var(--muted)}
+.review-box .rrow b{text-align:left}
+.review-box .rrow.total b{color:var(--brand-dark);font-size:1.05rem}
+.sheet-foot{padding:18px 24px 0;display:flex;gap:10px}
+.sheet-foot .btn{flex:1}
+.success-view{text-align:center;padding:30px 24px 6px}
+.success-view .big-ok{width:88px;height:88px;border-radius:50%;background:var(--brand-soft);color:var(--ok);display:grid;place-items:center;margin:0 auto 16px;animation:pop .4s ease}
+.success-view .big-ok .ic{width:44px;height:44px}
+@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.success-view h3{font-size:1.35rem;font-weight:900;margin-bottom:6px}
+.success-view p{color:var(--ink2);font-size:.95rem;max-width:24rem;margin:0 auto}
+.success-view .track{margin:18px auto 4px;background:var(--bg);border:1.5px dashed var(--brand);border-radius:14px;padding:12px 22px;display:inline-block}
+.success-view .track small{display:block;color:var(--muted);font-size:.75rem}
+.success-view .track b{font-size:1.3rem;letter-spacing:1px;color:var(--brand-dark)}
+.sms-note{margin:16px auto 0;background:#fff7e8;border:1px solid #f3ddab;color:#7c5800;border-radius:13px;padding:11px 16px;font-size:.87rem;font-weight:600;max-width:26rem;display:flex;gap:9px;align-items:center;text-align:right}
+.sms-note .ic{width:20px;height:20px;flex:none}
+.toast{position:fixed;bottom:22px;right:50%;transform:translate(50%,80px);background:var(--ink);color:#fff;padding:13px 22px;border-radius:14px;font-weight:700;font-size:.92rem;z-index:200;transition:.35s;box-shadow:var(--shadow-lg);max-width:92vw;text-align:center}
+.toast.show{transform:translate(50%,0)}
+
+/* ---------- responsive ---------- */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .pop-grid{grid-template-columns:repeat(2,1fr)}
+  .trust{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  nav.main-nav{display:none}
+  .hero-grid{grid-template-columns:1fr;padding:34px 0 44px;gap:28px}
+  .hero h1{font-size:2rem}
+  .hero-visual .photo{aspect-ratio:16/10;max-height:300px}
+  .fc1{right:8px;bottom:10px}
+  .fc2{left:8px;top:10px}
+  .how{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .city-chip{display:none}
+}
+@media(max-width:480px){
+  .svc-grid{grid-template-columns:1fr}
+  .pop-grid{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .search-box .btn{padding:11px 14px}
+  .group{padding:16px}
+  .group-head .gph{width:64px;height:50px}
+  .sheet-foot{flex-direction:column-reverse}
+  .hbar{height:60px}
+  .logo{font-size:1.15rem}
+  .orders-btn{padding:9px 13px;font-size:.85rem}
+  .orders-btn .ic{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#">
+      <span class="mark"><span class="ic" data-icon="home-wrench"></span></span>
+      <span>منزل‌یار<small>خدمات منزل در محل</small></span>
+    </a>
+    <span class="city-chip"><span class="ic" data-icon="pin"></span>تهران</span>
+    <nav class="main-nav">
+      <a href="#services">خدمات</a>
+      <a href="#how">چطور کار می‌کند؟</a>
+      <a href="#orders">پیگیری سفارش</a>
+    </nav>
+    <div class="hspacer"></div>
+    <button class="btn btn-ghost orders-btn" id="ordersBtn" type="button">
+      <span class="ic" data-icon="clipboard"></span>سفارش‌های من
+      <span class="badge hide" id="ordersBadge">۰</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>برای هر کاری در خانه،<br>یک <span class="hl">متخصص مطمئن</span> هست</h1>
+        <p class="sub">از لوله‌بازکنی و تخلیه چاه تا نظافت، تعمیر پکیج و بازسازی؛ خدمت را انتخاب کنید، سفارش را در کمتر از دو دقیقه ثبت کنید و خیالتان از بابت کیفیت و ضمانت راحت باشد.</p>
+        <div class="search-box">
+          <span class="ic" data-icon="search"></span>
+          <input id="searchInput" type="text" placeholder="دنبال چه خدمتی هستید؟ مثلاً: لوله‌بازکنی، قالیشویی، سرویس کولر…" autocomplete="off">
+          <button class="btn btn-primary" id="searchBtn" type="button">جستجو</button>
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <div class="hero-points">
+          <span><span class="ic" data-icon="shield"></span>متخصص احراز هویت‌شده</span>
+          <span><span class="ic" data-icon="badge"></span>ضمانت کیفیت خدمت</span>
+          <span><span class="ic" data-icon="sms"></span>اطلاع‌رسانی پیامکی لحظه‌ای</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo"><img src="assets/img/hero.jpg" alt="تیم متخصصان منزل‌یار در حال ارائه خدمات نظافت منزل"></div>
+        <div class="float-card fc1">
+          <span class="fic"><span class="ic" data-icon="sms"></span></span>
+          <span><b>پیامک سفارش ارسال شد</b><small>مدیریت بلافاصله از سفارش شما باخبر می‌شود</small></span>
+        </div>
+        <div class="float-card fc2">
+          <span class="fic"><span class="ic" data-icon="star"></span></span>
+          <span><b>امتیاز متخصصان ۴.۸ از ۵</b><small><span class="stars">★★★★★</span> بر اساس نظر مشتریان</small></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat"><b>+۲۴</b><span>خدمت تخصصی منزل</span></div>
+      <div class="stat"><b>+۱۲۰</b><span>متخصص فعال و احراز هویت‌شده</span></div>
+      <div class="stat"><b>+۳٬۴۰۰</b><span>سفارش انجام‌شده</span></div>
+      <div class="stat"><b>زیر ۲ ساعت</b><span>میانگین زمان اعزام متخصص</span></div>
+    </div>
+
+    <!-- TRUST -->
+    <div class="trust">
+      <div class="trust-item"><span class="fic"><span class="ic" data-icon="shield"></span></span><span><b>متخصص احراز هویت‌شده</b><p>مدارک هویتی و سوابق همه متخصصان پیش از همکاری بررسی می‌شود.</p></span></div>
+      <div class="trust-item"><span class="fic"><span class="ic" data-icon="badge"></span></span><span><b>ضمانت خدمت</b><p>اگر از نتیجه کار راضی نبودید، خدمت بدون هزینه دوباره انجام می‌شود.</p></span></div>
+      <div class="trust-item"><span class="fic"><span class="ic" data-icon="tag"></span></span><span><b>قیمت شفاف</b><p>هزینه از ابتدا مشخص است؛ بدون هزینه پنهان و چانه‌زنی سرِ کار.</p></span></div>
+      <div class="trust-item"><span class="fic"><span class="ic" data-icon="headset"></span></span><span><b>پشتیبانی پاسخ‌گو</b><p>از لحظه ثبت سفارش تا پایان کار، وضعیت سفارش با پیامک اطلاع‌رسانی می‌شود.</p></span></div>
+    </div>
+
+    <!-- POPULAR -->
+    <section class="blk">
+      <div class="sec-head">
+        <div><h2>خدمات پرطرفدار</h2><p>پرسفارش‌ترین خدمات این ماه در منزل‌یار</p></div>
+      </div>
+      <div class="pop-grid" id="popGrid"></div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="blk" id="services">
+      <div class="sec-head">
+        <div><h2>همه خدمات منزل‌یار</h2><p>۲۴ خدمت در ۶ دسته؛ روی هر خدمت بزنید و سفارش را شروع کنید</p></div>
+      </div>
+      <div id="groupsRoot"></div>
+      <div class="no-match" id="noMatch">خدمتی با این عنوان پیدا نشد؛ عبارت دیگری را امتحان کنید یا با پشتیبانی در تماس باشید.</div>
+    </section>
+
+    <!-- HOW -->
+    <section class="blk" id="how">
+      <div class="sec-head">
+        <div><h2>چطور کار می‌کند؟</h2><p>در سه قدم ساده، متخصص درِ خانه شماست</p></div>
+      </div>
+      <div class="how">
+        <div class="step-card"><span class="num">۱</span><span class="fic"><span class="ic" data-icon="cursor"></span></span><b>ثبت سفارش آنلاین</b><p>خدمت را انتخاب کنید، توضیح و آدرس و زمان دلخواه را وارد کنید؛ کل فرایند کمتر از دو دقیقه طول می‌کشد.</p></div>
+        <div class="step-card"><span class="num">۲</span><span class="fic"><span class="ic" data-icon="sms"></span></span><b>اطلاع فوری به مدیریت</b><p>به‌محض ثبت سفارش، پیامک آن برای مدیریت ارسال می‌شود تا هماهنگی و اعزام متخصص بدون معطلی انجام شود.</p></div>
+        <div class="step-card"><span class="num">۳</span><span class="fic"><span class="ic" data-icon="check"></span></span><b>انجام کار با ضمانت</b><p>متخصص در زمان مقرر حاضر می‌شود؛ پرداخت بعد از انجام کار و رضایت شماست و خدمت ضمانت دارد.</p></div>
+      </div>
+      <div class="sms-banner">
+        <span class="fic"><span class="ic" data-icon="sms"></span></span>
+        <span><b>هیچ سفارشی از قلم نمی‌افتد</b><p>سامانه منزل‌یار طوری طراحی شده که لحظه ثبت هر سفارش، پیامک اطلاع‌رسانی آن به‌صورت خودکار برای مدیریت ارسال می‌شود؛ حتی اگر یک لحظه هم آنلاین نباشد.</p></span>
+      </div>
+    </section>
+
+    <!-- ORDERS -->
+    <section class="blk" id="orders">
+      <div class="sec-head">
+        <div><h2>سفارش‌های من</h2><p>سفارش‌های ثبت‌شده شما در این دستگاه</p></div>
+      </div>
+      <div id="ordersRoot"></div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#"><span class="mark"><span class="ic" data-icon="home-wrench"></span></span><span>منزل‌یار</span></a>
+        <p>پلتفرم سفارش آنلاین خدمات منزل؛ اتصال سریع و مطمئن شما به متخصصان احراز هویت‌شده در سراسر تهران، با قیمت شفاف و ضمانت کیفیت خدمت.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul><li><a href="#services">همه خدمات</a></li><li><a href="#how">چطور کار می‌کند؟</a></li><li><a href="#orders">سفارش‌های من</a></li></ul>
+      </div>
+      <div>
+        <h4>خدمات محبوب</h4>
+        <ul><li>لوله‌بازکنی و تخلیه چاه</li><li>نظافت منزل و قالیشویی</li><li>تعمیر پکیج و کولر</li><li>بازسازی ساختمان</li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© منزل‌یار — تمامی حقوق محفوظ است.</span>
+      <span class="demo-tag">دموی پیشنهادی اپ‌وبینو</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ORDER SHEET -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+/* ============ icons (inline SVG, stroke) ============ */
+var P = {
+ 'home-wrench':'<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9h13v-9"/><path d="M14.5 13.2a2.1 2.1 0 1 0 2.9 2.9L20 18.5 18.4 20l-2.4-2.4a2.1 2.1 0 0 1-2.9-2.9l1.6 1.6 1.4-.4.4-1.4z"/>',
+ 'pin':'<path d="M12 21s-6.5-5.4-6.5-10.4A6.5 6.5 0 0 1 12 4a6.5 6.5 0 0 1 6.5 6.6C18.5 15.6 12 21 12 21z"/><circle cx="12" cy="10.6" r="2.4"/>',
+ 'clipboard':'<rect x="6" y="4.5" width="12" height="17" rx="2"/><path d="M9.5 4.5a2.5 2.5 0 0 1 5 0"/><path d="M9.5 12h5M9.5 16h5"/>',
+ 'search':'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>',
+ 'shield':'<path d="M12 3 5 5.8v5.4c0 4.6 3 7.7 7 9.3 4-1.6 7-4.7 7-9.3V5.8z"/><path d="m9.3 11.6 2 2 3.6-3.8"/>',
+ 'badge':'<circle cx="12" cy="10" r="6"/><path d="m9.6 15.4-1.2 5.1 3.6-2 3.6 2-1.2-5.1"/><path d="m9.8 10 1.6 1.6 3-3.2"/>',
+ 'sms':'<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H12l-4.6 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"/><path d="M8 8.2h8M8 11.4h5"/>',
+ 'star':'<path d="m12 3.6 2.5 5.2 5.7.7-4.2 3.9 1.1 5.6L12 16.3 6.9 19l1.1-5.6L3.8 9.5l5.7-.7z"/>',
+ 'tag':'<path d="M3.5 12.5v-9h9l8 8-9 9z"/><circle cx="8" cy="8" r="1.6"/>',
+ 'headset':'<path d="M4.5 13a7.5 7.5 0 0 1 15 0"/><rect x="3.5" y="12.5" width="4" height="6" rx="1.8"/><rect x="16.5" y="12.5" width="4" height="6" rx="1.8"/><path d="M19.5 18.5c0 1.7-1.6 2.5-3.7 2.5h-2.3"/>',
+ 'cursor':'<path d="m5 3.5 14 7-6.2 1.8L10.5 18z"/><path d="M13 12.5 19.5 19"/>',
+ 'check':'<path d="m4.5 12.5 5 5L19.5 7"/>',
+ 'check-big':'<path d="m4 12.8 5.2 5.2L20 6.8"/>',
+ 'wrench':'<path d="M14.8 6.2a4 4 0 0 1 5.3-3.8L17.6 5l1 2.4 2.6.7a4 4 0 0 1-5 4.7L8 20.9a2 2 0 0 1-2.8 0l-1.4-1.4a2 2 0 0 1 0-2.8z"/>',
+ 'droplet':'<path d="M12 3.5s6.3 6.6 6.3 11a6.3 6.3 0 0 1-12.6 0c0-4.4 6.3-11 6.3-11z"/><path d="M9.4 14.2a2.8 2.8 0 0 0 2 3.2"/>',
+ 'well':'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/>',
+ 'bug':'<ellipse cx="12" cy="13.5" rx="4.5" ry="5.5"/><path d="M12 8V5.5M9 5l-1.8-1.8M15 5l1.8-1.8M7.5 11H4M7.5 16H4M16.5 11H20M16.5 16H20M9 18.5 7 21M15 18.5l2 2.5"/>',
+ 'layers':'<path d="m12 3.5 9 5-9 5-9-5z"/><path d="m4.5 13.5 7.5 4.2 7.5-4.2M4.5 17.5 12 21.7l7.5-4.2"/>',
+ 'pipe':'<path d="M4 5.5h6a4 4 0 0 1 4 4v1.5h6.5v4H14v-1.5"/><path d="M3 3.8v3.4M21.5 9.3v7.4"/>',
+ 'leak':'<path d="M4 5h16M6 5v4.5A3.5 3.5 0 0 0 9.5 13H11"/><path d="M15.5 15.2s2.3 2.5 2.3 4a2.3 2.3 0 0 1-4.6 0c0-1.5 2.3-4 2.3-4z"/>',
+ 'gear':'<circle cx="12" cy="12" r="3.2"/><path d="M12 3.8v2.6M12 17.6v2.6M3.8 12h2.6M17.6 12h2.6M6.2 6.2l1.8 1.8M16 16l1.8 1.8M17.8 6.2 16 8M8 16l-1.8 1.8"/>',
+ 'wind':'<path d="M3.5 8.5h9a2.8 2.8 0 1 0-2.7-3.4M2.5 12.5h13.5a2.8 2.8 0 1 1-2.7 3.4M4 16.5h5.5"/>',
+ 'smell':'<path d="M7 20c-1.8-2.4-1.8-4.6 0-7s1.8-4.6 0-7M12 20c-1.8-2.4-1.8-4.6 0-7s1.8-4.6 0-7M17 20c-1.8-2.4-1.8-4.6 0-7s1.8-4.6 0-7"/>',
+ 'flame':'<path d="M12 3.5s5.5 4.7 5.5 9.7a5.5 5.5 0 0 1-11 0c0-2 1-3.9 2.2-5.4.4 1 1 1.7 2 2.2C10.6 7.3 11 5.2 12 3.5z"/>',
+ 'ac':'<rect x="3" y="5" width="18" height="8" rx="2"/><path d="M6 9.5h12M7 16.5c0 1.5 1.5 1.5 1.5 3M12 16.5c0 1.5 1.5 1.5 1.5 3M17 16.5c0 1.5 1.5 1.5 1.5 3"/>',
+ 'heater':'<rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M9 8.5h6M9 12h6"/><circle cx="12" cy="16.8" r="1.6"/>',
+ 'paint':'<rect x="3.5" y="4" width="13" height="6.5" rx="1.5"/><path d="M16.5 7.2H20a1.5 1.5 0 0 1 1.5 1.5V11H13v2.5"/><rect x="11.8" y="13.5" width="2.4" height="7" rx="1.2"/>',
+ 'sparkle':'<path d="M11 4 12.6 9.4 18 11l-5.4 1.6L11 18l-1.6-5.4L4 11l5.4-1.6z"/><path d="M18.5 3.5v3M17 5h3M19 15.5v2.5M17.8 16.7h2.4"/>',
+ 'spray':'<path d="M10 8.5h4V21h-4z"/><path d="M10 8.5 6 5.8V4h6l-2 2zM12 4h6.5"/><path d="M17.5 8.5h.01M20 6.5h.01M19.5 11h.01"/>',
+ 'sofa':'<path d="M6 11V8.5A3.5 3.5 0 0 1 9.5 5h5A3.5 3.5 0 0 1 18 8.5V11"/><path d="M4 13.5A1.8 1.8 0 0 1 7.5 13v-1M20 13.5A1.8 1.8 0 0 0 16.5 13v-1"/><path d="M3.5 13.5v3A2 2 0 0 0 5.5 18.5h13a2 2 0 0 0 2-2v-3M6 21v-2.5M18 21v-2.5"/>',
+ 'truck':'<path d="M2.5 6h12v11h-12z"/><path d="M14.5 10h3.6l3 3.4V17h-6.6"/><circle cx="6.8" cy="17.8" r="1.9"/><circle cx="17.3" cy="17.8" r="1.9"/><path d="M8.7 17.8h6.7"/>',
+ 'car':'<path d="M4.5 15.5 6 9.8A2.5 2.5 0 0 1 8.4 8h7.2A2.5 2.5 0 0 1 18 9.8l1.5 5.7"/><path d="M3.5 15.5h17V19h-17z"/><circle cx="7.5" cy="19" r="1.7"/><circle cx="16.5" cy="19" r="1.7"/><path d="M9.2 19h5.6"/>',
+ 'basket':'<path d="m6 8 3-4.5M18 8l-3-4.5"/><path d="M4 8h16l-1.3 10.2a2.5 2.5 0 0 1-2.5 2.2H7.8a2.5 2.5 0 0 1-2.5-2.2z"/><path d="M9 12v4M12 12v4M15 12v4"/>',
+ 'oil':'<path d="M4 9.5 9.5 4H20v6.5L14.5 16H6a2 2 0 0 1-2-2z"/><circle cx="15" cy="9.5" r="1.4"/><path d="M4 9.5C2.8 10.8 2.8 12 4 13"/>',
+ 'scissors':'<circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.3 8.8 20 19M8.3 15.2 20 5"/>',
+ 'brush':'<path d="M14 4.5 19.5 10 15 14.5 9.5 9z"/><path d="m10.5 13.5 1 1L7 19H4.5v-2.5z"/><path d="M4.5 19c-1 .8-1 2 .5 2 2 0 3-1.5 2.5-2.5"/>',
+ 'rug':'<rect x="4" y="5" width="16" height="14" rx="1"/><path d="M4 9h16M4 15h16M8 5v14M16 5v14"/>',
+ 'drill':'<path d="M3.5 7.5h10.5a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H9l-1.2 6H5L6.2 12.5H3.5z"/><path d="M16 9.5h4.5M6.5 7.5V5"/>',
+ 'home':'<path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/>',
+ 'clock':'<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/>',
+ 'phone':'<rect x="7" y="2.8" width="10" height="18.4" rx="2.2"/><path d="M11 18.6h2"/>',
+ 'user':'<circle cx="12" cy="8.2" r="3.8"/><path d="M4.8 20.2c1.4-3.4 4-5 7.2-5s5.8 1.6 7.2 5"/>',
+ 'calendar':'<rect x="3.8" y="5.5" width="16.4" height="15" rx="2"/><path d="M3.8 10h16.4M8 3.5v4M16 3.5v4"/>'
+};
+function icon(name, cls){ return '<span class="ic '+(cls||'')+'"><svg viewBox="0 0 24 24" aria-hidden="true">'+(P[name]||P.wrench)+'</svg></span>'; }
+document.querySelectorAll('[data-icon]').forEach(function(el){ el.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">'+(P[el.getAttribute('data-icon')]||'')+'</svg>'; });
+
+/* ============ data: 6 groups, 24 services ============ */
+var GROUPS = [
+ { id:'sewage', title:'فاضلاب و چاه', desc:'رفع گرفتگی، تخلیه و حفر چاه با تجهیزات کامل و بدون کثیف‌کاری', img:'assets/img/g-sewage.jpg', services:[
+   {id:'lolebaz', name:'لوله‌بازکنی', desc:'رفع گرفتگی لوله فاضلاب، سینک و حمام با فنر برقی', price:450000, icon:'pipe'},
+   {id:'takhlie', name:'تخلیه چاه', desc:'تخلیه کامل چاه فاضلاب با تانکر و پمپ مکنده', price:1200000, icon:'well'},
+   {id:'chahbaz', name:'چاه‌بازکنی', desc:'بازکردن چاه توالت و کف‌شور با دستگاه تراکم هوا', price:900000, icon:'drill'},
+   {id:'layrubi', name:'لایروبی چاه', desc:'لایروبی و رسوب‌زدایی کف چاه‌های قدیمی و پرشده', price:1500000, icon:'layers'},
+   {id:'hafre', name:'حفر چاه', desc:'حفر چاه جذبی و سپتیک با محاسبه دقیق عمق و حجم', price:2500000, icon:'drill'},
+   {id:'sampashi', name:'سم‌پاشی', desc:'سم‌پاشی سوسک فاضلاب، ساس و حشرات با سموم بی‌بو و مجاز', price:600000, icon:'bug'}
+ ]},
+ { id:'plumbing', title:'لوله‌کشی و تأسیسات', desc:'لوله‌کشی آب و فاضلاب، رفع نم و نشتی و نگهداری موتورخانه', img:'assets/img/g-hvac.jpg', services:[
+   {id:'lolekeshi', name:'لوله‌کشی ساختمان', desc:'لوله‌کشی آب سرد و گرم و فاضلاب، روکار و توکار', price:700000, icon:'wrench'},
+   {id:'tarkidegi', name:'تشخیص ترکیدگی لوله', desc:'نشتی‌یابی دقیق با دستگاه صوتی، بدون تخریب اضافه', price:550000, icon:'leak'},
+   {id:'rafnam', name:'رفع نم و رطوبت', desc:'عایق‌کاری و رفع نم دیوار، سقف و سرویس بهداشتی', price:800000, icon:'droplet'},
+   {id:'rafboo', name:'رفع بوی بد فاضلاب', desc:'رفع بوی نامطبوع سرویس و آشپزخانه از ریشه مشکل', price:500000, icon:'smell'},
+   {id:'motorخانه', name:'تعمیر و نگهداری موتورخانه و چیلر', desc:'سرویس دوره‌ای، تعمیر پمپ و مشعل و نگهداری چیلر', price:1800000, icon:'gear'}
+ ]},
+ { id:'renovation', title:'بازسازی و دکوراسیون', desc:'از نقاشی و کاغذ دیواری تا بازسازی کامل آشپزخانه و سرویس', img:'assets/img/g-renovation.jpg', services:[
+   {id:'bazsazi', name:'بازسازی ساختمان', desc:'بازسازی جزئی و کلی منزل با تیم اجرایی کامل', price:null, priceLabel:'بازدید و برآورد رایگان', icon:'paint', subs:['نقاشی ساختمان','کاغذ دیواری','کابینت‌سازی','کاشی‌کاری','جوشکاری','بازسازی کامل']}
+ ]},
+ { id:'cleaning', title:'نظافت و شست‌وشو', desc:'نظافت منزل، قالیشویی و مبل‌شویی با مواد شوینده استاندارد', img:'assets/img/g-cleaning.jpg', services:[
+   {id:'nezafat', name:'نظافت منزل', desc:'نظافت کامل آپارتمان و ویلا، ساعتی یا پروژه‌ای', price:550000, icon:'sparkle'},
+   {id:'ghalishoo', name:'قالیشویی', desc:'شست‌وشوی فرش دستباف و ماشینی با جمع‌آوری از منزل', price:390000, icon:'rug'},
+   {id:'moblshoo', name:'مبل‌شویی', desc:'شست‌وشوی مبل و صندلی در محل با دستگاه مکنده', price:480000, icon:'sofa'}
+ ]},
+ { id:'repair', title:'تعمیرات و سرویس لوازم', desc:'تعمیر و سرویس دوره‌ای پکیج، کولر و آبگرمکن در محل', img:'assets/img/g-repair.jpg', services:[
+   {id:'pakage', name:'تعمیر و سرویس پکیج', desc:'سرویس سالانه، اسیدشویی و تعمیر پکیج دیواری', price:650000, icon:'flame'},
+   {id:'cooler', name:'تعمیر و سرویس کولر گازی و آبی', desc:'شارژ گاز، شست‌وشوی پنل و تعمیر کولر گازی و آبی', price:580000, icon:'ac', subs:['کولر گازی (اسپلیت)','کولر آبی']},
+   {id:'abgarmkon', name:'تعمیر و سرویس آبگرمکن', desc:'تعویض دیافراگم، رسوب‌زدایی و تعمیر آبگرمکن دیواری و ایستاده', price:520000, icon:'heater'}
+ ]},
+ { id:'side', title:'خدمات جانبی', desc:'خدمات روزمره در محل شما؛ از اتوبار تا آرایش در منزل', img:'assets/img/g-side.jpg', services:[
+   {id:'otobar', name:'اتوبار و اسباب‌کشی', desc:'حمل اثاثیه منزل با کارگر و خاور مسقف و بیمه بار', price:900000, icon:'truck'},
+   {id:'carwash', name:'کارواش سیار', desc:'شست‌وشوی خودرو در پارکینگ شما، بدون نیاز به آب', price:350000, icon:'car'},
+   {id:'kharid', name:'خرید منزل', desc:'انجام خریدهای روزانه و سوپرمارکتی درب منزل شما', price:300000, icon:'basket'},
+   {id:'oil', name:'تعویض روغن در محل', desc:'تعویض روغن و فیلتر خودرو در پارکینگ یا محل کار', price:250000, icon:'oil'},
+   {id:'beauty-f', name:'خدمات آرایشی بانوان', desc:'آرایش و پیرایش بانوان در منزل با متخصص مجرب', price:400000, icon:'sparkle'},
+   {id:'beauty-m', name:'خدمات آرایشی آقایان', desc:'اصلاح مو و صورت آقایان در منزل، سریع و بهداشتی', price:250000, icon:'scissors'}
+ ]}
+];
+var POPULAR = [
+ {sid:'lolebaz', img:'assets/img/g-sewage.jpg', tag:'فوری و شبانه‌روزی'},
+ {sid:'ghalishoo', img:'assets/img/carpet.jpg', tag:'جمع‌آوری رایگان از منزل'},
+ {sid:'pakage', img:'assets/img/g-repair.jpg', tag:'سرویس پیش از زمستان'},
+ {sid:'sampashi', img:'assets/img/pest.jpg', tag:'سموم بی‌بو و بی‌خطر'}
+];
+var SVC = {};
+GROUPS.forEach(function(g){ g.services.forEach(function(s){ s.group = g.title; SVC[s.id] = s; }); });
+
+function faNum(n){ return String(n).replace(/\d/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[d]; }); }
+function faPrice(n){ return faNum(n.toLocaleString('en-US')); }
+function priceText(s){ return s.price ? 'از ' + faPrice(s.price) + ' تومان' : s.priceLabel; }
+
+/* ============ render: popular + groups ============ */
+document.getElementById('popGrid').innerHTML = POPULAR.map(function(p){
+  var s = SVC[p.sid];
+  return '<article class="pop-card"><div class="ph"><img src="'+p.img+'" alt="'+s.name+'"></div>' +
+    '<div class="pb"><b>'+s.name+'</b><small>'+p.tag+' — '+s.desc+'</small>' +
+    '<div class="prow"><span class="price">'+priceText(s)+'</span>' +
+    '<button class="mini-btn" type="button" data-order="'+s.id+'">ثبت سفارش</button></div></div></article>';
+}).join('');
+
+document.getElementById('groupsRoot').innerHTML = GROUPS.map(function(g){
+  var cards = g.services.map(function(s){
+    return '<article class="svc" data-name="'+s.name+'" data-group="'+g.title+'">' +
+      '<div class="top"><span class="sic">'+icon(s.icon)+'</span><b>'+s.name+'</b></div>' +
+      '<p>'+s.desc+'</p>' +
+      '<div class="srow"><span class="price">'+priceText(s)+'</span>' +
+      '<button class="mini-btn" type="button" data-order="'+s.id+'">ثبت سفارش</button></div></article>';
+  }).join('');
+  return '<div class="group" data-group-block="'+g.title+'"><div class="group-head">' +
+    '<span class="gph"><img src="'+g.img+'" alt="'+g.title+'"></span>' +
+    '<span><h3>'+g.title+'</h3><p>'+g.desc+'</p></span>' +
+    '<span class="cnt">'+faNum(g.services.length)+' خدمت</span></div>' +
+    '<div class="svc-grid">'+cards+'</div></div>';
+}).join('');
+
+/* ============ orders storage ============ */
+var LS_KEY = 'manzelyar_orders';
+function loadOrders(){ try { return JSON.parse(localStorage.getItem(LS_KEY)) || []; } catch(e){ return []; } }
+function saveOrders(list){ localStorage.setItem(LS_KEY, JSON.stringify(list)); }
+function renderOrders(){
+  var list = loadOrders(), root = document.getElementById('ordersRoot'), badge = document.getElementById('ordersBadge');
+  badge.textContent = faNum(list.length);
+  badge.classList.toggle('hide', list.length === 0);
+  if(!list.length){
+    root.innerHTML = '<div class="orders-empty"><span class="ic">'+ '<svg viewBox="0 0 24 24">'+P.clipboard+'</svg></span>' +
+      '<p>هنوز سفارشی ثبت نکرده‌اید؛ از فهرست خدمات بالا اولین سفارشتان را ثبت کنید.</p></div>';
+    return;
+  }
+  root.innerHTML = list.slice().reverse().map(function(o){
+    var s = SVC[o.sid] || {name:o.sname, icon:'wrench'};
+    return '<div class="order-item"><span class="oic">'+icon(s.icon)+'</span>' +
+      '<div class="oinfo"><b>'+o.sname+'</b><div class="ometa">'+o.dayLabel+' — '+o.timeLabel+' · '+o.district+'</div></div>' +
+      '<span class="code-chip"><small>کد پیگیری</small>'+o.code+'</span>' +
+      '<span class="status-chip">ثبت شده — پیامک برای مدیریت ارسال شد</span></div>';
+  }).join('');
+}
+renderOrders();
+document.getElementById('ordersBtn').addEventListener('click', function(){
+  document.getElementById('orders').scrollIntoView({behavior:'smooth'});
+});
+
+/* ============ toast ============ */
+var toastTimer = null;
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3400);
+}
+
+/* ============ search ============ */
+var searchInput = document.getElementById('searchInput');
+var searchResults = document.getElementById('searchResults');
+function normFa(t){ return (t||'').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/\s+/g,' ').trim().toLowerCase(); }
+function searchMatches(q){
+  q = normFa(q); if(!q) return [];
+  var out = [];
+  GROUPS.forEach(function(g){ g.services.forEach(function(s){
+    if(normFa(s.name).indexOf(q) > -1 || normFa(s.desc).indexOf(q) > -1 || normFa(g.title).indexOf(q) > -1) out.push(s);
+  });});
+  return out;
+}
+function showSearchResults(){
+  var q = searchInput.value;
+  var m = searchMatches(q);
+  if(!normFa(q)){ searchResults.classList.remove('open'); return; }
+  searchResults.innerHTML = m.length
+    ? m.map(function(s){ return '<button type="button" data-order="'+s.id+'">'+icon(s.icon)+'<span>'+s.name+'</span><small>'+s.group+'</small></button>'; }).join('')
+    : '<div class="no-res">خدمتی با این عنوان پیدا نشد.</div>';
+  searchResults.classList.add('open');
+  filterCards(q);
+}
+function filterCards(q){
+  var m = searchMatches(q), ids = {};
+  m.forEach(function(s){ ids[s.id] = 1; });
+  var anyVisible = false;
+  document.querySelectorAll('.svc').forEach(function(card){
+    var btn = card.querySelector('[data-order]');
+    var show = !normFa(q) || ids[btn.getAttribute('data-order')];
+    card.classList.toggle('hidden', !show);
+    if(show) anyVisible = true;
+  });
+  document.querySelectorAll('[data-group-block]').forEach(function(block){
+    var visible = block.querySelectorAll('.svc:not(.hidden)').length > 0;
+    block.classList.toggle('hidden', !visible);
+  });
+  document.getElementById('noMatch').classList.toggle('show', normFa(q) && !anyVisible);
+}
+searchInput.addEventListener('input', showSearchResults);
+searchInput.addEventListener('focus', showSearchResults);
+document.getElementById('searchBtn').addEventListener('click', function(){
+  var m = searchMatches(searchInput.value);
+  if(m.length === 1){ openOrder(m[0].id); }
+  else if(m.length > 1){ document.getElementById('services').scrollIntoView({behavior:'smooth'}); }
+  else if(normFa(searchInput.value)){ toast('خدمتی با این عنوان پیدا نشد.'); }
+  else { document.getElementById('services').scrollIntoView({behavior:'smooth'}); }
+});
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.search-box')) searchResults.classList.remove('open');
+});
+
+/* ============ order flow ============ */
+var overlay = document.getElementById('overlay');
+var sheet = document.getElementById('sheet');
+var order = null;
+
+function toFaDigits(t){ return String(t).replace(/[0-9]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'[d]; }); }
+function toEnDigits(t){ return String(t).replace(/[۰-۹]/g, function(d){ return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d); }).replace(/[٠-٩]/g, function(d){ return '٠١٢٣٤٥٦٧٨٩'.indexOf(d); }); }
+function dayLabel(offset){
+  var d = new Date(); d.setDate(d.getDate() + offset);
+  var rel = offset === 0 ? 'امروز' : offset === 1 ? 'فردا' : 'پس‌فردا';
+  return { rel: rel, full: rel + '، ' + d.toLocaleDateString('fa-IR', {weekday:'long', day:'numeric', month:'long'}) };
+}
+var TIME_RANGES = ['۸ تا ۱۰ صبح','۱۰ تا ۱۲ ظهر','۱۲ تا ۱۴','۱۴ تا ۱۷','۱۷ تا ۲۰','هرچه زودتر (فوری)'];
+
+function openOrder(sid){
+  var s = SVC[sid]; if(!s) return;
+  order = { sid: sid, step: 0, sub: s.subs ? '' : null, desc: '', urgency: 'عادی',
+            name: '', phone: '', district: 'مرکز تهران', address: '',
+            day: 0, dayText: dayLabel(0).full, time: '' };
+  searchResults.classList.remove('open');
+  renderStep();
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOrder(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  order = null;
+}
+overlay.addEventListener('click', function(e){ if(e.target === overlay) closeOrder(); });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && overlay.classList.contains('open')) closeOrder(); });
+
+function stepHead(step, total){
+  var labels = ['جزئیات خدمت','مشخصات و آدرس','زمان مراجعه','بازبینی و تأیید'];
+  var bars = '';
+  for(var i = 0; i < total; i++) bars += '<i class="'+(i <= step ? 'on' : '')+'"></i>';
+  var s = SVC[order.sid];
+  return '<div class="sheet-head"><div class="row"><span class="sic">'+icon(s.icon)+'</span>' +
+    '<span><h3>'+s.name+'</h3><small>'+s.group+' · '+priceText(s)+'</small></span>' +
+    '<button class="x-btn" type="button" id="xBtn" aria-label="بستن"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></span></button></div>' +
+    '<div class="progress">'+bars+'</div><div class="steps-label">گام '+faNum(step + 1)+' از '+faNum(total)+' — '+labels[step]+'</div></div>';
+}
+function footButtons(back, next, nextLabel){
+  return '<div class="sheet-foot">' +
+    (back ? '<button class="btn btn-ghost" type="button" id="backBtn">بازگشت</button>' : '') +
+    '<button class="btn btn-primary" type="button" id="nextBtn">'+nextLabel+'</button></div>';
+}
+function bindHead(){
+  document.getElementById('xBtn').addEventListener('click', closeOrder);
+  var b = document.getElementById('backBtn');
+  if(b) b.addEventListener('click', function(){ order.step--; renderStep(); });
+}
+
+function renderStep(){
+  var s = SVC[order.sid];
+  if(order.step === 0){
+    var subs = s.subs ? '<label class="f-label">نوع خدمت را انتخاب کنید <span class="req">*</span></label><div class="chips" id="subChips">' +
+      s.subs.map(function(x){ return '<button type="button" class="chip'+(order.sub === x ? ' sel' : '')+'" data-sub="'+x+'">'+x+'</button>'; }).join('') + '</div><div class="f-err" id="errSub">لطفاً نوع خدمت را انتخاب کنید.</div>' : '';
+    sheet.innerHTML = stepHead(0, 4) + '<div class="sheet-body">' + subs +
+      '<label class="f-label" for="fDesc">توضیح مشکل یا درخواست</label>' +
+      '<textarea class="f-input" id="fDesc" placeholder="مثلاً: لوله آشپزخانه گرفته و آب بالا می‌زند…">'+order.desc+'</textarea>' +
+      '<label class="f-label">فوریت سفارش</label><div class="chips" id="urgChips">' +
+      ['عادی','فوری'].map(function(u){ return '<button type="button" class="chip'+(order.urgency === u ? ' sel' : '')+'" data-urg="'+u+'">'+u+(u === 'فوری' ? '<small>اعزام در اولویت</small>' : '<small>در اولین نوبت خالی</small>')+'</button>'; }).join('') + '</div>' +
+      '</div>' + footButtons(false, true, 'ادامه');
+    bindHead();
+    if(s.subs) document.getElementById('subChips').addEventListener('click', function(e){
+      var c = e.target.closest('[data-sub]'); if(!c) return;
+      order.sub = c.getAttribute('data-sub');
+      this.querySelectorAll('.chip').forEach(function(x){ x.classList.toggle('sel', x === c); });
+      document.getElementById('errSub').classList.remove('show');
+    });
+    document.getElementById('urgChips').addEventListener('click', function(e){
+      var c = e.target.closest('[data-urg]'); if(!c) return;
+      order.urgency = c.getAttribute('data-urg');
+      this.querySelectorAll('.chip').forEach(function(x){ x.classList.toggle('sel', x === c); });
+    });
+    document.getElementById('nextBtn').addEventListener('click', function(){
+      order.desc = document.getElementById('fDesc').value.trim();
+      if(s.subs && !order.sub){ document.getElementById('errSub').classList.add('show'); return; }
+      order.step = 1; renderStep();
+    });
+  }
+  else if(order.step === 1){
+    var districts = ['مرکز تهران','شمال تهران','شرق تهران','غرب تهران','جنوب تهران','کرج و حومه'];
+    sheet.innerHTML = stepHead(1, 4) + '<div class="sheet-body">' +
+      '<label class="f-label" for="fName">نام و نام خانوادگی <span class="req">*</span></label>' +
+      '<input class="f-input" id="fName" type="text" placeholder="مثلاً: علی محمدی" value="'+order.name+'"><div class="f-err" id="errName">نام را کامل وارد کنید.</div>' +
+      '<label class="f-label" for="fPhone">شماره موبایل <span class="req">*</span></label>' +
+      '<input class="f-input" id="fPhone" type="tel" inputmode="tel" dir="ltr" style="text-align:left" placeholder="09xxxxxxxxx" value="'+order.phone+'"><div class="f-err" id="errPhone">شماره موبایل معتبر ۱۱ رقمی وارد کنید؛ پیامک سفارش به مدیریت و وضعیت سفارش به همین شماره ارسال می‌شود.</div>' +
+      '<label class="f-label" for="fDistrict">محدوده</label>' +
+      '<select class="f-input" id="fDistrict">' + districts.map(function(d){ return '<option'+(order.district === d ? ' selected' : '')+'>'+d+'</option>'; }).join('') + '</select>' +
+      '<label class="f-label" for="fAddress">آدرس دقیق <span class="req">*</span></label>' +
+      '<textarea class="f-input" id="fAddress" placeholder="خیابان، کوچه، پلاک، واحد و نشانه‌های لازم برای رسیدن متخصص…">'+order.address+'</textarea><div class="f-err" id="errAddress">آدرس را کامل‌تر بنویسید (حداقل ۱۰ نویسه).</div>' +
+      '</div>' + footButtons(true, true, 'ادامه');
+    bindHead();
+    document.getElementById('nextBtn').addEventListener('click', function(){
+      order.name = document.getElementById('fName').value.trim();
+      order.phone = toEnDigits(document.getElementById('fPhone').value.trim());
+      order.district = document.getElementById('fDistrict').value;
+      order.address = document.getElementById('fAddress').value.trim();
+      var ok = true;
+      var vName = order.name.length >= 3;
+      document.getElementById('errName').classList.toggle('show', !vName);
+      document.getElementById('fName').classList.toggle('err-b', !vName); ok = ok && vName;
+      var vPhone = /^09\d{9}$/.test(order.phone);
+      document.getElementById('errPhone').classList.toggle('show', !vPhone);
+      document.getElementById('fPhone').classList.toggle('err-b', !vPhone); ok = ok && vPhone;
+      var vAddr = order.address.length >= 10;
+      document.getElementById('errAddress').classList.toggle('show', !vAddr);
+      document.getElementById('fAddress').classList.toggle('err-b', !vAddr); ok = ok && vAddr;
+      if(!ok) return;
+      order.step = 2; renderStep();
+    });
+  }
+  else if(order.step === 2){
+    var days = [0, 1, 2].map(function(off){ var d = dayLabel(off); return {off: off, rel: d.rel, full: d.full}; });
+    sheet.innerHTML = stepHead(2, 4) + '<div class="sheet-body">' +
+      '<label class="f-label">روز مراجعه متخصص</label><div class="chips" id="dayChips">' +
+      days.map(function(d){ return '<button type="button" class="chip'+(order.day === d.off ? ' sel' : '')+'" data-day="'+d.off+'">'+d.rel+'<small>'+d.full.replace(d.rel + '، ', '')+'</small></button>'; }).join('') + '</div>' +
+      '<label class="f-label">بازه زمانی <span class="req">*</span></label><div class="chips" id="timeChips">' +
+      TIME_RANGES.map(function(t){ return '<button type="button" class="chip'+(order.time === t ? ' sel' : '')+'" data-time="'+t+'">'+t+'</button>'; }).join('') + '</div><div class="f-err" id="errTime">لطفاً بازه زمانی مراجعه را انتخاب کنید.</div>' +
+      '</div>' + footButtons(true, true, 'مشاهده بازبینی سفارش');
+    bindHead();
+    document.getElementById('dayChips').addEventListener('click', function(e){
+      var c = e.target.closest('[data-day]'); if(!c) return;
+      order.day = parseInt(c.getAttribute('data-day'), 10);
+      order.dayText = dayLabel(order.day).full;
+      this.querySelectorAll('.chip').forEach(function(x){ x.classList.toggle('sel', x === c); });
+    });
+    document.getElementById('timeChips').addEventListener('click', function(e){
+      var c = e.target.closest('[data-time]'); if(!c) return;
+      order.time = c.getAttribute('data-time');
+      this.querySelectorAll('.chip').forEach(function(x){ x.classList.toggle('sel', x === c); });
+      document.getElementById('errTime').classList.remove('show');
+    });
+    document.getElementById('nextBtn').addEventListener('click', function(){
+      if(!order.time){ document.getElementById('errTime').classList.add('show'); return; }
+      order.step = 3; renderStep();
+    });
+  }
+  else if(order.step === 3){
+    sheet.innerHTML = stepHead(3, 4) + '<div class="sheet-body">' +
+      '<div class="review-box">' +
+      '<div class="rrow"><span>خدمت</span><b>'+s.name+(order.sub ? ' — ' + order.sub : '')+'</b></div>' +
+      '<div class="rrow"><span>فوریت</span><b>'+order.urgency+'</b></div>' +
+      (order.desc ? '<div class="rrow"><span>توضیح شما</span><b>'+order.desc+'</b></div>' : '') +
+      '<div class="rrow"><span>نام</span><b>'+order.name+'</b></div>' +
+      '<div class="rrow"><span>موبایل</span><b>'+toFaDigits(order.phone)+'</b></div>' +
+      '<div class="rrow"><span>محدوده</span><b>'+order.district+'</b></div>' +
+      '<div class="rrow"><span>آدرس</span><b>'+order.address+'</b></div>' +
+      '<div class="rrow"><span>زمان مراجعه</span><b>'+order.dayText+' — '+order.time+'</b></div>' +
+      '<div class="rrow total"><span>هزینه پایه خدمت</span><b>'+priceText(s)+'</b></div></div>' +
+      '<p style="color:var(--muted);font-size:.85rem;margin-top:12px">هزینه نهایی پس از بازدید متخصص و با تأیید شما مشخص می‌شود؛ پرداخت بعد از انجام کار است.</p>' +
+      '</div>' + footButtons(true, true, 'تأیید و ثبت نهایی سفارش');
+    bindHead();
+    document.getElementById('nextBtn').addEventListener('click', submitOrder);
+  }
+  sheet.scrollTop = 0;
+}
+
+function submitOrder(){
+  var s = SVC[order.sid];
+  var code = 'MZ-' + Math.floor(100000 + Math.random() * 900000);
+  var rec = { code: code, sid: order.sid, sname: s.name + (order.sub ? ' (' + order.sub + ')' : ''),
+              name: order.name, phone: order.phone, district: order.district, address: order.address,
+              dayLabel: order.dayText, timeLabel: order.time, urgency: order.urgency,
+              ts: new Date().toISOString() };
+  var list = loadOrders(); list.push(rec); saveOrders(list); renderOrders();
+  sheet.innerHTML = '<div class="success-view">' +
+    '<div class="big-ok"><span class="ic"><svg viewBox="0 0 24 24">'+P['check-big']+'</svg></span></div>' +
+    '<h3>سفارش شما ثبت شد</h3>' +
+    '<p>سفارش «'+rec.sname+'» برای '+order.dayText+'، بازه '+order.time+' ثبت شد. هماهنگی اعزام متخصص به‌زودی با شما انجام می‌شود.</p>' +
+    '<div class="track"><small>کد پیگیری سفارش</small><b>'+toFaDigits(code)+'</b></div>' +
+    '<div class="sms-note"><span class="ic"><svg viewBox="0 0 24 24">'+P.sms+'</svg></span><span>پیامک سفارش شما همین حالا برای مدیریت ارسال شد تا بدون معطلی پیگیری شود.</span></div>' +
+    '<div class="sheet-foot" style="padding-right:0;padding-left:0">' +
+    '<button class="btn btn-ghost" type="button" id="newOrderBtn">ثبت سفارش جدید</button>' +
+    '<button class="btn btn-brand" type="button" id="myOrdersBtn">مشاهده سفارش‌های من</button></div></div>';
+  document.getElementById('newOrderBtn').addEventListener('click', closeOrder);
+  document.getElementById('myOrdersBtn').addEventListener('click', function(){
+    closeOrder();
+    document.getElementById('orders').scrollIntoView({behavior:'smooth'});
+  });
+  toast('سفارش با موفقیت ثبت شد؛ پیامک آن برای مدیریت ارسال شد.');
+}
+
+/* delegate all order buttons */
+document.addEventListener('click', function(e){
+  var b = e.target.closest('[data-order]');
+  if(b){ openOrder(b.getAttribute('data-order')); }
+});
+</script>
+</body>
+</html>
