@@ -284,7 +284,7 @@ h1,h2,h3,.h1d,.h2d{font-family:'Vazirmatn',sans-serif!important;letter-spacing:0
 const $=s=>document.querySelector(s);
 const fa=n=>Number(n).toLocaleString('fa-IR');
 const toEn=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
-const IMG=(id,w=800,h=1000)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${h}`;
+const IMG=(id,w=800,h=1000)=>`assets/p-${id}.jpg`;
 const FB=IMG(24815712,800,1000);
 const imgErr=el=>{el.onerror=null;el.src=FB};
 const go=p=>{location.hash='#'+p};
