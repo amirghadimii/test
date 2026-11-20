@@ -246,10 +246,39 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
   .logo-text>span{display:none}.btn{padding:11px 16px}
   .header-in{gap:9px}.logo>.logo-mark{width:42px;height:42px}
 }
+
+/* H4 utility strip + mega dropdown / L6 search-first / F8 sitemap (diversity rework) */
+.util-links{display:flex;gap:18px;flex-wrap:wrap}
+.util-links a{font-weight:700}
+.util-links a:hover{color:var(--lime)}
+.mega-wrap{position:relative}
+.mega-panel{display:none;position:absolute;top:calc(100% + 2px);inset-inline:0;z-index:75;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);padding:14px;grid-template-columns:repeat(5,1fr);gap:10px}
+.mega-wrap:has(.mega-cat--cats:hover) .mega-panel,.mega-wrap:has(.mega-panel:hover) .mega-panel,.mega-wrap:has(.mega-cat--cats:focus-visible) .mega-panel{display:grid}
+.mega-panel button{border:1px solid var(--line);background:var(--paper);border-radius:15px;padding:13px;text-align:right;color:var(--ink)}
+.mega-panel button:hover{border-color:var(--teal);background:#fff}
+.mega-panel b{display:block;font-size:.95rem}
+.mega-panel small{color:var(--muted);font-size:.78rem}
+.hero-search-first{text-align:center;margin:6px auto 26px;max-width:760px}
+.hsf-label{display:inline-block;font-weight:900;color:var(--teal);font-size:1.05rem;margin-bottom:13px}
+.hsf-label{text-decoration:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='9' viewBox='0 0 120 9'%3E%3Cpath d='M2 6 C 30 2, 60 8, 118 3' fill='none' stroke='%23ff6b35' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:50% 100%;background-size:120px 9px;padding-bottom:10px}
+.hero-search-big{display:flex;align-items:center;gap:9px;background:#fff;border:2px solid var(--deep);border-radius:999px;padding:8px 9px 8px 10px;box-shadow:0 18px 40px rgba(16,35,31,.16)}
+.hero-search-big svg{width:24px;height:24px;color:var(--muted);flex:0 0 auto;margin-inline-start:12px}
+.hero-search-big input{border:0;outline:0;background:transparent;width:100%;padding:11px 8px;font-size:1.05rem;color:var(--ink)}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px;align-items:center}
+.hero-chips span{font-size:.85rem;color:var(--muted);font-weight:700}
+.hero-chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-weight:800;font-size:.85rem;color:var(--ink2)}
+.hero-chips button:hover{background:var(--deep);color:#fff}
+.sitemap{display:grid;grid-template-columns:1.35fr repeat(5,1fr);gap:22px;align-items:start}
+.sitemap .f-brand p{font-size:.87rem;color:#aebbb0;margin:13px 0 0;max-width:240px}
+.sitemap h4{color:#fff;font-size:.95rem;margin:2px 0 11px}
+.sitemap .f-col a{display:block;font-size:.86rem;color:#c3d2c6;padding:3.5px 0}
+.sitemap .f-col a:hover{color:var(--lime)}
+@media(max-width:1050px){.sitemap{grid-template-columns:1fr 1fr 1fr}.mega-panel{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.sitemap{grid-template-columns:1fr 1fr}.mega-panel{grid-template-columns:1fr 1fr}.util-links{gap:12px}}
 </style>
 </head>
 <body>
-<div class="top-strip"><div class="container"><span>فروشگاه جدید، روی همان دامنه قبلی شما</span><span><b>انتقال کامل</b> محصولات، تصاویر و ساختار سایت</span></div></div>
+<div class="top-strip"><div class="container"><span>فروشگاه جدید، روی همان دامنه قبلی شما — <b>انتقال کامل</b> محصولات، تصاویر و ساختار سایت</span><nav class="util-links"><a href="#shop">ارسال و پیگیری سفارش</a><a href="#faq">پشتیبانی</a><a href="#faq">پرسش‌های متداول</a></nav></div></div>
 
 <header class="site">
   <div class="container header-in">
@@ -274,7 +303,9 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
       </button>
     </div>
   </div>
-  <div class="container mega-row" aria-label="دسته‌بندی‌های فروشگاه">
+  <div class="container mega-wrap">
+  <div class="mega-row" aria-label="دسته‌بندی‌های فروشگاه">
+    <button class="mega-cat mega-cat--cats" data-cat-link="all">دسته‌بندی‌ها ▾</button>
     <button class="mega-cat" data-cat-link="all">🛍️ همه محصولات</button>
     <button class="mega-cat" data-cat-link="digital">کالای دیجیتال</button>
     <button class="mega-cat" data-cat-link="home">خانه و آشپزخانه</button>
@@ -285,11 +316,28 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
     <a href="#features">امکانات فروشگاه</a>
     <a href="#faq">پرسش‌های متداول</a>
   </div>
+  <div class="mega-panel" aria-label="پنل دسته‌بندی‌ها">
+    <button data-cat-link="all"><b>🛍️ همه محصولات</b><small>ویترین کامل فروشگاه</small></button>
+    <button data-cat-link="digital"><b>کالای دیجیتال</b><small>هدفون، ساعت و گجت</small></button>
+    <button data-cat-link="home"><b>خانه و آشپزخانه</b><small>لوازم کاربردی خانه</small></button>
+    <button data-cat-link="fashion"><b>مد و سبک زندگی</b><small>کفش، کوله و اکسسوری</small></button>
+    <button data-cat-link="beauty"><b>زیبایی و سلامت</b><small>مراقبت پوست و عطر</small></button>
+  </div>
+  </div>
 </header>
 
 <main id="top">
   <section class="hero">
     <div class="container">
+      <div class="hero-search-first">
+        <span class="hsf-label">هر کالایی، فقط یک جستجو فاصله دارد</span>
+        <label class="hero-search-big">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="heroSearch" type="search" placeholder="دنبال چی می‌گردی؟ مثلاً هدفون، کفش، عطر…">
+          <span class="search-go">جستجو</span>
+        </label>
+        <div class="hero-chips"><span>دسته‌های پرجستجو:</span><button data-cat-link="digital" type="button">کالای دیجیتال</button><button data-cat-link="home" type="button">خانه و آشپزخانه</button><button data-cat-link="fashion" type="button">مد و سبک زندگی</button><button data-cat-link="beauty" type="button">زیبایی و سلامت</button></div>
+      </div>
       <div class="promo-mosaic">
         <a class="promo-wide" href="#shop">
           <img src="assets/img/hero-headphones.jpg" alt="هدفون مدرن روی پس‌زمینه مینیمال">
@@ -321,13 +369,6 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
       </div>
     </div>
   </section>
-
-  <section class="trust"><div class="container trust-grid">
-    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>نماد اعتماد الکترونیکی</b><span>اینماد فعال و قابل استعلام</span></div></div>
-    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div><b>درگاه پرداخت امن</b><span>تسویه بانکی رمزنگاری‌شده</span></div></div>
-    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span><div><b>ضمانت بازگشت</b><span>بازگشت آسان تا ۷ روز</span></div></div>
-    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><div><b>ارسال رهگیری‌دار</b><span>پیگیری سفارش در هر مرحله</span></div></div>
-  </div></section>
 
   <section class="block" id="categories">
     <div class="container">
@@ -364,6 +405,13 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
       </div>
     </div>
   </section>
+
+  <section class="trust"><div class="container trust-grid">
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span><div><b>نماد اعتماد الکترونیکی</b><span>اینماد فعال و قابل استعلام</span></div></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div><b>درگاه پرداخت امن</b><span>تسویه بانکی رمزنگاری‌شده</span></div></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span><div><b>ضمانت بازگشت</b><span>بازگشت آسان تا ۷ روز</span></div></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span><div><b>ارسال رهگیری‌دار</b><span>پیگیری سفارش در هر مرحله</span></div></div>
+  </div></section>
 
   <section class="block" id="migration">
     <div class="container">
@@ -412,9 +460,16 @@ footer .logo strong{color:#fff} footer .logo-text>span{color:#aebbb0}
 
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <a class="logo" href="#top"><span class="logo-mark">ک</span><span class="logo-text"><strong>کالاچین</strong><span>فروشگاه عمومی آنلاین</span></span></a>
-      <nav class="footer-links"><a href="#shop">فروشگاه</a><a href="#migration">انتقال سایت</a><a href="#features">امکانات</a><a href="#faq">پرسش‌ها</a></nav>
+    <div class="footer-grid sitemap">
+      <div class="f-brand">
+        <a class="logo" href="#top"><span class="logo-mark">ک</span><span class="logo-text"><strong>کالاچین</strong><span>فروشگاه عمومی آنلاین</span></span></a>
+        <p>فروشگاه کامل ووکامرس با انتقال دامنه، همه محصولات و ساختار سایت قبلی — نقشه کامل فروشگاه در یک نگاه:</p>
+      </div>
+      <div class="f-col"><h4>فروشگاه</h4><a href="#shop">ویترین محصولات</a><a href="#categories">دسته‌بندی‌ها</a><a href="#shop">پیشنهادهای امروز</a><a href="#shop">پرفروش‌ترین‌ها</a></div>
+      <div class="f-col"><h4>دسته‌ها</h4><a href="#categories">کالای دیجیتال</a><a href="#categories">خانه و آشپزخانه</a><a href="#categories">مد و سبک زندگی</a><a href="#categories">زیبایی و سلامت</a></div>
+      <div class="f-col"><h4>انتقال سایت</h4><a href="#migration">انتقال دامنه</a><a href="#migration">انتقال محصولات و تصاویر</a><a href="#migration">فعال‌سازی اینماد</a><a href="#migration">ریدایرکت و سئو</a></div>
+      <div class="f-col"><h4>امکانات</h4><a href="#features">کاتالوگ و موجودی</a><a href="#features">سبد و تسویه سریع</a><a href="#features">جستجو و فیلتر</a><a href="#features">گزارش فروش</a></div>
+      <div class="f-col"><h4>راهنما</h4><a href="#faq">پرسش‌های متداول</a><a href="#faq">انتقال بدون از دست رفتن سئو</a><a href="#features">امنیت و بک‌آپ</a><a href="#top">بازگشت به بالا</a></div>
     </div>
     <div class="copyright"><span>© کالاچین — نمونه فروشگاه برای نمایش فرایند ساخت و انتقال.</span><span class="appwebino">دموی پیشنهادی اپ‌وبینو</span></div>
   </div>
@@ -563,6 +618,8 @@ document.getElementById('filterPills').addEventListener('click',e=>{const b=e.ta
 document.querySelectorAll('[data-cat-link]').forEach(card=>card.addEventListener('click',()=>{activeFilter=card.dataset.catLink; document.querySelectorAll('.pill').forEach(x=>x.classList.toggle('active',x.dataset.filter===activeFilter)); renderProducts(); document.getElementById('shop').scrollIntoView({behavior:'smooth'});}));
 document.getElementById('shopSearch').addEventListener('input',renderProducts);
 document.getElementById('headerSearch').addEventListener('input',e=>{document.getElementById('shopSearch').value=e.target.value; renderProducts();});
+document.getElementById('heroSearch').addEventListener('input',e=>{document.getElementById('shopSearch').value=e.target.value; renderProducts();});
+document.getElementById('heroSearch').addEventListener('focus',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
 document.getElementById('headerSearch').addEventListener('focus',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
 document.getElementById('sortSelect').addEventListener('change',renderProducts);
 document.getElementById('cartBtn').addEventListener('click',openCart);
