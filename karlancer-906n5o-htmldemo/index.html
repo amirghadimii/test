@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پارس‌وب — طراحی و پیاده‌سازی وب‌سایت با HTML دست‌ساز</title>
+<meta name="description" content="پارس‌وب: طراحی و پیاده‌سازی وب‌سایت شرکتی و فروشگاهی با HTML و CSS و جاوااسکریپت خالص، بدون فریم‌ورک؛ سبک، سریع و معنایی.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --ink:#191d23; --ink2:#3d454f; --mut:#6d7680;
+  --paper:#f8f7f3; --card:#ffffff;
+  --red:#e0341c; --red-d:#bc2712; --red-bg:#fdeeea;
+  --line:#e4e1d8; --line2:#d8d4c8;
+  --code-bg:#14181d;
+  --sh:0 18px 44px -20px rgba(25,29,35,.22);
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;color:var(--ink);line-height:1.9;font-size:16px;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(rgba(25,29,35,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(25,29,35,.05) 1px,transparent 1px);
+  background-size:30px 30px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.45}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--red);color:#fff}
+
+/* ---------- spec label ---------- */
+.spec{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--red-d);
+  border:1px solid rgba(224,52,28,.35);background:rgba(255,255,255,.75);border-radius:8px;padding:2px 12px;direction:ltr}
+.spec b{color:var(--ink2);font-weight:600}
+.sec-head{margin-bottom:30px}
+.sec-head .row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:12px}
+.sec-num{font-size:2rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--red);line-height:1}
+.sec-head h2{font-size:1.65rem;font-weight:900}
+.sec-head p{color:var(--mut);max-width:620px;margin-top:6px}
+section{padding:64px 0 8px;scroll-margin-top:90px}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:60;background:rgba(248,247,243,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.25rem}
+.logo .mark{width:34px;height:34px;background:var(--red);color:#fff;display:grid;place-items:center;border-radius:9px;font-size:.95rem;font-weight:900;direction:ltr}
+.logo small{display:block;font-size:.68rem;font-weight:500;color:var(--mut);line-height:1.4}
+nav.main{display:flex;gap:26px}
+nav.main a{font-size:.95rem;font-weight:600;color:var(--ink2);padding:6px 2px;border-bottom:2px solid transparent;transition:.2s}
+nav.main a:hover,nav.main a.on{color:var(--red-d);border-color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;border-radius:11px;padding:10px 22px;font-size:.95rem;font-weight:700;transition:.2s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px -10px rgba(224,52,28,.55)}
+.btn-red:hover{background:var(--red-d);transform:translateY(-1px)}
+.btn-ghost{background:#fff;border:1px solid var(--line2);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--red);color:var(--red-d)}
+.burger{display:none;background:#fff;border:1px solid var(--line2);border-radius:10px;width:42px;height:42px;font-size:1.15rem;line-height:1}
+.mnav{display:none;border-top:1px solid var(--line);padding:10px 20px 16px;background:rgba(248,247,243,.97)}
+.mnav a{display:block;padding:9px 4px;font-weight:600;color:var(--ink2);border-bottom:1px dashed var(--line)}
+.mnav a:last-child{border:none}
+.mnav.open{display:block}
+
+/* ---------- hero ---------- */
+.hero{padding:54px 0 10px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:center}
+.hero h1{font-size:2.55rem;font-weight:900;margin:18px 0 12px}
+.hero h1 .u{color:var(--red);position:relative;white-space:nowrap}
+.hero h1 .u::after{content:"";position:absolute;right:0;left:0;bottom:4px;height:9px;background:rgba(224,52,28,.18);z-index:-1;border-radius:3px}
+.hero .lead{color:var(--ink2);font-size:1.06rem;max-width:520px}
+.hero-cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+.stat b{display:block;font-size:1.45rem;font-weight:900;color:var(--ink)}
+.stat b i{font-style:normal;color:var(--red)}
+.stat span{font-size:.8rem;color:var(--mut)}
+
+/* code window */
+.codewin{background:var(--code-bg);border-radius:16px;box-shadow:var(--sh);overflow:hidden;border:1px solid #232a31}
+.codewin .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;background:#1b2129;border-bottom:1px solid #262e37}
+.dot{width:11px;height:11px;border-radius:50%}
+.codewin .tab{margin-inline-start:10px;background:#14181d;color:#c8d2dd;font-size:.78rem;padding:3px 14px;border-radius:7px 7px 0 0;font-weight:600}
+.codewin .live{margin-inline-start:auto;display:inline-flex;align-items:center;gap:7px;color:#9fb0c1;font-size:.75rem}
+.codewin .live i{width:8px;height:8px;border-radius:50%;background:#37d67a;display:inline-block;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.codewin pre{direction:ltr;text-align:left;padding:20px 22px;overflow-x:auto;font-family:'Vazirmatn',monospace;font-size:.83rem;line-height:1.85;color:#dbe4ee}
+.tk-tag{color:#ff7a59;font-weight:700}.tk-attr{color:#ffd479}.tk-str{color:#a8d8a8}.tk-punc{color:#5f7082}.tk-txt{color:#e8eef4}.tk-cmt{color:#62707f;font-style:italic}
+.codewin .foot{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px;background:#1b2129;border-top:1px solid #262e37}
+.chip{font-size:.74rem;font-weight:600;color:#c8d2dd;border:1px solid #39434f;border-radius:99px;padding:2px 12px}
+.chip b{color:#37d67a;font-weight:800}
+
+/* ---------- tech strip ---------- */
+.techstrip{margin-top:44px;background:var(--ink);color:#eef1f4;border-radius:18px;padding:22px 26px;box-shadow:var(--sh)}
+.techstrip .t-head{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.02rem;margin-bottom:14px}
+.techstrip .t-head .spec{background:transparent;border-color:rgba(255,255,255,.3);color:#ffb4a3}
+.techstrip .t-head .spec b{color:#e8eef4}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 26px}
+.tech-item{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed rgba(255,255,255,.16);padding:7px 0;font-size:.92rem}
+.tech-item span{color:#9fb0c1}
+.tech-item b{font-weight:800;color:#fff}
+.tech-item b em{font-style:normal;color:#37d67a}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;transition:.25s;position:relative}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--sh);border-color:rgba(224,52,28,.4)}
+.svc .ic{width:52px;height:52px;border-radius:13px;background:var(--red-bg);display:grid;place-items:center;margin-bottom:16px}
+.svc .ic svg{width:27px;height:27px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:1.08rem;font-weight:800;margin-bottom:6px}
+.svc p{color:var(--mut);font-size:.92rem}
+.svc .tag{position:absolute;top:18px;inset-inline-end:18px;font-size:.7rem;color:var(--mut);direction:ltr;font-weight:600}
+
+/* ---------- portfolio ---------- */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.fbtn{background:#fff;border:1px solid var(--line2);border-radius:99px;padding:8px 20px;font-size:.9rem;font-weight:700;color:var(--ink2);transition:.2s}
+.fbtn:hover{border-color:var(--red);color:var(--red-d)}
+.fbtn.act{background:var(--red);border-color:var(--red);color:#fff}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pf{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.3s}
+.pf:hover{box-shadow:var(--sh);transform:translateY(-4px)}
+.pf.hide{display:none}
+.pf .ph{height:190px;overflow:hidden;position:relative}
+.pf .ph img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.pf:hover .ph img{transform:scale(1.06)}
+.pf .cat{position:absolute;top:12px;inset-inline-start:12px;background:rgba(20,24,29,.82);color:#fff;font-size:.74rem;font-weight:700;border-radius:99px;padding:3px 13px}
+.pf .bd{padding:18px 20px 20px}
+.pf h3{font-size:1.02rem;font-weight:800;margin-bottom:4px}
+.pf p{color:var(--mut);font-size:.88rem}
+.pf .meta{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.pf .meta span{font-size:.72rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:1px 11px;color:var(--ink2)}
+</style>
+<style>
+/* ---------- pricing ---------- */
+.bill-toggle{display:inline-flex;background:#fff;border:1px solid var(--line2);border-radius:99px;padding:5px;gap:4px;margin-bottom:26px}
+.bill-toggle button{border:none;background:transparent;border-radius:99px;padding:9px 24px;font-size:.95rem;font-weight:700;color:var(--ink2);transition:.2s}
+.bill-toggle button.on{background:var(--ink);color:#fff}
+.bill-toggle .save{background:var(--red);color:#fff;font-size:.72rem;border-radius:99px;padding:1px 9px;margin-inline-start:5px}
+.bill-toggle button.on .save{background:#37d67a;color:#0c2317}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;position:relative;display:flex;flex-direction:column;transition:.25s}
+.plan:hover{box-shadow:var(--sh);transform:translateY(-4px)}
+.plan.hot{border:2px solid var(--red);box-shadow:var(--sh)}
+.plan .tag{font-size:.72rem;color:var(--mut);direction:ltr;font-weight:600}
+.plan .badge{position:absolute;top:-13px;inset-inline-start:24px;background:var(--red);color:#fff;font-size:.78rem;font-weight:800;border-radius:99px;padding:3px 16px}
+.plan h3{font-size:1.25rem;font-weight:900;margin-top:4px}
+.plan .pdesc{color:var(--mut);font-size:.88rem;margin-bottom:18px}
+.plan .amount{display:flex;align-items:baseline;gap:8px;border-top:1px dashed var(--line2);border-bottom:1px dashed var(--line2);padding:14px 0;margin-bottom:18px}
+.plan .amount b{font-size:1.55rem;font-weight:900}
+.plan .amount .per{color:var(--mut);font-size:.85rem}
+.plan ul{list-style:none;margin-bottom:24px}
+.plan li{padding:6px 0;font-size:.93rem;color:var(--ink2);display:flex;gap:9px}
+.plan li::before{content:"✓";color:var(--red);font-weight:900}
+.plan .btn{margin-top:auto;justify-content:center}
+.price-note{margin-top:16px;color:var(--mut);font-size:.9rem}
+
+/* ---------- testimonials ---------- */
+.car{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--sh)}
+.car-track{display:flex;transition:transform .55s cubic-bezier(.6,.05,.2,1)}
+.slide{min-width:100%;padding:42px 48px 26px;text-align:center}
+.slide .ava{width:84px;height:84px;border-radius:50%;object-fit:cover;margin:0 auto 18px;border:3px solid var(--red-bg);box-shadow:0 0 0 2px var(--red)}
+.slide blockquote{font-size:1.08rem;color:var(--ink2);max-width:760px;margin:0 auto 18px;line-height:2.1}
+.slide blockquote::before{content:"”";display:block;font-size:2.6rem;line-height:.6;color:var(--red);font-weight:900;margin-bottom:12px}
+.slide figcaption b{display:block;font-size:1rem}
+.slide figcaption span{color:var(--mut);font-size:.86rem}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:18px;padding:6px 0 22px}
+.car-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:#fff;font-size:1.05rem;transition:.2s;color:var(--ink)}
+.car-btn:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
+.dots{display:flex;gap:8px}
+.dots button{width:10px;height:10px;border-radius:99px;border:none;background:var(--line2);padding:0;transition:.3s}
+.dots button.act{background:var(--red);width:26px}
+
+/* ---------- faq ---------- */
+.faq-list{max-width:820px}
+.qa{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.qa .q{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;padding:19px 22px;font-size:1rem;font-weight:700;color:var(--ink)}
+.qa .q .pm{flex:none;width:30px;height:30px;border-radius:9px;background:var(--red-bg);color:var(--red);display:grid;place-items:center;font-size:1.15rem;font-weight:900;transition:.3s}
+.qa.open .q .pm{transform:rotate(45deg);background:var(--red);color:#fff}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.qa .a p{padding:0 22px 20px;color:var(--ink2);font-size:.94rem}
+
+/* ---------- order form ---------- */
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--sh);max-width:880px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.92rem;font-weight:700}
+.field label i{color:var(--red);font-style:normal}
+.field input,.field select,.field textarea{font-family:inherit;font-size:.95rem;padding:12px 14px;border:1.5px solid var(--line2);border-radius:11px;background:#fff;color:var(--ink);transition:.2s;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(224,52,28,.1)}
+.field.bad input,.field.bad textarea{border-color:var(--red);background:#fff8f6}
+.field .err{color:var(--red-d);font-size:.8rem;min-height:1.2em;display:none}
+.field.bad .err{display:block}
+.submit{margin-top:22px;font-size:1rem;padding:13px 34px}
+.last-code{margin-top:14px;color:var(--mut);font-size:.88rem}
+.last-code b{color:var(--red-d)}
+.success{text-align:center;padding:20px 10px}
+.ok-ic{width:74px;height:74px;border-radius:50%;background:#e5f7ee;color:#00945a;font-size:2rem;font-weight:900;display:grid;place-items:center;margin:0 auto 16px}
+.success h3{font-size:1.35rem;font-weight:900;margin-bottom:6px}
+.track{direction:ltr;font-size:1.7rem;font-weight:900;letter-spacing:2px;background:var(--paper);border:1.5px dashed var(--red);color:var(--red-d);border-radius:13px;padding:10px 22px;display:inline-block;margin:10px 0 14px}
+.success .mut{color:var(--mut);font-size:.92rem;max-width:480px;margin:0 auto 20px}
+
+/* ---------- footer ---------- */
+footer{margin-top:76px;background:var(--ink);color:#dfe5ec}
+.f-in{padding:44px 20px 30px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+footer .logo{color:#fff}
+footer .logo small{color:#8fa0b3}
+.f-nav{display:flex;gap:22px;flex-wrap:wrap}
+.f-nav a{font-size:.92rem;color:#b9c6d4;font-weight:600}
+.f-nav a:hover{color:#fff}
+.f-note{color:#9fb0c1;font-size:.9rem;max-width:640px}
+.f-note b{color:#ffb4a3}
+.f-copy{color:#7186a0;font-size:.82rem;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;width:100%}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media(max-width:1020px){
+  .svc-grid,.pf-grid,.price-grid{grid-template-columns:repeat(2,1fr)}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  nav.main{display:none}
+  .hd-in .btn-red{display:none}
+  .burger{display:grid;place-items:center}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+  .svc-grid,.pf-grid,.price-grid,.fgrid{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:1fr}
+  .slide{padding:34px 22px 20px}
+  .form-card{padding:24px 18px}
+  section{padding:48px 0 4px}
+  .sec-num{font-size:1.5rem}
+  .sec-head h2{font-size:1.35rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap hd-in">
+    <a class="logo" href="#top" aria-label="پارس‌وب">
+      <span class="mark">&lt;/&gt;</span>
+      <span>پارس‌وب<small>استودیو طراحی و توسعه وب</small></span>
+    </a>
+    <nav class="main" aria-label="ناوبری اصلی">
+      <a href="#services">خدمات</a>
+      <a href="#work">نمونه‌کارها</a>
+      <a href="#pricing">تعرفه‌ها</a>
+      <a href="#voices">نظرات مشتریان</a>
+      <a href="#faq">سوالات متداول</a>
+    </nav>
+    <a class="btn btn-red" href="#order">سفارش پروژه</a>
+    <button class="burger" id="burger" aria-label="باز کردن منو" aria-expanded="false">☰</button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="منوی موبایل">
+    <a href="#services">خدمات</a>
+    <a href="#work">نمونه‌کارها</a>
+    <a href="#pricing">تعرفه‌ها</a>
+    <a href="#voices">نظرات مشتریان</a>
+    <a href="#faq">سوالات متداول</a>
+    <a href="#order">سفارش پروژه</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="spec">&lt;<b>section</b> class=<b>"hero"</b>&gt;</span>
+        <h1>وب‌سایتی که <span class="u">با دست</span> کدنویسی شده، نه با قالب آماده</h1>
+        <p class="lead">در پارس‌وب هر پروژه از یک فایل خالی شروع می‌شود: HTML معنایی، CSS مدرن و جاوااسکریپت وانیلا؛ بدون فریم‌ورک، بدون افزونه‌های سنگین، بدون کد اضافه. نتیجه؟ سایتی سبک، سریع و دقیقاً ساخته‌شده برای کسب‌وکار شما.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red" href="#order">شروع سفارش پروژه</a>
+          <a class="btn btn-ghost" href="#work">مشاهده نمونه‌کارها</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b><span class="count" data-to="120">۰</span><i>+</i></b><span>پروژه تحویل‌شده</span></div>
+          <div class="stat"><b><span class="count" data-to="96">۰</span></b><span>میانگین امتیاز سرعت</span></div>
+          <div class="stat"><b><span class="count" data-to="98">۰</span><i>٪</i></b><span>رضایت مشتریان</span></div>
+          <div class="stat"><b><span class="count" data-to="14">۰</span></b><span>روز میانگین تحویل</span></div>
+        </div>
+      </div>
+      <div class="codewin" aria-label="نمونه کد زنده همین صفحه">
+        <div class="bar">
+          <span class="dot" style="background:#ff5f57"></span>
+          <span class="dot" style="background:#febc2e"></span>
+          <span class="dot" style="background:#28c840"></span>
+          <span class="tab">index.html</span>
+          <span class="live"><i></i> کد زنده همین صفحه</span>
+        </div>
+        <pre><code><span class="tk-punc">&lt;!</span><span class="tk-tag">DOCTYPE</span> <span class="tk-attr">html</span><span class="tk-punc">&gt;</span>
+<span class="tk-punc">&lt;</span><span class="tk-tag">html</span> <span class="tk-attr">lang</span><span class="tk-punc">=</span><span class="tk-str">"fa"</span> <span class="tk-attr">dir</span><span class="tk-punc">=</span><span class="tk-str">"rtl"</span><span class="tk-punc">&gt;</span>
+  <span class="tk-punc">&lt;</span><span class="tk-tag">head</span><span class="tk-punc">&gt;</span>
+    <span class="tk-punc">&lt;</span><span class="tk-tag">meta</span> <span class="tk-attr">charset</span><span class="tk-punc">=</span><span class="tk-str">"UTF-8"</span><span class="tk-punc">&gt;</span>
+    <span class="tk-punc">&lt;</span><span class="tk-tag">title</span><span class="tk-punc">&gt;</span><span class="tk-txt">پارس‌وب</span><span class="tk-punc">&lt;/</span><span class="tk-tag">title</span><span class="tk-punc">&gt;</span>
+  <span class="tk-punc">&lt;/</span><span class="tk-tag">head</span><span class="tk-punc">&gt;</span>
+  <span class="tk-punc">&lt;</span><span class="tk-tag">body</span><span class="tk-punc">&gt;</span>
+    <span class="tk-punc">&lt;</span><span class="tk-tag">header</span><span class="tk-punc">&gt;</span> <span class="tk-cmt">&lt;!-- ناوبری --&gt;</span> <span class="tk-punc">&lt;/</span><span class="tk-tag">header</span><span class="tk-punc">&gt;</span>
+    <span class="tk-punc">&lt;</span><span class="tk-tag">main</span><span class="tk-punc">&gt;</span>
+      <span class="tk-punc">&lt;</span><span class="tk-tag">section</span> <span class="tk-attr">id</span><span class="tk-punc">=</span><span class="tk-str">"hero"</span><span class="tk-punc">&gt;</span>
+        <span class="tk-punc">&lt;</span><span class="tk-tag">h1</span><span class="tk-punc">&gt;</span><span class="tk-txt">سایت شما، دست‌ساز</span><span class="tk-punc">&lt;/</span><span class="tk-tag">h1</span><span class="tk-punc">&gt;</span>
+      <span class="tk-punc">&lt;/</span><span class="tk-tag">section</span><span class="tk-punc">&gt;</span>
+    <span class="tk-punc">&lt;/</span><span class="tk-tag">main</span><span class="tk-punc">&gt;</span>
+  <span class="tk-punc">&lt;/</span><span class="tk-tag">body</span><span class="tk-punc">&gt;</span>
+<span class="tk-punc">&lt;/</span><span class="tk-tag">html</span><span class="tk-punc">&gt;</span></code></pre>
+        <div class="foot">
+          <span class="chip">Framework: <b>None</b></span>
+          <span class="chip">Libraries: <b>0</b></span>
+          <span class="chip">Semantic HTML5: <b>100%</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="techstrip">
+        <div class="t-head"><span class="spec">&lt;<b>aside</b> class=<b>"tech-spec"</b>&gt;</span> مشخصات فنی همین صفحه‌ای که می‌بینید</div>
+        <div class="tech-grid">
+          <div class="tech-item"><span>ساختار</span><b>HTML5 کاملاً معنایی</b></div>
+          <div class="tech-item"><span>استایل</span><b>CSS مدرن — Grid و Flexbox</b></div>
+          <div class="tech-item"><span>منطق صفحه</span><b>JavaScript وانیلا</b></div>
+          <div class="tech-item"><span>فریم‌ورک و کتابخانه خارجی</span><b><em>صفر</em></b></div>
+          <div class="tech-item"><span>عناصر DOM این صفحه (زنده)</span><b id="domCount">…</b></div>
+          <div class="tech-item"><span>هدف امتیاز PageSpeed</span><b><em>۹۵+</em> از ۱۰۰</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>section</b> id=<b>"services"</b>&gt;</span>
+        <div class="row"><span class="sec-num">01</span><h2>خدمات ما</h2></div>
+        <p>هر خدمت با کدنویسی اختصاصی از صفر انجام می‌شود؛ نه قالب آماده‌ای در کار است و نه صفحه‌ساز. دقیقاً همان چیزی را می‌سازیم که کسب‌وکار شما لازم دارد.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <span class="tag">.service-corporate</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4M9 10h.01M15 10h.01M12 13h.01"/></svg></div>
+          <h3>طراحی سایت شرکتی</h3>
+          <p>وب‌سایت رسمی شرکت شما با ساختار معنایی، سرعت بالا و ظاهری که اعتماد مشتری را از همان ثانیه اول جلب می‌کند.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">.service-shop</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 12.2A2 2 0 0 0 9.4 18h7.9a2 2 0 0 0 2-1.6L21 8H6M9 22h.01M17 22h.01"/></svg></div>
+          <h3>فروشگاه اینترنتی</h3>
+          <p>فروشگاه سبک و سریع با سبد خرید، درگاه پرداخت و پنل مدیریت ساده؛ بدون سنگینی سیستم‌های آماده.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">.service-landing</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+          <h3>لندینگ پیج کمپین</h3>
+          <p>صفحه فرود تک‌منظوره برای تبلیغات؛ بارگذاری زیر یک ثانیه و تمرکز کامل روی یک دکمه: تبدیل بازدیدکننده به مشتری.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">.service-webapp</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6M13 4l-2 16"/></svg></div>
+          <h3>وب‌اپلیکیشن اختصاصی</h3>
+          <p>داشبورد، پنل کاربری و ابزارهای تحت وب با جاوااسکریپت وانیلا یا فریم‌ورک سبک؛ دقیقاً مطابق فرایند کاری شما.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">.service-speed</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg></div>
+          <h3>بهینه‌سازی سرعت و سئو</h3>
+          <p>بازطراحی فنی سایت فعلی: حذف کدهای اضافه، بهینه‌سازی Core Web Vitals و رساندن امتیاز سرعت به بالای ۹۵.</p>
+        </article>
+        <article class="svc">
+          <span class="tag">.service-support</span>
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg></div>
+          <h3>پشتیبانی و نگهداری</h3>
+          <p>به‌روزرسانی محتوا، بک‌آپ منظم، پایش آپتایم و رفع اشکال؛ سایت شما همیشه روشن، امن و به‌روز می‌ماند.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>section</b> id=<b>"portfolio"</b>&gt;</span>
+        <div class="row"><span class="sec-num">02</span><h2>نمونه‌کارها</h2></div>
+        <p>گزیده‌ای از پروژه‌های تحویل‌شده؛ همه با همان روش این صفحه ساخته شده‌اند: دست‌ساز، سبک و سریع. با دکمه‌های زیر می‌توانید بر اساس نوع پروژه پالایش کنید.</p>
+      </div>
+      <div class="filters" role="group" aria-label="پالایش نمونه‌کارها">
+        <button class="fbtn act" data-filter="all">همه پروژه‌ها</button>
+        <button class="fbtn" data-filter="corporate">شرکتی</button>
+        <button class="fbtn" data-filter="shop">فروشگاهی</button>
+        <button class="fbtn" data-filter="service">خدماتی</button>
+      </div>
+      <div class="pf-grid" id="pfGrid">
+        <article class="pf" data-cat="service">
+          <div class="ph"><img src="assets/img/hotel.jpg" alt="وب‌سایت هتل ساحلی آفتاب" loading="lazy"><span class="cat">خدماتی</span></div>
+          <div class="bd"><h3>هتل ساحلی آفتاب</h3><p>وب‌سایت رزرو آنلاین هتل با تقویم شمسی و پرداخت آنلاین؛ امتیاز سرعت موبایل ۹۷.</p>
+          <div class="meta"><span>HTML5</span><span>رزرو آنلاین</span><span>سرعت ۹۷</span></div></div>
+        </article>
+        <article class="pf" data-cat="shop">
+          <div class="ph"><img src="assets/img/sneakers.jpg" alt="فروشگاه اینترنتی اسپورت‌لند" loading="lazy"><span class="cat">فروشگاهی</span></div>
+          <div class="bd"><h3>فروشگاه اسپورت‌لند</h3><p>فروشگاه کفش ورزشی با فیلتر پیشرفته، سبد خرید سریع و تسویه یک‌مرحله‌ای.</p>
+          <div class="meta"><span>فروشگاه</span><span>سبد خرید</span><span>درگاه پرداخت</span></div></div>
+        </article>
+        <article class="pf" data-cat="corporate">
+          <div class="ph"><img src="assets/img/interior.jpg" alt="وب‌سایت شرکت معماری پارس" loading="lazy"><span class="cat">شرکتی</span></div>
+          <div class="bd"><h3>شرکت معماری پارس</h3><p>سایت شرکتی استودیو معماری با گالری پروژه‌ها و فرم برآورد هزینه آنلاین.</p>
+          <div class="meta"><span>شرکتی</span><span>گالری پروژه</span><span>دوزبانه</span></div></div>
+        </article>
+        <article class="pf" data-cat="service">
+          <div class="ph"><img src="assets/img/villa.jpg" alt="پلتفرم رزرو ویلا ویلاجار" loading="lazy"><span class="cat">خدماتی</span></div>
+          <div class="bd"><h3>اقامتگاه ویلاجار</h3><p>پلتفرم رزرو ویلا و اقامتگاه با جستجوی نقشه‌ای و تقویم دسترس‌پذیری لحظه‌ای.</p>
+          <div class="meta"><span>رزرو آنلاین</span><span>جستجوی نقشه‌ای</span><span>PWA</span></div></div>
+        </article>
+        <article class="pf" data-cat="shop">
+          <div class="ph"><img src="assets/img/watch.jpg" alt="فروشگاه ساعت و اکسسوری تایم‌پلاس" loading="lazy"><span class="cat">فروشگاهی</span></div>
+          <div class="bd"><h3>فروشگاه تایم‌پلاس</h3><p>فروشگاه ساعت و اکسسوری با مقایسه محصول و نمایش ۳۶۰ درجه؛ بارگذاری زیر ۱٫۲ ثانیه.</p>
+          <div class="meta"><span>فروشگاه</span><span>مقایسه محصول</span><span>سرعت ۹۸</span></div></div>
+        </article>
+        <article class="pf" data-cat="corporate">
+          <div class="ph"><img src="assets/img/beauty.jpg" alt="وب‌سایت کلینیک زیبایی رویا" loading="lazy"><span class="cat">شرکتی</span></div>
+          <div class="bd"><h3>کلینیک زیبایی رویا</h3><p>وب‌سایت کلینیک با نوبت‌دهی آنلاین، معرفی پزشکان و بخش پرسش‌های درمانی.</p>
+          <div class="meta"><span>شرکتی</span><span>نوبت‌دهی</span><span>سئو محلی</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>section</b> id=<b>"pricing"</b>&gt;</span>
+        <div class="row"><span class="sec-num">03</span><h2>تعرفه‌ها</h2></div>
+        <p>قیمت شفاف، بدون هزینه پنهان. پرداخت سالانه شامل ۲۰٪ تخفیف است؛ با کلید زیر می‌توانید حالت نمایش را عوض کنید و اختلاف را ببینید.</p>
+      </div>
+      <div class="bill-toggle" role="group" aria-label="حالت پرداخت">
+        <button id="btnMonthly" class="on" type="button">ماهانه</button>
+        <button id="btnYearly" type="button">سالانه <span class="save">۲۰٪ تخفیف</span></button>
+      </div>
+      <div class="price-grid">
+        <article class="plan">
+          <span class="tag">plan.basic</span>
+          <h3>پایه</h3>
+          <p class="pdesc">برای شروع حضور آنلاین کسب‌وکارهای کوچک</p>
+          <div class="amount"><b class="price" data-monthly="2900000">۲٬۹۰۰٬۰۰۰</b><span class="per">تومان / ماه</span></div>
+          <ul>
+            <li>تا ۵ صفحه اختصاصی</li>
+            <li>طراحی واکنش‌گرا (موبایل و دسکتاپ)</li>
+            <li>فرم تماس و نقشه</li>
+            <li>سئو پایه و اتصال سرچ کنسول</li>
+            <li>۱ ماه پشتیبانی رایگان</li>
+          </ul>
+          <a class="btn btn-ghost" href="#order">انتخاب پلن پایه</a>
+        </article>
+        <article class="plan hot">
+          <span class="badge">پیشنهاد ما</span>
+          <span class="tag">plan.pro</span>
+          <h3>حرفه‌ای</h3>
+          <p class="pdesc">برای شرکت‌ها و فروشگاه‌های در حال رشد</p>
+          <div class="amount"><b class="price" data-monthly="4900000">۴٬۹۰۰٬۰۰۰</b><span class="per">تومان / ماه</span></div>
+          <ul>
+            <li>تا ۱۵ صفحه + فروشگاه اینترنتی</li>
+            <li>سبد خرید و درگاه پرداخت</li>
+            <li>پنل مدیریت ساده و فارسی</li>
+            <li>بهینه‌سازی سرعت تا ۹۵+</li>
+            <li>۶ ماه پشتیبانی رایگان</li>
+          </ul>
+          <a class="btn btn-red" href="#order">انتخاب پلن حرفه‌ای</a>
+        </article>
+        <article class="plan">
+          <span class="tag">plan.enterprise</span>
+          <h3>سازمانی</h3>
+          <p class="pdesc">برای وب‌اپلیکیشن و پروژه‌های پیچیده</p>
+          <div class="amount"><b class="price" data-monthly="9900000">۹٬۹۰۰٬۰۰۰</b><span class="per">تومان / ماه</span></div>
+          <ul>
+            <li>صفحات و امکانات نامحدود</li>
+            <li>وب‌اپلیکیشن و API اختصاصی</li>
+            <li>داشبورد و پنل کاربری پیشرفته</li>
+            <li>مدیر پروژه اختصاصی</li>
+            <li>۱۲ ماه پشتیبانی ویژه</li>
+          </ul>
+          <a class="btn btn-ghost" href="#order">انتخاب پلن سازمانی</a>
+        </article>
+      </div>
+      <p class="price-note" id="priceNote">نمایش قیمت‌ها به‌صورت ماهانه است.</p>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="voices">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>section</b> id=<b>"testimonials"</b>&gt;</span>
+        <div class="row"><span class="sec-num">04</span><h2>مشتریان چه می‌گویند؟</h2></div>
+      </div>
+      <div class="car" id="carousel">
+        <div class="car-track" id="carTrack">
+          <figure class="slide">
+            <img class="ava" src="assets/img/avatar-1.jpg" alt="مریم احمدی">
+            <blockquote>سایت قبلی ما با یک قالب آماده ساخته شده بود و روی موبایل نزدیک ۸ ثانیه طول می‌کشید تا باز شود. پارس‌وب همه‌چیز را از صفر نوشت؛ حالا صفحه اصلی در کمتر از یک ثانیه لود می‌شود و فروش موبایلی ما دو برابر شده است.</blockquote>
+            <figcaption><b>مریم احمدی</b><span>مدیر فروشگاه اینترنتی اسپورت‌لند</span></figcaption>
+          </figure>
+          <figure class="slide">
+            <img class="ava" src="assets/img/avatar-2.jpg" alt="رضا کریمی">
+            <blockquote>چیزی که برای من مهم بود، مالکیت کامل کد بود. هیچ وابستگی به افزونه و لایسنس خارجی نداریم؛ هر تغییری بخواهیم، سریع و تمیز روی همان کد تمیز خودمان انجام می‌شود. این یعنی خیال راحت برای سال‌ها.</blockquote>
+            <figcaption><b>رضا کریمی</b><span>مدیرعامل شرکت معماری پارس</span></figcaption>
+          </figure>
+          <figure class="slide">
+            <img class="ava" src="assets/img/avatar-3.jpg" alt="سارا محمدی">
+            <blockquote>سیستم نوبت‌دهی آنلاین کلینیک را دقیقاً مطابق روند کاری خودمان ساختند؛ نه یک فرم عمومی. از روز اول، تماس‌های تلفنی برای رزرو نصف شد و بیماران خودشان آنلاین نوبت می‌گیرند.</blockquote>
+            <figcaption><b>سارا محمدی</b><span>بنیان‌گذار کلینیک زیبایی رویا</span></figcaption>
+          </figure>
+        </div>
+        <div class="car-nav">
+          <button class="car-btn" id="carPrev" type="button" aria-label="نظر قبلی">→</button>
+          <div class="dots" id="carDots"></div>
+          <button class="car-btn" id="carNext" type="button" aria-label="نظر بعدی">←</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>section</b> id=<b>"faq"</b>&gt;</span>
+        <div class="row"><span class="sec-num">05</span><h2>سوالات متداول</h2></div>
+      </div>
+      <div class="faq-list">
+        <div class="qa">
+          <button class="q" type="button" aria-expanded="false">چرا کدنویسی از صفر، وقتی قالب آماده ارزان‌تر است؟<span class="pm">+</span></button>
+          <div class="a"><p>قالب آماده یعنی هزاران خط کد اضافه، وابستگی به سازنده قالب و سرعت پایین. کدنویسی اختصاصی فقط کدهای لازم پروژه شما را دارد؛ به همین دلیل سبک‌تر، امن‌تر و در بلندمدت ارزان‌تر تمام می‌شود، چون هزینه نگهداری و رفع باگ آن کمتر است.</p></div>
+        </div>
+        <div class="qa">
+          <button class="q" type="button" aria-expanded="false">تحویل یک وب‌سایت معمولاً چقدر طول می‌کشد؟<span class="pm">+</span></button>
+          <div class="a"><p>سایت شرکتی استاندارد بین ۱۰ تا ۱۴ روز کاری، فروشگاه اینترنتی بین ۳ تا ۵ هفته و وب‌اپلیکیشن بسته به پیچیدگی پس از جلسه برآورد اعلام می‌شود. زمان‌بندی دقیق در قرارداد قید و مرحله‌به‌مرحله گزارش می‌شود.</p></div>
+        </div>
+        <div class="qa">
+          <button class="q" type="button" aria-expanded="false">آیا بعد از تحویل، خودمان می‌توانیم محتوا را ویرایش کنیم؟<span class="pm">+</span></button>
+          <div class="a"><p>بله. برای بخش‌های پرتغییر مثل محصولات، مقالات و نمونه‌کارها یک پنل مدیریت ساده و فارسی می‌سازیم و آموزش کامل آن را هم ارائه می‌دهیم. برای تغییرات ساختاری هم تیم پشتیبانی کنار شماست.</p></div>
+        </div>
+        <div class="qa">
+          <button class="q" type="button" aria-expanded="false">مالکیت کد و فایل‌های سایت با چه کسی است؟<span class="pm">+</span></button>
+          <div class="a"><p>صددرصد با شما. سورس کامل پروژه، فایل‌ها و مستندات هنگام تحویل نهایی به شما منتقل می‌شود و هیچ قفل، لایسنس یا وابستگی به پارس‌وب روی کد وجود ندارد.</p></div>
+        </div>
+        <div class="qa">
+          <button class="q" type="button" aria-expanded="false">هزینه نهایی چطور محاسبه می‌شود؟<span class="pm">+</span></button>
+          <div class="a"><p>پس از ثبت سفارش، نیازهای پروژه را بررسی می‌کنیم و پیش‌فاکتور شفاف با ریز اقلام می‌فرستیم. مبلغ قرارداد ثابت است و در طول پروژه هیچ هزینه پنهان یا اضافه‌ای تحمیل نمی‌شود.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ORDER FORM ================= -->
+  <section id="order">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="spec">&lt;<b>form</b> id=<b>"order-form"</b>&gt;</span>
+        <div class="row"><span class="sec-num">06</span><h2>سفارش پروژه</h2></div>
+        <p>فرم را پر کنید؛ حداکثر تا یک روز کاری بعد با پیش‌فاکتور و زمان‌بندی دقیق سراغ‌تان می‌آییم. پس از ثبت، یک کد پیگیری دریافت می‌کنید.</p>
+      </div>
+      <div class="form-card">
+        <form id="orderForm" novalidate>
+          <div class="fgrid">
+            <div class="field">
+              <label for="fName">نام و نام خانوادگی <i>*</i></label>
+              <input id="fName" type="text" placeholder="مثلاً علی رضایی" autocomplete="name">
+              <small class="err" data-err="fName"></small>
+            </div>
+            <div class="field">
+              <label for="fPhone">شماره موبایل <i>*</i></label>
+              <input id="fPhone" type="tel" inputmode="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel">
+              <small class="err" data-err="fPhone"></small>
+            </div>
+            <div class="field">
+              <label for="fType">نوع پروژه</label>
+              <select id="fType">
+                <option value="corporate">وب‌سایت شرکتی</option>
+                <option value="shop">فروشگاه اینترنتی</option>
+                <option value="landing">لندینگ پیج</option>
+                <option value="webapp">وب‌اپلیکیشن</option>
+                <option value="speed">بهینه‌سازی سرعت و سئو</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fBudget">بودجه تقریبی</label>
+              <select id="fBudget">
+                <option value="b1">۹ تا ۱۵ میلیون تومان</option>
+                <option value="b2" selected>۱۵ تا ۲۵ میلیون تومان</option>
+                <option value="b3">۲۵ تا ۵۰ میلیون تومان</option>
+                <option value="b4">بیش از ۵۰ میلیون تومان</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="fDesc">توضیحات پروژه <i>*</i></label>
+              <textarea id="fDesc" rows="4" placeholder="کسب‌وکارتان چیست و سایت باید چه امکاناتی داشته باشد؟"></textarea>
+              <small class="err" data-err="fDesc"></small>
+            </div>
+          </div>
+          <button class="btn btn-red submit" type="submit">ثبت سفارش و دریافت کد پیگیری</button>
+          <p class="last-code" id="lastCode" hidden></p>
+        </form>
+        <div class="success" id="successBox" hidden>
+          <div class="ok-ic">✓</div>
+          <h3>سفارش شما ثبت شد</h3>
+          <p>کد پیگیری پروژه شما:</p>
+          <div class="track" id="trackCode">PW-۰۰۰۰۰۰</div>
+          <p class="mut">این کد روی همین دستگاه ذخیره شد تا هر وقت برگشتید، سفارش‌تان را پیدا کنید. حداکثر تا یک روز کاری آینده با شما تماس می‌گیریم.</p>
+          <button class="btn btn-ghost" id="againBtn" type="button">ثبت سفارش جدید</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap f-in">
+    <a class="logo" href="#top"><span class="mark">&lt;/&gt;</span><span>پارس‌وب<small>استودیو طراحی و توسعه وب</small></span></a>
+    <nav class="f-nav">
+      <a href="#services">خدمات</a><a href="#work">نمونه‌کارها</a><a href="#pricing">تعرفه‌ها</a><a href="#faq">سوالات متداول</a><a href="#order">سفارش پروژه</a>
+    </nav>
+    <p class="f-note">این صفحه یک نمونه‌کار زنده است: تمام آن با <b>HTML معنایی، CSS مدرن و JavaScript وانیلا</b> و بدون هیچ فریم‌ورکی ساخته شده است — دقیقاً همان‌طور که سایت شما را خواهیم ساخت.</p>
+    <p class="f-copy">© ۱۴۰۴ پارس‌وب — تمامی حقوق محفوظ است.</p>
+  </div>
+</footer>
+
+
+
+<script>
+(function(){
+"use strict";
+var faDigits = "۰۱۲۳۴۵۶۷۸۹";
+function faNum(n){ return String(Math.round(n)).replace(/\d/g, function(d){ return faDigits[d]; }); }
+function toEn(s){ return String(s).replace(/[۰-۹]/g, function(d){ return faDigits.indexOf(d); }).replace(/[٠-٩]/g, function(d){ return "٠١٢٣٤٥٦٧٨٩".indexOf(d); }); }
+
+/* ---------- mobile nav ---------- */
+var burger = document.getElementById("burger"), mnav = document.getElementById("mnav");
+burger.addEventListener("click", function(){
+  var open = mnav.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open);
+});
+mnav.addEventListener("click", function(e){ if(e.target.tagName === "A"){ mnav.classList.remove("open"); burger.setAttribute("aria-expanded","false"); } });
+
+/* ---------- live DOM count ---------- */
+document.getElementById("domCount").textContent = faNum(document.getElementsByTagName("*").length) + " عنصر";
+
+/* ---------- count-up stats ---------- */
+function countUp(el){
+  var to = +el.dataset.to, t0 = null, dur = 1300;
+  function step(t){
+    if(!t0) t0 = t;
+    var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+    el.textContent = faNum(to * e);
+    if(p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+var cio = new IntersectionObserver(function(es){
+  es.forEach(function(en){ if(en.isIntersecting){ countUp(en.target); cio.unobserve(en.target); } });
+},{threshold:.5});
+document.querySelectorAll(".count").forEach(function(el){ cio.observe(el); });
+
+/* ---------- reveal on scroll ---------- */
+var rio = new IntersectionObserver(function(es){
+  es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); rio.unobserve(en.target); } });
+},{threshold:.08});
+document.querySelectorAll(".svc,.pf,.plan,.qa,.techstrip").forEach(function(el){ el.classList.add("rv"); rio.observe(el); });
+
+/* ---------- active nav ---------- */
+var navLinks = document.querySelectorAll("nav.main a");
+var nio = new IntersectionObserver(function(es){
+  es.forEach(function(en){
+    if(en.isIntersecting){
+      navLinks.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id); });
+    }
+  });
+},{rootMargin:"-40% 0px -55% 0px"});
+["services","work","pricing","voices","faq"].forEach(function(id){ var s = document.getElementById(id); if(s) nio.observe(s); });
+
+/* ---------- portfolio filter ---------- */
+var fbtns = document.querySelectorAll(".fbtn"), cards = document.querySelectorAll(".pf");
+fbtns.forEach(function(btn){
+  btn.addEventListener("click", function(){
+    fbtns.forEach(function(b){ b.classList.remove("act"); });
+    btn.classList.add("act");
+    var f = btn.dataset.filter;
+    cards.forEach(function(c){ c.classList.toggle("hide", f !== "all" && c.dataset.cat !== f); });
+  });
+});
+
+/* ---------- pricing toggle ---------- */
+var prices = document.querySelectorAll(".price"), pers = document.querySelectorAll(".plan .per"),
+    btnM = document.getElementById("btnMonthly"), btnY = document.getElementById("btnYearly"),
+    note = document.getElementById("priceNote"), mode = "monthly";
+function fmt(n){ return Number(n).toLocaleString("fa-IR"); }
+function animatePrice(el, from, to){
+  var t0 = null, dur = 450;
+  function step(t){
+    if(!t0) t0 = t;
+    var p = Math.min((t - t0) / dur, 1);
+    el.textContent = fmt(from + (to - from) * p);
+    if(p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function setMode(m){
+  if(m === mode) return;
+  mode = m;
+  btnM.classList.toggle("on", m === "monthly");
+  btnY.classList.toggle("on", m === "yearly");
+  prices.forEach(function(el){
+    var monthly = +el.dataset.monthly;
+    var cur = +toEn(el.textContent).replace(/[٬,]/g, "");
+    var target = m === "monthly" ? monthly : Math.round(monthly * 12 * 0.8);
+    animatePrice(el, cur || monthly, target);
+  });
+  pers.forEach(function(p){ p.textContent = m === "monthly" ? "تومان / ماه" : "تومان / سال"; });
+  note.textContent = m === "monthly"
+    ? "نمایش قیمت‌ها به‌صورت ماهانه است."
+    : "نمایش قیمت‌ها به‌صورت سالانه با ۲۰٪ تخفیف پرداخت یکجاست؛ یعنی دو ماه و نیم مهمان ما هستید.";
+}
+btnM.addEventListener("click", function(){ setMode("monthly"); });
+btnY.addEventListener("click", function(){ setMode("yearly"); });
+
+/* ---------- testimonials carousel ---------- */
+var track = document.getElementById("carTrack"), slides = track.children.length,
+    dotsWrap = document.getElementById("carDots"), idx = 0, timer = null;
+for(var i = 0; i < slides; i++){
+  var d = document.createElement("button");
+  d.type = "button"; d.setAttribute("aria-label", "نظر " + faNum(i + 1));
+  (function(n){ d.addEventListener("click", function(){ go(n); restart(); }); })(i);
+  dotsWrap.appendChild(d);
+}
+var dots = dotsWrap.children;
+function go(n){
+  idx = (n + slides) % slides;
+  track.style.transform = "translateX(" + (idx * 100) + "%)";
+  for(var j = 0; j < slides; j++) dots[j].classList.toggle("act", j === idx);
+}
+function restart(){ clearInterval(timer); timer = setInterval(function(){ go(idx + 1); }, 6000); }
+document.getElementById("carNext").addEventListener("click", function(){ go(idx + 1); restart(); });
+document.getElementById("carPrev").addEventListener("click", function(){ go(idx - 1); restart(); });
+document.getElementById("carousel").addEventListener("mouseenter", function(){ clearInterval(timer); });
+document.getElementById("carousel").addEventListener("mouseleave", restart);
+go(0); restart();
+
+/* ---------- FAQ accordion ---------- */
+document.querySelectorAll(".qa").forEach(function(qa){
+  var btn = qa.querySelector(".q"), panel = qa.querySelector(".a");
+  btn.addEventListener("click", function(){
+    var isOpen = qa.classList.contains("open");
+    document.querySelectorAll(".qa.open").forEach(function(o){
+      o.classList.remove("open"); o.querySelector(".a").style.maxHeight = null;
+      o.querySelector(".q").setAttribute("aria-expanded", "false");
+    });
+    if(!isOpen){
+      qa.classList.add("open"); panel.style.maxHeight = panel.scrollHeight + "px";
+      btn.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+/* ---------- order form ---------- */
+var form = document.getElementById("orderForm"), successBox = document.getElementById("successBox"),
+    lastCode = document.getElementById("lastCode"), KEY = "parsweb_requests";
+function getReqs(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } }
+function showLast(){
+  var r = getReqs();
+  if(r.length){ lastCode.hidden = false; lastCode.innerHTML = "آخرین سفارش ثبت‌شده روی این دستگاه با کد پیگیری <b>" + r[r.length - 1].code + "</b>"; }
+}
+showLast();
+function setErr(id, msg){
+  var inp = document.getElementById(id), field = inp.closest(".field");
+  field.classList.toggle("bad", !!msg);
+  field.querySelector(".err").textContent = msg || "";
+  return !msg;
+}
+["fName","fPhone","fDesc"].forEach(function(id){
+  document.getElementById(id).addEventListener("input", function(){ setErr(id, ""); });
+});
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  var name = document.getElementById("fName").value.trim(),
+      phone = toEn(document.getElementById("fPhone").value.trim()).replace(/[\s-]/g, ""),
+      desc = document.getElementById("fDesc").value.trim(), ok = true;
+  if(!setErr("fName", name.length >= 3 ? "" : "نام کامل را وارد کنید (حداقل ۳ حرف).")) ok = false;
+  if(!setErr("fPhone", /^09\d{9}$/.test(phone) ? "" : "شماره موبایل معتبر وارد کنید؛ ۱۱ رقم و شروع با ۰۹.")) ok = false;
+  if(!setErr("fDesc", desc.length >= 10 ? "" : "توضیحات پروژه را کامل‌تر بنویسید (حداقل ۱۰ حرف).")) ok = false;
+  if(!ok) return;
+  var code = "PW-" + Math.floor(100000 + Math.random() * 900000);
+  var reqs = getReqs();
+  reqs.push({ code: code, name: name, phone: phone,
+    type: document.getElementById("fType").value,
+    budget: document.getElementById("fBudget").value,
+    desc: desc, at: new Date().toISOString() });
+  localStorage.setItem(KEY, JSON.stringify(reqs));
+  document.getElementById("trackCode").textContent = code;
+  form.hidden = true; successBox.hidden = false;
+  successBox.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+document.getElementById("againBtn").addEventListener("click", function(){
+  form.reset(); successBox.hidden = true; form.hidden = false; showLast();
+});
+})();
+</script>
+</body>
+</html>
