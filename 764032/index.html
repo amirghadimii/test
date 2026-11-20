@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مانا | فروشگاه پوشاک زنانه، مردانه و بچگانه</title>
+<meta name="description" content="فروشگاه اینترنتی پوشاک مانا — خرید مانتو، پیراهن، کت، شلوار و اکسسوری با ضمانت اصالت و ارسال سریع به سراسر کشور.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23B4552A'/><text x='50' y='66' font-size='52' text-anchor='middle' fill='%23FAF6EF' font-family='sans-serif' font-weight='bold'>م</text></svg>">
+</head>
+<body>
+
+<!-- announcement -->
+<div class="announce">
+  <div class="wrap">
+    <div class="msg">جشنواره پاییزه مانا — تا <b>۴۰٪ تخفیف</b> + ارسال رایگان سفارش‌های بالای ۱ میلیون تومان</div>
+    <div class="cd" title="زمان باقی‌مانده تا پایان جشنواره">
+      <span id="cdH">۰۰</span><i>:</i><span id="cdM">۰۰</span><i>:</i><span id="cdS">۰۰</span>
+    </div>
+  </div>
+</div>
+
+<!-- header -->
+<header class="site">
+  <div class="wrap">
+    <div class="hd-main">
+      <button class="burger" id="burgerBtn" aria-label="منو">☰</button>
+      <a class="logo" href="#" data-nav="home">
+        <span class="fa">مانا<span class="dot">.</span></span>
+        <span class="en">MANA</span>
+      </a>
+      <form class="search" id="searchForm">
+        <input type="text" id="searchInput" placeholder="جستجو در مانا؛ مثلاً مانتو، کت چرم، کتانی…">
+        <button type="submit">جستجو</button>
+      </form>
+      <div class="hd-icons">
+        <button class="hd-account" id="accountBtn"><span>👤</span><span>ورود | ثبت‌نام</span></button>
+        <button class="icon-btn" id="wishBtn" aria-label="علاقه‌مندی‌ها">♡<span class="bdg hidden" id="wishCount">۰</span></button>
+        <button class="icon-btn" id="cartBtn" aria-label="سبد خرید">🛍<span class="bdg hidden" id="cartCount">۰</span></button>
+      </div>
+    </div>
+  </div>
+  <nav class="cats">
+    <div class="wrap">
+      <a href="#" data-nav="shop" data-cat="women">زنانه</a>
+      <a href="#" data-nav="shop" data-cat="men">مردانه</a>
+      <a href="#" data-nav="shop" data-cat="kids">بچگانه</a>
+      <a href="#" data-nav="shop" data-cat="acc">کیف و اکسسوری</a>
+      <a href="#" data-nav="shop" data-cat="all">همه محصولات</a>
+      <a href="#" class="sale" data-nav="shop" data-sale="1">حراج پاییزه ٪</a>
+    </div>
+  </nav>
+</header>
+
+<!-- mobile menu -->
+<aside class="mmenu" id="mmenu">
+  <button class="x" id="mmenuClose">✕</button>
+  <a href="#" data-nav="home">خانه</a>
+  <a href="#" data-nav="shop" data-cat="women">زنانه</a>
+  <a href="#" data-nav="shop" data-cat="men">مردانه</a>
+  <a href="#" data-nav="shop" data-cat="kids">بچگانه</a>
+  <a href="#" data-nav="shop" data-cat="acc">کیف و اکسسوری</a>
+  <a href="#" data-nav="shop" data-sale="1">حراج پاییزه</a>
+  <a href="#" id="mmCart">سبد خرید</a>
+</aside>
+
+<main>
+<!-- ================= HOME ================= -->
+<div id="view-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">✦ کالکشن پاییز ۱۴۰۵ رسید</span>
+        <h1>استایل پاییزی تو،<br>از <em>مانا</em> شروع می‌شود</h1>
+        <p>بیش از ۴۰۰ مدل مانتو، کت، پیراهن و اکسسوری از برندهای منتخب — با ضمانت اصالت کالا، موجودی لحظه‌ای و ارسال سریع به سراسر کشور.</p>
+        <div class="hero-cta">
+          <button class="btn btn-dark" data-nav="shop" data-cat="all">مشاهده فروشگاه ←</button>
+          <button class="btn btn-ghost" data-nav="shop" data-sale="1">حراج تا ۴۰٪</button>
+        </div>
+        <div class="hero-stats">
+          <div><b>+۴۰۰</b><span>مدل فعال</span></div>
+          <div><b>+۱۲٬۰۰۰</b><span>مشتری راضی</span></div>
+          <div><b>★ ۴.۸</b><span>رضایت خریداران</span></div>
+        </div>
+      </div>
+      <div class="hero-img">
+        <div class="arch"><img src="assets/img/hero.jpg" alt="کالکشن پاییزه مانا"></div>
+        <div class="chip c1">🚚 ارسال رایگان<small>سفارش‌های بالای ۱ میلیون تومان</small></div>
+        <div class="chip c2">٪ تا ۴۰٪ تخفیف<small>جشنواره پاییزه</small></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="trust">
+      <div><span class="ic">🛡</span><div><b>ضمانت اصالت کالا</b><span>همه محصولات اورجینال با ضمانت بازگشت وجه</span></div></div>
+      <div><span class="ic">🚀</span><div><b>ارسال سریع سراسری</b><span>تهران همان روز، شهرستان ۲ تا ۴ روز کاری</span></div></div>
+      <div><span class="ic">↩</span><div><b>۷ روز ضمانت بازگشت</b><span>تعویض سایز و بازگشت بدون قید و شرط</span></div></div>
+    </div>
+  </div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="sec-head"><div><h2>دسته‌بندی‌ها</h2><p>سریع‌تر به استایل خودت برس</p></div></div>
+      <div class="cats-row" id="catsRow"></div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="sec-head"><div><h2>کالکشن‌های مانا</h2><p>برای هر سلیقه و هر فصل</p></div></div>
+      <div class="cols3">
+        <div class="col-card" data-nav="shop" data-cat="women"><img src="assets/img/tile-women.jpg" alt="کالکشن زنانه"><div class="ov"><b>کالکشن زنانه</b><span>مانتو، پیراهن، دامن و…</span><div class="go">مشاهده همه ←</div></div></div>
+        <div class="col-card" data-nav="shop" data-cat="men"><img src="assets/img/tile-men.jpg" alt="کالکشن مردانه"><div class="ov"><b>کالکشن مردانه</b><span>کت، پیراهن، جین و…</span><div class="go">مشاهده همه ←</div></div></div>
+        <div class="col-card" data-nav="shop" data-cat="kids"><img src="assets/img/tile-kids.jpg" alt="کالکشن بچگانه"><div class="ov"><b>کالکشن بچگانه</b><span>ست‌های راحت و رنگی</span><div class="go">مشاهده همه ←</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="flash">
+        <div class="flash-head">
+          <div><h2><span class="bolt">⚡</span> پیشنهاد شگفت‌انگیز</h2><p>تخفیف‌های امروز؛ موجودی محدود است و زود تمام می‌شود</p></div>
+          <div class="flash-cd">
+            <div class="box"><b id="fH">۰۰</b><small>ساعت</small></div><i>:</i>
+            <div class="box"><b id="fM">۰۰</b><small>دقیقه</small></div><i>:</i>
+            <div class="box"><b id="fS">۰۰</b><small>ثانیه</small></div>
+          </div>
+        </div>
+        <div class="flash-rail" id="flashRail"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="sec-head"><div><h2>منتخب هفته</h2><p>پرفروش‌ترین مدل این روزهای مانا</p></div></div>
+      <div class="spot" id="spotlight"></div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2>جدیدترین‌ها</h2><p>تازه به مانا رسیده‌اند</p></div>
+        <a class="more" href="#" data-nav="shop" data-cat="all">مشاهده همه محصولات ←</a>
+      </div>
+      <div class="grid4" id="newGrid"></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="banner">
+      <div class="tx">
+        <h3>باشگاه مشتریان مانا؛ هر خرید، یک قدم به تخفیف بعدی</h3>
+        <p>با هر خرید امتیاز بگیر و در سفارش بعدی استفاده کن. اعضای باشگاه از حراج‌های خصوصی و ارسال رایگان دائمی هم بهره‌مند می‌شوند.</p>
+        <button class="btn btn-accent" id="clubBtn">عضویت رایگان در باشگاه</button>
+      </div>
+      <div class="im"><img src="assets/img/banner.jpg" alt="باشگاه مشتریان مانا"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SHOP ================= -->
+<div id="view-shop" class="hidden">
+  <div class="wrap">
+    <div class="shop-head">
+      <h2 id="shopTitle">فروشگاه مانا</h2>
+      <p id="shopSub">همه محصولات با موجودی لحظه‌ای انبار</p>
+    </div>
+    <div class="tabs" id="catTabs">
+      <button class="tab on" data-tab="all">همه</button>
+      <button class="tab" data-tab="women">زنانه</button>
+      <button class="tab" data-tab="men">مردانه</button>
+      <button class="tab" data-tab="kids">بچگانه</button>
+      <button class="tab" data-tab="acc">کیف و اکسسوری</button>
+    </div>
+    <div class="shop-layout">
+      <aside class="filters">
+        <h4>دسته‌بندی</h4>
+        <div id="subFilters"></div>
+        <h4>سایز</h4>
+        <div class="f-sizes" id="sizeFilters"></div>
+        <h4>حداکثر قیمت</h4>
+        <input type="range" id="priceRange" min="500000" max="6000000" step="100000" value="6000000">
+        <div class="range-val">تا <span id="priceVal">۶٬۰۰۰٬۰۰۰</span> تومان</div>
+        <h4>موجودی</h4>
+        <label class="switch">فقط کالاهای موجود<input type="checkbox" id="onlyStock"><span class="tr"></span></label>
+        <label class="switch">فقط تخفیف‌دارها<input type="checkbox" id="onlySale"><span class="tr"></span></label>
+      </aside>
+      <div>
+        <div class="shop-toolbar">
+          <span class="count" id="shopCount"></span>
+          <select id="sortSel">
+            <option value="pop">مرتب‌سازی: محبوب‌ترین</option>
+            <option value="new">جدیدترین</option>
+            <option value="cheap">ارزان‌ترین</option>
+            <option value="exp">گران‌ترین</option>
+            <option value="off">بیشترین تخفیف</option>
+          </select>
+        </div>
+        <div class="grid3" id="shopGrid"></div>
+        <div class="empty-box hidden" id="shopEmpty">
+          <div class="big">🧺</div>
+          محصولی با این فیلترها پیدا نشد.<br>
+          <button class="btn btn-dark" id="clearFilters" style="margin-top:14px">حذف همه فیلترها</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PRODUCT ================= -->
+<div id="view-product" class="hidden">
+  <div class="wrap">
+    <div class="crumb"><a href="#" data-nav="home">خانه</a> / <a href="#" data-nav="shop" data-cat="all">فروشگاه</a> / <span id="pdCrumb"></span></div>
+    <div class="pd" id="pdBox"></div>
+    <section class="blk">
+      <div class="sec-head"><div><h2>شاید هم بپسندی</h2></div></div>
+      <div class="grid4" id="relatedGrid"></div>
+    </section>
+  </div>
+</div>
+
+<!-- ================= CHECKOUT ================= -->
+<div id="view-checkout" class="hidden">
+  <div class="wrap">
+    <div class="shop-head"><h2>تسویه حساب</h2><p>اطلاعات گیرنده و روش ارسال را کامل کن</p></div>
+    <div class="co-layout">
+      <div>
+        <div class="co-card">
+          <h3>👤 اطلاعات گیرنده</h3>
+          <div class="f-row">
+            <div class="f-group"><label>نام و نام خانوادگی *</label><input id="fName" placeholder="مثلاً سارا محمدی"><div class="err">نام گیرنده را کامل وارد کن</div></div>
+            <div class="f-group"><label>شماره موبایل *</label><input id="fMobile" inputmode="numeric" placeholder="۰۹۱۲۳۴۵۶۷۸۹"><div class="err">شماره موبایل معتبر (۰۹…) وارد کن</div></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label>استان *</label>
+              <select id="fProv"><option value="">انتخاب استان…</option><option>تهران</option><option>البرز</option><option>اصفهان</option><option>فارس</option><option>خراسان رضوی</option><option>آذربایجان شرقی</option><option>مازندران</option><option>خوزستان</option><option>سایر استان‌ها</option></select>
+              <div class="err">استان را انتخاب کن</div></div>
+            <div class="f-group"><label>شهر *</label><input id="fCity" placeholder="مثلاً تهران"><div class="err">شهر را وارد کن</div></div>
+          </div>
+          <div class="f-group"><label>آدرس کامل *</label><textarea id="fAddr" rows="2" placeholder="خیابان، کوچه، پلاک، واحد…"></textarea><div class="err">آدرس کامل (حداقل ۱۵ حرف) را وارد کن</div></div>
+          <div class="f-row">
+            <div class="f-group"><label>کد پستی ۱۰ رقمی *</label><input id="fZip" inputmode="numeric" placeholder="1234567890"><div class="err">کد پستی باید ۱۰ رقم باشد</div></div>
+            <div class="f-group"><label>توضیحات سفارش (اختیاری)</label><input id="fNote" placeholder="مثلاً تماس قبل از ارسال"></div>
+          </div>
+        </div>
+        <div class="co-card" style="margin-top:20px">
+          <h3>🚚 روش ارسال</h3>
+          <label class="ship-opt"><input type="radio" name="ship" value="post" checked><div><b>پست پیشتاز</b><p>۲ تا ۴ روز کاری — برای سفارش‌های بالای ۱ میلیون تومان رایگان</p></div><span class="fee" id="feePost">۴۹٬۰۰۰ تومان</span></label>
+          <label class="ship-opt"><input type="radio" name="ship" value="tipax"><div><b>تیپاکس (پس‌کرایه سریع)</b><p>۱ تا ۲ روز کاری — تحویل درب منزل</p></div><span class="fee">۸۹٬۰۰۰ تومان</span></label>
+          <label class="ship-opt"><input type="radio" name="ship" value="pickup"><div><b>تحویل حضوری از فروشگاه</b><p>تهران، خیابان ولیعصر، مرکز خرید مانا — آماده‌سازی ۱ روزه</p></div><span class="fee">رایگان</span></label>
+        </div>
+      </div>
+      <div class="co-card">
+        <h3>🧾 خلاصه سفارش</h3>
+        <div id="sumItems"></div>
+        <div class="sum-row"><span>جمع اقلام</span><span id="sumSub">۰ تومان</span></div>
+        <div class="sum-row"><span>تخفیف</span><span id="sumOff" style="color:var(--red)">۰ تومان</span></div>
+        <div class="sum-row"><span>هزینه ارسال</span><span id="sumShip">—</span></div>
+        <div class="sum-row grand"><span>مبلغ قابل پرداخت</span><span id="sumGrand">۰ تومان</span></div>
+        <button class="btn btn-accent" id="payBtn" style="width:100%;justify-content:center;margin-top:16px">پرداخت و ثبت سفارش ←</button>
+        <p style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:10px">پرداخت امن از طریق درگاه بانکی — نماد اعتماد الکترونیکی و درگاه مستقیم</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SUCCESS ================= -->
+<div id="view-success" class="hidden">
+  <div class="wrap">
+    <div class="success-box">
+      <div class="tick">✓</div>
+      <h2>سفارشت با موفقیت ثبت شد 🎉</h2>
+      <div class="code">کد سفارش: <b id="ordCode">—</b><br><span style="font-size:13px;color:var(--ink2)" id="ordDate"></span></div>
+      <p id="ordMsg"></p>
+      <p style="margin-top:8px">رسید پرداخت و جزئیات ارسال به شماره موبایلت پیامک شد. وضعیت سفارش را می‌توانی از بخش «سفارش‌های من» پیگیری کنی.</p>
+      <button class="btn btn-dark" data-nav="shop" data-cat="all" style="margin-top:20px">ادامه خرید ←</button>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- footer -->
+<footer class="site">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <a class="logo" href="#" data-nav="home"><span class="fa" style="color:#FFF8EC">مانا<span class="dot">.</span></span><span class="en">MANA</span></a>
+        <p class="about" style="margin-top:12px">فروشگاه اینترنتی پوشاک مانا از سال ۱۳۹۸ با هدف ارائه پوشاک باکیفیت و اصیل برای خانواده ایرانی شروع به کار کرد؛ موجودی لحظه‌ای، قیمت شفاف و پشتیبانی واقعی، سه تعهد همیشگی ماست.</p>
+        <div class="trust-badges"><span>نماد اعتماد الکترونیکی</span><span>درگاه پرداخت امن</span></div>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#" data-nav="shop" data-cat="women">پوشاک زنانه</a></li>
+          <li><a href="#" data-nav="shop" data-cat="men">پوشاک مردانه</a></li>
+          <li><a href="#" data-nav="shop" data-cat="kids">پوشاک بچگانه</a></li>
+          <li><a href="#" data-nav="shop" data-sale="1">حراج پاییزه</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>خدمات مشتریان</h4>
+        <ul>
+          <li><a href="#" class="foot-link">پیگیری سفارش</a></li>
+          <li><a href="#" class="foot-link">شرایط بازگشت و تعویض</a></li>
+          <li><a href="#" class="foot-link">راهنمای انتخاب سایز</a></li>
+          <li><a href="#" class="foot-link">پرسش‌های متداول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>از تخفیف‌ها جا نمانی!</h4>
+        <p style="font-size:13px">عضو خبرنامه مانا شو؛ اولین نفر از حراج‌ها و کالکشن‌های جدید باخبر می‌شوی.</p>
+        <form class="news" id="newsForm"><input type="text" id="newsInput" placeholder="شماره موبایل یا ایمیل"><button type="submit">عضویت</button></form>
+        <ul style="margin-top:16px">
+          <li>📍 تهران، خیابان ولیعصر، مرکز خرید مانا، طبقه دوم</li>
+          <li>☎ ۰۲۱-۹۱۰۰۸۸۰۰ (۹ صبح تا ۹ شب)</li>
+          <li>✉ support@mana-shop.ir</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© ۱۴۰۵ فروشگاه پوشاک مانا — همه حقوق محفوظ است.</span>
+      <span>نسخه نمایشی فروشگاه (دمو) — طراحی‌شده برای ارائه پیشنهاد پروژه</span>
+    </div>
+  </div>
+</footer>
+
+<!-- cart drawer -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer">
+  <header><b>🛍 سبد خرید تو</b><button id="cartClose" style="font-size:19px">✕</button></header>
+  <div class="items" id="cartItems"></div>
+  <footer id="cartFooter">
+    <div class="free-note" id="freeNote"></div>
+    <div class="tot"><span>جمع اقلام</span><span id="ctSub">۰ تومان</span></div>
+    <div class="tot"><span>تخفیف</span><span id="ctOff" style="color:var(--red)">۰ تومان</span></div>
+    <div class="tot grand"><span>مبلغ قابل پرداخت</span><span id="ctGrand">۰ تومان</span></div>
+    <button class="btn btn-accent" id="goCheckout">ادامه و تسویه حساب ←</button>
+  </footer>
+</aside>
+
+<!-- gateway modal -->
+<div class="modal" id="gwModal">
+  <div class="gw">
+    <header><div><b>درگاه پرداخت اینترنتی</b><br><span>پرداخت امن بانکی — نسخه نمایشی</span></div><span>🔒 SSL</span></header>
+    <div class="body">
+      <div class="amt">مبلغ قابل پرداخت<br><b id="gwAmt">۰ تومان</b></div>
+      <label>شماره کارت</label>
+      <input id="gwCard" inputmode="numeric" placeholder="6037 9971 0000 0000" maxlength="19">
+      <div class="row2">
+        <div><label>CVV2</label><input id="gwCvv" inputmode="numeric" placeholder="•••" maxlength="4"></div>
+        <div><label>تاریخ انقضا</label><input id="gwExp" inputmode="numeric" placeholder="05 / 09" maxlength="7"></div>
+      </div>
+      <label>رمز پویا (یکبارمصرف)</label>
+      <input id="gwOtp" inputmode="numeric" placeholder="رمز پیامک‌شده" maxlength="6">
+      <button class="pay" id="gwPay">پرداخت</button>
+      <button class="cancel" id="gwCancel">انصراف از پرداخت</button>
+      <div class="demo-tag">این درگاه نمایشی است و هیچ مبلغی کسر نمی‌شود.</div>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<script src="assets/app.js"></script>
+</body>
+</html>
