@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تبلیغ‌چی — مینی‌اپلیکیشن تلگرامی پلتفرم تبلیغات | نمونه‌کار تعاملی</title>
+<meta name="description" content="دموی تعاملی مینی‌اپلیکیشن تلگرام برای خرید و فروش تبلیغات در کانال‌های تلگرامی؛ بازار کانال‌ها، ثبت سفارش، کیف پول و پنل فروشنده — همه داخل خود تلگرام.">
+<style>
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Medium.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-ExtraBold.ttf') format('truetype');font-weight:800;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('assets/fonts/Vazirmatn-Black.ttf') format('truetype');font-weight:900;font-display:swap}
+:root{
+  --bg:#0A121E; --bg2:#0E1621; --panel:#17212B; --panel2:#1C2938; --field:#242F3D;
+  --line:#1F2C3D; --line2:#2B3948;
+  --blue:#2AABEE; --blue2:#2481CC; --blue-soft:rgba(42,171,238,.12);
+  --text:#FFFFFF; --sub:#7F91A4; --sub2:#5C6E80;
+  --green:#2FB457; --orange:#F5A623; --red:#E5534B; --purple:#8774E1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:
+  radial-gradient(700px 420px at 85% -5%,rgba(42,171,238,.16),transparent 60%),
+  radial-gradient(600px 400px at 8% 30%,rgba(135,116,225,.10),transparent 60%),
+  radial-gradient(800px 500px at 50% 110%,rgba(36,129,204,.10),transparent 60%);
+  pointer-events:none;z-index:0}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+input,textarea,select{font-family:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+.en{direction:ltr;unicode-bidi:isolate}
+
+/* ---------- Landing nav ---------- */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px}
+.brand .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(42,171,238,.35)}
+.brand .logo svg{width:22px;height:22px}
+.nav-links{display:flex;gap:26px;color:var(--sub);font-size:14.5px}
+.nav-links a:hover{color:#fff}
+.nav-badge{font-size:12px;color:var(--blue);background:var(--blue-soft);border:1px solid rgba(42,171,238,.35);padding:6px 13px;border-radius:99px;font-weight:600}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;padding:38px 0 74px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--blue);background:var(--blue-soft);border:1px solid rgba(42,171,238,.3);padding:7px 14px;border-radius:99px;margin-bottom:20px}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(47,180,87,.18);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.35)}}
+.hero h1{font-size:42px;font-weight:900;line-height:1.35;margin-bottom:16px}
+.hero h1 .hl{color:var(--blue)}
+.hero p.lead{color:var(--sub);font-size:16.5px;max-width:520px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:13px;font-size:15px;font-weight:700;border:1px solid transparent;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:0 10px 26px rgba(36,129,204,.35)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border-color:var(--line2)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.hero-stats .st b{display:block;font-size:23px;font-weight:800}
+.hero-stats .st span{font-size:13px;color:var(--sub)}
+.hero-note{margin-top:22px;font-size:13px;color:var(--sub2);display:flex;align-items:center;gap:7px}
+@media(max-width:940px){.hero{grid-template-columns:1fr;padding-top:16px}.hero h1{font-size:33px}.phone-side{order:-1}}
+
+/* ---------- Phone ---------- */
+.phone-side{display:flex;justify-content:center}
+.phone{width:min(388px,94vw);background:#000;border-radius:50px;padding:11px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 1px #263242,0 0 90px rgba(42,171,238,.13);position:relative}
+.phone::after{content:'';position:absolute;top:24px;left:50%;transform:translateX(-50%);width:110px;height:22px;background:#000;border-radius:12px;z-index:30}
+.screen-wrap{background:var(--bg2);border-radius:40px;overflow:hidden;display:flex;flex-direction:column;height:742px;position:relative}
+@media(max-width:480px){.screen-wrap{height:690px}}
+.statusbar{height:34px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 3px;font-size:12.5px;font-weight:600;color:#fff;flex:none}
+.statusbar .sic{display:flex;gap:5px;align-items:center}
+.tg-header{background:var(--panel);display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid rgba(0,0,0,.35);flex:none;z-index:5}
+.tg-header .back{color:var(--sub);display:flex;padding:4px}
+.tg-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));display:flex;align-items:center;justify-content:center;flex:none}
+.tg-avatar svg{width:23px;height:23px}
+.tg-name{font-size:15px;font-weight:700;line-height:1.3}
+.tg-sub{font-size:12.5px;color:var(--sub);line-height:1.3}
+.tg-header .sp{flex:1}
+.tg-header .hic{color:var(--sub);display:flex;padding:5px}
+
+.app{flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.app-scroll{flex:1;overflow-y:auto;scrollbar-width:none;padding:14px 14px 18px}
+.app-scroll::-webkit-scrollbar{width:0;height:0}
+.screen{display:none;flex-direction:column;gap:12px;animation:fadein .25s ease}
+.screen.active{display:flex}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* search + chips */
+.search-box{display:flex;align-items:center;gap:8px;background:var(--field);border-radius:11px;padding:0 12px;height:42px}
+.search-box svg{color:var(--sub);flex:none}
+.search-box input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:14px}
+.search-box input::placeholder{color:var(--sub2)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:7px 15px;border-radius:99px;background:var(--panel);border:1px solid var(--line2);color:var(--sub);font-size:13px;font-weight:600;transition:.15s}
+.chip.on{background:var(--blue2);border-color:var(--blue2);color:#fff}
+
+/* channel cards */
+.ch-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px}
+.ch-top{display:flex;gap:11px;align-items:center}
+.ch-av{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;color:#fff}
+.ch-name{font-size:15px;font-weight:700;line-height:1.35}
+.ch-user{font-size:12px;color:var(--blue);direction:ltr;text-align:right}
+.ch-cat{margin-inline-start:auto;flex:none;font-size:11px;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:4px 10px;border-radius:99px}
+.ch-stats{display:flex;gap:8px;margin-top:12px}
+.ch-stat{flex:1;background:var(--panel2);border-radius:10px;padding:7px 4px;text-align:center}
+.ch-stat b{display:block;font-size:13px;font-weight:700}
+.ch-stat span{font-size:10.5px;color:var(--sub)}
+.ch-foot{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.ch-price{font-size:16px;font-weight:800}
+.ch-price small{font-size:11px;color:var(--sub);font-weight:500}
+.order-btn{background:var(--blue2);color:#fff;border:none;padding:9px 18px;border-radius:10px;font-size:13.5px;font-weight:700;transition:.15s}
+.order-btn:hover{background:var(--blue)}
+.empty-box{text-align:center;color:var(--sub2);font-size:13.5px;padding:34px 10px;background:var(--panel);border:1px dashed var(--line2);border-radius:14px}
+
+/* forms */
+.f-head{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:800}
+.f-head .bk{background:var(--panel);border:1px solid var(--line2);color:#fff;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.f-label{font-size:12.5px;color:var(--sub);font-weight:600;margin-bottom:6px;display:block}
+.f-input,.f-textarea,.f-select{width:100%;background:var(--field);border:1px solid var(--line2);border-radius:11px;color:#fff;font-size:14px;padding:11px 12px;outline:none;transition:.15s}
+.f-input:focus,.f-textarea:focus,.f-select:focus{border-color:var(--blue)}
+.f-textarea{resize:vertical;min-height:74px}
+.f-input.ltr{direction:ltr;text-align:left}
+.f-select option{background:var(--panel2)}
+.type-grid{display:flex;flex-direction:column;gap:9px}
+.type-card{display:flex;gap:11px;background:var(--panel);border:1.5px solid var(--line2);border-radius:13px;padding:12px;cursor:pointer;transition:.15s;align-items:flex-start}
+.type-card.on{border-color:var(--blue);background:rgba(42,171,238,.07)}
+.type-card .radio{width:19px;height:19px;border-radius:50%;border:2px solid var(--sub2);flex:none;margin-top:3px;position:relative}
+.type-card.on .radio{border-color:var(--blue)}
+.type-card.on .radio::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--blue)}
+.type-card b{font-size:14px;display:block}
+.type-card span{font-size:12px;color:var(--sub);display:block;line-height:1.6}
+.type-card .mult{margin-inline-start:auto;flex:none;font-size:12px;font-weight:800;color:var(--blue);background:var(--blue-soft);padding:3px 9px;border-radius:8px}
+.price-box{background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:13px 14px}
+.price-box .pr{display:flex;justify-content:space-between;font-size:13.5px;color:var(--sub);padding:3px 0}
+.price-box .pr.total{border-top:1px dashed var(--line2);margin-top:8px;padding-top:10px;color:#fff;font-size:15.5px;font-weight:800}
+.price-box .pr.total b{color:var(--blue)}
+.f-error{display:none;background:rgba(229,83,75,.12);border:1px solid rgba(229,83,75,.45);color:#FF9D97;font-size:13px;border-radius:11px;padding:10px 12px}
+.f-error.show{display:block}
+.mini-note{font-size:11.5px;color:var(--sub2);text-align:center}
+
+/* orders */
+.ord-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px}
+.ord-top{display:flex;align-items:center;gap:10px}
+.ord-top .ch-av{width:40px;height:40px;font-size:16px}
+.ord-amt{margin-inline-start:auto;font-weight:800;font-size:14.5px;flex:none}
+.ord-meta{font-size:12px;color:var(--sub);margin-top:5px}
+.ord-text{font-size:12.5px;color:#C7D3DF;background:var(--panel2);border-radius:10px;padding:9px 11px;margin-top:10px;line-height:1.7}
+.stepper{display:flex;align-items:flex-start;margin-top:14px}
+.step{flex:1;text-align:center;position:relative}
+.step .sd{width:24px;height:24px;border-radius:50%;background:var(--field);border:2px solid var(--line2);margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--sub);position:relative;z-index:2}
+.step::before{content:'';position:absolute;top:12px;right:50%;width:100%;height:2px;background:var(--line2);z-index:1}
+.step:first-child::before{display:none}
+.step.done .sd{background:var(--green);border-color:var(--green);color:#fff}
+.step.done::before{background:var(--green)}
+.step.now .sd{border-color:var(--orange);color:var(--orange)}
+.step .sl{font-size:10.5px;color:var(--sub);margin-top:6px;line-height:1.5}
+.step.done .sl{color:var(--green)}
+.step.now .sl{color:var(--orange)}
+.sim-btn{width:100%;margin-top:13px;background:transparent;border:1.5px dashed rgba(245,166,35,.55);color:var(--orange);padding:9px;border-radius:11px;font-size:13px;font-weight:700;transition:.15s}
+.sim-btn:hover{background:rgba(245,166,35,.08)}
+.pub-link{margin-top:11px;font-size:12px;color:var(--blue);background:var(--blue-soft);border-radius:9px;padding:8px 11px;direction:ltr;text-align:left;display:flex;gap:7px;align-items:center}
+
+/* wallet */
+.wallet-card{background:linear-gradient(135deg,#2AABEE,#1D6FB8);border-radius:18px;padding:19px;position:relative;overflow:hidden}
+.wallet-card::after{content:'';position:absolute;width:210px;height:210px;border-radius:50%;background:rgba(255,255,255,.13);top:-110px;left:-60px}
+.wallet-card .wl{font-size:12.5px;opacity:.85}
+.wallet-card .wb{font-size:27px;font-weight:900;margin:2px 0}
+.wallet-card .wb small{font-size:13px;font-weight:600;opacity:.85}
+.wallet-card .wn{font-size:12px;opacity:.75}
+.charge-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.charge-chip{background:var(--panel);border:1.5px solid var(--line2);border-radius:12px;padding:11px;color:#fff;font-size:14px;font-weight:700;transition:.15s}
+.charge-chip.on{border-color:var(--blue);background:rgba(42,171,238,.09);color:var(--blue)}
+.tx-item{display:flex;align-items:center;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:11px 13px}
+.tx-ic{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center}
+.tx-ic.in{background:rgba(47,180,87,.14);color:var(--green)}
+.tx-ic.out{background:rgba(229,83,75,.13);color:#FF8A80}
+.tx-item b{font-size:13.5px;display:block;line-height:1.5}
+.tx-item span{font-size:11.5px;color:var(--sub2)}
+.tx-amt{margin-inline-start:auto;font-weight:800;font-size:14px;flex:none}
+.tx-amt.in{color:var(--green)} .tx-amt.out{color:#FF8A80}
+.sec-title{font-size:14.5px;font-weight:800;display:flex;align-items:center;gap:8px}
+.sec-title svg{color:var(--blue)}
+
+/* seller */
+.sell-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.sell-stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center}
+.sell-stat b{display:block;font-size:15.5px;font-weight:800}
+.sell-stat span{font-size:10.5px;color:var(--sub)}
+.my-badge{font-size:11px;font-weight:700;color:var(--purple);background:rgba(135,116,225,.14);padding:4px 10px;border-radius:99px}
+
+/* tabbar + mainbutton */
+.tabbar{background:var(--panel);border-top:1px solid rgba(0,0,0,.35);display:flex;flex:none;padding:6px 4px 10px}
+.tab{flex:1;background:none;border:none;color:var(--sub2);display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:600;padding:5px 0 2px;position:relative;transition:.15s}
+.tab svg{width:23px;height:23px}
+.tab.on{color:var(--blue)}
+.tab .bdg{position:absolute;top:0;inset-inline-start:calc(50% + 2px);background:var(--red);color:#fff;font-size:9.5px;font-weight:800;min-width:17px;height:17px;border-radius:99px;display:none;align-items:center;justify-content:center;padding:0 4px}
+.tab .bdg.show{display:flex}
+.mainbtn-zone{flex:none;padding:10px 12px 14px;background:var(--bg2);display:none}
+.mainbtn-zone.show{display:block}
+.mainbtn{width:100%;height:51px;border:none;border-radius:12px;background:var(--blue2);color:#fff;font-size:15.5px;font-weight:800;box-shadow:0 8px 20px rgba(36,129,204,.3);transition:.15s}
+.mainbtn:active{transform:scale(.985)}
+.mainbtn:disabled{opacity:.55}
+
+/* toast + success */
+.toast{position:absolute;top:12px;right:50%;transform:translate(50%,-70px);background:#232E3C;border:1px solid var(--line2);color:#fff;font-size:13px;font-weight:600;padding:10px 17px;border-radius:99px;z-index:60;transition:.35s cubic-bezier(.2,.9,.3,1.2);display:flex;gap:8px;align-items:center;box-shadow:0 12px 30px rgba(0,0,0,.45);white-space:nowrap}
+.toast.show{transform:translate(50%,0)}
+.toast svg{color:var(--green);flex:none}
+.success-ov{position:absolute;inset:0;background:rgba(11,18,27,.94);z-index:55;display:none;flex-direction:column;align-items:center;justify-content:center;gap:13px;text-align:center;padding:26px}
+.success-ov.show{display:flex}
+.success-ov .ck{width:84px;height:84px;border-radius:50%;background:rgba(47,180,87,.15);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;animation:pop .4s cubic-bezier(.2,.9,.3,1.4)}
+.success-ov .ck svg{width:42px;height:42px;color:var(--green)}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.success-ov b{font-size:18px}
+.success-ov span{font-size:13px;color:var(--sub)}
+
+/* ---------- Landing sections ---------- */
+section.blk{padding:56px 0 8px}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 36px}
+.sec-head .k{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:.3px}
+.sec-head h2{font-size:29px;font-weight:900;margin:8px 0 10px}
+.sec-head p{color:var(--sub);font-size:15px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:860px){.grid3,.grid2{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:24px;transition:.2s}
+.card:hover{border-color:rgba(42,171,238,.4);transform:translateY(-3px)}
+.card .ic{width:50px;height:50px;border-radius:14px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.card .ic svg{width:26px;height:26px}
+.card h3{font-size:16.5px;font-weight:800;margin-bottom:7px}
+.card p{font-size:13.5px;color:var(--sub);line-height:1.9}
+.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:15px;box-shadow:0 8px 18px rgba(36,129,204,.35)}
+.tech-card{display:flex;gap:16px;align-items:flex-start}
+.tech-card .ic{flex:none;margin-bottom:0}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:26px 0 34px;color:var(--sub2);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+.reset-btn{background:none;border:1px solid var(--line2);color:var(--sub);font-size:12.5px;padding:7px 15px;border-radius:99px}
+.reset-btn:hover{color:#fff;border-color:var(--sub)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- ======= Landing nav ======= -->
+  <nav class="nav">
+    <div class="brand">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.7c-1.2.5-1.1 2 .1 2.4l4.6 1.5 1.9 5.3c.3.9 1.4 1.2 2.1.5l2.4-2.2 4.3 3.4c.8.6 2 .2 2.3-.8l2.5-15.2zM8.6 12.9l9.7-6.2c.2-.1.4.2.2.3l-8.3 7.6-.3 3-1.3-4.7z"/></svg></span>
+      تبلیغ‌چی
+    </div>
+    <div class="nav-links">
+      <a href="#how">نحوه کار</a>
+      <a href="#features">امکانات</a>
+      <a href="#tech">فناوری ساخت</a>
+    </div>
+    <span class="nav-badge">دموی زنده و تعاملی</span>
+  </nav>
+
+  <!-- ======= Hero ======= -->
+  <div class="hero">
+    <div>
+      <span class="kicker"><span class="dot"></span> مینی‌اپلیکیشن تلگرام — بدون نیاز به نصب</span>
+      <h1>بازار خرید و فروش <span class="hl">تبلیغات تلگرامی</span>، داخل خود تلگرام</h1>
+      <p class="lead">«تبلیغ‌چی» یک مینی‌اپلیکیشن تلگرامی است: تبلیغ‌دهنده کانال را از بازار انتخاب می‌کند، سفارش را ثبت و از کیف پول پرداخت می‌کند؛ صاحب کانال هم بدون هیچ پنل جداگانه‌ای سفارش می‌گیرد و درآمدش را مدیریت می‌کند. همین حالا گوشی روبه‌رو را امتحان کنید — همه بخش‌ها واقعاً کار می‌کنند.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#demo">مشاهده دموی زنده</a>
+        <a class="btn btn-ghost" href="#how">چطور کار می‌کند؟</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><b>+۱٬۲۰۰</b><span>کانال فعال در بازار</span></div>
+        <div class="st"><b>+۳۵۰ هزار</b><span>سفارش تبلیغ ثبت‌شده</span></div>
+        <div class="st"><b>زیر ۲۴ ساعت</b><span>تسویه با فروشندگان</span></div>
+      </div>
+      <div class="hero-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+        این صفحه یک نمونه‌کار تعاملی است؛ مینی‌اپ داخل گوشی به‌صورت کامل شبیه‌سازی شده و پرداخت‌ها واقعی نیستند.
+      </div>
+    </div>
+
+    <!-- ======= Phone / Mini App ======= -->
+    <div class="phone-side" id="demo">
+      <div class="phone">
+        <div class="screen-wrap">
+          <div class="statusbar">
+            <span>۲۱:۴۵</span>
+            <span class="sic">
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="#fff"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.5" y="5" width="3" height="6" rx="1"/><rect x="9" y="2.5" width="3" height="8.5" rx="1"/><rect x="13" y="0" width="3" height="11" rx="1" opacity=".35"/></svg>
+              <svg width="22" height="11" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20" height="10.6" rx="3" stroke="#fff" opacity=".5"/><rect x="2.2" y="2.2" width="14" height="7.6" rx="1.8" fill="#fff"/><path d="M23.5 4v4a2.2 2.2 0 0 0 0-4z" fill="#fff" opacity=".5"/></svg>
+            </span>
+          </div>
+
+          <div class="tg-header">
+            <span class="back"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span>
+            <span class="tg-avatar"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.7c-1.2.5-1.1 2 .1 2.4l4.6 1.5 1.9 5.3c.3.9 1.4 1.2 2.1.5l2.4-2.2 4.3 3.4c.8.6 2 .2 2.3-.8l2.5-15.2z"/></svg></span>
+            <div>
+              <div class="tg-name">تبلیغ‌چی <span class="en" style="color:var(--sub);font-weight:500;font-size:12.5px">| Ads Platform</span></div>
+              <div class="tg-sub">ربات</div>
+            </div>
+            <span class="sp"></span>
+            <span class="hic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg></span>
+          </div>
+
+          <div class="app" id="app">
+            <div class="toast" id="toast"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span id="toastTxt"></span></div>
+
+            <div class="success-ov" id="successOv">
+              <span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <b>سفارش شما ثبت شد</b>
+              <span>مبلغ از کیف پول پرداخت شد و سفارش برای تأیید<br>به ادمین کانال ارسال شد.</span>
+            </div>
+
+            <div class="app-scroll" id="appScroll">
+
+              <!-- ===== Market screen ===== -->
+              <div class="screen active" id="screen-market">
+                <div class="search-box">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+                  <input id="searchInput" type="text" placeholder="جستجوی کانال یا موضوع…">
+                </div>
+                <div class="chips" id="catChips"></div>
+                <div id="marketList" style="display:flex;flex-direction:column;gap:11px"></div>
+              </div>
+
+              <!-- ===== Order form screen ===== -->
+              <div class="screen" id="screen-order">
+                <div class="f-head">
+                  <button class="bk" id="orderBack" aria-label="بازگشت"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+                  ثبت سفارش تبلیغ
+                </div>
+                <div id="orderChannelBox"></div>
+                <div>
+                  <span class="f-label">نوع تبلیغ</span>
+                  <div class="type-grid" id="typeGrid"></div>
+                </div>
+                <div>
+                  <span class="f-label">متن تبلیغ شما</span>
+                  <textarea class="f-textarea" id="adText" placeholder="مثلاً: فروش ویژه دوره آموزش زبان — فقط تا پایان هفته با ۴۰٪ تخفیف!"></textarea>
+                </div>
+                <div>
+                  <span class="f-label">لینک مقصد (اختیاری)</span>
+                  <input class="f-input ltr" id="adLink" type="text" placeholder="https://t.me/yourchannel">
+                </div>
+                <div class="price-box">
+                  <div class="pr"><span>قیمت پایه کانال</span><span id="pbBase"></span></div>
+                  <div class="pr"><span>نوع تبلیغ</span><span id="pbType"></span></div>
+                  <div class="pr total"><span>مبلغ قابل پرداخت</span><b id="pbTotal"></b></div>
+                </div>
+                <div class="f-error" id="orderError"></div>
+                <div class="mini-note">مبلغ تا زمان انتشار تبلیغ، به‌صورت امانت نزد پلتفرم می‌ماند.</div>
+              </div>
+
+              <!-- ===== My orders screen ===== -->
+              <div class="screen" id="screen-orders">
+                <div class="sec-title"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg> سفارش‌های من</div>
+                <div id="ordersList" style="display:flex;flex-direction:column;gap:11px"></div>
+              </div>
+
+              <!-- ===== Wallet screen ===== -->
+              <div class="screen" id="screen-wallet">
+                <div class="wallet-card">
+                  <div class="wl">موجودی کیف پول</div>
+                  <div class="wb"><span id="walletBalance">۰</span> <small>تومان</small></div>
+                  <div class="wn">پرداخت همه سفارش‌ها از همین موجودی انجام می‌شود.</div>
+                </div>
+                <div>
+                  <div class="sec-title" style="margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> شارژ کیف پول</div>
+                  <div class="charge-grid" id="chargeGrid"></div>
+                </div>
+                <div>
+                  <div class="sec-title" style="margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 3"/></svg> تاریخچه تراکنش‌ها</div>
+                  <div id="txList" style="display:flex;flex-direction:column;gap:9px"></div>
+                </div>
+              </div>
+
+              <!-- ===== Seller screen ===== -->
+              <div class="screen" id="screen-seller">
+                <div class="sec-title"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6l-5 4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg> کانال‌های من — پنل فروشنده</div>
+                <div class="sell-stats">
+                  <div class="sell-stat"><b id="stEarn">۰</b><span>درآمد از تبلیغات (تومان)</span></div>
+                  <div class="sell-stat"><b id="stChCount">۰</b><span>کانال‌های من</span></div>
+                  <div class="sell-stat"><b id="stSold">۰</b><span>تبلیغ فروخته‌شده</span></div>
+                </div>
+                <div id="myChannelsList" style="display:flex;flex-direction:column;gap:11px"></div>
+                <div>
+                  <div class="sec-title" style="margin-bottom:11px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg> افزودن کانال جدید</div>
+                  <div style="display:flex;flex-direction:column;gap:11px">
+                    <div>
+                      <span class="f-label">آیدی کانال</span>
+                      <input class="f-input ltr" id="ncUser" type="text" placeholder="@yourchannel">
+                    </div>
+                    <div>
+                      <span class="f-label">نام نمایشی کانال</span>
+                      <input class="f-input" id="ncName" type="text" placeholder="مثلاً: مجله گردشگری ایران">
+                    </div>
+                    <div style="display:flex;gap:10px">
+                      <div style="flex:1">
+                        <span class="f-label">موضوع</span>
+                        <select class="f-select" id="ncCat"></select>
+                      </div>
+                      <div style="flex:1">
+                        <span class="f-label">تعداد اعضا</span>
+                        <input class="f-input" id="ncMembers" type="text" inputmode="numeric" placeholder="۵۰٬۰۰۰">
+                      </div>
+                    </div>
+                    <div>
+                      <span class="f-label">قیمت هر پست تبلیغ (تومان)</span>
+                      <input class="f-input" id="ncPrice" type="text" inputmode="numeric" placeholder="۳۰۰٬۰۰۰">
+                    </div>
+                    <div class="f-error" id="sellerError"></div>
+                    <div class="mini-note">کانال پس از ثبت، بلافاصله در بازار کانال‌ها نمایش داده می‌شود.</div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /app-scroll -->
+
+            <div class="mainbtn-zone" id="mainBtnZone"><button class="mainbtn" id="mainBtn"></button></div>
+
+            <div class="tabbar">
+              <button class="tab on" data-tab="market">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h4l5 4V6l-5 4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+                بازار کانال‌ها
+              </button>
+              <button class="tab" data-tab="orders">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>
+                سفارش‌های من
+                <span class="bdg" id="ordersBdg">۰</span>
+              </button>
+              <button class="tab" data-tab="wallet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2"/><path d="M3 7v10a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1H5a2 2 0 0 1-2-2z"/><circle cx="16.8" cy="14" r="1.3" fill="currentColor" stroke="none"/></svg>
+                کیف پول
+              </button>
+              <button class="tab" data-tab="seller">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="13" rx="2.5"/><path d="M10 21h4M12 18v3"/></svg>
+                کانال‌های من
+              </button>
+            </div>
+
+          </div><!-- /app -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= How it works ======= -->
+  <section class="blk" id="how">
+    <div class="sec-head">
+      <div class="k">نحوه کار</div>
+      <h2>در سه گام، تبلیغ شما منتشر می‌شود</h2>
+      <p>از انتخاب کانال تا گزارش بازدید، همه‌چیز داخل تلگرام اتفاق می‌افتد؛ نه سایتی، نه نصب اپلیکیشن جداگانه‌ای.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <div class="step-num">۱</div>
+        <h3>کانال مناسب را انتخاب کنید</h3>
+        <p>بازار کانال‌ها را بر اساس موضوع، تعداد اعضا، میانگین بازدید هر پست و قیمت مرور و مقایسه کنید؛ از کانال خبری پربازدید تا کانال تخصصی کوچک.</p>
+      </div>
+      <div class="card">
+        <div class="step-num">۲</div>
+        <h3>سفارش را ثبت و امن پرداخت کنید</h3>
+        <p>نوع تبلیغ (پست، پین یا فوروارد) و متن را ثبت کنید و مبلغ را از کیف پول بپردازید. پول تا لحظه انتشار، به‌صورت امانت نزد پلتفرم می‌ماند.</p>
+      </div>
+      <div class="card">
+        <div class="step-num">۳</div>
+        <h3>انتشار و گزارش بازدید</h3>
+        <p>ادمین کانال سفارش را تأیید می‌کند، تبلیغ منتشر می‌شود و لینک پست به همراه آمار بازدید واقعی برای شما ارسال می‌شود.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Features ======= -->
+  <section class="blk" id="features">
+    <div class="sec-head">
+      <div class="k">امکانات</div>
+      <h2>برای تبلیغ‌دهنده و صاحب کانال، هر دو</h2>
+      <p>تبلیغ‌چی واسطه‌های دستی و چت‌های پراکنده را حذف می‌کند و کل چرخه تبلیغات تلگرامی را خودکار می‌سازد.</p>
+    </div>
+    <div class="grid3">
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+        <h3>پرداخت امن داخل تلگرام</h3>
+        <p>مبلغ سفارش نزد پلتفرم امانت می‌ماند و فقط پس از انتشار تبلیغ و تأیید بازدید، برای صاحب کانال آزاد می‌شود.</p>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 20v-6M11 20V9M16 20v-9M21 20V5"/></svg></span>
+        <h3>گزارش بازدید واقعی</h3>
+        <p>میانگین بازدید هر کانال پیش از خرید شفاف است و پس از انتشار، آمار بازدید پست شما به‌صورت خودکار گزارش می‌شود.</p>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21.9 4.6c.3-1.2-.9-2.2-2-1.7L2.7 9.7c-1.2.5-1.1 2 .1 2.4l4.6 1.5 1.9 5.3c.3.9 1.4 1.2 2.1.5l2.4-2.2 4.3 3.4c.8.6 2 .2 2.3-.8l2.5-15.2z"/></svg></span>
+        <h3>بدون نیاز به نصب</h3>
+        <p>مینی‌اپ روی تلگرام همه کاربران سوار است؛ با یک لمس از داخل ربات باز می‌شود و با تم روشن یا تیره تلگرام هماهنگ است.</p>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        <h3>تسویه سریع فروشندگان</h3>
+        <p>صاحبان کانال درآمدشان را در همان کیف پول می‌بینند و درخواست تسویه حداکثر ظرف ۲۴ ساعت انجام می‌شود.</p>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4L11 3.8A2 2 0 0 0 9.6 3.2H4a1 1 0 0 0-1 1v5.6c0 .5.2 1 .6 1.4l9.6 9.6a2 2 0 0 0 2.8 0l4.6-4.6a2 2 0 0 0 0-2.8z"/><circle cx="7.5" cy="7.5" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+        <h3>قیمت‌گذاری شفاف</h3>
+        <p>نرخ هر کانال و ضریب هر نوع تبلیغ (پست، پین، فوروارد) پیش از ثبت سفارش، جزءبه‌جزء نمایش داده می‌شود؛ بدون هزینه پنهان.</p>
+      </div>
+      <div class="card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M10 21h4M12 18v3"/></svg></span>
+        <h3>پنل فروشنده داخل اپ</h3>
+        <p>صاحب کانال بدون خروج از تلگرام کانالش را ثبت می‌کند، نرخ می‌گذارد، سفارش‌ها را تأیید و درآمدش را لحظه‌ای می‌بیند.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Tech ======= -->
+  <section class="blk" id="tech">
+    <div class="sec-head">
+      <div class="k">فناوری ساخت</div>
+      <h2>ساخته‌شده روی زیرساخت رسمی تلگرام</h2>
+      <p>این محصول با APIهای رسمی تلگرام پیاده‌سازی می‌شود تا تجربه‌ای سریع، امن و یکپارچه با خود اپلیکیشن تلگرام داشته باشد.</p>
+    </div>
+    <div class="grid2">
+      <div class="card tech-card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M6.5 6.7h.01M9.5 6.7h.01"/></svg></span>
+        <div>
+          <h3>Telegram WebApp API</h3>
+          <p>رابط کاربری مینی‌اپ با WebApp API تلگرام ساخته می‌شود: دکمه اصلی (MainButton)، هماهنگی خودکار با تم کاربر، احراز هویت بی‌نیاز از رمز عبور با initData و بازخورد لمسی بومی تلگرام.</p>
+        </div>
+      </div>
+      <div class="card tech-card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M8.5 12h.01M15.5 12h.01M9 16h6"/></svg></span>
+        <div>
+          <h3>Bot API</h3>
+          <p>ربات تلگرام ستون فقرات سیستم است: اعلان لحظه‌ای سفارش جدید برای ادمین کانال، دکمه‌های تأیید و رد داخل چت، ارسال لینک پست منتشرشده و رسید بازدید برای تبلیغ‌دهنده.</p>
+        </div>
+      </div>
+      <div class="card tech-card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5V12c0 1.7 3.6 3 8 3s8-1.3 8-3V5.5"/><path d="M4 12v6.5c0 1.7 3.6 3 8 3s8-1.3 8-3V12"/></svg></span>
+        <div>
+          <h3>بک‌اند و پنل مدیریت</h3>
+          <p>سرور API مقیاس‌پذیر برای مدیریت کانال‌ها، سفارش‌ها و کیف پول‌ها، به همراه پنل مدیریت وب برای نظارت، حل اختلاف و گزارش‌گیری مالی پلتفرم.</p>
+        </div>
+      </div>
+      <div class="card tech-card">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15.5h4"/></svg></span>
+        <div>
+          <h3>درگاه پرداخت و کیف پول</h3>
+          <p>شارژ کیف پول از درگاه پرداخت بانکی، نگهداری امانی مبلغ سفارش (Escrow) تا انتشار تبلیغ و تسویه خودکار سهم صاحب کانال پس از کسر کارمزد پلتفرم.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>تبلیغ‌چی — نمونه‌کار تعاملی «مینی‌اپلیکیشن تلگرامی پلتفرم تبلیغات»؛ فرانت‌اند کاملاً شبیه‌سازی‌شده و بدون اتصال به سرور واقعی.</span>
+    <button class="reset-btn" id="resetDemo">بازنشانی داده‌های دمو</button>
+  </footer>
+</div>
+
+<script>
+/* ================= Data ================= */
+const CATS = ['خبری','فناوری','آموزشی','سرگرمی','فروشگاهی','مالی','ورزشی','آشپزی','سبک زندگی'];
+const AV_COLORS = ['#2AABEE','#8774E1','#F5A623','#2FB457','#E5534B','#0FB5BF','#E86AA8','#5B8DEF'];
+const AD_TYPES = [
+  {id:'post24', name:'پست تبلیغاتی — ۲۴ ساعت', desc:'پست تبلیغاتی شما ۲۴ ساعت در کانال می‌ماند و سپس حذف می‌شود.', mult:1},
+  {id:'pin48', name:'پست + پین — ۴۸ ساعت', desc:'پست تبلیغاتی همراه با پین‌شدن در بالای کانال، به مدت ۴۸ ساعت.', mult:1.8},
+  {id:'forward', name:'فوروارد از کانال شما', desc:'پست آماده از کانال برند شما عیناً در کانال مقصد فوروارد می‌شود.', mult:0.6}
+];
+const BASE_CHANNELS = [
+  {id:'c1', name:'خبر فوری ایران', user:'@khabarfoori_ir', cat:'خبری', members:285000, views:48000, price:900000},
+  {id:'c2', name:'تکنولوژی روز', user:'@techrooz', cat:'فناوری', members:142000, views:26000, price:650000},
+  {id:'c3', name:'آشپزی آسان با سارا', user:'@ashpazi_asan', cat:'آشپزی', members:98000, views:18000, price:420000},
+  {id:'c4', name:'مد و پوشاک شیک‌پوش', user:'@shikpoosh', cat:'فروشگاهی', members:76000, views:12000, price:550000},
+  {id:'c5', name:'زبانینو | آموزش انگلیسی', user:'@zabanino', cat:'آموزشی', members:120000, views:21000, price:480000},
+  {id:'c6', name:'خنده‌بازار', user:'@khande_bazar', cat:'سرگرمی', members:310000, views:65000, price:1200000},
+  {id:'c7', name:'سیگنال | ارز دیجیتال', user:'@signal_arz', cat:'مالی', members:88000, views:15000, price:750000},
+  {id:'c8', name:'ورزش پلاس', user:'@varzesh_plus', cat:'ورزشی', members:165000, views:29000, price:680000}
+];
+const CHARGE_AMOUNTS = [100000, 250000, 500000, 1000000];
+const LS_KEY = 'tabligchi_demo_v1';
+
+function defaultState(){
+  return {
+    balance: 2000000,
+    txs: [{id:'t0', type:'in', title:'شارژ اولیه کیف پول', amount:2000000, time:'امروز — ۰۹:۱۵'}],
+    orders: [],
+    myChannels: [{id:'m1', name:'مجله سبک زندگی', user:'@lifestyle_mag', cat:'سبک زندگی', members:12400, views:2300, price:180000, earned:540000, sold:3}],
+    seq: 1
+  };
+}
+let state;
+try{
+  const raw = localStorage.getItem(LS_KEY);
+  state = raw ? JSON.parse(raw) : defaultState();
+  if(typeof state.balance !== 'number' || !Array.isArray(state.orders)) state = defaultState();
+}catch(e){ state = defaultState(); }
+function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){} }
+
+/* ================= Helpers ================= */
+const $ = s => document.querySelector(s);
+const fmt = n => Math.round(n).toLocaleString('fa-IR');
+function compact(n){
+  if(n >= 1000000){ const v = n/1000000; return fmt(Math.round(v*10)/10) + ' میلیون'; }
+  if(n >= 1000){ return fmt(Math.round(n/1000)) + ' هزار'; }
+  return fmt(n);
+}
+function toEn(str){ return String(str).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)); }
+function parseNum(str){ const v = parseInt(toEn(str).replace(/[^0-9]/g,''), 10); return isNaN(v) ? 0 : v; }
+function esc(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function avColor(id){ let h = 0; for(const ch of String(id)) h = (h*31 + ch.charCodeAt(0)) >>> 0; return AV_COLORS[h % AV_COLORS.length]; }
+function marketChannels(){ return BASE_CHANNELS.concat(state.myChannels.map(m => ({...m, mine:true}))); }
+function nowTime(){ return 'هم‌اکنون'; }
+
+let toastTimer;
+function toast(msg){
+  $('#toastTxt').textContent = msg;
+  $('#toast').classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $('#toast').classList.remove('show'), 2400);
+}
+
+/* ================= Navigation ================= */
+let currentScreen = 'market';
+function showScreen(name){
+  currentScreen = name;
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  $('#screen-' + name).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === name));
+  $('#appScroll').scrollTop = 0;
+  updateMainButton();
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => showScreen(t.dataset.tab)));
+
+/* ================= MainButton ================= */
+const mainBtn = $('#mainBtn'), mainZone = $('#mainBtnZone');
+function updateMainButton(){
+  mainBtn.disabled = false;
+  if(currentScreen === 'order'){
+    mainZone.classList.add('show');
+    mainBtn.textContent = 'ثبت سفارش و پرداخت — ' + fmt(orderTotal()) + ' تومان';
+  } else if(currentScreen === 'wallet'){
+    mainZone.classList.add('show');
+    mainBtn.textContent = 'شارژ کیف پول — ' + fmt(selectedCharge) + ' تومان';
+  } else if(currentScreen === 'seller'){
+    mainZone.classList.add('show');
+    mainBtn.textContent = 'ثبت کانال در بازار';
+  } else {
+    mainZone.classList.remove('show');
+  }
+}
+mainBtn.addEventListener('click', () => {
+  if(currentScreen === 'order') submitOrder();
+  else if(currentScreen === 'wallet') chargeWallet();
+  else if(currentScreen === 'seller') submitChannel();
+});
+
+/* ================= Market ================= */
+let activeCat = 'همه', searchQ = '';
+function renderChips(){
+  const cats = ['همه'].concat(CATS);
+  $('#catChips').innerHTML = cats.map(c =>
+    `<button class="chip ${c === activeCat ? 'on' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  document.querySelectorAll('#catChips .chip').forEach(ch => ch.addEventListener('click', () => {
+    activeCat = ch.dataset.cat; renderChips(); renderMarket();
+  }));
+}
+function channelCard(ch){
+  return `<div class="ch-card" data-chid="${ch.id}">
+    <div class="ch-top">
+      <span class="ch-av" style="background:${avColor(ch.id)}">${esc(ch.name.trim().charAt(0))}</span>
+      <div>
+        <div class="ch-name">${esc(ch.name)} ${ch.mine ? '<span class="my-badge">کانال شما</span>' : ''}</div>
+        <div class="ch-user">${esc(ch.user)}</div>
+      </div>
+      <span class="ch-cat">${esc(ch.cat)}</span>
+    </div>
+    <div class="ch-stats">
+      <div class="ch-stat"><b>${compact(ch.members)}</b><span>عضو</span></div>
+      <div class="ch-stat"><b>${compact(ch.views)}</b><span>میانگین بازدید پست</span></div>
+      <div class="ch-stat"><b>${fmt(ch.price)}</b><span>قیمت پایه (تومان)</span></div>
+    </div>
+    <div class="ch-foot">
+      <div class="ch-price">${fmt(ch.price)} <small>تومان / پست</small></div>
+      <button class="order-btn" data-order="${ch.id}">سفارش تبلیغ</button>
+    </div>
+  </div>`;
+}
+function renderMarket(){
+  const q = searchQ.trim();
+  const list = marketChannels().filter(ch =>
+    (activeCat === 'همه' || ch.cat === activeCat) &&
+    (!q || ch.name.includes(q) || ch.user.toLowerCase().includes(q.toLowerCase()) || ch.cat.includes(q))
+  );
+  $('#marketList').innerHTML = list.length
+    ? list.map(channelCard).join('')
+    : '<div class="empty-box">کانالی با این مشخصات پیدا نشد؛ جستجو یا دسته‌بندی را تغییر دهید.</div>';
+  document.querySelectorAll('[data-order]').forEach(b => b.addEventListener('click', () => openOrder(b.dataset.order)));
+}
+$('#searchInput').addEventListener('input', e => { searchQ = e.target.value; renderMarket(); });
+
+/* ================= Order form ================= */
+let orderCh = null, orderType = AD_TYPES[0];
+function orderTotal(){ return orderCh ? Math.round(orderCh.price * orderType.mult) : 0; }
+function openOrder(chId){
+  orderCh = marketChannels().find(c => c.id === chId);
+  if(!orderCh) return;
+  orderType = AD_TYPES[0];
+  $('#adText').value = ''; $('#adLink').value = '';
+  $('#orderError').classList.remove('show');
+  $('#orderChannelBox').innerHTML = channelCard(orderCh);
+  const ob = document.querySelector('#orderChannelBox [data-order]');
+  if(ob) ob.remove();
+  renderTypes(); renderPrice();
+  showScreen('order');
+}
+function renderTypes(){
+  $('#typeGrid').innerHTML = AD_TYPES.map(t =>
+    `<div class="type-card ${t.id === orderType.id ? 'on' : ''}" data-type="${t.id}">
+       <span class="radio"></span>
+       <div><b>${esc(t.name)}</b><span>${esc(t.desc)}</span></div>
+       <span class="mult">× ${fmt(t.mult)}</span>
+     </div>`).join('');
+  document.querySelectorAll('#typeGrid .type-card').forEach(c => c.addEventListener('click', () => {
+    orderType = AD_TYPES.find(t => t.id === c.dataset.type); renderTypes(); renderPrice(); updateMainButton();
+  }));
+}
+function renderPrice(){
+  if(!orderCh) return;
+  $('#pbBase').textContent = fmt(orderCh.price) + ' تومان';
+  $('#pbType').textContent = orderType.name + ' (× ' + fmt(orderType.mult) + ')';
+  $('#pbTotal').textContent = fmt(orderTotal()) + ' تومان';
+}
+$('#orderBack').addEventListener('click', () => showScreen('market'));
+function submitOrder(){
+  const err = $('#orderError');
+  const text = $('#adText').value.trim();
+  const link = $('#adLink').value.trim();
+  if(!text){ err.textContent = 'متن تبلیغ را وارد کنید تا ادمین کانال بتواند آن را بررسی کند.'; err.classList.add('show'); return; }
+  const total = orderTotal();
+  if(state.balance < total){
+    err.innerHTML = 'موجودی کیف پول کافی نیست (موجودی: ' + fmt(state.balance) + ' تومان). از بخش «کیف پول» شارژ کنید.';
+    err.classList.add('show'); return;
+  }
+  err.classList.remove('show');
+  state.balance -= total;
+  state.txs.unshift({id:'t' + (state.seq++), type:'out', title:'سفارش تبلیغ در «' + orderCh.name + '»', amount:total, time:nowTime()});
+  state.orders.unshift({id:'o' + (state.seq++), chId:orderCh.id, chName:orderCh.name, chUser:orderCh.user, typeName:orderType.name, text:text, link:link, total:total, status:0, time:nowTime()});
+  save(); renderWallet(); renderOrders();
+  $('#successOv').classList.add('show');
+  setTimeout(() => { $('#successOv').classList.remove('show'); showScreen('orders'); }, 1500);
+}
+
+/* ================= Orders ================= */
+const STATUS_LABELS = ['در انتظار تأیید ادمین کانال', 'تأیید شد', 'منتشر شد'];
+function renderOrders(){
+  const box = $('#ordersList');
+  if(!state.orders.length){
+    box.innerHTML = '<div class="empty-box">هنوز سفارشی ثبت نکرده‌اید.<br>از بازار کانال‌ها اولین تبلیغ خود را سفارش دهید.</div>';
+  } else {
+    box.innerHTML = state.orders.map(o => {
+      const steps = STATUS_LABELS.map((lb, i) => {
+        const cls = i < o.status ? 'done' : (i === o.status ? (o.status === 2 ? 'done' : 'now') : '');
+        const inner = (i < o.status || o.status === 2 && i === 2)
+          ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>'
+          : fmt(i + 1);
+        return `<div class="step ${cls}"><div class="sd">${inner}</div><div class="sl">${lb}</div></div>`;
+      }).join('');
+      const sim = o.status === 0
+        ? `<button class="sim-btn" data-sim="${o.id}">شبیه‌سازی: تأیید سفارش توسط ادمین کانال</button>`
+        : (o.status === 1 ? `<button class="sim-btn" data-sim="${o.id}">شبیه‌سازی: انتشار تبلیغ در کانال</button>` : '');
+      const pub = o.status === 2
+        ? `<div class="pub-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 10a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>t.me/${esc(o.chUser.replace('@',''))}/${1000 + (parseInt(o.id.replace(/\D/g,'')) || 0)}</span></div>`
+        : '';
+      return `<div class="ord-card">
+        <div class="ord-top">
+          <span class="ch-av" style="background:${avColor(o.chId)}">${esc(o.chName.trim().charAt(0))}</span>
+          <div>
+            <div class="ch-name">${esc(o.chName)}</div>
+            <div class="ch-user">${esc(o.chUser)}</div>
+          </div>
+          <span class="ord-amt">${fmt(o.total)} تومان</span>
+        </div>
+        <div class="ord-meta">${esc(o.typeName)} — ثبت‌شده ${esc(o.time)}</div>
+        <div class="ord-text">${esc(o.text)}</div>
+        <div class="stepper">${steps}</div>
+        ${sim}${pub}
+      </div>`;
+    }).join('');
+    document.querySelectorAll('[data-sim]').forEach(b => b.addEventListener('click', () => advanceOrder(b.dataset.sim)));
+  }
+  const pending = state.orders.filter(o => o.status < 2).length;
+  const bdg = $('#ordersBdg');
+  bdg.textContent = fmt(pending);
+  bdg.classList.toggle('show', pending > 0);
+}
+function advanceOrder(id){
+  const o = state.orders.find(x => x.id === id);
+  if(!o || o.status >= 2) return;
+  o.status++;
+  save(); renderOrders();
+  toast(o.status === 1 ? 'ادمین کانال سفارش را تأیید کرد' : 'تبلیغ شما منتشر شد');
+}
+
+/* ================= Wallet ================= */
+let selectedCharge = CHARGE_AMOUNTS[1];
+function renderWallet(){
+  $('#walletBalance').textContent = fmt(state.balance);
+  $('#chargeGrid').innerHTML = CHARGE_AMOUNTS.map(a =>
+    `<button class="charge-chip ${a === selectedCharge ? 'on' : ''}" data-charge="${a}">${fmt(a)} تومان</button>`).join('');
+  document.querySelectorAll('[data-charge]').forEach(c => c.addEventListener('click', () => {
+    selectedCharge = parseInt(c.dataset.charge, 10); renderWallet(); updateMainButton();
+  }));
+  $('#txList').innerHTML = state.txs.map(t =>
+    `<div class="tx-item">
+       <span class="tx-ic ${t.type === 'in' ? 'in' : 'out'}">
+         ${t.type === 'in'
+           ? '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>'
+           : '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>'}
+       </span>
+       <div><b>${esc(t.title)}</b><span>${esc(t.time)}</span></div>
+       <span class="tx-amt ${t.type === 'in' ? 'in' : 'out'}">${t.type === 'in' ? '+' : '−'} ${fmt(t.amount)}</span>
+     </div>`).join('');
+}
+function chargeWallet(){
+  state.balance += selectedCharge;
+  state.txs.unshift({id:'t' + (state.seq++), type:'in', title:'شارژ کیف پول (درگاه پرداخت)', amount:selectedCharge, time:nowTime()});
+  save(); renderWallet();
+  toast(fmt(selectedCharge) + ' تومان به کیف پول اضافه شد');
+}
+
+/* ================= Seller ================= */
+function renderSeller(){
+  const earn = state.myChannels.reduce((s, c) => s + (c.earned || 0), 0);
+  const sold = state.myChannels.reduce((s, c) => s + (c.sold || 0), 0);
+  $('#stEarn').textContent = fmt(earn);
+  $('#stChCount').textContent = fmt(state.myChannels.length);
+  $('#stSold').textContent = fmt(sold);
+  $('#myChannelsList').innerHTML = state.myChannels.length
+    ? state.myChannels.map(channelCard).join('')
+    : '<div class="empty-box">هنوز کانالی ثبت نکرده‌اید.</div>';
+  document.querySelectorAll('#myChannelsList [data-order]').forEach(b => b.style.display = 'none');
+  const sel = $('#ncCat');
+  if(!sel.options.length) sel.innerHTML = CATS.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+}
+function submitChannel(){
+  const err = $('#sellerError');
+  const user = $('#ncUser').value.trim();
+  const name = $('#ncName').value.trim();
+  const cat = $('#ncCat').value;
+  const members = parseNum($('#ncMembers').value);
+  const price = parseNum($('#ncPrice').value);
+  if(!/^@?[A-Za-z0-9_]{4,}$/.test(user)){ err.textContent = 'آیدی معتبر کانال را وارد کنید (مثل @yourchannel).'; err.classList.add('show'); return; }
+  if(!name){ err.textContent = 'نام نمایشی کانال را وارد کنید.'; err.classList.add('show'); return; }
+  if(members <= 0){ err.textContent = 'تعداد اعضای کانال را وارد کنید.'; err.classList.add('show'); return; }
+  if(price <= 0){ err.textContent = 'قیمت هر پست تبلیغ را به تومان وارد کنید.'; err.classList.add('show'); return; }
+  err.classList.remove('show');
+  const uname = user.startsWith('@') ? user : '@' + user;
+  state.myChannels.unshift({
+    id:'m' + (state.seq++), name:name, user:uname, cat:cat,
+    members:members, views:Math.max(50, Math.round(members * 0.18)), price:price, earned:0, sold:0
+  });
+  save(); renderSeller(); renderMarket();
+  $('#ncUser').value = ''; $('#ncName').value = ''; $('#ncMembers').value = ''; $('#ncPrice').value = '';
+  toast('کانال شما به بازار اضافه شد');
+  setTimeout(() => showScreen('market'), 650);
+}
+
+/* ================= Reset / init ================= */
+$('#resetDemo').addEventListener('click', () => {
+  try{ localStorage.removeItem(LS_KEY); }catch(e){}
+  location.reload();
+});
+renderChips(); renderMarket(); renderOrders(); renderWallet(); renderSeller(); updateMainButton();
+window.__state = state;
+window.__marketChannels = marketChannels;
+</script>
+</body>
+</html>
