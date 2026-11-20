@@ -102,6 +102,21 @@ button{font-family:inherit;cursor:pointer}
 .topbar-sub{color:var(--ink-2);font-size:14px;max-width:760px;margin-top:6px}
 .topbar-tools{display:flex;gap:10px;flex:0 0 auto;padding-top:6px}
 
+/* ---------- Proposal cover ---------- */
+.cover{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#27407c 100%);color:#fff;border-radius:20px;padding:36px 38px 30px;margin-bottom:24px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.cover::after{content:"";position:absolute;left:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:rgba(14,159,110,.18)}
+.cover-kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:4px 14px;font-size:12.5px;color:#c9d4ee;font-weight:700;position:relative;z-index:1}
+.cover h1{font-size:33px;font-weight:900;line-height:1.45;margin:16px 0 10px;max-width:840px;position:relative;z-index:1}
+.cover-sub{color:#c2cde8;font-size:14.5px;max-width:790px;position:relative;z-index:1}
+.cover-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;position:relative;z-index:1}
+.cover-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:11px;padding:7px 15px;font-size:13px;color:#dbe3f5}
+.cover-chip b{color:#fff;font-weight:800}
+.cover-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.13);position:relative;z-index:1;flex-wrap:wrap}
+.cover-from{font-size:13px;color:#aebadd}
+.cover-from b{color:#fff;font-size:14px}
+.cover .topbar-tools{padding-top:0}
+@media(max-width:640px){.cover{padding:26px 20px 22px}.cover h1{font-size:24px}}
+
 .notice{
   display:flex;gap:14px;background:var(--amber-soft);border:1px solid #f0dcae;
   border-radius:var(--radius);padding:16px 18px;margin-bottom:24px;
@@ -297,15 +312,23 @@ footer.site strong{color:var(--ink-2)}
   </aside>
 
   <main class="main">
-    <header class="topbar">
-      <div>
-        <h1>برنامه اجرایی سئو و بازطراحی رابط کاربری — اپ‌وبینو</h1>
-        <p class="topbar-sub">پاسخ اجرایی اپ‌وبینو به پروژه «انجام سئو حرفه‌ای و طراحی رابط کاربری سایت»: سایت شما آماده است و نیاز به به‌روزرسانی دارد؛ این صفحه نقشه راه کامل ماست — از ممیزی فنی و تحقیق کلمات کلیدی تا بازطراحی مدرن رابط کاربری و برنامه لینک‌سازی — در یک برنامه سه‌هفته‌ای شفاف، مرحله‌به‌مرحله و قابل پیگیری.</p>
+    <section class="cover">
+      <span class="cover-kicker">پیشنهاد اجرایی اپ‌وبینو — سند پاسخ به پروژه کارفرما</span>
+      <h1>برنامه اجرایی سئو و بازطراحی رابط کاربری — اپ‌وبینو</h1>
+      <p class="cover-sub">پاسخ اجرایی اپ‌وبینو به پروژه «انجام سئو حرفه‌ای و طراحی رابط کاربری سایت»: سایت شما آماده است و نیاز به به‌روزرسانی دارد؛ این صفحه نقشه راه کامل ماست — از ممیزی فنی و تحقیق کلمات کلیدی تا بازطراحی مدرن رابط کاربری و برنامه لینک‌سازی — در یک برنامه سه‌هفته‌ای شفاف، مرحله‌به‌مرحله و قابل پیگیری.</p>
+      <div class="cover-chips">
+        <span class="cover-chip">مدت اجرا: <b>۳ هفته</b></span>
+        <span class="cover-chip">ساختار: <b>۴ فاز اجرایی</b></span>
+        <span class="cover-chip">حجم برنامه: <b>۲۶ اقدام مشخص</b></span>
+        <span class="cover-chip">گزارش‌دهی: <b>قبل / بعد، با داده سرچ کنسول</b></span>
       </div>
-      <div class="topbar-tools">
-        <button class="btn-print" id="printBtn" type="button">چاپ برنامه</button>
+      <div class="cover-foot">
+        <p class="cover-from">ارائه‌دهنده: <b>اپ‌وبینو — AppWebino</b> · تیم سئو و طراحی رابط کاربری</p>
+        <div class="topbar-tools">
+          <button class="btn-print" id="printBtn" type="button">چاپ برنامه</button>
+        </div>
       </div>
-    </header>
+    </section>
 
     <div class="notice" role="note">
       <span class="n-ic" aria-hidden="true">
