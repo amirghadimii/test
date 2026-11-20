@@ -117,7 +117,7 @@ input.err,select.err{border-color:var(--red)}
 .toolbar select{width:auto;min-width:140px}
 .stack{display:flex;flex-direction:column;gap:18px}
 /* student view */
-.hero{background:linear-gradient(135deg,#4F46E5,#6366F1 60%,#818CF8);color:#fff;border-radius:22px;padding:26px;margin-bottom:18px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.hero{background:linear-gradient(135deg,rgba(79,70,229,.94),rgba(99,102,241,.9) 60%,rgba(129,140,248,.88)),url('assets/img/hero-library.jpg') center/cover;color:#fff;border-radius:22px;padding:26px;margin-bottom:18px;display:flex;gap:20px;flex-wrap:wrap;align-items:center;justify-content:space-between}
 .hero h2{margin:0 0 6px;font-size:21px;font-weight:800}.hero p{margin:0;opacity:.9;font-size:13.5px;line-height:1.9}
 .hero .who{background:rgba(255,255,255,.16);padding:14px;border-radius:16px;min-width:230px}
 .hero .who label{color:#fff}
@@ -503,7 +503,7 @@ function renderStudentView(){
   const cols = ['#4F46E5','#0EA5E9','#10B981','#F59E0B','#EC4899','#8B5CF6','#EF4444','#14B8A6'];
   $('bookGrid').innerHTML = list.length ? list.map(b => {
     const s = bookStatus(b), c = cols[b.id % cols.length];
-    return `<div class="card bk"><div class="cover" style="background:linear-gradient(135deg,${c},${c}bb)">${esc(b.title[0])}</div><h4>${esc(b.title)}</h4><div class="au">${esc(b.author)} • شماره ${fa(b.num).replace(/٬/g,'')}</div><div class="meta">${stBadge(s)}<button class="btn btn-p" style="padding:8px 16px;font-size:13px" ${s !== 'available' ? 'disabled' : ''} onclick="reserve(${b.id})">${s === 'available' ? 'رزرو کتاب' : s === 'reserved' ? 'رزرو شده' : 'در امانت'}</button></div></div>`;
+    return `<div class="card bk"><div class="cover" style="background:linear-gradient(135deg,${c}d9,${c}a6),url('assets/img/cover-${(b.id%6)+1}.jpg') center/cover">${esc(b.title[0])}</div><h4>${esc(b.title)}</h4><div class="au">${esc(b.author)} • شماره ${fa(b.num).replace(/٬/g,'')}</div><div class="meta">${stBadge(s)}<button class="btn btn-p" style="padding:8px 16px;font-size:13px" ${s !== 'available' ? 'disabled' : ''} onclick="reserve(${b.id})">${s === 'available' ? 'رزرو کتاب' : s === 'reserved' ? 'رزرو شده' : 'در امانت'}</button></div></div>`;
   }).join('') : '<div class="empty" style="grid-column:1/-1;color:var(--mu);padding:30px;text-align:center">کتابی با این مشخصات پیدا نشد.</div>';
 
   const me = +$('whoAmI').value;
