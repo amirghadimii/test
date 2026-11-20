@@ -186,6 +186,33 @@ footer .bar .sp{flex:1}
   .logo small{display:none}
   .langsw button{padding:6px 10px}
 }
+
+/* === H9 STICKY COMPACT: shrink-on-scroll === */
+header.site .wrap{transition:padding .25s ease}
+header.site.scrolled .wrap{padding-top:6px;padding-bottom:6px}
+header.site.scrolled{box-shadow:0 8px 28px rgba(18,26,34,.12)}
+header.site.scrolled .logo .mk{width:34px;height:34px;transition:.25s}
+header.site .logo .mk{transition:.25s}
+
+/* === L2 STORY-FIRST: slim hero + manifesto about === */
+.hero-grid{padding-top:38px;padding-bottom:56px}
+.hero h1{font-size:37px;margin:16px 0 8px}
+.hero-media>img{height:430px}
+#about .about>div:last-child{position:relative}
+.pull-quote{margin:20px 0 4px;padding:6px 22px 6px 0;border-right:4px solid var(--org);font-size:21px;font-weight:900;line-height:1.7;color:var(--ink)}
+.pull-quote small{display:block;font-size:13px;font-weight:600;color:var(--mu);margin-top:6px}
+#about h3{font-size:25px;line-height:1.55}
+@media(max-width:860px){.hero h1{font-size:29px}.hero-media>img{height:300px}}
+
+/* === F5 DARK SLAB footer actions === */
+.foot-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:44px 0 6px}
+.foot-actions a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px;transition:.15s}
+.foot-actions a:hover{border-color:var(--org);transform:translateY(-3px)}
+.foot-actions .fa-k{font-size:11.5px;font-weight:800;color:var(--org);letter-spacing:1px;display:block;margin-bottom:6px}
+.foot-actions b{display:block;font-size:17px;font-weight:900;color:var(--ink);margin-bottom:4px}
+.foot-actions span{font-size:13.5px;color:var(--mu);line-height:1.7;display:block}
+.foot-actions .fa-go{margin-top:12px;font-size:13.5px;font-weight:800;color:var(--org)}
+@media(max-width:860px){.foot-actions{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -259,6 +286,7 @@ footer .bar .sp{flex:1}
     <div>
       <h3 data-fa="از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران" data-en="From ordering at origin to delivery at our Tehran warehouse">از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران</h3>
       <p data-fa="فعالیت اصلی ما واردات برنامه‌ریزی‌شده قطعات پرگردش و سفارشی است؛ هر محموله پیش از حمل، بازرسی کیفی می‌شود و اصالت آن با کد رهگیری سازنده قابل استعلام است. فعالیت‌های فرعی شرکت، لجستیک بین‌المللی، ترخیص و توزیع سراسری را پوشش می‌دهد تا مشتری سازمانی فقط با یک طرف حساب روبه‌رو باشد." data-en="Our core business is planned import of fast-moving and custom-order parts; every shipment is quality-inspected before loading and its authenticity can be verified with the manufacturer's traceability code. Secondary activities — international logistics, customs clearance and nationwide distribution — mean corporate clients deal with a single accountable partner.">فعالیت اصلی ما واردات برنامه‌ریزی‌شده قطعات پرگردش و سفارشی است؛ هر محموله پیش از حمل، بازرسی کیفی می‌شود و اصالت آن با کد رهگیری سازنده قابل استعلام است. فعالیت‌های فرعی شرکت، لجستیک بین‌المللی، ترخیص و توزیع سراسری را پوشش می‌دهد تا مشتری سازمانی فقط با یک طرف حساب روبه‌رو باشد.</p>
+      <blockquote class="pull-quote">از سفارش‌گذاری در مبدأ تا تحویل در انبار تهران<small>یک طرف حساب، برای کل زنجیره تأمین</small></blockquote>
       <ul>
         <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2.6"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span data-fa="خرید مستقیم از سازنده و نمایندگان رسمی برندها" data-en="Direct purchasing from manufacturers and authorised brand agents">خرید مستقیم از سازنده و نمایندگان رسمی برندها</span></li>
         <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF6A00" stroke-width="2.6"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span data-fa="ضمانت اصالت کالا و امکان مرجوعی قطعه معیوب" data-en="Authenticity guarantee and defective-part returns">ضمانت اصالت کالا و امکان مرجوعی قطعه معیوب</span></li>
@@ -354,6 +382,11 @@ footer .bar .sp{flex:1}
 </div></section>
 
 <footer><div class="wrap">
+  <div class="foot-actions">
+    <a href="#consult"><span class="fa-k">گام اول</span><b data-fa="مشاوره تخصصی" data-en="Expert Consultation">مشاوره تخصصی</b><span data-fa="پیش از خرید عمده، کد فنی و مسیر تأمین را با کارشناس قطعی کنید." data-en="Before any bulk purchase, confirm the part number and sourcing route with an expert.">پیش از خرید عمده، کد فنی و مسیر تأمین را با کارشناس قطعی کنید.</span><span class="fa-go" data-fa="درخواست مشاوره ←" data-en="Request consultation →">درخواست مشاوره ←</span></a>
+    <a href="#order"><span class="fa-k">سفارش خدماتی</span><b data-fa="ثبت سفارش خدمات" data-en="Service Order">ثبت سفارش خدمات</b><span data-fa="درخواست خود را ثبت کنید و کد رهگیری بگیرید؛ پاسخ در کمتر از یک روز کاری." data-en="Register your request and get a tracking code — answered within one business day.">درخواست خود را ثبت کنید و کد رهگیری بگیرید؛ پاسخ در کمتر از یک روز کاری.</span><span class="fa-go" data-fa="ثبت سفارش ←" data-en="Place order →">ثبت سفارش ←</span></a>
+    <a href="#catalogue"><span class="fa-k">کاتالوگ</span><b data-fa="کاتالوگ قطعات" data-en="Parts Catalogue">کاتالوگ قطعات</b><span data-fa="خانواده‌های کالایی تحت پوشش را ببینید و برای هر گروه سفارش بگذارید." data-en="Browse the part families we cover and order for any group.">خانواده‌های کالایی تحت پوشش را ببینید و برای هر گروه سفارش بگذارید.</span><span class="fa-go" data-fa="مشاهده کاتالوگ ←" data-en="View catalogue →">مشاهده کاتالوگ ←</span></a>
+  </div>
   <div class="cols">
     <div>
       <a class="logo" href="#"><span class="mk"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2 3 7v2h18V7L12 2Z" fill="#fff"/><path d="M5 11h14v9a1 1 0 0 1-1 1h-4v-6H10v6H6a1 1 0 0 1-1-1v-9Z" fill="#fff" opacity=".85"/></svg></span><span data-fa="پارت‌ایران تجارت" data-en="PartIran Trading">پارت‌ایران تجارت</span></a>
@@ -468,6 +501,10 @@ document.getElementById('consultForm').addEventListener('submit',function(e){
   document.getElementById('consultSuccess').classList.add('on');
 });
 document.querySelectorAll('nav.main a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mainNav').classList.remove('on')})});
+</script>
+<script>
+// H9 shrink-on-scroll (additive; does not touch existing handlers)
+(function(){var h=document.querySelector('header.site');if(!h)return;function onS(){h.classList.toggle('scrolled',window.scrollY>40)}window.addEventListener('scroll',onS,{passive:true});onS();})();
 </script>
 </body>
 </html>
