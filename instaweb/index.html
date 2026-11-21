@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>اینستاسایت — پیج اینستاتو بده، سایتتو تحویل بگیر</title>
+<meta name="description" content="اینستاسایت اپ‌وبینو: فقط با هندل اینستاگرام، سایت اختصاصی کسب‌وکارت را با لوگو و عکس‌های خودت بساز و شخصی‌سازی کن.">
+<meta name="theme-color" content="#5c1a2b">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ===== App header ===== -->
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-brand">
+      <span class="app-brand-mark">ا</span>
+      <span class="app-brand-text"><strong>اینستاسایت</strong><small>محصول اپ‌وبینو</small></span>
+    </div>
+    <ol class="steps-nav" id="stepsNav">
+      <li data-step="1" class="active">ورود پیج</li>
+      <li data-step="2">دریافت</li>
+      <li data-step="3">شخصی‌سازی</li>
+      <li data-step="4">تحویل</li>
+    </ol>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== Step 1: Landing ===== -->
+  <section class="step step-landing active" id="step1">
+    <div class="landing-wrap">
+      <div class="landing-copy">
+        <span class="landing-badge">سایت‌ساز خودکار از روی اینستاگرام</span>
+        <h1>پیج اینستاتو بده،<br>سایتتو تحویل بگیر</h1>
+        <p class="landing-sub">فقط هندل پیجت را وارد کن؛ اینستاسایت از روی عکس پروفایل، بایو و عکس‌های پست‌هایت یک سایت اختصاصی می‌سازد — بعد خودت قالب، رنگ و بخش‌هایش را شخصی‌سازی می‌کنی.</p>
+        <form class="handle-form" id="handleForm" novalidate>
+          <div class="handle-input-wrap">
+            <span class="handle-at">@</span>
+            <input type="text" id="handleInput" dir="ltr" placeholder="yourpage" autocomplete="off" spellcheck="false" aria-label="هندل اینستاگرام">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" id="buildBtn">سایت منو بساز</button>
+        </form>
+        <p class="form-error" id="formError" hidden>هندل را درست وارد کن؛ مثل doctor.jabbari</p>
+        <button type="button" class="sample-link" id="sampleBtn">نمونه رو ببین — پیج دکتر آرزو جباری ←</button>
+        <ul class="landing-points">
+          <li>لوگو و عکس‌ها از خود پیجت</li>
+          <li>۳ قالب و ۶ تم رنگی</li>
+          <li>بدون نیاز به دانش فنی</li>
+        </ul>
+      </div>
+      <div class="landing-visual" aria-hidden="true">
+        <div class="phone-mock">
+          <div class="phone-notch"></div>
+          <img src="assets/img/hero.jpg" alt="">
+          <div class="phone-mock-card">
+            <img src="assets/img/logo.jpg" alt="">
+            <div><strong>دکتر آرزو جباری</strong><small>فیلر بادی و زیبایی — تهران</small></div>
+          </div>
+        </div>
+        <div class="float-chip chip-1">قالب ✓</div>
+        <div class="float-chip chip-2">تم رنگی ✓</div>
+        <div class="float-chip chip-3">فرم رزرو ✓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Step 2: Fetching ===== -->
+  <section class="step step-fetch" id="step2" hidden>
+    <div class="fetch-wrap">
+      <div class="fetch-avatar">
+        <img src="assets/img/logo.jpg" alt="عکس پروفایل پیج">
+        <span class="fetch-ring"></span>
+      </div>
+      <h2>در حال خواندن پیج <span dir="ltr" id="fetchHandle">@…</span></h2>
+      <ul class="fetch-steps" id="fetchSteps">
+        <li data-fs="profile"><span class="fs-dot"></span> خواندن پروفایل و بایو</li>
+        <li data-fs="logo"><span class="fs-dot"></span> برداشتن عکس پروفایل به‌عنوان لوگو</li>
+        <li data-fs="photos"><span class="fs-dot"></span> جمع‌کردن عکس‌های پست‌ها</li>
+        <li data-fs="contact"><span class="fs-dot"></span> استخراج شماره و آدرس از بایو</li>
+        <li data-fs="build"><span class="fs-dot"></span> ساخت سایت تو</li>
+      </ul>
+      <div class="fetch-progress"><span id="fetchBar"></span></div>
+    </div>
+  </section>
+
+  <!-- ===== Step 3: Studio ===== -->
+  <section class="step step-studio" id="step3" hidden>
+    <div class="studio-wrap">
+      <div class="studio-preview-col">
+        <div class="preview-toolbar">
+          <span class="preview-title">پیش‌نمایش زنده</span>
+          <div class="preview-device-toggle" role="group" aria-label="حالت نمایش">
+            <button type="button" class="dev-btn active" data-dev="phone">موبایل</button>
+            <button type="button" class="dev-btn" data-dev="wide">دسکتاپ</button>
+          </div>
+        </div>
+        <div class="preview-stage" id="previewStage">
+          <div class="preview-frame" id="previewFrame"><!-- generated site renders here --></div>
+        </div>
+      </div>
+
+      <aside class="studio-panel">
+        <div class="panel-group">
+          <h3>قالب سایت</h3>
+          <div class="tpl-grid" id="tplGrid">
+            <button type="button" class="tpl-card active" data-tpl="classic"><span class="tpl-thumb tpl-thumb-classic"></span>کلاسیک</button>
+            <button type="button" class="tpl-card" data-tpl="modern"><span class="tpl-thumb tpl-thumb-modern"></span>مدرن</button>
+            <button type="button" class="tpl-card" data-tpl="minimal"><span class="tpl-thumb tpl-thumb-minimal"></span>مینیمال</button>
+          </div>
+        </div>
+
+        <div class="panel-group">
+          <h3>تم رنگی</h3>
+          <div class="palette-grid" id="paletteGrid"><!-- swatches injected --></div>
+        </div>
+
+        <div class="panel-group">
+          <h3>بخش‌های سایت</h3>
+          <div class="toggle-list" id="toggleList"><!-- toggles injected --></div>
+        </div>
+
+        <div class="panel-group">
+          <h3>متن‌های سایت</h3>
+          <label class="field"><span>نام کسب‌وکار</span><input type="text" id="editName"></label>
+          <label class="field"><span>شعار / عنوان زیر نام</span><input type="text" id="editTagline"></label>
+          <label class="field"><span>شماره تماس</span><input type="text" id="editPhone" dir="ltr"></label>
+          <label class="field"><span>آدرس اصلی</span><input type="text" id="editAddress"></label>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="toDeliveryBtn">سایتم آماده‌ست — برو برای تحویل ←</button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== Step 4: Delivery ===== -->
+  <section class="step step-delivery" id="step4" hidden>
+    <div class="delivery-wrap">
+      <h2 class="delivery-title">سایتت آماده‌ست 🎉</h2>
+      <p class="delivery-sub">حالا انتخاب کن سایتت چطور بالا بیاد:</p>
+
+      <div class="publish-cards">
+
+        <!-- Option A: own domain -->
+        <article class="publish-card publish-card-domain">
+          <div class="publish-card-head">
+            <span class="publish-icon">🌐</span>
+            <h3>با دامنه شخصی خودم بالا بیاد</h3>
+          </div>
+          <p>دامنه خودت را داری یا می‌خوای برات بگیریم؟ اپ‌وبینو سایت را روی دامنه‌ات وصل می‌کند، نسخه نهایی را با سئو تحویل می‌دهد و همه کارهای فنی‌اش با ماست.</p>
+          <form class="domain-form" id="domainForm" novalidate>
+            <label class="field"><span>دامنه‌ای که داری یا می‌خوای</span><input type="text" id="domainInput" dir="ltr" placeholder="yourbrand.ir"></label>
+            <label class="field"><span>نام و نام خانوادگی</span><input type="text" id="domainName"></label>
+            <label class="field"><span>شماره موبایل</span><input type="tel" id="domainMobile" dir="ltr" placeholder="09…"></label>
+            <p class="form-error" id="domainError" hidden>هر سه فیلد را کامل کن تا درخواستت ثبت شود.</p>
+            <button type="submit" class="btn btn-primary btn-block">ثبت درخواست اتصال دامنه</button>
+          </form>
+          <div class="domain-done" id="domainDone" hidden>
+            <strong>درخواستت ثبت شد ✅</strong>
+            <p>تیم اپ‌وبینو برای اتصال دامنه و تحویل نسخه نهایی باهات تماس می‌گیرد.</p>
+            <a class="btn btn-ghost btn-block" href="https://appwebino.ir" target="_blank" rel="noopener">آشنایی با اپ‌وبینو ←</a>
+          </div>
+        </article>
+
+        <!-- Option B: instant subdomain -->
+        <article class="publish-card publish-card-instant">
+          <div class="publish-card-head">
+            <span class="publish-icon">⚡</span>
+            <h3>همین‌طوری بالا باشه</h3>
+          </div>
+          <p>بدون دامنه و بدون انتظار؛ سایتت همین حالا با همین قالب و رنگی که چیدی، روی زیردامنه اینستاسایت بالا می‌آید:</p>
+          <div class="live-address">
+            <span class="live-dot"></span>
+            <span class="live-url" dir="ltr" id="liveUrl">doctorjabbari.appwebino.ir</span>
+            <button type="button" class="copy-btn" id="copyLinkBtn">کپی لینک</button>
+          </div>
+          <p class="copy-done" id="copyDone" hidden>لینک کپی شد ✅</p>
+          <div class="site-summary" id="siteSummary"><!-- summary injected --></div>
+          <button type="button" class="btn btn-ghost btn-block" id="viewSiteBtn">مشاهده سایتم</button>
+          <p class="publish-note">فعال‌سازی نهایی زیردامنه توسط اپ‌وبینو انجام می‌شود.</p>
+        </article>
+      </div>
+
+      <div class="delivery-preview">
+        <h3>پیش‌نمایش نهایی سایتت</h3>
+        <div class="preview-stage delivery-stage">
+          <div class="preview-frame" id="deliveryFrame"><!-- final render --></div>
+        </div>
+      </div>
+
+      <p class="honest-note">این پیش‌نمایش خودکار است؛ نسخه نهایی با دامنه و سئو توسط اپ‌وبینو تحویل می‌شود.</p>
+      <button type="button" class="btn btn-link" id="restartBtn">شروع دوباره</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <span>اینستاسایت — محصولی از <a href="https://appwebino.ir" target="_blank" rel="noopener">اپ‌وبینو</a></span>
+</footer>
+
+<button type="button" class="install-btn" id="installBtn" hidden>نصب اپ اینستاسایت 📲</button>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
