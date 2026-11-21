@@ -371,3 +371,6 @@ html.js .reveal.visible { opacity: 1; transform: none; }
   .ig-sticky { inset-inline: 16px; bottom: 16px; justify-content: center; padding: 15px 22px; }
   .site-footer { padding-bottom: 76px; }
 }
+
+/* لوگو = عکس پروفایل اینستاگرام کسب‌وکار (قانون ۲۰۲۶-۱۱-۲۲) */
+.brand-logo { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; background: #fff; border: 1px solid rgba(0,0,0,.08); }
