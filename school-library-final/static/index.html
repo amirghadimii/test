@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>کتابخانه مدرسه — پنل مدیریت</title>
 <style>
-@font-face{font-family:'Vazirmatn';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');font-weight:400}
-@font-face{font-family:'Vazirmatn';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2');font-weight:700}
+@font-face{font-family:'Vazirmatn';src:url('/static/Vazirmatn-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Vazirmatn';src:url('/static/Vazirmatn-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
 :root{--pri:#4F46E5;--pri-d:#4338CA;--pri-l:#EEF2FF;--pri-m:#C7D2FE;--bg:#F5F6FA;--card:#fff;--bd:#EBEDF5;--tx:#1E1B4B;--mu:#6B7280;--red:#DC2626;--red-l:#FEE2E2;--grn:#059669;--grn-l:#D1FAE5;--amb:#D97706;--amb-l:#FEF3C7}
 *{box-sizing:border-box}html,body{margin:0;font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden}
 button,input,select,textarea{font-family:inherit}
@@ -75,6 +75,19 @@ input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(79,70
 .err{color:var(--red);font-size:13px;min-height:18px}
 @media(max-width:1100px){.g2,.g2e{grid-template-columns:1fr}}
 @media(max-width:900px){.app{flex-direction:column}aside{width:100%;height:auto;position:sticky;padding:10px 12px;gap:10px;border-left:0;border-bottom:1px solid var(--bd)}.side-note{display:none}nav{flex-direction:row;overflow-x:auto}main{padding:18px 14px 50px}.stats{grid-template-columns:repeat(2,1fr)}}
+/* ===== حالت تیره ===== */
+html[data-theme="dark"]{--pri:#818CF8;--pri-d:#A5B4FC;--pri-l:#262257;--pri-m:#4F46E5;--bg:#0F0E1A;--card:#1A1828;--bd:#2C2A44;--tx:#EDEAF6;--mu:#9B97B8;--red:#F87171;--red-l:#3D1A1A;--grn:#34D399;--grn-l:#0E2E24;--amb:#FBBF24;--amb-l:#33270E}
+html[data-theme="dark"] aside{background:#171524}
+html[data-theme="dark"] .chip{background:var(--card)}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#221F36;color:var(--tx)}
+html[data-theme="dark"] th{background:#1E1C30}
+html[data-theme="dark"] td{border-bottom-color:#232138}
+html[data-theme="dark"] .b-n{background:#26243C;color:#A5A3C0}
+html[data-theme="dark"] .cat-item{background:#1E1C30}
+html[data-theme="dark"] .login-card{background:#1A1828;color:var(--tx)}
+html[data-theme="dark"] .side-note{color:#C7D2FE}
+html[data-theme="dark"] .card{box-shadow:0 2px 10px rgba(0,0,0,.35)}
+html[data-theme="dark"] ::placeholder{color:#6E6A8C}
 </style>
 </head>
 <body>
@@ -103,6 +116,7 @@ input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(79,70
       <button class="nav-btn" data-page="categories">دسته‌بندی‌ها</button>
       <button class="nav-btn" data-page="loans">امانت و بازگشت</button>
       <button class="nav-btn" data-page="settings">تنظیمات و پایان سال</button>
+      <button class="nav-btn" id="btnTheme">🌙 حالت تیره</button>
       <button class="nav-btn" id="btnLogout" style="color:var(--red)">خروج از پنل</button>
     </nav>
     <div class="side-note"><b>راهنمای سریع</b><br>دیتابیس روی همین دستگاه ذخیره می‌شود و محدودیت تعداد کتاب ندارد. از بخش تنظیمات می‌توانید خروجی CSV و نسخه پشتیبان بگیرید.</div>
@@ -138,6 +152,12 @@ input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(79,70
           <div><label>کد عضویت (اختیاری)</label><input id="sCode" placeholder="مثلاً: ۱۴۰۳-۰۱"></div>
           <div><button class="btn btn-p" type="submit" style="width:100%">افزودن دانش‌آموز</button></div>
         </form></div>
+      <div class="card"><h3>وارد کردن گروهی دانش‌آموزان (CSV)</h3><div class="sub">فایل CSV با ستون‌های name,grade,section,phone,code — پایه به عدد (۷ تا ۱۲)؛ برای وارد کردن لیست کامل مدرسه</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <input type="file" id="csvFileS" accept=".csv" style="width:auto">
+          <button class="btn btn-s" onclick="importCsvStudents()">وارد کردن فایل</button>
+          <span id="csvMsgS" style="font-size:13px;color:var(--mu)"></span>
+        </div></div>
       <div class="card">
         <div class="toolbar"><div class="search"><input id="qStudents" placeholder="جستجوی نام، کد یا تماس…"></div>
           <select id="fGrade"><option value="">همه پایه‌ها</option><option value="7">هفتم</option><option value="8">هشتم</option><option value="9">نهم</option><option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option></select>
@@ -179,7 +199,7 @@ input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(79,70
     <section class="page" id="p-categories">
       <div class="top"><div><h1>دسته‌بندی کتاب‌ها</h1><p id="catSub">۵۰ دسته پیش‌فرض بارگذاری شده — دسته جدید هم می‌توانید اضافه کنید</p></div></div>
       <div class="card"><h3>افزودن دسته جدید</h3><div class="sub">دسته‌های استفاده‌شده در کتاب‌ها قابل مشاهده‌اند؛ حذف دسته، کتاب‌ها را حذف نمی‌کند (فقط بدون دسته می‌شوند)</div>
-        <form id="fCat" class="form"><div><label>نام دسته</label><input id="cName" placeholder="مثلاً: دفاع مقدس"></div>
+        <form id="fCatAdd" class="form"><div><label>نام دسته</label><input id="cName" placeholder="مثلاً: دفاع مقدس"></div>
         <div><button class="btn btn-p" type="submit" style="width:100%">افزودن دسته</button></div></form></div>
       <div class="card"><div class="cat-grid" id="catGrid"></div></div>
     </section>
@@ -252,6 +272,9 @@ $('fLogin').addEventListener('submit',async e=>{e.preventDefault();$('liErr').te
   try{await post('/api/login',{username:$('liUser').value,password:$('liPass').value});AUTHED=true;showApp();go('dashboard');loadAll()}
   catch(err){$('liErr').textContent=err.message==='auth'?'':err.message}});
 $('btnLogout').addEventListener('click',async()=>{await post('/api/logout');location.reload()});
+function applyTheme(t){document.documentElement.dataset.theme=t;localStorage.setItem('lib_theme',t);const b=$('btnTheme');if(b)b.textContent=t==='dark'?'☀️ حالت روشن':'🌙 حالت تیره'}
+applyTheme(localStorage.getItem('lib_theme')||'light');
+$('btnTheme').addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
 
 /* ---------- nav ---------- */
 function go(p){
@@ -274,7 +297,7 @@ async function loadCats(){
   $('catSub').textContent=fa(CATS.length)+' دسته‌بندی فعال — شامل رمان ایرانی، رمان خارجی، روانشناسی و…';
 }
 async function delCat(id,name){if(!confirm(`دسته «${name}» حذف شود؟ کتاب‌هایش بدون دسته می‌شوند.`))return;await del('/api/categories/'+id);toast('دسته حذف شد.');loadCats()}
-$('fCat').addEventListener('submit',async e=>{e.preventDefault();try{await post('/api/categories',{name:$('cName').value});e.target.reset();toast('دسته جدید اضافه شد.');loadCats()}catch(err){toast(err.message,true)}});
+$('fCatAdd').addEventListener('submit',async e=>{e.preventDefault();try{await post('/api/categories',{name:$('cName').value});e.target.reset();toast('دسته جدید اضافه شد.');loadCats()}catch(err){toast(err.message,true)}});
 
 const stBadge=s=>s==='available'?'<span class="badge b-g">موجود</span>':s==='loaned'?'<span class="badge b-a">در امانت</span>':'<span class="badge b-p">رزرو شده</span>';
 function loanBadge(l){const t=new Date().toISOString().slice(0,10);if(l.returned)return'<span class="badge b-n">بازگردانده شد</span>';if(l.due<t){const d=Math.round((new Date(t)-new Date(l.due))/864e5);return`<span class="badge b-r">${fa(d)} روز تأخیر</span>`}if(l.due===t)return'<span class="badge b-r">امروز سررسید است</span>';return'<span class="badge b-g">در حال امانت</span>'}
@@ -321,6 +344,8 @@ $('fBook').addEventListener('submit',async e=>{e.preventDefault();
   try{await post('/api/books',{title:$('bTitle').value,author:$('bAuthor').value,num:toLatin($('bNum').value),category_id:$('bCat').value?+$('bCat').value:null,copies:+$('bCopies').value||1});e.target.reset();$('bCopies').value=1;toast('کتاب اضافه شد.');pageB=1;loadBooks();loadCats()}catch(err){toast(err.message,true)}});
 ['qBooks','fCat','fStatus'].forEach(id=>$(id).addEventListener('input',()=>{pageB=1;loadBooks()}));
 $('pgBPrev').onclick=()=>{if(pageB>1){pageB--;loadBooks()}};$('pgBNext').onclick=()=>{pageB++;loadBooks()};
+async function importCsvStudents(){const f=$('csvFileS').files[0];if(!f)return toast('اول فایل CSV را انتخاب کنید.',true);
+  const text=await f.text();try{const d=await post('/api/import/students',{csv:text});$('csvMsgS').textContent=`${fa(d.added)} دانش‌آموز اضافه شد، ${fa(d.skipped)} رد شد (ناقص یا پایه نامعتبر).`;toast('وارد کردن دانش‌آموزان انجام شد.');pageS=1;loadStudents()}catch(e){toast(e.message,true)}}
 async function importCsv(){const f=$('csvFile').files[0];if(!f)return toast('اول فایل CSV را انتخاب کنید.',true);
   const text=await f.text();try{const d=await post('/api/import/books',{csv:text});$('csvMsg').textContent=`${fa(d.added)} کتاب اضافه شد، ${fa(d.skipped)} رد شد (تکراری یا ناقص).`;toast('وارد کردن انجام شد.');loadBooks();loadCats()}catch(e){toast(e.message,true)}}
 
