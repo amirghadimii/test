@@ -407,3 +407,11 @@ html.js .reveal.visible { opacity: 1; transform: none; }
 /* brand logo (instagram profile picture) */
 .brand-logo { width: 48px; height: 48px; border-radius: 50%; overflow: hidden; flex: none; border: 2px solid var(--coral); box-shadow: 0 0 0 3px var(--coral-soft); background: var(--card); }
 .brand-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* narrow-header fix: brand text may shrink, never push actions off-screen */
+.brand, .brand-text { min-width: 0; }
+.brand-text strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 480px) {
+  .brand-text small { display: none; }
+  .brand-text strong { font-size: 1rem; }
+}
