@@ -220,6 +220,13 @@ html[data-theme="dark"] ::placeholder{color:#6E6A8C}
         </form></div>
       <div class="card"><h3>امانت‌های فعال</h3><div class="sub">امانت‌های معوق با رنگ قرمز مشخص‌اند و نام دانش‌آموز در هشدار بالای صفحه هم نمایش داده می‌شود</div>
         <div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ امانت</th><th>سررسید</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="tLoans"></tbody></table></div></div>
+      <div class="card"><h3>رزروها</h3><div class="sub">اگر کتابی در امانت است، برای دانش‌آموز رزروش کنید؛ وقتی برگشت، از همینجا تحویلش بدهید</div>
+        <form id="fRes" class="form">
+          <div><label>دانش‌آموز</label><select id="rStudent"></select></div>
+          <div><label>کتاب</label><select id="rBook"></select></div>
+          <div><button class="btn btn-p" type="submit" style="width:100%">ثبت رزرو</button></div>
+        </form>
+        <div class="tw" style="margin-top:14px"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ رزرو</th><th>عملیات</th></tr></thead><tbody id="tRes"></tbody></table></div></div>
     </section>
 
     <section class="page" id="p-settings">
@@ -261,7 +268,9 @@ const toLatin=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(
 let toastT;function toast(m,bad){const t=$('toast');t.textContent=m;t.className='show'+(bad?' bad':'');clearTimeout(toastT);toastT=setTimeout(()=>t.className='',3200)}
 async function api(path,opts={}){const r=await fetch(path,{headers:{'Content-Type':'application/json'},...opts});let d={};try{d=await r.json()}catch(e){}if(r.status===401){showLogin();throw new Error('auth')}if(!r.ok)throw new Error(d.error||'خطا');return d}
 const post=(p,b)=>api(p,{method:'POST',body:JSON.stringify(b||{})});
+const put=(p,b)=>api(p,{method:'PUT',body:JSON.stringify(b||{})});
 const del=p=>api(p,{method:'DELETE'});
+let EDIT_S=0, EDIT_B=0, LAST_STU=[], LAST_BOOKS=[];
 
 let CATS=[], pageS=1, pageB=1, pageStu=1, PER=20, AUTHED=false;
 
@@ -292,11 +301,11 @@ async function loadCats(){
   const d=await api('/api/categories');CATS=d.categories;
   const opts='<option value="">بدون دسته / همه</option>'+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
   $('bCat').innerHTML=opts;$('fCat').innerHTML='<option value="">همه دسته‌ها</option>'+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
-  $('fCatStu').innerHTML='<option value="">همه دسته‌ها</option>'+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
-  $('catGrid').innerHTML=CATS.map(c=>`<div class="cat-item"><span>${esc(c.name)} <span class="badge b-n">${fa(c.books)} کتاب</span></span><button class="btn btn-d" onclick="delCat(${c.id},'${esc(c.name)}')">حذف</button></div>`).join('')||'<p class="empty">دسته‌ای نیست.</p>';
+  $('catGrid').innerHTML=CATS.map(c=>`<div class="cat-item"><span>${esc(c.name)} <span class="badge b-n">${fa(c.books)} کتاب</span></span><span style="display:flex;gap:6px"><button class="btn btn-s" onclick="renameCat(${c.id},'${esc(c.name)}')">ویرایش</button><button class="btn btn-d" onclick="delCat(${c.id},'${esc(c.name)}')">حذف</button></span></div>`).join('')||'<p class="empty">دسته‌ای نیست.</p>';
   $('catSub').textContent=fa(CATS.length)+' دسته‌بندی فعال — شامل رمان ایرانی، رمان خارجی، روانشناسی و…';
 }
 async function delCat(id,name){if(!confirm(`دسته «${name}» حذف شود؟ کتاب‌هایش بدون دسته می‌شوند.`))return;await del('/api/categories/'+id);toast('دسته حذف شد.');loadCats()}
+async function renameCat(id,name){const n=prompt('نام جدید دسته:',name);if(!n||n.trim()===name)return;try{await put('/api/categories/'+id,{name:n.trim()});toast('نام دسته ویرایش شد.');loadCats()}catch(e){toast(e.message,true)}}
 $('fCatAdd').addEventListener('submit',async e=>{e.preventDefault();try{await post('/api/categories',{name:$('cName').value});e.target.reset();toast('دسته جدید اضافه شد.');loadCats()}catch(err){toast(err.message,true)}});
 
 const stBadge=s=>s==='available'?'<span class="badge b-g">موجود</span>':s==='loaned'?'<span class="badge b-a">در امانت</span>':'<span class="badge b-p">رزرو شده</span>';
@@ -322,12 +331,15 @@ async function loadStudents(){
   const q=encodeURIComponent(toLatin($('qStudents').value)),g=$('fGrade').value;
   const d=await api(`/api/students?q=${q}&grade=${g}&page=${pageS}&per=${PER}`);
   $('cntStudents').textContent=fa(d.total)+' دانش‌آموز';
-  $('tStudents').innerHTML=d.students.length?d.students.map((s,i)=>`<tr><td>${fa((pageS-1)*PER+i+1)}</td><td><b>${esc(s.name)}</b></td><td><span class="badge b-p">${esc(s.class_name)}</span></td><td>${esc(s.phone||'—')}</td><td>${s.active_loans?fa(s.active_loans):'—'}</td><td><button class="btn btn-d" onclick="delStudent(${s.id},'${esc(s.name)}')">حذف</button></td></tr>`).join(''):'<tr><td class="empty" colspan="6">دانش‌آموزی پیدا نشد.</td></tr>';
+  LAST_STU=d.students;
+  $('tStudents').innerHTML=d.students.length?d.students.map((s,i)=>`<tr><td>${fa((pageS-1)*PER+i+1)}</td><td><b>${esc(s.name)}</b></td><td><span class="badge b-p">${esc(s.class_name)}</span></td><td>${esc(s.phone||'—')}</td><td>${s.active_loans?fa(s.active_loans):'—'}</td><td><button class="btn btn-s" onclick="editStudent(${s.id})">ویرایش</button> <button class="btn btn-d" onclick="delStudent(${s.id},'${esc(s.name)}')">حذف</button></td></tr>`).join(''):'<tr><td class="empty" colspan="6">دانش‌آموزی پیدا نشد.</td></tr>';
   $('pgSInfo').textContent=`صفحه ${fa(pageS)} از ${fa(Math.max(1,Math.ceil(d.total/PER)))}`;
 }
 async function delStudent(id,name){if(!confirm(`«${name}» حذف شود؟`))return;try{await del('/api/students/'+id);toast('دانش‌آموز حذف شد.');loadStudents();loadDashboard()}catch(e){toast(e.message,true)}}
+function editStudent(id){const s=LAST_STU.find(x=>x.id===id);if(!s)return;EDIT_S=id;$('sName').value=s.name;$('sGrade').value=s.grade;$('sSection').value=s.section||'الف';$('sPhone').value=s.phone||'';$('sCode').value=s.code||'';$('fStudent').querySelector('button[type=submit]').textContent='ذخیره ویرایش';$('sName').focus();window.scrollTo({top:0,behavior:'smooth'})}
 $('fStudent').addEventListener('submit',async e=>{e.preventDefault();
-  try{await post('/api/students',{name:$('sName').value,grade:+$('sGrade').value,section:$('sSection').value,phone:toLatin($('sPhone').value),code:toLatin($('sCode').value)});e.target.reset();toast('دانش‌آموز اضافه شد.');pageS=1;loadStudents()}catch(err){toast(err.message,true)}});
+  const body={name:$('sName').value,grade:+$('sGrade').value,section:$('sSection').value,phone:toLatin($('sPhone').value),code:toLatin($('sCode').value)};
+  try{if(EDIT_S){await put('/api/students/'+EDIT_S,body);toast('دانش‌آموز ویرایش شد.')}else{await post('/api/students',body);toast('دانش‌آموز اضافه شد.')}EDIT_S=0;e.target.reset();e.target.querySelector('button[type=submit]').textContent='افزودن دانش‌آموز';pageS=1;loadStudents()}catch(err){toast(err.message,true)}});
 ['qStudents','fGrade'].forEach(id=>$(id).addEventListener('input',()=>{pageS=1;loadStudents()}));
 $('pgSPrev').onclick=()=>{if(pageS>1){pageS--;loadStudents()}};$('pgSNext').onclick=()=>{pageS++;loadStudents()};
 
@@ -336,12 +348,15 @@ async function loadBooks(){
   const q=encodeURIComponent(toLatin($('qBooks').value));
   const d=await api(`/api/books?q=${q}&category=${$('fCat').value}&status=${$('fStatus').value}&page=${pageB}&per=${PER}`);
   $('cntBooks').textContent=fa(d.total)+' عنوان';
-  $('tBooks').innerHTML=d.books.length?d.books.map(b=>`<tr><td><b>${fa(toLatin(b.num)).replace(/٬/g,'')}</b></td><td>${esc(b.title)}</td><td>${esc(b.author)}</td><td>${b.category?`<span class="badge b-p">${esc(b.category)}</span>`:'—'}</td><td>${fa(b.copies)} <small style="color:var(--mu)">(${fa(b.loaned)} در امانت)</small></td><td>${stBadge(b.status)}${b.active_loan?`<div style="font-size:12px;color:var(--mu);margin-top:4px">نزد: <b>${esc(b.active_loan.student_name)}</b> — سررسید ${fdate(b.active_loan.due)}</div>`:''}</td><td>${b.status==='available'?`<button class="btn btn-g" onclick="lendBook(${b.id})">امانت دادن</button> `:''}<button class="btn btn-d" onclick="delBook(${b.id},'${esc(b.title)}')">حذف</button></td></tr>`).join(''):'<tr><td class="empty" colspan="7">کتابی پیدا نشد.</td></tr>';
+  LAST_BOOKS=d.books;
+  $('tBooks').innerHTML=d.books.length?d.books.map(b=>`<tr><td><b>${fa(toLatin(b.num)).replace(/٬/g,'')}</b></td><td>${esc(b.title)}</td><td>${esc(b.author)}</td><td>${b.category?`<span class="badge b-p">${esc(b.category)}</span>`:'—'}</td><td>${fa(b.copies)} <small style="color:var(--mu)">(${fa(b.loaned)} در امانت)</small></td><td>${stBadge(b.status)}${b.active_loan?`<div style="font-size:12px;color:var(--mu);margin-top:4px">نزد: <b>${esc(b.active_loan.student_name)}</b> — سررسید ${fdate(b.active_loan.due)}</div>`:''}</td><td>${b.status==='available'?`<button class="btn btn-g" onclick="lendBook(${b.id})">امانت دادن</button> `:''}<button class="btn btn-s" onclick="editBook(${b.id})">ویرایش</button> <button class="btn btn-d" onclick="delBook(${b.id},'${esc(b.title)}')">حذف</button></td></tr>`).join(''):'<tr><td class="empty" colspan="7">کتابی پیدا نشد.</td></tr>';
   $('pgBInfo').textContent=`صفحه ${fa(pageB)} از ${fa(Math.max(1,Math.ceil(d.total/PER)))}`;
 }
 async function delBook(id,t){if(!confirm(`کتاب «${t}» حذف شود؟`))return;try{await del('/api/books/'+id);toast('کتاب حذف شد.');loadBooks()}catch(e){toast(e.message,true)}}
+function editBook(id){const b=LAST_BOOKS.find(x=>x.id===id);if(!b)return;EDIT_B=id;$('bTitle').value=b.title;$('bAuthor').value=b.author||'';$('bNum').value=b.num;$('bCat').value=b.category_id||'';$('bCopies').value=b.copies;$('fBook').querySelector('button[type=submit]').textContent='ذخیره ویرایش';$('bTitle').focus();window.scrollTo({top:0,behavior:'smooth'})}
 $('fBook').addEventListener('submit',async e=>{e.preventDefault();
-  try{await post('/api/books',{title:$('bTitle').value,author:$('bAuthor').value,num:toLatin($('bNum').value),category_id:$('bCat').value?+$('bCat').value:null,copies:+$('bCopies').value||1});e.target.reset();$('bCopies').value=1;toast('کتاب اضافه شد.');pageB=1;loadBooks();loadCats()}catch(err){toast(err.message,true)}});
+  const body={title:$('bTitle').value,author:$('bAuthor').value,num:toLatin($('bNum').value),category_id:$('bCat').value?+$('bCat').value:null,copies:+$('bCopies').value||1};
+  try{if(EDIT_B){await put('/api/books/'+EDIT_B,body);toast('کتاب ویرایش شد.')}else{await post('/api/books',body);toast('کتاب اضافه شد.')}EDIT_B=0;e.target.reset();$('bCopies').value=1;e.target.querySelector('button[type=submit]').textContent='افزودن کتاب';pageB=1;loadBooks();loadCats()}catch(err){toast(err.message,true)}});
 ['qBooks','fCat','fStatus'].forEach(id=>$(id).addEventListener('input',()=>{pageB=1;loadBooks()}));
 $('pgBPrev').onclick=()=>{if(pageB>1){pageB--;loadBooks()}};$('pgBNext').onclick=()=>{pageB++;loadBooks()};
 async function importCsvStudents(){const f=$('csvFileS').files[0];if(!f)return toast('اول فایل CSV را انتخاب کنید.',true);
@@ -368,6 +383,8 @@ async function fillLoanSelects(){
   const s=await api('/api/students?per=200');const b=await api('/api/books?per=200');
   $('lStudent').innerHTML='<option value="">انتخاب دانش‌آموز…</option>'+s.students.map(x=>`<option value="${x.id}">${esc(x.name)} — ${esc(x.class_name)}</option>`).join('');
   $('lBook').innerHTML='<option value="">انتخاب کتاب…</option>'+b.books.filter(x=>x.status!=='loaned').map(x=>`<option value="${x.id}">${esc(x.num)} — ${esc(x.title)}${x.category?' ('+esc(x.category)+')':''}</option>`).join('');
+  $('rStudent').innerHTML=$('lStudent').innerHTML;
+  $('rBook').innerHTML='<option value="">انتخاب کتاب…</option>'+b.books.map(x=>`<option value="${x.id}">${esc(x.num)} — ${esc(x.title)}${x.category?' ('+esc(x.category)+')':''}</option>`).join('');
   if(PRESELECT_BOOK){$('lBook').value=String(PRESELECT_BOOK);PRESELECT_BOOK=0}
   if(!$('lDue').value){const d=new Date(Date.now()+14*864e5);$('lDue').value=d.toISOString().slice(0,10)}
 }
@@ -375,12 +392,17 @@ async function loadLoans(){
   await fillLoanSelects();
   const d=await api('/api/loans');
   $('tLoans').innerHTML=d.loans.length?d.loans.map(l=>`<tr><td><b>${esc(l.student_name)}</b></td><td>${esc(l.book_title)}</td><td>${fdate(l.start)}</td><td>${fdate(l.due)}</td><td>${loanBadge(l)}</td><td><button class="btn btn-g" onclick="retLoan(${l.id})">بازگشت کتاب</button></td></tr>`).join(''):'<tr><td class="empty" colspan="6">امانت فعالی وجود ندارد.</td></tr>';
+  $('tRes').innerHTML=d.reservations.length?d.reservations.map(r=>`<tr><td><b>${esc(r.student_name)}</b></td><td>${esc(r.book_title)}</td><td>${fdate(r.date)}</td><td><button class="btn btn-g" onclick="lendRes(${r.id})">تحویل کتاب</button> <button class="btn btn-d" onclick="delRes(${r.id})">حذف رزرو</button></td></tr>`).join(''):'<tr><td class="empty" colspan="4">رزروی ثبت نشده است.</td></tr>';
 }
+$('fRes').addEventListener('submit',async e=>{e.preventDefault();
+  if(!$('rStudent').value||!$('rBook').value)return toast('دانش‌آموز و کتاب را انتخاب کنید.',true);
+  try{await post('/api/reservations',{student_id:+$('rStudent').value,book_id:+$('rBook').value});toast('رزرو ثبت شد.');loadLoans()}catch(err){toast(err.message,true)}});
+async function delRes(id){if(!confirm('این رزرو حذف شود؟'))return;try{await del('/api/reservations/'+id);toast('رزرو حذف شد.');loadLoans()}catch(e){toast(e.message,true)}}
 $('fLoan').addEventListener('submit',async e=>{e.preventDefault();
   if(!$('lStudent').value||!$('lBook').value)return toast('دانش‌آموز و کتاب را انتخاب کنید.',true);
   try{await post('/api/loans',{student_id:+$('lStudent').value,book_id:+$('lBook').value,due:$('lDue').value});toast('امانت ثبت شد.');loadLoans();loadDashboard()}catch(err){toast(err.message,true)}});
 async function retLoan(id){await post(`/api/loans/${id}/return`);toast('کتاب بازگردانده شد.');loadLoans();loadDashboard()}
-async function lendRes(id){await post(`/api/reservations/${id}/lend`);toast('کتاب تحویل داده شد.');loadLoans();loadDashboard()}
+async function lendRes(id){try{await post(`/api/reservations/${id}/lend`);toast('کتاب تحویل داده شد.');loadLoans();loadDashboard()}catch(e){toast(e.message,true)}}
 
 /* ---------- settings ---------- */
 async function loadSettings(){
