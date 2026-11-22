@@ -252,10 +252,10 @@ class H(BaseHTTPRequestHandler):
     def list_students(self, c, q):
         query = (q.get("q", [""])[0] or "").strip()
         grade = q.get("grade", [""])[0]
-        page = max(1, int(q.get("page", ["1"])[0])); per = min(200, int(q.get("per", ["50"])[0]))
+        page = max(1, s_int(q.get("page", ["1"])[0], 1)); per = max(1, min(200, s_int(q.get("per", ["50"])[0], 50)))
         where, args = [], []
         if query: where.append("(name LIKE ? OR code LIKE ? OR phone LIKE ?)"); args += [f"%{query}%"] * 3
-        if grade: where.append("grade=?"); args.append(int(grade))
+        if grade: where.append("grade=?"); args.append(s_int(grade))
         w = (" WHERE " + " AND ".join(where)) if where else ""
         total = c.execute(f"SELECT COUNT(*) n FROM students{w}", args).fetchone()["n"]
         rows = []
@@ -268,10 +268,16 @@ class H(BaseHTTPRequestHandler):
     def list_books(self, c, q, public=False):
         query = (q.get("q", [""])[0] or "").strip()
         cat = q.get("category", [""])[0]; status = q.get("status", [""])[0]
-        page = max(1, int(q.get("page", ["1"])[0])); per = min(200, int(q.get("per", ["50"])[0]))
+        page = max(1, s_int(q.get("page", ["1"])[0], 1)); per = max(1, min(200, s_int(q.get("per", ["50"])[0], 50)))
         where, args = [], []
         if query: where.append("(b.title LIKE ? OR b.author LIKE ? OR b.num LIKE ?)"); args += [f"%{query}%"] * 3
-        if cat: where.append("b.category_id=?"); args.append(int(cat))
+        if cat: where.append("b.category_id=?"); args.append(s_int(cat))
+        # وضعیت در سطح SQL فیلتر می‌شود تا صفحه‌بندی و شمارش کل درست بمانند
+        loaned_cnt = "(SELECT COUNT(*) FROM loans l WHERE l.book_id=b.id AND l.returned IS NULL)"
+        has_res = "EXISTS(SELECT 1 FROM reservations r WHERE r.book_id=b.id)"
+        if status == "loaned": where.append(f"{loaned_cnt} >= b.copies")
+        elif status == "reserved": where.append(f"{loaned_cnt} = 0 AND {has_res}")
+        elif status == "available": where.append(f"({loaned_cnt} BETWEEN 1 AND b.copies-1) OR ({loaned_cnt} = 0 AND NOT {has_res})")
         w = (" WHERE " + " AND ".join(where)) if where else ""
         total = c.execute(f"SELECT COUNT(*) n FROM books b{w}", args).fetchone()["n"]
         rows = []
@@ -281,8 +287,7 @@ class H(BaseHTTPRequestHandler):
             d["loaned"] = c.execute("SELECT COUNT(*) n FROM loans WHERE book_id=? AND returned IS NULL", (b["id"],)).fetchone()["n"]
             al = c.execute("SELECT id, student_name, due FROM loans WHERE book_id=? AND returned IS NULL ORDER BY due LIMIT 1", (b["id"],)).fetchone()
             d["active_loan"] = dict(al) if al else None  # کتاب دست کیست و سررسیدش کی است
-            if not status or d["status"] == status:
-                rows.append(d)
+            rows.append(d)
         return self.send_json({"books": rows, "total": total, "page": page, "per": per})
 
     def export_csv(self, c, kind):
@@ -358,10 +363,11 @@ class H(BaseHTTPRequestHandler):
             if p == "/api/loans":
                 sid, bid = s_int(data.get("student_id")), s_int(data.get("book_id"))
                 due = data.get("due") or (date.today() + timedelta(days=14)).isoformat()
+                c.execute("BEGIN IMMEDIATE")  # قفل نوشتن: چک موجودی و ثبت امانت اتمیک می‌شود (ضد امانت موازیِ بیش از نسخه)
                 s = c.execute("SELECT * FROM students WHERE id=?", (sid,)).fetchone()
                 b = c.execute("SELECT * FROM books WHERE id=?", (bid,)).fetchone()
-                if not s or not b: return self.send_json({"error": "دانش‌آموز یا کتاب پیدا نشد."}, 400)
-                if book_status(c, b) == "loaned": return self.send_json({"error": "همه نسخه‌های این کتاب در امانت است."}, 400)
+                if not s or not b: c.rollback(); return self.send_json({"error": "دانش‌آموز یا کتاب پیدا نشد."}, 400)
+                if book_status(c, b) == "loaned": c.rollback(); return self.send_json({"error": "همه نسخه‌های این کتاب در امانت است."}, 400)
                 c.execute("DELETE FROM reservations WHERE book_id=? AND student_id=?", (bid, sid))
                 cur = c.execute("INSERT INTO loans(student_id,book_id,start,due,student_name,book_title) VALUES(?,?,?,?,?,?)",
                                 (sid, bid, date.today().isoformat(), due, s["name"], b["title"]))
@@ -385,9 +391,10 @@ class H(BaseHTTPRequestHandler):
                 rid = s_int(p.split("/")[3])
                 r = c.execute("SELECT * FROM reservations WHERE id=?", (rid,)).fetchone()
                 if not r: return self.send_json({"error": "رزرو پیدا نشد."}, 404)
+                c.execute("BEGIN IMMEDIATE")
                 bb = c.execute("SELECT * FROM books WHERE id=?", (r["book_id"],)).fetchone()
                 if bb and book_status(c, bb) == "loaned":
-                    return self.send_json({"error": "همه نسخه‌های این کتاب در امانت است."}, 400)
+                    c.rollback(); return self.send_json({"error": "همه نسخه‌های این کتاب در امانت است."}, 400)
                 s = c.execute("SELECT * FROM students WHERE id=?", (r["student_id"],)).fetchone()
                 b = c.execute("SELECT * FROM books WHERE id=?", (r["book_id"],)).fetchone()
                 c.execute("DELETE FROM reservations WHERE id=?", (rid,))
@@ -417,6 +424,7 @@ class H(BaseHTTPRequestHandler):
             c.close()
 
     def import_books(self, c, text):
+        text = text.lstrip("﻿")  # BOM فایل‌های اکسل
         if not text.strip(): return self.send_json({"error": "فایل CSV خالی است."}, 400)
         cats = {r["name"]: r["id"] for r in c.execute("SELECT * FROM categories")}
         added, skipped = 0, 0
@@ -437,6 +445,7 @@ class H(BaseHTTPRequestHandler):
         return self.send_json({"ok": True, "added": added, "skipped": skipped})
 
     def import_students(self, c, text):
+        text = text.lstrip("﻿")  # BOM فایل‌های اکسل
         if not text.strip(): return self.send_json({"error": "فایل CSV خالی است."}, 400)
         added, skipped = 0, 0
         for row in csv.DictReader(io.StringIO(text)):
