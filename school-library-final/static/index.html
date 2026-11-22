@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کتابخانه مدرسه — پنل مدیریت</title>
+<style>
+@font-face{font-family:'Vazirmatn';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');font-weight:400}
+@font-face{font-family:'Vazirmatn';src:url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn/fonts/webfonts/Vazirmatn-Bold.woff2') format('woff2');font-weight:700}
+:root{--pri:#4F46E5;--pri-d:#4338CA;--pri-l:#EEF2FF;--pri-m:#C7D2FE;--bg:#F5F6FA;--card:#fff;--bd:#EBEDF5;--tx:#1E1B4B;--mu:#6B7280;--red:#DC2626;--red-l:#FEE2E2;--grn:#059669;--grn-l:#D1FAE5;--amb:#D97706;--amb-l:#FEF3C7}
+*{box-sizing:border-box}html,body{margin:0;font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden}
+button,input,select,textarea{font-family:inherit}
+.app{display:flex;min-height:100vh}
+aside{width:250px;background:#fff;border-left:1px solid var(--bd);padding:22px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:20px;flex-shrink:0;z-index:30}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px}
+.logo{width:42px;height:42px;border-radius:14px;background:var(--pri);color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 8px 18px rgba(79,70,229,.3)}
+.brand b{font-size:16px;display:block}.brand small{color:var(--mu);font-size:12px}
+nav{display:flex;flex-direction:column;gap:6px}
+.nav-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:0;background:transparent;color:var(--mu);font-size:14.5px;cursor:pointer;text-align:right;transition:.15s;white-space:nowrap}
+.nav-btn:hover{background:var(--pri-l);color:var(--pri)}
+.nav-btn.active{background:var(--pri);color:#fff;font-weight:700}
+.side-note{margin-top:auto;background:var(--pri-l);border-radius:16px;padding:14px;font-size:12.5px;color:var(--pri-d);line-height:1.9}
+main{flex:1;min-width:0;padding:26px 30px 50px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.top h1{margin:0;font-size:24px;font-weight:800}.top p{margin:4px 0 0;color:var(--mu);font-size:13.5px}
+.chip{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:8px 14px;font-size:13px;color:var(--mu)}
+.page{display:none}.page.active{display:block}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;box-shadow:0 2px 10px rgba(30,27,75,.03);margin-bottom:18px}
+.card h3{margin:0 0 4px;font-size:16px}.card .sub{color:var(--mu);font-size:12.5px;margin-bottom:14px}
+.grid{display:grid;gap:18px}.stats{grid-template-columns:repeat(4,1fr)}
+.stat .num{font-size:30px;font-weight:800}.stat .lbl{color:var(--mu);font-size:13.5px}
+.g2{grid-template-columns:2fr 1fr}.g2e{grid-template-columns:1fr 1fr}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+th{text-align:right;color:var(--mu);font-weight:500;font-size:12.5px;padding:10px 12px;border-bottom:1px solid var(--bd);background:#FAFAFD;white-space:nowrap}
+td{padding:12px;border-bottom:1px solid #F3F4F9;white-space:nowrap}
+.empty{text-align:center;color:var(--mu);padding:26px 10px!important;white-space:normal}
+.badge{display:inline-block;padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600}
+.b-g{background:var(--grn-l);color:var(--grn)}.b-r{background:var(--red-l);color:var(--red)}.b-a{background:var(--amb-l);color:var(--amb)}.b-p{background:var(--pri-l);color:var(--pri)}.b-n{background:#F3F4F6;color:#4B5563}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;align-items:end}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+input,select,textarea{width:100%;border:1.5px solid var(--bd);background:#fff;border-radius:12px;padding:11px 14px;font-size:14px;color:var(--tx);outline:none}
+input:focus,select:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(79,70,229,.12)}
+.btn{border:0;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;display:inline-flex;gap:8px;align-items:center;justify-content:center;white-space:nowrap;text-decoration:none}
+.btn-p{background:var(--pri);color:#fff}.btn-p:hover{background:var(--pri-d)}
+.btn-s{background:var(--pri-l);color:var(--pri)}.btn-d{background:var(--red-l);color:var(--red);padding:7px 13px;font-size:13px}.btn-g{background:var(--grn-l);color:var(--grn);padding:7px 13px;font-size:13px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.toolbar .search{flex:1;min-width:200px;max-width:380px}
+.toolbar select{width:auto;min-width:140px}
+.pager{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:14px;font-size:13px;color:var(--mu)}
+.banner{display:none;background:var(--red);color:#fff;border-radius:18px;padding:16px 20px;margin-bottom:20px}
+.banner.show{display:block}.banner ul{margin:6px 0 0;padding:0 18px 0 0;font-size:13.5px;line-height:2}
+.bars{display:flex;align-items:flex-end;gap:12px;height:180px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.bar{width:100%;max-width:46px;border-radius:12px 12px 6px 6px;background:var(--pri-m);min-height:6px}
+.bar.today{background:var(--pri)}.bar-v{font-size:12px;font-weight:700}.bar-l{font-size:11.5px;color:var(--mu)}
+.hero{background:linear-gradient(135deg,#4F46E5,#6366F1 60%,#818CF8);color:#fff;border-radius:22px;padding:26px;margin-bottom:18px}
+.hero h2{margin:0 0 6px;font-size:21px}.hero p{margin:0;opacity:.9;font-size:13.5px;line-height:1.9}
+.books{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.bk{display:flex;flex-direction:column;gap:10px}
+.bk .cover{height:80px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:24px}
+.bk h4{margin:0;font-size:15px}.bk .au{font-size:12.5px;color:var(--mu)}
+.bk .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.cat-item{border:1px solid var(--bd);border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;background:#FAFAFD}
+.switch{display:flex;gap:10px;align-items:center;font-size:14px;padding:10px 0}
+.switch input{width:auto;transform:scale(1.3)}
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,30px);background:#065F46;color:#fff;padding:13px 22px;border-radius:14px;font-size:14px;opacity:0;pointer-events:none;transition:.3s;z-index:200;max-width:90vw;text-align:center}
+#toast.show{opacity:1;transform:translate(-50%,0)}#toast.bad{background:#B91C1C}
+#loginWrap{position:fixed;inset:0;background:linear-gradient(135deg,#312E81,#4F46E5);display:none;place-items:center;z-index:300;padding:16px}
+#loginWrap.show{display:grid}
+.login-card{background:#fff;border-radius:24px;padding:32px;width:100%;max-width:380px;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.login-card h2{margin:0 0 6px}.login-card p{color:var(--mu);font-size:13px;margin:0 0 20px;line-height:1.9}
+.login-card .field{margin-bottom:14px}
+.err{color:var(--red);font-size:13px;min-height:18px}
+@media(max-width:1100px){.g2,.g2e{grid-template-columns:1fr}}
+@media(max-width:900px){.app{flex-direction:column}aside{width:100%;height:auto;position:sticky;padding:10px 12px;gap:10px;border-left:0;border-bottom:1px solid var(--bd)}.side-note{display:none}nav{flex-direction:row;overflow-x:auto}main{padding:18px 14px 50px}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div id="loginWrap">
+  <div class="login-card">
+    <div class="logo" style="margin-bottom:14px">📚</div>
+    <h2>ورود به پنل مدیریت کتابخانه</h2>
+    <p>همه کارها روی همین یک سیستم کتابخانه انجام می‌شود؛ دانش‌آموز نیازی به گوشی یا اتصال جداگانه ندارد.</p>
+    <form id="fLogin">
+      <div class="field"><label>نام کاربری</label><input id="liUser" value="admin" autocomplete="username"></div>
+      <div class="field"><label>رمز عبور</label><input id="liPass" type="password" autocomplete="current-password" placeholder="رمز پیش‌فرض: admin123"></div>
+      <div class="err" id="liErr"></div>
+      <button class="btn btn-p" style="width:100%" type="submit">ورود به پنل</button>
+    </form>
+  </div>
+</div>
+
+<div class="app" id="app" style="display:none">
+  <aside>
+    <div class="brand"><div class="logo">📚</div><div><b id="schoolName">کتابخانه مدرسه</b><small>پنل مدیریت — localhost</small></div></div>
+    <nav id="nav">
+      <button class="nav-btn" data-page="dashboard">داشبورد</button>
+      <button class="nav-btn" data-page="students">دانش‌آموزان</button>
+      <button class="nav-btn" data-page="books">کتاب‌ها</button>
+      <button class="nav-btn" data-page="categories">دسته‌بندی‌ها</button>
+      <button class="nav-btn" data-page="loans">امانت و بازگشت</button>
+      <button class="nav-btn" data-page="settings">تنظیمات و پایان سال</button>
+      <button class="nav-btn" id="btnLogout" style="color:var(--red)">خروج از پنل</button>
+    </nav>
+    <div class="side-note"><b>راهنمای سریع</b><br>دیتابیس روی همین دستگاه ذخیره می‌شود و محدودیت تعداد کتاب ندارد. از بخش تنظیمات می‌توانید خروجی CSV و نسخه پشتیبان بگیرید.</div>
+  </aside>
+
+  <main>
+    <div class="banner" id="banner"><b id="bannerTitle"></b><ul id="bannerList"></ul></div>
+
+    <section class="page" id="p-dashboard">
+      <div class="top"><div><h1>داشبورد کتابخانه</h1><p>نمای کلی وضعیت کتاب‌ها، دانش‌آموزان و امانت‌ها</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><div class="chip" id="todayChip"></div><button class="btn btn-p" onclick="go('loans')">+ ثبت امانت جدید</button></div></div>
+      <div class="grid stats">
+        <div class="card stat"><div class="num" id="stBooks">۰</div><div class="lbl">کل نسخه‌های کتاب</div></div>
+        <div class="card stat"><div class="num" id="stTitles">۰</div><div class="lbl">عنوان کتاب</div></div>
+        <div class="card stat"><div class="num" id="stStudents">۰</div><div class="lbl">دانش‌آموزان</div></div>
+        <div class="card stat"><div class="num" id="stLoans">۰</div><div class="lbl">امانت فعال</div></div>
+      </div>
+      <div class="grid g2">
+        <div class="card"><h3>امانت‌های هفتگی</h3><div class="sub">تعداد امانت ثبت‌شده در ۷ روز گذشته</div><div class="bars" id="bars"></div></div>
+        <div class="card"><h3>پرامانت‌ترین کتاب‌ها</h3><div class="sub">بر اساس دفعات امانت</div><div class="tw"><table><thead><tr><th>کتاب</th><th>نویسنده</th><th>دفعات</th></tr></thead><tbody id="topBooks"></tbody></table></div></div>
+      </div>
+      <div class="card"><h3>آخرین امانت‌ها</h3><div class="sub">۶ امانت اخیر</div><div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ امانت</th><th>سررسید</th><th>وضعیت</th></tr></thead><tbody id="recent"></tbody></table></div></div>
+    </section>
+
+    <section class="page" id="p-students">
+      <div class="top"><div><h1>دانش‌آموزان</h1><p>ثبت دانش‌آموز از پایه هفتم تا دوازدهم — دوازدهمی‌ها پایان هر سال خودکار حذف می‌شوند</p></div></div>
+      <div class="card"><h3>افزودن دانش‌آموز</h3><div class="sub">نام، پایه و کلاس را وارد کنید</div>
+        <form id="fStudent" class="form">
+          <div><label>نام و نام خانوادگی *</label><input id="sName" placeholder="مثلاً: سینا محمدی"></div>
+          <div><label>پایه *</label><select id="sGrade"><option value="">انتخاب پایه…</option><option value="7">هفتم</option><option value="8">هشتم</option><option value="9">نهم</option><option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option></select></div>
+          <div><label>کلاس</label><select id="sSection"><option>الف</option><option>ب</option><option>ج</option><option>د</option></select></div>
+          <div><label>شماره تماس (اختیاری)</label><input id="sPhone" placeholder="۰۹…"></div>
+          <div><label>کد عضویت (اختیاری)</label><input id="sCode" placeholder="مثلاً: ۱۴۰۳-۰۱"></div>
+          <div><button class="btn btn-p" type="submit" style="width:100%">افزودن دانش‌آموز</button></div>
+        </form></div>
+      <div class="card">
+        <div class="toolbar"><div class="search"><input id="qStudents" placeholder="جستجوی نام، کد یا تماس…"></div>
+          <select id="fGrade"><option value="">همه پایه‌ها</option><option value="7">هفتم</option><option value="8">هشتم</option><option value="9">نهم</option><option value="10">دهم</option><option value="11">یازدهم</option><option value="12">دوازدهم</option></select>
+          <span class="badge b-p" id="cntStudents"></span>
+          <a class="btn btn-s" href="/api/export/students" style="padding:8px 14px;font-size:13px">خروجی CSV</a></div>
+        <div class="tw"><table><thead><tr><th>#</th><th>نام</th><th>کلاس</th><th>تماس</th><th>امانت فعال</th><th>عملیات</th></tr></thead><tbody id="tStudents"></tbody></table></div>
+        <div class="pager"><button class="btn btn-s" id="pgSPrev">قبلی</button><span id="pgSInfo"></span><button class="btn btn-s" id="pgSNext">بعدی</button></div>
+      </div>
+    </section>
+
+    <section class="page" id="p-books">
+      <div class="top"><div><h1>کتاب‌ها</h1><p>دیتابیس کتاب‌ها بدون محدودیت تعداد — با جستجو و صفحه‌بندی</p></div></div>
+      <div class="card"><h3>افزودن کتاب</h3><div class="sub">شماره کتاب باید یکتا باشد — دسته‌بندی الزامی نیست ولی برای نظم کتابخانه توصیه می‌شود</div>
+        <form id="fBook" class="form">
+          <div><label>عنوان کتاب *</label><input id="bTitle" placeholder="مثلاً: بوف کور"></div>
+          <div><label>نویسنده</label><input id="bAuthor" placeholder="مثلاً: صادق هدایت"></div>
+          <div><label>شماره کتاب *</label><input id="bNum" placeholder="مثلاً: ۱۰۱۱"></div>
+          <div><label>دسته‌بندی</label><select id="bCat"></select></div>
+          <div><label>تعداد نسخه</label><input id="bCopies" type="number" min="1" value="1"></div>
+          <div><button class="btn btn-p" type="submit" style="width:100%">افزودن کتاب</button></div>
+        </form></div>
+      <div class="card"><h3>وارد کردن گروهی کتاب‌ها (CSV)</h3><div class="sub">فایل CSV با ستون‌های title,author,num,category,copies — خروجی CSV فعلی را می‌توانید الگو بگیرید</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <input type="file" id="csvFile" accept=".csv" style="width:auto">
+          <button class="btn btn-s" onclick="importCsv()">وارد کردن فایل</button>
+          <a class="btn btn-s" href="/api/export/books" style="padding:8px 14px;font-size:13px">خروجی CSV کتاب‌ها</a>
+          <span id="csvMsg" style="font-size:13px;color:var(--mu)"></span>
+        </div></div>
+      <div class="card">
+        <div class="toolbar"><div class="search"><input id="qBooks" placeholder="جستجوی عنوان، نویسنده یا شماره…"></div>
+          <select id="fCat"></select>
+          <select id="fStatus"><option value="">همه وضعیت‌ها</option><option value="available">موجود</option><option value="loaned">در امانت</option></select>
+          <span class="badge b-p" id="cntBooks"></span></div>
+        <div class="tw"><table><thead><tr><th>شماره</th><th>عنوان</th><th>نویسنده</th><th>دسته‌بندی</th><th>نسخه</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="tBooks"></tbody></table></div>
+        <div class="pager"><button class="btn btn-s" id="pgBPrev">قبلی</button><span id="pgBInfo"></span><button class="btn btn-s" id="pgBNext">بعدی</button></div>
+      </div>
+    </section>
+
+    <section class="page" id="p-categories">
+      <div class="top"><div><h1>دسته‌بندی کتاب‌ها</h1><p id="catSub">۵۰ دسته پیش‌فرض بارگذاری شده — دسته جدید هم می‌توانید اضافه کنید</p></div></div>
+      <div class="card"><h3>افزودن دسته جدید</h3><div class="sub">دسته‌های استفاده‌شده در کتاب‌ها قابل مشاهده‌اند؛ حذف دسته، کتاب‌ها را حذف نمی‌کند (فقط بدون دسته می‌شوند)</div>
+        <form id="fCat" class="form"><div><label>نام دسته</label><input id="cName" placeholder="مثلاً: دفاع مقدس"></div>
+        <div><button class="btn btn-p" type="submit" style="width:100%">افزودن دسته</button></div></form></div>
+      <div class="card"><div class="cat-grid" id="catGrid"></div></div>
+    </section>
+
+    <section class="page" id="p-loans">
+      <div class="top"><div><h1>امانت و بازگشت</h1><p>ثبت امانت جدید و دریافت کتاب‌های بازگشتی</p></div></div>
+
+      <div class="card" style="border-color:var(--pri-m);background:linear-gradient(180deg,#EEF2FF,#fff 70%)"><h3>🔎 استعلام سریع کتاب</h3><div class="sub">شماره یا عنوان کتاب را بزنید؛ فوراً می‌بینید کتاب دست کسی هست یا نه — اگر نبود، همانجا امانتش بدهید</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><input id="qcInput" placeholder="مثلاً: ۲۰۰۱ یا بوف کور" style="flex:1;min-width:200px"><button class="btn btn-p" onclick="quickCheck()">استعلام</button></div>
+        <div id="qcResult" style="margin-top:14px"></div>
+      </div>
+      <div class="card"><h3>ثبت امانت جدید</h3><div class="sub">دانش‌آموز و کتاب را انتخاب کنید</div>
+        <form id="fLoan" class="form">
+          <div><label>دانش‌آموز</label><select id="lStudent"></select></div>
+          <div><label>کتاب</label><select id="lBook"></select></div>
+          <div><label>تاریخ سررسید (میلادی)</label><input type="date" id="lDue"></div>
+          <div><button class="btn btn-p" type="submit" style="width:100%">ثبت امانت</button></div>
+        </form></div>
+      <div class="card"><h3>امانت‌های فعال</h3><div class="sub">امانت‌های معوق با رنگ قرمز مشخص‌اند و نام دانش‌آموز در هشدار بالای صفحه هم نمایش داده می‌شود</div>
+        <div class="tw"><table><thead><tr><th>دانش‌آموز</th><th>کتاب</th><th>تاریخ امانت</th><th>سررسید</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="tLoans"></tbody></table></div></div>
+    </section>
+
+    <section class="page" id="p-settings">
+      <div class="top"><div><h1>تنظیمات و پایان سال</h1><p>حذف خودکار دوازدهمی‌ها، تغییر رمز مدیر و پشتیبان‌گیری</p></div></div>
+      <div class="card"><h3>پایان سال تحصیلی (خودکار)</h3><div class="sub" id="eoySub"></div>
+        <label class="switch"><input type="checkbox" id="setAuto"> حذف خودکار دانش‌آموزان پایه دوازدهم در پایان هر سال</label>
+        <label class="switch"><input type="checkbox" id="setPromote"> ارتقای خودکار بقیه پایه‌ها (هفتم ← هشتم و…) همراه حذف دوازدهمی‌ها</label>
+        <div class="form" style="margin-top:10px">
+          <div><label>ماه اجرا (شمسی)</label><select id="setMonth"><option value="3">خرداد</option><option value="4">تیر</option><option value="5">مرداد</option><option value="6">شهریور</option></select></div>
+          <div><label>روز اجرا</label><input type="number" id="setDay" min="1" max="31" value="1"></div>
+          <div><button class="btn btn-p" onclick="saveSettings()" style="width:100%">ذخیره تنظیمات</button></div>
+          <div><button class="btn btn-d" onclick="runEoy()" style="width:100%">اجرای دستی پایان سال (همین حالا)</button></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--mu);line-height:1.9">نکته: دانش‌آموز دوازدهمی که هنوز کتاب امانتی برنگردانده باشد حذف نمی‌شود تا کتاب برگردد؛ اسم او در گزارش اجرا اعلام می‌شود. سابقه امانت‌های برگشتی او هم در گزارش‌ها باقی می‌ماند.</p>
+        <div id="eoyReport" style="font-size:13.5px;line-height:2"></div>
+      </div>
+      <div class="grid g2e">
+        <div class="card"><h3>تغییر رمز مدیر</h3><div class="sub">رمز پیش‌فرض admin123 است — حتماً بعد از نصب عوضش کنید</div>
+          <form id="fPass" class="form" style="grid-template-columns:1fr">
+            <div><label>رمز فعلی</label><input type="password" id="pwCur"></div>
+            <div><label>رمز جدید (حداقل ۶ حرف)</label><input type="password" id="pwNew"></div>
+            <div><button class="btn btn-p" type="submit" style="width:100%">تغییر رمز</button></div>
+          </form></div>
+        <div class="card"><h3>پشتیبان‌گیری از دیتابیس</h3><div class="sub">همه اطلاعات در فایل data/library.db ذخیره می‌شود</div>
+          <p style="font-size:13.5px;line-height:2;color:var(--mu)">برای بکاپ کافی است پوشه برنامه را کپی کنید، یا فایل <b>data/library.db</b> را نگه دارید. برای انتقال به دستگاه دیگر، همان فایل را در پوشه data دستگاه جدید بگذارید.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-s" href="/api/export/books">خروجی کتاب‌ها (CSV)</a><a class="btn btn-s" href="/api/export/students">خروجی دانش‌آموزان (CSV)</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fdate=iso=>iso?new Date(iso+'T00:00:00').toLocaleDateString('fa-IR',{year:'numeric',month:'long',day:'numeric'}):'—';
+const toLatin=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+let toastT;function toast(m,bad){const t=$('toast');t.textContent=m;t.className='show'+(bad?' bad':'');clearTimeout(toastT);toastT=setTimeout(()=>t.className='',3200)}
+async function api(path,opts={}){const r=await fetch(path,{headers:{'Content-Type':'application/json'},...opts});let d={};try{d=await r.json()}catch(e){}if(r.status===401){showLogin();throw new Error('auth')}if(!r.ok)throw new Error(d.error||'خطا');return d}
+const post=(p,b)=>api(p,{method:'POST',body:JSON.stringify(b||{})});
+const del=p=>api(p,{method:'DELETE'});
+
+let CATS=[], pageS=1, pageB=1, pageStu=1, PER=20, AUTHED=false;
+
+/* ---------- login ---------- */
+function showLogin(){$('loginWrap').classList.add('show');$('app').style.display='none'}
+function showApp(){$('loginWrap').classList.remove('show');$('app').style.display='flex'}
+$('fLogin').addEventListener('submit',async e=>{e.preventDefault();$('liErr').textContent='';
+  try{await post('/api/login',{username:$('liUser').value,password:$('liPass').value});AUTHED=true;showApp();go('dashboard');loadAll()}
+  catch(err){$('liErr').textContent=err.message==='auth'?'':err.message}});
+$('btnLogout').addEventListener('click',async()=>{await post('/api/logout');location.reload()});
+
+/* ---------- nav ---------- */
+function go(p){
+  if(!AUTHED){showLogin();return}
+  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='p-'+p));
+  document.querySelectorAll('.nav-btn').forEach(x=>x.classList.toggle('active',x.dataset.page===p));
+  window.scrollTo({top:0});
+  if(p==='dashboard')loadDashboard(); if(p==='students')loadStudents(); if(p==='books')loadBooks();
+  if(p==='categories')loadCats(); if(p==='loans')loadLoans(); if(p==='settings')loadSettings();
+}
+$('nav').addEventListener('click',e=>{const b=e.target.closest('.nav-btn');if(b&&b.dataset.page)go(b.dataset.page)});
+
+/* ---------- shared ---------- */
+async function loadCats(){
+  const d=await api('/api/categories');CATS=d.categories;
+  const opts='<option value="">بدون دسته / همه</option>'+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
+  $('bCat').innerHTML=opts;$('fCat').innerHTML='<option value="">همه دسته‌ها</option>'+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
+  $('fCatStu').innerHTML='<option value="">همه دسته‌ها</option>'+CATS.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');
+  $('catGrid').innerHTML=CATS.map(c=>`<div class="cat-item"><span>${esc(c.name)} <span class="badge b-n">${fa(c.books)} کتاب</span></span><button class="btn btn-d" onclick="delCat(${c.id},'${esc(c.name)}')">حذف</button></div>`).join('')||'<p class="empty">دسته‌ای نیست.</p>';
+  $('catSub').textContent=fa(CATS.length)+' دسته‌بندی فعال — شامل رمان ایرانی، رمان خارجی، روانشناسی و…';
+}
+async function delCat(id,name){if(!confirm(`دسته «${name}» حذف شود؟ کتاب‌هایش بدون دسته می‌شوند.`))return;await del('/api/categories/'+id);toast('دسته حذف شد.');loadCats()}
+$('fCat').addEventListener('submit',async e=>{e.preventDefault();try{await post('/api/categories',{name:$('cName').value});e.target.reset();toast('دسته جدید اضافه شد.');loadCats()}catch(err){toast(err.message,true)}});
+
+const stBadge=s=>s==='available'?'<span class="badge b-g">موجود</span>':s==='loaned'?'<span class="badge b-a">در امانت</span>':'<span class="badge b-p">رزرو شده</span>';
+function loanBadge(l){const t=new Date().toISOString().slice(0,10);if(l.returned)return'<span class="badge b-n">بازگردانده شد</span>';if(l.due<t){const d=Math.round((new Date(t)-new Date(l.due))/864e5);return`<span class="badge b-r">${fa(d)} روز تأخیر</span>`}if(l.due===t)return'<span class="badge b-r">امروز سررسید است</span>';return'<span class="badge b-g">در حال امانت</span>'}
+
+/* ---------- dashboard ---------- */
+async function loadDashboard(){
+  const d=await api('/api/stats');
+  $('todayChip').textContent='📅 امروز: '+new Date().toLocaleDateString('fa-IR',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+  $('stBooks').textContent=fa(d.total_books);$('stTitles').textContent=fa(d.titles);$('stStudents').textContent=fa(d.students);$('stLoans').textContent=fa(d.active_loans);
+  const mx=Math.max(...d.weekly.map(x=>x.count),1);
+  $('bars').innerHTML=d.weekly.map((x,i)=>`<div class="bar-col"><span class="bar-v">${fa(x.count)}</span><div class="bar ${i===6?'today':''}" style="height:${x.count/mx*75}%"></div><span class="bar-l">${new Date(x.date+'T00:00:00').toLocaleDateString('fa-IR',{weekday:'short'})}</span></div>`).join('');
+  $('topBooks').innerHTML=d.top.length?d.top.map(x=>`<tr><td>${esc(x.title)}</td><td>${esc(x.author)}</td><td><b>${fa(x.cnt)}</b> بار</td></tr>`).join(''):'<tr><td class="empty" colspan="3">هنوز امانتی ثبت نشده است.</td></tr>';
+  $('recent').innerHTML=d.recent.length?d.recent.map(l=>`<tr><td>${esc(l.student_name)}</td><td>${esc(l.book_title)}</td><td>${fdate(l.start)}</td><td>${fdate(l.due)}</td><td>${loanBadge(l)}</td></tr>`).join(''):'<tr><td class="empty" colspan="5">امانتی وجود ندارد.</td></tr>';
+  const b=$('banner');
+  if(d.overdue.length){b.classList.add('show');$('bannerTitle').textContent=`⚠️ هشدار: ${fa(d.overdue.length)} دانش‌آموز کتاب را سر موعد برنگردانده‌اند:`;
+    $('bannerList').innerHTML=d.overdue.map(l=>`<li><b>${esc(l.student_name)}</b> — کتاب «${esc(l.book_title)}» — سررسید ${fdate(l.due)}</li>`).join('')}
+  else b.classList.remove('show');
+}
+
+/* ---------- students ---------- */
+async function loadStudents(){
+  const q=encodeURIComponent(toLatin($('qStudents').value)),g=$('fGrade').value;
+  const d=await api(`/api/students?q=${q}&grade=${g}&page=${pageS}&per=${PER}`);
+  $('cntStudents').textContent=fa(d.total)+' دانش‌آموز';
+  $('tStudents').innerHTML=d.students.length?d.students.map((s,i)=>`<tr><td>${fa((pageS-1)*PER+i+1)}</td><td><b>${esc(s.name)}</b></td><td><span class="badge b-p">${esc(s.class_name)}</span></td><td>${esc(s.phone||'—')}</td><td>${s.active_loans?fa(s.active_loans):'—'}</td><td><button class="btn btn-d" onclick="delStudent(${s.id},'${esc(s.name)}')">حذف</button></td></tr>`).join(''):'<tr><td class="empty" colspan="6">دانش‌آموزی پیدا نشد.</td></tr>';
+  $('pgSInfo').textContent=`صفحه ${fa(pageS)} از ${fa(Math.max(1,Math.ceil(d.total/PER)))}`;
+}
+async function delStudent(id,name){if(!confirm(`«${name}» حذف شود؟`))return;try{await del('/api/students/'+id);toast('دانش‌آموز حذف شد.');loadStudents();loadDashboard()}catch(e){toast(e.message,true)}}
+$('fStudent').addEventListener('submit',async e=>{e.preventDefault();
+  try{await post('/api/students',{name:$('sName').value,grade:+$('sGrade').value,section:$('sSection').value,phone:toLatin($('sPhone').value),code:toLatin($('sCode').value)});e.target.reset();toast('دانش‌آموز اضافه شد.');pageS=1;loadStudents()}catch(err){toast(err.message,true)}});
+['qStudents','fGrade'].forEach(id=>$(id).addEventListener('input',()=>{pageS=1;loadStudents()}));
+$('pgSPrev').onclick=()=>{if(pageS>1){pageS--;loadStudents()}};$('pgSNext').onclick=()=>{pageS++;loadStudents()};
+
+/* ---------- books ---------- */
+async function loadBooks(){
+  const q=encodeURIComponent(toLatin($('qBooks').value));
+  const d=await api(`/api/books?q=${q}&category=${$('fCat').value}&status=${$('fStatus').value}&page=${pageB}&per=${PER}`);
+  $('cntBooks').textContent=fa(d.total)+' عنوان';
+  $('tBooks').innerHTML=d.books.length?d.books.map(b=>`<tr><td><b>${fa(toLatin(b.num)).replace(/٬/g,'')}</b></td><td>${esc(b.title)}</td><td>${esc(b.author)}</td><td>${b.category?`<span class="badge b-p">${esc(b.category)}</span>`:'—'}</td><td>${fa(b.copies)} <small style="color:var(--mu)">(${fa(b.loaned)} در امانت)</small></td><td>${stBadge(b.status)}${b.active_loan?`<div style="font-size:12px;color:var(--mu);margin-top:4px">نزد: <b>${esc(b.active_loan.student_name)}</b> — سررسید ${fdate(b.active_loan.due)}</div>`:''}</td><td>${b.status==='available'?`<button class="btn btn-g" onclick="lendBook(${b.id})">امانت دادن</button> `:''}<button class="btn btn-d" onclick="delBook(${b.id},'${esc(b.title)}')">حذف</button></td></tr>`).join(''):'<tr><td class="empty" colspan="7">کتابی پیدا نشد.</td></tr>';
+  $('pgBInfo').textContent=`صفحه ${fa(pageB)} از ${fa(Math.max(1,Math.ceil(d.total/PER)))}`;
+}
+async function delBook(id,t){if(!confirm(`کتاب «${t}» حذف شود؟`))return;try{await del('/api/books/'+id);toast('کتاب حذف شد.');loadBooks()}catch(e){toast(e.message,true)}}
+$('fBook').addEventListener('submit',async e=>{e.preventDefault();
+  try{await post('/api/books',{title:$('bTitle').value,author:$('bAuthor').value,num:toLatin($('bNum').value),category_id:$('bCat').value?+$('bCat').value:null,copies:+$('bCopies').value||1});e.target.reset();$('bCopies').value=1;toast('کتاب اضافه شد.');pageB=1;loadBooks();loadCats()}catch(err){toast(err.message,true)}});
+['qBooks','fCat','fStatus'].forEach(id=>$(id).addEventListener('input',()=>{pageB=1;loadBooks()}));
+$('pgBPrev').onclick=()=>{if(pageB>1){pageB--;loadBooks()}};$('pgBNext').onclick=()=>{pageB++;loadBooks()};
+async function importCsv(){const f=$('csvFile').files[0];if(!f)return toast('اول فایل CSV را انتخاب کنید.',true);
+  const text=await f.text();try{const d=await post('/api/import/books',{csv:text});$('csvMsg').textContent=`${fa(d.added)} کتاب اضافه شد، ${fa(d.skipped)} رد شد (تکراری یا ناقص).`;toast('وارد کردن انجام شد.');loadBooks();loadCats()}catch(e){toast(e.message,true)}}
+
+function lendBook(id){PRESELECT_BOOK=id;go('loans');setTimeout(()=>$('lStudent').focus(),150)}
+async function quickCheck(){
+  const q=toLatin($('qcInput').value).trim();const box=$('qcResult');
+  if(!q){box.innerHTML='';return toast('شماره یا عنوان کتاب را وارد کنید.',true)}
+  const d=await api('/api/books?q='+encodeURIComponent(q)+'&per=10');
+  if(!d.books.length){box.innerHTML='<div class="empty">کتابی با این مشخصات پیدا نشد.</div>';return}
+  box.innerHTML=d.books.map(b=>{
+    if(b.active_loan&&b.status==='loaned')return `<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border:1.5px solid var(--red-l);background:#FFF5F5;border-radius:14px;padding:14px 16px;margin-bottom:8px"><span class="badge b-r" style="font-size:14px;padding:7px 14px">در امانت است</span><div style="flex:1;min-width:180px"><b>«${esc(b.title)}»</b> — دست <b>${esc(b.active_loan.student_name)}</b> است؛ سررسید برگشت: ${fdate(b.active_loan.due)}</div><button class="btn btn-g" onclick="retLoan(${b.active_loan.id});setTimeout(quickCheck,500)">بازگشت کتاب</button></div>`;
+    if(b.active_loan)return `<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border:1.5px solid var(--amb-l);background:#FFFBEB;border-radius:14px;padding:14px 16px;margin-bottom:8px"><span class="badge b-a" style="font-size:14px;padding:7px 14px">${fa(b.loaned)} از ${fa(b.copies)} نسخه در امانت</span><div style="flex:1;min-width:180px"><b>«${esc(b.title)}»</b> — یک نسخه دست <b>${esc(b.active_loan.student_name)}</b> است (سررسید ${fdate(b.active_loan.due)})؛ نسخه آزاد دارد</div><button class="btn btn-p" onclick="lendBook(${b.id})">امانت دادن</button></div>`;
+    return `<div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;border:1.5px solid var(--grn-l);background:#F0FDF7;border-radius:14px;padding:14px 16px;margin-bottom:8px"><span class="badge b-g" style="font-size:14px;padding:7px 14px">موجود است — به کسی داده نشده</span><div style="flex:1;min-width:180px"><b>«${esc(b.title)}»</b>${b.author?' — '+esc(b.author):''} • شماره ${fa(toLatin(b.num)).replace(/٬/g,'')}${b.category?' • '+esc(b.category):''}</div><button class="btn btn-p" onclick="lendBook(${b.id})">امانت دادن</button></div>`;
+  }).join('');
+}
+$('qcInput')&&$('qcInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();quickCheck()}});
+/* ---------- loans ---------- */
+let PRESELECT_BOOK=0;
+async function fillLoanSelects(){
+  const s=await api('/api/students?per=200');const b=await api('/api/books?per=200');
+  $('lStudent').innerHTML='<option value="">انتخاب دانش‌آموز…</option>'+s.students.map(x=>`<option value="${x.id}">${esc(x.name)} — ${esc(x.class_name)}</option>`).join('');
+  $('lBook').innerHTML='<option value="">انتخاب کتاب…</option>'+b.books.filter(x=>x.status!=='loaned').map(x=>`<option value="${x.id}">${esc(x.num)} — ${esc(x.title)}${x.category?' ('+esc(x.category)+')':''}</option>`).join('');
+  if(PRESELECT_BOOK){$('lBook').value=String(PRESELECT_BOOK);PRESELECT_BOOK=0}
+  if(!$('lDue').value){const d=new Date(Date.now()+14*864e5);$('lDue').value=d.toISOString().slice(0,10)}
+}
+async function loadLoans(){
+  await fillLoanSelects();
+  const d=await api('/api/loans');
+  $('tLoans').innerHTML=d.loans.length?d.loans.map(l=>`<tr><td><b>${esc(l.student_name)}</b></td><td>${esc(l.book_title)}</td><td>${fdate(l.start)}</td><td>${fdate(l.due)}</td><td>${loanBadge(l)}</td><td><button class="btn btn-g" onclick="retLoan(${l.id})">بازگشت کتاب</button></td></tr>`).join(''):'<tr><td class="empty" colspan="6">امانت فعالی وجود ندارد.</td></tr>';
+}
+$('fLoan').addEventListener('submit',async e=>{e.preventDefault();
+  if(!$('lStudent').value||!$('lBook').value)return toast('دانش‌آموز و کتاب را انتخاب کنید.',true);
+  try{await post('/api/loans',{student_id:+$('lStudent').value,book_id:+$('lBook').value,due:$('lDue').value});toast('امانت ثبت شد.');loadLoans();loadDashboard()}catch(err){toast(err.message,true)}});
+async function retLoan(id){await post(`/api/loans/${id}/return`);toast('کتاب بازگردانده شد.');loadLoans();loadDashboard()}
+async function lendRes(id){await post(`/api/reservations/${id}/lend`);toast('کتاب تحویل داده شد.');loadLoans();loadDashboard()}
+
+/* ---------- settings ---------- */
+async function loadSettings(){
+  const d=await api('/api/settings');const s=d.settings;
+  $('schoolName').textContent=s.school_name||'کتابخانه مدرسه';
+  $('setAuto').checked=s.auto_cleanup==='1';$('setPromote').checked=s.promote_others==='1';
+  $('setMonth').value=s.cleanup_month;$('setDay').value=s.cleanup_day;
+  const jt=d.jalali_today;$('eoySub').textContent=`امروز: ${fa(jt[2])}/${fa(jt[1])}/${fa(jt[0])} شمسی — آخرین اجرای خودکار پایان سال: ${s.last_cleanup_jyear==='0'?'هنوز اجرا نشده':fa(s.last_cleanup_jyear)}`;
+}
+async function saveSettings(){
+  await api('/api/settings',{method:'PUT',body:JSON.stringify({auto_cleanup:$('setAuto').checked?'1':'0',promote_others:$('setPromote').checked?'1':'0',cleanup_month:$('setMonth').value,cleanup_day:$('setDay').value})});
+  toast('تنظیمات ذخیره شد.');loadSettings();
+}
+async function runEoy(){
+  if(!confirm('پایان سال همین حالا اجرا شود؟ دانش‌آموزان دوازدهم (بدون کتاب امانتی) حذف و بقیه پایه‌ها طبق تنظیمات ارتقا پیدا می‌کنند.'))return;
+  const d=await post('/api/end-of-year');const r=d.report||{};
+  $('eoyReport').innerHTML=`<b>گزارش اجرا (سال ${fa(r.year||'')}):</b><br>حذف‌شده‌ها (${fa((r.deleted||[]).length)} نفر): ${ (r.deleted||[]).map(esc).join('، ')||'—'}<br>حذف‌نشده به‌خاطر کتاب امانتی: ${(r.skipped_active_loan||[]).map(esc).join('، ')||'—'}<br>ارتقایافته: ${fa(r.promoted||0)} نفر`;
+  toast('پایان سال اجرا شد.');loadSettings();loadStudents();
+}
+$('fPass').addEventListener('submit',async e=>{e.preventDefault();
+  try{await post('/api/change-password',{current:$('pwCur').value,new:$('pwNew').value});e.target.reset();toast('رمز مدیر عوض شد.')}catch(err){toast(err.message,true)}});
+
+/* ---------- init ---------- */
+async function loadAll(){await loadCats();loadDashboard()}
+(async()=>{const m=await (await fetch('/api/me')).json();$('schoolName').textContent=m.school||'کتابخانه مدرسه';
+  if(m.authed){AUTHED=true;showApp();go('dashboard');loadAll()}else{showLogin()}})();
+</script>
+</body>
+</html>
