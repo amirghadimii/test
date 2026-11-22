@@ -132,6 +132,13 @@ def run_end_of_year(c, force=False):
     c.commit()
     return {"year": jy, "deleted": deleted, "skipped_active_loan": skipped, "promoted": promoted}
 
+def s_int(v, default=0):
+    """تبدیل امن به عدد — ورودی متنی/خراب به‌جای کرش، مقدار پیش‌فرض می‌دهد."""
+    try: return int(v)
+    except Exception:
+        try: return int(float(v))
+        except Exception: return default
+
 def book_status(c, book_row):
     loaned = c.execute("SELECT COUNT(*) n FROM loans WHERE book_id=? AND returned IS NULL", (book_row["id"],)).fetchone()["n"]
     reserved = c.execute("SELECT 1 FROM reservations WHERE book_id=?", (book_row["id"],)).fetchone() is not None
@@ -326,7 +333,7 @@ class H(BaseHTTPRequestHandler):
             if p == "/api/logout":
                 c.execute("DELETE FROM sessions"); c.commit(); return self.send_json({"ok": True})
             if p == "/api/students":
-                name = (data.get("name") or "").strip(); grade = int(data.get("grade") or 0)
+                name = (data.get("name") or "").strip(); grade = s_int(data.get("grade"))
                 if len(name) < 3 or grade not in GRADE_NAMES:
                     return self.send_json({"error": "نام کامل و پایه (هفتم تا دوازدهم) لازم است."}, 400)
                 cur = c.execute("INSERT INTO students(name,grade,section,phone,code) VALUES(?,?,?,?,?)",
@@ -338,7 +345,7 @@ class H(BaseHTTPRequestHandler):
                 if c.execute("SELECT 1 FROM books WHERE num=?", (num,)).fetchone():
                     return self.send_json({"error": "این شماره کتاب قبلاً ثبت شده است."}, 400)
                 cur = c.execute("INSERT INTO books(title,author,num,category_id,copies) VALUES(?,?,?,?,?)",
-                                (title, data.get("author", ""), num, data.get("category_id") or None, max(1, int(data.get("copies") or 1))))
+                                (title, data.get("author", ""), num, s_int(data.get("category_id")) or None, max(1, s_int(data.get("copies"), 1))))
                 c.commit(); return self.send_json({"ok": True, "id": cur.lastrowid})
             if p == "/api/categories":
                 name = (data.get("name") or "").strip()
@@ -349,7 +356,7 @@ class H(BaseHTTPRequestHandler):
                 except sqlite3.IntegrityError:
                     return self.send_json({"error": "این دسته قبلاً وجود دارد."}, 400)
             if p == "/api/loans":
-                sid, bid = int(data.get("student_id", 0)), int(data.get("book_id", 0))
+                sid, bid = s_int(data.get("student_id")), s_int(data.get("book_id"))
                 due = data.get("due") or (date.today() + timedelta(days=14)).isoformat()
                 s = c.execute("SELECT * FROM students WHERE id=?", (sid,)).fetchone()
                 b = c.execute("SELECT * FROM books WHERE id=?", (bid,)).fetchone()
@@ -360,13 +367,27 @@ class H(BaseHTTPRequestHandler):
                                 (sid, bid, date.today().isoformat(), due, s["name"], b["title"]))
                 c.commit(); return self.send_json({"ok": True, "id": cur.lastrowid})
             if p.startswith("/api/loans/") and p.endswith("/return"):
-                lid = int(p.split("/")[3])
-                c.execute("UPDATE loans SET returned=? WHERE id=? AND returned IS NULL", (date.today().isoformat(), lid)); c.commit()
+                lid = s_int(p.split("/")[3])
+                cur = c.execute("UPDATE loans SET returned=? WHERE id=? AND returned IS NULL", (date.today().isoformat(), lid)); c.commit()
+                if cur.rowcount == 0: return self.send_json({"error": "امانت پیدا نشد یا قبلاً بازگردانده شده است."}, 404)
                 return self.send_json({"ok": True})
+            if p == "/api/reservations":
+                sid, bid = s_int(data.get("student_id")), s_int(data.get("book_id"))
+                s = c.execute("SELECT * FROM students WHERE id=?", (sid,)).fetchone()
+                b = c.execute("SELECT * FROM books WHERE id=?", (bid,)).fetchone()
+                if not s or not b: return self.send_json({"error": "دانش‌آموز یا کتاب پیدا نشد."}, 400)
+                if c.execute("SELECT 1 FROM reservations WHERE student_id=? AND book_id=?", (sid, bid)).fetchone():
+                    return self.send_json({"error": "این کتاب قبلاً برای این دانش‌آموز رزرو شده است."}, 400)
+                cur = c.execute("INSERT INTO reservations(student_id,book_id,date) VALUES(?,?,?)",
+                                (sid, bid, date.today().isoformat())); c.commit()
+                return self.send_json({"ok": True, "id": cur.lastrowid})
             if p.startswith("/api/reservations/") and p.endswith("/lend"):
-                rid = int(p.split("/")[3])
+                rid = s_int(p.split("/")[3])
                 r = c.execute("SELECT * FROM reservations WHERE id=?", (rid,)).fetchone()
                 if not r: return self.send_json({"error": "رزرو پیدا نشد."}, 404)
+                bb = c.execute("SELECT * FROM books WHERE id=?", (r["book_id"],)).fetchone()
+                if bb and book_status(c, bb) == "loaned":
+                    return self.send_json({"error": "همه نسخه‌های این کتاب در امانت است."}, 400)
                 s = c.execute("SELECT * FROM students WHERE id=?", (r["student_id"],)).fetchone()
                 b = c.execute("SELECT * FROM books WHERE id=?", (r["book_id"],)).fetchone()
                 c.execute("DELETE FROM reservations WHERE id=?", (rid,))
@@ -379,6 +400,8 @@ class H(BaseHTTPRequestHandler):
                 return self.send_json({"ok": True, "report": rep})
             if p == "/api/import/books":
                 return self.import_books(c, data.get("csv", ""))
+            if p == "/api/import/students":
+                return self.import_students(c, data.get("csv", ""))
             if p == "/api/change-password":
                 row = c.execute("SELECT * FROM admins WHERE username='admin'").fetchone()
                 _, h = hash_pw(data.get("current", ""), row["salt"])
@@ -386,7 +409,8 @@ class H(BaseHTTPRequestHandler):
                     return self.send_json({"error": "رمز فعلی اشتباه است."}, 403)
                 if len(data.get("new", "")) < 6: return self.send_json({"error": "رمز جدید حداقل ۶ حرف باشد."}, 400)
                 s2, h2 = hash_pw(data["new"])
-                c.execute("UPDATE admins SET salt=?, pw=? WHERE id=?", (s2, h2, row["id"])); c.commit()
+                c.execute("UPDATE admins SET salt=?, pw=? WHERE id=?", (s2, h2, row["id"]))
+                c.execute("DELETE FROM sessions"); c.commit()
                 return self.send_json({"ok": True})
             return self.send_json({"error": "not found"}, 404)
         finally:
@@ -412,14 +436,65 @@ class H(BaseHTTPRequestHandler):
         c.commit()
         return self.send_json({"ok": True, "added": added, "skipped": skipped})
 
+    def import_students(self, c, text):
+        if not text.strip(): return self.send_json({"error": "فایل CSV خالی است."}, 400)
+        added, skipped = 0, 0
+        for row in csv.DictReader(io.StringIO(text)):
+            name = (row.get("name") or "").strip()
+            try: grade = int(row.get("grade") or 0)
+            except Exception: grade = 0
+            if len(name) < 3 or grade not in GRADE_NAMES:
+                skipped += 1; continue
+            c.execute("INSERT INTO students(name,grade,section,phone,code) VALUES(?,?,?,?,?)",
+                      (name, grade, (row.get("section") or "الف").strip(),
+                       (row.get("phone") or "").strip(), (row.get("code") or "").strip()))
+            added += 1
+        c.commit()
+        return self.send_json({"ok": True, "added": added, "skipped": skipped})
+
     def do_PUT(self):
         if self.need_auth(): return
         data = self.body_json(); c = db()
         try:
-            if urlparse(self.path).path == "/api/settings":
+            p = urlparse(self.path).path
+            if p == "/api/settings":
+                if "cleanup_month" in data and not (1 <= s_int(data["cleanup_month"], -1) <= 12):
+                    return self.send_json({"error": "ماه اجرا باید بین ۱ تا ۱۲ باشد."}, 400)
+                if "cleanup_day" in data and not (1 <= s_int(data["cleanup_day"], -1) <= 31):
+                    return self.send_json({"error": "روز اجرا باید بین ۱ تا ۳۱ باشد."}, 400)
+                if "school_name" in data and not str(data["school_name"]).strip():
+                    return self.send_json({"error": "نام مدرسه نمی‌تواند خالی باشد."}, 400)
                 allowed = {"auto_cleanup", "cleanup_month", "cleanup_day", "promote_others", "school_name"}
                 for k, v in data.items():
                     if k in allowed: set_setting(c, k, v)
+                c.commit(); return self.send_json({"ok": True})
+            parts = p.split("/")
+            if len(parts) == 4 and parts[2] in ("students", "books", "categories"):
+                table, rid = parts[2], s_int(parts[3])
+                if not c.execute(f"SELECT 1 FROM {table} WHERE id=?", (rid,)).fetchone():
+                    return self.send_json({"error": "مورد پیدا نشد."}, 404)
+                if table == "students":
+                    name = (data.get("name") or "").strip(); grade = s_int(data.get("grade"))
+                    if len(name) < 3 or grade not in GRADE_NAMES:
+                        return self.send_json({"error": "نام کامل و پایه (هفتم تا دوازدهم) لازم است."}, 400)
+                    c.execute("UPDATE students SET name=?,grade=?,section=?,phone=?,code=? WHERE id=?",
+                              (name, grade, data.get("section", "الف"), data.get("phone", ""), data.get("code", ""), rid))
+                elif table == "books":
+                    title = (data.get("title") or "").strip(); num = (data.get("num") or "").strip()
+                    if len(title) < 2 or not num: return self.send_json({"error": "عنوان و شماره کتاب لازم است."}, 400)
+                    if c.execute("SELECT 1 FROM books WHERE num=? AND id<>?", (num, rid)).fetchone():
+                        return self.send_json({"error": "این شماره کتاب قبلاً ثبت شده است."}, 400)
+                    loaned = c.execute("SELECT COUNT(*) n FROM loans WHERE book_id=? AND returned IS NULL", (rid,)).fetchone()["n"]
+                    copies = max(loaned, max(1, s_int(data.get("copies"), 1)))
+                    c.execute("UPDATE books SET title=?,author=?,num=?,category_id=?,copies=? WHERE id=?",
+                              (title, data.get("author", ""), num, s_int(data.get("category_id")) or None, copies, rid))
+                else:
+                    name = (data.get("name") or "").strip()
+                    if len(name) < 2: return self.send_json({"error": "نام دسته لازم است."}, 400)
+                    try:
+                        c.execute("UPDATE categories SET name=? WHERE id=?", (name, rid))
+                    except sqlite3.IntegrityError:
+                        return self.send_json({"error": "این دسته قبلاً وجود دارد."}, 400)
                 c.commit(); return self.send_json({"ok": True})
             return self.send_json({"error": "not found"}, 404)
         finally:
@@ -431,7 +506,9 @@ class H(BaseHTTPRequestHandler):
         try:
             parts = p.split("/")
             if len(parts) == 4 and parts[2] in ("students", "books", "categories", "reservations"):
-                table, rid = parts[2], int(parts[3])
+                table, rid = parts[2], s_int(parts[3])
+                if not c.execute(f"SELECT 1 FROM {table} WHERE id=?", (rid,)).fetchone():
+                    return self.send_json({"error": "مورد پیدا نشد."}, 404)
                 if table == "students":
                     if c.execute("SELECT 1 FROM loans WHERE student_id=? AND returned IS NULL", (rid,)).fetchone():
                         return self.send_json({"error": "این دانش‌آموز کتاب امانتی دارد؛ اول کتاب را برگردانید."}, 400)
